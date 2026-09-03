@@ -12,7 +12,7 @@ export function Brasao({ tamanho }: { tamanho: keyof typeof TAMANHOS }) {
       src={arquivo}
       width={largura}
       height={altura}
-      alt={tamanho === "cabecalho" ? "Brasão do Apostolado NSN" : ""}
+      alt={tamanho === "cabecalho" ? "Brasão do Apostolado Nossa Senhora das Neves" : ""}
       aria-hidden={tamanho === "barra" ? true : undefined}
       loading={tamanho === "cabecalho" ? "eager" : "lazy"}
       decoding="async"

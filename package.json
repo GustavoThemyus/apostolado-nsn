@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Apostolado NSN - guia do Rito Romano na forma do Missal de São Pio V",
+  "description": "Apostolado Nossa Senhora das Neves - guia do Rito Romano na forma do Missal de São Pio V",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

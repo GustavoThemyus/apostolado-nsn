@@ -67,6 +67,8 @@ export interface Guia {
   lema: string;
   secoes: Secao[];
   rodape: string[];
-  /** Assinatura institucional no fim da página. */
+  /** Assinatura institucional, por extenso, no fim da página. */
   marca: string;
+  /** Sigla, para a barra fixa, onde não cabe o nome inteiro. */
+  marcaCurta: string;
 }

@@ -1,6 +1,7 @@
-# Guia NSN
+# Guia da Missa Tridentina
 
-Guia do Rito Romano na forma do Missal de São Pio V, do Apostolado NSN.
+Guia do Rito Romano na forma do Missal de São Pio V, do Apostolado Nossa Senhora das Neves
+(NSN).
 
 Aplicação React em Vite, escrita para ser lida principalmente no celular:
 layout de coluna única a partir de 320px, tabelas que viram fichas empilhadas

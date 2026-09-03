@@ -29,7 +29,7 @@ export default function App() {
         Pular para o conteúdo
       </a>
 
-      <BarraSuperior marca={guia.marca} local={tituloDaSecaoAtiva} progresso={progresso}>
+      <BarraSuperior marca={guia.marcaCurta} local={tituloDaSecaoAtiva} progresso={progresso}>
         <SeletorDeTema tema={tema} aoAlternar={alternar} />
         <button
           type="button"

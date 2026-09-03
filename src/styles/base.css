@@ -149,9 +149,9 @@ button {
   object-fit: contain;
 }
 
-/* Em tela estreita o brasão basta; o letreiro rouba espaço do título da seção. */
+/* A sigla cabe em qualquer largura; o nome por extenso fica no cabeçalho. */
 .barra__letreiro {
-  display: none;
+  font-weight: 700;
 }
 
 .barra__local {
@@ -222,8 +222,10 @@ button {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--ouro-tinta);
-  margin: 0 0 0.9rem;
+  margin: 0 auto 0.9rem;
+  max-width: 34ch;
   line-height: 1.5;
+  text-wrap: balance;
 }
 
 .cabecalho__titulo {
@@ -693,10 +695,6 @@ button {
 
   body {
     font-size: 1.1875rem;
-  }
-
-  .barra__letreiro {
-    display: inline;
   }
 
   .cabecalho {
