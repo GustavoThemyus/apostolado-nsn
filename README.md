@@ -94,20 +94,32 @@ O site é estático, então qualquer host de arquivo serve. Está configurado pa
 **Cloudflare Pages**, que é grátis sem limite de banda e tem boa presença de
 CDN no Brasil.
 
-### Primeira vez
+### Caminho mais curto: subir a pasta pelo painel
+
+Não exige CLI, git nem versão específica de Node.
 
 ```bash
-npx wrangler login     # abre o navegador para autorizar a conta Cloudflare
-npm run publicar       # cria o projeto e sobe o site
+npm run build
+zip -r guia-nsn-site.zip -j dist   # ou apenas arraste a pasta dist
 ```
 
-O wrangler pergunta o nome do projeto na primeira execução; o padrão vem de
-`wrangler.toml` (`guia-nsn`). O endereço sai como `guia-nsn.pages.dev`.
+No painel da Cloudflare, em **Workers & Pages → Create → Pages → Upload
+assets**, envie a pasta `dist` (ou o zip). O site sai em `guia-nsn.pages.dev`,
+acessível de qualquer rede, inclusive dados móveis.
 
-### Depois
+Para atualizar depois, é **Create new deployment** dentro do mesmo projeto,
+enviando a `dist` de novo.
 
-`npm run publicar` a cada mudança. Ele roda a checagem de tipos, o build e o
-envio.
+### Pela linha de comando
+
+```bash
+npx wrangler@4.85.0 login   # abre o navegador para autorizar a conta
+npm run publicar            # build e envio
+```
+
+A versão está presa em 4.85.0 porque a partir da 4.86 o wrangler exige
+Node 22, e este projeto ainda roda em Node 20. Depois de atualizar o Node,
+troque o script `publicar` para usar `wrangler` sem versão fixa.
 
 ### Publicar a cada push, sem rodar comando
 
