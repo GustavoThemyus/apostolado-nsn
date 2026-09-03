@@ -58,11 +58,80 @@ componente `Estrela`.
 
 ```bash
 npm install
-npm run dev            # servidor de desenvolvimento
+npm run dev            # servidor de desenvolvimento, já exposto na rede local
 npm run build          # checagem de tipos e build de produção em dist/
 npm run preview        # serve o build de produção
 npm run checar-tipos   # só a checagem de tipos
+npm run publicar       # build e publicação no Cloudflare Pages
 ```
+
+## Ver no celular durante o desenvolvimento
+
+`vite.config.ts` está com `host: true`, então `npm run dev` já escuta na rede
+local e imprime o endereço:
+
+```
+➜  Network: http://192.168.x.x:5173/
+```
+
+Abra esse endereço no celular, com o telefone na mesma Wi-Fi. Se não carregar,
+o firewall está bloqueando a porta:
+
+```bash
+sudo ufw allow 5173/tcp
+```
+
+Para testar o build de produção em vez do de desenvolvimento:
+
+```bash
+npm run build && npm run preview -- --host
+```
+
+## Publicar
+
+O site é estático, então qualquer host de arquivo serve. Está configurado para
+**Cloudflare Pages**, que é grátis sem limite de banda e tem boa presença de
+CDN no Brasil.
+
+### Primeira vez
+
+```bash
+npx wrangler login     # abre o navegador para autorizar a conta Cloudflare
+npm run publicar       # cria o projeto e sobe o site
+```
+
+O wrangler pergunta o nome do projeto na primeira execução; o padrão vem de
+`wrangler.toml` (`guia-nsn`). O endereço sai como `guia-nsn.pages.dev`.
+
+### Depois
+
+`npm run publicar` a cada mudança. Ele roda a checagem de tipos, o build e o
+envio.
+
+### Publicar a cada push, sem rodar comando
+
+No painel do Cloudflare Pages, em **Workers & Pages → Create → Pages → Connect
+to Git**, aponte para o repositório e use:
+
+| Campo | Valor |
+| --- | --- |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node version | 20 ou mais |
+
+A partir daí cada `git push` na branch `main` republica sozinho.
+
+### Domínio próprio
+
+Em **Custom domains**, dentro do projeto no painel. O certificado HTTPS sai
+automático. Se o domínio do apostolado já estiver na Cloudflare, é só apontar;
+se não, o painel mostra os registros DNS a criar.
+
+### Cache
+
+`public/_headers` define o cache: os arquivos de `assets/` levam hash no nome e
+ficam guardados para sempre, enquanto o HTML nunca fica em cache, para que uma
+correção no guia apareça na hora para quem já visitou.
 
 ## Como o projeto está organizado
 
