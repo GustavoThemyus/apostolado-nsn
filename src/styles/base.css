@@ -1,0 +1,825 @@
+/* Layout e componentes. Mobile primeiro; os tokens estão em tema.css. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--altura-barra) + 0.75rem);
+  background: var(--papel-fundo);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--serifada);
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  font-feature-settings: "liga" 1, "onum" 1;
+  overflow-wrap: break-word;
+}
+
+body.sem-rolagem {
+  overflow: hidden;
+}
+
+a {
+  color: var(--elo);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ouro-tinta);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.lat {
+  font-style: italic;
+}
+
+/* Damasco do impresso, usado só em superfícies de capa. */
+.damasco {
+  position: relative;
+  isolation: isolate;
+}
+.damasco::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--damasco-cor);
+  opacity: var(--forca-damasco);
+  -webkit-mask-image: var(--damasco);
+  mask-image: var(--damasco);
+  -webkit-mask-size: 160px 240px;
+  mask-size: 160px 240px;
+}
+
+.apenas-leitores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pular-para-conteudo {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--painel);
+  color: var(--tinta);
+  padding: 0.75rem 1rem;
+  z-index: 60;
+}
+.pular-para-conteudo:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.moldura {
+  width: 100%;
+  max-width: var(--largura-texto);
+  margin: 0 auto;
+  padding-inline: var(--respiro-lateral);
+}
+
+.conteudo {
+  padding-bottom: 4rem;
+}
+
+/* ---------------- barra superior ---------------- */
+
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--vidro);
+  backdrop-filter: saturate(1.4) blur(10px);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--fio);
+  padding-top: env(safe-area-inset-top);
+}
+
+.barra__interior {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: var(--altura-barra);
+}
+
+.barra__marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  white-space: nowrap;
+}
+.barra__brasao {
+  width: 1.4rem;
+  height: 1.4rem;
+  object-fit: contain;
+}
+
+/* Em tela estreita o brasão basta; o letreiro rouba espaço do título da seção. */
+.barra__letreiro {
+  display: none;
+}
+
+.barra__local {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.barra__botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: var(--alvo-toque);
+  min-height: var(--alvo-toque);
+  padding-inline: 0.5rem;
+  border-radius: 0.4rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.barra__botao--icone {
+  font-size: 1.05rem;
+  color: var(--ouro-tinta);
+}
+.barra__botao:hover {
+  color: var(--tinta);
+  background: var(--painel);
+}
+
+.barra__progresso {
+  height: 2px;
+  background: linear-gradient(90deg, var(--marca-ouro-escuro), var(--marca-ouro-claro));
+  transform-origin: 0 50%;
+  transition: transform 0.12s linear;
+}
+
+/* ---------------- cabeçalho ---------------- */
+
+.cabecalho {
+  text-align: center;
+  padding: 2.25rem 0 2rem;
+  margin-inline: calc(var(--respiro-lateral) * -1);
+  padding-inline: var(--respiro-lateral);
+  border-bottom: 1px solid var(--ouro);
+  background: linear-gradient(var(--painel), var(--papel));
+}
+
+.cabecalho__brasao {
+  width: 5.25rem;
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+  filter: drop-shadow(0 2px 6px var(--sombra));
+}
+
+.cabecalho__chamada {
+  font-family: var(--sem-serifa);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  margin: 0 0 0.9rem;
+  line-height: 1.5;
+}
+
+.cabecalho__titulo {
+  font-family: var(--titular);
+  font-weight: 500;
+  font-size: clamp(1.95rem, 8vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.85rem;
+}
+
+.cabecalho__resumo {
+  margin: 0 auto;
+  max-width: 46ch;
+  font-size: 1.04rem;
+  color: var(--tinta-suave);
+}
+
+.cabecalho__lema {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin: 1.5rem 0 0;
+  font-family: var(--titular);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ouro-tinta);
+}
+
+/* ---------------- ornamento ---------------- */
+
+.estrela {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex: none;
+  fill: var(--ouro);
+}
+
+.filete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0 0 1.5rem;
+}
+.filete::before,
+.filete::after {
+  content: "";
+  flex: 1;
+  max-width: 7rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+}
+
+/* ---------------- sumário ---------------- */
+
+.sumario__cortina {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(10, 10, 26, 0.5);
+  border: none;
+  padding: 0;
+  display: block;
+  width: 100%;
+}
+
+.sumario__painel {
+  background: var(--painel);
+  border-top: 2px solid var(--ouro);
+}
+
+.sumario--flutuante .sumario__painel {
+  position: fixed;
+  z-index: 51;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 78vh;
+  max-height: 78dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 0.75rem 0.75rem 0 0;
+  padding: 0.75rem 1.15rem calc(1.5rem + env(safe-area-inset-bottom));
+  box-shadow: 0 -12px 40px var(--sombra);
+  animation: subir 0.2s ease-out;
+}
+
+.sumario--embutido .sumario__painel {
+  padding: 1.15rem 1.1rem 0.9rem;
+  margin: 1.75rem 0 0.5rem;
+}
+
+@keyframes subir {
+  from {
+    transform: translateY(1.5rem);
+    opacity: 0;
+  }
+}
+
+.sumario__pega {
+  width: 2.5rem;
+  height: 0.25rem;
+  border-radius: 999px;
+  background: var(--fio);
+  margin: 0 auto 0.75rem;
+}
+
+.sumario__titulo {
+  font-family: var(--sem-serifa);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  margin: 0 0 0.5rem;
+}
+
+.sumario__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: sumario;
+}
+
+.sumario__lista li {
+  counter-increment: sumario;
+  border-bottom: 1px solid var(--fio-suave);
+}
+.sumario__lista li:last-child {
+  border-bottom: none;
+}
+
+.sumario__link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  min-height: var(--alvo-toque);
+  padding: 0.6rem 0;
+  color: var(--tinta);
+  text-decoration: none;
+  line-height: 1.3;
+}
+.sumario__link::before {
+  content: counter(sumario);
+  font-variant-numeric: lining-nums;
+  color: var(--ouro-tinta);
+  font-size: 0.9rem;
+  min-width: 1.4rem;
+}
+.sumario__link[aria-current="true"] {
+  color: var(--ouro-tinta);
+  font-weight: 600;
+}
+
+/* ---------------- seções ---------------- */
+
+.secao {
+  padding: 2.25rem 0 0.5rem;
+  border-bottom: 1px solid var(--fio-suave);
+  scroll-margin-top: calc(var(--altura-barra) + 0.75rem);
+}
+.secao:last-of-type {
+  border-bottom: none;
+}
+
+.secao__titulo {
+  font-family: var(--titular);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.22;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.4rem;
+}
+
+.secao__numero {
+  color: var(--ouro-tinta);
+  font-weight: 500;
+  margin-right: 0.45em;
+  font-variant-numeric: lining-nums;
+}
+
+.secao__resumo {
+  color: var(--tinta-suave);
+  font-style: italic;
+  max-width: 70ch;
+  margin: 0 0 1.35rem;
+}
+
+/* ---------------- blocos de texto ---------------- */
+
+.paragrafo {
+  max-width: 70ch;
+  margin: 0 0 0.85rem;
+}
+
+.subtitulo {
+  font-family: var(--titular);
+  font-weight: 600;
+  font-size: 1.12rem;
+  margin: 2rem 0 0.5rem;
+}
+
+.lista {
+  max-width: 70ch;
+  padding-left: 1.25em;
+  margin: 0 0 1rem;
+}
+.lista li {
+  margin-bottom: 0.45rem;
+}
+.lista li::marker {
+  color: var(--ouro-tinta);
+}
+
+.rubrica {
+  color: var(--rubrica);
+  font-style: italic;
+  max-width: 70ch;
+  margin: 0 0 0.85rem;
+}
+.rubrica::before {
+  content: "℞ ";
+  font-style: normal;
+  opacity: 0.6;
+}
+.rubrica--embutida {
+  display: inline;
+  margin: 0;
+}
+.rubrica--embutida::before {
+  content: none;
+}
+
+/* ---------------- oração citada ---------------- */
+
+.oracao {
+  margin: 0.75rem 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--ouro);
+  max-width: 66ch;
+}
+.oracao__verso {
+  margin: 0 0 0.6rem;
+}
+.oracao__verso:last-child {
+  margin-bottom: 0;
+}
+.oracao__latim {
+  font-style: italic;
+}
+.oracao__portugues {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--tinta-suave);
+}
+
+/* ---------------- passo litúrgico ---------------- */
+
+.passo {
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--fio-suave);
+}
+.passo:first-of-type {
+  border-top: 1px solid var(--fio);
+}
+
+.passo__trilho {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.passo__numero {
+  font-family: var(--titular);
+  font-size: 1.1rem;
+  color: var(--ouro-tinta);
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+}
+
+.passo__titulo {
+  margin: 0 0 0.3rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+.passo__titulo .lat {
+  font-weight: 400;
+  color: var(--tinta-suave);
+  font-size: 0.95em;
+}
+
+.passo__corpo > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------- etiqueta ---------------- */
+
+.etiqueta {
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.etiqueta--proprio {
+  color: var(--ouro-tinta);
+}
+.etiqueta--ordinario {
+  color: var(--elo);
+}
+
+/* ---------------- nota ---------------- */
+
+.nota {
+  background: var(--painel);
+  border: 1px solid var(--fio);
+  border-left: 3px solid var(--ouro);
+  padding: 1rem 1.1rem;
+  margin: 1.35rem 0;
+  max-width: 74ch;
+}
+.nota--alerta {
+  border-left-color: var(--rubrica);
+}
+.nota__titulo {
+  font-family: var(--titular);
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.nota p {
+  margin: 0 0 0.5rem;
+}
+.nota p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------- legenda ---------------- */
+
+.legenda {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1.1rem 0 1.4rem;
+  max-width: 74ch;
+}
+.legenda__item {
+  display: grid;
+  gap: 0.15rem;
+}
+.legenda__chave {
+  font-family: var(--sem-serifa);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.legenda__texto {
+  margin: 0;
+}
+.legenda__chave--proprio {
+  color: var(--ouro-tinta);
+}
+.legenda__chave--ordinario {
+  color: var(--elo);
+}
+.legenda__chave--comum,
+.legenda__chave--variavel {
+  color: var(--tinta-suave);
+}
+
+/* ---------------- tabela ---------------- */
+
+.tabela {
+  margin: 1.1rem 0 1.5rem;
+}
+
+.tabela table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.tabela th,
+.tabela td {
+  text-align: left;
+  vertical-align: top;
+}
+
+/* No celular a tabela vira uma pilha de fichas. */
+.tabela thead {
+  display: none;
+}
+.tabela tr {
+  display: block;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--fio-suave);
+}
+.tabela tr:first-child {
+  border-top: 1px solid var(--fio);
+}
+.tabela td {
+  display: block;
+  padding: 0.15rem 0;
+}
+.tabela td::before {
+  content: attr(data-coluna);
+  display: block;
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.tabela td:first-child {
+  font-weight: 600;
+  color: var(--ouro-tinta);
+  padding-bottom: 0.35rem;
+}
+.tabela td:first-child::before {
+  content: none;
+}
+
+/* ---------------- rodapé ---------------- */
+
+.rodape {
+  padding: 1.75rem 0 calc(2rem + env(safe-area-inset-bottom));
+  color: var(--tinta-suave);
+  font-size: 0.95rem;
+  text-align: center;
+}
+.rodape p {
+  max-width: 62ch;
+  margin: 0 auto 0.75rem;
+}
+.rodape__marca {
+  font-family: var(--sem-serifa);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  margin-top: 1.5rem;
+}
+.rodape__lema {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--titular);
+  font-style: italic;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--tinta-suave);
+}
+
+/* ---------------- telas maiores ---------------- */
+
+@media (min-width: 46rem) {
+  :root {
+    --respiro-lateral: 1.4rem;
+    --altura-barra: 3.5rem;
+  }
+
+  body {
+    font-size: 1.1875rem;
+  }
+
+  .barra__letreiro {
+    display: inline;
+  }
+
+  .cabecalho {
+    padding: 3.5rem 0 3rem;
+  }
+  .cabecalho__brasao {
+    width: 7rem;
+  }
+  .cabecalho__chamada {
+    font-size: 0.7rem;
+  }
+
+  .secao {
+    padding: 2.75rem 0 0.5rem;
+  }
+  .secao__titulo {
+    font-size: 1.68rem;
+  }
+
+  .passo {
+    display: grid;
+    grid-template-columns: 5.4rem 1fr;
+    gap: 0 1.4rem;
+    padding: 1.25rem 0;
+  }
+  .passo__trilho {
+    display: block;
+    text-align: right;
+    padding-top: 0.18rem;
+    padding-right: 1.25rem;
+    margin-right: -1.25rem;
+    border-right: 1px solid var(--fio-suave);
+  }
+  .passo__numero {
+    display: block;
+    font-size: 1.35rem;
+  }
+  .etiqueta {
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  .legenda__item {
+    grid-template-columns: 8.5rem 1fr;
+    gap: 0.9rem;
+    align-items: baseline;
+  }
+
+  .tabela {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tabela table {
+    min-width: 32rem;
+  }
+  .tabela thead {
+    display: table-header-group;
+  }
+  .tabela tr {
+    display: table-row;
+    padding: 0;
+    border-bottom: none;
+  }
+  .tabela tr:first-child {
+    border-top: none;
+  }
+  .tabela th,
+  .tabela td {
+    display: table-cell;
+    padding: 0.55rem 0.9rem 0.55rem 0;
+    border-bottom: 1px solid var(--fio-suave);
+  }
+  .tabela th {
+    font-family: var(--sem-serifa);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+    border-bottom: 1px solid var(--ouro);
+    white-space: nowrap;
+  }
+  .tabela td::before {
+    content: none;
+  }
+  .tabela td:first-child {
+    white-space: nowrap;
+    padding-right: 1.4rem;
+  }
+
+  .sumario--embutido .sumario__painel {
+    padding: 1.5rem 1.6rem 1.25rem;
+    margin: 2.1rem 0 0.5rem;
+  }
+  .sumario--embutido .sumario__lista {
+    columns: 2;
+    column-gap: 2.25rem;
+  }
+  .sumario--embutido .sumario__lista li {
+    break-inside: avoid;
+    border-bottom: none;
+  }
+  .sumario--embutido .sumario__link {
+    min-height: 0;
+    padding: 0.2rem 0;
+  }
+  .sumario--flutuante .sumario__painel {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(34rem, 92vw);
+    border-radius: 0.75rem;
+    bottom: 1.5rem;
+    max-height: 70vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

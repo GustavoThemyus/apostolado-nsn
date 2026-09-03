@@ -1,0 +1,93 @@
+/**
+ * Design system do Apostolado NSN.
+ * Cores amostradas do brasão (campo azul, borda e fita douradas, lírio branco)
+ * e do impresso em papel damasco.
+ */
+:root {
+  /* --- cores da marca, iguais nos dois temas --- */
+  --marca-azul-profundo: #202049;
+  --marca-azul: #242856;
+  --marca-azul-realce: #303a73;
+  --marca-ouro-escuro: #a3863f;
+  --marca-ouro: #d0ba74;
+  --marca-ouro-claro: #e9da93;
+  --marca-creme: #f0ece1;
+  --marca-lirio: #fdfbec;
+
+  /* damasco do impresso, usado como máscara em superfícies de capa */
+  --damasco: url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22160%22%20height=%22240%22%20viewBox=%220%200%20160%20240%22%3E%20%3Cg%20fill=%22none%22%20stroke=%22%231f1e3a%22%20stroke-width=%221.6%22%20stroke-linecap=%22round%22%3E%20%3Cg%20id=%22m%22%3E%20%3Cpath%20d=%22M80%2026c-6%2010-14%2015-24%2017%209%203%2016%209%2020%2018%204-9%2011-15%2020-18-10-2-18-7-24-17z%22/%3E%20%3Cpath%20d=%22M80%2014c-2%206-6%209-11%2011%205%202%209%205%2011%209%202-4%206-7%2011-9-5-2-9-5-11-11z%22/%3E%20%3Cpath%20d=%22M80%2061v34%22/%3E%20%3Cpath%20d=%22M78%2070c-11%200-21%206-26%2015-4%208-4%2017%201%2024%200-8%203-15%209-20%205-5%2011-7%2016-7%22/%3E%20%3Cpath%20d=%22M82%2070c11%200%2021%206%2026%2015%204%208%204%2017-1%2024%200-8-3-15-9-20-5-5-11-7-16-7%22/%3E%20%3Cpath%20d=%22M80%2095c-8%206-12%2014-12%2022s4%2016%2012%2022c8-6%2012-14%2012-22s-4-16-12-22z%22/%3E%20%3Cpath%20d=%22M78%20141c-8%202-15%208-18%2016%205-3%2011-5%2016-4%22/%3E%20%3Cpath%20d=%22M82%20141c8%202%2015%208%2018%2016-5-3-11-5-16-4%22/%3E%20%3Cpath%20d=%22M80%20139v20%22/%3E%20%3Cpath%20d=%22M66%20108c-5-4-12-5-18-3%205%202%209%205%2012%209%22/%3E%20%3Cpath%20d=%22M94%20108c5-4%2012-5%2018-3-5%202-9%205-12%209%22/%3E%20%3C/g%3E%20%3Ccircle%20cx=%2280%22%20cy=%228%22%20r=%222.2%22%20fill=%22%231f1e3a%22%20stroke=%22none%22/%3E%20%3Ccircle%20cx=%2280%22%20cy=%22164%22%20r=%222.2%22%20fill=%22%231f1e3a%22%20stroke=%22none%22/%3E%20%3Cuse%20href=%22%23m%22%20transform=%22translate(-80,120)%22/%3E%20%3Cuse%20href=%22%23m%22%20transform=%22translate(80,120)%22/%3E%20%3Ccircle%20cx=%220%22%20cy=%22128%22%20r=%222.2%22%20fill=%22%231f1e3a%22%20stroke=%22none%22/%3E%20%3Ccircle%20cx=%22160%22%20cy=%22128%22%20r=%222.2%22%20fill=%22%231f1e3a%22%20stroke=%22none%22/%3E%20%3Ccircle%20cx=%220%22%20cy=%22284%22%20r=%222.2%22%20fill=%22%231f1e3a%22%20stroke=%22none%22/%3E%20%3C/g%3E%20%3C/svg%3E");
+
+  /* --- tema claro: o papel damasco do impresso --- */
+  --papel: #f0ece1;
+  --papel-fundo: #e6e0d1;
+  --painel: #f8f5ec;
+  --tinta: #1f1e3a;
+  --tinta-suave: #5a5670;
+  --rubrica: #a32220;
+  --ouro: #a3863f;
+  --ouro-tinta: #7a6026;
+  --elo: #2e3a70;
+  --fio: #d6cfbb;
+  --fio-suave: #e4dece;
+  --realce: #ecdcae;
+  --vidro: rgba(240, 236, 225, 0.88);
+  --sombra: rgba(32, 32, 73, 0.16);
+  --damasco-cor: var(--marca-azul);
+  --forca-damasco: 0.14;
+
+  /* --- tipografia --- */
+  --titular: "Playfair Display", "EB Garamond", Georgia, serif;
+  --serifada: "EB Garamond", Georgia, "Times New Roman", serif;
+  --sem-serifa: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* --- medidas --- */
+  --largura-texto: 60rem;
+  --respiro-lateral: 1.15rem;
+  --altura-barra: 3.25rem;
+  --alvo-toque: 2.75rem;
+
+  color-scheme: light;
+}
+
+/* --- tema escuro: o campo estrelado do escudo --- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papel: #14142c;
+    --papel-fundo: #0e0e20;
+    --painel: #1d1d3d;
+    --tinta: #ece7d8;
+    --tinta-suave: #a8a2bb;
+    --rubrica: #e08a80;
+    --ouro: #d0ba74;
+    --ouro-tinta: #e9da93;
+    --elo: #9fb6e2;
+    --fio: #34345e;
+    --fio-suave: #262649;
+    --realce: #3f3a1e;
+    --vidro: rgba(20, 20, 44, 0.88);
+    --sombra: rgba(0, 0, 0, 0.45);
+    --damasco-cor: var(--marca-ouro);
+    --forca-damasco: 0.16;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --papel: #14142c;
+  --papel-fundo: #0e0e20;
+  --painel: #1d1d3d;
+  --tinta: #ece7d8;
+  --tinta-suave: #a8a2bb;
+  --rubrica: #e08a80;
+  --ouro: #d0ba74;
+  --ouro-tinta: #e9da93;
+  --elo: #9fb6e2;
+  --fio: #34345e;
+  --fio-suave: #262649;
+  --realce: #3f3a1e;
+  --vidro: rgba(20, 20, 44, 0.88);
+  --sombra: rgba(0, 0, 0, 0.45);
+  --damasco-cor: var(--marca-ouro);
+  --forca-damasco: 0.16;
+  color-scheme: dark;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "guia-nsn",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Apostolado NSN - guia do Rito Romano na forma do Missal de São Pio V",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "checar-tipos": "tsc -b --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "^5.6.3",
+    "vite": "^8.2.2"
+  }
+}
