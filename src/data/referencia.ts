@@ -189,7 +189,7 @@ export const secoesDeReferencia: Secao[] = [
         tipo: "nota",
         titulo: "Um conselho de método",
         paragrafos: [
-          "Não comece pelo manual. Compre ou baixe um missal bilíngue, marque as fitas, e acompanhe uma Missa inteira com ele na mão três ou quatro domingos seguidos. Depois disso, o Gihr faz sentido; antes disso, é vocabulário sem referente.",
+          "Não comece pelo manual. Compre ou baixe um missal bilíngue, marque as fitas, e acompanhe uma Missa inteira com ele na mão três ou quatro domingos seguidos. Depois disso, o Gihr vai fazer sentido.",
         ],
       },
     ],
