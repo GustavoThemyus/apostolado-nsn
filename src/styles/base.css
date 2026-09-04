@@ -181,8 +181,13 @@ button {
   color: var(--tinta-suave);
 }
 .barra__botao--icone {
-  font-size: 1.05rem;
   color: var(--ouro-tinta);
+}
+
+.barra__icone {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
 }
 .barra__botao:hover {
   color: var(--tinta);
@@ -459,6 +464,30 @@ button {
 }
 .rubrica--embutida::before {
   content: none;
+}
+
+/* ---------------- cores litúrgicas ---------------- */
+
+.cor {
+  font-weight: 600;
+}
+.cor--branco {
+  color: var(--lit-branco);
+}
+.cor--vermelho {
+  color: var(--lit-vermelho);
+}
+.cor--verde {
+  color: var(--lit-verde);
+}
+.cor--roxo {
+  color: var(--lit-roxo);
+}
+.cor--preto {
+  color: var(--lit-preto);
+}
+.cor--rosa {
+  color: var(--lit-rosa);
 }
 
 /* ---------------- oração citada ---------------- */

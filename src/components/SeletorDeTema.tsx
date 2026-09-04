@@ -1,10 +1,5 @@
 import { ROTULO_DO_TEMA, type Tema } from "../hooks/usarTema";
-
-const ICONE: Record<Tema, string> = {
-  sistema: "◐",
-  claro: "☀",
-  escuro: "☾",
-};
+import { IconeDeTema } from "./IconeDeTema";
 
 export function SeletorDeTema({ tema, aoAlternar }: { tema: Tema; aoAlternar: () => void }) {
   return (
@@ -15,7 +10,7 @@ export function SeletorDeTema({ tema, aoAlternar }: { tema: Tema; aoAlternar: ()
       aria-label={`Tema: ${ROTULO_DO_TEMA[tema]}. Tocar para trocar.`}
       title={`Tema: ${ROTULO_DO_TEMA[tema]}`}
     >
-      <span aria-hidden="true">{ICONE[tema]}</span>
+      <IconeDeTema tema={tema} />
     </button>
   );
 }

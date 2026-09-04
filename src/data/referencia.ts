@@ -10,7 +10,7 @@ export const secoesDeReferencia: Secao[] = [
       {
         tipo: "paragrafo",
         texto:
-          "Aqui está o teste prático: o esqueleto é sempre o mesmo, mas o dia decide o que entra e o que sai.",
+          "O esqueleto é sempre o mesmo; o dia decide o que entra e o que sai.",
       },
       {
         tipo: "tabela",
@@ -59,7 +59,14 @@ export const secoesDeReferencia: Secao[] = [
           ],
           ["Beijo da paz", "sim", "sim", "sim", "sim", "não"],
           ["Bênção final", "sim", "sim", "sim", "sim", "não"],
-          ["Cor", "verde", "verde", "branco ou vermelho", "roxo", "preto"],
+          [
+            "Cor",
+            "[verde]verde[/verde]",
+            "[verde]verde[/verde]",
+            "[branco]branco[/branco] ou [vermelho]vermelho[/vermelho]",
+            "[roxo]roxo[/roxo]",
+            "[preto]preto[/preto]",
+          ],
         ],
       },
       {
@@ -74,7 +81,7 @@ export const secoesDeReferencia: Secao[] = [
       {
         tipo: "rubrica",
         texto:
-          "Nos missais anteriores a 1960, a nomenclatura era outra: duplo de I classe, duplo de II classe, duplo maior, duplo, semiduplo e simples. Se você usar um missal antigo ao lado de um de 1962, é aqui que vão aparecer as diferenças.",
+          "Nos missais anteriores a 1960, a nomenclatura era outra: duplo de I classe, duplo de II classe, duplo maior, duplo, semiduplo e simples. É neste ponto que um missal anterior diverge de um de 1962.",
       },
     ],
   },
@@ -88,21 +95,21 @@ export const secoesDeReferencia: Secao[] = [
         colunas: ["Cor", "Quando"],
         linhas: [
           [
-            "Branco",
+            "[branco]Branco[/branco]",
             "Natal, Páscoa, festas do Senhor não relacionadas à Paixão, de Nossa Senhora, dos anjos, dos confessores e das virgens.",
           ],
           [
-            "Vermelho",
+            "[vermelho]Vermelho[/vermelho]",
             "Pentecostes, festas da Cruz e da Paixão, Apóstolos e mártires.",
           ],
-          ["Verde", "Tempo depois da Epifania e depois de Pentecostes."],
+          ["[verde]Verde[/verde]", "Tempo depois da Epifania e depois de Pentecostes."],
           [
-            "Roxo",
+            "[roxo]Roxo[/roxo]",
             "Advento, Septuagésima, Quaresma, vigílias, Têmporas, rogações, Missas votivas penitenciais.",
           ],
-          ["Preto", "Sexta-feira Santa e Missas de defuntos."],
+          ["[preto]Preto[/preto]", "Sexta-feira Santa e Missas de defuntos."],
           [
-            "Rosa",
+            "[rosa]Rosa[/rosa]",
             "Apenas dois dias no ano: domingo [lat]Gaudete[/lat] (3.º do Advento) e domingo [lat]Laetare[/lat] (4.º da Quaresma).",
           ],
         ],
@@ -142,13 +149,6 @@ export const secoesDeReferencia: Secao[] = [
         texto:
           "As interpretações alegóricas da Missa (a Missa como representação passo a passo da Paixão, muito difundidas desde Amalário de Metz e retomadas por Inocêncio III) são piedosas e legítimas, mas não vinculantes; a escola litúrgica histórica as considera, em geral, exegese posterior sobreposta ao rito. Também é opinião de escola boa parte das reconstruções históricas sobre a origem do Ofertório e do Cânon. Onde as fontes são escassas, o certo é dizer «é assim que se reza» com firmeza, e «foi assim que surgiu» com cautela.",
       },
-      {
-        tipo: "nota",
-        titulo: "Sobre a situação canônica",
-        paragrafos: [
-          "A permissão para celebrar segundo o Missal de 1962 passou por mudanças recentes de disciplina, do [lat]Summorum Pontificum[/lat] (2007) ao [lat]Traditionis custodes[/lat] (2021) e às normas que se lhe seguiram. Como é matéria em movimento, verifique as normas vigentes e as disposições do seu bispo antes de tratar disso como algo estabelecido. Este guia se limita a descrever o rito; a regulação canônica é outro assunto.",
-        ],
-      },
     ],
   },
   {
@@ -170,7 +170,7 @@ export const secoesDeReferencia: Secao[] = [
       {
         tipo: "lista",
         itens: [
-          "[b]Nicholas Gihr, [i]O Santo Sacrifício da Missa: dogmática, litúrgica e asceticamente explicado[/i][/b] (1877). O manual clássico, e o melhor caminho se você quiser um só livro. Comenta o rito oração por oração.",
+          "[b]Nicholas Gihr, [i]O Santo Sacrifício da Missa: dogmática, litúrgica e asceticamente explicado[/i][/b] (1877). O manual clássico, que comenta o rito oração por oração.",
           "[b]Dom Prosper Guéranger, [i]Explicação das orações e cerimônias da Santa Missa[/i][/b], e o monumental [i]O Ano Litúrgico[/i], para o Próprio do Tempo e dos Santos.",
           "[b]Adrian Fortescue, [i]The Mass: A Study of the Roman Liturgy[/i][/b] (1912), história do rito, sólida e ainda insuperada em muitos pontos. Do mesmo autor, com J. B. O'Connell, [i]The Ceremonies of the Roman Rite Described[/i], que é o manual prático de cerimônias.",
           "[b]Josef A. Jungmann, [i]Missarum Sollemnia[/i][/b], a história mais detalhada do Cânon e do Ordinário. Leia sabendo que é obra de escola: várias das suas teses sobre «decadência» e «acréscimos medievais» continuam sendo hipóteses em discussão.",
@@ -183,13 +183,6 @@ export const secoesDeReferencia: Secao[] = [
           "[b]Divinum Officium[/b]. Reproduz online o Missal e o Breviário de qualquer data, em latim e vernáculo, com opção de rubricas de 1570, 1910, 1955 ou 1962. Útil justamente para comparar as versões.",
           "[b]Sancta Missa[/b], dos Cônegos Regulares de São João Cantius. Traz fac-símiles do Missal de 1962, vídeos de cerimônias e o [lat]Ritus servandus[/lat] comentado.",
           "[b]Church Music Association of America[/b]. Disponibiliza gratuitamente o [lat]Liber Usualis[/lat] e outros livros de canto, onde estão as melodias do Próprio e do Ordinário.",
-        ],
-      },
-      {
-        tipo: "nota",
-        titulo: "Um conselho de método",
-        paragrafos: [
-          "Não comece pelo manual. Compre ou baixe um missal bilíngue, marque as fitas, e acompanhe uma Missa inteira com ele na mão três ou quatro domingos seguidos. Depois disso, o Gihr vai fazer sentido.",
         ],
       },
     ],

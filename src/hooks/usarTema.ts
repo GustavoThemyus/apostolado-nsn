@@ -3,7 +3,10 @@ import { useCallback, useEffect, useState } from "react";
 export type Tema = "sistema" | "claro" | "escuro";
 
 const CHAVE = "nsn:tema";
-const CICLO: Tema[] = ["sistema", "claro", "escuro"];
+
+/** O guia nasce claro, como o papel do impresso. */
+const PADRAO: Tema = "claro";
+const CICLO: Tema[] = ["claro", "escuro", "sistema"];
 
 export const ROTULO_DO_TEMA: Record<Tema, string> = {
   sistema: "Sistema",
@@ -16,9 +19,9 @@ function ler(): Tema {
     const salvo = localStorage.getItem(CHAVE);
     if (salvo === "claro" || salvo === "escuro" || salvo === "sistema") return salvo;
   } catch {
-    /* armazenamento indisponível: fica no padrão do sistema */
+    /* armazenamento indisponível: fica no padrão */
   }
-  return "sistema";
+  return PADRAO;
 }
 
 /** Tema de leitura, lembrado entre visitas. */

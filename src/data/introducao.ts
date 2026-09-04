@@ -5,12 +5,12 @@ export const secoesDeIntroducao: Secao[] = [
   {
     id: "chaves",
     numero: 1,
-    titulo: "Como ler este guia",
+    titulo: "Chaves de leitura",
     blocos: [
       {
         tipo: "paragrafo",
         texto:
-          "Uma Missa é feita de dois tipos de texto misturados: o que se repete sempre e o que muda todo dia. Se você entender essa divisão, para de se perder no missal.",
+          "Uma Missa é feita de dois tipos de texto misturados: o que se repete sempre e o que muda todo dia. Esta é a divisão que organiza o missal e este guia.",
       },
       {
         tipo: "legenda",
@@ -76,7 +76,7 @@ export const secoesDeIntroducao: Secao[] = [
       {
         tipo: "paragrafo",
         texto:
-          "Abrir um missal pela primeira vez costuma ser frustrante porque ele se consulta em três ou quatro lugares ao mesmo tempo, em vez de se ler de capa a capa. Daí as fitas coloridas. As seções são estas:",
+          "O missal se consulta em três ou quatro lugares ao mesmo tempo, e não de capa a capa. Daí as fitas. As seções são estas:",
       },
       {
         tipo: "tabela",
@@ -142,7 +142,7 @@ export const secoesDeIntroducao: Secao[] = [
       },
       {
         tipo: "nota",
-        titulo: "Um detalhe que explica muita coisa",
+        titulo: "A divisão musical do rito",
         paragrafos: [
           "Cinco dessas peças (Introito, Gradual, Aleluia, Ofertório e Comunhão) são [b]cantos do coro[/b]. As outras quatro são [b]orações e leituras do sacerdote[/b]. Por isso, na Missa cantada, o coro canta o Próprio e a assembleia canta o Ordinário (Kyrie, Glória, Credo, Sanctus, Agnus Dei). Essa divisão de tarefas é o esqueleto musical do rito.",
         ],
@@ -181,7 +181,7 @@ export const secoesDeIntroducao: Secao[] = [
           ],
           [
             "Missa de Requiem",
-            "Pelos defuntos. Paramento preto, sem Salmo 42, sem Glória, sem Aleluia (há Trato e a sequência [lat]Dies irae[/lat]), sem beijo da paz, sem bênção final. Termina com [lat]Requiescant in pace[/lat].",
+            "Pelos defuntos. Paramento [preto]preto[/preto], sem Salmo 42, sem Glória, sem Aleluia (há Trato e a sequência [lat]Dies irae[/lat]), sem beijo da paz, sem bênção final. Termina com [lat]Requiescant in pace[/lat].",
           ],
           [
             "Missa votiva",
@@ -211,7 +211,7 @@ export const secoesDeIntroducao: Secao[] = [
       {
         tipo: "paragrafo",
         texto:
-          "Dentro da segunda metade, três blocos: [b]Ofertório[/b] (preparação da matéria), [b]Cânon[/b] (a ação sacrifical) e [b]Comunhão[/b] (participação na vítima). Guardar isso já resolve 80% da orientação dentro da Missa.",
+          "Dentro da segunda metade, três blocos: [b]Ofertório[/b] (preparação da matéria), [b]Cânon[/b] (a ação sacrifical) e [b]Comunhão[/b] (participação na vítima).",
       },
     ],
   },

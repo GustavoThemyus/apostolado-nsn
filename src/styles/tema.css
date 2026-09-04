@@ -35,6 +35,15 @@
   --damasco-cor: var(--marca-azul);
   --forca-damasco: 0.14;
 
+  /* cores litúrgicas, escritas na própria cor */
+  --lit-branco: #6d6659;
+  --lit-vermelho: #a32220;
+  --lit-verde: #2c6a3b;
+  --lit-roxo: #6b3e8f;
+  --lit-preto: #22212e;
+  --lit-rosa: #963a62;
+
+
   /* --- tipografia --- */
   --titular: "Playfair Display", "EB Garamond", Georgia, serif;
   --serifada: "EB Garamond", Georgia, "Times New Roman", serif;
@@ -68,6 +77,14 @@
     --sombra: rgba(0, 0, 0, 0.45);
     --damasco-cor: var(--marca-ouro);
     --forca-damasco: 0.16;
+
+    --lit-branco: #efeadb;
+    --lit-vermelho: #e08a80;
+    --lit-verde: #84c396;
+    --lit-roxo: #c0a3e8;
+    --lit-preto: #9c98ac;
+    --lit-rosa: #f0a8c8;
+
     color-scheme: dark;
   }
 }
@@ -89,5 +106,12 @@
   --sombra: rgba(0, 0, 0, 0.45);
   --damasco-cor: var(--marca-ouro);
   --forca-damasco: 0.16;
+
+  --lit-branco: #efeadb;
+  --lit-vermelho: #e08a80;
+  --lit-verde: #84c396;
+  --lit-roxo: #c0a3e8;
+  --lit-preto: #9c98ac;
+  --lit-rosa: #f0a8c8;
   color-scheme: dark;
 }

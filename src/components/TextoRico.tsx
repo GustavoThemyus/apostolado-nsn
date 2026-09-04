@@ -1,9 +1,13 @@
 import { Fragment, type ReactNode } from "react";
 
-type Marca = "lat" | "b" | "i" | "r";
+const CORES = ["branco", "vermelho", "verde", "roxo", "preto", "rosa"] as const;
+
+type Cor = (typeof CORES)[number];
+type Marca = "lat" | "b" | "i" | "r" | Cor;
 
 /** Instância nova a cada chamada: a busca é recursiva e lastIndex é estado mutável. */
-const marcacao = () => /\[(lat|b|i|r)\]([\s\S]*?)\[\/\1\]/g;
+const marcacao = () =>
+  /\[(lat|b|i|r|branco|vermelho|verde|roxo|preto|rosa)\]([\s\S]*?)\[\/\1\]/g;
 
 function envolver(marca: Marca, conteudo: ReactNode, chave: string): ReactNode {
   switch (marca) {
@@ -20,6 +24,13 @@ function envolver(marca: Marca, conteudo: ReactNode, chave: string): ReactNode {
     case "r":
       return (
         <span className="rubrica rubrica--embutida" key={chave}>
+          {conteudo}
+        </span>
+      );
+    default:
+      // nome de cor litúrgica: a palavra é escrita na própria cor
+      return (
+        <span className={`cor cor--${marca}`} key={chave}>
           {conteudo}
         </span>
       );

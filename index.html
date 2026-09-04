@@ -38,17 +38,22 @@
       rel="stylesheet"
     />
     <script>
-      // Aplica o tema salvo antes da primeira pintura, para não piscar.
+      // Aplica o tema antes da primeira pintura, para não piscar.
+      // O padrão é claro: só quem escolheu "sistema" segue o aparelho.
       (function () {
+        var tema = "claro";
         try {
-          var tema = localStorage.getItem("nsn:tema");
-          if (tema === "claro" || tema === "escuro") {
-            document.documentElement.setAttribute(
-              "data-theme",
-              tema === "claro" ? "light" : "dark"
-            );
+          var salvo = localStorage.getItem("nsn:tema");
+          if (salvo === "claro" || salvo === "escuro" || salvo === "sistema") {
+            tema = salvo;
           }
         } catch (e) {}
+        if (tema !== "sistema") {
+          document.documentElement.setAttribute(
+            "data-theme",
+            tema === "claro" ? "light" : "dark"
+          );
+        }
       })();
     </script>
   </head>
