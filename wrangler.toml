@@ -1,5 +1,5 @@
 # Projeto Cloudflare Pages do guia.
 # Publicar: npm run publicar   (precisa de `npx wrangler login` na primeira vez)
-name = "guia-nsn"
+name = "apostolado-nsn"
 compatibility_date = "2026-09-03"
 pages_build_output_dir = "dist"
