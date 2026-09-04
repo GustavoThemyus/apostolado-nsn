@@ -1,5 +1,9 @@
-# Projeto Cloudflare Pages do guia.
-# Publicar: npm run publicar   (precisa de `npx wrangler login` na primeira vez)
+# Worker de assets estáticos que serve o guia.
+# Publica em https://apostolado-nsn.gustavothemyus.workers.dev
+# Manualmente: npm run publicar
+
 name = "apostolado-nsn"
 compatibility_date = "2026-09-03"
-pages_build_output_dir = "dist"
+
+[assets]
+directory = "./dist"
