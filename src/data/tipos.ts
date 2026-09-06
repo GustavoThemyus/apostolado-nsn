@@ -48,7 +48,8 @@ export type Bloco = ComId &
   | { tipo: "legenda"; itens: ItemDeLegenda[] }
     | {
         tipo: "passo";
-        numero: number;
+        /** @deprecated Derivado da posição. Continua nos dados antigos, e é ignorado. */
+        numero?: number;
         etiqueta: Etiqueta;
         titulo: string;
         tituloLatim?: string;
@@ -57,7 +58,8 @@ export type Bloco = ComId &
 
 export interface Secao {
   id: string;
-  numero: number;
+  /** @deprecated Derivado da posição. Continua nos dados antigos, e é ignorado. */
+  numero?: number;
   titulo: string;
   /** Linha em itálico logo abaixo do título. */
   resumo?: string;

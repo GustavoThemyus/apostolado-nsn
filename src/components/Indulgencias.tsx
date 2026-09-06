@@ -35,10 +35,10 @@ export function Indulgencias({ aoFechar }: { aoFechar: () => void }) {
       </div>
       <div className="folha__corpo">
         <p className="folha__descricao">{folheto.descricao}</p>
-        {folheto.secoes.map((s) => (
+        {folheto.secoes.map((s, indice) => (
           <section className="secao" key={s.id}>
             <h2 className="secao__titulo">
-              <span className="secao__numero" aria-hidden="true">{s.numero}</span>
+              <span className="secao__numero" aria-hidden="true">{indice + 1}</span>
               {s.titulo}
             </h2>
             {s.resumo && <p className="secao__resumo">{s.resumo}</p>}

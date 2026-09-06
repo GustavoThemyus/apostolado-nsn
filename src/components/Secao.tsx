@@ -2,12 +2,12 @@ import type { Secao as TipoSecao } from "../data/tipos";
 import { ListaDeBlocos } from "./Bloco";
 import { TextoRico } from "./TextoRico";
 
-export function Secao({ secao }: { secao: TipoSecao }) {
+export function Secao({ secao, numero }: { secao: TipoSecao; numero: number }) {
   return (
     <section className="secao" id={secao.id} aria-labelledby={`titulo-${secao.id}`}>
       <h2 className="secao__titulo" id={`titulo-${secao.id}`}>
         <span className="secao__numero" aria-hidden="true">
-          {secao.numero}
+          {numero}
         </span>
         {secao.titulo}
       </h2>

@@ -40,6 +40,6 @@ export function blocoVazio(tipo: NomeDeTipo): Bloco {
     case "tabela": return { id, tipo, colunas: ["", ""], linhas: [["", ""]] };
     case "legenda": return { id, tipo, itens: [{ chave: "", etiqueta: "ordinario", texto: "" }] };
     case "passo":
-      return { id, tipo, numero: 1, etiqueta: "ordinario", titulo: "", corpo: [] };
+      return { id, tipo, etiqueta: "ordinario", titulo: "", corpo: [] };
   }
 }

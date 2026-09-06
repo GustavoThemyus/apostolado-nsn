@@ -5,6 +5,7 @@ import { Calendario } from "./components/Calendario";
 import { DiaDeHoje } from "./components/DiaDeHoje";
 import { Indulgencias } from "./components/Indulgencias";
 import { Rodape } from "./components/Rodape";
+import { ProvedorDeNumeracao } from "./components/NumeracaoDePassos";
 import { Secao } from "./components/Secao";
 import { SeletorDeTema } from "./components/SeletorDeTema";
 import { Sumario } from "./components/Sumario";
@@ -63,6 +64,7 @@ export default function App() {
         </button>
       </BarraSuperior>
 
+      <ProvedorDeNumeracao secoes={guia.secoes}>
       <main className="moldura conteudo" id="conteudo">
         <Cabecalho
           chamada={guia.chamada}
@@ -75,12 +77,13 @@ export default function App() {
 
         <Sumario secoes={guia.secoes} secaoAtiva={secaoAtiva} variante="embutido" />
 
-        {guia.secoes.map((secao) => (
-          <Secao secao={secao} key={secao.id} />
+        {guia.secoes.map((secao, indice) => (
+          <Secao secao={secao} numero={indice + 1} key={secao.id} />
         ))}
 
         <Rodape paragrafos={guia.rodape} marca={guia.marca} lema={guia.lema} />
       </main>
+      </ProvedorDeNumeracao>
 
       {calendarioAberto && <Calendario aoFechar={() => definirCalendarioAberto(false)} />}
       {indulgenciasAbertas && <Indulgencias aoFechar={() => definirIndulgenciasAbertas(false)} />}

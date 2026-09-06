@@ -23,22 +23,30 @@ export function Admin() {
   const [recado, definirRecado] = useState("");
   const [quem, definirQuem] = useState<string>("");
   const [sujo, definirSujo] = useState(false);
+  /**
+   * Sha do arquivo como ele estava quando abrimos. É o que permite detectar
+   * que outra pessoa salvou no meio: sem ele, duas abas se sobrescrevem.
+   */
+  const [sha, definirSha] = useState<string | null>(null);
 
   // busca a versão publicada; se a API ainda não existe, segue com a embutida
   useEffect(() => {
     let vivo = true;
-    fetch("/api/conteudo")
+    fetch("/api/conteudo?documento=guia")
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-      .then((d: { conteudo: Guia; quem?: string }) => {
+      .then((d: { conteudo: Guia; sha?: string; quem?: string }) => {
         if (!vivo) return;
         if (d.conteudo) definirGuia(d.conteudo);
+        if (d.sha) definirSha(d.sha);
         if (d.quem) definirQuem(d.quem);
         definirEstado("pronto");
       })
       .catch(() => {
         if (!vivo) return;
         definirEstado("pronto");
-        definirRecado("Editando a cópia publicada. A API ainda não respondeu.");
+        definirRecado(
+          "A API não respondeu. Dá para olhar, mas não dá para salvar: recarregue quando o acesso estiver de pé."
+        );
       });
     return () => { vivo = false; };
   }, []);
@@ -62,15 +70,23 @@ export function Admin() {
   }, []);
 
   const salvar = async () => {
+    if (!sha) {
+      definirEstado("erro");
+      definirRecado("Sem contato com a API: recarregue o painel antes de salvar.");
+      return;
+    }
     definirEstado("salvando");
     definirRecado("");
     try {
-      const r = await fetch("/api/conteudo", {
+      const r = await fetch("/api/conteudo?documento=guia", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ conteudo: guia }),
+        body: JSON.stringify({ conteudo: guia, sha }),
       });
-      if (!r.ok) throw new Error(await r.text());
+      const d = (await r.json().catch(() => ({}))) as { erro?: string; sha?: string };
+      if (!r.ok) throw new Error(d.erro ?? `erro ${r.status}`);
+      // o sha do arquivo muda a cada gravação; guardar o novo para a próxima
+      if (d.sha) definirSha(d.sha);
       definirEstado("salvo");
       definirSujo(false);
       definirRecado("Salvo. O site republica em um a dois minutos.");
@@ -107,7 +123,7 @@ export function Admin() {
               {guia.secoes.map((s, i) => (
                 <li key={s.id}>
                   <button type="button" className="admin__secao" onClick={() => definirSecaoAberta(s.id)}>
-                    <span className="admin__secao-num">{s.numero}</span>
+                    <span className="admin__secao-num">{i + 1}</span>
                     <span className="admin__secao-nome">{s.titulo}</span>
                     <span className="admin__secao-conta">{s.blocos.length} blocos</span>
                   </button>
@@ -123,7 +139,7 @@ export function Admin() {
                 const id = novoId("secao");
                 definirGuia((g) => ({
                   ...g,
-                  secoes: [...g.secoes, { id, numero: g.secoes.length + 1, titulo: "Nova seção", blocos: [] }],
+                  secoes: [...g.secoes, { id, titulo: "Nova seção", blocos: [] }],
                 }));
                 definirSujo(true);
                 definirSecaoAberta(id);

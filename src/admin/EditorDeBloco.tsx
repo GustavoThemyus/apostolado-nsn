@@ -158,10 +158,6 @@ export function EditorDeBloco({ bloco, aoMudar, aoRemover, aoMover, children }: 
       {bloco.tipo === "passo" && (
         <>
           <div className="dupla">
-            <Campo rotulo="Número">
-              <input className="campo__linha" type="number" min={1} value={bloco.numero}
-                onChange={(e) => troca({ numero: Number(e.target.value) })} />
-            </Campo>
             <Campo rotulo="Etiqueta">
               <select className="campo__linha" value={bloco.etiqueta}
                 onChange={(e) => troca({ etiqueta: e.target.value as Etiqueta })}>

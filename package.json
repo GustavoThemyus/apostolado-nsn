@@ -9,7 +9,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "checar-tipos": "tsc -b --noEmit",
-    "publicar": "npm run build && npx --yes wrangler@4.85.0 deploy"
+    "publicar": "npm run build && npx --yes wrangler@4.85.0 deploy",
+    "test": "esbuild src/calendario/calendario.teste.ts --bundle --platform=node --format=cjs --outfile=.teste/calendario.cjs --log-level=warning && node .teste/calendario.cjs"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -20,6 +21,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^6.1.1",
+    "esbuild": "^0.28.2",
     "typescript": "^5.6.3",
     "vite": "^8.2.2"
   }

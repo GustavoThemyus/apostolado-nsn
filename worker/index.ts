@@ -1,5 +1,7 @@
+import { porId } from "../src/data/registro";
 import { emailAutenticado } from "./acesso";
-import { gravarConteudo, lerConteudo } from "./github";
+import { ConflitoDeEdicao, gravarConteudo, lerConteudo } from "./github";
+import { validar } from "./validar";
 
 export interface Env {
   ASSETS: Fetcher;
@@ -32,41 +34,55 @@ export default {
       return json({ erro: e instanceof Error ? e.message : "não autenticado" }, 401);
     }
 
+    if (url.pathname !== "/api/conteudo") return json({ erro: "rota desconhecida" }, 404);
+
+    // o cliente manda um id; quem sabe o caminho é o registro, aqui no servidor
+    const id = url.searchParams.get("documento") ?? "guia";
+    const doc = porId(id);
+    if (!doc) return json({ erro: `documento desconhecido: ${id}` }, 404);
+
     const cfg = {
       repo: env.GITHUB_REPO,
       token: env.GITHUB_TOKEN,
       ramo: env.GITHUB_RAMO ?? "main",
+      caminho: doc.caminho,
     };
 
-    if (url.pathname === "/api/conteudo" && pedido.method === "GET") {
+    if (pedido.method === "GET") {
       try {
         const { texto, sha } = await lerConteudo(cfg);
-        return json({ conteudo: JSON.parse(texto), sha, quem });
+        return json({ documento: doc.id, conteudo: JSON.parse(texto), sha, quem });
       } catch (e) {
         return json({ erro: e instanceof Error ? e.message : "falha ao ler" }, 502);
       }
     }
 
-    if (url.pathname === "/api/conteudo" && pedido.method === "PUT") {
+    if (pedido.method === "PUT") {
+      let corpo: { conteudo?: unknown; sha?: unknown };
       try {
-        const corpo = (await pedido.json()) as { conteudo?: unknown };
-        if (!corpo?.conteudo || typeof corpo.conteudo !== "object") {
-          return json({ erro: "corpo sem conteúdo" }, 400);
-        }
-        const g = corpo.conteudo as { secoes?: unknown[] };
-        if (!Array.isArray(g.secoes) || g.secoes.length === 0) {
-          return json({ erro: "conteúdo sem seções: recusado para não apagar o guia" }, 400);
-        }
-        // relê o sha na hora de gravar, para detectar edição concorrente
-        const { sha } = await lerConteudo(cfg);
-        const texto = JSON.stringify(corpo.conteudo, null, 2) + "\n";
-        const { commit } = await gravarConteudo(cfg, texto, sha, quem);
-        return json({ ok: true, commit, quem });
+        corpo = (await pedido.json()) as typeof corpo;
+      } catch {
+        return json({ erro: "corpo não é JSON" }, 400);
+      }
+
+      if (typeof corpo.sha !== "string" || corpo.sha === "") {
+        // sem o sha de origem não há como saber se alguém salvou no meio
+        return json({ erro: "gravação sem sha de origem; recarregue o painel" }, 428);
+      }
+
+      const problema = validar(doc.forma, corpo.conteudo);
+      if (problema) return json({ erro: problema }, 400);
+
+      try {
+        const texto = `${JSON.stringify(corpo.conteudo, null, 2)}\n`;
+        const { commit, sha } = await gravarConteudo(cfg, texto, corpo.sha, quem, doc.titulo);
+        return json({ ok: true, documento: doc.id, commit, sha, quem });
       } catch (e) {
+        if (e instanceof ConflitoDeEdicao) return json({ erro: e.message }, 409);
         return json({ erro: e instanceof Error ? e.message : "falha ao gravar" }, 502);
       }
     }
 
-    return json({ erro: "rota desconhecida" }, 404);
+    return json({ erro: "método não aceito" }, 405);
   },
 };

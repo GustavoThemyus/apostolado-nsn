@@ -1,5 +1,7 @@
-import type { Bloco as TipoBloco } from "../data/tipos";
+import type { ReactNode } from "react";
+import type { Bloco as TipoBloco, Etiqueta } from "../data/tipos";
 import { Legenda } from "./Legenda";
+import { usarNumeroDoPasso } from "./NumeracaoDePassos";
 import { Nota } from "./Nota";
 import { Oracao } from "./Oracao";
 import { Passo } from "./Passo";
@@ -48,16 +50,38 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
       return <Legenda itens={bloco.itens} />;
     case "passo":
       return (
-        <Passo
-          numero={bloco.numero}
+        <PassoNumerado
+          id={bloco.id}
           etiqueta={bloco.etiqueta}
           titulo={bloco.titulo}
           tituloLatim={bloco.tituloLatim}
         >
           <ListaDeBlocos blocos={bloco.corpo} />
-        </Passo>
+        </PassoNumerado>
       );
   }
+}
+
+/** O número vem da posição no documento, não do dado. */
+function PassoNumerado({
+  id,
+  etiqueta,
+  titulo,
+  tituloLatim,
+  children,
+}: {
+  id?: string;
+  etiqueta: Etiqueta;
+  titulo: string;
+  tituloLatim?: string;
+  children: ReactNode;
+}) {
+  const numero = usarNumeroDoPasso(id);
+  return (
+    <Passo numero={numero ?? 0} etiqueta={etiqueta} titulo={titulo} tituloLatim={tituloLatim}>
+      {children}
+    </Passo>
+  );
 }
 
 export function ListaDeBlocos({ blocos }: { blocos: TipoBloco[] }) {

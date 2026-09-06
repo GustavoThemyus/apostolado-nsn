@@ -1268,3 +1268,13 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------------- carregamento sob demanda ---------------- */
+
+.admin__carregando {
+  margin: 0;
+  padding: 2rem var(--respiro-lateral);
+  font-family: var(--sem-serifa);
+  font-size: 0.8rem;
+  color: var(--tinta-suave);
+}
