@@ -4,6 +4,7 @@ import { Nota } from "./Nota";
 import { Oracao } from "./Oracao";
 import { Passo } from "./Passo";
 import { Rubrica } from "./Rubrica";
+import { RubricaDaAssembleia } from "./RubricaDaAssembleia";
 import { Tabela } from "./Tabela";
 import { TextoRico } from "./TextoRico";
 
@@ -31,6 +32,8 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
       );
     case "rubrica":
       return <Rubrica texto={bloco.texto} />;
+    case "assembleia":
+      return <RubricaDaAssembleia texto={bloco.texto} />;
     case "subtitulo":
       return <h3 className="subtitulo">{bloco.texto}</h3>;
     case "lista":

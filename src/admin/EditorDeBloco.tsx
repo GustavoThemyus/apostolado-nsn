@@ -27,7 +27,7 @@ export function EditorDeBloco({ bloco, aoMudar, aoRemover, aoMover, children }: 
         </div>
       </header>
 
-      {(bloco.tipo === "paragrafo" || bloco.tipo === "rubrica") && (
+      {(bloco.tipo === "paragrafo" || bloco.tipo === "rubrica" || bloco.tipo === "assembleia") && (
         <Campo rotulo="Texto">
           <Texto valor={bloco.texto} aoMudar={(texto) => troca({ texto })} linhas={4} />
         </Campo>

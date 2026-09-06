@@ -39,6 +39,7 @@ export type Bloco = ComId &
   (
   | { tipo: "paragrafo"; texto: string }
   | { tipo: "rubrica"; texto: string }
+    | { tipo: "assembleia"; texto: string }
   | { tipo: "subtitulo"; texto: string }
   | { tipo: "lista"; ordenada?: boolean; itens: string[] }
   | { tipo: "oracao"; versos: Verso[] }

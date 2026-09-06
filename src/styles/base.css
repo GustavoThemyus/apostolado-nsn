@@ -734,6 +734,29 @@ button {
   content: none;
 }
 
+/* ---------------- rubrica da assembleia ---------------- */
+
+.assembleia {
+  max-width: 70ch;
+  margin: 0 0 0.85rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--elo);
+  color: var(--elo);
+  font-style: italic;
+}
+
+.assembleia__marca {
+  display: block;
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-style: normal;
+  opacity: 0.85;
+  margin-bottom: 0.1rem;
+}
+
 /* ---------------- cores litúrgicas ---------------- */
 
 .cor {

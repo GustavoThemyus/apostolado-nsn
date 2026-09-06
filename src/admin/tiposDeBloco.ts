@@ -5,7 +5,8 @@ export type NomeDeTipo = Bloco["tipo"];
 /** O menu de "criar bloco" que o painel oferece, com o que cada um serve. */
 export const TIPOS: { tipo: NomeDeTipo; rotulo: string; descricao: string }[] = [
   { tipo: "paragrafo", rotulo: "Parágrafo", descricao: "Texto corrido." },
-  { tipo: "rubrica", rotulo: "Rubrica", descricao: "Texto vermelho: gesto, posição, quem faz." },
+  { tipo: "rubrica", rotulo: "Rubrica", descricao: "Texto vermelho: o que o sacerdote faz." },
+  { tipo: "assembleia", rotulo: "Rubrica da assembleia", descricao: "Texto azul: o que os fiéis fazem." },
   { tipo: "subtitulo", rotulo: "Subtítulo", descricao: "Tópico dentro da seção." },
   { tipo: "lista", rotulo: "Lista", descricao: "Itens, com ou sem numeração." },
   { tipo: "oracao", rotulo: "Oração", descricao: "Citação com latim e tradução." },
@@ -31,6 +32,7 @@ export function blocoVazio(tipo: NomeDeTipo): Bloco {
   switch (tipo) {
     case "paragrafo": return { id, tipo, texto: "" };
     case "rubrica": return { id, tipo, texto: "" };
+    case "assembleia": return { id, tipo, texto: "" };
     case "subtitulo": return { id, tipo, texto: "" };
     case "lista": return { id, tipo, itens: [""] };
     case "oracao": return { id, tipo, versos: [{ latim: "", portugues: "" }] };

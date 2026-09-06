@@ -73,7 +73,7 @@
         {
           "id": "chaves-008",
           "tipo": "rubrica",
-          "texto": "Neste guia, o texto em vermelho e itálico é rubrica: descreve gesto, posição, quem faz o quê. O texto preto é o que se reza. É a mesma convenção do missal impresso: [lat]rubrica[/lat] vem de [lat]ruber[/lat], vermelho."
+          "texto": "Neste guia, como no missal impresso, o texto em vermelho e itálico é rubrica: descreve gesto, posição, quem faz o quê. O texto em preto é o que se reza. O que cabe à assembleia vai em azul, à parte, para o fiel achar de relance o que lhe toca."
         }
       ]
     },
@@ -263,6 +263,11 @@
               "id": "asperges-023",
               "tipo": "rubrica",
               "texto": "No Tempo Pascal, do Domingo da Páscoa a Pentecostes, o Asperges é substituído pelo [lat]Vidi aquam[/lat], com Aleluia, evocando a água que saía do lado do templo em Ezequiel."
+            },
+            {
+              "id": "assembleia-001",
+              "tipo": "assembleia",
+              "texto": "Ao ser aspergido, o fiel faz o sinal da cruz."
             }
           ]
         }
@@ -295,6 +300,11 @@
                   "portugues": "Ao Deus que alegra a minha juventude."
                 }
               ]
+            },
+            {
+              "id": "assembleia-002",
+              "tipo": "assembleia",
+              "texto": "Na Missa rezada, o costume mais difundido é acompanhar de joelhos as orações ao pé do altar."
             }
           ]
         },
@@ -355,6 +365,11 @@
               "id": "pe-altar-033",
               "tipo": "rubrica",
               "texto": "Bate-se três vezes no peito ao dizer [lat]mea culpa, mea culpa, mea maxima culpa[/lat]. A absolvição dada aqui é deprecativa, isto é, um pedido, e não dispensa a confissão sacramental de pecado grave."
+            },
+            {
+              "id": "assembleia-003",
+              "tipo": "assembleia",
+              "texto": "Na Missa dialogada, os fiéis rezam o [lat]Confiteor[/lat] junto com o acólito e batem no peito ao [lat]mea culpa[/lat]."
             }
           ]
         },
@@ -415,6 +430,11 @@
               "id": "catecumenos-041",
               "tipo": "paragrafo",
               "texto": "Nove invocações em grego, em três grupos de três: [lat]Kyrie eleison[/lat] (três vezes, ao Pai), [lat]Christe eleison[/lat] (três, ao Filho), [lat]Kyrie eleison[/lat] (três, ao Espírito Santo). É o único resíduo grego do rito romano, sobrevivente da época em que a liturgia de Roma era celebrada nessa língua."
+            },
+            {
+              "id": "assembleia-004",
+              "tipo": "assembleia",
+              "texto": "Na Missa cantada, o Kyrie é do coro e da assembleia, não do sacerdote."
             }
           ]
         },
@@ -435,6 +455,11 @@
               "id": "catecumenos-044",
               "tipo": "rubrica",
               "texto": "Omite-se no Advento, na Septuagésima, na Quaresma e no Tempo da Paixão, nas ferias, nas vigílias, nas Missas de defuntos e na maior parte das votivas. Quando o Glória é omitido, o fim da Missa também muda: diz-se [lat]Benedicamus Domino[/lat] em vez de [lat]Ite, missa est[/lat]."
+            },
+            {
+              "id": "assembleia-005",
+              "tipo": "assembleia",
+              "texto": "De pé. Na Missa cantada, a assembleia canta o Glória."
             }
           ]
         },
@@ -580,6 +605,11 @@
               "id": "catecumenos-064",
               "tipo": "rubrica",
               "texto": "Todos se ajoelham nas palavras [lat]Et incarnatus est de Spiritu Sancto ex Maria Virgine: et homo factus est[/lat]. Reza-se aos domingos, nas festas de I classe, nas do Senhor e de Nossa Senhora, dos Apóstolos, Evangelistas e Doutores da Igreja, e na dedicação de igreja. Numa feria comum, não há Credo."
+            },
+            {
+              "id": "assembleia-006",
+              "tipo": "assembleia",
+              "texto": "De pé, e de joelhos no [lat]Et incarnatus est[/lat]. Na Missa cantada, a assembleia canta o Credo."
             }
           ]
         }
@@ -825,6 +855,11 @@
               "id": "canon-094",
               "tipo": "rubrica",
               "texto": "Toca-se a campainha três vezes. Na Missa solene, o [lat]Benedictus[/lat] é cantado depois da consagração."
+            },
+            {
+              "id": "assembleia-007",
+              "tipo": "assembleia",
+              "texto": "Ao Sanctus, os fiéis se ajoelham, e assim permanecem até a Comunhão."
             }
           ]
         },
@@ -957,6 +992,11 @@
               "id": "canon-112",
               "tipo": "rubrica",
               "texto": "Genuflexão, elevação do Cálice, genuflexão, campainha. Segue-se [lat]Haec quotiescumque feceritis, in mei memoriam facietis[/lat]."
+            },
+            {
+              "id": "assembleia-008",
+              "tipo": "assembleia",
+              "texto": "Na elevação do Cálice, os fiéis adoram em silêncio, como na elevação da Hóstia."
             }
           ]
         },
@@ -1078,6 +1118,11 @@
               "id": "comunhao-128",
               "tipo": "rubrica",
               "texto": "O sacerdote reza ou canta sozinho, precedido do [lat]Oremus. Praeceptis salutaribus moniti[/lat]. Só a última petição é do acólito ou do povo: [lat]Sed libera nos a malo[/lat]. No rito antigo, o Pai-Nosso cabe ao sacerdote."
+            },
+            {
+              "id": "assembleia-009",
+              "tipo": "assembleia",
+              "texto": "Na Missa dialogada, cabe aos fiéis a última petição: [lat]Sed libera nos a malo[/lat]."
             }
           ]
         },
@@ -1306,6 +1351,11 @@
               "id": "conclusao-159",
               "tipo": "rubrica",
               "texto": "Omitida nas Missas de defuntos. O bispo dá bênção tríplice, precedida dos versículos [lat]Sit nomen Domini benedictum[/lat] e [lat]Adjutorium nostrum[/lat]."
+            },
+            {
+              "id": "assembleia-010",
+              "tipo": "assembleia",
+              "texto": "De joelhos, os fiéis se persignam ao receber a bênção."
             }
           ]
         },
@@ -1326,6 +1376,11 @@
               "id": "conclusao-162",
               "tipo": "rubrica",
               "texto": "Todos se ajoelham em [lat]Et Verbum caro factum est[/lat]. Resposta final: [lat]Deo gratias[/lat]. Em certos dias lê-se um Último Evangelho próprio: por exemplo, no terceiro Natal, o Evangelho da Epifania; no Domingo de Ramos, o da bênção dos ramos."
+            },
+            {
+              "id": "assembleia-011",
+              "tipo": "assembleia",
+              "texto": "De pé, e de joelhos em [lat]Et Verbum caro factum est[/lat]."
             }
           ]
         }
@@ -1353,6 +1408,11 @@
           "id": "leoninas-164",
           "tipo": "paragrafo",
           "texto": "Pio XI, em 1929, determinou que fossem oferecidas pela conversão da Rússia. Foram suprimidas pela instrução [lat]Inter Oecumenici[/lat], de 1964, mas continuam em uso costumeiro em quase todas as capelas onde se celebra o rito antigo."
+        },
+        {
+          "id": "assembleia-012",
+          "tipo": "assembleia",
+          "texto": "Rezadas de joelhos, com os fiéis respondendo ao sacerdote."
         }
       ]
     },
