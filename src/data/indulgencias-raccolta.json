@@ -1,16 +1,76 @@
 {
   "titulo": "Raccolta",
-  "descricao": "A coleção anterior a 1968, que corresponde ao Código de 1917.",
-  "emPreparacao": true,
+  "descricao": "A coleção de orações e obras indulgenciadas anterior a 1968.",
+  "rascunho": true,
   "secoes": [
     {
-      "id": "em-preparacao",
-      "titulo": "Em preparação",
+      "id": "o-que-e",
+      "titulo": "O que é a Raccolta",
       "blocos": [
         {
-          "id": "prep-001",
+          "id": "rc-001",
           "tipo": "paragrafo",
-          "texto": "Esta transcrição ainda será feita."
+          "texto": "A [i]Raccolta di orazioni e pie opere per le quali sono state concesse dai Sommi Pontefici le SS. Indulgenze[/i] é a coleção oficial das indulgências concedidas pela Santa Sé. Reunia, num volume só, as orações e obras indulgenciadas com o texto de cada concessão e o documento que a outorgou."
+        },
+        {
+          "id": "rc-002",
+          "tipo": "paragrafo",
+          "texto": "É a coleção que corresponde ao [b]Código de 1917[/b] e, portanto, ao rito que esta capela celebra. As edições que interessam são a de 1898, a de 1929 e a última, de [b]1950[/b], publicada pela Sagrada Penitenciaria."
+        },
+        {
+          "id": "rc-003",
+          "tipo": "nota",
+          "titulo": "Por que ela e não o Enchiridion",
+          "paragrafos": [
+            "As duas coleções descrevem disciplinas diferentes. A Raccolta traz as concessões como estavam antes de 1967, com a medida em dias e anos que o Código de 1917 pressupõe.",
+            "O Enchiridion, de 1968 em diante, reorganizou tudo e suprimiu essa medida. Quem segue a disciplina antiga consulta a Raccolta; quem segue a vigente, o Enchiridion. Este site traz as duas, separadas, para que não se confundam."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "como-se-organiza",
+      "titulo": "Como a transcrição será organizada",
+      "blocos": [
+        {
+          "id": "rc-010",
+          "tipo": "paragrafo",
+          "texto": "A Raccolta se divide por matéria, e a transcrição vai seguir a mesma divisão, para que o número de cada concessão continue conferindo com o do volume impresso."
+        },
+        {
+          "id": "rc-011",
+          "tipo": "lista",
+          "ordenada": true,
+          "itens": [
+            "Orações à Santíssima Trindade, ao Pai, ao Filho e ao Espírito Santo;",
+            "Ao Santíssimo Sacramento e à Paixão;",
+            "A Nossa Senhora, com o Rosário, o Escapulário e as ladainhas;",
+            "Aos anjos, a São José e aos santos;",
+            "Pelas almas do purgatório;",
+            "Obras de piedade: Via-Sacra, visitas, jaculatórias, exercícios;",
+            "Indulgências das ordens, confrarias e associações."
+          ]
+        },
+        {
+          "id": "rc-012",
+          "tipo": "paragrafo",
+          "texto": "Cada entrada trará o texto da oração, a espécie de indulgência, as condições e a referência ao documento que a concedeu."
+        }
+      ]
+    },
+    {
+      "id": "advertencia",
+      "titulo": "Antes de usar",
+      "blocos": [
+        {
+          "id": "rc-020",
+          "tipo": "nota",
+          "alerta": true,
+          "titulo": "Transcrição em andamento",
+          "paragrafos": [
+            "Esta página é um rascunho: a transcrição ainda não foi feita. O que está acima descreve o que a coleção é e como ela será organizada aqui, não as concessões em si.",
+            "Nenhuma indulgência deve ser tida por concedida com base nesta página enquanto o texto não estiver transcrito e conferido com o volume impresso."
+          ]
         }
       ]
     }

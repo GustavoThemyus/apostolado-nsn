@@ -2,6 +2,8 @@ import { useCallback, useMemo } from "react";
 import { mesLiturgico } from "../calendario/precedencia";
 import { DetalheDoDia } from "../components/DetalheDoDia";
 import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
+import { AssinarAgenda } from "../components/AssinarAgenda";
+import { Cabecalho } from "../components/Cabecalho";
 import { Moldura } from "../components/Moldura";
 import { usarRota } from "../rotas/usarRota";
 
@@ -47,13 +49,7 @@ export default function Calendario() {
 
   return (
     <Moldura titulo="Calendário Romano Tradicional">
-      <header className="pagina__topo">
-        <h1 className="pagina__titulo">Calendário Romano Tradicional</h1>
-        <p className="pagina__resumo">
-          O calendário do Missal de 1962, calculado para qualquer ano. Cada rito, e mesmo
-          cada lugar, tem o seu; este é o do rito tradicional, com o próprio da capela.
-        </p>
-      </header>
+      <Cabecalho titulo="Calendário Romano Tradicional" descricao="O calendário do Missal de 1962, calculado para qualquer ano. Cada rito, e mesmo cada lugar, tem o seu; este é o do rito tradicional, com o próprio da capela." />
 
       <div className="calendario__barra">
         <button type="button" className="barra__botao" onClick={() => andar(-1)} aria-label="Mês anterior">‹</button>
@@ -67,6 +63,12 @@ export default function Calendario() {
       <GradeDoMes dias={dias} hoje={hoje} escolhido={escolhido} aoEscolher={irPara} />
 
       {detalhe && <DetalheDoDia dia={detalhe} />}
+
+      <AssinarAgenda
+        grupo="ordo"
+        titulo="Levar o Ordo no celular"
+        explicacao="A capela segue o Ordo de São Pio X, anterior à reforma de 1955. O calendário acima é o do Missal de 1962, que difere dele em pontos como as oitavas, as vigílias e a Semana Santa. Para acompanhar o que se reza na capela, vincule o Ordo abaixo."
+      />
 
       <p className="calendario__ressalva">
         Calendário de 1962, calculado para qualquer ano, com o próprio da capela. Cobre o

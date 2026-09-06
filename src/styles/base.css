@@ -229,6 +229,28 @@ button {
   background: linear-gradient(var(--painel), var(--papel));
 }
 
+.cabecalho--pagina {
+  padding: 1.6rem 0 1.1rem;
+}
+
+.cabecalho__brasao--pagina {
+  width: 3.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.cabecalho--pagina .cabecalho__titulo {
+  font-size: clamp(1.65rem, 6.2vw, 2.4rem);
+}
+
+.cabecalho--pagina .cabecalho__chamada {
+  font-size: 0.58rem;
+  margin-bottom: 0.6rem;
+}
+
+.cabecalho--pagina .filete {
+  margin: 1.1rem 0 0;
+}
+
 .cabecalho__brasao {
   width: 5.25rem;
   height: auto;
@@ -1417,5 +1439,266 @@ button {
   }
   .cartoes {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+}
+
+/* ---------------- vincular calendário ---------------- */
+
+.agendas {
+  margin: 2rem 0 1.5rem;
+  padding: 1.15rem 1.2rem 1rem;
+  background: var(--painel);
+  border: 1px solid var(--fio);
+  border-left: 3px solid var(--ouro);
+  border-radius: 0.4rem;
+}
+
+.agendas__titulo {
+  font-family: var(--titular);
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.agendas__explicacao {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+  max-width: 62ch;
+}
+
+.agendas__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.agenda {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--fio-suave);
+}
+.agenda:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.agenda__nome {
+  display: grid;
+  gap: 0.15rem;
+  font-weight: 600;
+}
+.agenda__descricao {
+  font-weight: 400;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
+.agenda__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.botao-agenda {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alvo-toque);
+  padding: 0.35rem 0.8rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--marca-azul);
+  background: var(--marca-azul);
+  color: var(--marca-lirio);
+  font-family: var(--sem-serifa);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+.botao-agenda--secundario {
+  background: transparent;
+  color: var(--tinta-suave);
+  border-color: var(--fio);
+}
+.botao-agenda--secundario:hover {
+  color: var(--tinta);
+  border-color: var(--tinta-suave);
+}
+
+.agendas__nota {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
+@media (min-width: 46rem) {
+  .agenda {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.vazia--rascunho {
+  border-style: solid;
+  border-left: 3px solid var(--ouro);
+}
+
+/* ---------------- mural de avisos ---------------- */
+
+.mural {
+  margin: 1.75rem 0;
+  padding: 1.15rem 1.2rem 1rem;
+  background: var(--painel);
+  border: 1px solid var(--fio);
+  border-top: 2px solid var(--ouro);
+  border-radius: 0 0 0.4rem 0.4rem;
+}
+.mural__titulo {
+  font-family: var(--sem-serifa);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  margin: 0 0 0.75rem;
+}
+.mural__vazio {
+  margin: 0;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+.mural__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mural__aviso {
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--fio-suave);
+}
+.mural__aviso:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.mural__aviso-titulo {
+  font-family: var(--titular);
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin: 0 0 0.3rem;
+}
+
+/* ---------------- apresentação e contribuição ---------------- */
+
+.sobre,
+.contribuir,
+.padroeiros {
+  margin: 2.25rem 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--fio);
+}
+
+.sobre__titulo,
+.contribuir__titulo,
+.padroeiros__titulo {
+  font-family: var(--titular);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.sobre__mais {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  text-underline-offset: 4px;
+}
+
+.contribuir__vias {
+  display: grid;
+  gap: 1.25rem;
+}
+.contribuir__rotulo {
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin: 0 0 0.4rem;
+}
+.contribuir__dados {
+  margin: 0;
+  display: grid;
+  gap: 0.2rem;
+}
+.contribuir__dados > div {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0.5rem;
+}
+.contribuir__dados dt {
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  align-self: center;
+}
+.contribuir__dados dd {
+  margin: 0;
+  font-variant-numeric: lining-nums;
+}
+.contribuir__pix {
+  margin: 0 0 0.6rem;
+  word-break: break-all;
+  font-size: 0.95rem;
+}
+
+/* ---------------- padroeiros ---------------- */
+
+.padroeiros__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  text-align: center;
+}
+.padroeiro {
+  display: grid;
+  gap: 0.4rem;
+  justify-items: center;
+}
+.padroeiro__imagem,
+.padroeiro__falta {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--fio);
+  border-radius: 0.3rem;
+  background: var(--painel);
+}
+.padroeiro__nome {
+  font-family: var(--titular);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@media (min-width: 46rem) {
+  .contribuir__vias {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 }

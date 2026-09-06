@@ -1,16 +1,100 @@
 {
   "titulo": "Enchiridion Indulgentiarum",
-  "descricao": "A coleção de 1968 em diante, da disciplina em vigor.",
-  "emPreparacao": true,
+  "descricao": "A coleção em vigor, de 1968 em diante.",
+  "rascunho": true,
   "secoes": [
     {
-      "id": "em-preparacao",
-      "titulo": "Em preparação",
+      "id": "o-que-e",
+      "titulo": "O que é o Enchiridion",
       "blocos": [
         {
-          "id": "prep-001",
+          "id": "en-001",
           "tipo": "paragrafo",
-          "texto": "Esta transcrição ainda será feita."
+          "texto": "O [i]Enchiridion Indulgentiarum[/i] é a coleção oficial das indulgências desde a reforma de 1967. Substituiu a Raccolta e reorganizou por completo a matéria: em vez de uma lista longa de orações, passou a trabalhar com [b]concessões gerais[/b] mais quatro dezenas de concessões particulares."
+        },
+        {
+          "id": "en-002",
+          "tipo": "paragrafo",
+          "texto": "A constituição apostólica [lat]Indulgentiarum doctrina[/lat], de Paulo VI, é o documento que operou a mudança. As edições típicas do Enchiridion são de 1968, 1986 e [b]1999[/b], esta última a que está em vigor."
+        },
+        {
+          "id": "en-003",
+          "tipo": "subtitulo",
+          "texto": "O que mudou em relação à Raccolta"
+        },
+        {
+          "id": "en-004",
+          "tipo": "tabela",
+          "colunas": [
+            "",
+            "Raccolta",
+            "Enchiridion"
+          ],
+          "linhas": [
+            [
+              "Disciplina",
+              "Código de 1917",
+              "Código de 1983"
+            ],
+            [
+              "Medida das parciais",
+              "dias e anos, por equivalência à penitência antiga",
+              "suprimida: a parcial acompanha a obra"
+            ],
+            [
+              "Forma",
+              "lista de orações e obras",
+              "concessões gerais mais particulares"
+            ],
+            [
+              "Plenárias por dia",
+              "uma, salvo [i]toties quoties[/i]",
+              "uma, salvo no artigo da morte"
+            ]
+          ]
+        },
+        {
+          "id": "en-005",
+          "tipo": "paragrafo",
+          "texto": "A supressão dos dias e anos não foi mudança de doutrina, e sim de expressão: a medida antiga era entendida por equivalência à penitência canônica, e passou a ser julgada mais confusa do que útil."
+        }
+      ]
+    },
+    {
+      "id": "como-se-organiza",
+      "titulo": "Como a transcrição será organizada",
+      "blocos": [
+        {
+          "id": "en-010",
+          "tipo": "paragrafo",
+          "texto": "A transcrição vai seguir a ordem da edição típica de 1999, para que a numeração confira com a do volume."
+        },
+        {
+          "id": "en-011",
+          "tipo": "lista",
+          "ordenada": true,
+          "itens": [
+            "As quatro concessões gerais, que cobrem toda a vida cristã;",
+            "As concessões particulares, na ordem em que aparecem;",
+            "As orações indulgenciadas, com o texto em latim e a tradução;",
+            "As normas sobre as condições e sobre a aplicação aos defuntos."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "advertencia",
+      "titulo": "Antes de usar",
+      "blocos": [
+        {
+          "id": "en-020",
+          "tipo": "nota",
+          "alerta": true,
+          "titulo": "Transcrição em andamento",
+          "paragrafos": [
+            "Esta página é um rascunho. O que está acima descreve a coleção e o plano da transcrição; as concessões em si ainda não foram transcritas.",
+            "Em português não há edição digital acessível do Enchiridion, que é justamente a razão de fazê-la aqui. Enquanto isso não estiver conferido com o volume impresso, nada nesta página deve ser tomado como concessão."
+          ]
         }
       ]
     }

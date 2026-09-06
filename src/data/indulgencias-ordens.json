@@ -1,16 +1,64 @@
 {
   "titulo": "Indulgências próprias",
-  "descricao": "As de ordens, confrarias e associações.",
-  "emPreparacao": true,
+  "descricao": "As concedidas a ordens, confrarias e associações de fiéis.",
+  "rascunho": true,
   "secoes": [
     {
-      "id": "em-preparacao",
-      "titulo": "Em preparação",
+      "id": "o-que-sao",
+      "titulo": "O que são indulgências próprias",
       "blocos": [
         {
-          "id": "prep-001",
+          "id": "or-001",
           "tipo": "paragrafo",
-          "texto": "Estas listas ainda serão reunidas."
+          "texto": "Além das indulgências concedidas a toda a Igreja, há as que a Santa Sé concedeu a associações determinadas: ordens terceiras, confrarias, arquiconfrarias e pias uniões. Elas valem para quem está [b]validamente inscrito[/b], e só para esses."
+        },
+        {
+          "id": "or-002",
+          "tipo": "rubrica",
+          "texto": "Inscrição não é devoção. Rezar o Rosário não faz de alguém membro da Confraria do Rosário; a inscrição se faz no livro próprio, pelo sacerdote com faculdade para isso. Sem ela, a indulgência própria não se ganha."
+        },
+        {
+          "id": "or-003",
+          "tipo": "paragrafo",
+          "texto": "Muitos fiéis desta capela pertencem a alguma delas, e boa parte das concessões é pouco divulgada. Daí reuni-las aqui."
+        }
+      ]
+    },
+    {
+      "id": "quais",
+      "titulo": "As associações representadas na capela",
+      "blocos": [
+        {
+          "id": "or-010",
+          "tipo": "lista",
+          "itens": [
+            "[b]Apostolado da Oração[/b];",
+            "[b]Confraria do Escapulário do Carmo[/b];",
+            "[b]Arquiconfraria do Cordão de São Francisco[/b];",
+            "[b]Ordem Terceira Franciscana[/b];",
+            "[b]Ordem Terceira Dominicana[/b]."
+          ]
+        },
+        {
+          "id": "or-011",
+          "tipo": "paragrafo",
+          "texto": "Abaixo, o calendário de cada uma, para vincular ao celular. As listas escritas das concessões entram nesta página conforme forem reunidas."
+        }
+      ]
+    },
+    {
+      "id": "advertencia",
+      "titulo": "Antes de usar",
+      "blocos": [
+        {
+          "id": "or-020",
+          "tipo": "nota",
+          "alerta": true,
+          "titulo": "Listas em reunião",
+          "paragrafos": [
+            "Esta página é um rascunho. As concessões de cada associação ainda serão reunidas e conferidas com os respectivos indultos.",
+            "Em caso de dúvida sobre uma concessão ou sobre a própria inscrição, pergunte ao diretor da associação."
+          ]
         }
       ]
     }

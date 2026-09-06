@@ -1664,6 +1664,14 @@
             "[b]Sancta Missa[/b], dos Cônegos Regulares de São João Cantius. Traz fac-símiles do Missal de 1962, vídeos de cerimônias e o [lat]Ritus servandus[/lat] comentado.",
             "[b]Church Music Association of America[/b]. Disponibiliza gratuitamente o [lat]Liber Usualis[/lat] e outros livros de canto, onde estão as melodias do Próprio e do Ordinário."
           ]
+        },
+        {
+          "id": "nota-final",
+          "tipo": "nota",
+          "titulo": "Sobre este guia",
+          "paragrafos": [
+            "Guia descritivo do rito romano na forma do Missal de 1962. Os textos latinos citados são do próprio Missal; as traduções para o português são de trabalho, feitas para este guia, e não substituem uma edição bilíngue aprovada."
+          ]
         }
       ]
     }

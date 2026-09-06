@@ -78,6 +78,8 @@ export interface Conteudo {
   epigrafe?: string;
   /** Marca a página como ainda por escrever, para o aviso aparecer. */
   emPreparacao?: boolean;
+  /** Texto provisório, a ser substituído pelo definitivo. */
+  rascunho?: boolean;
   secoes: Secao[];
 }
 
@@ -87,7 +89,18 @@ export interface Site {
   marcaCurta: string;
   lema: string;
   rodape: string[];
-  agenda: { nome: string; google: string };
+  agendas: Agenda[];
+}
+
+/** Um calendário do Google que o fiel pode vincular ao aparelho dele. */
+export interface Agenda {
+  id: string;
+  nome: string;
+  descricao?: string;
+  /** Onde ela aparece no site. */
+  grupo: "ordo" | "indulgencias";
+  /** Identificador do calendário, que só funciona se ele for público. */
+  google: string;
 }
 
 export interface Guia {

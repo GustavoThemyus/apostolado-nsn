@@ -3,10 +3,45 @@
   "marcaCurta": "NSN",
   "lema": "Iter para tutum",
   "rodape": [
-    "Guia descritivo do rito romano na forma do Missal de 1962. Os textos latinos citados são do próprio Missal; as traduções para o português são de trabalho, feitas para este guia, e não substituem uma edição bilíngue aprovada."
+    "Apostolado Nossa Senhora das Neves. Rito Romano na forma do Missal de São Pio V."
   ],
-  "agenda": {
-    "nome": "Ordo litúrgico e indulgências",
-    "google": ""
-  }
+  "agendas": [
+    {
+      "id": "ordo",
+      "grupo": "ordo",
+      "nome": "Ordo Litúrgico diário de São Pio X",
+      "descricao": "O Ordo que a capela segue, anterior à reforma de 1955.",
+      "google": "e99e1c5824d2cb9b22d9ef2790640cfdca3d36059a4271bc177c6d87552d9625@group.calendar.google.com"
+    },
+    {
+      "id": "apostolado-oracao",
+      "grupo": "indulgencias",
+      "nome": "Apostolado da Oração",
+      "google": "bddf4402439fe8cd54f9cc7d12ee6096a1ce1030376502cba2d55a59a7ab9019@group.calendar.google.com"
+    },
+    {
+      "id": "escapulario",
+      "grupo": "indulgencias",
+      "nome": "Confraria do Escapulário do Carmo",
+      "google": "eec947dc8927b470b185ce9bea11da753d44b782cbe2554696449500112a2303@group.calendar.google.com"
+    },
+    {
+      "id": "cordao",
+      "grupo": "indulgencias",
+      "nome": "Arquiconfraria do Cordão de São Francisco",
+      "google": "45946b2558e774684cadce808e8167a6813f5ea02e81a0819b91952fcc6c536a@group.calendar.google.com"
+    },
+    {
+      "id": "franciscana",
+      "grupo": "indulgencias",
+      "nome": "Ordem Terceira Franciscana",
+      "google": "6a6e8fff0af2f7cc9add6ab4854a14807c7d3243689707816bb123d583789e29@group.calendar.google.com"
+    },
+    {
+      "id": "dominicana",
+      "grupo": "indulgencias",
+      "nome": "Ordem Terceira Dominicana",
+      "google": "a3977bfc4cbddd7ee81462739e0fdd21018601deff3dbf1dad28dfa5ed03f639@group.calendar.google.com"
+    }
+  ]
 }
