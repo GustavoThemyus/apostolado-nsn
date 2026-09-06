@@ -51,6 +51,20 @@ export default function Calendario() {
     <Moldura titulo="Calendário Romano Tradicional">
       <Cabecalho titulo="Calendário Romano Tradicional" descricao="O calendário do Missal de 1962, calculado para qualquer ano. Cada rito, e mesmo cada lugar, tem o seu; este é o do rito tradicional, com o próprio da capela." />
 
+      <aside className="nota" aria-labelledby="qual-calendario">
+        <h2 className="nota__titulo" id="qual-calendario">Qual calendário é este</h2>
+        <p>
+          O calendário abaixo é o do <strong>Missal de 1962</strong>, calculado aqui para
+          qualquer ano. A capela, porém, segue o <strong>Ordo de São Pio X</strong>, anterior
+          à reforma de 1955. Em boa parte dos dias os dois coincidem; nas oitavas, nas
+          vigílias e na Semana Santa, não.
+        </p>
+        <p>
+          Os dois convivem: este fica no site, e o Ordo da capela pode ser{" "}
+          <a href="#ordo-no-celular">vinculado ao seu celular</a> sem substituir nada.
+        </p>
+      </aside>
+
       <div className="calendario__barra">
         <button type="button" className="barra__botao" onClick={() => andar(-1)} aria-label="Mês anterior">‹</button>
         <p className="calendario__mes">
@@ -67,14 +81,14 @@ export default function Calendario() {
       <AssinarAgenda
         grupo="ordo"
         titulo="Levar o Ordo no celular"
-        explicacao="A capela segue o Ordo de São Pio X, anterior à reforma de 1955. O calendário acima é o do Missal de 1962, que difere dele em pontos como as oitavas, as vigílias e a Semana Santa. Para acompanhar o que se reza na capela, vincule o Ordo abaixo."
+        ancora="ordo-no-celular"
+        explicacao="Para acompanhar dia a dia o que se reza na capela, no próprio aparelho."
       />
 
       <p className="calendario__ressalva">
-        Calendário de 1962, calculado para qualquer ano, com o próprio da capela. Cobre o
-        Temporal, o Santoral de I a IV classe, as Têmporas, as Rogações e a transferência
-        das festas de I classe impedidas. Não trata das oitavas menores nem das Missas
-        votivas. Confira no Ordo antes de celebrar.
+        Cobre o Temporal, o Santoral de I a IV classe, as Têmporas, as Rogações e a
+        transferência das festas de I classe impedidas, com o próprio da capela. Não trata
+        das oitavas menores nem das Missas votivas. Para celebrar, confira no Ordo.
       </p>
     </Moldura>
   );

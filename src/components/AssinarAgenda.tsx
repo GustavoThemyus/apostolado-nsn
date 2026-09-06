@@ -39,16 +39,19 @@ export function AssinarAgenda({
   grupo,
   titulo,
   explicacao,
+  ancora,
 }: {
   grupo: Agenda["grupo"];
   titulo: string;
   explicacao?: string;
+  /** Para poder ser apontada de outro ponto da página. */
+  ancora?: string;
 }) {
   const agendas = site.agendas.filter((a) => a.grupo === grupo && a.google);
   if (agendas.length === 0) return null;
 
   return (
-    <section className="agendas">
+    <section className="agendas" id={ancora}>
       <h2 className="agendas__titulo">{titulo}</h2>
       {explicacao && <p className="agendas__explicacao">{explicacao}</p>}
       <ul className="agendas__lista">
