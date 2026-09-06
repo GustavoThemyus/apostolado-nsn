@@ -20,7 +20,9 @@ export function BarraSuperior({
           <span className="barra__letreiro">{marca}</span>
         </span>
         <span className="barra__local">{local}</span>
-        {children}
+        <nav className="barra__secoes" aria-label="Seções do guia">
+          {children}
+        </nav>
       </div>
       <div
         className="barra__progresso"

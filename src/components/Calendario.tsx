@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { mesLiturgico } from "../calendario/precedencia";
+import { Desenvolvimento } from "./Desenvolvimento";
 import { porExtensoCurto } from "./DiaDeHoje";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
 import type { DiaLiturgico } from "../calendario/tipos";
@@ -55,6 +56,7 @@ function Detalhe({ dia }: { dia: DiaLiturgico }) {
       {dia.observacoes.map((o) => (
         <p className="dia__observacao" key={o}>{o}</p>
       ))}
+      <Desenvolvimento dia={dia} />
     </div>
   );
 }

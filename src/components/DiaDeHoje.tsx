@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { diaLiturgico } from "../calendario/precedencia";
+import { Desenvolvimento } from "./Desenvolvimento";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
 
 const NOME_DA_COR: Record<string, string> = {
@@ -77,6 +78,7 @@ export function DiaDeHoje({ data, aoAbrirCalendario }: { data?: Date; aoAbrirCal
       {dia.observacoes.map((o) => (
         <p className="dia__observacao" key={o}>{o}</p>
       ))}
+      <Desenvolvimento dia={dia} />
       <button type="button" className="dia__link" onClick={aoAbrirCalendario}>
         Ver o calendário do ano
       </button>

@@ -5,7 +5,7 @@ import type { FestaFixa } from "./santoral";
  *
  * Pelas Rubricas Gerais de 1960, o Titular da igreja é festa de I classe
  * naquela igreja. Nossa Senhora das Neves, que no calendário universal é de
- * III classe em 5 de agosto, sobe aqui a I classe — e, sendo de I classe,
+ * III classe em 5 de agosto, sobe aqui a I classe. E, sendo de I classe,
  * passa a transferir-se quando impedida, em vez de ser apenas omitida.
  */
 export const PROPRIO_LOCAL: FestaFixa[] = [

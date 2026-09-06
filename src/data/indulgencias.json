@@ -1,0 +1,265 @@
+{
+  "titulo": "Indulgências",
+  "descricao": "O que são, como se obtêm e de onde vêm, segundo o Código de 1917.",
+  "secoes": [
+    {
+      "id": "o-que-e",
+      "numero": 1,
+      "titulo": "O que é uma indulgência",
+      "resumo": "Código de Direito Canônico de 1917, cânones 911 a 930.",
+      "blocos": [
+        {
+          "id": "i-001",
+          "tipo": "paragrafo",
+          "texto": "O cânon 911 define e manda estimar: indulgência é a [b]remissão diante de Deus da pena temporal devida pelos pecados quanto à culpa já perdoados[/b], que a autoridade eclesiástica concede do tesouro da Igreja: [lat]pro vivis per modum absolutionis, pro defunctis per modum suffragii[/lat]."
+        },
+        {
+          "id": "i-002",
+          "tipo": "nota",
+          "titulo": "A distinção que resolve quase toda confusão",
+          "paragrafos": [
+            "Indulgência não perdoa pecado. O pecado é perdoado na confissão, e é da [b]culpa[/b] que a absolvição trata. O que resta depois disso é a [b]pena temporal[/b]: a dívida de satisfação que continua mesmo com a culpa remitida. É sobre ela, e só sobre ela, que a indulgência age.",
+            "Por isso o cânon fala em pecados «quanto à culpa já perdoados». Quem está em pecado grave não ganha indulgência nenhuma: não há o que remitir enquanto a culpa está de pé."
+          ]
+        },
+        {
+          "id": "i-003",
+          "tipo": "subtitulo",
+          "texto": "Plenária e parcial"
+        },
+        {
+          "id": "i-004",
+          "tipo": "paragrafo",
+          "texto": "A [b]plenária[/b] remite toda a pena temporal restante; a [b]parcial[/b], uma porção dela."
+        },
+        {
+          "id": "i-005",
+          "tipo": "paragrafo",
+          "texto": "As parciais vinham medidas em «dias» e «anos»: cem dias, sete anos, e assim por diante. [b]Isso nunca significou tempo de purgatório.[/b] A medida é de equivalência: vale o que valeria a antiga penitência canônica pública daquela duração. Quanto isso remite diante de Deus, a Igreja não diz; o número mede somente o trabalho."
+        },
+        {
+          "id": "i-006",
+          "tipo": "paragrafo",
+          "texto": "O cânon 926 traz uma misericórdia que costuma passar despercebida: quem não consegue ganhar a plenária inteira [b]ganha-a em parte[/b], na medida da disposição que tem. Nenhum esforço se perde por faltar a disposição perfeita."
+        }
+      ]
+    },
+    {
+      "id": "como-obter",
+      "numero": 2,
+      "titulo": "Como se obtém",
+      "blocos": [
+        {
+          "id": "i-010",
+          "tipo": "paragrafo",
+          "texto": "O cânon 925 separa duas coisas: estar [b]capaz[/b] de ganhar e [b]de fato[/b] ganhar."
+        },
+        {
+          "id": "i-011",
+          "tipo": "legenda",
+          "itens": [
+            {
+              "chave": "Batizado",
+              "etiqueta": "ordinario",
+              "texto": "Sem o batismo não há sujeito capaz."
+            },
+            {
+              "chave": "Não excomungado",
+              "etiqueta": "ordinario",
+              "texto": "A excomunhão exclui dos bens comuns da Igreja."
+            },
+            {
+              "chave": "Em graça",
+              "etiqueta": "proprio",
+              "texto": "Ao menos [b]ao terminar[/b] as obras prescritas. O cânon diz [lat]in statu gratiae saltem in fine operum[/lat]: dá para começar a obra e confessar-se antes de concluí-la."
+            },
+            {
+              "chave": "Súdito",
+              "etiqueta": "ordinario",
+              "texto": "Sujeito a quem concede. Indulgência de bispo alcança os seus."
+            }
+          ]
+        },
+        {
+          "id": "i-012",
+          "tipo": "paragrafo",
+          "texto": "Cumpridos esses quatro, ainda são precisas duas coisas para ganhar de fato: [b]intenção[/b], que basta ser geral, e [b]cumprir a obra[/b] no tempo marcado e do modo devido."
+        },
+        {
+          "id": "i-013",
+          "tipo": "nota",
+          "titulo": "A intenção geral basta",
+          "paragrafos": [
+            "Não é preciso lembrar de cada indulgência. Uma intenção habitual, feita de manhã, ou renovada de tempos em tempos, de ganhar todas as que puder, cobre o dia inteiro. O cânon pede intenção [lat]saltem generalem[/lat]."
+          ]
+        },
+        {
+          "id": "i-014",
+          "tipo": "subtitulo",
+          "texto": "As condições da plenária"
+        },
+        {
+          "id": "i-015",
+          "tipo": "paragrafo",
+          "texto": "Além da obra própria de cada concessão, a plenária pede confissão sacramental, comunhão e oração pelas intenções do Sumo Pontífice. A tradição acrescenta o que é decisivo e não se mede: [b]o desapego de todo pecado, mesmo venial[/b]. Faltando isso, a plenária se torna parcial, pelo cânon 926."
+        },
+        {
+          "id": "i-016",
+          "tipo": "rubrica",
+          "texto": "Cânon 923: quando a obra é visitar uma igreja em dia determinado, a visita vale [b]do meio-dia da véspera até a meia-noite do próprio dia[/b]. É uma folga de trinta e seis horas, não de vinte e quatro."
+        },
+        {
+          "id": "i-017",
+          "tipo": "subtitulo",
+          "texto": "Pelos vivos, não se pode; pelos mortos, sim"
+        },
+        {
+          "id": "i-018",
+          "tipo": "paragrafo",
+          "texto": "O cânon 930 é taxativo em duas direções. [b]Ninguém pode aplicar a outro vivo[/b] a indulgência que ganha, nem ao filho, nem ao amigo. Mas [b]às almas do purgatório[/b] todas as indulgências concedidas pelo Romano Pontífice são aplicáveis, salvo declaração em contrário."
+        },
+        {
+          "id": "i-019",
+          "tipo": "paragrafo",
+          "texto": "A diferença está no cânon 911: pelos vivos, [lat]per modum absolutionis[/lat], ato de jurisdição sobre quem está sujeito à Igreja; pelos defuntos, [lat]per modum suffragii[/lat], porque sobre eles a Igreja não tem jurisdição, pede a Deus, e é Deus quem aplica."
+        }
+      ]
+    },
+    {
+      "id": "quando",
+      "numero": 3,
+      "titulo": "Os dias em que se obtém",
+      "resumo": "O Código dá o modo; as concessões vêm da Raccolta e dos indultos.",
+      "blocos": [
+        {
+          "id": "i-020",
+          "tipo": "paragrafo",
+          "texto": "Vale separar duas coisas que costumam ser confundidas. O [b]Código[/b] estabelece quem concede, quem pode ganhar e sob que condições. [b]Quais[/b] são as indulgências, e a que obras estão presas, vem da [i]Raccolta[/i] (a coleção oficial de orações e obras indulgenciadas) e dos indultos particulares. Consulte-a para o caso concreto."
+        },
+        {
+          "id": "i-021",
+          "tipo": "tabela",
+          "colunas": ["Dia ou obra", "O que se ganha", "Onde está"],
+          "linhas": [
+            [
+              "Comemoração dos Fiéis Defuntos, 2 de novembro",
+              "Toda Missa celebrada nesse dia goza do privilégio de altar privilegiado. Visitando uma igreja, plenária [i]toties quoties[/i], aplicável aos defuntos.",
+              "cân. 917 §1"
+            ],
+            [
+              "Oitava de Todos os Santos, 1 a 8 de novembro",
+              "Plenária diária pela visita ao cemitério, aplicável somente aos defuntos.",
+              "Raccolta"
+            ],
+            [
+              "Quarenta Horas",
+              "Todos os altares da igreja ficam privilegiados enquanto dura a exposição.",
+              "cân. 917 §2"
+            ],
+            [
+              "Porciúncula, 2 de agosto",
+              "Plenária [i]toties quoties[/i], tantas vezes quantas forem as visitas.",
+              "indulto"
+            ],
+            [
+              "Festa do Titular da igreja",
+              "Plenária aos que visitam a própria igreja.",
+              "cân. 921 §3"
+            ],
+            [
+              "Bênção papal",
+              "O bispo pode dá-la com indulgência plenária na sua diocese, na fórmula prescrita.",
+              "cân. 914"
+            ],
+            [
+              "Artigo da morte",
+              "Bênção apostólica com plenária, no momento da morte.",
+              "Raccolta"
+            ],
+            ["Via-Sacra", "Plenária, feitas as catorze estações.", "Raccolta"],
+            [
+              "Rosário diante do Santíssimo",
+              "Plenária, rezado ao menos um terço.",
+              "Raccolta"
+            ],
+            [
+              "Adoração e primeiras sextas-feiras",
+              "Concessões próprias, conforme a obra.",
+              "Raccolta"
+            ]
+          ]
+        },
+        {
+          "id": "i-022",
+          "tipo": "rubrica",
+          "texto": "Cânon 921: quando a plenária é concedida «para as festas do Senhor ou de Nossa Senhora», entende-se apenas as do [b]calendário universal[/b]. Para as dos Apóstolos, só a festa natalícia."
+        },
+        {
+          "id": "i-023",
+          "tipo": "nota",
+          "titulo": "Festa transferida leva a indulgência junto",
+          "paragrafos": [
+            "O cânon 922 resolve o caso que o calendário deste guia calcula: quando a festa é legitimamente transferida, [b]a indulgência a ela ligada transfere-se com ela[/b], sob as condições que o cânon estabelece.",
+            "Assim, se a Imaculada Conceição cai em domingo do Advento e vai para o dia 9, a indulgência acompanha o dia 9."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "origem",
+      "numero": 4,
+      "titulo": "Origem e razões",
+      "blocos": [
+        {
+          "id": "i-030",
+          "tipo": "subtitulo",
+          "texto": "De onde vem o que se distribui"
+        },
+        {
+          "id": "i-031",
+          "tipo": "paragrafo",
+          "texto": "O cânon 911 fala em [lat]thesauro Ecclesiae[/lat], o tesouro da Igreja: a satisfação infinita de Cristo, à qual se somam os méritos superabundantes de Nossa Senhora e dos santos. Não é um fundo que se esgote, e não é da Igreja no sentido de propriedade, ela o dispensa, não o possui."
+        },
+        {
+          "id": "i-032",
+          "tipo": "paragrafo",
+          "texto": "O cânon 912 diz a quem toca dispensá-lo: ao Romano Pontífice, «a quem foi confiada por Cristo Senhor a dispensação de todo o tesouro espiritual da Igreja», e apenas àqueles a quem o direito expressamente o concede. O fundamento é o poder das chaves: [i]o que ligares na terra será ligado no céu[/i]."
+        },
+        {
+          "id": "i-033",
+          "tipo": "subtitulo",
+          "texto": "A prática antiga por trás da medida"
+        },
+        {
+          "id": "i-034",
+          "tipo": "paragrafo",
+          "texto": "Nos primeiros séculos, o pecado grave confessado trazia penitência pública de duração longa, às vezes de anos. Quem a cumpria satisfazia; quem obtinha remissão de parte dela, por intercessão dos mártires ou por decisão do bispo, recebia o que veio a se chamar indulgência. Daí a medida em dias e anos ter sobrevivido depois que a penitência pública desapareceu: ela nomeia [b]a penitência antiga a que a obra equivale[/b]."
+        },
+        {
+          "id": "i-035",
+          "tipo": "subtitulo",
+          "texto": "O que é de fé"
+        },
+        {
+          "id": "i-036",
+          "tipo": "paragrafo",
+          "texto": "O Concílio de Trento, na sessão XXV, declarou que o uso das indulgências é [b]salutaríssimo[/b] ao povo cristão e lançou anátema contra quem negue à Igreja o poder de concedê-las. Que a Igreja tem esse poder e que o seu uso é salutar é, portanto, matéria de fé."
+        },
+        {
+          "id": "i-037",
+          "tipo": "paragrafo",
+          "texto": "O mesmo concílio, no entanto, mandou cortar os abusos que haviam desacreditado a prática, e proibiu qualquer ganho pecuniário ligado a elas. A doutrina é firme; o que Trento reformou foi o modo de administrá-la."
+        },
+        {
+          "id": "i-038",
+          "tipo": "nota",
+          "alerta": true,
+          "titulo": "Sobre a disciplina em vigor",
+          "paragrafos": [
+            "O que está descrito aqui é a disciplina do Código de 1917, que é a que corresponde ao rito deste guia. Ela foi alterada em 1967 pela constituição [lat]Indulgentiarum doctrina[/lat], que suprimiu a medida em dias e anos e reorganizou as concessões."
+          ]
+        }
+      ]
+    }
+  ]
+}

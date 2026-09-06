@@ -157,6 +157,7 @@ button {
 .barra__local {
   flex: 1;
   min-width: 0;
+  display: none;
   font-size: 0.9rem;
   color: var(--tinta-suave);
   white-space: nowrap;
@@ -180,6 +181,20 @@ button {
   text-transform: uppercase;
   color: var(--tinta-suave);
 }
+.barra__secoes {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  padding-left: 0.4rem;
+  border-left: 1px solid var(--fio);
+  margin-left: auto;
+}
+
+.barra__botao--secao {
+  padding-inline: 0.4rem;
+  font-size: 0.63rem;
+}
+
 .barra__botao--icone {
   color: var(--ouro-tinta);
 }
@@ -411,6 +426,58 @@ button {
   min-height: var(--alvo-toque);
 }
 
+/* ---------------- desenvolvimento do dia ---------------- */
+
+.desenv {
+  margin-top: 0.9rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--fio);
+}
+
+.desenv__titulo {
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  margin: 0 0 0.5rem;
+}
+
+.desenv__lista {
+  display: grid;
+  gap: 0.4rem 1.4rem;
+  margin: 0;
+}
+.desenv__lista > div {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.desenv__lista dt {
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.desenv__lista dd {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.sinal {
+  font-family: var(--sem-serifa);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.sinal--sim { color: var(--lit-verde); }
+.sinal--nao { color: var(--tinta-suave); }
+
 /* ---------------- calendário do ano ---------------- */
 
 .calendario {
@@ -552,6 +619,57 @@ button {
   .calendario__mes {
     font-size: 1.2rem;
   }
+}
+
+/* ---------------- folha em tela cheia ---------------- */
+
+.folha {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--papel);
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+}
+
+.folha__barra {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 var(--respiro-lateral);
+  height: var(--altura-barra);
+  border-bottom: 1px solid var(--fio);
+  background: var(--painel);
+}
+
+.folha__titulo {
+  flex: 1;
+  margin: 0;
+  font-family: var(--titular);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.folha__corpo {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  width: 100%;
+  max-width: var(--largura-texto);
+  margin: 0 auto;
+  padding: 0 var(--respiro-lateral) calc(3rem + env(safe-area-inset-bottom));
+}
+
+.folha__descricao {
+  margin: 1.1rem 0 0;
+  color: var(--tinta-suave);
+  font-style: italic;
+  max-width: 60ch;
+}
+
+.folha__corpo .secao:first-of-type {
+  padding-top: 1.5rem;
 }
 
 /* ---------------- sumário ---------------- */
@@ -1011,6 +1129,15 @@ button {
   :root {
     --respiro-lateral: 1.4rem;
     --altura-barra: 3.5rem;
+  }
+
+  /* a partir daqui cabe o título da seção ao lado dos botões */
+  .barra__local {
+    display: block;
+  }
+  .barra__botao--secao {
+    padding-inline: 0.6rem;
+    font-size: 0.7rem;
   }
 
   body {

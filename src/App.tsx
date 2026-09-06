@@ -3,6 +3,7 @@ import { BarraSuperior } from "./components/BarraSuperior";
 import { Cabecalho } from "./components/Cabecalho";
 import { Calendario } from "./components/Calendario";
 import { DiaDeHoje } from "./components/DiaDeHoje";
+import { Indulgencias } from "./components/Indulgencias";
 import { Rodape } from "./components/Rodape";
 import { Secao } from "./components/Secao";
 import { SeletorDeTema } from "./components/SeletorDeTema";
@@ -15,6 +16,7 @@ import { usarTema } from "./hooks/usarTema";
 export default function App() {
   const [sumarioAberto, definirSumarioAberto] = useState(false);
   const [calendarioAberto, definirCalendarioAberto] = useState(false);
+  const [indulgenciasAbertas, definirIndulgenciasAbertas] = useState(false);
   const { tema, alternar } = usarTema();
   const progresso = usarProgressoDeLeitura();
 
@@ -36,7 +38,23 @@ export default function App() {
         <SeletorDeTema tema={tema} aoAlternar={alternar} />
         <button
           type="button"
-          className="barra__botao"
+          className="barra__botao barra__botao--secao"
+          onClick={() => definirCalendarioAberto(true)}
+          aria-haspopup="dialog"
+        >
+          Calendário
+        </button>
+        <button
+          type="button"
+          className="barra__botao barra__botao--secao"
+          onClick={() => definirIndulgenciasAbertas(true)}
+          aria-haspopup="dialog"
+        >
+          Indulgências
+        </button>
+        <button
+          type="button"
+          className="barra__botao barra__botao--secao"
           onClick={() => definirSumarioAberto((aberto) => !aberto)}
           aria-expanded={sumarioAberto}
           aria-haspopup="dialog"
@@ -65,6 +83,7 @@ export default function App() {
       </main>
 
       {calendarioAberto && <Calendario aoFechar={() => definirCalendarioAberto(false)} />}
+      {indulgenciasAbertas && <Indulgencias aoFechar={() => definirIndulgenciasAbertas(false)} />}
 
       <Sumario
         secoes={guia.secoes}
