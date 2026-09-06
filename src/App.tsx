@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { BarraSuperior } from "./components/BarraSuperior";
 import { Cabecalho } from "./components/Cabecalho";
+import { Calendario } from "./components/Calendario";
 import { DiaDeHoje } from "./components/DiaDeHoje";
 import { Rodape } from "./components/Rodape";
 import { Secao } from "./components/Secao";
@@ -13,6 +14,7 @@ import { usarTema } from "./hooks/usarTema";
 
 export default function App() {
   const [sumarioAberto, definirSumarioAberto] = useState(false);
+  const [calendarioAberto, definirCalendarioAberto] = useState(false);
   const { tema, alternar } = usarTema();
   const progresso = usarProgressoDeLeitura();
 
@@ -51,7 +53,7 @@ export default function App() {
           epigrafe={guia.epigrafe}
         />
 
-        <DiaDeHoje />
+        <DiaDeHoje aoAbrirCalendario={() => definirCalendarioAberto(true)} />
 
         <Sumario secoes={guia.secoes} secaoAtiva={secaoAtiva} variante="embutido" />
 
@@ -61,6 +63,8 @@ export default function App() {
 
         <Rodape paragrafos={guia.rodape} marca={guia.marca} lema={guia.lema} />
       </main>
+
+      {calendarioAberto && <Calendario aoFechar={() => definirCalendarioAberto(false)} />}
 
       <Sumario
         secoes={guia.secoes}

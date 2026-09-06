@@ -20,6 +20,9 @@ export const NOME_DO_TEMPO: Record<Tempo, string> = {
   depoisDePentecostes: "Tempo depois de Pentecostes",
 };
 
+/** Grau da celebração no Código de Rubricas de 1960. */
+export type Classe = 1 | 2 | 3 | 4;
+
 /** Cor do paramento. Usa os mesmos nomes das marcas de cor do guia. */
 export type Cor = "branco" | "vermelho" | "verde" | "roxo" | "preto" | "rosa";
 
@@ -45,6 +48,11 @@ export interface DiaLiturgico {
   cor: Cor;
   /** Semana dentro do tempo, quando faz sentido (ex.: 15 em "XV depois de Pentecostes"). */
   semana?: number;
-  /** Nome em português, quando o dia tem um. */
-  nome?: string;
+  /** O que se celebra: a festa que venceu a precedência, ou o dia do Temporal. */
+  nome: string;
+  classe: Classe;
+  /** Celebrações vencidas que sobrevivem como comemoração. */
+  comemoracoes: string[];
+  /** De onde veio a celebração principal. */
+  origem: "temporal" | "santoral";
 }

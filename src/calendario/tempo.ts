@@ -1,6 +1,6 @@
 import { DIA, emUTC, eixoDoAno, mais } from "./computo";
 import { diaProprio } from "./proprios";
-import type { Cor, DiaLiturgico, Eixo, Tempo } from "./tipos";
+import type { Cor, Eixo, Tempo } from "./tipos";
 
 const soData = (d: Date) => Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
 const entre = (d: Date, de: Date, ate: Date) => soData(d) >= soData(de) && soData(d) <= soData(ate);
@@ -82,8 +82,3 @@ export function corDe(data: Date, tempo: Tempo): Cor {
   }
 }
 
-/** O dia litúrgico de uma data, sem consultar o Santoral. */
-export function diaDoTempo(data: Date): DiaLiturgico {
-  const { tempo, semana } = tempoDe(data);
-  return { data, tempo, semana, cor: corDe(data, tempo) };
-}

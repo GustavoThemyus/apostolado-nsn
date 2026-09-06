@@ -1,6 +1,5 @@
 import { useMemo } from "react";
-import { nomeDoDia } from "../calendario/nomes";
-import { diaDoTempo } from "../calendario/tempo";
+import { diaLiturgico } from "../calendario/precedencia";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
 
 const NOME_DA_COR: Record<string, string> = {
@@ -26,20 +25,19 @@ function porExtenso(data: Date): string {
  * Faixa com o dia litúrgico de hoje, calculado no navegador a partir da data
  * do aparelho. Cobre o Temporal; o Santoral ainda não entra.
  */
-export function DiaDeHoje({ data }: { data?: Date }) {
+export function DiaDeHoje({ data, aoAbrirCalendario }: { data?: Date; aoAbrirCalendario: () => void }) {
   const hoje = useMemo(() => {
     if (data) return data;
     const agora = new Date();
     return new Date(Date.UTC(agora.getFullYear(), agora.getMonth(), agora.getDate()));
   }, [data]);
 
-  const dia = diaDoTempo(hoje);
-  const nome = nomeDoDia(hoje);
+  const dia = diaLiturgico(hoje);
 
   return (
     <aside className="dia" aria-label="Dia litúrgico de hoje">
       <p className="dia__data">{porExtenso(hoje)}</p>
-      <p className="dia__nome">{nome}</p>
+      <p className="dia__nome">{dia.nome}</p>
       <dl className="dia__detalhes">
         <div>
           <dt>Tempo</dt>
@@ -52,10 +50,20 @@ export function DiaDeHoje({ data }: { data?: Date }) {
             <span className={`cor cor--${dia.cor}`}>{NOME_DA_COR[dia.cor]}</span>
           </dd>
         </div>
+        <div>
+          <dt>Classe</dt>
+          <dd>{dia.classe}ª</dd>
+        </div>
       </dl>
-      <p className="dia__ressalva">
-        Do Temporal. Uma festa do Santoral pode ter precedência sobre este dia.
-      </p>
+      {dia.comemoracoes.length > 0 && (
+        <p className="dia__comemoracoes">
+          <span>Comemoração: </span>
+          {dia.comemoracoes.join("; ")}
+        </p>
+      )}
+      <button type="button" className="dia__link" onClick={aoAbrirCalendario}>
+        Ver o calendário do ano
+      </button>
     </aside>
   );
 }
