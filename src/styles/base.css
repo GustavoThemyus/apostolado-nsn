@@ -286,6 +286,91 @@ button {
   background: linear-gradient(90deg, transparent, var(--ouro), transparent);
 }
 
+/* ---------------- dia litúrgico ---------------- */
+
+.dia {
+  margin: 1.5rem 0 0;
+  padding: 1.05rem 1.1rem 0.9rem;
+  background: var(--painel);
+  border: 1px solid var(--fio);
+  border-left: 3px solid var(--ouro);
+}
+
+.dia__data {
+  font-family: var(--sem-serifa);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin: 0 0 0.3rem;
+}
+
+.dia__nome {
+  font-family: var(--titular);
+  font-size: 1.22rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.7rem;
+}
+
+.dia__detalhes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.6rem;
+  margin: 0;
+}
+.dia__detalhes > div {
+  display: grid;
+  gap: 0.1rem;
+}
+.dia__detalhes dt {
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.dia__detalhes dd {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.dia__amostra {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  border: 1px solid var(--fio);
+  flex: none;
+}
+.dia__amostra--branco { background: #f4f1e6; }
+.dia__amostra--vermelho { background: #a32220; }
+.dia__amostra--verde { background: #2c6a3b; }
+.dia__amostra--roxo { background: #6b3e8f; }
+.dia__amostra--preto { background: #22212e; }
+.dia__amostra--rosa { background: #d98cb0; }
+
+.dia__ressalva {
+  margin: 0.75rem 0 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
+@media (min-width: 46rem) {
+  .dia {
+    margin-top: 2.1rem;
+    padding: 1.25rem 1.5rem 1.1rem;
+  }
+  .dia__nome {
+    font-size: 1.42rem;
+  }
+}
+
 /* ---------------- sumário ---------------- */
 
 .sumario__cortina {

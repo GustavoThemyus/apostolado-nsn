@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { BarraSuperior } from "./components/BarraSuperior";
 import { Cabecalho } from "./components/Cabecalho";
+import { DiaDeHoje } from "./components/DiaDeHoje";
 import { Rodape } from "./components/Rodape";
 import { Secao } from "./components/Secao";
 import { SeletorDeTema } from "./components/SeletorDeTema";
@@ -49,6 +50,8 @@ export default function App() {
           descricao={guia.descricao}
           epigrafe={guia.epigrafe}
         />
+
+        <DiaDeHoje />
 
         <Sumario secoes={guia.secoes} secaoAtiva={secaoAtiva} variante="embutido" />
 
