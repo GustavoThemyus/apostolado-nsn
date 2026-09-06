@@ -1,0 +1,18 @@
+{
+  "titulo": "Da Missa e suas partes",
+  "descricao": "Cada parte da Missa em detalhe: origem, sentido e rubricas.",
+  "emPreparacao": true,
+  "secoes": [
+    {
+      "id": "em-preparacao",
+      "titulo": "Em preparação",
+      "blocos": [
+        {
+          "id": "prep-001",
+          "tipo": "paragrafo",
+          "texto": "Este guia detalhado ainda está sendo escrito."
+        }
+      ]
+    }
+  ]
+}

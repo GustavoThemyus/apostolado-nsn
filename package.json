@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "checar-tipos": "tsc -b --noEmit",
     "publicar": "npm run build && npx --yes wrangler@4.85.0 deploy",
-    "test": "esbuild src/calendario/calendario.teste.ts --bundle --platform=node --format=cjs --outfile=.teste/calendario.cjs --log-level=warning && node .teste/calendario.cjs"
+    "test": "esbuild src/calendario/calendario.teste.ts --bundle --platform=node --format=cjs --outfile=.teste/calendario.cjs --log-level=warning && node .teste/calendario.cjs && esbuild src/rotas/casar.teste.ts --bundle --platform=node --format=cjs --outfile=.teste/rotas.cjs --log-level=warning && node .teste/rotas.cjs"
   },
   "dependencies": {
     "react": "^18.3.1",

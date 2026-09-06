@@ -1,0 +1,18 @@
+{
+  "titulo": "Raccolta",
+  "descricao": "A coleção anterior a 1968, que corresponde ao Código de 1917.",
+  "emPreparacao": true,
+  "secoes": [
+    {
+      "id": "em-preparacao",
+      "titulo": "Em preparação",
+      "blocos": [
+        {
+          "id": "prep-001",
+          "tipo": "paragrafo",
+          "texto": "Esta transcrição ainda será feita."
+        }
+      ]
+    }
+  ]
+}

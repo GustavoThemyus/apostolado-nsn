@@ -1,0 +1,18 @@
+{
+  "titulo": "O próprio do Brasil",
+  "descricao": "As festas próprias do calendário brasileiro.",
+  "emPreparacao": true,
+  "secoes": [
+    {
+      "id": "em-preparacao",
+      "titulo": "Em preparação",
+      "blocos": [
+        {
+          "id": "prep-001",
+          "tipo": "paragrafo",
+          "texto": "Estas festas ainda serão reunidas."
+        }
+      ]
+    }
+  ]
+}

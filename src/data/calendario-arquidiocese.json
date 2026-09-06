@@ -1,0 +1,18 @@
+{
+  "titulo": "O próprio arquidiocesano",
+  "descricao": "O calendário próprio da Arquidiocese da Paraíba.",
+  "emPreparacao": true,
+  "secoes": [
+    {
+      "id": "em-preparacao",
+      "titulo": "Em preparação",
+      "blocos": [
+        {
+          "id": "prep-001",
+          "tipo": "paragrafo",
+          "texto": "Este calendário ainda será reunido."
+        }
+      ]
+    }
+  ]
+}

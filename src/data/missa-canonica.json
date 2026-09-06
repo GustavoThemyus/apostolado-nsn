@@ -1,0 +1,18 @@
+{
+  "titulo": "A situação canônica da Missa",
+  "descricao": "A parte jurídica do rito.",
+  "emPreparacao": true,
+  "secoes": [
+    {
+      "id": "em-preparacao",
+      "titulo": "Em preparação",
+      "blocos": [
+        {
+          "id": "prep-001",
+          "tipo": "paragrafo",
+          "texto": "Este texto ainda será escrito."
+        }
+      ]
+    }
+  ]
+}

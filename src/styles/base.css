@@ -132,6 +132,7 @@ button {
 }
 
 .barra__marca {
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -166,6 +167,7 @@ button {
 }
 
 .barra__botao {
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -480,16 +482,6 @@ button {
 
 /* ---------------- calendário do ano ---------------- */
 
-.calendario {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  background: var(--papel);
-  display: flex;
-  flex-direction: column;
-  padding-top: env(safe-area-inset-top);
-}
-
 .calendario__barra {
   display: flex;
   align-items: center;
@@ -512,16 +504,6 @@ button {
 .calendario__mes span {
   color: var(--tinta-suave);
   font-weight: 400;
-}
-
-.calendario__corpo {
-  flex: 1;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding: 0.9rem var(--respiro-lateral) calc(2rem + env(safe-area-inset-bottom));
-  width: 100%;
-  max-width: var(--largura-texto);
-  margin: 0 auto;
 }
 
 .calendario__grade {
@@ -621,60 +603,9 @@ button {
   }
 }
 
-/* ---------------- folha em tela cheia ---------------- */
+/* ---------------- folha que sobe do rodapé ---------------- */
 
-.folha {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  background: var(--papel);
-  display: flex;
-  flex-direction: column;
-  padding-top: env(safe-area-inset-top);
-}
-
-.folha__barra {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0 var(--respiro-lateral);
-  height: var(--altura-barra);
-  border-bottom: 1px solid var(--fio);
-  background: var(--painel);
-}
-
-.folha__titulo {
-  flex: 1;
-  margin: 0;
-  font-family: var(--titular);
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.folha__corpo {
-  flex: 1;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  width: 100%;
-  max-width: var(--largura-texto);
-  margin: 0 auto;
-  padding: 0 var(--respiro-lateral) calc(3rem + env(safe-area-inset-bottom));
-}
-
-.folha__descricao {
-  margin: 1.1rem 0 0;
-  color: var(--tinta-suave);
-  font-style: italic;
-  max-width: 60ch;
-}
-
-.folha__corpo .secao:first-of-type {
-  padding-top: 1.5rem;
-}
-
-/* ---------------- sumário ---------------- */
-
-.sumario__cortina {
+.folha-baixo__cortina {
   position: fixed;
   inset: 0;
   z-index: 50;
@@ -685,12 +616,7 @@ button {
   width: 100%;
 }
 
-.sumario__painel {
-  background: var(--painel);
-  border-top: 2px solid var(--ouro);
-}
-
-.sumario--flutuante .sumario__painel {
+.folha-baixo {
   position: fixed;
   z-index: 51;
   left: 0;
@@ -700,15 +626,20 @@ button {
   max-height: 78dvh;
   overflow-y: auto;
   overscroll-behavior: contain;
+  background: var(--painel);
+  border-top: 2px solid var(--ouro);
   border-radius: 0.75rem 0.75rem 0 0;
   padding: 0.75rem 1.15rem calc(1.5rem + env(safe-area-inset-bottom));
   box-shadow: 0 -12px 40px var(--sombra);
   animation: subir 0.2s ease-out;
 }
 
-.sumario--embutido .sumario__painel {
-  padding: 1.15rem 1.1rem 0.9rem;
-  margin: 1.75rem 0 0.5rem;
+.folha-baixo__pega {
+  width: 2.5rem;
+  height: 0.25rem;
+  border-radius: 999px;
+  background: var(--fio);
+  margin: 0 auto 0.75rem;
 }
 
 @keyframes subir {
@@ -718,12 +649,13 @@ button {
   }
 }
 
-.sumario__pega {
-  width: 2.5rem;
-  height: 0.25rem;
-  border-radius: 999px;
-  background: var(--fio);
-  margin: 0 auto 0.75rem;
+/* ---------------- sumário ---------------- */
+
+.sumario--embutido .sumario__painel {
+  background: var(--painel);
+  border-top: 2px solid var(--ouro);
+  padding: 1.15rem 1.1rem 0.9rem;
+  margin: 1.75rem 0 0.5rem;
 }
 
 .sumario__titulo {
@@ -771,6 +703,61 @@ button {
 .sumario__link[aria-current="true"] {
   color: var(--ouro-tinta);
   font-weight: 600;
+}
+
+/* ---------------- menu do site ---------------- */
+
+.menu__lista,
+.menu__grupo {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu__lista > li {
+  border-bottom: 1px solid var(--fio-suave);
+  padding: 0.35rem 0;
+}
+.menu__lista > li:last-child {
+  border-bottom: none;
+}
+
+.menu__link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-height: var(--alvo-toque);
+  padding: 0.45rem 0;
+  color: var(--tinta);
+  text-decoration: none;
+  line-height: 1.3;
+}
+.menu__link--1 {
+  font-family: var(--titular);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.menu__link--2 {
+  padding-left: 1rem;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+  min-height: 2.4rem;
+}
+.menu__link[aria-current="page"] {
+  color: var(--ouro-tinta);
+  font-weight: 600;
+}
+
+.menu__preparo {
+  font-family: var(--sem-serifa);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  border: 1px solid var(--fio);
+  border-radius: 999px;
+  padding: 0.1rem 0.4rem;
+  white-space: nowrap;
 }
 
 /* ---------------- seções ---------------- */
@@ -1248,7 +1235,7 @@ button {
     min-height: 0;
     padding: 0.2rem 0;
   }
-  .sumario--flutuante .sumario__painel {
+  .folha-baixo {
     left: 50%;
     right: auto;
     transform: translateX(-50%);
@@ -1277,4 +1264,158 @@ button {
   font-family: var(--sem-serifa);
   font-size: 0.8rem;
   color: var(--tinta-suave);
+}
+
+/* ---------------- cabeçalho de página ---------------- */
+
+.pagina__topo {
+  padding: 1.75rem 0 1.25rem;
+  border-bottom: 1px solid var(--fio);
+  margin-bottom: 0.5rem;
+}
+.pagina__topo--capa {
+  text-align: center;
+  border-bottom: none;
+  padding-bottom: 0.5rem;
+}
+
+.pagina__titulo {
+  font-family: var(--titular);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 6vw, 2.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+.pagina__titulo:focus-visible {
+  outline: 2px solid var(--ouro-tinta);
+  outline-offset: 4px;
+}
+
+.pagina__resumo {
+  margin: 0;
+  max-width: 58ch;
+  color: var(--tinta-suave);
+  font-size: 1.04rem;
+}
+.pagina__topo--capa .pagina__resumo {
+  margin-inline: auto;
+}
+
+/* ---------------- migalhas ---------------- */
+
+.trilha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  color: var(--tinta-suave);
+}
+.trilha a {
+  color: var(--tinta-suave);
+  text-decoration: none;
+}
+.trilha a:hover {
+  color: var(--ouro-tinta);
+  text-decoration: underline;
+}
+.trilha__atual {
+  color: var(--ouro-tinta);
+  font-weight: 600;
+}
+
+/* ---------------- página por escrever ---------------- */
+
+.vazia {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.2rem;
+  background: var(--painel);
+  border: 1px dashed var(--fio);
+  border-radius: 0.4rem;
+  max-width: 62ch;
+}
+.vazia__marca {
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  margin: 0 0 0.4rem;
+}
+.vazia__texto {
+  margin: 0 0 0.6rem;
+}
+.vazia__saida {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--tinta-suave);
+}
+
+/* ---------------- cartões de navegação ---------------- */
+
+.cartoes {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.75rem 0;
+}
+
+.cartao {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem 1.1rem;
+  background: var(--painel);
+  border: 1px solid var(--fio);
+  border-left: 3px solid var(--fio);
+  border-radius: 0.4rem;
+  text-decoration: none;
+  color: inherit;
+}
+.cartao:hover {
+  border-left-color: var(--ouro);
+}
+.cartao--destaque {
+  border-left-color: var(--ouro);
+}
+.cartao__titulo {
+  font-family: var(--titular);
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+.cartao__texto {
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+}
+
+/* ---------------- barra: seções do site ---------------- */
+
+/* em tela estreita as seções moram no Menu; a partir de 46rem entram na barra */
+.barra__site {
+  display: none;
+}
+
+.carregando {
+  min-height: 60vh;
+}
+
+@media (min-width: 46rem) {
+  .barra__site {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+  }
+  /* o título da seção some quando as seções entram na barra: não cabem os dois */
+  .barra__local {
+    display: none;
+  }
+  .barra__botao--menu {
+    display: none;
+  }
+  .cartoes {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
 }

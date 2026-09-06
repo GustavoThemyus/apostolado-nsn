@@ -66,6 +66,30 @@ export interface Secao {
   blocos: Bloco[];
 }
 
+/**
+ * A forma comum das páginas de conteúdo. O guia e as indulgências já a
+ * satisfaziam, então não houve migração de dados.
+ */
+export interface Conteudo {
+  titulo: string;
+  descricao?: string;
+  /** Chamada e epígrafe fazem a página abrir com cabeçalho ilustrado. */
+  chamada?: string;
+  epigrafe?: string;
+  /** Marca a página como ainda por escrever, para o aviso aparecer. */
+  emPreparacao?: boolean;
+  secoes: Secao[];
+}
+
+/** O que é do site inteiro, e não de uma página. */
+export interface Site {
+  marca: string;
+  marcaCurta: string;
+  lema: string;
+  rodape: string[];
+  agenda: { nome: string; google: string };
+}
+
 export interface Guia {
   chamada: string;
   titulo: string;

@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Elo } from "../rotas/Elo";
 import { diaLiturgico } from "../calendario/precedencia";
 import { Desenvolvimento } from "./Desenvolvimento";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
@@ -34,7 +35,7 @@ function porExtenso(data: Date): string {
  * Faixa com o dia litúrgico de hoje, calculado no navegador a partir da data
  * do aparelho. Cobre o Temporal; o Santoral ainda não entra.
  */
-export function DiaDeHoje({ data, aoAbrirCalendario }: { data?: Date; aoAbrirCalendario: () => void }) {
+export function DiaDeHoje({ data }: { data?: Date }) {
   const hoje = useMemo(() => {
     if (data) return data;
     const agora = new Date();
@@ -79,9 +80,9 @@ export function DiaDeHoje({ data, aoAbrirCalendario }: { data?: Date; aoAbrirCal
         <p className="dia__observacao" key={o}>{o}</p>
       ))}
       <Desenvolvimento dia={dia} />
-      <button type="button" className="dia__link" onClick={aoAbrirCalendario}>
+      <Elo para="/calendario" className="dia__link">
         Ver o calendário do ano
-      </button>
+      </Elo>
     </aside>
   );
 }

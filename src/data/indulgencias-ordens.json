@@ -1,0 +1,18 @@
+{
+  "titulo": "Indulgências próprias",
+  "descricao": "As de ordens, confrarias e associações.",
+  "emPreparacao": true,
+  "secoes": [
+    {
+      "id": "em-preparacao",
+      "titulo": "Em preparação",
+      "blocos": [
+        {
+          "id": "prep-001",
+          "tipo": "paragrafo",
+          "texto": "Estas listas ainda serão reunidas."
+        }
+      ]
+    }
+  ]
+}

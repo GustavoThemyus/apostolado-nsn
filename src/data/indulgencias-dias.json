@@ -1,0 +1,167 @@
+{
+  "titulo": "Dias de indulgência",
+  "descricao": "Os dias que carregam indulgência no calendário.",
+  "dias": [
+    {
+      "id": "finados",
+      "titulo": "Comemoração dos Fiéis Defuntos",
+      "quando": {
+        "tipo": "fixa",
+        "mes": 11,
+        "dia": 2
+      },
+      "especie": "plenaria",
+      "fonte": "cân. 917 §1",
+      "obra": [
+        {
+          "id": "d-001",
+          "tipo": "paragrafo",
+          "texto": "Visitando uma igreja, plenária [i]toties quoties[/i], aplicável somente aos defuntos. Toda Missa celebrada nesse dia goza do privilégio de altar privilegiado."
+        }
+      ]
+    },
+    {
+      "id": "oitava-todos-os-santos",
+      "titulo": "Visita ao cemitério",
+      "quando": {
+        "tipo": "intervalo",
+        "de": {
+          "mes": 11,
+          "dia": 1
+        },
+        "ate": {
+          "mes": 11,
+          "dia": 8
+        }
+      },
+      "especie": "plenaria",
+      "fonte": "Raccolta",
+      "obra": [
+        {
+          "id": "d-002",
+          "tipo": "paragrafo",
+          "texto": "Plenária diária pela visita ao cemitério, aplicável somente aos defuntos."
+        }
+      ]
+    },
+    {
+      "id": "porciuncula",
+      "titulo": "Porciúncula",
+      "quando": {
+        "tipo": "fixa",
+        "mes": 8,
+        "dia": 2
+      },
+      "especie": "plenaria",
+      "fonte": "indulto",
+      "obra": [
+        {
+          "id": "d-003",
+          "tipo": "paragrafo",
+          "texto": "Plenária [i]toties quoties[/i], tantas vezes quantas forem as visitas."
+        }
+      ]
+    },
+    {
+      "id": "titular",
+      "titulo": "Festa do Titular da capela",
+      "quando": {
+        "tipo": "titular"
+      },
+      "especie": "plenaria",
+      "fonte": "cân. 921 §3",
+      "obra": [
+        {
+          "id": "d-004",
+          "tipo": "paragrafo",
+          "texto": "Plenária aos que visitam a própria igreja. Presa à celebração, acompanha a transferência, pelo cânon 922."
+        }
+      ]
+    },
+    {
+      "id": "primeiras-sextas",
+      "titulo": "Primeiras sextas-feiras",
+      "quando": {
+        "tipo": "mensal",
+        "diaDaSemana": 5,
+        "ocorrencia": 1
+      },
+      "especie": "parcial",
+      "fonte": "Raccolta",
+      "obra": [
+        {
+          "id": "d-005",
+          "tipo": "paragrafo",
+          "texto": "Concessões próprias da devoção ao Sagrado Coração, conforme a obra."
+        }
+      ]
+    }
+  ],
+  "semDiaFixo": [
+    {
+      "id": "via-sacra",
+      "titulo": "Via-Sacra",
+      "especie": "plenaria",
+      "fonte": "Raccolta",
+      "obra": [
+        {
+          "id": "s-001",
+          "tipo": "paragrafo",
+          "texto": "Plenária, feitas as catorze estações."
+        }
+      ]
+    },
+    {
+      "id": "rosario",
+      "titulo": "Rosário diante do Santíssimo",
+      "especie": "plenaria",
+      "fonte": "Raccolta",
+      "obra": [
+        {
+          "id": "s-002",
+          "tipo": "paragrafo",
+          "texto": "Plenária, rezado ao menos um terço."
+        }
+      ]
+    },
+    {
+      "id": "artigo-da-morte",
+      "titulo": "Artigo da morte",
+      "especie": "plenaria",
+      "fonte": "Raccolta",
+      "obra": [
+        {
+          "id": "s-003",
+          "tipo": "paragrafo",
+          "texto": "Bênção apostólica com plenária, no momento da morte."
+        }
+      ]
+    },
+    {
+      "id": "quarenta-horas",
+      "titulo": "Quarenta Horas",
+      "especie": "plenaria",
+      "fonte": "cân. 917 §2",
+      "obra": [
+        {
+          "id": "s-004",
+          "tipo": "paragrafo",
+          "texto": "Todos os altares da igreja ficam privilegiados enquanto dura a exposição. As datas são marcadas pela paróquia."
+        }
+      ]
+    },
+    {
+      "id": "bencao-papal",
+      "titulo": "Bênção papal",
+      "especie": "plenaria",
+      "fonte": "cân. 914",
+      "obra": [
+        {
+          "id": "s-005",
+          "tipo": "paragrafo",
+          "texto": "O bispo pode dá-la com indulgência plenária na sua diocese, na fórmula prescrita."
+        }
+      ]
+    }
+  ]
+}

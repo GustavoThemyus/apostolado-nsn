@@ -1,0 +1,18 @@
+{
+  "titulo": "Enchiridion Indulgentiarum",
+  "descricao": "A coleção de 1968 em diante, da disciplina em vigor.",
+  "emPreparacao": true,
+  "secoes": [
+    {
+      "id": "em-preparacao",
+      "titulo": "Em preparação",
+      "blocos": [
+        {
+          "id": "prep-001",
+          "tipo": "paragrafo",
+          "texto": "Esta transcrição ainda será feita."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "titulo": "Apostolado Nossa Senhora das Neves",
+  "descricao": "Rito Romano na forma do Missal de São Pio V.",
+  "avisos": [],
+  "blocos": [],
+  "sobre": {
+    "titulo": "O que é o Apostolado Nossa Senhora das Neves",
+    "emPreparacao": true,
+    "blocos": [
+      {
+        "id": "in-001",
+        "tipo": "paragrafo",
+        "texto": "Este texto ainda será escrito."
+      }
+    ]
+  },
+  "contribuicao": {
+    "titulo": "Contribua com nosso apostolado",
+    "banco": {
+      "instituicao": "Banco Inter",
+      "agencia": "0001",
+      "conta": "17140822-5",
+      "titular": "Anna Perez"
+    },
+    "pix": "apostoladonossasenhoradasneves@gmail.com"
+  },
+  "padroeiros": [
+    {
+      "id": "filomena",
+      "nome": "Santa Filomena",
+      "imagem": ""
+    },
+    {
+      "id": "neves",
+      "nome": "Nossa Senhora das Neves",
+      "imagem": ""
+    },
+    {
+      "id": "antonio",
+      "nome": "Santo Antônio",
+      "imagem": ""
+    }
+  ]
+}
