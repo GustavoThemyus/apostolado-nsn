@@ -384,6 +384,13 @@ button {
   text-transform: uppercase;
 }
 
+.dia__transferida {
+  margin: 0.6rem 0 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--ouro-tinta);
+}
+
 .dia__link {
   margin-top: 0.85rem;
   padding: 0;

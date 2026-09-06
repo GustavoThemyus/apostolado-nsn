@@ -11,6 +11,14 @@ const NOME_DA_COR: Record<string, string> = {
   rosa: "Rosa",
 };
 
+/** "2026-12-08" -> "8 de dezembro". */
+export function porExtensoCurto(iso: string): string {
+  const [, m, d] = iso.split("-").map(Number);
+  const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
+    "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+  return `${d} de ${MESES[m - 1]}`;
+}
+
 function porExtenso(data: Date): string {
   return new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
@@ -59,6 +67,11 @@ export function DiaDeHoje({ data, aoAbrirCalendario }: { data?: Date; aoAbrirCal
         <p className="dia__comemoracoes">
           <span>Comemoração: </span>
           {dia.comemoracoes.join("; ")}
+        </p>
+      )}
+      {dia.transferidaDe && (
+        <p className="dia__transferida">
+          Transferida de {porExtensoCurto(dia.transferidaDe)}, por impedimento.
         </p>
       )}
       <button type="button" className="dia__link" onClick={aoAbrirCalendario}>

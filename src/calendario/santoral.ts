@@ -8,6 +8,8 @@ export interface FestaFixa {
   cor: Cor;
   /** Vigílias e oitavas se comportam de modo próprio na precedência. */
   tipo?: "vigilia" | "oitava";
+  /** Posto próprio, quando ele foge do que a classe sugere. */
+  posto?: number;
 }
 
 /**
@@ -126,7 +128,7 @@ export const SANTORAL: FestaFixa[] = [
 
   // ---------------- novembro ----------------
   { mes: 11, dia: 1, nome: "Todos os Santos", classe: 1, cor: "branco" },
-  { mes: 11, dia: 2, nome: "Comemoração de Todos os Fiéis Defuntos", classe: 1, cor: "preto" },
+  { mes: 11, dia: 2, nome: "Comemoração de Todos os Fiéis Defuntos", classe: 1, cor: "preto", posto: 10 },
   { mes: 11, dia: 4, nome: "São Carlos Borromeu", classe: 3, cor: "branco" },
   { mes: 11, dia: 9, nome: "Dedicação da Arquibasílica do Salvador", classe: 2, cor: "branco" },
   { mes: 11, dia: 11, nome: "São Martinho de Tours", classe: 3, cor: "branco" },

@@ -55,4 +55,6 @@ export interface DiaLiturgico {
   comemoracoes: string[];
   /** De onde veio a celebração principal. */
   origem: "temporal" | "santoral";
+  /** Data de origem, quando a festa chegou a este dia por transferência. */
+  transferidaDe?: string;
 }

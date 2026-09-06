@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { mesLiturgico } from "../calendario/precedencia";
+import { porExtensoCurto } from "./DiaDeHoje";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
 import type { DiaLiturgico } from "../calendario/tipos";
 
@@ -40,6 +41,11 @@ function Detalhe({ dia }: { dia: DiaLiturgico }) {
           <dd>{dia.classe}ª</dd>
         </div>
       </dl>
+      {dia.transferidaDe && (
+        <p className="dia__transferida">
+          Transferida de {porExtensoCurto(dia.transferidaDe)}, por impedimento.
+        </p>
+      )}
       {dia.comemoracoes.length > 0 && (
         <p className="dia__comemoracoes">
           <span>Comemoração: </span>
@@ -126,9 +132,10 @@ export function Calendario({ aoFechar }: { aoFechar: () => void }) {
         {detalhe && <Detalhe dia={detalhe} />}
 
         <p className="calendario__ressalva">
-          Calendário de 1962, calculado para qualquer ano. As festas de III classe
-          e as regras de transferência ainda não estão completas: confira no Ordo
-          antes de usar para celebrar.
+          Calendário de 1962, calculado para qualquer ano. Estão completas as
+          festas de I e II classe e a transferência das de I classe impedidas.
+          Faltam boa parte das de III classe, as comemorações de IV, as Têmporas
+          e as Rogações, e os próprios locais. Confira no Ordo antes de celebrar.
         </p>
       </div>
     </div>
