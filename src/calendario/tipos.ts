@@ -57,4 +57,6 @@ export interface DiaLiturgico {
   origem: "temporal" | "santoral";
   /** Data de origem, quando a festa chegou a este dia por transferência. */
   transferidaDe?: string;
+  /** Ritos que acontecem no dia sem disputar a Missa: procissões, ladainhas. */
+  observacoes: string[];
 }

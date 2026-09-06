@@ -21,6 +21,22 @@ export interface DiaProprio {
 const DIAS = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira",
   "Quinta-feira", "Sexta-feira", "Sábado"] as const;
 
+/** Terceiro domingo de setembro, que abre as Têmporas do outono. */
+function terceiroDomingoDeSetembro(ano: number): Date {
+  const primeiro = new Date(Date.UTC(ano, 8, 1));
+  const primeiroDomingo = mais(primeiro, (7 - primeiro.getUTCDay()) % 7);
+  return mais(primeiroDomingo, 14);
+}
+
+/** Quarta, sexta e sábado depois do domingo dado. */
+function temporas(domingo: Date, sufixo: string, cor: Cor): [Date, DiaProprio][] {
+  const dias: [number, string][] = [[3, "Quarta-feira"], [5, "Sexta-feira"], [6, "Sábado"]];
+  return dias.map(([n, nome]) => [
+    mais(domingo, n),
+    { nome: `${nome} das Têmporas ${sufixo}`, cor, classe: 2 as const, posto: POSTO.feriaSegunda },
+  ]);
+}
+
 /** Cristo Rei: último domingo de outubro. */
 function cristoRei(ano: number): Date {
   const ultimo = new Date(Date.UTC(ano, 9, 31));
@@ -70,6 +86,10 @@ function tabela(ano: number): [Date, DiaProprio][] {
           posto: POSTO.feriaPrivilegiada,
         }] as [Date, DiaProprio]
     ),
+    // Têmporas de Advento, Quaresma e Setembro: ferias de II classe
+    ...temporas(mais(e.advento, 14), "do Advento", "roxo"),
+    ...temporas(mais(e.cinzas, 4), "da Quaresma", "roxo"),
+    ...temporas(terceiroDomingoDeSetembro(ano), "de Setembro", "roxo"),
     // Oitava de Pentecostes: idem
     ...([1, 2, 3, 4, 5, 6] as const).map(
       (n) =>

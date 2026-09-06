@@ -52,6 +52,9 @@ function Detalhe({ dia }: { dia: DiaLiturgico }) {
           {dia.comemoracoes.join("; ")}
         </p>
       )}
+      {dia.observacoes.map((o) => (
+        <p className="dia__observacao" key={o}>{o}</p>
+      ))}
     </div>
   );
 }
@@ -132,10 +135,11 @@ export function Calendario({ aoFechar }: { aoFechar: () => void }) {
         {detalhe && <Detalhe dia={detalhe} />}
 
         <p className="calendario__ressalva">
-          Calendário de 1962, calculado para qualquer ano. Estão completas as
-          festas de I e II classe e a transferência das de I classe impedidas.
-          Faltam boa parte das de III classe, as comemorações de IV, as Têmporas
-          e as Rogações, e os próprios locais. Confira no Ordo antes de celebrar.
+          Calendário de 1962, calculado para qualquer ano, com o próprio da
+          capela. Cobre o Temporal, o Santoral de I a IV classe, as Têmporas,
+          as Rogações e a transferência das festas de I classe impedidas. Não
+          trata das oitavas menores nem das Missas votivas. Confira no Ordo
+          antes de celebrar.
         </p>
       </div>
     </div>

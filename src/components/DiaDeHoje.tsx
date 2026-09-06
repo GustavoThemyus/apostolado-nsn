@@ -74,6 +74,9 @@ export function DiaDeHoje({ data, aoAbrirCalendario }: { data?: Date; aoAbrirCal
           Transferida de {porExtensoCurto(dia.transferidaDe)}, por impedimento.
         </p>
       )}
+      {dia.observacoes.map((o) => (
+        <p className="dia__observacao" key={o}>{o}</p>
+      ))}
       <button type="button" className="dia__link" onClick={aoAbrirCalendario}>
         Ver o calendário do ano
       </button>

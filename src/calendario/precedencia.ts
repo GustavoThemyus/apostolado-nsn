@@ -1,7 +1,9 @@
 import { eixoDoAno } from "./computo";
 import { POSTO, livreParaTransferencia } from "./posto";
 import { diaProprio } from "./proprios";
+import { comProprioLocal } from "./proprioLocal";
 import { SANTORAL, type FestaFixa } from "./santoral";
+import { observacoesDe } from "./observacoes";
 import { corDe, tempoDe } from "./tempo";
 import type { Classe, Cor, DiaLiturgico, Tempo } from "./tipos";
 
@@ -91,7 +93,7 @@ function resolverAno(ano: number): Map<string, Ocupante> {
 
   // 2) ocorrência com o Santoral; o que for de I classe e perder entra na fila
   const aTransferir: FestaFixa[] = [];
-  for (const festa of SANTORAL) {
+  for (const festa of comProprioLocal(SANTORAL)) {
     const data = new Date(Date.UTC(ano, festa.mes - 1, festa.dia));
     if (data.getUTCMonth() !== festa.mes - 1) continue; // 29/2 em ano comum
     const k = chave(data);
@@ -112,6 +114,9 @@ function resolverAno(ano: number): Map<string, Ocupante> {
     } else if (festa.classe === 1) {
       aTransferir.push(festa);
     } else if (festa.classe <= 3) {
+      atual.comemoracoes.push(festa.nome);
+    } else if (atual.classe === 4) {
+      // comemoração de IV classe só se faz em feria de IV classe
       atual.comemoracoes.push(festa.nome);
     }
   }
@@ -162,6 +167,7 @@ export function diaLiturgico(data: Date): DiaLiturgico {
       nome: nomeDoTemporal(data, tempo),
       classe: 4, cor: corDe(data, tempo),
       comemoracoes: [], origem: "temporal",
+      observacoes: observacoesDe(data),
     };
   }
   return {
@@ -172,6 +178,7 @@ export function diaLiturgico(data: Date): DiaLiturgico {
     comemoracoes: o.comemoracoes,
     origem: o.origem,
     transferidaDe: o.transferidaDe,
+    observacoes: observacoesDe(data),
   };
 }
 

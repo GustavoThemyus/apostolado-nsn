@@ -391,6 +391,12 @@ button {
   color: var(--ouro-tinta);
 }
 
+.dia__observacao {
+  margin: 0.6rem 0 0;
+  font-size: 0.88rem;
+  color: var(--elo);
+}
+
 .dia__link {
   margin-top: 0.85rem;
   padding: 0;

@@ -28,6 +28,8 @@ export const POSTO = {
   festaSegunda: 10,
   /** Vigílias de II classe. */
   vigiliaSegunda: 11,
+  /** Ferias de II classe: as Têmporas de Advento, Quaresma e Setembro. */
+  feriaSegunda: 11,
   /** Festas de III classe. */
   festaTerceira: 12,
   /** Ferias de Advento, Quaresma e Paixão. */
