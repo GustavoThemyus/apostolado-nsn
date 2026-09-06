@@ -1,0 +1,292 @@
+/* Painel de administração. Reaproveita os tokens do guia. */
+
+.admin {
+  min-height: 100dvh;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--serifada);
+}
+
+.admin__barra {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 var(--respiro-lateral);
+  padding-top: env(safe-area-inset-top);
+  height: calc(var(--altura-barra) + env(safe-area-inset-top));
+  background: var(--painel);
+  border-bottom: 1px solid var(--fio);
+}
+
+.admin__titulo {
+  flex: 1;
+  font-family: var(--sem-serifa);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+}
+
+.admin__quem {
+  font-family: var(--sem-serifa);
+  font-size: 0.62rem;
+  color: var(--tinta-suave);
+  max-width: 11rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin__voltar {
+  font-family: var(--sem-serifa);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--tinta-suave);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.admin__voltar--corpo {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0.6rem 0;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.admin__recado {
+  margin: 0;
+  padding: 0.7rem var(--respiro-lateral);
+  background: var(--realce);
+  font-size: 0.9rem;
+}
+.admin__recado--erro {
+  background: var(--rubrica);
+  color: var(--marca-lirio);
+}
+
+.admin__corpo {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.25rem var(--respiro-lateral) 5rem;
+}
+
+.admin__h1 {
+  font-family: var(--titular);
+  font-size: 1.5rem;
+  margin: 0 0 0.4rem;
+}
+.admin__h2 {
+  font-family: var(--titular);
+  font-size: 1.2rem;
+  margin: 2rem 0 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--fio);
+}
+.admin__ajuda {
+  color: var(--tinta-suave);
+  margin: 0 0 1.25rem;
+}
+
+.admin__secoes {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+.admin__secoes li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1px solid var(--fio-suave);
+}
+.admin__secao {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.85rem 0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  min-height: var(--alvo-toque);
+}
+.admin__secao-num {
+  color: var(--ouro-tinta);
+  font-variant-numeric: lining-nums;
+  min-width: 1.5rem;
+}
+.admin__secao-nome { flex: 1; }
+.admin__secao-conta {
+  font-family: var(--sem-serifa);
+  font-size: 0.62rem;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+}
+.admin__secao-acoes { display: flex; gap: 0.25rem; }
+
+/* ---------------- campos ---------------- */
+
+.campo {
+  display: block;
+  margin: 0 0 0.9rem;
+}
+.campo--inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.campo__rotulo {
+  display: block;
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin-bottom: 0.25rem;
+}
+.campo__dica {
+  display: block;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+  margin-top: 0.2rem;
+}
+.campo__area,
+.campo__linha {
+  width: 100%;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--tinta);
+  background: var(--painel);
+  border: 1px solid var(--fio);
+  border-radius: 0.3rem;
+  padding: 0.55rem 0.65rem;
+  resize: vertical;
+}
+.campo__area:focus,
+.campo__linha:focus {
+  outline: 2px solid var(--ouro-tinta);
+  outline-offset: 1px;
+}
+
+.dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* ---------------- botões ---------------- */
+
+.botao {
+  font-family: var(--sem-serifa);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 0.7rem;
+  min-height: var(--alvo-toque);
+  min-width: var(--alvo-toque);
+  border: 1px solid var(--fio);
+  border-radius: 0.35rem;
+  background: var(--painel);
+  color: var(--tinta-suave);
+  cursor: pointer;
+}
+.botao:hover { color: var(--tinta); border-color: var(--tinta-suave); }
+.botao--forte {
+  background: var(--marca-azul);
+  border-color: var(--marca-azul);
+  color: var(--marca-lirio);
+}
+.botao--risco { color: var(--rubrica); border-color: var(--rubrica); }
+
+/* ---------------- blocos ---------------- */
+
+.bloco-edit {
+  border: 1px solid var(--fio);
+  border-left: 3px solid var(--ouro);
+  border-radius: 0.35rem;
+  padding: 0.9rem;
+  margin: 0 0 1rem;
+  background: var(--painel);
+}
+.bloco-edit__topo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.bloco-edit__tipo {
+  flex: 1;
+  font-family: var(--sem-serifa);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+}
+.bloco-edit__acoes { display: flex; gap: 0.25rem; }
+
+.lista-edit { margin: 0 0 1rem; }
+.lista-edit__item {
+  display: flex;
+  gap: 0.4rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+.lista-edit__item .campo__area { flex: 1; }
+.lista-edit__acoes { display: flex; flex-direction: column; gap: 0.2rem; }
+
+.verso-edit,
+.linha-edit {
+  border: 1px dashed var(--fio);
+  border-radius: 0.3rem;
+  padding: 0.7rem;
+  margin-bottom: 0.6rem;
+}
+
+.aninhado {
+  margin-top: 1rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--fio);
+}
+
+.admin__tipos {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+.admin__tipo {
+  display: grid;
+  gap: 0.15rem;
+  text-align: left;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.35rem;
+  background: var(--painel);
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  min-height: var(--alvo-toque);
+}
+.admin__tipo:hover { border-color: var(--ouro-tinta); }
+.admin__tipo strong { font-family: var(--titular); font-size: 1rem; }
+.admin__tipo span { font-size: 0.85rem; color: var(--tinta-suave); }
+
+.admin__perigo {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--fio);
+}
+
+@media (min-width: 46rem) {
+  .admin__corpo { padding-top: 1.75rem; }
+  .admin__tipos { grid-template-columns: 1fr 1fr; }
+}

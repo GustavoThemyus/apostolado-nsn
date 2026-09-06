@@ -30,7 +30,13 @@ export interface ItemDeLegenda {
   texto: string;
 }
 
-export type Bloco =
+/** Identificador estável de um bloco, usado pelo painel de edição. */
+export interface ComId {
+  id?: string;
+}
+
+export type Bloco = ComId &
+  (
   | { tipo: "paragrafo"; texto: string }
   | { tipo: "rubrica"; texto: string }
   | { tipo: "subtitulo"; texto: string }
@@ -39,14 +45,14 @@ export type Bloco =
   | { tipo: "nota"; titulo: string; paragrafos: string[]; alerta?: boolean }
   | { tipo: "tabela"; colunas: string[]; linhas: string[][] }
   | { tipo: "legenda"; itens: ItemDeLegenda[] }
-  | {
-      tipo: "passo";
-      numero: number;
-      etiqueta: Etiqueta;
-      titulo: string;
-      tituloLatim?: string;
-      corpo: Bloco[];
-    };
+    | {
+        tipo: "passo";
+        numero: number;
+        etiqueta: Etiqueta;
+        titulo: string;
+        tituloLatim?: string;
+        corpo: Bloco[];
+      });
 
 export interface Secao {
   id: string;

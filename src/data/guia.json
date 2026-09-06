@@ -1,0 +1,1617 @@
+{
+  "chamada": "Apostolado Nossa Senhora das Neves - Rito Romano na forma do Missal de São Pio V",
+  "titulo": "A Missa Tridentina, parte por parte",
+  "descricao": "Tudo o que acontece numa Missa rezada ou cantada, em ordem cronológica: nome de cada peça, o que é dito, quem diz, o que muda conforme o dia e o que nunca muda.",
+  "epigrafe": "Introibo ad altare Dei.",
+  "lema": "Iter para tutum",
+  "secoes": [
+    {
+      "id": "chaves",
+      "numero": 1,
+      "titulo": "Chaves de leitura",
+      "blocos": [
+        {
+          "id": "chaves-001",
+          "tipo": "paragrafo",
+          "texto": "Uma Missa é feita de dois tipos de texto misturados: o que se repete sempre e o que muda todo dia. Esta é a divisão que organiza o missal e este guia."
+        },
+        {
+          "id": "chaves-002",
+          "tipo": "legenda",
+          "itens": [
+            {
+              "chave": "Ordinário",
+              "etiqueta": "ordinario",
+              "texto": "Texto fixo, igual em todas as Missas do ano. Fica no meio do missal, entre as duas metades."
+            },
+            {
+              "chave": "Próprio",
+              "etiqueta": "proprio",
+              "texto": "Texto que muda conforme o dia. Vem do Próprio do Tempo (domingos e tempos litúrgicos) ou do Próprio dos Santos (festas de santos)."
+            },
+            {
+              "chave": "Comum",
+              "etiqueta": "comum",
+              "texto": "Formulário reaproveitável para santos que não têm Missa própria: mártires, confessores, virgens, etc."
+            },
+            {
+              "chave": "Variável",
+              "etiqueta": "variavel",
+              "texto": "Peça fixa que às vezes é omitida, substituída ou trocada: o Glória, o Credo, o Prefácio, o Último Evangelho."
+            }
+          ]
+        },
+        {
+          "id": "chaves-003",
+          "tipo": "subtitulo",
+          "texto": "Os três volumes de voz"
+        },
+        {
+          "id": "chaves-004",
+          "tipo": "paragrafo",
+          "texto": "No rito antigo o sacerdote não fala tudo do mesmo jeito. O volume de voz vem prescrito na rubrica:"
+        },
+        {
+          "id": "chaves-005",
+          "tipo": "lista",
+          "itens": [
+            "[b]Voz clara[/b], para o que é dirigido ao povo ou cantado: saudações, orações, leituras, Prefácio.",
+            "[b]Voz média (secreta)[/b], audível só perto do altar: boa parte das orações do Ofertório.",
+            "[b]Silêncio[/b], no Cânon inteiro, incluindo as palavras da consagração. A rubrica manda calar. É o [lat]sacrum silentium[/lat] romano, que sublinha que ali quem age é o sacerdote em nome de Cristo."
+          ]
+        },
+        {
+          "id": "chaves-006",
+          "tipo": "subtitulo",
+          "texto": "Postura do fiel"
+        },
+        {
+          "id": "chaves-007",
+          "tipo": "paragrafo",
+          "texto": "As posturas variam por região e por forma da Missa, e o costume local manda. Como regra prática: na [b]Missa cantada[/b], de pé para Introito, Glória, Evangelho, Credo, Prefácio e bênção; sentado para Epístola, sermão e Ofertório; de joelhos do Sanctus até a Comunhão. Na [b]Missa rezada[/b], em muitos lugares o costume é ficar de joelhos quase o tempo todo, levantando-se para o Evangelho e o Último Evangelho."
+        },
+        {
+          "id": "chaves-008",
+          "tipo": "rubrica",
+          "texto": "Neste guia, o texto em vermelho e itálico é rubrica: descreve gesto, posição, quem faz o quê. O texto preto é o que se reza. É a mesma convenção do missal impresso: [lat]rubrica[/lat] vem de [lat]ruber[/lat], vermelho."
+        }
+      ]
+    },
+    {
+      "id": "pecas",
+      "numero": 2,
+      "titulo": "Onde cada texto mora no Missal",
+      "blocos": [
+        {
+          "id": "pecas-009",
+          "tipo": "paragrafo",
+          "texto": "O missal se consulta em três ou quatro lugares ao mesmo tempo, e não de capa a capa. Daí as fitas. As seções são estas:"
+        },
+        {
+          "id": "pecas-010",
+          "tipo": "tabela",
+          "colunas": [
+            "Seção",
+            "O que contém",
+            "Quando se usa"
+          ],
+          "linhas": [
+            [
+              "[lat]Proprium de Tempore[/lat]\nPróprio do Tempo",
+              "As Missas do Advento, Natal, Septuagésima, Quaresma, Paixão, Páscoa, Pentecostes e dos domingos e ferias depois de Pentecostes.",
+              "Todo domingo e nos dias sem festa de santo."
+            ],
+            [
+              "[lat]Proprium Sanctorum[/lat]\nPróprio dos Santos",
+              "As Missas das festas de santos, em ordem de calendário civil (de 29 de novembro a 26 de novembro).",
+              "Quando a festa do santo tem precedência sobre o dia do Tempo."
+            ],
+            [
+              "[lat]Commune Sanctorum[/lat]\nComum dos Santos",
+              "Formulários genéricos por categoria: um mártir, muitos mártires, confessor pontífice, confessor não pontífice, virgem, virgem e mártir, Nossa Senhora, doutores.",
+              "Quando o santo do dia não tem formulário próprio; o Próprio dos Santos remete ao Comum e só dá a oração particular."
+            ],
+            [
+              "[lat]Ordo Missae[/lat] e [lat]Canon[/lat]",
+              "Tudo o que é fixo, das orações ao pé do altar ao Último Evangelho.",
+              "Sempre."
+            ],
+            [
+              "Missas votivas e de defuntos",
+              "Missas da Santíssima Trindade, do Espírito Santo, da Cruz, de Nossa Senhora, pelos noivos; e as Missas de Requiem.",
+              "Em dias de grau inferior, conforme as rubricas."
+            ],
+            [
+              "Orações diversas",
+              "[lat]Orationes ad diversa[/lat]: pelo Papa, pela paz, pela chuva, por um enfermo, etc.",
+              "Como comemoração ou em Missas votivas."
+            ]
+          ]
+        },
+        {
+          "id": "pecas-011",
+          "tipo": "subtitulo",
+          "texto": "As nove peças do Próprio"
+        },
+        {
+          "id": "pecas-012",
+          "tipo": "paragrafo",
+          "texto": "Todo formulário de Missa própria tem, no máximo, estas peças, e elas aparecem sempre na mesma ordem:"
+        },
+        {
+          "id": "pecas-013",
+          "tipo": "lista",
+          "ordenada": true,
+          "itens": [
+            "[b]Introito[/b], antífona de entrada;",
+            "[b]Colecta[/b], a oração do dia;",
+            "[b]Epístola[/b], leitura nem sempre de São Paulo (pode ser profeta, Atos, Apocalipse);",
+            "[b]Gradual[/b], mais [b]Aleluia[/b], ou [b]Trato[/b], ou [b]Sequência[/b];",
+            "[b]Evangelho[/b];",
+            "[b]Ofertório[/b], antífona;",
+            "[b]Secreta[/b], oração sobre as oblatas, rezada em silêncio;",
+            "[b]Comunhão[/b], antífona;",
+            "[b]Pós-comunhão[/b], oração final."
+          ]
+        },
+        {
+          "id": "pecas-014",
+          "tipo": "rubrica",
+          "texto": "Em alguns dias há uma décima peça: o Prefácio próprio. E nas ferias de Quaresma acrescenta-se a Oração sobre o povo ([lat]Oratio super populum[/lat]), depois da Pós-comunhão."
+        },
+        {
+          "id": "pecas-015",
+          "tipo": "nota",
+          "titulo": "A divisão musical do rito",
+          "paragrafos": [
+            "Cinco dessas peças (Introito, Gradual, Aleluia, Ofertório e Comunhão) são [b]cantos do coro[/b]. As outras quatro são [b]orações e leituras do sacerdote[/b]. Por isso, na Missa cantada, o coro canta o Próprio e a assembleia canta o Ordinário (Kyrie, Glória, Credo, Sanctus, Agnus Dei). Essa divisão de tarefas é o esqueleto musical do rito."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formas",
+      "numero": 3,
+      "titulo": "As formas da Missa",
+      "blocos": [
+        {
+          "id": "formas-016",
+          "tipo": "paragrafo",
+          "texto": "É a mesma Missa em todos os casos. Muda o grau de solenidade e o número de ministros."
+        },
+        {
+          "id": "formas-017",
+          "tipo": "tabela",
+          "colunas": [
+            "Forma",
+            "Como é"
+          ],
+          "linhas": [
+            [
+              "[lat]Missa lecta[/lat]\nMissa rezada ou baixa",
+              "Um sacerdote e um acólito. Nada é cantado; o sacerdote diz tudo, inclusive as partes que num rito cantado caberiam ao coro. É a forma da Missa diária."
+            ],
+            [
+              "[lat]Missa cantata[/lat]\nMissa cantada",
+              "Um sacerdote, sem diácono nem subdiácono, mas com canto, coro e incenso. Forma dominical mais comum hoje."
+            ],
+            [
+              "[lat]Missa solemnis[/lat]\nMissa solene",
+              "Sacerdote, diácono e subdiácono. O diácono canta o Evangelho e o [lat]Ite, missa est[/lat]; o subdiácono canta a Epístola. É a forma plena, da qual as outras são simplificações."
+            ],
+            [
+              "Missa pontifical",
+              "Celebrada por bispo, com cerimonial próprio: bênção tríplice no fim, uso da mitra e do báculo, sete acólitos no ideal."
+            ],
+            [
+              "Missa de Requiem",
+              "Pelos defuntos. Paramento [preto]preto[/preto], sem Salmo 42, sem Glória, sem Aleluia (há Trato e a sequência [lat]Dies irae[/lat]), sem beijo da paz, sem bênção final. Termina com [lat]Requiescant in pace[/lat]."
+            ],
+            [
+              "Missa votiva",
+              "Escolhida por devoção ou necessidade, e não pelo calendário; só é permitida em dias de grau inferior."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mapa",
+      "numero": 4,
+      "titulo": "O mapa geral",
+      "blocos": [
+        {
+          "id": "mapa-018",
+          "tipo": "paragrafo",
+          "texto": "A Missa romana tem duas metades, com nomes que vêm da Antiguidade, quando os catecúmenos ainda não batizados eram dispensados no meio da celebração:"
+        },
+        {
+          "id": "mapa-019",
+          "tipo": "lista",
+          "itens": [
+            "[b]Missa dos Catecúmenos[/b], do sinal da cruz ao Credo. É a parte da instrução: salmos, orações, leituras, pregação.",
+            "[b]Missa dos Fiéis[/b], do Ofertório ao fim. É a parte do sacrifício propriamente dito: oferecimento, consagração, comunhão."
+          ]
+        },
+        {
+          "id": "mapa-020",
+          "tipo": "paragrafo",
+          "texto": "Dentro da segunda metade, três blocos: [b]Ofertório[/b] (preparação da matéria), [b]Cânon[/b] (a ação sacrifical) e [b]Comunhão[/b] (participação na vítima)."
+        }
+      ]
+    },
+    {
+      "id": "asperges",
+      "numero": 5,
+      "titulo": "Rito preparatório: Asperges",
+      "resumo": "Aos domingos, antes da Missa principal. Rito autônomo de purificação, anterior à Missa e distinto dela, com o sacerdote paramentado de pluvial.",
+      "blocos": [
+        {
+          "id": "asperges-021",
+          "tipo": "passo",
+          "numero": 1,
+          "etiqueta": "variavel",
+          "titulo": "Aspersão com água benta",
+          "tituloLatim": "Asperges me",
+          "corpo": [
+            {
+              "id": "asperges-022",
+              "tipo": "paragrafo",
+              "texto": "Antífona tirada do Salmo 50: [lat]Asperges me, Domine, hyssopo, et mundabor[/lat], «Aspergir-me-eis, Senhor, com o hissopo, e ficarei limpo». Segue o versículo [lat]Miserere mei, Deus[/lat], o [lat]Gloria Patri[/lat], a repetição da antífona, o versículo [lat]Ostende nobis[/lat] e a oração [lat]Exaudi nos[/lat]."
+            },
+            {
+              "id": "asperges-023",
+              "tipo": "rubrica",
+              "texto": "No Tempo Pascal, do Domingo da Páscoa a Pentecostes, o Asperges é substituído pelo [lat]Vidi aquam[/lat], com Aleluia, evocando a água que saía do lado do templo em Ezequiel."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pe-altar",
+      "numero": 6,
+      "titulo": "Orações ao pé do altar",
+      "resumo": "O sacerdote ainda não subiu ao altar. Este bloco inteiro é diálogo entre ele e o acólito, e é uma preparação de indignidade: antes de tocar o altar, confessa-se pecador.",
+      "blocos": [
+        {
+          "id": "pe-altar-024",
+          "tipo": "passo",
+          "numero": 2,
+          "etiqueta": "ordinario",
+          "titulo": "Sinal da cruz e antífona",
+          "tituloLatim": "Introibo ad altare Dei",
+          "corpo": [
+            {
+              "id": "pe-altar-025",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "V. Introibo ad altare Dei.",
+                  "portugues": "Subirei ao altar de Deus."
+                },
+                {
+                  "latim": "R. Ad Deum qui laetificat juventutem meam.",
+                  "portugues": "Ao Deus que alegra a minha juventude."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pe-altar-026",
+          "tipo": "passo",
+          "numero": 3,
+          "etiqueta": "variavel",
+          "titulo": "Salmo 42",
+          "tituloLatim": "Judica me, Deus",
+          "corpo": [
+            {
+              "id": "pe-altar-027",
+              "tipo": "paragrafo",
+              "texto": "Rezado alternadamente com o acólito, terminando no [lat]Gloria Patri[/lat] e na repetição da antífona."
+            },
+            {
+              "id": "pe-altar-028",
+              "tipo": "rubrica",
+              "texto": "Omite-se do Domingo da Paixão até o Sábado Santo e em todas as Missas de defuntos."
+            }
+          ]
+        },
+        {
+          "id": "pe-altar-029",
+          "tipo": "passo",
+          "numero": 4,
+          "etiqueta": "ordinario",
+          "titulo": "Versículo",
+          "tituloLatim": "Adjutorium nostrum",
+          "corpo": [
+            {
+              "id": "pe-altar-030",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "V. Adjutorium nostrum in nomine Domini. R. Qui fecit caelum et terram.",
+                  "portugues": "O nosso auxílio está no nome do Senhor. R. Que fez o céu e a terra."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pe-altar-031",
+          "tipo": "passo",
+          "numero": 5,
+          "etiqueta": "ordinario",
+          "titulo": "Confissão dupla",
+          "tituloLatim": "Confiteor",
+          "corpo": [
+            {
+              "id": "pe-altar-032",
+              "tipo": "paragrafo",
+              "texto": "Primeiro o sacerdote se confessa, profundamente inclinado; o acólito responde com o [lat]Misereatur tui[/lat]. Depois o acólito, em nome do povo, reza o mesmo [lat]Confiteor[/lat], acrescentando [lat]et tibi, pater[/lat] e [lat]et te, pater[/lat]; o sacerdote responde com o [lat]Misereatur vestri[/lat] e a absolvição [lat]Indulgentiam, absolutionem et remissionem peccatorum nostrorum[/lat]."
+            },
+            {
+              "id": "pe-altar-033",
+              "tipo": "rubrica",
+              "texto": "Bate-se três vezes no peito ao dizer [lat]mea culpa, mea culpa, mea maxima culpa[/lat]. A absolvição dada aqui é deprecativa, isto é, um pedido, e não dispensa a confissão sacramental de pecado grave."
+            }
+          ]
+        },
+        {
+          "id": "pe-altar-034",
+          "tipo": "passo",
+          "numero": 6,
+          "etiqueta": "ordinario",
+          "titulo": "Versículos finais e subida ao altar",
+          "corpo": [
+            {
+              "id": "pe-altar-035",
+              "tipo": "paragrafo",
+              "texto": "Seguem-se [lat]Deus, tu conversus vivificabis nos[/lat], [lat]Ostende nobis[/lat], [lat]Domine, exaudi orationem meam[/lat], [lat]Dominus vobiscum[/lat]. Então o [lat]Oremus[/lat] e, subindo os degraus, a oração [lat]Aufer a nobis[/lat], «afastai de nós, Senhor, as nossas iniquidades». Beijando o altar sobre as relíquias, reza o [lat]Oramus te, Domine[/lat]."
+            },
+            {
+              "id": "pe-altar-036",
+              "tipo": "rubrica",
+              "texto": "Na Missa solene ou cantada, incensa-se aqui a cruz e o altar. É o primeiro dos cinco momentos de incensação da Missa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catecumenos",
+      "numero": 7,
+      "titulo": "Missa dos Catecúmenos",
+      "resumo": "Do Introito ao Credo. O sacerdote já está no altar; alterna entre o lado da Epístola (à direita de quem olha) e o lado do Evangelho (à esquerda).",
+      "blocos": [
+        {
+          "id": "catecumenos-037",
+          "tipo": "passo",
+          "numero": 7,
+          "etiqueta": "proprio",
+          "titulo": "Introito",
+          "corpo": [
+            {
+              "id": "catecumenos-038",
+              "tipo": "paragrafo",
+              "texto": "Antífona de entrada, quase sempre um versículo de salmo, seguida de um versículo salmódico, do [lat]Gloria Patri[/lat] e da repetição da antífona. Dá o tom do dia inteiro: [lat]Gaudete[/lat], [lat]Laetare[/lat], [lat]Requiem aeternam[/lat], [lat]Rorate caeli[/lat] são nomes de domingos justamente porque são as primeiras palavras do Introito."
+            },
+            {
+              "id": "catecumenos-039",
+              "tipo": "rubrica",
+              "texto": "Nas Missas de defuntos, omite-se o [lat]Gloria Patri[/lat] e substitui-se por [lat]Et lux perpetua luceat eis[/lat]."
+            }
+          ]
+        },
+        {
+          "id": "catecumenos-040",
+          "tipo": "passo",
+          "numero": 8,
+          "etiqueta": "ordinario",
+          "titulo": "Kyrie eleison",
+          "corpo": [
+            {
+              "id": "catecumenos-041",
+              "tipo": "paragrafo",
+              "texto": "Nove invocações em grego, em três grupos de três: [lat]Kyrie eleison[/lat] (três vezes, ao Pai), [lat]Christe eleison[/lat] (três, ao Filho), [lat]Kyrie eleison[/lat] (três, ao Espírito Santo). É o único resíduo grego do rito romano, sobrevivente da época em que a liturgia de Roma era celebrada nessa língua."
+            }
+          ]
+        },
+        {
+          "id": "catecumenos-042",
+          "tipo": "passo",
+          "numero": 9,
+          "etiqueta": "variavel",
+          "titulo": "Glória",
+          "tituloLatim": "Gloria in excelsis Deo",
+          "corpo": [
+            {
+              "id": "catecumenos-043",
+              "tipo": "paragrafo",
+              "texto": "Hino de louvor de origem antiquíssima, chamado «doxologia maior». Começa com o canto dos anjos em Belém e se desenvolve em louvor trinitário."
+            },
+            {
+              "id": "catecumenos-044",
+              "tipo": "rubrica",
+              "texto": "Omite-se no Advento, na Septuagésima, na Quaresma e no Tempo da Paixão, nas ferias, nas vigílias, nas Missas de defuntos e na maior parte das votivas. Quando o Glória é omitido, o fim da Missa também muda: diz-se [lat]Benedicamus Domino[/lat] em vez de [lat]Ite, missa est[/lat]."
+            }
+          ]
+        },
+        {
+          "id": "catecumenos-045",
+          "tipo": "passo",
+          "numero": 10,
+          "etiqueta": "proprio",
+          "titulo": "Colecta",
+          "tituloLatim": "Oratio",
+          "corpo": [
+            {
+              "id": "catecumenos-046",
+              "tipo": "paragrafo",
+              "texto": "Precedida do [lat]Dominus vobiscum[/lat] e do [lat]Oremus[/lat]. É a oração oficial do dia, curta, densa e construída sempre no mesmo molde romano: invocação a Deus Pai, motivo, pedido, conclusão pelo Filho. «Colecta» porque [i]recolhe[/i] as intenções da assembleia numa só voz."
+            },
+            {
+              "id": "catecumenos-047",
+              "tipo": "rubrica",
+              "texto": "Podem seguir-se comemorações: colectas de outras festas ou orações impostas pelo bispo. Elas voltarão no mesmo número na Secreta e na Pós-comunhão. As rubricas de 1960 reduziram muito essas comemorações; nos missais anteriores, o número de orações era sempre ímpar: três, cinco, sete."
+            }
+          ]
+        },
+        {
+          "id": "catecumenos-048",
+          "tipo": "passo",
+          "numero": 11,
+          "etiqueta": "proprio",
+          "titulo": "Epístola",
+          "tituloLatim": "Lectio",
+          "corpo": [
+            {
+              "id": "catecumenos-049",
+              "tipo": "paragrafo",
+              "texto": "Lida no lado da Epístola. O nome é convenção: a leitura pode vir dos profetas, do Apocalipse, dos Atos ou dos livros sapienciais. O acólito responde [lat]Deo gratias[/lat]."
+            }
+          ]
+        },
+        {
+          "id": "catecumenos-050",
+          "tipo": "passo",
+          "numero": 12,
+          "etiqueta": "proprio",
+          "titulo": "Gradual, Aleluia, Trato, Sequência",
+          "corpo": [
+            {
+              "id": "catecumenos-051",
+              "tipo": "paragrafo",
+              "texto": "O canto interlecional, que muda conforme o tempo litúrgico:"
+            },
+            {
+              "id": "catecumenos-052",
+              "tipo": "lista",
+              "itens": [
+                "[b]Gradual[/b], sempre presente fora do Tempo Pascal. O nome vem de [lat]gradus[/lat], o degrau do ambão de onde era cantado.",
+                "[b]Aleluia[/b] com versículo, no tempo festivo.",
+                "[b]Trato[/b], que substitui o Aleluia da Septuagésima ao Sábado Santo e nas Missas de defuntos; canto contínuo, sem refrão, de tom penitencial.",
+                "[b]Sequência[/b], poema litúrgico mantido em apenas cinco casos no missal: [lat]Victimae paschali laudes[/lat] (Páscoa), [lat]Veni Sancte Spiritus[/lat] (Pentecostes), [lat]Lauda Sion[/lat] (Corpus Christi), [lat]Stabat Mater[/lat] (Sete Dores de Nossa Senhora) e [lat]Dies irae[/lat] (defuntos)."
+              ]
+            },
+            {
+              "id": "catecumenos-053",
+              "tipo": "rubrica",
+              "texto": "No Tempo Pascal há dois Aleluias no lugar do Gradual. Do Sábado Santo a Pentecostes, a palavra «Aleluia» invade praticamente todas as antífonas."
+            }
+          ]
+        },
+        {
+          "id": "catecumenos-054",
+          "tipo": "passo",
+          "numero": 13,
+          "etiqueta": "ordinario",
+          "titulo": "Preparação do Evangelho",
+          "tituloLatim": "Munda cor meum",
+          "corpo": [
+            {
+              "id": "catecumenos-055",
+              "tipo": "paragrafo",
+              "texto": "Inclinado no meio do altar, o sacerdote pede a purificação dos lábios com a imagem do carvão em brasa de Isaías: [lat]Munda cor meum ac labia mea[/lat]. Na Missa solene, o diácono pede a bênção: [lat]Jube, domne, benedicere[/lat]."
+            },
+            {
+              "id": "catecumenos-056",
+              "tipo": "rubrica",
+              "texto": "O missal é transferido para o lado do Evangelho. Na Missa solene, procissão com turíbulo e círios."
+            }
+          ]
+        },
+        {
+          "id": "catecumenos-057",
+          "tipo": "passo",
+          "numero": 14,
+          "etiqueta": "proprio",
+          "titulo": "Evangelho",
+          "corpo": [
+            {
+              "id": "catecumenos-058",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "V. Dominus vobiscum. R. Et cum spiritu tuo."
+                },
+                {
+                  "latim": "V. Sequentia sancti Evangelii secundum N. R. Gloria tibi, Domine.",
+                  "portugues": "Continuação do santo Evangelho segundo N. R. Glória a Vós, Senhor."
+                }
+              ]
+            },
+            {
+              "id": "catecumenos-059",
+              "tipo": "rubrica",
+              "texto": "Todos de pé. Sacerdote e fiéis fazem três pequenas cruzes: na testa, nos lábios e no peito, pela fé na mente, na confissão e no coração. No fim, [lat]Laus tibi, Christe[/lat], e o sacerdote beija o livro dizendo [lat]Per evangelica dicta deleantur nostra delicta[/lat]."
+            }
+          ]
+        },
+        {
+          "id": "catecumenos-060",
+          "tipo": "passo",
+          "numero": 15,
+          "etiqueta": "variavel",
+          "titulo": "Homilia e avisos",
+          "corpo": [
+            {
+              "id": "catecumenos-061",
+              "tipo": "paragrafo",
+              "texto": "Em vernáculo. Aqui também se leem, quando é o caso, o Evangelho traduzido, os avisos paroquiais e os anúncios de casamento. Não pertence estritamente ao rito: o sacerdote pode até retirar o manípulo, sinal de que interrompe a ação litúrgica."
+            }
+          ]
+        },
+        {
+          "id": "catecumenos-062",
+          "tipo": "passo",
+          "numero": 16,
+          "etiqueta": "variavel",
+          "titulo": "Credo",
+          "tituloLatim": "Credo in unum Deum",
+          "corpo": [
+            {
+              "id": "catecumenos-063",
+              "tipo": "paragrafo",
+              "texto": "O Símbolo Niceno-Constantinopolitano, resposta da fé à Palavra ouvida."
+            },
+            {
+              "id": "catecumenos-064",
+              "tipo": "rubrica",
+              "texto": "Todos se ajoelham nas palavras [lat]Et incarnatus est de Spiritu Sancto ex Maria Virgine: et homo factus est[/lat]. Reza-se aos domingos, nas festas de I classe, nas do Senhor e de Nossa Senhora, dos Apóstolos, Evangelistas e Doutores da Igreja, e na dedicação de igreja. Numa feria comum, não há Credo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ofertorio",
+      "numero": 8,
+      "titulo": "Missa dos Fiéis: Ofertório",
+      "resumo": "Começa a segunda metade. As orações deste bloco são de origem medieval e antecipam em linguagem sacrifical o que só se realizará no Cânon. Por isso falam da hóstia como «vítima imaculada» antes da consagração.",
+      "blocos": [
+        {
+          "id": "ofertorio-065",
+          "tipo": "passo",
+          "numero": 17,
+          "etiqueta": "proprio",
+          "titulo": "Antífona do Ofertório",
+          "corpo": [
+            {
+              "id": "ofertorio-066",
+              "tipo": "paragrafo",
+              "texto": "Precedida do [lat]Dominus vobiscum[/lat] e do [lat]Oremus[/lat]. Curiosidade: esse [lat]Oremus[/lat] ficou sem a oração que o seguia, vestígio de uma oração dos fiéis que desapareceu do rito romano há mais de mil anos."
+            }
+          ]
+        },
+        {
+          "id": "ofertorio-067",
+          "tipo": "passo",
+          "numero": 18,
+          "etiqueta": "ordinario",
+          "titulo": "Oblação da hóstia",
+          "tituloLatim": "Suscipe, sancte Pater",
+          "corpo": [
+            {
+              "id": "ofertorio-068",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "Suscipe, sancte Pater, omnipotens aeterne Deus, hanc immaculatam hostiam…",
+                  "portugues": "Recebei, Pai santo, Deus onipotente e eterno, esta hóstia imaculada que eu, vosso indigno servo, vos ofereço…"
+                }
+              ]
+            },
+            {
+              "id": "ofertorio-069",
+              "tipo": "rubrica",
+              "texto": "O sacerdote eleva a patena com a hóstia à altura do peito e a traça em cruz sobre o corporal."
+            }
+          ]
+        },
+        {
+          "id": "ofertorio-070",
+          "tipo": "passo",
+          "numero": 19,
+          "etiqueta": "ordinario",
+          "titulo": "Mistura da água e do vinho",
+          "tituloLatim": "Deus, qui humanae substantiae",
+          "corpo": [
+            {
+              "id": "ofertorio-071",
+              "tipo": "paragrafo",
+              "texto": "Ao lado da Epístola, deitam-se algumas gotas de água no vinho, com a oração que compara essa mistura à união das duas naturezas em Cristo."
+            },
+            {
+              "id": "ofertorio-072",
+              "tipo": "rubrica",
+              "texto": "A água é abençoada, mas não nas Missas de defuntos."
+            }
+          ]
+        },
+        {
+          "id": "ofertorio-073",
+          "tipo": "passo",
+          "numero": 20,
+          "etiqueta": "ordinario",
+          "titulo": "Oblação do cálice",
+          "tituloLatim": "Offerimus tibi, Domine",
+          "corpo": [
+            {
+              "id": "ofertorio-074",
+              "tipo": "paragrafo",
+              "texto": "Note o plural: [lat]offerimus[/lat], «oferecemos». Na Missa solene, o diácono segura o cálice com o sacerdote."
+            }
+          ]
+        },
+        {
+          "id": "ofertorio-075",
+          "tipo": "passo",
+          "numero": 21,
+          "etiqueta": "ordinario",
+          "titulo": "[lat]In spiritu humilitatis[/lat] e [lat]Veni, Sanctificator[/lat]",
+          "corpo": [
+            {
+              "id": "ofertorio-076",
+              "tipo": "paragrafo",
+              "texto": "Duas orações curtas: a primeira, do coração contrito de Daniel; a segunda, invocação do Espírito Santo sobre as oblatas, o equivalente romano do que os orientais chamam epiclese."
+            }
+          ]
+        },
+        {
+          "id": "ofertorio-077",
+          "tipo": "passo",
+          "numero": 22,
+          "etiqueta": "variavel",
+          "titulo": "Incensação das oblatas",
+          "corpo": [
+            {
+              "id": "ofertorio-078",
+              "tipo": "rubrica",
+              "texto": "Só na Missa solene ou cantada. Quatro fórmulas em sequência: [lat]Per intercessionem beati Michaelis[/lat] ao abençoar o incenso, [lat]Incensum istud[/lat] ao incensar as oblatas, [lat]Dirigatur, Domine, oratio mea[/lat] ao incensar o altar, [lat]Accendat in nobis Dominus ignem sui amoris[/lat] ao devolver o turíbulo. Depois são incensados o celebrante, os ministros e o povo, em ordem hierárquica rigorosa."
+            }
+          ]
+        },
+        {
+          "id": "ofertorio-079",
+          "tipo": "passo",
+          "numero": 23,
+          "etiqueta": "ordinario",
+          "titulo": "Lavabo",
+          "tituloLatim": "Lavabo inter innocentes manus meas",
+          "corpo": [
+            {
+              "id": "ofertorio-080",
+              "tipo": "paragrafo",
+              "texto": "Salmo 25, versículos 6 a 12, enquanto lava as pontas dos dedos. Gesto originalmente prático, hoje simbólico: pureza exigida de quem vai tocar o Corpo do Senhor."
+            },
+            {
+              "id": "ofertorio-081",
+              "tipo": "rubrica",
+              "texto": "Omite-se o [lat]Gloria Patri[/lat] nas Missas de defuntos e no Tempo da Paixão."
+            }
+          ]
+        },
+        {
+          "id": "ofertorio-082",
+          "tipo": "passo",
+          "numero": 24,
+          "etiqueta": "ordinario",
+          "titulo": "[lat]Suscipe, sancta Trinitas[/lat]",
+          "corpo": [
+            {
+              "id": "ofertorio-083",
+              "tipo": "paragrafo",
+              "texto": "Oferecimento explícito do sacrifício em memória da Paixão, Ressurreição e Ascensão, e em honra dos santos."
+            }
+          ]
+        },
+        {
+          "id": "ofertorio-084",
+          "tipo": "passo",
+          "numero": 25,
+          "etiqueta": "ordinario",
+          "titulo": "[lat]Orate, fratres[/lat]",
+          "corpo": [
+            {
+              "id": "ofertorio-085",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "Orate, fratres, ut meum ac vestrum sacrificium acceptabile fiat apud Deum Patrem omnipotentem.",
+                  "portugues": "Orai, irmãos, para que o meu e vosso sacrifício seja aceito por Deus Pai onipotente."
+                },
+                {
+                  "latim": "R. Suscipiat Dominus sacrificium de manibus tuis, ad laudem et gloriam nominis sui, ad utilitatem quoque nostram, totiusque Ecclesiae suae sanctae.",
+                  "portugues": "Receba o Senhor de tuas mãos este sacrifício, para louvor e glória do seu nome, para nosso bem e de toda a sua santa Igreja."
+                }
+              ]
+            },
+            {
+              "id": "ofertorio-086",
+              "tipo": "rubrica",
+              "texto": "É o único momento em que o sacerdote se volta para o povo e o povo responde algo longo. A distinção «meu e vosso» é precisa: o sacerdote oferece em sentido próprio; os fiéis, em sentido derivado, pelo sacerdócio comum."
+            }
+          ]
+        },
+        {
+          "id": "ofertorio-087",
+          "tipo": "passo",
+          "numero": 26,
+          "etiqueta": "proprio",
+          "titulo": "Secreta",
+          "corpo": [
+            {
+              "id": "ofertorio-088",
+              "tipo": "paragrafo",
+              "texto": "A oração sobre as oblatas, rezada inteiramente em silêncio, daí o nome. É a peça do Próprio que quase ninguém ouve. Só a conclusão é cantada em voz alta, servindo de rampa para o Prefácio: [lat]Per omnia saecula saeculorum. R. Amen.[/lat]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "canon",
+      "numero": 9,
+      "titulo": "Prefácio e Cânon",
+      "resumo": "O coração da Missa. O Cânon Romano é substancialmente o mesmo desde o século VI e, salvo pequenas variações, não muda em dia nenhum do ano, daí o nome: [lat]canon[/lat], regra fixa.",
+      "blocos": [
+        {
+          "id": "canon-089",
+          "tipo": "passo",
+          "numero": 27,
+          "etiqueta": "variavel",
+          "titulo": "Prefácio",
+          "tituloLatim": "Praefatio",
+          "corpo": [
+            {
+              "id": "canon-090",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "V. Dominus vobiscum. R. Et cum spiritu tuo."
+                },
+                {
+                  "latim": "V. Sursum corda. R. Habemus ad Dominum.",
+                  "portugues": "Corações ao alto. R. Já os temos no Senhor."
+                },
+                {
+                  "latim": "V. Gratias agamus Domino Deo nostro. R. Dignum et justum est.",
+                  "portugues": "Demos graças ao Senhor nosso Deus. R. É digno e justo."
+                }
+              ]
+            },
+            {
+              "id": "canon-091",
+              "tipo": "paragrafo",
+              "texto": "Segue-se o [lat]Vere dignum et justum est[/lat], que termina sempre unindo a voz da Igreja à dos anjos. O missal de 1962 tem quinze prefácios: o Comum e mais os da Trindade, Natal, Epifania, Quaresma, Santa Cruz, Páscoa, Ascensão, Espírito Santo, Sagrado Coração, Cristo Rei, Nossa Senhora, São José, Apóstolos e Defuntos."
+            }
+          ]
+        },
+        {
+          "id": "canon-092",
+          "tipo": "passo",
+          "numero": 28,
+          "etiqueta": "ordinario",
+          "titulo": "Sanctus e Benedictus",
+          "corpo": [
+            {
+              "id": "canon-093",
+              "tipo": "paragrafo",
+              "texto": "Junção de duas aclamações bíblicas: o trissagion de Isaías 6 e o [lat]Benedictus qui venit[/lat] do Domingo de Ramos."
+            },
+            {
+              "id": "canon-094",
+              "tipo": "rubrica",
+              "texto": "Toca-se a campainha três vezes. Na Missa solene, o [lat]Benedictus[/lat] é cantado depois da consagração."
+            }
+          ]
+        },
+        {
+          "id": "canon-095",
+          "tipo": "nota",
+          "alerta": true,
+          "titulo": "Daqui até o Pater noster, tudo é rezado em silêncio",
+          "paragrafos": [
+            "A rubrica manda [lat]secreto[/lat]. O fiel acompanha pelo missal, pelos gestos e pelas campainhas. As únicas palavras audíveis do Cânon são o [lat]Nobis quoque peccatoribus[/lat], dito em voz um pouco mais alta, e a conclusão final."
+          ]
+        },
+        {
+          "id": "canon-096",
+          "tipo": "passo",
+          "numero": 29,
+          "etiqueta": "ordinario",
+          "titulo": "1. [lat]Te igitur[/lat]",
+          "corpo": [
+            {
+              "id": "canon-097",
+              "tipo": "paragrafo",
+              "texto": "Súplica de aceitação do sacrifício, pela Igreja, pelo Papa nomeado, pelo bispo diocesano nomeado e por todos os que professam a fé católica."
+            }
+          ]
+        },
+        {
+          "id": "canon-098",
+          "tipo": "passo",
+          "numero": 30,
+          "etiqueta": "ordinario",
+          "titulo": "2. [lat]Memento, Domine[/lat], dos vivos",
+          "corpo": [
+            {
+              "id": "canon-099",
+              "tipo": "rubrica",
+              "texto": "O sacerdote faz uma pausa e recorda mentalmente aqueles por quem quer rezar. É o momento próprio para o fiel apresentar as suas intenções."
+            }
+          ]
+        },
+        {
+          "id": "canon-100",
+          "tipo": "passo",
+          "numero": 31,
+          "etiqueta": "ordinario",
+          "titulo": "3. [lat]Communicantes[/lat]",
+          "corpo": [
+            {
+              "id": "canon-101",
+              "tipo": "paragrafo",
+              "texto": "Enumeração de Nossa Senhora, São José, os doze Apóstolos e doze mártires romanos: comunhão com a Igreja triunfante."
+            },
+            {
+              "id": "canon-102",
+              "tipo": "rubrica",
+              "texto": "Tem forma própria no Natal, Epifania, Páscoa, Ascensão e Pentecostes, uma das poucas variações do Cânon."
+            }
+          ]
+        },
+        {
+          "id": "canon-103",
+          "tipo": "passo",
+          "numero": 32,
+          "etiqueta": "ordinario",
+          "titulo": "4. [lat]Hanc igitur[/lat]",
+          "corpo": [
+            {
+              "id": "canon-104",
+              "tipo": "rubrica",
+              "texto": "O sacerdote estende as mãos sobre as oblatas, gesto do bode expiatório do Levítico. Toca-se a campainha: é o aviso de que a consagração se aproxima. Também tem forma própria na Páscoa e em Pentecostes."
+            }
+          ]
+        },
+        {
+          "id": "canon-105",
+          "tipo": "passo",
+          "numero": 33,
+          "etiqueta": "ordinario",
+          "titulo": "5. [lat]Quam oblationem[/lat]",
+          "corpo": [
+            {
+              "id": "canon-106",
+              "tipo": "paragrafo",
+              "texto": "Pedido para que a oferta se torne para nós o Corpo e o Sangue de Cristo. É a última oração antes das palavras da instituição."
+            }
+          ]
+        },
+        {
+          "id": "canon-107",
+          "tipo": "passo",
+          "numero": 34,
+          "etiqueta": "ordinario",
+          "titulo": "6. [lat]Qui pridie[/lat]: Consagração do pão",
+          "corpo": [
+            {
+              "id": "canon-108",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "Hoc est enim Corpus meum.",
+                  "portugues": "Isto é o meu Corpo."
+                }
+              ]
+            },
+            {
+              "id": "canon-109",
+              "tipo": "rubrica",
+              "texto": "Genuflexão, elevação da Hóstia, genuflexão. Três toques de campainha. Na Missa solene, incensa-se a Hóstia elevada. Os fiéis adoram em silêncio; a fórmula devocional tradicional deste momento é o [lat]Dominus meus et Deus meus[/lat] de São Tomé."
+            }
+          ]
+        },
+        {
+          "id": "canon-110",
+          "tipo": "passo",
+          "numero": 35,
+          "etiqueta": "ordinario",
+          "titulo": "7. [lat]Simili modo[/lat]: Consagração do vinho",
+          "corpo": [
+            {
+              "id": "canon-111",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "Hic est enim Calix Sanguinis mei, novi et aeterni testamenti: mysterium fidei: qui pro vobis et pro multis effundetur in remissionem peccatorum.",
+                  "portugues": "Este é o Cálice do meu Sangue, do novo e eterno testamento: mistério da fé: que por vós e por muitos será derramado para a remissão dos pecados."
+                }
+              ]
+            },
+            {
+              "id": "canon-112",
+              "tipo": "rubrica",
+              "texto": "Genuflexão, elevação do Cálice, genuflexão, campainha. Segue-se [lat]Haec quotiescumque feceritis, in mei memoriam facietis[/lat]."
+            }
+          ]
+        },
+        {
+          "id": "canon-113",
+          "tipo": "passo",
+          "numero": 36,
+          "etiqueta": "ordinario",
+          "titulo": "8. [lat]Unde et memores[/lat]",
+          "corpo": [
+            {
+              "id": "canon-114",
+              "tipo": "paragrafo",
+              "texto": "A anamnese romana: a Igreja recorda a Paixão, a Ressurreição e a Ascensão e oferece ao Pai a hóstia pura, santa e imaculada, agora no sentido próprio."
+            }
+          ]
+        },
+        {
+          "id": "canon-115",
+          "tipo": "passo",
+          "numero": 37,
+          "etiqueta": "ordinario",
+          "titulo": "9. [lat]Supra quae[/lat]",
+          "corpo": [
+            {
+              "id": "canon-116",
+              "tipo": "paragrafo",
+              "texto": "Invoca os sacrifícios de Abel, Abraão e Melquisedec como figuras aceitas por Deus."
+            }
+          ]
+        },
+        {
+          "id": "canon-117",
+          "tipo": "passo",
+          "numero": 38,
+          "etiqueta": "ordinario",
+          "titulo": "10. [lat]Supplices te rogamus[/lat]",
+          "corpo": [
+            {
+              "id": "canon-118",
+              "tipo": "paragrafo",
+              "texto": "Pede que a oblação seja levada pelas mãos do anjo ao altar celeste. Uma das passagens mais discutidas e mais belas do Cânon."
+            },
+            {
+              "id": "canon-119",
+              "tipo": "rubrica",
+              "texto": "O sacerdote se inclina profundamente e beija o altar; a campainha toca ao [lat]ex hac altaris participatione[/lat]."
+            }
+          ]
+        },
+        {
+          "id": "canon-120",
+          "tipo": "passo",
+          "numero": 39,
+          "etiqueta": "ordinario",
+          "titulo": "11. [lat]Memento etiam[/lat], dos mortos",
+          "corpo": [
+            {
+              "id": "canon-121",
+              "tipo": "rubrica",
+              "texto": "Segunda pausa silenciosa, agora pelas almas do purgatório."
+            }
+          ]
+        },
+        {
+          "id": "canon-122",
+          "tipo": "passo",
+          "numero": 40,
+          "etiqueta": "ordinario",
+          "titulo": "12. [lat]Nobis quoque peccatoribus[/lat]",
+          "corpo": [
+            {
+              "id": "canon-123",
+              "tipo": "paragrafo",
+              "texto": "Segunda lista de santos, aberta a mártires e virgens. O sacerdote bate no peito e ergue um pouco a voz nas primeiras palavras, «a nós, pecadores», único ponto audível do Cânon."
+            }
+          ]
+        },
+        {
+          "id": "canon-124",
+          "tipo": "passo",
+          "numero": 41,
+          "etiqueta": "ordinario",
+          "titulo": "13. [lat]Per quem haec omnia[/lat] e 14. [lat]Per ipsum[/lat]",
+          "corpo": [
+            {
+              "id": "canon-125",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "Per ipsum, et cum ipso, et in ipso, est tibi Deo Patri omnipotenti, in unitate Spiritus Sancti, omnis honor et gloria.",
+                  "portugues": "Por Ele, com Ele e nEle, a Vós, Deus Pai onipotente, na unidade do Espírito Santo, toda honra e glória."
+                }
+              ]
+            },
+            {
+              "id": "canon-126",
+              "tipo": "rubrica",
+              "texto": "Pequena Elevação: o sacerdote ergue ligeiramente a Hóstia sobre o Cálice, traçando cruzes. Conclui em voz alta: [lat]Per omnia saecula saeculorum. R. Amen.[/lat] Esse é o «Amém» mais importante da Missa, o que ratifica todo o Cânon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comunhao",
+      "numero": 10,
+      "titulo": "Comunhão",
+      "blocos": [
+        {
+          "id": "comunhao-127",
+          "tipo": "passo",
+          "numero": 42,
+          "etiqueta": "ordinario",
+          "titulo": "Pai-Nosso",
+          "tituloLatim": "Pater noster",
+          "corpo": [
+            {
+              "id": "comunhao-128",
+              "tipo": "rubrica",
+              "texto": "O sacerdote reza ou canta sozinho, precedido do [lat]Oremus. Praeceptis salutaribus moniti[/lat]. Só a última petição é do acólito ou do povo: [lat]Sed libera nos a malo[/lat]. No rito antigo, o Pai-Nosso cabe ao sacerdote."
+            }
+          ]
+        },
+        {
+          "id": "comunhao-129",
+          "tipo": "passo",
+          "numero": 43,
+          "etiqueta": "ordinario",
+          "titulo": "Embolismo",
+          "tituloLatim": "Libera nos, quaesumus",
+          "corpo": [
+            {
+              "id": "comunhao-130",
+              "tipo": "paragrafo",
+              "texto": "Desenvolvimento silencioso da última petição do Pai-Nosso, pedindo a intercessão de Nossa Senhora, dos Apóstolos Pedro, Paulo e André. Termina em voz alta."
+            }
+          ]
+        },
+        {
+          "id": "comunhao-131",
+          "tipo": "passo",
+          "numero": 44,
+          "etiqueta": "ordinario",
+          "titulo": "Fração e mistura",
+          "tituloLatim": "Pax Domini",
+          "corpo": [
+            {
+              "id": "comunhao-132",
+              "tipo": "rubrica",
+              "texto": "O sacerdote parte a Hóstia em três, canta [lat]Pax Domini sit semper vobiscum[/lat] e deixa cair uma partícula no Cálice, dizendo [lat]Haec commixtio et consecratio[/lat]. Rito antigo que significa a unidade do Corpo e do Sangue no Cristo ressuscitado."
+            }
+          ]
+        },
+        {
+          "id": "comunhao-133",
+          "tipo": "passo",
+          "numero": 45,
+          "etiqueta": "ordinario",
+          "titulo": "Agnus Dei",
+          "corpo": [
+            {
+              "id": "comunhao-134",
+              "tipo": "paragrafo",
+              "texto": "Três invocações; nas duas primeiras, [lat]miserere nobis[/lat]; na terceira, [lat]dona nobis pacem[/lat]."
+            },
+            {
+              "id": "comunhao-135",
+              "tipo": "rubrica",
+              "texto": "Nas Missas de defuntos: [lat]dona eis requiem[/lat] e, na terceira, [lat]dona eis requiem sempiternam[/lat]. Bate-se três vezes no peito."
+            }
+          ]
+        },
+        {
+          "id": "comunhao-136",
+          "tipo": "passo",
+          "numero": 46,
+          "etiqueta": "ordinario",
+          "titulo": "Três orações de preparação",
+          "corpo": [
+            {
+              "id": "comunhao-137",
+              "tipo": "lista",
+              "ordenada": true,
+              "itens": [
+                "[lat]Domine Jesu Christe, qui dixisti Apostolis tuis: Pacem relinquo vobis[/lat], pela paz e unidade da Igreja. [r]Omitida nas Missas de defuntos.[/r]",
+                "[lat]Domine Jesu Christe, Fili Dei vivi[/lat], pela libertação de todo mal.",
+                "[lat]Perceptio Corporis tui[/lat], para que a comunhão não seja julgamento e condenação."
+              ]
+            },
+            {
+              "id": "comunhao-138",
+              "tipo": "rubrica",
+              "texto": "Na Missa solene, depois da primeira oração vem o beijo da paz, transmitido do celebrante ao diácono, do diácono ao subdiácono, e assim pelo coro, com a fórmula [lat]Pax tecum[/lat]. O gesto corre entre os ministros: é a paz que desce hierarquicamente do altar."
+            }
+          ]
+        },
+        {
+          "id": "comunhao-139",
+          "tipo": "passo",
+          "numero": 47,
+          "etiqueta": "ordinario",
+          "titulo": "Comunhão do sacerdote",
+          "corpo": [
+            {
+              "id": "comunhao-140",
+              "tipo": "paragrafo",
+              "texto": "[lat]Panem caelestem accipiam[/lat], e então, batendo no peito três vezes:"
+            },
+            {
+              "id": "comunhao-141",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "Domine, non sum dignus, ut intres sub tectum meum: sed tantum dic verbo, et sanabitur anima mea.",
+                  "portugues": "Senhor, não sou digno de que entreis em minha morada, mas dizei uma só palavra e a minha alma será salva."
+                }
+              ]
+            },
+            {
+              "id": "comunhao-142",
+              "tipo": "paragrafo",
+              "texto": "Comunga o Corpo com [lat]Corpus Domini nostri Jesu Christi custodiat animam meam in vitam aeternam[/lat], faz pausa de recolhimento, reza [lat]Quid retribuam Domino[/lat] e comunga o Sangue."
+            }
+          ]
+        },
+        {
+          "id": "comunhao-143",
+          "tipo": "passo",
+          "numero": 48,
+          "etiqueta": "ordinario",
+          "titulo": "Comunhão dos fiéis",
+          "corpo": [
+            {
+              "id": "comunhao-144",
+              "tipo": "rubrica",
+              "texto": "Ordem: o acólito reza o [lat]Confiteor[/lat] em nome do povo; o sacerdote responde [lat]Misereatur vestri[/lat] e [lat]Indulgentiam[/lat]; volta-se com a Hóstia e diz [lat]Ecce Agnus Dei, ecce qui tollit peccata mundi[/lat]; todos repetem três vezes [lat]Domine, non sum dignus[/lat]. Os fiéis comungam ajoelhados na balaustrada, na língua, com o acólito segurando a patena sob o queixo. A fórmula é individual: [lat]Corpus Domini nostri Jesu Christi custodiat animam tuam in vitam aeternam. Amen.[/lat] Quem diz o «Amém» aqui é o próprio sacerdote."
+            }
+          ]
+        },
+        {
+          "id": "comunhao-145",
+          "tipo": "passo",
+          "numero": 49,
+          "etiqueta": "ordinario",
+          "titulo": "Abluções",
+          "corpo": [
+            {
+              "id": "comunhao-146",
+              "tipo": "paragrafo",
+              "texto": "Purificação do cálice e dos dedos com vinho e água, acompanhada de [lat]Quod ore sumpsimus, Domine, pura mente capiamus[/lat] e [lat]Corpus tuum, Domine, quod sumpsi[/lat]."
+            }
+          ]
+        },
+        {
+          "id": "comunhao-147",
+          "tipo": "passo",
+          "numero": 50,
+          "etiqueta": "proprio",
+          "titulo": "Antífona da Comunhão",
+          "corpo": [
+            {
+              "id": "comunhao-148",
+              "tipo": "rubrica",
+              "texto": "Lida no lado da Epístola, para onde o missal foi transferido de volta. Resto de um salmo inteiro que antigamente se cantava durante a distribuição."
+            }
+          ]
+        },
+        {
+          "id": "comunhao-149",
+          "tipo": "passo",
+          "numero": 51,
+          "etiqueta": "proprio",
+          "titulo": "Pós-comunhão",
+          "tituloLatim": "Postcommunio",
+          "corpo": [
+            {
+              "id": "comunhao-150",
+              "tipo": "paragrafo",
+              "texto": "Precedida do [lat]Dominus vobiscum[/lat] e do [lat]Oremus[/lat]. Oração de ação de graças e de pedido de fruto. Repete as comemorações feitas na Colecta."
+            },
+            {
+              "id": "comunhao-151",
+              "tipo": "rubrica",
+              "texto": "Nas ferias de Quaresma acrescenta-se aqui a [lat]Oratio super populum[/lat], precedida de [lat]Humiliate capita vestra Deo[/lat]."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conclusao",
+      "numero": 11,
+      "titulo": "Conclusão e Último Evangelho",
+      "blocos": [
+        {
+          "id": "conclusao-152",
+          "tipo": "passo",
+          "numero": 52,
+          "etiqueta": "variavel",
+          "titulo": "Despedida",
+          "tituloLatim": "Ite, missa est",
+          "corpo": [
+            {
+              "id": "conclusao-153",
+              "tipo": "paragrafo",
+              "texto": "É desta fórmula que vem a palavra «Missa». Resposta: [lat]Deo gratias[/lat]."
+            },
+            {
+              "id": "conclusao-154",
+              "tipo": "rubrica",
+              "texto": "Quando não houve Glória, diz-se [lat]Benedicamus Domino[/lat]. Nas Missas de defuntos: [lat]Requiescant in pace. R. Amen.[/lat] Na Missa solene, quem canta é o diácono."
+            }
+          ]
+        },
+        {
+          "id": "conclusao-155",
+          "tipo": "passo",
+          "numero": 53,
+          "etiqueta": "ordinario",
+          "titulo": "[lat]Placeat tibi, sancta Trinitas[/lat]",
+          "corpo": [
+            {
+              "id": "conclusao-156",
+              "tipo": "paragrafo",
+              "texto": "Última oração pessoal do sacerdote antes de abençoar: que o obséquio da sua servidão agrade à Trindade."
+            }
+          ]
+        },
+        {
+          "id": "conclusao-157",
+          "tipo": "passo",
+          "numero": 54,
+          "etiqueta": "variavel",
+          "titulo": "Bênção",
+          "corpo": [
+            {
+              "id": "conclusao-158",
+              "tipo": "oracao",
+              "versos": [
+                {
+                  "latim": "Benedicat vos omnipotens Deus, Pater, et Filius, et Spiritus Sanctus."
+                }
+              ]
+            },
+            {
+              "id": "conclusao-159",
+              "tipo": "rubrica",
+              "texto": "Omitida nas Missas de defuntos. O bispo dá bênção tríplice, precedida dos versículos [lat]Sit nomen Domini benedictum[/lat] e [lat]Adjutorium nostrum[/lat]."
+            }
+          ]
+        },
+        {
+          "id": "conclusao-160",
+          "tipo": "passo",
+          "numero": 55,
+          "etiqueta": "variavel",
+          "titulo": "Último Evangelho",
+          "tituloLatim": "In principio erat Verbum",
+          "corpo": [
+            {
+              "id": "conclusao-161",
+              "tipo": "paragrafo",
+              "texto": "O prólogo de São João (Jo 1, 1-14), lido no lado do Evangelho. Entrou no rito tardiamente, como oração de ação de graças do sacerdote, e acabou fixado por São Pio V."
+            },
+            {
+              "id": "conclusao-162",
+              "tipo": "rubrica",
+              "texto": "Todos se ajoelham em [lat]Et Verbum caro factum est[/lat]. Resposta final: [lat]Deo gratias[/lat]. Em certos dias lê-se um Último Evangelho próprio: por exemplo, no terceiro Natal, o Evangelho da Epifania; no Domingo de Ramos, o da bênção dos ramos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leoninas",
+      "numero": 12,
+      "titulo": "Orações Leoninas",
+      "resumo": "Depois das Missas rezadas, ajoelhado ao pé do altar. São orações prescritas por Leão XIII em 1884, acrescentadas depois do rito da Missa.",
+      "blocos": [
+        {
+          "id": "leoninas-163",
+          "tipo": "lista",
+          "ordenada": true,
+          "itens": [
+            "Três [b]Ave-Marias[/b];",
+            "[b]Salve Rainha[/b], com o versículo [lat]Ora pro nobis, sancta Dei Genitrix[/lat];",
+            "Oração [lat]Deus, refugium nostrum et virtus[/lat], pela liberdade e exaltação da Igreja;",
+            "Oração a [b]São Miguel Arcanjo[/b], [lat]Sancte Michael Archangele, defende nos in proelio[/lat];",
+            "Invocação, três vezes: «Coração Sacratíssimo de Jesus, tende piedade de nós», acrescentada por São Pio X."
+          ]
+        },
+        {
+          "id": "leoninas-164",
+          "tipo": "paragrafo",
+          "texto": "Pio XI, em 1929, determinou que fossem oferecidas pela conversão da Rússia. Foram suprimidas pela instrução [lat]Inter Oecumenici[/lat], de 1964, mas continuam em uso costumeiro em quase todas as capelas onde se celebra o rito antigo."
+        }
+      ]
+    },
+    {
+      "id": "cenarios",
+      "numero": 13,
+      "titulo": "O mesmo rito em cinco cenários",
+      "blocos": [
+        {
+          "id": "cenarios-165",
+          "tipo": "paragrafo",
+          "texto": "O esqueleto é sempre o mesmo; o dia decide o que entra e o que sai."
+        },
+        {
+          "id": "cenarios-166",
+          "tipo": "tabela",
+          "colunas": [
+            "Peça",
+            "Domingo depois de Pentecostes",
+            "Feria comum",
+            "Festa de santo",
+            "Quaresma",
+            "Requiem"
+          ],
+          "linhas": [
+            [
+              "Origem do Próprio",
+              "Próprio do Tempo",
+              "Do domingo anterior",
+              "Próprio dos Santos, ou Comum",
+              "Próprio do Tempo",
+              "Missas de defuntos"
+            ],
+            [
+              "Salmo 42",
+              "sim",
+              "sim",
+              "sim",
+              "sim, até o Domingo da Paixão",
+              "não"
+            ],
+            [
+              "Glória",
+              "sim",
+              "não",
+              "sim",
+              "não",
+              "não"
+            ],
+            [
+              "Canto interlecional",
+              "Gradual e Aleluia",
+              "Gradual e Aleluia",
+              "Gradual e Aleluia",
+              "Gradual e Trato",
+              "Gradual, Trato e [lat]Dies irae[/lat]"
+            ],
+            [
+              "Credo",
+              "sim",
+              "não",
+              "depende do grau",
+              "sim aos domingos",
+              "não"
+            ],
+            [
+              "Prefácio",
+              "Trindade",
+              "Comum ou do tempo",
+              "próprio ou comum",
+              "da Quaresma",
+              "dos Defuntos"
+            ],
+            [
+              "Beijo da paz",
+              "sim",
+              "sim",
+              "sim",
+              "sim",
+              "não"
+            ],
+            [
+              "Bênção final",
+              "sim",
+              "sim",
+              "sim",
+              "sim",
+              "não"
+            ],
+            [
+              "Cor",
+              "[verde]verde[/verde]",
+              "[verde]verde[/verde]",
+              "[branco]branco[/branco] ou [vermelho]vermelho[/vermelho]",
+              "[roxo]roxo[/roxo]",
+              "[preto]preto[/preto]"
+            ]
+          ]
+        },
+        {
+          "id": "cenarios-167",
+          "tipo": "subtitulo",
+          "texto": "Quem ganha quando o dia e o santo se chocam"
+        },
+        {
+          "id": "cenarios-168",
+          "tipo": "paragrafo",
+          "texto": "O calendário de 1962 classifica todas as celebrações em quatro graus: [b]I, II, III e IV classe[/b]. Domingos de Advento, Quaresma, Paixão e Páscoa são de I classe e nunca cedem a santo nenhum. Domingos depois de Pentecostes são de II classe e podem ser preteridos por festas maiores. Quando uma celebração de grau inferior é impedida, ela costuma sobreviver como [b]comemoração[/b]: acrescenta-se apenas a sua Colecta, Secreta e Pós-comunhão à Missa do dia."
+        },
+        {
+          "id": "cenarios-169",
+          "tipo": "rubrica",
+          "texto": "Nos missais anteriores a 1960, a nomenclatura era outra: duplo de I classe, duplo de II classe, duplo maior, duplo, semiduplo e simples. É neste ponto que um missal anterior diverge de um de 1962."
+        }
+      ]
+    },
+    {
+      "id": "cores",
+      "numero": 14,
+      "titulo": "Cores litúrgicas",
+      "blocos": [
+        {
+          "id": "cores-170",
+          "tipo": "tabela",
+          "colunas": [
+            "Cor",
+            "Quando"
+          ],
+          "linhas": [
+            [
+              "[branco]Branco[/branco]",
+              "Natal, Páscoa, festas do Senhor não relacionadas à Paixão, de Nossa Senhora, dos anjos, dos confessores e das virgens."
+            ],
+            [
+              "[vermelho]Vermelho[/vermelho]",
+              "Pentecostes, festas da Cruz e da Paixão, Apóstolos e mártires."
+            ],
+            [
+              "[verde]Verde[/verde]",
+              "Tempo depois da Epifania e depois de Pentecostes."
+            ],
+            [
+              "[roxo]Roxo[/roxo]",
+              "Advento, Septuagésima, Quaresma, vigílias, Têmporas, rogações, Missas votivas penitenciais."
+            ],
+            [
+              "[preto]Preto[/preto]",
+              "Sexta-feira Santa e Missas de defuntos."
+            ],
+            [
+              "[rosa]Rosa[/rosa]",
+              "Apenas dois dias no ano: domingo [lat]Gaudete[/lat] (3.º do Advento) e domingo [lat]Laetare[/lat] (4.º da Quaresma)."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "distincoes",
+      "numero": 15,
+      "titulo": "Dogma, disciplina e opinião",
+      "blocos": [
+        {
+          "id": "distincoes-171",
+          "tipo": "paragrafo",
+          "texto": "Esta distinção é indispensável, e vale a pena fixá-la com precisão, porque muita confusão nasce de embaralhar os três níveis."
+        },
+        {
+          "id": "distincoes-172",
+          "tipo": "subtitulo",
+          "texto": "Doutrina definida"
+        },
+        {
+          "id": "distincoes-173",
+          "tipo": "paragrafo",
+          "texto": "É de fé definida que a Missa é verdadeiro e próprio sacrifício, propiciatório pelos vivos e pelos defuntos, e que nela se oferece o mesmo Cristo que se ofereceu na Cruz, agora de modo incruento (Concílio de Trento, sessão XXII, 1562). É de fé definida a transubstanciação, a presença real, verdadeira e substancial de Cristo sob cada espécie e sob cada partícula, e a legitimidade da comunhão sob uma só espécie (sessão XIII, 1551, e sessão XXI). É de fé que o sacerdócio ministerial é distinto em essência, e não apenas em grau, do sacerdócio comum dos fiéis (sessão XXIII)."
+        },
+        {
+          "id": "distincoes-174",
+          "tipo": "subtitulo",
+          "texto": "Disciplina e rito"
+        },
+        {
+          "id": "distincoes-175",
+          "tipo": "paragrafo",
+          "texto": "A forma concreta do rito (a ordem das orações do Ofertório, o Último Evangelho, o número de genuflexões, o silêncio do Cânon, o latim, as Orações Leoninas) pertence à disciplina eclesiástica. É venerável, antiquíssima em boa parte, e tem razão de ser: a lei da oração exprime a lei da fé. Ainda assim, permanece matéria de disciplina, que se distingue do dogma. Trento definiu a doutrina do sacrifício; não canonizou uma rubrica. Prova disso está no próprio Missal: São Pio V permitiu expressamente a permanência dos ritos com mais de duzentos anos de uso, como o ambrosiano, o moçárabe e o dominicano."
+        },
+        {
+          "id": "distincoes-176",
+          "tipo": "paragrafo",
+          "texto": "Isso não relativiza nada. Uma coisa é dizer «a forma tridentina é superior em reverência, clareza doutrinal e disciplina», juízo defensável e defendido por muita gente séria. Outra é dizer «é a única válida», o que é falso, e falso de modo que compromete a própria posição de quem argumenta. Argumento ruim em favor de causa boa continua sendo argumento ruim, e derruba a causa junto."
+        },
+        {
+          "id": "distincoes-177",
+          "tipo": "subtitulo",
+          "texto": "Opinião teológica e de escola"
+        },
+        {
+          "id": "distincoes-178",
+          "tipo": "paragrafo",
+          "texto": "As interpretações alegóricas da Missa (a Missa como representação passo a passo da Paixão, muito difundidas desde Amalário de Metz e retomadas por Inocêncio III) são piedosas e legítimas, mas não vinculantes; a escola litúrgica histórica as considera, em geral, exegese posterior sobreposta ao rito. Também é opinião de escola boa parte das reconstruções históricas sobre a origem do Ofertório e do Cânon. Onde as fontes são escassas, o certo é dizer «é assim que se reza» com firmeza, e «foi assim que surgiu» com cautela."
+        }
+      ]
+    },
+    {
+      "id": "fontes",
+      "numero": 16,
+      "titulo": "Fontes",
+      "blocos": [
+        {
+          "id": "fontes-179",
+          "tipo": "subtitulo",
+          "texto": "Fontes primárias"
+        },
+        {
+          "id": "fontes-180",
+          "tipo": "lista",
+          "itens": [
+            "[b][lat]Missale Romanum[/lat][/b], edição típica de 1962, em especial as seções [lat]Rubricae generales Missalis[/lat], [lat]Ritus servandus in celebratione Missae[/lat] e [lat]De defectibus in celebratione Missarum occurrentibus[/lat]. É o documento a consultar antes de qualquer manual: descreve gesto por gesto o que este guia resume.",
+            "[b]São Pio V, bula [lat]Quo primum tempore[/lat][/b] (14 de julho de 1570), impressa no início dos missais tradicionais.",
+            "[b]Concílio de Trento[/b], sessão XIII (1551), sessão XXI (1562) e sessão XXII (1562), com os cânones sobre a Eucaristia e sobre o sacrifício da Missa. Nos [i]Denzinger-Hünermann[/i], para localizar o que é definido e o que não é.",
+            "[b]Pio XII, [lat]Mediator Dei[/lat][/b] (1947), a encíclica sobre a sagrada liturgia; o texto magisterial de referência sobre o que é e o que não é participação litúrgica."
+          ]
+        },
+        {
+          "id": "fontes-181",
+          "tipo": "subtitulo",
+          "texto": "Manuais e estudos de apoio"
+        },
+        {
+          "id": "fontes-182",
+          "tipo": "lista",
+          "itens": [
+            "[b]Nicholas Gihr, [i]O Santo Sacrifício da Missa: dogmática, litúrgica e asceticamente explicado[/i][/b] (1877). O manual clássico, que comenta o rito oração por oração.",
+            "[b]Dom Prosper Guéranger, [i]Explicação das orações e cerimônias da Santa Missa[/i][/b], e o monumental [i]O Ano Litúrgico[/i], para o Próprio do Tempo e dos Santos.",
+            "[b]Adrian Fortescue, [i]The Mass: A Study of the Roman Liturgy[/i][/b] (1912), história do rito, sólida e ainda insuperada em muitos pontos. Do mesmo autor, com J. B. O'Connell, [i]The Ceremonies of the Roman Rite Described[/i], que é o manual prático de cerimônias.",
+            "[b]Josef A. Jungmann, [i]Missarum Sollemnia[/i][/b], a história mais detalhada do Cânon e do Ordinário. Leia sabendo que é obra de escola: várias das suas teses sobre «decadência» e «acréscimos medievais» continuam sendo hipóteses em discussão."
+          ]
+        },
+        {
+          "id": "fontes-183",
+          "tipo": "subtitulo",
+          "texto": "Para consultar o Próprio de cada dia"
+        },
+        {
+          "id": "fontes-184",
+          "tipo": "lista",
+          "itens": [
+            "[b]Divinum Officium[/b]. Reproduz online o Missal e o Breviário de qualquer data, em latim e vernáculo, com opção de rubricas de 1570, 1910, 1955 ou 1962. Útil justamente para comparar as versões.",
+            "[b]Sancta Missa[/b], dos Cônegos Regulares de São João Cantius. Traz fac-símiles do Missal de 1962, vídeos de cerimônias e o [lat]Ritus servandus[/lat] comentado.",
+            "[b]Church Music Association of America[/b]. Disponibiliza gratuitamente o [lat]Liber Usualis[/lat] e outros livros de canto, onde estão as melodias do Próprio e do Ordinário."
+          ]
+        }
+      ]
+    }
+  ],
+  "marca": "Apostolado Nossa Senhora das Neves",
+  "marcaCurta": "NSN",
+  "rodape": [
+    "Guia descritivo do rito romano na forma do Missal de 1962. Os textos latinos citados são do próprio Missal; as traduções para o português são de trabalho, feitas para este guia, e não substituem uma edição bilíngue aprovada."
+  ]
+}

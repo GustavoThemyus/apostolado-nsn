@@ -1,9 +1,25 @@
-# Worker de assets estáticos que serve o guia.
+# Worker que serve o guia e a API do painel.
 # Publica em https://apostolado-nsn.gustavothemyus.workers.dev
-# Manualmente: npm run publicar
+#
+# Manualmente:  npm run publicar
+# Automático:   repositório conectado em Workers Builds, no painel.
 
 name = "apostolado-nsn"
+main = "worker/index.ts"
 compatibility_date = "2026-09-03"
 
 [assets]
 directory = "./dist"
+binding = "ASSETS"
+# /admin é rota do próprio site: caminho desconhecido devolve o index
+not_found_handling = "single-page-application"
+
+[vars]
+# Preencher com os valores do Cloudflare Access e do repositório.
+ACCESS_TEAM = "SEU-TIME"
+ACCESS_AUD = "SUA-TAG-DE-AUDIENCIA"
+GITHUB_REPO = "GustavoThemyus/apostolado-nsn"
+GITHUB_RAMO = "main"
+
+# GITHUB_TOKEN é segredo, não vai aqui:
+#   npx wrangler@4.85.0 secret put GITHUB_TOKEN
