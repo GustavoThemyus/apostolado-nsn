@@ -73,8 +73,9 @@ export interface Secao {
 export interface Conteudo {
   titulo: string;
   descricao?: string;
-  /** Chamada e epígrafe fazem a página abrir com cabeçalho ilustrado. */
+  /** @deprecated A chamada é do site inteiro e vive em site.json. */
   chamada?: string;
+  /** Antífona em latim sob o título, onde há uma própria. */
   epigrafe?: string;
   /** Marca a página como ainda por escrever, para o aviso aparecer. */
   emPreparacao?: boolean;
@@ -85,6 +86,8 @@ export interface Conteudo {
 
 /** O que é do site inteiro, e não de uma página. */
 export interface Site {
+  /** A linha em versalete dourado acima do título, igual em toda página. */
+  chamada: string;
   marca: string;
   marcaCurta: string;
   lema: string;
@@ -104,7 +107,7 @@ export interface Agenda {
 }
 
 export interface Guia {
-  chamada: string;
+  chamada?: string;
   titulo: string;
   descricao: string;
   /** Antífona de abertura, em latim, sob o título. */

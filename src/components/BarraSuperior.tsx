@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode, RefObject } from "react";
 import { Elo } from "../rotas/Elo";
 import { Brasao } from "./Brasao";
 
@@ -14,13 +14,14 @@ export function BarraSuperior({
 }: {
   marca: string;
   local: string;
-  progresso?: number;
+  /** Ref do elemento da régua. Ausente esconde a régua. */
+  progresso?: RefObject<HTMLDivElement>;
   children: ReactNode;
 }) {
   return (
     <div className="barra">
       <div className="moldura barra__interior">
-        <Elo para="/" className="barra__marca" aria-label="Início">
+        <Elo para="/" className="barra__marca" aria-label={marca}>
           <Brasao tamanho="barra" />
           <span className="barra__letreiro">{marca}</span>
         </Elo>
@@ -29,13 +30,14 @@ export function BarraSuperior({
           {children}
         </nav>
       </div>
-      {progresso !== undefined && (
+      {progresso && (
         <div
           className="barra__progresso"
-          style={{ transform: `scaleX(${progresso})` }}
+          ref={progresso}
+          style={{ transform: "scaleX(0)" }}
           role="progressbar"
           aria-label="Progresso da leitura"
-          aria-valuenow={Math.round(progresso * 100)}
+          aria-valuenow={0}
           aria-valuemin={0}
           aria-valuemax={100}
         />

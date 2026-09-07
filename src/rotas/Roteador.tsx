@@ -166,8 +166,10 @@ function AoTrocarDePagina({
     if (hash) {
       document.querySelector(hash)?.scrollIntoView();
     } else {
+      // sem animação: com scroll-behavior smooth no html, navegar entre páginas
+      // animava a subida inteira e dava a impressão de travamento
       const guardada = rolagens.get(chaveAtual());
-      window.scrollTo(0, guardada ?? 0);
+      window.scrollTo({ top: guardada ?? 0, behavior: "instant" });
     }
 
     const cabecalho = document.querySelector<HTMLElement>("main h1, main h2");

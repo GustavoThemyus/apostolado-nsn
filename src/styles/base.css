@@ -229,28 +229,6 @@ button {
   background: linear-gradient(var(--painel), var(--papel));
 }
 
-.cabecalho--pagina {
-  padding: 1.6rem 0 1.1rem;
-}
-
-.cabecalho__brasao--pagina {
-  width: 3.1rem;
-  margin-bottom: 0.6rem;
-}
-
-.cabecalho--pagina .cabecalho__titulo {
-  font-size: clamp(1.65rem, 6.2vw, 2.4rem);
-}
-
-.cabecalho--pagina .cabecalho__chamada {
-  font-size: 0.58rem;
-  margin-bottom: 0.6rem;
-}
-
-.cabecalho--pagina .filete {
-  margin: 1.1rem 0 0;
-}
-
 .cabecalho__brasao {
   width: 5.25rem;
   height: auto;
@@ -532,10 +510,13 @@ button {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 0.2rem;
+  /* respiro entre a barra do mês, que é grudenta, e a linha dos dias */
+  margin-top: 0.9rem;
 }
 
 .calendario__cabeca {
   text-align: center;
+  padding-top: 0.5rem;
   font-family: var(--sem-serifa);
   font-size: 0.6rem;
   font-weight: 600;
@@ -1425,6 +1406,17 @@ button {
 }
 
 @media (min-width: 46rem) {
+  .cartoes {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+}
+
+/*
+ * 52rem, e não 46rem: as seis seções mais o tema e o Sumário medem cerca de
+ * 50rem, e em 46rem o Sumário saía pela borda direita. Entre um ponto e outro
+ * a barra continua com o título da seção e o botão Menu.
+ */
+@media (min-width: 52rem) {
   .barra__site {
     display: flex;
     align-items: center;
@@ -1436,9 +1428,6 @@ button {
   }
   .barra__botao--menu {
     display: none;
-  }
-  .cartoes {
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
 }
 

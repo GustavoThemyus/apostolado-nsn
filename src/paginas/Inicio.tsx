@@ -25,10 +25,8 @@ export default function Inicio() {
   return (
     <Moldura titulo="Início">
       <Cabecalho
-        variante="capa"
         titulo={inicio.titulo}
         descricao={inicio.descricao}
-        chamada="Rito Romano na forma do Missal de São Pio V"
         epigrafe="Iter para tutum"
       />
 

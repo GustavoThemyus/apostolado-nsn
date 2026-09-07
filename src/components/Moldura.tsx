@@ -35,7 +35,7 @@ export function Moldura({
 }) {
   const [menuAberto, definirMenuAberto] = useState(false);
   const { tema, alternar } = usarTema();
-  const progresso = usarProgressoDeLeitura();
+  const progresso = usarProgressoDeLeitura(comProgresso);
   const { rota } = usarRota();
 
   return (
@@ -50,8 +50,12 @@ export function Moldura({
         progresso={comProgresso ? progresso : undefined}
       >
         <nav className="barra__site" aria-label="Seções do site">
-          {SECOES_DO_MENU.filter((p) => p !== "/").map((padrao) => (
-            <Elo key={padrao} para={padrao} className="barra__botao barra__botao--secao">
+          {SECOES_DO_MENU.map((padrao) => (
+            <Elo
+              key={padrao}
+              para={padrao}
+              className="barra__botao barra__botao--secao"
+            >
               {rotaPorPadrao(padrao)?.curto ?? rotaPorPadrao(padrao)?.titulo}
             </Elo>
           ))}

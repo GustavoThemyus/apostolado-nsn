@@ -34,13 +34,32 @@ export function PaginaDeDocumento({
   const secaoAtiva = usarSecaoAtiva(identificadores);
 
   const temSumario = secoesReais.length > 3;
-  const temCabecalho = Boolean(conteudo.chamada || conteudo.epigrafe);
+
+  // usarSecaoAtiva devolve o id; a barra mostra gente, então mostra o título
+  const local = useMemo(
+    () => secoesReais.find((s) => s.id === secaoAtiva)?.titulo,
+    [secoesReais, secaoAtiva]
+  );
+
+  /*
+   * O corpo é memoizado porque `secaoAtiva` muda a cada divisa de seção ao
+   * rolar. Sem isto, passar de uma seção para a outra re-renderizava as
+   * dezesseis seções e os cinquenta e cinco passos do guia inteiro, o que
+   * aparecia como um tranco na rolagem em aparelho modesto.
+   */
+  const corpo = useMemo(
+    () =>
+      secoesReais.map((secao, indice) => (
+        <Secao secao={secao} numero={indice + 1} key={secao.id} />
+      )),
+    [secoesReais]
+  );
 
   return (
     <ProvedorDeNumeracao secoes={secoesReais}>
       <Moldura
         titulo={conteudo.titulo}
-        local={temSumario ? secaoAtiva ?? undefined : undefined}
+        local={temSumario ? local : undefined}
         sumario={
           temSumario
             ? { aberto: sumarioAberto, alternar: () => definirSumarioAberto((a) => !a) }
@@ -49,8 +68,6 @@ export function PaginaDeDocumento({
         comProgresso={temSumario}
       >
         <Cabecalho
-          variante={temCabecalho ? "capa" : "pagina"}
-          chamada={conteudo.chamada}
           titulo={conteudo.titulo}
           descricao={conteudo.descricao}
           epigrafe={conteudo.epigrafe}
@@ -63,11 +80,7 @@ export function PaginaDeDocumento({
           <Sumario secoes={secoesReais} secaoAtiva={secaoAtiva} variante="embutido" />
         )}
 
-        {conteudo.secoes
-          .filter((s) => s.id !== "em-preparacao")
-          .map((secao, indice) => (
-            <Secao secao={secao} numero={indice + 1} key={secao.id} />
-          ))}
+        {corpo}
 
         {children}
 
