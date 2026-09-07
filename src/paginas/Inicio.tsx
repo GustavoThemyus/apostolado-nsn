@@ -6,6 +6,7 @@ import { DiaDeHoje } from "../components/DiaDeHoje";
 import { Moldura } from "../components/Moldura";
 import { Mural, type Aviso } from "../components/Mural";
 import { Padroeiros, type Padroeiro } from "../components/Padroeiros";
+import { UltimasPostagens } from "../components/UltimasPostagens";
 import { Vazia } from "../components/Vazia";
 import type { Bloco } from "../data/tipos";
 import { Elo } from "../rotas/Elo";
@@ -32,6 +33,8 @@ export default function Inicio() {
       <Mural avisos={inicio.avisos} />
 
       <DiaDeHoje />
+
+      <UltimasPostagens />
 
       <nav className="cartoes" aria-label="Seções principais">
         <Elo para="/missa/guia" className="cartao">

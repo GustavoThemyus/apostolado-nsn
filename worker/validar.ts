@@ -36,8 +36,15 @@ export function validar(forma: Forma, conteudo: unknown): string | null {
       return null;
 
     case "inicio":
+      if (typeof conteudo.titulo !== "string" || conteudo.titulo.trim() === "") {
+        return "página inicial sem título";
+      }
       if (!Array.isArray(conteudo.avisos)) return "página inicial sem lista de avisos";
-      if (!Array.isArray(conteudo.blocos)) return "página inicial sem blocos";
+      // os blocos da apresentação moram em `sobre`, e não no topo: a guarda
+      // antiga procurava `conteudo.blocos` e recusava toda gravação
+      if (!ehObjeto(conteudo.sobre) || !Array.isArray(conteudo.sobre.blocos)) {
+        return "página inicial sem a apresentação";
+      }
       return null;
 
     case "postagens": {

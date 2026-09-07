@@ -84,6 +84,35 @@ export interface Conteudo {
   secoes: Secao[];
 }
 
+/**
+ * Uma postagem: vida de santo ou escrito sobre a liturgia.
+ *
+ * `blocos` são os mesmos dez tipos do guia, então o corpo já sabe renderizar
+ * rubrica, citação e latim sem nada novo.
+ */
+export interface Postagem {
+  /** Vai na URL. Imutável depois de publicada, senão os links quebram. */
+  id: string;
+  titulo: string;
+  resumo: string;
+  /** ISO, AAAA-MM-DD. Ordena a faixa do início. */
+  data: string;
+  categoria: "santo" | "liturgia" | "aviso";
+  /** Caminho em /public. Sem ela a faixa mostra o brasão. */
+  imagem?: string;
+  /** Falso esconde do site inteiro, para escrever com calma. */
+  publicado?: boolean;
+  /** Texto provisório: mostra o aviso de rascunho. */
+  rascunho?: boolean;
+  blocos: Bloco[];
+}
+
+export interface ColecaoDePostagens {
+  titulo: string;
+  descricao?: string;
+  postagens: Postagem[];
+}
+
 /** O que é do site inteiro, e não de uma página. */
 export interface Site {
   /** A linha em versalete dourado acima do título, igual em toda página. */

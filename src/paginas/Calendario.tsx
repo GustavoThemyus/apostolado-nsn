@@ -5,6 +5,8 @@ import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
 import { AssinarAgenda } from "../components/AssinarAgenda";
 import { Cabecalho } from "../components/Cabecalho";
 import { CartoesDeSecao } from "../components/CartoesDeSecao";
+import { LegendaDasAgendas, VincularAgenda } from "../components/VincularAgenda";
+import { chaveDoDia, usarAgendasVinculadas } from "../hooks/usarAgendasVinculadas";
 import { Moldura } from "../components/Moldura";
 import { usarRota } from "../rotas/usarRota";
 
@@ -48,6 +50,8 @@ export default function Calendario() {
 
   const andar = (passo: number) => irPara(new Date(Date.UTC(ano, mes - 1 + passo, 1)));
 
+  const { porDia } = usarAgendasVinculadas();
+
   return (
     <Moldura titulo="Calendário Romano Tradicional">
       <Cabecalho titulo="Calendário Romano Tradicional" descricao="O calendário do Missal de 1962, calculado para qualquer ano. Cada rito, e mesmo cada lugar, tem o seu; este é o do rito tradicional, com o próprio da capela." />
@@ -61,8 +65,10 @@ export default function Calendario() {
           vigílias e na Semana Santa, não.
         </p>
         <p>
-          Os dois convivem: este fica no site, e o Ordo da capela pode ser{" "}
-          <a href="#ordo-no-celular">vinculado ao seu celular</a> sem substituir nada.
+          Os dois convivem. O Ordo da capela pode ser{" "}
+          <a href="#ordo-no-site">mostrado aqui na grade</a>, com bandeira própria, ou{" "}
+          <a href="#ordo-no-celular">vinculado ao seu celular</a>. Nos dois casos ele
+          acrescenta, e não substitui.
         </p>
       </aside>
 
@@ -75,9 +81,31 @@ export default function Calendario() {
         <button type="button" className="barra__botao" onClick={() => irPara(hoje)}>Hoje</button>
       </div>
 
-      <GradeDoMes dias={dias} hoje={hoje} escolhido={escolhido} aoEscolher={irPara} />
+      <GradeDoMes
+        dias={dias}
+        hoje={hoje}
+        escolhido={escolhido}
+        aoEscolher={irPara}
+        marcar={(d) => {
+          const itens = porDia.get(chaveDoDia(d.data));
+          if (!itens || itens.length === 0) return null;
+          return (
+            <span className="calendario__bandeiras" aria-hidden="true">
+              {[...new Set(itens.map((i) => i.agenda))].map((id) => (
+                <span className={`bandeira bandeira--${id}`} key={id} />
+              ))}
+            </span>
+          );
+        }}
+      />
 
-      {detalhe && <DetalheDoDia dia={detalhe} />}
+      <LegendaDasAgendas />
+
+      {detalhe && (
+        <DetalheDoDia dia={detalhe} vinculados={porDia.get(chaveDoDia(detalhe.data)) ?? []} />
+      )}
+
+      <VincularAgenda grupo="ordo" ancora="ordo-no-site" />
 
       <AssinarAgenda
         grupo="ordo"

@@ -550,6 +550,7 @@ button {
 }
 
 .calendario__dia {
+  position: relative; /* âncora das bandeiras das agendas vinculadas */
   aspect-ratio: 1;
   display: flex;
   flex-direction: column;
@@ -1438,6 +1439,211 @@ button {
   color: var(--tinta-suave);
 }
 
+/* ---------------- últimas postagens ---------------- */
+
+.faixa {
+  margin: 2rem 0 1.5rem;
+}
+.faixa__topo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.faixa__titulo {
+  font-family: var(--titular);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+.faixa__todas {
+  font-family: var(--sem-serifa);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  white-space: nowrap;
+}
+
+/*
+ * A faixa é uma rolagem horizontal com encaixe, e não um carrossel feito à
+ * mão: desliza no dedo, anda pelo teclado e continua navegável se o
+ * JavaScript falhar. O avanço automático só empurra o scrollLeft.
+ */
+.faixa__trilho {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.35rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 84%;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.faixa__trilho::-webkit-scrollbar {
+  display: none;
+}
+.faixa__item {
+  scroll-snap-align: start;
+}
+
+.postagem-cartao {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  background: var(--painel);
+  border: 1px solid var(--fio);
+  border-left: 3px solid var(--fio);
+  border-radius: 0.4rem;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-left-color 0.15s ease;
+}
+.postagem-cartao:hover,
+.postagem-cartao:focus-visible {
+  border-left-color: var(--ouro);
+}
+.postagem-cartao__imagem {
+  width: 100%;
+  height: 8.5rem;
+  object-fit: cover;
+  object-position: center 30%;
+  border-bottom: 1px solid var(--fio);
+}
+.postagem-cartao__imagem--falta {
+  background: var(--papel-fundo);
+}
+.postagem-cartao__corpo {
+  display: grid;
+  align-content: start;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem 1rem;
+}
+.postagem-cartao__data {
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.postagem-cartao__titulo {
+  font-family: var(--titular);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.postagem-cartao__resumo {
+  font-size: 0.92rem;
+  color: var(--tinta-suave);
+}
+
+.faixa__controles {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.6rem;
+}
+.faixa__pausa {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.3rem;
+  background: transparent;
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  cursor: pointer;
+}
+.faixa__pausa:hover {
+  color: var(--tinta);
+  border-color: var(--tinta-suave);
+}
+.faixa__pontos {
+  list-style: none;
+  display: flex;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+}
+.faixa__ponto {
+  display: block;
+  width: 1.5rem;
+  height: 0.9rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.faixa__ponto::before {
+  content: "";
+  display: block;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--fio);
+}
+.faixa__ponto--atual::before {
+  background: var(--ouro);
+}
+
+/* ---------------- lista de postagens ---------------- */
+
+.postagens {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+.postagem-linha {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.9rem 0 0.9rem 0.9rem;
+  border-top: 1px solid var(--fio-suave);
+  border-left: 3px solid transparent;
+  text-decoration: none;
+  color: inherit;
+  transition: border-left-color 0.15s ease;
+}
+.postagem-linha:hover,
+.postagem-linha:focus-visible {
+  border-left-color: var(--ouro);
+}
+.postagem-linha__data {
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.postagem-linha__titulo {
+  font-family: var(--titular);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.postagem-linha__resumo {
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+}
+
+.postagem__data {
+  margin: 0 0 1.25rem;
+  text-align: center;
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
 /* ---------------- barra: seções do site ---------------- */
 
 /* em tela estreita as seções moram no Menu; a partir de 46rem entram na barra */
@@ -1452,6 +1658,9 @@ button {
 @media (min-width: 46rem) {
   .cartoes {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  .faixa__trilho {
+    grid-auto-columns: 40%;
   }
 }
 
@@ -1472,6 +1681,184 @@ button {
   }
   .barra__botao--menu {
     display: none;
+  }
+}
+
+/* ---------------- agendas vinculadas ---------------- */
+
+.bandeira {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: none;
+  border-radius: 1px;
+  background: var(--tinta-suave);
+}
+.bandeira--ordo { background: var(--bandeira-ordo); }
+.bandeira--apostolado-oracao { background: var(--bandeira-apostolado-oracao); }
+.bandeira--escapulario { background: var(--bandeira-escapulario); }
+.bandeira--cordao { background: var(--bandeira-cordao); }
+.bandeira--franciscana { background: var(--bandeira-franciscana); }
+.bandeira--dominicana { background: var(--bandeira-dominicana); }
+
+/* no canto do dia, longe do ponto redondo da cor litúrgica */
+.calendario__bandeiras {
+  position: absolute;
+  top: 0.22rem;
+  right: 0.22rem;
+  display: flex;
+  gap: 1px;
+}
+
+.legenda-agendas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.9rem;
+  margin: 0.7rem 0 0;
+  font-family: var(--sem-serifa);
+  font-size: 0.62rem;
+  color: var(--tinta-suave);
+}
+.legenda-agendas__rotulo {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.legenda-agendas__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.vinculo {
+  margin: 2rem 0 1.5rem;
+  padding: 1.15rem 1.2rem 1rem;
+  background: var(--painel);
+  border: 1px solid var(--fio);
+  border-left: 3px solid var(--bandeira-ordo);
+  border-radius: 0.4rem;
+}
+.vinculo__topo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.vinculo__titulo {
+  font-family: var(--titular);
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+.vinculo__limpar {
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.3rem;
+  background: transparent;
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.vinculo__limpar:hover {
+  color: var(--tinta);
+  border-color: var(--tinta-suave);
+}
+.vinculo__explicacao {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+  max-width: 62ch;
+}
+.vinculo__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.vinculo__item {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--fio-suave);
+}
+.vinculo__item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.vinculo__nome {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.vinculo__descricao,
+.vinculo__aviso {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+.vinculo__aviso {
+  margin-top: 0.3rem;
+  font-style: italic;
+  color: var(--rubrica);
+  max-width: 54ch;
+}
+
+/* os itens vinculados dentro do detalhe do dia */
+.dia__agenda {
+  margin-top: 1.1rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--fio);
+}
+.dia__agenda-titulo {
+  margin: 0 0 0.5rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.dia__agenda-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.dia__agenda-lista > li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.dia__agenda-nome {
+  display: block;
+  font-weight: 600;
+}
+.dia__agenda-fonte {
+  display: block;
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.dia__agenda-descricao {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+}
+
+@media (min-width: 46rem) {
+  .vinculo__item {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
   }
 }
 

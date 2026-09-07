@@ -1,3 +1,4 @@
+import { buscarAgenda } from "./agenda";
 import { porId } from "../src/data/registro";
 import { emailAutenticado } from "./acesso";
 import { ConflitoDeEdicao, gravarConteudo, lerConteudo } from "./github";
@@ -26,6 +27,22 @@ export default {
   async fetch(pedido: Request, env: Env): Promise<Response> {
     const url = new URL(pedido.url);
     if (!url.pathname.startsWith("/api/")) return env.ASSETS.fetch(pedido);
+
+    /*
+     * As agendas vêm antes da autenticação de propósito: são calendários
+     * públicos que qualquer visitante pode vincular, e exigir o Access aqui
+     * tornaria o recurso inútil para quem o site serve.
+     */
+    if (url.pathname === "/api/agenda") {
+      if (pedido.method !== "GET") return json({ erro: "método não aceito" }, 405);
+      const id = url.searchParams.get("id");
+      if (!id) return json({ erro: "falta o id da agenda" }, 400);
+      try {
+        return await buscarAgenda(id);
+      } catch (e) {
+        return json({ erro: e instanceof Error ? e.message : "falha ao buscar a agenda" }, 502);
+      }
+    }
 
     let quem: string;
     try {
