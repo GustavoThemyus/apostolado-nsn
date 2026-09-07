@@ -4,6 +4,7 @@ import { DetalheDoDia } from "../components/DetalheDoDia";
 import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
 import { AssinarAgenda } from "../components/AssinarAgenda";
 import { Cabecalho } from "../components/Cabecalho";
+import { CartoesDeSecao } from "../components/CartoesDeSecao";
 import { Moldura } from "../components/Moldura";
 import { usarRota } from "../rotas/usarRota";
 
@@ -84,6 +85,8 @@ export default function Calendario() {
         ancora="ordo-no-celular"
         explicacao="Para acompanhar dia a dia o que se reza na capela, no próprio aparelho."
       />
+
+      <CartoesDeSecao padrao="/calendario" />
 
       <p className="calendario__ressalva">
         Cobre o Temporal, o Santoral de I a IV classe, as Têmporas, as Rogações e a

@@ -18,6 +18,8 @@
   Cache-Control: public, max-age=604800, must-revalidate
 /previa.png
   Cache-Control: public, max-age=604800, must-revalidate
+/padroeiros/*
+  Cache-Control: public, max-age=604800, must-revalidate
 
 # O HTML nunca fica em cache, senão uma correção no guia demora a aparecer.
 /

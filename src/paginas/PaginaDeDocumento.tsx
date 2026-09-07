@@ -1,11 +1,13 @@
 import { useCallback, useMemo, useState } from "react";
 import { Cabecalho } from "../components/Cabecalho";
+import { CartoesDeSecao } from "../components/CartoesDeSecao";
 import { ProvedorDeNumeracao } from "../components/NumeracaoDePassos";
 import { Secao } from "../components/Secao";
 import { Sumario } from "../components/Sumario";
 import { Vazia } from "../components/Vazia";
 import type { ReactNode } from "react";
 import type { Conteudo } from "../data/tipos";
+import { usarRota } from "../rotas/usarRota";
 import { usarSecaoAtiva } from "../hooks/usarSecaoAtiva";
 import { Moldura } from "../components/Moldura";
 
@@ -24,6 +26,7 @@ export function PaginaDeDocumento({
 }) {
   const [sumarioAberto, definirSumarioAberto] = useState(false);
   const fecharSumario = useCallback(() => definirSumarioAberto(false), []);
+  const { rota } = usarRota();
 
   // o observador re-inscreve quando a identidade da lista muda; memoizar
   const secoesReais = useMemo(
@@ -81,6 +84,8 @@ export function PaginaDeDocumento({
         )}
 
         {corpo}
+
+        {rota && <CartoesDeSecao padrao={rota.padrao} />}
 
         {children}
 

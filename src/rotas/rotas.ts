@@ -15,6 +15,12 @@ export interface Rota {
   /** Rótulo curto para a barra, onde o título inteiro não cabe. */
   curto?: string;
   descricao?: string;
+  /**
+   * A linha em versalete acima do título. Sem valor próprio, herda da rota
+   * mãe e, na falta dela, usa a do site. O rito só se anuncia onde a página
+   * fala da Missa; no calendário e nas indulgências ele seria ruído.
+   */
+  chamada?: string;
   /** Rota mãe, para as migalhas e para o menu. */
   pai?: string;
   /** Fora do menu: páginas de detalhe e o painel. */
@@ -28,6 +34,8 @@ export const ROTAS: Rota[] = [
     titulo: "Início",
     descricao:
       "Apostolado Nossa Senhora das Neves: avisos, calendário litúrgico e publicações.",
+    // o título logo abaixo já é o nome do apostolado; aqui vai só o rito
+    chamada: "Rito Romano na forma do Missal de São Pio V",
     pagina: () => import("../paginas/Inicio"),
   },
 
@@ -37,6 +45,9 @@ export const ROTAS: Rota[] = [
     titulo: "A Missa Tridentina",
     curto: "Missa",
     descricao: "O rito romano na forma do Missal de São Pio V.",
+    // as quatro páginas da Missa herdam esta chamada
+    chamada:
+      "Apostolado Nossa Senhora das Neves - Rito Romano na forma do Missal de São Pio V",
     pagina: () => import("../paginas/Missa"),
   },
   {
@@ -50,12 +61,14 @@ export const ROTAS: Rota[] = [
   {
     padrao: "/missa/partes",
     titulo: "Da Missa e suas partes",
+    descricao: "Cada parte da Missa em detalhe: origem, sentido e rubricas.",
     pai: "/missa",
     pagina: () => import("../paginas/MissaPartes"),
   },
   {
     padrao: "/missa/situacao-canonica",
     titulo: "A situação canônica da Missa",
+    descricao: "A parte jurídica do rito.",
     pai: "/missa",
     pagina: () => import("../paginas/MissaSituacaoCanonica"),
   },
@@ -71,18 +84,21 @@ export const ROTAS: Rota[] = [
   {
     padrao: "/calendario/santos",
     titulo: "As festas do calendário",
+    descricao: "As vidas dos santos que o calendário celebra.",
     pai: "/calendario",
     pagina: () => import("../paginas/Santos"),
   },
   {
     padrao: "/calendario/brasil",
     titulo: "O próprio do Brasil",
+    descricao: "As festas próprias do calendário brasileiro.",
     pai: "/calendario",
     pagina: () => import("../paginas/CalendarioBrasil"),
   },
   {
     padrao: "/calendario/arquidiocese",
     titulo: "O próprio arquidiocesano",
+    descricao: "O calendário próprio da Arquidiocese da Paraíba.",
     pai: "/calendario",
     pagina: () => import("../paginas/CalendarioArquidiocese"),
   },
@@ -98,24 +114,28 @@ export const ROTAS: Rota[] = [
   {
     padrao: "/indulgencias/calendario",
     titulo: "Dias de indulgência plenária",
+    descricao: "Os dias que carregam indulgência no calendário.",
     pai: "/indulgencias",
     pagina: () => import("../paginas/IndulgenciasCalendario"),
   },
   {
     padrao: "/indulgencias/raccolta",
     titulo: "Raccolta",
+    descricao: "A coleção de orações e obras indulgenciadas anterior a 1968.",
     pai: "/indulgencias",
     pagina: () => import("../paginas/IndulgenciasRaccolta"),
   },
   {
     padrao: "/indulgencias/enchiridion",
     titulo: "Enchiridion Indulgentiarum",
+    descricao: "A coleção em vigor, de 1968 em diante.",
     pai: "/indulgencias",
     pagina: () => import("../paginas/IndulgenciasEnchiridion"),
   },
   {
     padrao: "/indulgencias/ordens",
     titulo: "Indulgências próprias",
+    descricao: "As concedidas a ordens, confrarias e associações de fiéis.",
     pai: "/indulgencias",
     pagina: () => import("../paginas/IndulgenciasOrdens"),
   },
@@ -174,6 +194,33 @@ export const SECOES_DO_MENU = [
 export const rotaPorPadrao = (padrao: string): Rota | undefined =>
   ROTAS.find((r) => r.padrao === padrao);
 
-/** As subrotas de uma seção, para o menu e as migalhas. */
+/** As subrotas de uma seção, para o menu, os cartões e as migalhas. */
 export const filhasDe = (padrao: string): Rota[] =>
   ROTAS.filter((r) => r.pai === padrao && !r.foraDoMenu);
+
+/** Documentos ainda por escrever: ganham etiqueta em vez de sumirem. */
+export const EM_PREPARACAO = new Set([
+  "/missa/partes",
+  "/missa/situacao-canonica",
+  "/calendario/brasil",
+  "/calendario/arquidiocese",
+  "/indulgencias/raccolta",
+  "/indulgencias/enchiridion",
+  "/indulgencias/ordens",
+  "/apostolado",
+]);
+
+/**
+ * A chamada da página, subindo pela rota mãe até achar uma.
+ *
+ * `undefined` significa "use a do site": quem decide o texto padrão é o
+ * Cabecalho, não a tabela.
+ */
+export function chamadaDaRota(rota: Rota | null): string | undefined {
+  let atual: Rota | undefined = rota ?? undefined;
+  while (atual) {
+    if (atual.chamada) return atual.chamada;
+    atual = atual.pai ? rotaPorPadrao(atual.pai) : undefined;
+  }
+  return undefined;
+}

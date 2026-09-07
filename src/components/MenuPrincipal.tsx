@@ -1,18 +1,6 @@
 import { Elo } from "../rotas/Elo";
-import { SECOES_DO_MENU, filhasDe, rotaPorPadrao } from "../rotas/rotas";
+import { EM_PREPARACAO, SECOES_DO_MENU, filhasDe, rotaPorPadrao } from "../rotas/rotas";
 import { FolhaDeBaixo } from "./FolhaDeBaixo";
-
-/** Documentos ainda por escrever: ganham etiqueta em vez de sumirem. */
-const EM_PREPARACAO = new Set([
-  "/missa/partes",
-  "/missa/situacao-canonica",
-  "/calendario/brasil",
-  "/calendario/arquidiocese",
-  "/indulgencias/raccolta",
-  "/indulgencias/enchiridion",
-  "/indulgencias/ordens",
-  "/apostolado",
-]);
 
 function Item({ padrao, nivel }: { padrao: string; nivel: 1 | 2 }) {
   const rota = rotaPorPadrao(padrao);

@@ -35,7 +35,7 @@ export default function Inicio() {
       <DiaDeHoje />
 
       <nav className="cartoes" aria-label="Seções principais">
-        <Elo para="/missa/guia" className="cartao cartao--destaque">
+        <Elo para="/missa/guia" className="cartao">
           <span className="cartao__titulo">Guia prático da Missa</span>
           <span className="cartao__texto">
             Cada peça da Missa em ordem: o que é dito, quem diz e o que muda conforme o dia.

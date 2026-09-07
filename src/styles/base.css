@@ -43,6 +43,17 @@ a {
   border-radius: 2px;
 }
 
+/*
+ * O h1 recebe foco a cada navegação para o leitor de tela não ficar preso no
+ * fim da página anterior. Como ele tem tabindex="-1", ninguém chega nele pelo
+ * Tab: o anel só apareceria para quem não pediu por ele, e o navegador o
+ * mantinha aceso até o primeiro clique.
+ */
+[tabindex="-1"]:focus,
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
+
 button {
   font: inherit;
   color: inherit;
@@ -195,6 +206,15 @@ button {
 .barra__botao--secao {
   padding-inline: 0.4rem;
   font-size: 0.63rem;
+}
+
+/* sem isto não dá para saber, na barra do PC, em que seção se está */
+.barra__botao--secao[aria-current="page"] {
+  color: var(--ouro-tinta);
+  text-decoration: underline;
+  text-decoration-color: var(--ouro);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.4em;
 }
 
 .barra__botao--icone {
@@ -1290,11 +1310,6 @@ button {
   letter-spacing: -0.01em;
   margin: 0 0 0.5rem;
 }
-.pagina__titulo:focus-visible {
-  outline: 2px solid var(--ouro-tinta);
-  outline-offset: 4px;
-}
-
 .pagina__resumo {
   margin: 0;
   max-width: 58ch;
@@ -1369,6 +1384,7 @@ button {
 
 .cartao {
   display: grid;
+  align-content: start;
   gap: 0.25rem;
   padding: 1rem 1.1rem;
   background: var(--painel);
@@ -1377,12 +1393,40 @@ button {
   border-radius: 0.4rem;
   text-decoration: none;
   color: inherit;
+  transition: border-left-color 0.15s ease;
 }
-.cartao:hover {
+/*
+ * O destaque do guia usava a mesma borda dourada do hover, então ele parecia
+ * estar sob o cursor o tempo inteiro e os três cartões não se comportavam
+ * igual. Sem modificador: a ordem já põe o guia em primeiro.
+ *
+ * O hover é só a borda da esquerda. Tingir o fundo puxava o cartão para um
+ * laranja que não é da paleta.
+ */
+.cartao:hover,
+.cartao:focus-visible {
   border-left-color: var(--ouro);
 }
-.cartao--destaque {
-  border-left-color: var(--ouro);
+.cartao:active {
+  border-left-color: var(--ouro-tinta);
+}
+
+.cartao__preparo {
+  justify-self: start;
+  margin-top: 0.3rem;
+  padding: 0.1rem 0.4rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  border: 1px solid var(--fio);
+  border-radius: 0.2rem;
+}
+
+.cartoes--secao {
+  margin: 2rem 0 1.5rem;
 }
 .cartao__titulo {
   font-family: var(--titular);
@@ -1506,6 +1550,20 @@ button {
   letter-spacing: 0.03em;
   text-decoration: none;
 }
+.botao-agenda {
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+}
+.botao-agenda:hover {
+  background: var(--marca-azul-realce);
+  border-color: var(--marca-azul-realce);
+}
+.botao-agenda:active {
+  background: var(--marca-azul-profundo);
+  border-color: var(--marca-azul-profundo);
+  transform: translateY(1px);
+}
+
 .botao-agenda--secundario {
   background: transparent;
   color: var(--tinta-suave);
@@ -1513,7 +1571,59 @@ button {
 }
 .botao-agenda--secundario:hover {
   color: var(--tinta);
+  background: transparent;
   border-color: var(--tinta-suave);
+}
+.botao-agenda--secundario:active {
+  background: var(--realce);
+  border-color: var(--ouro);
+  color: var(--tinta);
+}
+
+/* ---------------- copiar a chave ---------------- */
+
+.botao-copiar {
+  gap: 0.45rem;
+}
+.botao-copiar--feito,
+.botao-copiar--feito:hover,
+.botao-copiar--feito:active {
+  background: var(--verde-feito);
+  border-color: var(--verde-feito);
+}
+
+/* O certo se desenha; o @media de movimento reduzido lá em cima o congela
+   pronto, o que continua dizendo a mesma coisa sem animar nada. */
+.visto {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.visto__roda {
+  opacity: 0.45;
+  stroke-dasharray: 63;
+  stroke-dashoffset: 63;
+  animation: visto-roda 0.45s ease-out forwards;
+}
+.visto__risco {
+  stroke-dasharray: 16;
+  stroke-dashoffset: 16;
+  animation: visto-risco 0.3s 0.2s ease-out forwards;
+}
+@keyframes visto-roda {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes visto-risco {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .agendas__nota {
@@ -1672,6 +1782,9 @@ button {
 .padroeiro__imagem,
 .padroeiro__falta {
   width: 100%;
+  /* as estampas do Perez têm 132px de largura; esticá-las mais que isto
+     só as borra, então o cartão para de crescer junto com a tela */
+  max-width: 9rem;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border: 1px solid var(--fio);
