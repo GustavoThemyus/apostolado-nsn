@@ -27,7 +27,6 @@ export default function Inicio() {
       <Cabecalho
         titulo={inicio.titulo}
         descricao={inicio.descricao}
-        epigrafe="Iter para tutum"
       />
 
       <Mural avisos={inicio.avisos} />

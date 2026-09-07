@@ -9,8 +9,8 @@ import { Estrela } from "./Estrela";
  *
  * Havia duas alturas, e o guia ficava diferente das demais seções. Agora é um
  * modelo só: brasão grande, chamada em versalete dourado, o título em Playfair
- * e um remate embaixo. Onde há epígrafe em latim, ela ocupa o remate; onde não
- * há, entra a estrela entre filetes.
+ * e uma epígrafe em latim embaixo. Sem epígrafe própria vale o lema do brasão,
+ * que é o que a maioria das páginas mostra.
  *
  * A chamada vem da rota, e não de prop nem do JSON: o rito só se anuncia nas
  * páginas que falam da Missa. Anunciá-lo no calendário e nas indulgências
@@ -23,7 +23,7 @@ export function Cabecalho({
 }: {
   titulo: string;
   descricao?: string;
-  /** Antífona em latim, ladeada de estrelas, no lugar do remate. */
+  /** Antífona própria da página. Na falta dela entra o lema do brasão. */
   epigrafe?: string;
 }) {
   const { rota } = usarRota();
@@ -34,17 +34,11 @@ export function Cabecalho({
       <p className="cabecalho__chamada">{chamadaDaRota(rota) ?? site.chamada}</p>
       <h1 className="cabecalho__titulo">{titulo}</h1>
       {descricao && <p className="cabecalho__resumo">{descricao}</p>}
-      {epigrafe ? (
-        <p className="cabecalho__lema" lang="la">
-          <Estrela />
-          {epigrafe}
-          <Estrela />
-        </p>
-      ) : (
-        <p className="filete" aria-hidden="true">
-          <Estrela />
-        </p>
-      )}
+      <p className="cabecalho__lema" lang="la">
+        <Estrela />
+        {epigrafe ?? site.lema}
+        <Estrela />
+      </p>
     </header>
   );
 }
