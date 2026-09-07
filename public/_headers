@@ -18,8 +18,10 @@
   Cache-Control: public, max-age=604800, must-revalidate
 /previa.png
   Cache-Control: public, max-age=604800, must-revalidate
+# Levam a impressão do conteúdo no nome, como os assets: trocar a imagem troca
+# a URL, então o cache pode ser eterno sem prender ninguém na versão antiga.
 /padroeiros/*
-  Cache-Control: public, max-age=604800, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
 
 # O HTML nunca fica em cache, senão uma correção no guia demora a aparecer.
 /
