@@ -132,7 +132,14 @@ export function UltimasPostagens() {
           >
             <Elo para={`/postagens/${p.id}`} className="postagem-cartao">
               {p.imagem ? (
-                <img className="postagem-cartao__imagem" src={p.imagem} alt="" loading="lazy" />
+                <img
+                  className="postagem-cartao__imagem"
+                  src={p.imagem}
+                  alt=""
+                  width={480}
+                  height={640}
+                  loading="lazy"
+                />
               ) : (
                 <span className="postagem-cartao__imagem postagem-cartao__imagem--falta" />
               )}

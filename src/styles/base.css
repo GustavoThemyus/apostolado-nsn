@@ -1499,9 +1499,18 @@ button {
   scroll-snap-align: start;
 }
 
+/*
+ * A estampa fica ao lado, e não em faixa por cima.
+ *
+ * A faixa larga pedia perto de mil pixels de largura num celular a 3x, e as
+ * estampas devocionais que temos têm 500 e pouco: a conta não fecha por
+ * processamento nenhum. Em retrato ao lado, o quadro pede 336 e sobra
+ * resolução. De quebra, é a forma do próprio material: recortar uma tira
+ * deitada de um santinho vertical cortava a figura no peito.
+ */
 .postagem-cartao {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: 7rem 1fr;
   height: 100%;
   background: var(--painel);
   border: 1px solid var(--fio);
@@ -1518,10 +1527,11 @@ button {
 }
 .postagem-cartao__imagem {
   width: 100%;
-  height: 8.5rem;
+  height: 100%;
+  min-height: 9.5rem;
   object-fit: cover;
-  object-position: center 30%;
-  border-bottom: 1px solid var(--fio);
+  object-position: center 25%;
+  border-right: 1px solid var(--fio);
 }
 .postagem-cartao__imagem--falta {
   background: var(--papel-fundo);
@@ -1668,6 +1678,9 @@ button {
   }
   .faixa__trilho {
     grid-auto-columns: 40%;
+  }
+  .postagem-cartao {
+    grid-template-columns: 8rem 1fr;
   }
 }
 
@@ -2176,6 +2189,9 @@ button {
 .padroeiro__imagem,
 .padroeiro__falta {
   width: 100%;
+  /* width/height no HTML viram dica de apresentação e, com os dois definidos,
+     o aspect-ratio é ignorado. `height: auto` devolve o comando ao CSS. */
+  height: auto;
   /* as estampas do Perez têm 132px de largura; esticá-las mais que isto
      só as borra, então o cartão para de crescer junto com a tela */
   max-width: 9rem;

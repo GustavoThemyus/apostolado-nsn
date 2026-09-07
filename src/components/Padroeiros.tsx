@@ -15,7 +15,14 @@ export function Padroeiros({ padroeiros }: { padroeiros: Padroeiro[] }) {
         {padroeiros.map((p) => (
           <li className="padroeiro" key={p.id}>
             {p.imagem ? (
-              <img className="padroeiro__imagem" src={p.imagem} alt={p.nome} loading="lazy" />
+              <img
+                className="padroeiro__imagem"
+                src={p.imagem}
+                alt={p.nome}
+                width={480}
+                height={640}
+                loading="lazy"
+              />
             ) : (
               <span className="padroeiro__falta" aria-hidden="true" />
             )}
