@@ -1,4 +1,20 @@
-/* Layout e componentes. Mobile primeiro; os tokens estão em tema.css. */
+/*
+ * Layout e componentes. Mobile primeiro; os tokens estão em tema.css.
+ *
+ * REGRA DE LARGURA, uma só, para o site não ficar remendado:
+ *
+ *   1. A coluna de conteúdo é `.moldura`, limitada por --largura-texto.
+ *   2. Toda caixa vai até as duas bordas dessa coluna. Caixa é o que tem
+ *      fundo, filete ou contorno: nota, aviso, dia, agenda, cartão, vínculo,
+ *      página por escrever. Nenhuma delas leva max-width.
+ *   3. Quem guarda a medida de leitura é o TEXTO, nunca a caixa que o
+ *      envolve: --medida-leitura para prosa alinhada à esquerda,
+ *      --medida-centrada para texto centrado.
+ *
+ * O que quebrava antes era o passo 3 aplicado no lugar do 2: `.nota` e
+ * `.vazia` limitavam a caixa inteira, e aí um bloco com fundo parava no meio
+ * da linha ao lado do calendário, que ia até a borda.
+ */
 
 *,
 *::before,
@@ -265,6 +281,8 @@ button {
   text-transform: uppercase;
   color: var(--ouro-tinta);
   margin: 0 auto 0.9rem;
+  /* versalete espaçado: cansa muito antes que o texto corrido, e é para
+     quebrar em duas ou três linhas curtas em vez de uma longa */
   max-width: 34ch;
   line-height: 1.5;
   text-wrap: balance;
@@ -281,7 +299,7 @@ button {
 
 .cabecalho__resumo {
   margin: 0 auto;
-  max-width: 46ch;
+  max-width: var(--medida-centrada);
   font-size: 1.04rem;
   color: var(--tinta-suave);
 }
@@ -821,14 +839,14 @@ button {
 .secao__resumo {
   color: var(--tinta-suave);
   font-style: italic;
-  max-width: 70ch;
+  max-width: var(--medida-leitura);
   margin: 0 0 1.35rem;
 }
 
 /* ---------------- blocos de texto ---------------- */
 
 .paragrafo {
-  max-width: 70ch;
+  max-width: var(--medida-leitura);
   margin: 0 0 0.85rem;
 }
 
@@ -840,7 +858,7 @@ button {
 }
 
 .lista {
-  max-width: 70ch;
+  max-width: var(--medida-leitura);
   padding-left: 1.25em;
   margin: 0 0 1rem;
 }
@@ -854,7 +872,7 @@ button {
 .rubrica {
   color: var(--rubrica);
   font-style: italic;
-  max-width: 70ch;
+  max-width: var(--medida-leitura);
   margin: 0 0 0.85rem;
 }
 .rubrica::before {
@@ -873,7 +891,7 @@ button {
 /* ---------------- rubrica da assembleia ---------------- */
 
 .assembleia {
-  max-width: 70ch;
+  max-width: var(--medida-leitura);
   margin: 0 0 0.85rem;
   padding-left: 0.85rem;
   border-left: 2px solid var(--elo);
@@ -923,7 +941,7 @@ button {
   margin: 0.75rem 0;
   padding-left: 0.9rem;
   border-left: 2px solid var(--ouro);
-  max-width: 66ch;
+  max-width: var(--medida-leitura);
 }
 .oracao__verso {
   margin: 0 0 0.6rem;
@@ -1005,7 +1023,6 @@ button {
   border-left: 3px solid var(--ouro);
   padding: 1rem 1.1rem;
   margin: 1.35rem 0;
-  max-width: 74ch;
 }
 .nota--alerta {
   border-left-color: var(--rubrica);
@@ -1018,6 +1035,7 @@ button {
 }
 .nota p {
   margin: 0 0 0.5rem;
+  max-width: var(--medida-leitura);
 }
 .nota p:last-child {
   margin-bottom: 0;
@@ -1029,11 +1047,11 @@ button {
   display: grid;
   gap: 0.85rem;
   margin: 1.1rem 0 1.4rem;
-  max-width: 74ch;
 }
 .legenda__item {
   display: grid;
   gap: 0.15rem;
+  max-width: var(--medida-leitura);
 }
 .legenda__chave {
   font-family: var(--sem-serifa);
@@ -1118,7 +1136,7 @@ button {
   text-align: center;
 }
 .rodape p {
-  max-width: 62ch;
+  max-width: var(--medida-centrada);
   margin: 0 auto 0.75rem;
 }
 .rodape__marca {
@@ -1297,37 +1315,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/* ---------------- cabeçalho de página ---------------- */
-
-.pagina__topo {
-  padding: 1.75rem 0 1.25rem;
-  border-bottom: 1px solid var(--fio);
-  margin-bottom: 0.5rem;
-}
-.pagina__topo--capa {
-  text-align: center;
-  border-bottom: none;
-  padding-bottom: 0.5rem;
-}
-
-.pagina__titulo {
-  font-family: var(--titular);
-  font-weight: 500;
-  font-size: clamp(1.7rem, 6vw, 2.5rem);
-  line-height: 1.12;
-  letter-spacing: -0.01em;
-  margin: 0 0 0.5rem;
-}
-.pagina__resumo {
-  margin: 0;
-  max-width: 58ch;
-  color: var(--tinta-suave);
-  font-size: 1.04rem;
-}
-.pagina__topo--capa .pagina__resumo {
-  margin-inline: auto;
-}
-
 /* ---------------- migalhas ---------------- */
 
 .trilha {
@@ -1362,7 +1349,6 @@ button {
   background: var(--painel);
   border: 1px dashed var(--fio);
   border-radius: 0.4rem;
-  max-width: 62ch;
 }
 .vazia__marca {
   font-family: var(--sem-serifa);
@@ -1375,9 +1361,11 @@ button {
 }
 .vazia__texto {
   margin: 0 0 0.6rem;
+  max-width: var(--medida-leitura);
 }
 .vazia__saida {
   margin: 0;
+  max-width: var(--medida-leitura);
   font-size: 0.92rem;
   color: var(--tinta-suave);
 }
@@ -1776,7 +1764,7 @@ button {
   margin: 0 0 1rem;
   font-size: 0.95rem;
   color: var(--tinta-suave);
-  max-width: 62ch;
+  max-width: var(--medida-leitura);
 }
 .vinculo__lista {
   list-style: none;
@@ -1808,7 +1796,7 @@ button {
   margin-top: 0.3rem;
   font-style: italic;
   color: var(--rubrica);
-  max-width: 54ch;
+  max-width: var(--medida-leitura);
 }
 
 /* os itens vinculados dentro do detalhe do dia */
@@ -1887,7 +1875,7 @@ button {
   margin: 0 0 1rem;
   font-size: 0.95rem;
   color: var(--tinta-suave);
-  max-width: 62ch;
+  max-width: var(--medida-leitura);
 }
 
 .agendas__lista {

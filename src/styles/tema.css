@@ -67,6 +67,20 @@
 
   /* --- medidas --- */
   --largura-texto: 60rem;
+
+  /*
+   * Medida de leitura. A regra do site, escrita uma vez:
+   *
+   *   a caixa vai até a borda da coluna; o texto dentro dela é que guarda a
+   *   medida.
+   *
+   * Antes havia seis valores diferentes espalhados (54, 58, 62, 66, 70, 74ch),
+   * uns em caixas e outros em parágrafos, e o resultado era um bloco com fundo
+   * parando no meio da linha ao lado de outro indo até a borda.
+   */
+  --medida-leitura: 70ch;
+  /* texto centrado cansa antes que o alinhado à esquerda, e pede menos */
+  --medida-centrada: 46ch;
   --respiro-lateral: 1.15rem;
   --altura-barra: 3.25rem;
   --alvo-toque: 2.75rem;
