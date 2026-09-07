@@ -16,9 +16,13 @@ let cache: { chaves: Chave[]; ate: number } | null = null;
 async function chavesDoTime(time: string): Promise<Chave[]> {
   if (cache && cache.ate > Date.now()) return cache.chaves;
 
-  const r = await fetch(`https://${time}.cloudflareaccess.com/cdn-cgi/access/certs`);
+  const r = await fetch(
+    `https://${time}.cloudflareaccess.com/cdn-cgi/access/certs`,
+  );
   if (!r.ok) throw new Error(`certs do Access: ${r.status}`);
-  const { keys } = (await r.json()) as { keys: (JsonWebKey & { kid: string })[] };
+  const { keys } = (await r.json()) as {
+    keys: (JsonWebKey & { kid: string })[];
+  };
 
   const chaves = await Promise.all(
     keys.map(async (jwk) => ({
@@ -28,16 +32,21 @@ async function chavesDoTime(time: string): Promise<Chave[]> {
         jwk,
         { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
         false,
-        ["verify"]
+        ["verify"],
       ),
-    }))
+    })),
   );
   cache = { chaves, ate: Date.now() + 60 * 60 * 1000 };
   return chaves;
 }
 
 const daBase64Url = (s: string): Uint8Array => {
-  const b = atob(s.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(s.length / 4) * 4, "="));
+  const b = atob(
+    s
+      .replace(/-/g, "+")
+      .replace(/_/g, "/")
+      .padEnd(Math.ceil(s.length / 4) * 4, "="),
+  );
   return Uint8Array.from(b, (c) => c.charCodeAt(0));
 };
 
@@ -45,7 +54,7 @@ const daBase64Url = (s: string): Uint8Array => {
 export async function emailAutenticado(
   pedido: Request,
   time: string,
-  aud: string
+  aud: string,
 ): Promise<string> {
   const token =
     pedido.headers.get("Cf-Access-Jwt-Assertion") ??
@@ -63,7 +72,7 @@ export async function emailAutenticado(
     "RSASSA-PKCS1-v1_5",
     chave.chave,
     daBase64Url(assinatura),
-    new TextEncoder().encode(`${cabeca}.${corpo}`)
+    new TextEncoder().encode(`${cabeca}.${corpo}`),
   );
   if (!valido) throw new Error("assinatura inválida");
 
@@ -75,7 +84,8 @@ export async function emailAutenticado(
 
   const publicos = Array.isArray(carga.aud) ? carga.aud : [carga.aud];
   if (!publicos.includes(aud)) throw new Error("token de outra aplicação");
-  if (!carga.exp || carga.exp * 1000 < Date.now()) throw new Error("token vencido");
+  if (!carga.exp || carga.exp * 1000 < Date.now())
+    throw new Error("token vencido");
   if (!carga.email) throw new Error("token sem e-mail");
 
   return carga.email;
