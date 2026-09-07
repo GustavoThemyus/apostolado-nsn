@@ -434,8 +434,15 @@ button {
   color: var(--elo);
 }
 
+/*
+ * Sem o inline-flex a âncora fica inline, e aí nem a margem de cima nem a
+ * altura mínima de alvo de toque valiam: o link ficava colado no último
+ * evangelho e menor que o dedo.
+ */
 .dia__link {
-  margin-top: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1.35rem;
   padding: 0;
   font-family: var(--sem-serifa);
   font-size: 0.68rem;
