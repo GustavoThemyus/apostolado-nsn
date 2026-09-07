@@ -84,6 +84,9 @@
   --respiro-lateral: 1.15rem;
   --altura-barra: 3.25rem;
   --alvo-toque: 2.75rem;
+  /* altura da célula do calendário a partir de 46rem, onde o quadrado
+     esticaria o mês para mais de 600px de altura */
+  --altura-dia: 4.5rem;
 
   color-scheme: light;
 }

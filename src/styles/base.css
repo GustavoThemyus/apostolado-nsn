@@ -570,6 +570,13 @@ button {
   padding-bottom: 0.3rem;
 }
 
+/*
+ * No celular o dia é quadrado, e sete colunas de 48px dão uma grade compacta.
+ * No PC a coluna tem 128px, e manter o quadrado deixava cada dia do tamanho de
+ * um botão de aplicativo, com o mês inteiro passando de 600px de altura. A
+ * partir de 46rem a altura passa a ser fixa e a célula fica mais larga que
+ * alta, que é como calendário de mesa se comporta.
+ */
 .calendario__vazio {
   aspect-ratio: 1;
 }
@@ -1652,6 +1659,11 @@ button {
   }
   .postagem-cartao {
     grid-template-columns: 8rem 1fr;
+  }
+  .calendario__dia,
+  .calendario__vazio {
+    aspect-ratio: auto;
+    height: var(--altura-dia);
   }
 }
 
