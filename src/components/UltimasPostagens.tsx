@@ -11,10 +11,10 @@ const INTERVALO = 6000;
  * A faixa das últimas postagens na página inicial.
  *
  * O Perez pediu slides passando sozinhos. Passam, mas com freio: param sob o
- * cursor, param quando o foco entra na faixa, param quando o dedo a arrasta,
- * param com a aba em segundo plano, e há um botão de pausa, porque conteúdo
- * que se move sozinho por mais de cinco segundos precisa de um jeito de
- * parar. Quem pede movimento reduzido no sistema não vê nada se mexer.
+ * cursor, param quando o foco entra na faixa, param quando o dedo a arrasta e
+ * param com a aba em segundo plano. Quem pede movimento reduzido no sistema
+ * não vê nada se mexer. Não há botão de pausa: quem quiser parar para ler
+ * encosta na faixa, e é isso que o freio de ponteiro e de foco cobre.
  *
  * A rolagem é do próprio navegador, com scroll-snap: funciona no dedo e no
  * teclado, e não depende do JavaScript para ser navegável.
@@ -24,7 +24,6 @@ export function UltimasPostagens() {
   const faixa = useRef<HTMLUListElement | null>(null);
   const [atual, definirAtual] = useState(0);
   const [pausado, definirPausado] = useState(false);
-  const [tocando, definirTocando] = useState(true);
 
   /*
    * Qual cartão está à frente, medido da posição da rolagem.
@@ -75,7 +74,7 @@ export function UltimasPostagens() {
 
   // o avanço automático
   useEffect(() => {
-    if (postagens.length < 2 || pausado || !tocando) return;
+    if (postagens.length < 2 || pausado) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const relogio = window.setInterval(() => {
@@ -98,7 +97,7 @@ export function UltimasPostagens() {
       });
     }, INTERVALO);
     return () => window.clearInterval(relogio);
-  }, [atual, pausado, tocando, postagens.length]);
+  }, [atual, pausado, postagens.length]);
 
   if (postagens.length === 0) return null;
 
@@ -156,14 +155,6 @@ export function UltimasPostagens() {
 
       {postagens.length > 1 && (
         <div className="faixa__controles">
-          <button
-            type="button"
-            className="faixa__pausa"
-            onClick={() => definirTocando((t) => !t)}
-            aria-label={tocando ? "Parar a passagem automática" : "Retomar a passagem automática"}
-          >
-            {tocando ? "Pausar" : "Passar"}
-          </button>
           <ul className="faixa__pontos">
             {postagens.map((p, i) => (
               <li key={p.id}>

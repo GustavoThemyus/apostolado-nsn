@@ -1567,23 +1567,6 @@ button {
   gap: 0.75rem;
   margin-top: 0.6rem;
 }
-.faixa__pausa {
-  padding: 0.2rem 0.5rem;
-  border: 1px solid var(--fio);
-  border-radius: 0.3rem;
-  background: transparent;
-  font-family: var(--sem-serifa);
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--tinta-suave);
-  cursor: pointer;
-}
-.faixa__pausa:hover {
-  color: var(--tinta);
-  border-color: var(--tinta-suave);
-}
 .faixa__pontos {
   list-style: none;
   display: flex;
@@ -2186,20 +2169,38 @@ button {
   gap: 0.4rem;
   justify-items: center;
 }
-.padroeiro__imagem,
-.padroeiro__falta {
+/*
+ * A moldura: filete dourado por fora, margem de papel e um segundo filete
+ * rente à estampa. São os mesmos dois traços do brasão e das cercaduras do
+ * impresso, na escala de um santinho.
+ */
+.padroeiro__moldura {
+  display: block;
+  width: 100%;
+  /* a estampa tem 480px de largura; esticá-la mais que isto só a borra, então
+     a moldura para de crescer junto com a tela */
+  max-width: 9rem;
+  padding: 0.3rem;
+  background: var(--painel);
+  border: 1px solid var(--ouro);
+  border-radius: 0.2rem;
+  box-shadow: 0 1px 4px var(--sombra);
+}
+
+.padroeiro__imagem {
+  display: block;
   width: 100%;
   /* width/height no HTML viram dica de apresentação e, com os dois definidos,
      o aspect-ratio é ignorado. `height: auto` devolve o comando ao CSS. */
   height: auto;
-  /* as estampas do Perez têm 132px de largura; esticá-las mais que isto
-     só as borra, então o cartão para de crescer junto com a tela */
-  max-width: 9rem;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border: 1px solid var(--fio);
-  border-radius: 0.3rem;
-  background: var(--painel);
+  background: var(--papel-fundo);
+}
+
+.padroeiro__falta {
+  background: var(--papel-fundo);
 }
 .padroeiro__nome {
   font-family: var(--titular);
