@@ -79,15 +79,25 @@ export function PaginaDeDocumento({
         {conteudo.emPreparacao && <Vazia />}
         {conteudo.rascunho && <Vazia variante="rascunho" />}
 
-        {temSumario && (
-          <Sumario secoes={secoesReais} secaoAtiva={secaoAtiva} variante="embutido" />
-        )}
+        {/*
+          Em tela larga o sumário sai de cima do texto e vira coluna à
+          esquerda, grudenta. Sem isso a prosa ficava com a medida de leitura
+          no meio de uma coluna larga e sobrava meia tela em branco à direita:
+          largura que não se usa é largura que não serve.
+        */}
+        <div className={`documento${temSumario ? " documento--com-sumario" : ""}`}>
+          {temSumario && (
+            <Sumario secoes={secoesReais} secaoAtiva={secaoAtiva} variante="embutido" />
+          )}
 
-        {corpo}
+          <div className="documento__corpo">
+            {corpo}
 
-        {rota && <CartoesDeSecao padrao={rota.padrao} />}
+            {rota && <CartoesDeSecao padrao={rota.padrao} />}
 
-        {children}
+            {children}
+          </div>
+        </div>
 
         {temSumario && (
           <Sumario

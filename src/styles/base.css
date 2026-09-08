@@ -870,6 +870,49 @@ button {
 
 /* ---------------- menu do site ---------------- */
 
+/* ---------------- testeira do menu ---------------- */
+
+.menu__testeira {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0 1.15rem;
+  margin-bottom: 1.15rem;
+  border-bottom: 1px solid var(--fio);
+  text-align: center;
+}
+.menu__brasao {
+  width: 3.4rem;
+  height: 3.7rem;
+  object-fit: contain;
+}
+.menu__marca {
+  margin: 0;
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--ouro-tinta);
+  max-width: 18ch;
+}
+.menu__lema {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-family: var(--titular);
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--tinta-suave);
+}
+.menu__lema .estrela {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
 .menu__lista {
   list-style: none;
   margin: 0;
@@ -1430,6 +1473,61 @@ button {
   .sumario--embutido .sumario__link {
     min-height: 0;
     padding: 0.2rem 0;
+  }
+}
+
+/* ---------------- documento em duas colunas ---------------- */
+
+/*
+ * Até 76rem o sumário fica em cima do texto, como sempre esteve. A partir daí
+ * vira coluna lateral grudenta: a prosa guarda a medida de leitura e a
+ * largura que sobrava à direita passa a servir para alguma coisa.
+ */
+@media (min-width: 76rem) {
+  .documento--com-sumario {
+    display: grid;
+    grid-template-columns: 17rem minmax(0, 1fr);
+    gap: 0 3rem;
+    align-items: start;
+  }
+  .documento--com-sumario .sumario--embutido {
+    position: sticky;
+    top: calc(var(--altura-barra) + 1.25rem);
+    margin: 2.1rem 0 0;
+    max-height: calc(100vh - var(--altura-barra) - 3rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  /* na coluna estreita não cabem duas colunas de itens */
+  .documento--com-sumario .sumario--embutido .sumario__lista {
+    columns: 1;
+  }
+  .documento--com-sumario .sumario--embutido .sumario__painel {
+    padding: 1.15rem 1.25rem 1rem;
+  }
+}
+
+/* ---------------- telas grandes ---------------- */
+
+/*
+ * Acima de 100rem a coluna e a escala crescem mais um passo. Não é só
+ * esticar: o corpo do texto sobe junto, senão a página vira uma faixa de
+ * letras miúdas no meio de um monitor grande.
+ */
+@media (min-width: 100rem) {
+  :root {
+    --largura-texto: 86rem;
+    --respiro-lateral: 2rem;
+    --altura-dia: 5rem;
+  }
+  body {
+    font-size: 1.25rem;
+  }
+  .cabecalho {
+    padding: 3rem 0 2.6rem;
+  }
+  .cabecalho__brasao {
+    width: 6.25rem;
   }
 }
 

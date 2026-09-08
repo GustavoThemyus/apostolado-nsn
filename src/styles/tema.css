@@ -69,7 +69,13 @@
   --sem-serifa: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* --- medidas --- */
-  --largura-texto: 60rem;
+  /*
+   * Largura da coluna. 60rem ocupava metade de uma tela de 1920 e um terço de
+   * uma de 2560: sobrava tela vazia dos dois lados. Os blocos (calendário,
+   * cartões, faixa) aproveitam a largura extra; a prosa não estica junto,
+   * porque quem a segura é --medida-leitura.
+   */
+  --largura-texto: 76rem;
 
   /*
    * Medida de leitura. A regra do site, escrita uma vez:

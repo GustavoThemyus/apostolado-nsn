@@ -1,4 +1,7 @@
 import { EM_PREPARACAO, SECOES_DO_MENU, rotaPorPadrao } from "../rotas/rotas";
+import { site } from "../data/site";
+import { Brasao } from "./Brasao";
+import { Estrela } from "./Estrela";
 import { Elo } from "../rotas/Elo";
 import { Folha } from "./Folha";
 import { Seta } from "./Seta";
@@ -14,6 +17,21 @@ import { Seta } from "./Seta";
 export function MenuPrincipal({ aberto, aoFechar }: { aberto: boolean; aoFechar: () => void }) {
   return (
     <Folha aberto={aberto} aoFechar={aoFechar} rotulo="Menu">
+      {/*
+        A gaveta abre longe do cabeçalho da página, e sem uma testeira ela era
+        uma lista solta no vazio. Aqui vai a mesma identidade do site: brasão,
+        nome por extenso e o lema, na ordem em que aparecem em toda página.
+      */}
+      <div className="menu__testeira">
+        <Brasao tamanho="menu" />
+        <p className="menu__marca">{site.marca}</p>
+        <p className="menu__lema" lang="la">
+          <Estrela />
+          {site.lema}
+          <Estrela />
+        </p>
+      </div>
+
       <nav aria-label="Seções do site" onClick={aoFechar}>
         <ul className="menu__lista">
           {SECOES_DO_MENU.map((padrao) => {
