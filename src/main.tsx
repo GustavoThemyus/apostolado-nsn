@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { Roteador } from "./rotas/Roteador";
+import { Roteador } from "./routes/Roteador";
 import "./styles/tema.css";
 import "./styles/base.css";
 
@@ -10,5 +10,5 @@ if (!raiz) throw new Error("Elemento #raiz não encontrado em index.html");
 createRoot(raiz).render(
   <StrictMode>
     <Roteador>{(pagina) => pagina}</Roteador>
-  </StrictMode>
+  </StrictMode>,
 );

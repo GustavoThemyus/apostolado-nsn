@@ -1,5 +1,5 @@
-import { Elo } from "../rotas/Elo";
-import { rotaPorPadrao, type Rota } from "../rotas/rotas";
+import { Elo } from "../routes/Elo";
+import { rotaPorPadrao, type Rota } from "../routes/rotas";
 
 /**
  * Migalhas. É o que faz uma subpágina parecer um lugar dentro do site, em vez

@@ -6,7 +6,7 @@
  * lixo em cima do calendário litúrgico em vez de nada.
  */
 
-import { lerIcal, semDetalhes } from "./agenda";
+import { lerIcal, semDetalhes, separarCor } from "./agenda";
 
 let passaram = 0;
 const falhas: string[] = [];
@@ -148,6 +148,38 @@ conferir(
   false,
 );
 conferir("vazio não é sem detalhes", semDetalhes([]), false);
+
+// --- o marcador de cor do Ordo -------------------------------------------
+// O Ordo da capela prefixa o título com um emoji de cor. Ele tem de sair do
+// texto e virar dado, senão sai cru na tela na fonte colorida do sistema.
+conferir("branco", separarCor("⚪São Raimundo de Pennafort"),
+  { titulo: "São Raimundo de Pennafort", cor: "branco" });
+conferir("vermelho", separarCor("🔴Santo Estanislau Bispo e Mártir"),
+  { titulo: "Santo Estanislau Bispo e Mártir", cor: "vermelho" });
+conferir("roxo", separarCor("🟣Quinta-feira depois das Cinzas"),
+  { titulo: "Quinta-feira depois das Cinzas", cor: "roxo" });
+conferir("verde", separarCor("🟢II Domingo depois da Epifania"),
+  { titulo: "II Domingo depois da Epifania", cor: "verde" });
+conferir("preto", separarCor("⚫Comemoração de todos os fiéis defuntos"),
+  { titulo: "Comemoração de todos os fiéis defuntos", cor: "preto" });
+conferir("rosa", separarCor("🩷III Domingo do Advento"),
+  { titulo: "III Domingo do Advento", cor: "rosa" });
+conferir("ouro, que o nosso calendário nunca emite", separarCor("🟡TODOS OS SANTOS"),
+  { titulo: "TODOS OS SANTOS", cor: "ouro" });
+conferir("espaço depois do marcador some", separarCor("🔴 São Jorge"),
+  { titulo: "São Jorge", cor: "vermelho" });
+conferir("sem marcador, o título fica inteiro", separarCor("Indulgência Plenária"),
+  { titulo: "Indulgência Plenária" });
+conferir("emoji que não é cor não é cortado", separarCor("✝️Exaltação da Cruz"),
+  { titulo: "✝️Exaltação da Cruz" });
+conferir(
+  "o iCal já entrega o item sem o emoji",
+  lerIcal(
+    ics(["BEGIN:VEVENT", "DTSTART;VALUE=DATE:20260908",
+         "SUMMARY:🟡Natividade da Bem-aventurada Virgem Maria", "END:VEVENT"].join("\r\n"))
+  ),
+  [{ data: "2026-09-08", titulo: "Natividade da Bem-aventurada Virgem Maria", cor: "ouro" }]
+);
 
 const total = passaram + falhas.length;
 console.log(`\nleitura de iCal: ${passaram}/${total}`);

@@ -9,7 +9,7 @@ import { Padroeiros, type Padroeiro } from "../components/Padroeiros";
 import { UltimasPostagens } from "../components/UltimasPostagens";
 import { Vazia } from "../components/Vazia";
 import type { Bloco } from "../data/tipos";
-import { Elo } from "../rotas/Elo";
+import { Elo } from "../routes/Elo";
 import { Seta } from "../components/Seta";
 
 interface PaginaInicial {
@@ -26,10 +26,7 @@ const inicio = bruto as unknown as PaginaInicial;
 export default function Inicio() {
   return (
     <Moldura titulo="Início">
-      <Cabecalho
-        titulo={inicio.titulo}
-        descricao={inicio.descricao}
-      />
+      <Cabecalho titulo={inicio.titulo} descricao={inicio.descricao} />
 
       <Mural avisos={inicio.avisos} />
 
@@ -37,7 +34,10 @@ export default function Inicio() {
 
       <UltimasPostagens />
 
-      <nav className="cartoes cartoes--ilustrados" aria-label="Seções principais">
+      <nav
+        className="cartoes cartoes--ilustrados"
+        aria-label="Seções principais"
+      >
         <Cartao
           para="/missa/guia"
           imagem="/cartoes/missa-4c2b9f3f.webp"

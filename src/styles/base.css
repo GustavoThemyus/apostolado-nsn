@@ -484,6 +484,9 @@ button {
 .dia__amostra--roxo { background: #6b3e8f; }
 .dia__amostra--preto { background: #22212e; }
 .dia__amostra--rosa { background: #d98cb0; }
+/* ouro: o calendário de 1962 nunca o emite, e ele só aparece em item de
+   agenda vinculada, onde o Ordo da capela o usa nas festas maiores */
+.dia__amostra--ouro { background: linear-gradient(140deg, #e9da93, #a3863f); }
 
 .dia__ressalva {
   margin: 0.75rem 0 0;
@@ -2418,8 +2421,14 @@ button {
   gap: 0.5rem;
 }
 .dia__agenda-nome {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
   font-weight: 600;
+}
+/* a amostra fica na linha do texto, não no meio dele */
+.dia__agenda-nome .dia__amostra {
+  align-self: center;
 }
 .dia__agenda-fonte {
   display: block;

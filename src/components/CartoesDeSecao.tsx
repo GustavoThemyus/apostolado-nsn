@@ -1,5 +1,5 @@
-import { EM_PREPARACAO, filhasDe } from "../rotas/rotas";
-import { Elo } from "../rotas/Elo";
+import { EM_PREPARACAO, filhasDe } from "../routes/rotas";
+import { Elo } from "../routes/Elo";
 import { Seta } from "./Seta";
 
 /**
@@ -19,7 +19,9 @@ export function CartoesDeSecao({ padrao }: { padrao: string }) {
       {filhas.map((rota) => (
         <Elo key={rota.padrao} para={rota.padrao} className="cartao">
           <span className="cartao__titulo">{rota.titulo}</span>
-          {rota.descricao && <span className="cartao__texto">{rota.descricao}</span>}
+          {rota.descricao && (
+            <span className="cartao__texto">{rota.descricao}</span>
+          )}
           {EM_PREPARACAO.has(rota.padrao) && (
             <span className="cartao__preparo">Em preparação</span>
           )}

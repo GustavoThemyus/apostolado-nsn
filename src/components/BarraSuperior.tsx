@@ -1,5 +1,5 @@
 import type { ReactNode, RefObject } from "react";
-import { Elo } from "../rotas/Elo";
+import { Elo } from "../routes/Elo";
 import { Brasao } from "./Brasao";
 
 /**

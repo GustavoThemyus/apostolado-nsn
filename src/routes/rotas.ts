@@ -42,7 +42,7 @@ export const ROTAS: Rota[] = [
     // o título logo abaixo já é o nome do apostolado; aqui vai só o rito
     chamada: "Rito Romano na forma do Missal de São Pio V",
     imagem: "/cartoes/inicio-d1e8306e.webp",
-    pagina: () => import("../paginas/Inicio"),
+    pagina: () => import("../pages/Inicio"),
   },
 
   // ---------------------------------------------------------------- Missa
@@ -55,7 +55,7 @@ export const ROTAS: Rota[] = [
     chamada:
       "Apostolado Nossa Senhora das Neves - Rito Romano na forma do Missal de São Pio V",
     imagem: "/cartoes/missa-4c2b9f3f.webp",
-    pagina: () => import("../paginas/Missa"),
+    pagina: () => import("../pages/Missa"),
   },
   {
     padrao: "/missa/guia",
@@ -63,21 +63,21 @@ export const ROTAS: Rota[] = [
     descricao:
       "Cada peça da Missa em ordem: o que é dito, quem diz e o que muda conforme o dia.",
     pai: "/missa",
-    pagina: () => import("../paginas/GuiaDaMissa"),
+    pagina: () => import("../pages/GuiaDaMissa"),
   },
   {
     padrao: "/missa/partes",
     titulo: "Da Missa e suas partes",
     descricao: "Cada parte da Missa em detalhe: origem, sentido e rubricas.",
     pai: "/missa",
-    pagina: () => import("../paginas/MissaPartes"),
+    pagina: () => import("../pages/MissaPartes"),
   },
   {
     padrao: "/missa/situacao-canonica",
     titulo: "A situação canônica da Missa",
     descricao: "A parte jurídica do rito.",
     pai: "/missa",
-    pagina: () => import("../paginas/MissaSituacaoCanonica"),
+    pagina: () => import("../pages/MissaSituacaoCanonica"),
   },
 
   // ----------------------------------------------------------- Calendário
@@ -87,28 +87,28 @@ export const ROTAS: Rota[] = [
     curto: "Calendário",
     descricao: "O calendário de 1962, calculado para qualquer ano.",
     imagem: "/cartoes/calendario-8b43148b.webp",
-    pagina: () => import("../paginas/Calendario"),
+    pagina: () => import("../pages/Calendario"),
   },
   {
     padrao: "/calendario/santos",
     titulo: "As festas do calendário",
     descricao: "As vidas dos santos que o calendário celebra.",
     pai: "/calendario",
-    pagina: () => import("../paginas/Santos"),
+    pagina: () => import("../pages/Santos"),
   },
   {
     padrao: "/calendario/brasil",
     titulo: "O próprio do Brasil",
     descricao: "As festas próprias do calendário brasileiro.",
     pai: "/calendario",
-    pagina: () => import("../paginas/CalendarioBrasil"),
+    pagina: () => import("../pages/CalendarioBrasil"),
   },
   {
     padrao: "/calendario/arquidiocese",
     titulo: "O próprio arquidiocesano",
     descricao: "O calendário próprio da Arquidiocese da Paraíba.",
     pai: "/calendario",
-    pagina: () => import("../paginas/CalendarioArquidiocese"),
+    pagina: () => import("../pages/CalendarioArquidiocese"),
   },
 
   // ---------------------------------------------------------- Indulgências
@@ -116,37 +116,38 @@ export const ROTAS: Rota[] = [
     padrao: "/indulgencias",
     titulo: "Indulgências",
     curto: "Indulgências",
-    descricao: "O que são, como se obtêm e de onde vêm, segundo o Código de 1917.",
+    descricao:
+      "O que são, como se obtêm e de onde vêm, segundo o Código de 1917.",
     imagem: "/cartoes/indulgencias-931d7d10.webp",
-    pagina: () => import("../paginas/Indulgencias"),
+    pagina: () => import("../pages/Indulgencias"),
   },
   {
     padrao: "/indulgencias/calendario",
     titulo: "Dias de indulgência plenária",
     descricao: "Os dias que carregam indulgência no calendário.",
     pai: "/indulgencias",
-    pagina: () => import("../paginas/IndulgenciasCalendario"),
+    pagina: () => import("../pages/IndulgenciasCalendario"),
   },
   {
     padrao: "/indulgencias/raccolta",
     titulo: "Raccolta",
     descricao: "A coleção de orações e obras indulgenciadas anterior a 1968.",
     pai: "/indulgencias",
-    pagina: () => import("../paginas/IndulgenciasRaccolta"),
+    pagina: () => import("../pages/IndulgenciasRaccolta"),
   },
   {
     padrao: "/indulgencias/enchiridion",
     titulo: "Enchiridion Indulgentiarum",
     descricao: "A coleção em vigor, de 1968 em diante.",
     pai: "/indulgencias",
-    pagina: () => import("../paginas/IndulgenciasEnchiridion"),
+    pagina: () => import("../pages/IndulgenciasEnchiridion"),
   },
   {
     padrao: "/indulgencias/ordens",
     titulo: "Indulgências próprias",
     descricao: "As concedidas a ordens, confrarias e associações de fiéis.",
     pai: "/indulgencias",
-    pagina: () => import("../paginas/IndulgenciasOrdens"),
+    pagina: () => import("../pages/IndulgenciasOrdens"),
   },
 
   // ------------------------------------------------------------ Apostolado
@@ -156,7 +157,7 @@ export const ROTAS: Rota[] = [
     curto: "Apostolado",
     descricao: "Nossa posição, situação canônica, história e o brasão.",
     imagem: "/cartoes/apostolado-9af0559c.webp",
-    pagina: () => import("../paginas/Apostolado"),
+    pagina: () => import("../pages/Apostolado"),
   },
 
   // ------------------------------------------------------------- Postagens
@@ -166,14 +167,14 @@ export const ROTAS: Rota[] = [
     curto: "Postagens",
     descricao: "Vidas de santos e escritos sobre a liturgia.",
     imagem: "/cartoes/postagens-3455e1c2.webp",
-    pagina: () => import("../paginas/Postagens"),
+    pagina: () => import("../pages/Postagens"),
   },
   {
     padrao: "/postagens/:id",
     titulo: "Postagem",
     pai: "/postagens",
     foraDoMenu: true,
-    pagina: () => import("../paginas/Postagem"),
+    pagina: () => import("../pages/Postagem"),
   },
 
   // ---------------------------------------------------------------- painel
@@ -227,7 +228,10 @@ export const EM_PREPARACAO = new Set([
  * `undefined` significa "use a do site": quem decide o texto padrão é o
  * Cabecalho, não a tabela.
  */
-function herdado(rota: Rota | null, campo: "chamada" | "imagem"): string | undefined {
+function herdado(
+  rota: Rota | null,
+  campo: "chamada" | "imagem",
+): string | undefined {
   let atual: Rota | undefined = rota ?? undefined;
   while (atual) {
     const valor = atual[campo];

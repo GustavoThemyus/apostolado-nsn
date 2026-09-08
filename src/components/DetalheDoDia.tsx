@@ -2,18 +2,34 @@ import { Desenvolvimento } from "./Desenvolvimento";
 import type { ItemVinculado } from "../hooks/usarAgendasVinculadas";
 import { postagemDoDia } from "../calendario/vinculo";
 import { publicadas } from "../data/postagens";
-import { Elo } from "../rotas/Elo";
+import { Elo } from "../routes/Elo";
 import { Seta } from "./Seta";
 import { porExtensoCurto } from "./DiaDeHoje";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
 import type { DiaLiturgico } from "../calendario/tipos";
 
-const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
-  "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const MESES = [
+  "janeiro",
+  "fevereiro",
+  "março",
+  "abril",
+  "maio",
+  "junho",
+  "julho",
+  "agosto",
+  "setembro",
+  "outubro",
+  "novembro",
+  "dezembro",
+];
 
 const NOME_DA_COR: Record<string, string> = {
-  branco: "Branco", vermelho: "Vermelho", verde: "Verde",
-  roxo: "Roxo", preto: "Preto", rosa: "Rosa",
+  branco: "Branco",
+  vermelho: "Vermelho",
+  verde: "Verde",
+  roxo: "Roxo",
+  preto: "Preto",
+  rosa: "Rosa",
 };
 
 /** O que se celebra num dia, com tempo, cor, classe e o que muda na Missa. */
@@ -31,7 +47,8 @@ export function DetalheDoDia({
   return (
     <div className="calendario__detalhe">
       <p className="calendario__detalhe-data">
-        {dia.data.getUTCDate()} de {MESES[dia.data.getUTCMonth()]} de {dia.data.getUTCFullYear()}
+        {dia.data.getUTCDate()} de {MESES[dia.data.getUTCMonth()]} de{" "}
+        {dia.data.getUTCFullYear()}
       </p>
       <p className="calendario__detalhe-nome">{dia.nome}</p>
       <dl className="dia__detalhes">
@@ -42,8 +59,13 @@ export function DetalheDoDia({
         <div>
           <dt>Cor</dt>
           <dd>
-            <span className={`dia__amostra dia__amostra--${dia.cor}`} aria-hidden="true" />
-            <span className={`cor cor--${dia.cor}`}>{NOME_DA_COR[dia.cor]}</span>
+            <span
+              className={`dia__amostra dia__amostra--${dia.cor}`}
+              aria-hidden="true"
+            />
+            <span className={`cor cor--${dia.cor}`}>
+              {NOME_DA_COR[dia.cor]}
+            </span>
           </dd>
         </div>
         <div>
@@ -63,7 +85,9 @@ export function DetalheDoDia({
         </p>
       )}
       {dia.observacoes.map((o) => (
-        <p className="dia__observacao" key={o}>{o}</p>
+        <p className="dia__observacao" key={o}>
+          {o}
+        </p>
       ))}
       <Desenvolvimento dia={dia} />
 
@@ -81,12 +105,27 @@ export function DetalheDoDia({
           <ul className="dia__agenda-lista">
             {vinculados.map((item) => (
               <li key={`${item.agenda}-${item.titulo}`}>
-                <span className={`bandeira bandeira--${item.agenda}`} aria-hidden="true" />
+                <span
+                  className={`bandeira bandeira--${item.agenda}`}
+                  aria-hidden="true"
+                />
                 <span>
-                  <span className="dia__agenda-nome">{item.titulo}</span>
+                  <span className="dia__agenda-nome">
+                    {/* o Ordo marca a cor com emoji; a ponte separa, e aqui
+                        ela vira a mesma amostra do calendário próprio */}
+                    {item.cor && (
+                      <span
+                        className={`dia__amostra dia__amostra--${item.cor}`}
+                        aria-hidden="true"
+                      />
+                    )}
+                    {item.titulo}
+                  </span>
                   <span className="dia__agenda-fonte">{item.nomeDaAgenda}</span>
                   {item.descricao && (
-                    <span className="dia__agenda-descricao">{item.descricao}</span>
+                    <span className="dia__agenda-descricao">
+                      {item.descricao}
+                    </span>
                   )}
                 </span>
               </li>

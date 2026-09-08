@@ -3,8 +3,8 @@ import { Cabecalho } from "../components/Cabecalho";
 import { Moldura } from "../components/Moldura";
 import { Vazia } from "../components/Vazia";
 import { dataPorExtenso, porId } from "../data/postagens";
-import { Elo } from "../rotas/Elo";
-import { usarParametros } from "../rotas/usarRota";
+import { Elo } from "../routes/Elo";
+import { usarParametros } from "../routes/usarRota";
 
 export default function Postagem() {
   const { id } = usarParametros();

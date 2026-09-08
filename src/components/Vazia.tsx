@@ -1,4 +1,4 @@
-import { Elo } from "../rotas/Elo";
+import { Elo } from "../routes/Elo";
 
 /**
  * Estado de uma página ainda por escrever.

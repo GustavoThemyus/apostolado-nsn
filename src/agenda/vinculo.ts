@@ -15,6 +15,8 @@ export interface ItemDeAgenda {
   data: string;
   titulo: string;
   descricao?: string;
+  /** Cor litúrgica, separada do título pela ponte. */
+  cor?: "branco" | "vermelho" | "verde" | "roxo" | "preto" | "rosa" | "ouro";
 }
 
 export interface AgendaBuscada {

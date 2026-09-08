@@ -1,8 +1,8 @@
-import { EM_PREPARACAO, SECOES_DO_MENU, rotaPorPadrao } from "../rotas/rotas";
+import { EM_PREPARACAO, SECOES_DO_MENU, rotaPorPadrao } from "../routes/rotas";
 import { site } from "../data/site";
 import { Brasao } from "./Brasao";
 import { Estrela } from "./Estrela";
-import { Elo } from "../rotas/Elo";
+import { Elo } from "../routes/Elo";
 import { Folha } from "./Folha";
 import { Seta } from "./Seta";
 
@@ -14,7 +14,13 @@ import { Seta } from "./Seta";
  * página da sua seção, em cartões, que é onde elas fazem sentido e onde há
  * espaço para dizer o que são.
  */
-export function MenuPrincipal({ aberto, aoFechar }: { aberto: boolean; aoFechar: () => void }) {
+export function MenuPrincipal({
+  aberto,
+  aoFechar,
+}: {
+  aberto: boolean;
+  aoFechar: () => void;
+}) {
   return (
     <Folha aberto={aberto} aoFechar={aoFechar} rotulo="Menu">
       {/*
@@ -39,14 +45,20 @@ export function MenuPrincipal({ aberto, aoFechar }: { aberto: boolean; aoFechar:
             if (!rota) return null;
             return (
               <li key={padrao}>
-                <Elo para={padrao} exato={padrao === "/"} className="menu__secao">
+                <Elo
+                  para={padrao}
+                  exato={padrao === "/"}
+                  className="menu__secao"
+                >
                   <span className="menu__nome">
                     {rota.titulo}
                     {EM_PREPARACAO.has(padrao) && (
                       <span className="menu__preparo">Em preparação</span>
                     )}
                   </span>
-                  {rota.descricao && <span className="menu__resumo">{rota.descricao}</span>}
+                  {rota.descricao && (
+                    <span className="menu__resumo">{rota.descricao}</span>
+                  )}
                   <Seta className="menu__seta" />
                 </Elo>
               </li>

@@ -2,12 +2,24 @@ import { Cabecalho } from "../components/Cabecalho";
 import { Moldura } from "../components/Moldura";
 import { Vazia } from "../components/Vazia";
 import { publicadas } from "../data/postagens";
-import { Elo } from "../rotas/Elo";
+import { Elo } from "../routes/Elo";
 import { Seta } from "../components/Seta";
 import { diaHabitualDaFesta } from "../calendario/vinculo";
 
-const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
-  "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const MESES = [
+  "janeiro",
+  "fevereiro",
+  "março",
+  "abril",
+  "maio",
+  "junho",
+  "julho",
+  "agosto",
+  "setembro",
+  "outubro",
+  "novembro",
+  "dezembro",
+];
 
 /**
  * As festas do calendário: uma vista sobre as postagens, não um segundo
@@ -23,7 +35,7 @@ export default function Santos() {
     .sort(
       (a, b) =>
         (a.quando?.mes ?? 13) - (b.quando?.mes ?? 13) ||
-        (a.quando?.dia ?? 32) - (b.quando?.dia ?? 32)
+        (a.quando?.dia ?? 32) - (b.quando?.dia ?? 32),
     );
 
   return (
@@ -39,13 +51,24 @@ export default function Santos() {
         <ul className="postagens">
           {santos.map(({ postagem, quando }) => (
             <li key={postagem.id}>
-              <Elo para={`/postagens/${postagem.id}`} className="postagem-linha">
+              <Elo
+                para={`/postagens/${postagem.id}`}
+                className="postagem-linha"
+              >
                 <span className="postagem-linha__data">
-                  {quando ? `${quando.dia} de ${MESES[quando.mes - 1]}` : "sem data fixa"}
+                  {quando
+                    ? `${quando.dia} de ${MESES[quando.mes - 1]}`
+                    : "sem data fixa"}
                 </span>
-                <span className="postagem-linha__titulo">{postagem.titulo}</span>
-                <span className="postagem-linha__resumo">{postagem.resumo}</span>
-                {postagem.rascunho && <span className="cartao__preparo">Rascunho</span>}
+                <span className="postagem-linha__titulo">
+                  {postagem.titulo}
+                </span>
+                <span className="postagem-linha__resumo">
+                  {postagem.resumo}
+                </span>
+                {postagem.rascunho && (
+                  <span className="cartao__preparo">Rascunho</span>
+                )}
                 <span className="cartao__ir">
                   Ler
                   <Seta className="cartao__seta" />

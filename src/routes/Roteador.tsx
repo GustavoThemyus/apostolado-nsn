@@ -44,7 +44,8 @@ function chaveAtual(): number {
  */
 function ehNavegacaoInterna(evento: MouseEvent): string | null {
   if (evento.defaultPrevented || evento.button !== 0) return null;
-  if (evento.metaKey || evento.ctrlKey || evento.shiftKey || evento.altKey) return null;
+  if (evento.metaKey || evento.ctrlKey || evento.shiftKey || evento.altKey)
+    return null;
 
   const alvo = (evento.target as Element | null)?.closest("a");
   if (!alvo) return null;
@@ -60,26 +61,41 @@ function ehNavegacaoInterna(evento: MouseEvent): string | null {
   return url.pathname + url.search + url.hash;
 }
 
-export function Roteador({ children }: { children: (conteudo: ReactNode) => ReactNode }) {
+export function Roteador({
+  children,
+}: {
+  children: (conteudo: ReactNode) => ReactNode;
+}) {
   const [endereco, definirEndereco] = useState(
-    () => window.location.pathname + window.location.search + window.location.hash
+    () =>
+      window.location.pathname + window.location.search + window.location.hash,
   );
 
-  const navegar = useCallback((para: string, opcoes?: { substituir?: boolean }) => {
-    const atual = window.location.pathname + window.location.search + window.location.hash;
-    if (para === atual) return;
+  const navegar = useCallback(
+    (para: string, opcoes?: { substituir?: boolean }) => {
+      const atual =
+        window.location.pathname +
+        window.location.search +
+        window.location.hash;
+      if (para === atual) return;
 
-    rolagens.set(chaveAtual(), window.scrollY);
-    proximaChave += 1;
-    const metodo = opcoes?.substituir ? "replaceState" : "pushState";
-    window.history[metodo]({ chave: proximaChave }, "", para);
-    definirEndereco(para);
-  }, []);
+      rolagens.set(chaveAtual(), window.scrollY);
+      proximaChave += 1;
+      const metodo = opcoes?.substituir ? "replaceState" : "pushState";
+      window.history[metodo]({ chave: proximaChave }, "", para);
+      definirEndereco(para);
+    },
+    [],
+  );
 
   // voltar e avançar do navegador
   useEffect(() => {
     const aoVoltar = () => {
-      definirEndereco(window.location.pathname + window.location.search + window.location.hash);
+      definirEndereco(
+        window.location.pathname +
+          window.location.search +
+          window.location.hash,
+      );
     };
     window.addEventListener("popstate", aoVoltar);
     return () => window.removeEventListener("popstate", aoVoltar);
@@ -113,12 +129,12 @@ export function Roteador({ children }: { children: (conteudo: ReactNode) => Reac
       parametros: casamento?.parametros ?? {},
       navegar,
     }),
-    [caminho, busca, casamento, navegar]
+    [caminho, busca, casamento, navegar],
   );
 
   const Pagina = useMemo(
     () => (casamento ? lazy(casamento.rota.pagina) : NaoEncontrada),
-    [casamento]
+    [casamento],
   );
 
   return (
@@ -128,7 +144,7 @@ export function Roteador({ children }: { children: (conteudo: ReactNode) => Reac
           <AoTrocarDePagina caminho={caminho} titulo={casamento?.rota.titulo}>
             <Pagina />
           </AoTrocarDePagina>
-        </Suspense>
+        </Suspense>,
       )}
     </ContextoDeRota.Provider>
   );
@@ -189,4 +205,6 @@ function AoTrocarDePagina({
   );
 }
 
-const NaoEncontrada: ComponentType = lazy(() => import("../paginas/NaoEncontrada"));
+const NaoEncontrada: ComponentType = lazy(
+  () => import("../pages/NaoEncontrada"),
+);

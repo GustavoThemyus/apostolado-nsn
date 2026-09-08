@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Elo } from "../rotas/Elo";
+import { Elo } from "../routes/Elo";
 import { diaLiturgico } from "../calendario/precedencia";
 import { Desenvolvimento } from "./Desenvolvimento";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
@@ -16,8 +16,20 @@ const NOME_DA_COR: Record<string, string> = {
 /** "2026-12-08" -> "8 de dezembro". */
 export function porExtensoCurto(iso: string): string {
   const [, m, d] = iso.split("-").map(Number);
-  const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho",
-    "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+  const MESES = [
+    "janeiro",
+    "fevereiro",
+    "março",
+    "abril",
+    "maio",
+    "junho",
+    "julho",
+    "agosto",
+    "setembro",
+    "outubro",
+    "novembro",
+    "dezembro",
+  ];
   return `${d} de ${MESES[m - 1]}`;
 }
 
@@ -39,7 +51,9 @@ export function DiaDeHoje({ data }: { data?: Date }) {
   const hoje = useMemo(() => {
     if (data) return data;
     const agora = new Date();
-    return new Date(Date.UTC(agora.getFullYear(), agora.getMonth(), agora.getDate()));
+    return new Date(
+      Date.UTC(agora.getFullYear(), agora.getMonth(), agora.getDate()),
+    );
   }, [data]);
 
   const dia = diaLiturgico(hoje);
@@ -56,8 +70,13 @@ export function DiaDeHoje({ data }: { data?: Date }) {
         <div>
           <dt>Cor</dt>
           <dd>
-            <span className={`dia__amostra dia__amostra--${dia.cor}`} aria-hidden="true" />
-            <span className={`cor cor--${dia.cor}`}>{NOME_DA_COR[dia.cor]}</span>
+            <span
+              className={`dia__amostra dia__amostra--${dia.cor}`}
+              aria-hidden="true"
+            />
+            <span className={`cor cor--${dia.cor}`}>
+              {NOME_DA_COR[dia.cor]}
+            </span>
           </dd>
         </div>
         <div>
@@ -77,7 +96,9 @@ export function DiaDeHoje({ data }: { data?: Date }) {
         </p>
       )}
       {dia.observacoes.map((o) => (
-        <p className="dia__observacao" key={o}>{o}</p>
+        <p className="dia__observacao" key={o}>
+          {o}
+        </p>
       ))}
       <Desenvolvimento dia={dia} />
       <Elo para="/calendario" className="dia__link">

@@ -7,7 +7,7 @@ import { Sumario } from "../components/Sumario";
 import { Vazia } from "../components/Vazia";
 import type { ReactNode } from "react";
 import type { Conteudo } from "../data/tipos";
-import { usarRota } from "../rotas/usarRota";
+import { usarRota } from "../routes/usarRota";
 import { usarSecaoAtiva } from "../hooks/usarSecaoAtiva";
 import { Moldura } from "../components/Moldura";
 
@@ -31,9 +31,12 @@ export function PaginaDeDocumento({
   // o observador re-inscreve quando a identidade da lista muda; memoizar
   const secoesReais = useMemo(
     () => conteudo.secoes.filter((s) => s.id !== "em-preparacao"),
-    [conteudo]
+    [conteudo],
   );
-  const identificadores = useMemo(() => secoesReais.map((s) => s.id), [secoesReais]);
+  const identificadores = useMemo(
+    () => secoesReais.map((s) => s.id),
+    [secoesReais],
+  );
   const secaoAtiva = usarSecaoAtiva(identificadores);
 
   const temSumario = secoesReais.length > 3;
@@ -41,7 +44,7 @@ export function PaginaDeDocumento({
   // usarSecaoAtiva devolve o id; a barra mostra gente, então mostra o título
   const local = useMemo(
     () => secoesReais.find((s) => s.id === secaoAtiva)?.titulo,
-    [secoesReais, secaoAtiva]
+    [secoesReais, secaoAtiva],
   );
 
   /*
@@ -55,7 +58,7 @@ export function PaginaDeDocumento({
       secoesReais.map((secao, indice) => (
         <Secao secao={secao} numero={indice + 1} key={secao.id} />
       )),
-    [secoesReais]
+    [secoesReais],
   );
 
   return (
@@ -65,7 +68,10 @@ export function PaginaDeDocumento({
         local={temSumario ? local : undefined}
         sumario={
           temSumario
-            ? { aberto: sumarioAberto, alternar: () => definirSumarioAberto((a) => !a) }
+            ? {
+                aberto: sumarioAberto,
+                alternar: () => definirSumarioAberto((a) => !a),
+              }
             : undefined
         }
         comProgresso={temSumario}
@@ -85,9 +91,15 @@ export function PaginaDeDocumento({
           no meio de uma coluna larga e sobrava meia tela em branco à direita:
           largura que não se usa é largura que não serve.
         */}
-        <div className={`documento${temSumario ? " documento--com-sumario" : ""}`}>
+        <div
+          className={`documento${temSumario ? " documento--com-sumario" : ""}`}
+        >
           {temSumario && (
-            <Sumario secoes={secoesReais} secaoAtiva={secaoAtiva} variante="embutido" />
+            <Sumario
+              secoes={secoesReais}
+              secaoAtiva={secaoAtiva}
+              variante="embutido"
+            />
           )}
 
           <div className="documento__corpo">

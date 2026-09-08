@@ -2,9 +2,9 @@ import { useState, type ReactNode } from "react";
 import { site } from "../data/site";
 import { usarProgressoDeLeitura } from "../hooks/usarProgressoDeLeitura";
 import { usarTema } from "../hooks/usarTema";
-import { Elo } from "../rotas/Elo";
-import { SECOES_DO_MENU, rotaPorPadrao } from "../rotas/rotas";
-import { usarRota } from "../rotas/usarRota";
+import { Elo } from "../routes/Elo";
+import { SECOES_DO_MENU, rotaPorPadrao } from "../routes/rotas";
+import { usarRota } from "../routes/usarRota";
 import { BarraSuperior } from "./BarraSuperior";
 import { MenuPrincipal } from "./MenuPrincipal";
 import { Rodape } from "./Rodape";
@@ -61,7 +61,12 @@ export function Moldura({
             aria-haspopup="dialog"
             aria-expanded={menuAberto}
           >
-            <svg className="barra__barras" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <svg
+              className="barra__barras"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
               <path d="M4 7h16M4 12h16M4 17h16" />
             </svg>
             Menu
@@ -99,7 +104,10 @@ export function Moldura({
         <Rodape paragrafos={site.rodape} marca={site.marca} lema={site.lema} />
       </main>
 
-      <MenuPrincipal aberto={menuAberto} aoFechar={() => definirMenuAberto(false)} />
+      <MenuPrincipal
+        aberto={menuAberto}
+        aoFechar={() => definirMenuAberto(false)}
+      />
     </>
   );
 }

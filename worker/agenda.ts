@@ -20,6 +20,61 @@ export interface ItemDeAgenda {
   data: string;
   titulo: string;
   descricao?: string;
+  /** Cor litúrgica, quando o título vem marcado com ela. */
+  cor?: CorDaAgenda;
+}
+
+export type CorDaAgenda =
+  | "branco"
+  | "vermelho"
+  | "verde"
+  | "roxo"
+  | "preto"
+  | "rosa"
+  | "ouro";
+
+/*
+ * O Ordo da capela põe a cor litúrgica como emoji no começo do título
+ * ("🔴Santo Estanislau"). Renderizado cru, o emoji sai na fonte colorida do
+ * sistema e destoa de tudo no site. Aqui ele é lido, virado em cor e cortado
+ * do texto; quem desenha o marcador é o CSS, com a mesma amostra que o
+ * calendário próprio já usa.
+ *
+ * "ouro" não existe no calendário de 1962, que nunca o emite: entra só porque
+ * o Ordo o usa, e traduzi-lo para branco seria reinterpretar o dado deles.
+ */
+const CORES: Record<string, CorDaAgenda> = {
+  "⚪": "branco",
+  "⬜": "branco",
+  "🤍": "branco",
+  "🔴": "vermelho",
+  "❤️": "vermelho",
+  "🟥": "vermelho",
+  "🟢": "verde",
+  "💚": "verde",
+  "🟩": "verde",
+  "🟣": "roxo",
+  "💜": "roxo",
+  "🟪": "roxo",
+  "⚫": "preto",
+  "⬛": "preto",
+  "🖤": "preto",
+  "🩷": "rosa",
+  "💗": "rosa",
+  "🌸": "rosa",
+  "🟡": "ouro",
+  "🟨": "ouro",
+  "💛": "ouro",
+};
+
+/** Separa o marcador de cor do título, quando há um. */
+export function separarCor(titulo: string): { titulo: string; cor?: CorDaAgenda } {
+  for (const [marca, cor] of Object.entries(CORES)) {
+    if (titulo.startsWith(marca)) {
+      return { titulo: titulo.slice(marca.length).trim(), cor };
+    }
+  }
+  return { titulo };
 }
 
 /** Uma hora: o Ordo muda no máximo quando alguém edita o calendário. */
@@ -69,7 +124,11 @@ export function lerIcal(texto: string): ItemDeAgenda[] {
     }
     if (linha === "END:VEVENT") {
       if (dentro && data && titulo) {
-        itens.push(descricao ? { data, titulo, descricao } : { data, titulo });
+        const { titulo: limpo, cor } = separarCor(titulo);
+        const item: ItemDeAgenda = { data, titulo: limpo };
+        if (descricao) item.descricao = descricao;
+        if (cor) item.cor = cor;
+        itens.push(item);
       }
       dentro = false;
       continue;
