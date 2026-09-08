@@ -45,6 +45,9 @@
   --elo: #2e3a70;
   --fio: #d6cfbb;
   --fio-suave: #e4dece;
+  /* borda de bloco clicável sob o cursor: só precisa ser notada, porque quem
+     diz que é clicável é o "Ver" com seta. O ouro cheio ali gritava. */
+  --fio-aceso: #c0ab74;
   --realce: #ecdcae;
   --vidro: rgba(240, 236, 225, 0.88);
   --sombra: rgba(32, 32, 73, 0.16);
@@ -124,6 +127,7 @@
     --elo: #9fb6e2;
     --fio: #3b3d4e;
     --fio-suave: #2b2d3b;
+    --fio-aceso: #6a6350;
     --realce: #3e3828;
     --vidro: rgba(24, 24, 33, 0.88);
     --sombra: rgba(0, 0, 0, 0.45);
@@ -153,6 +157,7 @@
   --elo: #9fb6e2;
   --fio: #3b3d4e;
   --fio-suave: #2b2d3b;
+  --fio-aceso: #6a6350;
   --realce: #3e3828;
   --vidro: rgba(24, 24, 33, 0.88);
   --sombra: rgba(0, 0, 0, 0.45);

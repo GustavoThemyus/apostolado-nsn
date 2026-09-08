@@ -268,9 +268,10 @@ button {
   height: 1.05rem;
   fill: currentColor;
 }
+/* só a palavra clareia: o retângulo de fundo pulava a cada passagem do
+   cursor pela fileira de seções, e uma barra inteira piscando é ruído */
 .barra__botao:hover {
   color: var(--tinta);
-  background: var(--painel);
 }
 
 .barra__progresso {
@@ -893,7 +894,7 @@ button {
 }
 .menu__secao:hover,
 .menu__secao:focus-visible {
-  border-color: var(--ouro);
+  border-color: var(--fio-aceso);
 }
 /* a seção corrente já se diz pelo nome em ouro; a borda inteira reforça */
 .menu__secao[aria-current="page"] {
@@ -1517,9 +1518,16 @@ button {
   margin: 1.75rem 0;
 }
 
+/*
+ * Coluna flex, e não grade: com `margin-top: auto` no "Ver" ele encosta no pé
+ * do cartão. Numa fileira os cartões já têm a mesma altura, então os três
+ * "Ver" ficam alinhados entre si por mais que os textos tenham tamanhos
+ * diferentes.
+ */
 .cartao {
-  display: grid;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 0.25rem;
   padding: 1rem 1.1rem;
   background: var(--painel);
@@ -1539,10 +1547,10 @@ button {
  */
 .cartao:hover,
 .cartao:focus-visible {
-  border-color: var(--ouro);
+  border-color: var(--fio-aceso);
 }
 .cartao:active {
-  border-color: var(--ouro-tinta);
+  border-color: var(--ouro);
 }
 
 /*
@@ -1599,7 +1607,7 @@ button {
 }
 .cartao--ilustrado:hover,
 .cartao--ilustrado:focus-visible {
-  border-color: var(--ouro);
+  border-color: var(--fio-aceso);
 }
 
 /*
@@ -1611,7 +1619,8 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  margin-top: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.7rem;
   font-family: var(--sem-serifa);
   font-size: 0.62rem;
   font-weight: 600;
@@ -1638,6 +1647,7 @@ button {
 
 .cartao__preparo {
   justify-self: start;
+  align-self: flex-start;
   margin-top: 0.3rem;
   padding: 0.1rem 0.4rem;
   font-family: var(--sem-serifa);
@@ -1739,7 +1749,7 @@ button {
 }
 .postagem-cartao:hover,
 .postagem-cartao:focus-visible {
-  border-color: var(--ouro);
+  border-color: var(--fio-aceso);
 }
 .postagem-cartao__imagem {
   width: 100%;
@@ -1753,8 +1763,9 @@ button {
   background: var(--papel-fundo);
 }
 .postagem-cartao__corpo {
-  display: grid;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   /* 0.25rem dava 4px entre a data, o título e o resumo: os três liam como um
      bloco só em vez de três registros */
   gap: 0.4rem;
@@ -1831,7 +1842,7 @@ button {
 /* a linha não tem caixa para acender: o filete de cima e o título respondem */
 .postagem-linha:hover,
 .postagem-linha:focus-visible {
-  border-top-color: var(--ouro);
+  border-top-color: var(--fio-aceso);
 }
 .postagem-linha:hover .postagem-linha__titulo,
 .postagem-linha:focus-visible .postagem-linha__titulo {
@@ -2429,17 +2440,54 @@ button {
  * rente à estampa. São os mesmos dois traços do brasão e das cercaduras do
  * impresso, na escala de um santinho.
  */
+/*
+ * A moldura, em quatro traços, como a cercadura de um santinho:
+ *
+ *   1. filete dourado por fora, com o canto quase reto;
+ *   2. margem de papel;
+ *   3. segundo filete, mais fino e recuado, no pseudo-elemento;
+ *   4. cantoneiras douradas, feitas com quatro degradês, que dão o remate
+ *      sem custar nenhuma imagem nem marcação a mais.
+ */
 .padroeiro__moldura {
+  position: relative;
   display: block;
   width: 100%;
   /* a estampa tem 480px de largura; esticá-la mais que isto só a borra, então
      a moldura para de crescer junto com a tela */
   max-width: 9rem;
-  padding: 0.3rem;
+  padding: 0.45rem;
   background: var(--painel);
   border: 1px solid var(--ouro);
-  border-radius: 0.2rem;
-  box-shadow: 0 1px 4px var(--sombra);
+  border-radius: 0.15rem;
+  box-shadow: 0 1px 5px var(--sombra), inset 0 0 0 1px var(--papel);
+}
+
+/* o segundo filete, recuado, rente à estampa */
+.padroeiro__moldura::before {
+  content: "";
+  position: absolute;
+  inset: 0.22rem;
+  border: 1px solid var(--ouro);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* as cantoneiras: quatro esquadros de 0,45rem nos vértices */
+.padroeiro__moldura::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--ouro), var(--ouro)) 0 0 / 0.45rem 2px no-repeat,
+    linear-gradient(var(--ouro), var(--ouro)) 0 0 / 2px 0.45rem no-repeat,
+    linear-gradient(var(--ouro), var(--ouro)) 100% 0 / 0.45rem 2px no-repeat,
+    linear-gradient(var(--ouro), var(--ouro)) 100% 0 / 2px 0.45rem no-repeat,
+    linear-gradient(var(--ouro), var(--ouro)) 0 100% / 0.45rem 2px no-repeat,
+    linear-gradient(var(--ouro), var(--ouro)) 0 100% / 2px 0.45rem no-repeat,
+    linear-gradient(var(--ouro), var(--ouro)) 100% 100% / 0.45rem 2px no-repeat,
+    linear-gradient(var(--ouro), var(--ouro)) 100% 100% / 2px 0.45rem no-repeat;
 }
 
 .padroeiro__imagem {
