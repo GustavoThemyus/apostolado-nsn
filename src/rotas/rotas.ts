@@ -21,6 +21,11 @@ export interface Rota {
    * fala da Missa; no calendário e nas indulgências ele seria ruído.
    */
   chamada?: string;
+  /**
+   * A estampa da seção. Vale para a seção inteira, herdada pela rota mãe: é o
+   * que identifica a seção no cartão e atrás do cabeçalho de toda página dela.
+   */
+  imagem?: string;
   /** Rota mãe, para as migalhas e para o menu. */
   pai?: string;
   /** Fora do menu: páginas de detalhe e o painel. */
@@ -36,6 +41,7 @@ export const ROTAS: Rota[] = [
       "Apostolado Nossa Senhora das Neves: avisos, calendário litúrgico e publicações.",
     // o título logo abaixo já é o nome do apostolado; aqui vai só o rito
     chamada: "Rito Romano na forma do Missal de São Pio V",
+    imagem: "/cartoes/inicio-d1e8306e.webp",
     pagina: () => import("../paginas/Inicio"),
   },
 
@@ -48,6 +54,7 @@ export const ROTAS: Rota[] = [
     // as quatro páginas da Missa herdam esta chamada
     chamada:
       "Apostolado Nossa Senhora das Neves - Rito Romano na forma do Missal de São Pio V",
+    imagem: "/cartoes/missa-4c2b9f3f.webp",
     pagina: () => import("../paginas/Missa"),
   },
   {
@@ -79,6 +86,7 @@ export const ROTAS: Rota[] = [
     titulo: "Calendário Romano Tradicional",
     curto: "Calendário",
     descricao: "O calendário de 1962, calculado para qualquer ano.",
+    imagem: "/cartoes/calendario-8b43148b.webp",
     pagina: () => import("../paginas/Calendario"),
   },
   {
@@ -109,6 +117,7 @@ export const ROTAS: Rota[] = [
     titulo: "Indulgências",
     curto: "Indulgências",
     descricao: "O que são, como se obtêm e de onde vêm, segundo o Código de 1917.",
+    imagem: "/cartoes/indulgencias-931d7d10.webp",
     pagina: () => import("../paginas/Indulgencias"),
   },
   {
@@ -146,6 +155,7 @@ export const ROTAS: Rota[] = [
     titulo: "Sobre o Apostolado",
     curto: "Apostolado",
     descricao: "Nossa posição, situação canônica, história e o brasão.",
+    imagem: "/cartoes/apostolado-9af0559c.webp",
     pagina: () => import("../paginas/Apostolado"),
   },
 
@@ -155,6 +165,7 @@ export const ROTAS: Rota[] = [
     titulo: "Postagens",
     curto: "Postagens",
     descricao: "Vidas de santos e escritos sobre a liturgia.",
+    imagem: "/cartoes/postagens-3455e1c2.webp",
     pagina: () => import("../paginas/Postagens"),
   },
   {
@@ -216,11 +227,17 @@ export const EM_PREPARACAO = new Set([
  * `undefined` significa "use a do site": quem decide o texto padrão é o
  * Cabecalho, não a tabela.
  */
-export function chamadaDaRota(rota: Rota | null): string | undefined {
+function herdado(rota: Rota | null, campo: "chamada" | "imagem"): string | undefined {
   let atual: Rota | undefined = rota ?? undefined;
   while (atual) {
-    if (atual.chamada) return atual.chamada;
+    const valor = atual[campo];
+    if (valor) return valor;
     atual = atual.pai ? rotaPorPadrao(atual.pai) : undefined;
   }
   return undefined;
 }
+
+export const chamadaDaRota = (rota: Rota | null) => herdado(rota, "chamada");
+
+/** A estampa da seção a que a rota pertence. */
+export const imagemDaRota = (rota: Rota | null) => herdado(rota, "imagem");

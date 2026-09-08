@@ -1,5 +1,5 @@
 import { site } from "../data/site";
-import { chamadaDaRota } from "../rotas/rotas";
+import { chamadaDaRota, imagemDaRota } from "../rotas/rotas";
 import { usarRota } from "../rotas/usarRota";
 import { Brasao } from "./Brasao";
 import { Estrela } from "./Estrela";
@@ -27,9 +27,16 @@ export function Cabecalho({
   epigrafe?: string;
 }) {
   const { rota } = usarRota();
+  const estampa = imagemDaRota(rota);
 
   return (
-    <header className="cabecalho damasco">
+    <header className={`cabecalho${estampa ? " cabecalho--estampado" : " damasco"}`}>
+      {estampa && (
+        <>
+          <img className="cabecalho__estampa" src={estampa} alt="" aria-hidden="true" />
+          <span className="cabecalho__veu" aria-hidden="true" />
+        </>
+      )}
       <Brasao tamanho="cabecalho" />
       <p className="cabecalho__chamada">{chamadaDaRota(rota) ?? site.chamada}</p>
       <h1 className="cabecalho__titulo">{titulo}</h1>

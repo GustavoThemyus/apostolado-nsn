@@ -158,6 +158,13 @@ button {
   height: var(--altura-barra);
 }
 
+/* fica antes do brasão, do lado por onde a gaveta entra */
+.barra__botao--menu {
+  gap: 0.4rem;
+  padding-inline: 0.35rem 0.6rem;
+  font-size: 0.63rem;
+}
+
 .barra__marca {
   text-decoration: none;
   display: inline-flex;
@@ -172,14 +179,24 @@ button {
   white-space: nowrap;
 }
 .barra__brasao {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 2.05rem;
+  height: 2.05rem;
   object-fit: contain;
 }
 
-/* A sigla cabe em qualquer largura; o nome por extenso fica no cabeçalho. */
+/*
+ * A sigla saiu: com o botão Menu à esquerda, "MENU · brasão · ANSN" eram três
+ * marcas seguidas antes de o menu começar. O brasão sozinho, maior, é a marca,
+ * e o nome por extenso continua no cabeçalho de toda página. O leitor de tela
+ * recebe o nome pelo aria-label do link.
+ */
 .barra__letreiro {
-  font-weight: 700;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .barra__local {
@@ -272,6 +289,55 @@ button {
   padding-inline: var(--respiro-lateral);
   border-bottom: 1px solid var(--ouro);
   background: linear-gradient(var(--painel), var(--papel));
+}
+
+/*
+ * Cabeçalho estampado: a pintura da seção no lugar do damasco.
+ *
+ * O véu é um degradê que escurece de cima para baixo, mais forte onde estão a
+ * chamada e o título. Sem ele o versalete dourado some sobre qualquer céu
+ * claro; com ele por igual, a pintura vira mancha. O texto fica no lírio do
+ * brasão, que é o par de contraste conferido.
+ */
+.cabecalho--estampado {
+  position: relative;
+  isolation: isolate;
+  border-bottom-color: var(--marca-ouro);
+  background: var(--marca-azul-profundo);
+  color: var(--marca-lirio);
+}
+.cabecalho__estampa {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cabecalho__veu {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 12, 26, 0.42) 0%,
+    rgba(12, 12, 26, 0.62) 45%,
+    rgba(12, 12, 26, 0.86) 100%
+  );
+}
+.cabecalho--estampado .cabecalho__titulo {
+  color: var(--marca-lirio);
+  text-shadow: 0 1px 12px rgba(8, 8, 18, 0.6);
+}
+.cabecalho--estampado .cabecalho__chamada,
+.cabecalho--estampado .cabecalho__lema {
+  color: var(--marca-ouro-claro);
+}
+.cabecalho--estampado .cabecalho__resumo {
+  color: rgba(253, 251, 236, 0.86);
+}
+.cabecalho--estampado .estrela {
+  fill: var(--marca-ouro-claro);
 }
 
 .cabecalho__brasao {

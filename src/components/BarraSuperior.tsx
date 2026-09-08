@@ -10,17 +10,21 @@ export function BarraSuperior({
   marca,
   local,
   progresso,
+  menu,
   children,
 }: {
   marca: string;
   local: string;
   /** Ref do elemento da régua. Ausente esconde a régua. */
   progresso?: RefObject<HTMLDivElement>;
+  /** O botão que abre a gaveta. Fica à esquerda, do lado por onde ela entra. */
+  menu: ReactNode;
   children: ReactNode;
 }) {
   return (
     <div className="barra">
       <div className="moldura barra__interior">
+        {menu}
         <Elo para="/" className="barra__marca" aria-label={marca}>
           <Brasao tamanho="barra" />
           <span className="barra__letreiro">{marca}</span>

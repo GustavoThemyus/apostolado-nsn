@@ -48,6 +48,25 @@ export function Moldura({
         marca={site.marcaCurta}
         local={local ?? titulo}
         progresso={comProgresso ? progresso : undefined}
+        menu={
+          /*
+           * À esquerda, e não à direita: a gaveta entra pela esquerda, e um
+           * botão de um lado que abre painel do outro faz o leitor procurar
+           * no lugar errado.
+           */
+          <button
+            type="button"
+            className="barra__botao barra__botao--menu"
+            onClick={() => definirMenuAberto(true)}
+            aria-haspopup="dialog"
+            aria-expanded={menuAberto}
+          >
+            <svg className="barra__barras" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+            Menu
+          </button>
+        }
       >
         <nav className="barra__site" aria-label="Seções do site">
           {SECOES_DO_MENU.map((padrao) => (
@@ -72,18 +91,6 @@ export function Moldura({
             Sumário
           </button>
         )}
-        <button
-          type="button"
-          className="barra__botao barra__botao--secao barra__botao--menu"
-          onClick={() => definirMenuAberto(true)}
-          aria-haspopup="dialog"
-          aria-expanded={menuAberto}
-        >
-          <svg className="barra__barras" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M4 7h16M4 12h16M4 17h16" />
-          </svg>
-          Menu
-        </button>
       </BarraSuperior>
 
       <main className="moldura conteudo" id="conteudo">
