@@ -885,19 +885,19 @@ button {
   min-height: var(--alvo-toque);
   padding: 0.85rem 0.9rem;
   border: 1px solid var(--fio);
-  border-left: 3px solid var(--fio);
   border-radius: 0.4rem;
   background: var(--painel);
   color: var(--tinta);
   text-decoration: none;
-  transition: border-left-color 0.15s ease;
+  transition: border-color 0.15s ease;
 }
 .menu__secao:hover,
 .menu__secao:focus-visible {
-  border-left-color: var(--ouro);
+  border-color: var(--ouro);
 }
+/* a seção corrente já se diz pelo nome em ouro; a borda inteira reforça */
 .menu__secao[aria-current="page"] {
-  border-left-color: var(--ouro);
+  border-color: var(--ouro);
 }
 .menu__secao[aria-current="page"] .menu__nome {
   color: var(--ouro-tinta);
@@ -1151,6 +1151,15 @@ button {
 .etiqueta--ordinario {
   color: var(--elo);
 }
+
+/*
+ * FILETE DE 3PX NA ESQUERDA: só em aviso, nunca em bloco clicável.
+ *
+ * Ele marca "leia isto à parte": nota, dia litúrgico, detalhe do dia e texto
+ * provisório. Em cartão, item de menu e postagem ele repetia o que o "Ver"
+ * com seta já dizia, e em bloco de ação repetia o que o próprio botão diz.
+ * Nesses, quem responde ao cursor é a borda de 1px.
+ */
 
 /* ---------------- nota ---------------- */
 
@@ -1515,26 +1524,25 @@ button {
   padding: 1rem 1.1rem;
   background: var(--painel);
   border: 1px solid var(--fio);
-  border-left: 3px solid var(--fio);
   border-radius: 0.4rem;
   text-decoration: none;
   color: inherit;
-  transition: border-left-color 0.15s ease;
+  transition: border-color 0.15s ease;
 }
 /*
- * O destaque do guia usava a mesma borda dourada do hover, então ele parecia
- * estar sob o cursor o tempo inteiro e os três cartões não se comportavam
- * igual. Sem modificador: a ordem já põe o guia em primeiro.
+ * Sem filete grosso na esquerda: o cartão já diz que é clicável pelo "Ver" com
+ * seta, e a faixa dourada repetia o mesmo recado ocupando a borda inteira.
+ * O hover acende a borda de 1px, que responde sem virar ornamento.
  *
- * O hover é só a borda da esquerda. Tingir o fundo puxava o cartão para um
- * laranja que não é da paleta.
+ * Tingir o fundo também não serve: puxava o cartão para um laranja fora da
+ * paleta.
  */
 .cartao:hover,
 .cartao:focus-visible {
-  border-left-color: var(--ouro);
+  border-color: var(--ouro);
 }
 .cartao:active {
-  border-left-color: var(--ouro-tinta);
+  border-color: var(--ouro-tinta);
 }
 
 /*
@@ -1553,7 +1561,6 @@ button {
   display: block;
   padding: 0;
   overflow: hidden;
-  border-left-width: 1px;
   isolation: isolate;
 }
 .cartao__estampa {
@@ -1592,7 +1599,6 @@ button {
 }
 .cartao--ilustrado:hover,
 .cartao--ilustrado:focus-visible {
-  border-left-color: var(--fio);
   border-color: var(--ouro);
 }
 
@@ -1725,16 +1731,15 @@ button {
   height: 100%;
   background: var(--painel);
   border: 1px solid var(--fio);
-  border-left: 3px solid var(--fio);
   border-radius: 0.4rem;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: border-left-color 0.15s ease;
+  transition: border-color 0.15s ease;
 }
 .postagem-cartao:hover,
 .postagem-cartao:focus-visible {
-  border-left-color: var(--ouro);
+  border-color: var(--ouro);
 }
 .postagem-cartao__imagem {
   width: 100%;
@@ -1817,16 +1822,20 @@ button {
 .postagem-linha {
   display: grid;
   gap: 0.35rem;
-  padding: 0.9rem 0 0.9rem 0.9rem;
+  padding: 0.9rem 0;
   border-top: 1px solid var(--fio-suave);
-  border-left: 3px solid transparent;
   text-decoration: none;
   color: inherit;
-  transition: border-left-color 0.15s ease;
+  transition: border-top-color 0.15s ease;
 }
+/* a linha não tem caixa para acender: o filete de cima e o título respondem */
 .postagem-linha:hover,
 .postagem-linha:focus-visible {
-  border-left-color: var(--ouro);
+  border-top-color: var(--ouro);
+}
+.postagem-linha:hover .postagem-linha__titulo,
+.postagem-linha:focus-visible .postagem-linha__titulo {
+  color: var(--ouro-tinta);
 }
 .postagem-linha__data {
   font-family: var(--sem-serifa);
@@ -1961,7 +1970,6 @@ button {
   padding: 1.15rem 1.2rem 1rem;
   background: var(--painel);
   border: 1px solid var(--fio);
-  border-left: 3px solid var(--bandeira-ordo);
   border-radius: 0.4rem;
 }
 .vinculo__topo {
@@ -2094,7 +2102,6 @@ button {
   padding: 1.15rem 1.2rem 1rem;
   background: var(--painel);
   border: 1px solid var(--fio);
-  border-left: 3px solid var(--ouro);
   border-radius: 0.4rem;
 }
 
