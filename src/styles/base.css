@@ -2768,8 +2768,16 @@ button {
   gap: 0.75rem;
   text-align: center;
 }
+/*
+ * `align-content: start` não é enfeite. Numa fileira, os três itens esticam
+ * até a altura do mais alto, e como aqui as linhas são automáticas elas
+ * absorvem a sobra: a moldura, que é bloco sem altura fixa, esticava junto e
+ * ficava com 17px abaixo da foto contra os 8px do meio. O do meio parecia o
+ * certo justamente porque o nome dele ocupa duas linhas e não sobra espaço.
+ */
 .padroeiro {
   display: grid;
+  align-content: start;
   gap: 0.4rem;
   justify-items: center;
 }
