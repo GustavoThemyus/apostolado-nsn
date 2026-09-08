@@ -777,15 +777,15 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  /* o alvo continua de 44px para o dedo; o que some é a caixa, não a área */
   width: var(--alvo-toque);
   height: var(--alvo-toque);
   padding: 0;
-  border: 1px solid var(--fio);
-  border-radius: 0.35rem;
-  background: var(--papel);
+  border: none;
+  background: none;
   color: var(--tinta-suave);
   cursor: pointer;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  transition: color 0.15s ease;
 }
 .folha__fechar svg {
   width: 1.05rem;
@@ -797,7 +797,6 @@ button {
 }
 .folha__fechar:hover,
 .folha__fechar:focus-visible {
-  border-color: var(--fio-aceso);
   color: var(--tinta);
 }
 
