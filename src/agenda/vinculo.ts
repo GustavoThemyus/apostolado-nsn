@@ -85,6 +85,9 @@ export const lerVinculadas = (): string[] => ler();
 
 // -------------------------------------------------------------- busca
 
+/** O erro é da ponte, não do calendário: a tela precisa dizer coisas diferentes. */
+export class FalhaDaPonte extends Error {}
+
 const cache = new Map<string, Promise<AgendaBuscada>>();
 
 /**
@@ -99,7 +102,16 @@ export function buscarAgenda(id: string): Promise<AgendaBuscada> {
 
   const pedido = fetch(`/api/agenda?id=${encodeURIComponent(id)}`)
     .then(async (r) => {
-      if (!r.ok) throw new Error(`agenda ${id}: ${r.status}`);
+      /*
+       * Conferir o tipo, e não só o status. Quando o Worker não está na
+       * frente, o desvio de página única devolve o index.html com status 200:
+       * sem esta guarda o erro virava "JSON inválido" e a tela acusava o
+       * calendário do Google de um defeito que era nosso.
+       */
+      const tipo = r.headers.get("content-type") ?? "";
+      if (!r.ok || !tipo.includes("json")) {
+        throw new FalhaDaPonte(`a ponte não respondeu em JSON (${r.status})`);
+      }
       return (await r.json()) as AgendaBuscada;
     })
     .catch((erro) => {

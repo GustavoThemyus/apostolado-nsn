@@ -18,7 +18,8 @@ import type { Agenda } from "../data/tipos";
  * O vínculo é do aparelho de quem lê, não da capela: ninguém mais vê.
  */
 export function VincularAgenda({ grupo, ancora }: { grupo: Agenda["grupo"]; ancora?: string }) {
-  const { vinculadas, carregando, semDetalhes, falharam } = usarAgendasVinculadas();
+  const { vinculadas, carregando, semDetalhes, falharam, pontefora } =
+    usarAgendasVinculadas();
   const agendas = agendasDisponiveis(grupo);
   if (agendas.length === 0) return null;
 
@@ -68,7 +69,16 @@ export function VincularAgenda({ grupo, ancora }: { grupo: Agenda["grupo"]; anco
                     </span>
                   )}
                   {ligada && falhou && (
-                    <span className="vinculo__aviso">Não foi possível ler este calendário.</span>
+                    <span className="vinculo__aviso">
+                      {/*
+                        Duas falhas diferentes, e dizer a errada custa caro: a
+                        primeira manda o Perez procurar defeito num calendário
+                        que está bom.
+                      */}
+                      {pontefora
+                        ? "O servidor do site não respondeu, então o calendário não pôde ser buscado. O calendário em si pode estar bom."
+                        : "Não foi possível ler este calendário."}
+                    </span>
                   )}
                 </span>
               </div>

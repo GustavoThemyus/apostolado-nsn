@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import {
   assinar,
   buscarAgenda,
+  FalhaDaPonte,
   lerVinculadas,
   type AgendaBuscada,
   type ItemDeAgenda,
@@ -23,6 +24,8 @@ export interface EstadoDasAgendas {
   semDetalhes: AgendaBuscada[];
   /** Agendas que não puderam ser lidas. */
   falharam: string[];
+  /** A ponte com o servidor não respondeu: o problema não é do calendário. */
+  pontefora: boolean;
 }
 
 const VAZIO: string[] = [];
@@ -38,12 +41,14 @@ export function usarAgendasVinculadas(): EstadoDasAgendas {
   const vinculadas = useSyncExternalStore(assinar, lerVinculadas, () => VAZIO);
   const [buscadas, definirBuscadas] = useState<Map<string, AgendaBuscada>>(new Map());
   const [falharam, definirFalharam] = useState<string[]>([]);
+  const [pontefora, definirPonteFora] = useState(false);
 
   const chave = vinculadas.join(",");
 
   useEffect(() => {
     if (vinculadas.length === 0) {
       definirFalharam([]);
+      definirPonteFora(false);
       return;
     }
     let vivo = true;
@@ -52,12 +57,18 @@ export function usarAgendasVinculadas(): EstadoDasAgendas {
       if (!vivo) return;
       const mapa = new Map<string, AgendaBuscada>();
       const ruins: string[] = [];
+      let semPonte = false;
       resultados.forEach((r, i) => {
-        if (r.status === "fulfilled") mapa.set(r.value.id, r.value);
-        else ruins.push(vinculadas[i]);
+        if (r.status === "fulfilled") {
+          mapa.set(r.value.id, r.value);
+        } else {
+          ruins.push(vinculadas[i]);
+          if (r.reason instanceof FalhaDaPonte) semPonte = true;
+        }
       });
       definirBuscadas(mapa);
       definirFalharam(ruins);
+      definirPonteFora(semPonte);
     });
 
     return () => {
@@ -92,6 +103,7 @@ export function usarAgendasVinculadas(): EstadoDasAgendas {
     carregando: vinculadas.length > 0 && buscadas.size === 0 && falharam.length === 0,
     semDetalhes,
     falharam,
+    pontefora,
   };
 }
 
