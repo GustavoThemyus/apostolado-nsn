@@ -15,6 +15,13 @@ Para regerar depois de mudar o texto:
       --screenshot=public/previa.png http://localhost:4173/_previa.html
     rm public/_previa.html dist/_previa.html
 
-1200x630 é a medida que o WhatsApp e o Open Graph esperam. **O nome do arquivo
-não muda**, então quem já compartilhou o link continua vendo a imagem antiga
-até o cache dele expirar; o `_headers` guarda a prévia por uma semana.
+1200x630 é a medida que o WhatsApp e o Open Graph esperam.
+
+**Depois de gerar, renomeie com a impressão do conteúdo** e aponte o
+`og:image` do `index.html` para o nome novo:
+
+    cd public && cp previa.png previa-$(sha256sum previa.png | cut -c1-8).png
+
+Sem isso o WhatsApp continua servindo a prévia velha por semanas, porque ele
+guarda por URL. `previa.png` fica no lugar, com o conteúdo novo, para as
+prévias já em cache que apontam para lá não ficarem sem imagem.

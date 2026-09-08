@@ -18,6 +18,9 @@
   Cache-Control: public, max-age=604800, must-revalidate
 /previa.png
   Cache-Control: public, max-age=604800, must-revalidate
+# leva a impressão do conteúdo no nome, como as estampas
+/previa-*.png
+  Cache-Control: public, max-age=31536000, immutable
 # Levam a impressão do conteúdo no nome, como os assets: trocar a imagem troca
 # a URL, então o cache pode ser eterno sem prender ninguém na versão antiga.
 /padroeiros/*

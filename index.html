@@ -22,7 +22,13 @@
       content="O Rito Romano na forma do Missal de São Pio V: guia da Missa, calendário litúrgico tradicional e indulgências."
     />
     <meta property="og:url" content="%VITE_SITE_URL%/" />
-    <meta property="og:image" content="%VITE_SITE_URL%/previa.png" />
+    <!--
+      O nome leva a impressão do conteúdo: trocar a imagem troca a URL, e o
+      WhatsApp, que guarda a prévia por semanas, é obrigado a buscar de novo.
+      /previa.png continua existindo, com o mesmo conteúdo, para as prévias
+      já em cache que apontam para lá não ficarem sem imagem.
+    -->
+    <meta property="og:image" content="%VITE_SITE_URL%/previa-f3eb06b0.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
