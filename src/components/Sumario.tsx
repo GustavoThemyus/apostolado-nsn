@@ -1,5 +1,5 @@
 import type { Secao } from "../data/tipos";
-import { FolhaDeBaixo } from "./FolhaDeBaixo";
+import { Folha } from "./Folha";
 
 interface Propriedades {
   secoes: Secao[];
@@ -44,9 +44,9 @@ function Lista({
 export function Sumario({ secoes, secaoAtiva, variante, aberto = true, aoFechar }: Propriedades) {
   if (variante === "flutuante") {
     return (
-      <FolhaDeBaixo aberto={aberto} aoFechar={aoFechar ?? (() => {})} rotulo="Sumário">
+      <Folha aberto={aberto} aoFechar={aoFechar ?? (() => {})} rotulo="Sumário">
         <Lista secoes={secoes} secaoAtiva={secaoAtiva} aoEscolher={aoFechar} />
-      </FolhaDeBaixo>
+      </Folha>
     );
   }
 

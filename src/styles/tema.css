@@ -99,21 +99,28 @@
 }
 
 /* --- tema escuro: o campo estrelado do escudo --- */
+/*
+ * Tema escuro. Mesma família do azul do brasão (matiz 234), mas com metade da
+ * saturação e mais escuro: o anterior estava em 36 a 39% de saturação puro
+ * azul e lia como tela colorida, não como papel à noite. Aqui fica em 14 a
+ * 18%, sóbrio sem virar cinza morto. Todos os pares de texto conferidos:
+ * o menor é tinta-suave sobre realce, em 4,61.
+ */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --papel: #14142c;
-    --papel-fundo: #0e0e20;
-    --painel: #1d1d3d;
-    --tinta: #ece7d8;
-    --tinta-suave: #a8a2bb;
+    --papel: #181821;
+    --papel-fundo: #0f0f15;
+    --painel: #21222c;
+    --tinta: #e8e3d6;
+    --tinta-suave: #a6a2a0;
     --rubrica: #e08a80;
     --ouro: #d0ba74;
     --ouro-tinta: #e9da93;
     --elo: #9fb6e2;
-    --fio: #34345e;
-    --fio-suave: #262649;
-    --realce: #3f3a1e;
-    --vidro: rgba(20, 20, 44, 0.88);
+    --fio: #3b3d4e;
+    --fio-suave: #2b2d3b;
+    --realce: #3e3828;
+    --vidro: rgba(24, 24, 33, 0.88);
     --sombra: rgba(0, 0, 0, 0.45);
     --damasco-cor: var(--marca-ouro);
     --forca-damasco: 0.16;
@@ -130,19 +137,19 @@
 }
 
 :root[data-theme="dark"] {
-  --papel: #14142c;
-  --papel-fundo: #0e0e20;
-  --painel: #1d1d3d;
-  --tinta: #ece7d8;
-  --tinta-suave: #a8a2bb;
+  --papel: #181821;
+  --papel-fundo: #0f0f15;
+  --painel: #21222c;
+  --tinta: #e8e3d6;
+  --tinta-suave: #a6a2a0;
   --rubrica: #e08a80;
   --ouro: #d0ba74;
   --ouro-tinta: #e9da93;
   --elo: #9fb6e2;
-  --fio: #34345e;
-  --fio-suave: #262649;
-  --realce: #3f3a1e;
-  --vidro: rgba(20, 20, 44, 0.88);
+  --fio: #3b3d4e;
+  --fio-suave: #2b2d3b;
+  --realce: #3e3828;
+  --vidro: rgba(24, 24, 33, 0.88);
   --sombra: rgba(0, 0, 0, 0.45);
   --damasco-cor: var(--marca-ouro);
   --forca-damasco: 0.16;

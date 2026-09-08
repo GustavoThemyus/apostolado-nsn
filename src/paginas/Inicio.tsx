@@ -10,6 +10,7 @@ import { UltimasPostagens } from "../components/UltimasPostagens";
 import { Vazia } from "../components/Vazia";
 import type { Bloco } from "../data/tipos";
 import { Elo } from "../rotas/Elo";
+import { Seta } from "../components/Seta";
 
 interface PaginaInicial {
   titulo: string;
@@ -36,21 +37,25 @@ export default function Inicio() {
 
       <UltimasPostagens />
 
-      <nav className="cartoes" aria-label="Seções principais">
-        <Elo para="/missa/guia" className="cartao">
-          <span className="cartao__titulo">Guia prático da Missa</span>
-          <span className="cartao__texto">
-            Cada peça da Missa em ordem: o que é dito, quem diz e o que muda conforme o dia.
-          </span>
-        </Elo>
-        <Elo para="/calendario" className="cartao">
-          <span className="cartao__titulo">Calendário litúrgico</span>
-          <span className="cartao__texto">O calendário tradicional, dia a dia.</span>
-        </Elo>
-        <Elo para="/indulgencias" className="cartao">
-          <span className="cartao__titulo">Indulgências</span>
-          <span className="cartao__texto">O que são, como se obtêm e em que dias.</span>
-        </Elo>
+      <nav className="cartoes cartoes--ilustrados" aria-label="Seções principais">
+        <Cartao
+          para="/missa/guia"
+          imagem="/cartoes/missa-4c2b9f3f.webp"
+          titulo="Guia prático da Missa"
+          texto="Cada peça da Missa em ordem: o que é dito, quem diz e o que muda conforme o dia."
+        />
+        <Cartao
+          para="/calendario"
+          imagem="/cartoes/calendario-8b43148b.webp"
+          titulo="Calendário litúrgico"
+          texto="O calendário tradicional, dia a dia."
+        />
+        <Cartao
+          para="/indulgencias"
+          imagem="/cartoes/indulgencias-931d7d10.webp"
+          titulo="Indulgências"
+          texto="O que são, como se obtêm e em que dias."
+        />
       </nav>
 
       <section className="sobre" aria-labelledby="sobre-titulo">
@@ -70,5 +75,43 @@ export default function Inicio() {
       <Contribuir dados={inicio.contribuicao} />
       <Padroeiros padroeiros={inicio.padroeiros} />
     </Moldura>
+  );
+}
+
+/**
+ * Cartão ilustrado: a estampa ocupa o cartão inteiro e o texto fica por cima,
+ * sobre um véu que escurece só a parte de baixo. Sem o véu o título some em
+ * qualquer pintura clara, e escurecer a imagem toda apagaria a pintura.
+ */
+function Cartao({
+  para,
+  imagem,
+  titulo,
+  texto,
+}: {
+  para: string;
+  imagem: string;
+  titulo: string;
+  texto: string;
+}) {
+  return (
+    <Elo para={para} className="cartao cartao--ilustrado">
+      <img
+        className="cartao__estampa"
+        src={imagem}
+        alt=""
+        width={1100}
+        height={619}
+        loading="lazy"
+      />
+      <span className="cartao__veu">
+        <span className="cartao__titulo">{titulo}</span>
+        <span className="cartao__texto">{texto}</span>
+        <span className="cartao__ir">
+          Ver
+          <Seta className="cartao__seta" />
+        </span>
+      </span>
+    </Elo>
   );
 }

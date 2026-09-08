@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { dataPorExtenso, publicadas } from "../data/postagens";
 import { Elo } from "../rotas/Elo";
+import { Seta } from "./Seta";
 
 /** O PDF pede as cinco mais recentes. */
 const QUANTAS = 5;
@@ -147,6 +148,10 @@ export function UltimasPostagens() {
                 <span className="postagem-cartao__titulo">{p.titulo}</span>
                 <span className="postagem-cartao__resumo">{p.resumo}</span>
                 {p.rascunho && <span className="cartao__preparo">Rascunho</span>}
+                <span className="cartao__ir">
+                  Ler
+                  <Seta className="cartao__seta" />
+                </span>
               </span>
             </Elo>
           </li>

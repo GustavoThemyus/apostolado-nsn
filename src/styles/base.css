@@ -237,6 +237,15 @@ button {
   color: var(--ouro-tinta);
 }
 
+.barra__barras {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
 .barra__icone {
   width: 1.05rem;
   height: 1.05rem;
@@ -661,7 +670,7 @@ button {
 
 /* ---------------- folha que sobe do rodapé ---------------- */
 
-.folha-baixo__cortina {
+.folha__cortina {
   position: fixed;
   inset: 0;
   z-index: 50;
@@ -672,7 +681,7 @@ button {
   width: 100%;
 }
 
-.folha-baixo {
+.folha {
   position: fixed;
   z-index: 51;
   left: 0;
@@ -690,7 +699,7 @@ button {
   animation: subir 0.2s ease-out;
 }
 
-.folha-baixo__pega {
+.folha__pega {
   width: 2.5rem;
   height: 0.25rem;
   border-radius: 999px;
@@ -702,6 +711,37 @@ button {
   from {
     transform: translateY(1.5rem);
     opacity: 0;
+  }
+}
+
+@keyframes entrar-da-esquerda {
+  from {
+    transform: translateX(-1.5rem);
+    opacity: 0;
+  }
+}
+
+/*
+ * A partir de 52rem a folha deixa de ser tira presa no rodapé e vira barra
+ * lateral à esquerda, ao lado do botão que a abriu. Mesma marcação, só o CSS
+ * muda: nada de matchMedia, que pisca na primeira pintura.
+ */
+@media (min-width: 52rem) {
+  .folha {
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: min(23rem, 85vw);
+    max-height: none;
+    border-top: none;
+    border-right: 2px solid var(--ouro);
+    border-radius: 0;
+    padding: 1.25rem 1.5rem 2rem;
+    box-shadow: 12px 0 40px var(--sombra);
+    animation: entrar-da-esquerda 0.2s ease-out;
+  }
+  .folha__pega {
+    display: none;
   }
 }
 
@@ -763,44 +803,68 @@ button {
 
 /* ---------------- menu do site ---------------- */
 
-.menu__lista,
-.menu__grupo {
+.menu__lista {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.menu__lista > li {
-  border-bottom: 1px solid var(--fio-suave);
-  padding: 0.35rem 0;
-}
-.menu__lista > li:last-child {
-  border-bottom: none;
+  display: grid;
+  gap: 0.5rem;
 }
 
-.menu__link {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
+.menu__secao {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.15rem 0.9rem;
   min-height: var(--alvo-toque);
-  padding: 0.45rem 0;
+  padding: 0.85rem 0.9rem;
+  border: 1px solid var(--fio);
+  border-left: 3px solid var(--fio);
+  border-radius: 0.4rem;
+  background: var(--painel);
   color: var(--tinta);
   text-decoration: none;
-  line-height: 1.3;
+  transition: border-left-color 0.15s ease;
 }
-.menu__link--1 {
+.menu__secao:hover,
+.menu__secao:focus-visible {
+  border-left-color: var(--ouro);
+}
+.menu__secao[aria-current="page"] {
+  border-left-color: var(--ouro);
+}
+.menu__secao[aria-current="page"] .menu__nome {
+  color: var(--ouro-tinta);
+}
+
+.menu__nome {
+  grid-column: 1;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   font-family: var(--titular);
   font-size: 1.05rem;
   font-weight: 600;
+  line-height: 1.25;
 }
-.menu__link--2 {
-  padding-left: 1rem;
-  font-size: 0.95rem;
+.menu__resumo {
+  grid-column: 1;
+  font-size: 0.88rem;
+  line-height: 1.35;
   color: var(--tinta-suave);
-  min-height: 2.4rem;
 }
-.menu__link[aria-current="page"] {
-  color: var(--ouro-tinta);
-  font-weight: 600;
+.menu__seta {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  fill: none;
+  stroke: var(--ouro);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .menu__preparo {
@@ -1291,15 +1355,6 @@ button {
     min-height: 0;
     padding: 0.2rem 0;
   }
-  .folha-baixo {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    width: min(34rem, 92vw);
-    border-radius: 0.75rem;
-    bottom: 1.5rem;
-    max-height: 70vh;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1414,6 +1469,99 @@ button {
 }
 .cartao:active {
   border-left-color: var(--ouro-tinta);
+}
+
+/*
+ * Cartão ilustrado.
+ *
+ * A estampa ocupa o cartão e o texto fica por cima. O véu é um degradê que
+ * escurece só a parte de baixo: escurecer a pintura inteira a apagaria, e sem
+ * véu nenhum o título some sobre qualquer céu claro. O texto é sempre o lírio
+ * do brasão, que sobre o pé do degradê dá contraste de sobra.
+ */
+.cartoes--ilustrados {
+  grid-template-columns: 1fr;
+}
+.cartao--ilustrado {
+  position: relative;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border-left-width: 1px;
+  isolation: isolate;
+}
+.cartao__estampa {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 11rem;
+  object-fit: cover;
+}
+.cartao__veu {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  align-content: end;
+  gap: 0.2rem;
+  padding: 1rem 1.1rem 0.9rem;
+  background: linear-gradient(
+    to top,
+    rgba(12, 12, 24, 0.92) 0%,
+    rgba(12, 12, 24, 0.78) 34%,
+    rgba(12, 12, 24, 0.22) 62%,
+    rgba(12, 12, 24, 0) 100%
+  );
+  color: var(--marca-lirio);
+}
+.cartao--ilustrado .cartao__titulo {
+  color: var(--marca-lirio);
+}
+.cartao--ilustrado .cartao__texto {
+  color: rgba(253, 251, 236, 0.82);
+}
+.cartao--ilustrado .cartao__ir {
+  color: var(--marca-ouro-claro);
+  margin-top: 0.45rem;
+}
+.cartao--ilustrado:hover,
+.cartao--ilustrado:focus-visible {
+  border-left-color: var(--fio);
+  border-color: var(--ouro);
+}
+
+/*
+ * "Ver" com seta: o cartão inteiro é o link, mas um retângulo com fundo não
+ * diz sozinho que leva a algum lugar. A seta anda um pouco no hover, que é o
+ * sinal de que ela responde ao cursor.
+ */
+.cartao__ir {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.6rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+}
+.cartao__seta {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.15s ease;
+}
+.cartao:hover .cartao__seta,
+.cartao:focus-visible .cartao__seta,
+.postagem-cartao:hover .cartao__seta,
+.postagem-cartao:focus-visible .cartao__seta {
+  transform: translateX(0.2rem);
 }
 
 .cartao__preparo {
@@ -1657,6 +1805,9 @@ button {
 @media (min-width: 46rem) {
   .cartoes {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  .cartoes--ilustrados {
+    grid-template-columns: repeat(3, 1fr);
   }
   .faixa__trilho {
     grid-auto-columns: 40%;

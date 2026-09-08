@@ -77,7 +77,11 @@ export function Moldura({
           className="barra__botao barra__botao--secao barra__botao--menu"
           onClick={() => definirMenuAberto(true)}
           aria-haspopup="dialog"
+          aria-expanded={menuAberto}
         >
+          <svg className="barra__barras" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
           Menu
         </button>
       </BarraSuperior>

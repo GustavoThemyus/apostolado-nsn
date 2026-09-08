@@ -1,13 +1,17 @@
 import { useEffect, useRef, type ReactNode } from "react";
 
 /**
- * A folha que sobe do rodapé. Era a moldura do Sumário; agora o Menu também
- * usa, para não haver dois padrões de sobreposição no site.
+ * A folha que cobre a página: sobe do rodapé no celular e entra pela esquerda
+ * no PC, com a mesma marcação e só o CSS mudando no ponto de quebra.
+ *
+ * No PC ela era uma tira centrada presa embaixo, que numa tela larga fica
+ * longe do botão que a abriu e longe da vista. Barra lateral nasce ao lado do
+ * próprio botão Menu e tem altura para respirar.
  *
  * Trata o que uma folha modal precisa tratar: fechar no Escape, travar a
  * rolagem de trás, e levar o foco para dentro ao abrir.
  */
-export function FolhaDeBaixo({
+export function Folha({
   aberto,
   aoFechar,
   rotulo,
@@ -42,19 +46,19 @@ export function FolhaDeBaixo({
     <>
       <button
         type="button"
-        className="folha-baixo__cortina"
+        className="folha__cortina"
         onClick={aoFechar}
         aria-label={`Fechar ${rotulo.toLowerCase()}`}
       />
       <div
-        className="folha-baixo damasco"
+        className="folha damasco"
         ref={painel}
         tabIndex={-1}
         role="dialog"
         aria-modal="true"
         aria-label={rotulo}
       >
-        <div className="folha-baixo__pega" aria-hidden="true" />
+        <div className="folha__pega" aria-hidden="true" />
         {children}
       </div>
     </>

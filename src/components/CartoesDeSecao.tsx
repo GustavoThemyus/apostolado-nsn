@@ -1,5 +1,6 @@
 import { EM_PREPARACAO, filhasDe } from "../rotas/rotas";
 import { Elo } from "../rotas/Elo";
+import { Seta } from "./Seta";
 
 /**
  * Os caminhos que saem de uma seção, em cartões.
@@ -22,6 +23,10 @@ export function CartoesDeSecao({ padrao }: { padrao: string }) {
           {EM_PREPARACAO.has(rota.padrao) && (
             <span className="cartao__preparo">Em preparação</span>
           )}
+          <span className="cartao__ir">
+            Ver
+            <Seta className="cartao__seta" />
+          </span>
         </Elo>
       ))}
     </nav>
