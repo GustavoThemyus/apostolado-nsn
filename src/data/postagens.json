@@ -16,7 +16,10 @@
           "tipo": "paragrafo",
           "texto": "Este texto ainda será escrito. A festa é em 5 de agosto, dedicação da basílica de Santa Maria Maior, e é a titular desta capela."
         }
-      ]
+      ],
+      "festa": {
+        "nome": "Nossa Senhora das Neves"
+      }
     },
     {
       "id": "santo-antonio",
@@ -32,7 +35,10 @@
           "tipo": "paragrafo",
           "texto": "Este texto ainda será escrito. A festa é em 13 de junho."
         }
-      ]
+      ],
+      "festa": {
+        "nome": "Santo Antônio de Pádua"
+      }
     },
     {
       "id": "santa-filomena",
@@ -48,7 +54,11 @@
           "tipo": "paragrafo",
           "texto": "Este texto ainda será escrito. A festa é em 11 de agosto."
         }
-      ]
+      ],
+      "festa": {
+        "mes": 8,
+        "dia": 11
+      }
     }
   ]
 }

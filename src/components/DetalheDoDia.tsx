@@ -1,5 +1,9 @@
 import { Desenvolvimento } from "./Desenvolvimento";
 import type { ItemVinculado } from "../hooks/usarAgendasVinculadas";
+import { postagemDoDia } from "../calendario/vinculo";
+import { publicadas } from "../data/postagens";
+import { Elo } from "../rotas/Elo";
+import { Seta } from "./Seta";
 import { porExtensoCurto } from "./DiaDeHoje";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
 import type { DiaLiturgico } from "../calendario/tipos";
@@ -21,6 +25,9 @@ export function DetalheDoDia({
   /** Itens das agendas do Google que o visitante vinculou. */
   vinculados?: ItemVinculado[];
 }) {
+  // a postagem acompanha a festa, e não a casa do calendário
+  const postagem = postagemDoDia(publicadas(), dia);
+
   return (
     <div className="calendario__detalhe">
       <p className="calendario__detalhe-data">
@@ -59,6 +66,14 @@ export function DetalheDoDia({
         <p className="dia__observacao" key={o}>{o}</p>
       ))}
       <Desenvolvimento dia={dia} />
+
+      {postagem && (
+        <Elo para={`/postagens/${postagem.id}`} className="dia__postagem">
+          <span className="dia__postagem-rotulo">Sobre esta festa</span>
+          <span className="dia__postagem-titulo">{postagem.titulo}</span>
+          <Seta className="cartao__seta" />
+        </Elo>
+      )}
 
       {vinculados.length > 0 && (
         <div className="dia__agenda">

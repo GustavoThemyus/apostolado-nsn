@@ -2116,6 +2116,71 @@ button {
   }
 }
 
+/* ---------------- calendário das indulgências ---------------- */
+
+/*
+ * O marcador é quadrado, como as bandeiras das agendas, e não redondo: no
+ * mesmo dia ele convive com o ponto da cor litúrgica, e duas bolinhas lado a
+ * lado seriam a mesma coisa dita duas vezes.
+ */
+.indulgencia__marca {
+  position: absolute;
+  top: 0.22rem;
+  right: 0.22rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 1px;
+  border: 1px solid var(--ouro);
+}
+.indulgencia__marca--plenaria {
+  background: var(--ouro);
+}
+.legenda-agendas .indulgencia__marca {
+  position: static;
+}
+
+.indulgencias-dia {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+.indulgencias-dia > li {
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--fio);
+}
+.indulgencias-dia > li:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+.indulgencias-dia__titulo {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 0.4rem;
+  font-family: var(--titular);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+.indulgencias-dia__fonte {
+  margin: 0.35rem 0 0;
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.etiqueta--plenaria {
+  color: var(--ouro-tinta);
+  border-color: var(--ouro);
+}
+.etiqueta--parcial {
+  color: var(--tinta-suave);
+}
+
 /* ---------------- agendas vinculadas ---------------- */
 
 .bandeira {
@@ -2237,6 +2302,52 @@ button {
   font-style: italic;
   color: var(--rubrica);
   max-width: var(--medida-leitura);
+}
+
+/*
+ * O elo para a postagem da festa. O PDF pede que, vendo o dia, o fiel possa
+ * clicar para ler a história do santo; como o vínculo é pelo nome da
+ * celebração, ele segue a festa quando ela é transferida.
+ */
+.dia__postagem {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.15rem 0.9rem;
+  margin-top: 1.1rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.4rem;
+  background: var(--papel);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+.dia__postagem:hover,
+.dia__postagem:focus-visible {
+  border-color: var(--fio-aceso);
+}
+.dia__postagem-rotulo {
+  grid-column: 1;
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.dia__postagem-titulo {
+  grid-column: 1;
+  font-family: var(--titular);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.dia__postagem .cartao__seta {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  width: 1.15rem;
+  height: 1.15rem;
+  stroke: var(--ouro);
 }
 
 /* os itens vinculados dentro do detalhe do dia */

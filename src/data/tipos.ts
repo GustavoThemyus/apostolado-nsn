@@ -98,6 +98,12 @@ export interface Postagem {
   /** ISO, AAAA-MM-DD. Ordena a faixa do início. */
   data: string;
   categoria: "santo" | "liturgia" | "aviso";
+  /**
+   * A que celebração a postagem se liga, para o calendário poder apontá-la.
+   * Por nome, quando a postagem acompanha a festa aonde quer que ela vá; por
+   * mês e dia, quando está presa à data.
+   */
+  festa?: { nome: string } | { mes: number; dia: number };
   /** Caminho em /public. Sem ela a faixa mostra o brasão. */
   imagem?: string;
   /** Falso esconde do site inteiro, para escrever com calma. */
