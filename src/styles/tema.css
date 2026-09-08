@@ -103,8 +103,13 @@
  * Tema escuro. Mesma família do azul do brasão (matiz 234), mas com metade da
  * saturação e mais escuro: o anterior estava em 36 a 39% de saturação puro
  * azul e lia como tela colorida, não como papel à noite. Aqui fica em 14 a
- * 18%, sóbrio sem virar cinza morto. Todos os pares de texto conferidos:
- * o menor é tinta-suave sobre realce, em 4,61.
+ * 18%, sóbrio sem virar cinza morto.
+ *
+ * O ouro seguiu junto: estava em 66% de saturação e 75% de claridade, o que
+ * dava 12,5 de contraste sobre o papel, quase o dobro do necessário, e lia
+ * como amarelo aceso em cima de um fundo que ficou discreto. Agora 44% e 63%,
+ * ainda em 8,7. Todos os pares conferidos; o menor é tinta-suave sobre
+ * realce, em 4,61.
  */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -114,8 +119,8 @@
     --tinta: #e8e3d6;
     --tinta-suave: #a6a2a0;
     --rubrica: #e08a80;
-    --ouro: #d0ba74;
-    --ouro-tinta: #e9da93;
+    --ouro: #baa35e;
+    --ouro-tinta: #cab577;
     --elo: #9fb6e2;
     --fio: #3b3d4e;
     --fio-suave: #2b2d3b;
@@ -123,7 +128,7 @@
     --vidro: rgba(24, 24, 33, 0.88);
     --sombra: rgba(0, 0, 0, 0.45);
     --damasco-cor: var(--marca-ouro);
-    --forca-damasco: 0.16;
+    --forca-damasco: 0.12;
 
     --lit-branco: #efeadb;
     --lit-vermelho: #e08a80;
@@ -143,8 +148,8 @@
   --tinta: #e8e3d6;
   --tinta-suave: #a6a2a0;
   --rubrica: #e08a80;
-  --ouro: #d0ba74;
-  --ouro-tinta: #e9da93;
+  --ouro: #baa35e;
+  --ouro-tinta: #cab577;
   --elo: #9fb6e2;
   --fio: #3b3d4e;
   --fio-suave: #2b2d3b;
@@ -152,7 +157,7 @@
   --vidro: rgba(24, 24, 33, 0.88);
   --sombra: rgba(0, 0, 0, 0.45);
   --damasco-cor: var(--marca-ouro);
-  --forca-damasco: 0.16;
+  --forca-damasco: 0.12;
 
   --lit-branco: #efeadb;
   --lit-vermelho: #e08a80;
