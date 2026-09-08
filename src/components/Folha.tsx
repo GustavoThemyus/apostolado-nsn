@@ -6,7 +6,8 @@ import { useEffect, useRef, type ReactNode } from "react";
  *
  * No PC ela era uma tira centrada presa embaixo, que numa tela larga fica
  * longe do botão que a abriu e longe da vista. Barra lateral nasce ao lado do
- * próprio botão Menu e tem altura para respirar.
+ * próprio botão que a abre, e por isso o lado é prop: o Menu fica à esquerda,
+ * o Sumário à direita.
  *
  * Trata o que uma folha modal precisa tratar: fechar no Escape, travar a
  * rolagem de trás, e levar o foco para dentro ao abrir.
@@ -15,11 +16,14 @@ export function Folha({
   aberto,
   aoFechar,
   rotulo,
+  lado = "esquerda",
   children,
 }: {
   aberto: boolean;
   aoFechar: () => void;
   rotulo: string;
+  /** De que borda ela entra no PC. O botão que a abre tem de estar do mesmo. */
+  lado?: "esquerda" | "direita";
   children: ReactNode;
 }) {
   const painel = useRef<HTMLDivElement>(null);
@@ -51,7 +55,7 @@ export function Folha({
         aria-label={`Fechar ${rotulo.toLowerCase()}`}
       />
       <div
-        className="folha damasco"
+        className={`folha folha--${lado} damasco`}
         ref={painel}
         tabIndex={-1}
         role="dialog"

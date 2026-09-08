@@ -44,7 +44,7 @@ function Lista({
 export function Sumario({ secoes, secaoAtiva, variante, aberto = true, aoFechar }: Propriedades) {
   if (variante === "flutuante") {
     return (
-      <Folha aberto={aberto} aoFechar={aoFechar ?? (() => {})} rotulo="Sumário">
+      <Folha aberto={aberto} aoFechar={aoFechar ?? (() => {})} rotulo="Sumário" lado="direita">
         <Lista secoes={secoes} secaoAtiva={secaoAtiva} aoEscolher={aoFechar} />
       </Folha>
     );

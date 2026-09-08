@@ -83,7 +83,7 @@ export function Moldura({
         {sumario && (
           <button
             type="button"
-            className="barra__botao barra__botao--secao"
+            className="barra__botao barra__botao--secao barra__botao--sumario"
             onClick={sumario.alternar}
             aria-expanded={sumario.aberto}
             aria-haspopup="dialog"

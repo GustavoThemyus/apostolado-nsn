@@ -760,7 +760,6 @@ button {
   overscroll-behavior: contain;
   background: var(--painel);
   border-top: 2px solid var(--ouro);
-  border-radius: 0.75rem 0.75rem 0 0;
   padding: 0.75rem 1.15rem calc(1.5rem + env(safe-area-inset-bottom));
   box-shadow: 0 -12px 40px var(--sombra);
   animation: subir 0.2s ease-out;
@@ -788,6 +787,13 @@ button {
   }
 }
 
+@keyframes entrar-da-direita {
+  from {
+    transform: translateX(1.5rem);
+    opacity: 0;
+  }
+}
+
 /*
  * A partir de 52rem a folha deixa de ser tira presa no rodapé e vira barra
  * lateral à esquerda, ao lado do botão que a abriu. Mesma marcação, só o CSS
@@ -795,17 +801,27 @@ button {
  */
 @media (min-width: 52rem) {
   .folha {
-    right: auto;
     top: 0;
     bottom: 0;
     width: min(23rem, 85vw);
     max-height: none;
     border-top: none;
-    border-right: 2px solid var(--ouro);
-    border-radius: 0;
     padding: 1.25rem 1.5rem 2rem;
+  }
+  .folha--esquerda {
+    right: auto;
+    border-right: 2px solid var(--ouro);
     box-shadow: 12px 0 40px var(--sombra);
     animation: entrar-da-esquerda 0.2s ease-out;
+  }
+  /* o Sumário abre pela direita porque o botão dele está à direita, e porque
+     é outra proposta que o Menu: um é o mapa do site, o outro é o índice da
+     página que se está lendo */
+  .folha--direita {
+    left: auto;
+    border-left: 2px solid var(--ouro);
+    box-shadow: -12px 0 40px var(--sombra);
+    animation: entrar-da-direita 0.2s ease-out;
   }
   .folha__pega {
     display: none;
@@ -1476,6 +1492,73 @@ button {
   }
 }
 
+/* ---------------- escala no PC ---------------- */
+
+/*
+ * A coluna passou de 60rem para 76rem e o corpo do texto cresceu junto, mas
+ * as etiquetas em versalete ficaram nos mesmos 0,55 a 0,68rem de quando a
+ * coluna era estreita, e a essa altura pareciam legenda de rodapé. Sobem cerca
+ * de um quinto, só as de conteúdo: as da barra são cromo e já estavam certas.
+ */
+@media (min-width: 64rem) {
+  .dia__data,
+  .calendario__detalhe-data,
+  .contribuir__rotulo,
+  .vazia__marca,
+  .mural__titulo,
+  .sumario__titulo,
+  .desenv__titulo,
+  .dia__agenda-titulo,
+  .postagem__data {
+    font-size: 0.72rem;
+  }
+
+  .dia__detalhes dt,
+  .desenv__lista dt,
+  .contribuir__dados dt,
+  .dia__agenda-fonte,
+  .dia__comemoracoes span,
+  .assembleia__marca,
+  .tabela td::before,
+  .etiqueta,
+  .sinal {
+    font-size: 0.68rem;
+  }
+
+  .cartao__ir,
+  .faixa__todas,
+  .sobre__mais,
+  .dia__link,
+  .postagem-cartao__data,
+  .postagem-linha__data,
+  .legenda-agendas,
+  .vinculo__limpar {
+    font-size: 0.7rem;
+  }
+
+  .cartao__preparo,
+  .menu__preparo {
+    font-size: 0.62rem;
+  }
+
+  .calendario__cabeca {
+    font-size: 0.7rem;
+  }
+  .calendario__numero {
+    font-size: 1.05rem;
+  }
+  .trilha {
+    font-size: 0.74rem;
+  }
+  .rodape__marca {
+    font-size: 0.7rem;
+  }
+  .rodape__lema {
+    font-size: 0.82rem;
+  }
+
+}
+
 /* ---------------- documento em duas colunas ---------------- */
 
 /*
@@ -1484,6 +1567,12 @@ button {
  * largura que sobrava à direita passa a servir para alguma coisa.
  */
 @media (min-width: 76rem) {
+  /* onde o sumário mora na coluna da esquerda, o botão que o abriria em
+     gaveta não tem o que fazer */
+  .barra__botao--sumario {
+    display: none;
+  }
+
   .documento--com-sumario {
     display: grid;
     grid-template-columns: 17rem minmax(0, 1fr);
@@ -2614,5 +2703,32 @@ button {
   .contribuir__vias {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+  }
+}
+
+/* ---------------- padroeiros no PC ---------------- */
+
+/*
+ * Fica no fim do arquivo de propósito: a regra base de .padroeiros__lista
+ * mora acima, e media query não acrescenta especificidade nenhuma. Posto
+ * antes, era a base que vencia e nada disto valia.
+ *
+ * O quadro parava de crescer em 9rem por causa da resolução da estampa. Numa
+ * coluna de 76rem os três ficavam pequenos e afastados; vão a 13rem, que a 2x
+ * pede 416 dos 480 pixels do arquivo, e a lista para de esticar junto com a
+ * coluna.
+ */
+@media (min-width: 64rem) {
+  .padroeiro__moldura {
+    max-width: 13rem;
+    padding: 0.6rem;
+  }
+  .padroeiros__lista {
+    grid-template-columns: repeat(3, minmax(0, 13rem));
+    justify-content: center;
+    gap: 2.75rem;
+  }
+  .padroeiro__nome {
+    font-size: 1.05rem;
   }
 }
