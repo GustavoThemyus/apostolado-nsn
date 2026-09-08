@@ -52,7 +52,8 @@ export function Folha({
         type="button"
         className="folha__cortina"
         onClick={aoFechar}
-        aria-label={`Fechar ${rotulo.toLowerCase()}`}
+        aria-hidden="true"
+        tabIndex={-1}
       />
       <div
         className={`folha folha--${lado} damasco`}
@@ -62,6 +63,17 @@ export function Folha({
         aria-modal="true"
         aria-label={rotulo}
       >
+        {/*
+          Fechar só clicando fora não é uma função visível: quem abriu a
+          gaveta no celular não tem como saber que aquilo fecha, nem onde
+          tocar. O botão diz.
+        */}
+        <button type="button" className="folha__fechar" onClick={aoFechar}>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+          <span className="apenas-leitores">{`Fechar ${rotulo.toLowerCase()}`}</span>
+        </button>
         <div className="folha__pega" aria-hidden="true" />
         {children}
       </div>

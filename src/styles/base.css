@@ -765,6 +765,42 @@ button {
   animation: subir 0.2s ease-out;
 }
 
+/*
+ * O X fica no canto de cima. Na gaveta da direita ele vai para a esquerda,
+ * porque encostado na borda da tela ele some no gesto de voltar do sistema.
+ */
+.folha__fechar {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.7rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--alvo-toque);
+  height: var(--alvo-toque);
+  padding: 0;
+  border: 1px solid var(--fio);
+  border-radius: 0.35rem;
+  background: var(--papel);
+  color: var(--tinta-suave);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.folha__fechar svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.folha__fechar:hover,
+.folha__fechar:focus-visible {
+  border-color: var(--fio-aceso);
+  color: var(--tinta);
+}
+
 .folha__pega {
   width: 2.5rem;
   height: 0.25rem;
@@ -817,6 +853,10 @@ button {
   /* o Sumário abre pela direita porque o botão dele está à direita, e porque
      é outra proposta que o Menu: um é o mapa do site, o outro é o índice da
      página que se está lendo */
+  .folha--direita .folha__fechar {
+    right: auto;
+    left: 0.7rem;
+  }
   .folha--direita {
     left: auto;
     border-left: 2px solid var(--ouro);
@@ -890,6 +930,7 @@ button {
 
 .menu__testeira {
   display: grid;
+  padding-right: 3rem;
   justify-items: center;
   gap: 0.35rem;
   padding: 0.35rem 0 1.15rem;
