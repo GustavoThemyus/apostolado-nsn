@@ -87,6 +87,13 @@
   /* altura da célula do calendário a partir de 46rem, onde o quadrado
      esticaria o mês para mais de 600px de altura */
   --altura-dia: 4.5rem;
+  /*
+   * Respiro sob a etiqueta em versalete espaçado que antecede um título ou um
+   * bloco. Versalete lê como registro à parte e precisa de mais ar embaixo que
+   * texto corrido; havia 0,1, 0,3, 0,4, 0,5 e 0,75rem espalhados, e o que caía
+   * em 0,3 ficava colado.
+   */
+  --respiro-etiqueta: 0.5rem;
 
   color-scheme: light;
 }

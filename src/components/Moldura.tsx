@@ -83,7 +83,7 @@ export function Moldura({
       </BarraSuperior>
 
       <main className="moldura conteudo" id="conteudo">
-        <Trilha rota={rota} />
+        <Trilha rota={rota} atual={titulo} />
         {children}
         <Rodape paragrafos={site.rodape} marca={site.marca} lema={site.lema} />
       </main>

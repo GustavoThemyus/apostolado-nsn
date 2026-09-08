@@ -358,7 +358,7 @@ button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--tinta-suave);
-  margin: 0 0 0.3rem;
+  margin: 0 0 var(--respiro-etiqueta);
 }
 
 .dia__nome {
@@ -488,7 +488,7 @@ button {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--ouro-tinta);
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--respiro-etiqueta);
 }
 
 .desenv__lista {
@@ -630,7 +630,7 @@ button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--tinta-suave);
-  margin: 0 0 0.3rem;
+  margin: 0 0 var(--respiro-etiqueta);
 }
 .calendario__detalhe-nome {
   font-family: var(--titular);
@@ -721,7 +721,7 @@ button {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ouro-tinta);
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--respiro-etiqueta);
 }
 
 .sumario__lista {
@@ -1329,7 +1329,9 @@ button {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
-  padding-top: 1rem;
+  /* fica entre a barra grudenta e o banner, e precisa de ar dos dois lados:
+     só com padding-top ela encostava no cabeçalho logo abaixo */
+  padding: 1.25rem 0 1.1rem;
   font-family: var(--sem-serifa);
   font-size: 0.66rem;
   letter-spacing: 0.04em;
@@ -1364,7 +1366,7 @@ button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ouro-tinta);
-  margin: 0 0 0.4rem;
+  margin: 0 0 var(--respiro-etiqueta);
 }
 .vazia__texto {
   margin: 0 0 0.6rem;
@@ -1534,7 +1536,9 @@ button {
 .postagem-cartao__corpo {
   display: grid;
   align-content: start;
-  gap: 0.25rem;
+  /* 0.25rem dava 4px entre a data, o título e o resumo: os três liam como um
+     bloco só em vez de três registros */
+  gap: 0.4rem;
   padding: 0.85rem 1rem 1rem;
 }
 .postagem-cartao__data {
@@ -1598,7 +1602,7 @@ button {
 }
 .postagem-linha {
   display: grid;
-  gap: 0.2rem;
+  gap: 0.35rem;
   padding: 0.9rem 0 0.9rem 0.9rem;
   border-top: 1px solid var(--fio-suave);
   border-left: 3px solid transparent;
@@ -1629,7 +1633,7 @@ button {
 }
 
 .postagem__data {
-  margin: 0 0 1.25rem;
+  margin: 1.5rem 0 1.25rem;
   text-align: center;
   font-family: var(--sem-serifa);
   font-size: 0.6rem;
@@ -1668,9 +1672,13 @@ button {
 }
 
 /*
- * 52rem, e não 46rem: as seis seções mais o tema e o Sumário medem cerca de
- * 50rem, e em 46rem o Sumário saía pela borda direita. Entre um ponto e outro
- * a barra continua com o título da seção e o botão Menu.
+ * 52rem, e não 46rem: as seis seções mais o tema, o Sumário e o Menu não cabem
+ * em 46rem. Entre um ponto e outro a barra fica com o título da seção.
+ *
+ * O botão Menu NÃO some no PC. Ele sumia, e o resultado era que as subpáginas
+ * só existiam para quem já estivesse na seção mãe: de /postagens havia dez
+ * rotas que exigiam passar por outra página antes. O Menu é o mapa inteiro, e
+ * o mapa tem de estar à mão nas duas plataformas.
  */
 @media (min-width: 52rem) {
   .barra__site {
@@ -1680,9 +1688,6 @@ button {
   }
   /* o título da seção some quando as seções entram na barra: não cabem os dois */
   .barra__local {
-    display: none;
-  }
-  .barra__botao--menu {
     display: none;
   }
 }
@@ -1818,7 +1823,7 @@ button {
   border-top: 1px dashed var(--fio);
 }
 .dia__agenda-titulo {
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--respiro-etiqueta);
   font-family: var(--sem-serifa);
   font-size: 0.58rem;
   font-weight: 600;
@@ -1919,14 +1924,33 @@ button {
   color: var(--tinta-suave);
 }
 
+/*
+ * No celular o par de botões divide a linha em dois, em vez de virar duas
+ * pílulas pequenas encostadas na esquerda. A partir de 46rem eles voltam ao
+ * tamanho do próprio texto, que é o que cabe ao lado do nome da agenda.
+ */
 .agenda__acoes {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 0.4rem;
 }
 
+/*
+ * REGRA DOS ALVOS NO CELULAR: botão ocupa a linha inteira, link continua link.
+ *
+ * O botão é a ação do bloco onde está, e uma pílula de 113px numa coluna de
+ * 353px lia como detalhe secundário além de dar um alvo pequeno para o dedo.
+ * O site já se contradizia nisso: "Vincular" saía com 88% da coluna, por ser
+ * filho de uma grade, e "Copiar a chave" com 32%.
+ *
+ * Isso NÃO vale para "Ver o calendário do ano", "Saber mais" e "Ver todas":
+ * são links de leitura, não ações, e virar barra achataria a diferença entre
+ * "faça isto" e "vá ler aquilo".
+ */
 .botao-agenda {
   display: inline-flex;
+  width: 100%;
+  justify-content: center;
   align-items: center;
   min-height: var(--alvo-toque);
   padding: 0.35rem 0.8rem;
@@ -2029,6 +2053,13 @@ button {
     align-items: center;
     gap: 1rem;
   }
+  .agenda__acoes {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .botao-agenda {
+    width: auto;
+  }
 }
 
 .vazia--rascunho {
@@ -2053,7 +2084,7 @@ button {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ouro-tinta);
-  margin: 0 0 0.75rem;
+  margin: 0 0 var(--respiro-etiqueta);
 }
 .mural__vazio {
   margin: 0;
@@ -2122,7 +2153,7 @@ button {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--tinta-suave);
-  margin: 0 0 0.4rem;
+  margin: 0 0 var(--respiro-etiqueta);
 }
 .contribuir__dados {
   margin: 0;
