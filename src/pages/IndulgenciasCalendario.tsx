@@ -8,6 +8,7 @@ import {
 import { mesLiturgico } from "../calendario/precedencia";
 import { AssinarAgenda } from "../components/AssinarAgenda";
 import { ListaDeBlocos } from "../components/Bloco";
+import { TextoRico } from "../components/TextoRico";
 import { Cabecalho } from "../components/Cabecalho";
 import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
 import { Moldura } from "../components/Moldura";
@@ -207,7 +208,9 @@ export default function IndulgenciasCalendario() {
                 )}
                 <ListaDeBlocos blocos={entrada.obra} />
                 {entrada.fonte && (
-                  <p className="indulgencias-dia__fonte">{entrada.fonte}</p>
+                  <p className="indulgencias-dia__fonte">
+                    <TextoRico texto={entrada.fonte} />
+                  </p>
                 )}
               </li>
             ))}
@@ -234,7 +237,11 @@ export default function IndulgenciasCalendario() {
                 </span>
               </p>
               <ListaDeBlocos blocos={i.obra} />
-              {i.fonte && <p className="indulgencias-dia__fonte">{i.fonte}</p>}
+              {i.fonte && (
+                <p className="indulgencias-dia__fonte">
+                  <TextoRico texto={i.fonte} />
+                </p>
+              )}
             </li>
           ))}
         </ul>

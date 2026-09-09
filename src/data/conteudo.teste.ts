@@ -7,6 +7,7 @@
  * recursão, antes desta suíte existir.
  */
 
+import dias from "./indulgencias-dias.json";
 import enchiridion from "./indulgencias-enchiridion.json";
 import guia from "./guia.json";
 import indulgencias from "./indulgencias.json";
@@ -90,6 +91,41 @@ const ench = enchiridion as unknown as Conteudo;
 conferir("enchiridion: 123 notas mais o asterisco", Object.keys(ench.notas ?? {}).length === 124);
 conferir("enchiridion: as 33 concessões têm âncora",
   [...Array(33)].every((_, i) => ancorasDe(ench.secoes).has(`concessao-${i + 1}`)));
+
+/*
+ * Os dias de indulgência apontam para a concessão exata do Enchiridion, e é um
+ * link que atravessa página: nada na tela avisa quando ele apodrece, porque o
+ * navegador simplesmente não rola. Aqui ele é conferido contra as âncoras que
+ * o Enchiridion de fato tem.
+ */
+{
+  const ancoras = ancorasDe(ench.secoes);
+  const registro = dias as unknown as {
+    dias: { id: string; fonte?: string; obra: Bloco[] }[];
+    semDiaFixo: { id: string; fonte?: string; obra: Bloco[] }[];
+  };
+  const todos = [...registro.dias, ...registro.semDiaFixo];
+
+  const quebrados: string[] = [];
+  for (const entrada of todos) {
+    const textos = [entrada.fonte ?? "", ...entrada.obra.flatMap(textosDoBloco)];
+    for (const m of textos.join("\n").matchAll(/\[elo:([^\]]+)\]/g)) {
+      const destino = m[1];
+      if (/^https?:/.test(destino)) continue;
+      const [caminho, ancora] = destino.split("#");
+      if (caminho === "/indulgencias/enchiridion" && ancora && !ancoras.has(ancora)) {
+        quebrados.push(`${entrada.id} -> ${destino}`);
+      }
+    }
+  }
+  conferir("dias de indulgência: todo elo cai numa âncora do Enchiridion",
+    quebrados.length === 0, quebrados.join(", "));
+
+  const semId = todos.filter((e) => !e.id).length;
+  conferir("dias de indulgência: toda entrada tem id", semId === 0);
+  const repetidos = todos.map((e) => e.id).filter((id, i, t) => t.indexOf(id) !== i);
+  conferir("dias de indulgência: ids sem repetição", repetidos.length === 0, repetidos.join(", "));
+}
 
 const total = passaram + falhas.length;
 console.log(`\nintegridade do conteúdo: ${passaram}/${total}`);

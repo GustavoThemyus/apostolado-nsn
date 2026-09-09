@@ -28,13 +28,20 @@ function Nota({ chave }: { chave: string }) {
   );
 }
 
+/**
+ * Três destinos, e a diferença importa:
+ *   https://...                    outro site, abre em aba nova
+ *   /indulgencias/enchiridion#x    outra página daqui, o Roteador intercepta
+ *   concessao-14                   ponto desta mesma página
+ */
 function Elo({ destino, children }: { destino: string; children: ReactNode }) {
-  const externo = /^https?:/.test(destino);
+  const externo = /^(https?:|mailto:)/.test(destino);
+  const interno = destino.startsWith("/");
   return (
     <a
       className={`elo-texto${externo ? " elo-texto--externo" : ""}`}
-      // âncora interna começa com #, e o Roteador não intercepta essas
-      href={externo ? destino : `#${destino}`}
+      // âncora da própria página começa com #, e o Roteador não intercepta essas
+      href={externo || interno ? destino : `#${destino}`}
       {...(externo ? { target: "_blank", rel: "noreferrer noopener" } : {})}
     >
       {children}

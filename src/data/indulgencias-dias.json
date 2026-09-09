@@ -1,167 +1,245 @@
 {
-  "titulo": "Dias de indulgência",
-  "descricao": "Os dias que carregam indulgência no calendário.",
-  "dias": [
+ "titulo": "Dias de indulgência",
+ "descricao": "Os dias que carregam indulgência no calendário.",
+ "dias": [
+  {
+   "id": "finados",
+   "titulo": "Comemoração dos Fiéis Defuntos",
+   "quando": {
+    "tipo": "fixa",
+    "mes": 11,
+    "dia": 2
+   },
+   "especie": "plenaria",
+   "fonte": "cân. 917 §1",
+   "obra": [
     {
-      "id": "finados",
-      "titulo": "Comemoração dos Fiéis Defuntos",
-      "quando": {
-        "tipo": "fixa",
-        "mes": 11,
-        "dia": 2
-      },
-      "especie": "plenaria",
-      "fonte": "cân. 917 §1",
-      "obra": [
-        {
-          "id": "d-001",
-          "tipo": "paragrafo",
-          "texto": "Visitando uma igreja, plenária [i]toties quoties[/i], aplicável somente aos defuntos. Toda Missa celebrada nesse dia goza do privilégio de altar privilegiado."
-        }
-      ]
-    },
-    {
-      "id": "oitava-todos-os-santos",
-      "titulo": "Visita ao cemitério",
-      "quando": {
-        "tipo": "intervalo",
-        "de": {
-          "mes": 11,
-          "dia": 1
-        },
-        "ate": {
-          "mes": 11,
-          "dia": 8
-        }
-      },
-      "especie": "plenaria",
-      "fonte": "Raccolta",
-      "obra": [
-        {
-          "id": "d-002",
-          "tipo": "paragrafo",
-          "texto": "Plenária diária pela visita ao cemitério, aplicável somente aos defuntos."
-        }
-      ]
-    },
-    {
-      "id": "porciuncula",
-      "titulo": "Porciúncula",
-      "quando": {
-        "tipo": "fixa",
-        "mes": 8,
-        "dia": 2
-      },
-      "especie": "plenaria",
-      "fonte": "indulto",
-      "obra": [
-        {
-          "id": "d-003",
-          "tipo": "paragrafo",
-          "texto": "Plenária [i]toties quoties[/i], tantas vezes quantas forem as visitas."
-        }
-      ]
-    },
-    {
-      "id": "titular",
-      "titulo": "Festa do Titular da capela",
-      "quando": {
-        "tipo": "titular"
-      },
-      "especie": "plenaria",
-      "fonte": "cân. 921 §3",
-      "obra": [
-        {
-          "id": "d-004",
-          "tipo": "paragrafo",
-          "texto": "Plenária aos que visitam a própria igreja. Presa à celebração, acompanha a transferência, pelo cânon 922."
-        }
-      ]
-    },
-    {
-      "id": "primeiras-sextas",
-      "titulo": "Primeiras sextas-feiras",
-      "quando": {
-        "tipo": "mensal",
-        "diaDaSemana": 5,
-        "ocorrencia": 1
-      },
-      "especie": "parcial",
-      "fonte": "Raccolta",
-      "obra": [
-        {
-          "id": "d-005",
-          "tipo": "paragrafo",
-          "texto": "Concessões próprias da devoção ao Sagrado Coração, conforme a obra."
-        }
-      ]
+     "id": "d-001",
+     "tipo": "paragrafo",
+     "texto": "Visitando uma igreja, plenária [i]toties quoties[/i], aplicável somente aos defuntos. Toda Missa celebrada nesse dia goza do privilégio de altar privilegiado."
     }
-  ],
-  "semDiaFixo": [
-    {
-      "id": "via-sacra",
-      "titulo": "Via-Sacra",
-      "especie": "plenaria",
-      "fonte": "Raccolta",
-      "obra": [
-        {
-          "id": "s-001",
-          "tipo": "paragrafo",
-          "texto": "Plenária, feitas as catorze estações."
-        }
-      ]
+   ]
+  },
+  {
+   "id": "oitava-todos-os-santos",
+   "titulo": "Visita ao cemitério",
+   "quando": {
+    "tipo": "intervalo",
+    "de": {
+     "mes": 11,
+     "dia": 1
     },
-    {
-      "id": "rosario",
-      "titulo": "Rosário diante do Santíssimo",
-      "especie": "plenaria",
-      "fonte": "Raccolta",
-      "obra": [
-        {
-          "id": "s-002",
-          "tipo": "paragrafo",
-          "texto": "Plenária, rezado ao menos um terço."
-        }
-      ]
-    },
-    {
-      "id": "artigo-da-morte",
-      "titulo": "Artigo da morte",
-      "especie": "plenaria",
-      "fonte": "Raccolta",
-      "obra": [
-        {
-          "id": "s-003",
-          "tipo": "paragrafo",
-          "texto": "Bênção apostólica com plenária, no momento da morte."
-        }
-      ]
-    },
-    {
-      "id": "quarenta-horas",
-      "titulo": "Quarenta Horas",
-      "especie": "plenaria",
-      "fonte": "cân. 917 §2",
-      "obra": [
-        {
-          "id": "s-004",
-          "tipo": "paragrafo",
-          "texto": "Todos os altares da igreja ficam privilegiados enquanto dura a exposição. As datas são marcadas pela paróquia."
-        }
-      ]
-    },
-    {
-      "id": "bencao-papal",
-      "titulo": "Bênção papal",
-      "especie": "plenaria",
-      "fonte": "cân. 914",
-      "obra": [
-        {
-          "id": "s-005",
-          "tipo": "paragrafo",
-          "texto": "O bispo pode dá-la com indulgência plenária na sua diocese, na fórmula prescrita."
-        }
-      ]
+    "ate": {
+     "mes": 11,
+     "dia": 8
     }
-  ]
+   },
+   "especie": "plenaria",
+   "fonte": "Raccolta",
+   "obra": [
+    {
+     "id": "d-002",
+     "tipo": "paragrafo",
+     "texto": "Plenária diária pela visita ao cemitério, aplicável somente aos defuntos."
+    }
+   ]
+  },
+  {
+   "id": "porciuncula",
+   "titulo": "Porciúncula",
+   "quando": {
+    "tipo": "fixa",
+    "mes": 8,
+    "dia": 2
+   },
+   "especie": "plenaria",
+   "fonte": "indulto",
+   "obra": [
+    {
+     "id": "d-003",
+     "tipo": "paragrafo",
+     "texto": "Plenária [i]toties quoties[/i], tantas vezes quantas forem as visitas."
+    }
+   ]
+  },
+  {
+   "id": "titular",
+   "titulo": "Festa do Titular da capela",
+   "quando": {
+    "tipo": "titular"
+   },
+   "especie": "plenaria",
+   "fonte": "cân. 921 §3",
+   "obra": [
+    {
+     "id": "d-004",
+     "tipo": "paragrafo",
+     "texto": "Plenária aos que visitam a própria igreja. Presa à celebração, acompanha a transferência, pelo cânon 922."
+    }
+   ]
+  },
+  {
+   "id": "primeiras-sextas",
+   "titulo": "Primeiras sextas-feiras",
+   "quando": {
+    "tipo": "mensal",
+    "diaDaSemana": 5,
+    "ocorrencia": 1
+   },
+   "especie": "parcial",
+   "fonte": "Raccolta",
+   "obra": [
+    {
+     "id": "d-005",
+     "tipo": "paragrafo",
+     "texto": "Concessões próprias da devoção ao Sagrado Coração, conforme a obra."
+    }
+   ]
+  },
+  {
+   "id": "pedro-e-paulo",
+   "titulo": "São Pedro e São Paulo",
+   "quando": {
+    "tipo": "festa",
+    "nome": "São Pedro e São Paulo"
+   },
+   "especie": "plenaria",
+   "fonte": "Concessão [elo:/indulgencias/enchiridion#concessao-14]14, § 1[/elo] do Enchiridion, com a norma 15; norma 17 da [elo:/indulgencias/enchiridion#id-normas]Indulgentiarum Doctrina[/elo].",
+   "obra": [
+    {
+     "id": "d-pp-1",
+     "tipo": "paragrafo",
+     "texto": "Usar devotamente, neste dia, um [b]objeto de piedade[/b] bento por um bispo ou pelo Papa, e acrescentar a profissão de fé."
+    },
+    {
+     "id": "d-pp-2",
+     "tipo": "paragrafo",
+     "texto": "Objeto de piedade, na norma 15, é crucifixo ou cruz, rosário, escapulário ou medalha. Bento por sacerdote ou diácono, o mesmo uso rende indulgência parcial em qualquer dia."
+    },
+    {
+     "id": "d-pp-3",
+     "tipo": "paragrafo",
+     "texto": "Serve qualquer fórmula legítima de profissão de fé. O Símbolo dos Apóstolos é o de uso mais seguro."
+    },
+    {
+     "id": "d-pp-4",
+     "tipo": "oracao",
+     "versos": [
+      {
+       "latim": "Credo in Deum, Patrem omnipoténtem, Creatórem cæli et terræ. Et in Jesum Christum, Fílium ejus únicum, Dóminum nostrum: qui concéptus est de Spíritu Sancto, natus ex María Vírgine, passus sub Póntio Piláto, crucifíxus, mórtuus, et sepúltus: descéndit ad ínferos; tértia die resurréxit a mórtuis; ascéndit ad cælos; sedet ad déxteram Dei Patris omnipoténtis: inde ventúrus est judicáre vivos et mórtuos. Credo in Spíritum Sanctum, sanctam Ecclésiam cathólicam, Sanctórum communiónem, remissiónem peccatórum, carnis resurrectiónem, vitam ætérnam. Amen.",
+       "portugues": "Creio em Deus Pai todo-poderoso, criador do céu e da terra. E em Jesus Cristo, um só seu Filho, Nosso Senhor, o qual foi concebido do Espírito Santo, nasceu de Maria Virgem, padeceu sob o poder de Pôncio Pilatos, foi crucificado, morto e sepultado, desceu aos infernos, ao terceiro dia ressurgiu dos mortos, subiu aos céus, está sentado à mão direita de Deus Pai todo-poderoso, donde há de vir a julgar os vivos e os mortos. Creio no Espírito Santo, na santa Igreja Católica, na comunhão dos santos, na remissão dos pecados, na ressurreição da carne, na vida eterna. Amém."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sextas-da-quaresma",
+   "titulo": "Sextas-feiras da Quaresma",
+   "quando": {
+    "tipo": "diaDaSemanaNoTempo",
+    "diaDaSemana": 5,
+    "tempos": [
+     "quaresma",
+     "paixao"
+    ]
+   },
+   "especie": "plenaria",
+   "fonte": "Concessão [elo:/indulgencias/enchiridion#concessao-8]8, § 1, 2º[/elo] do Enchiridion.",
+   "obra": [
+    {
+     "id": "d-sq-1",
+     "tipo": "paragrafo",
+     "texto": "Recitar a oração [lat]En ego, o bone et dulcíssime Iesu[/lat] diante de uma imagem de Cristo crucificado, [b]depois da comunhão[/b]."
+    },
+    {
+     "id": "d-sq-2",
+     "tipo": "paragrafo",
+     "texto": "O calendário de 1962 separa a Quaresma do Tempo da Paixão; a concessão abrange as sextas-feiras dos dois, e por isso a Sexta-feira Santa também aparece aqui."
+    },
+    {
+     "id": "d-sq-3",
+     "tipo": "oracao",
+     "versos": [
+      {
+       "latim": "En ego, o bone et dulcíssime Iesu, ante conspéctum tuum génibus me provólvo, ac máximo ánimi ardóre te oro atque obtéstor, ut meum in cor vívidos fídei, spei et caritátis sensus, atque veram peccatórum meórum pæniténtiam, éaque emendándi firmíssimam voluntátem velis imprímere; dum magno ánimi afféctu et dolóre tua quinque vúlnera mecum ipse consídero, ac mente contémplor, illud præ óculis habens, quod jam in ore ponébat tuo David Prophéta de te, o bone Iesu: «Fodérunt manus meas et pedes meos; dinumeravérunt ómnia ossa mea.»",
+       "portugues": "Eis-me aqui, ó bom e dulcíssimo Jesus! De joelhos me prostro em vossa presença e vos suplico com todo o fervor de minha alma que vos digneis gravar no meu coração os mais vivos sentimentos de fé, esperança e caridade, verdadeiro arrependimento de meus pecados e firme propósito de emenda, enquanto vou considerando com vivo afeto e dor as vossas cinco chagas, tendo diante dos olhos aquilo que o profeta Davi já vos fazia dizer, ó bom Jesus: «Transpassaram minhas mãos e meus pés, contaram todos os meus ossos.»"
+      }
+     ]
+    },
+    {
+     "id": "d-sq-4",
+     "tipo": "paragrafo",
+     "texto": "Salmo 21, 17-18. Do [i]Missal Romano[/i], ação de graças depois da Missa."
+    }
+   ]
+  }
+ ],
+ "semDiaFixo": [
+  {
+   "id": "via-sacra",
+   "titulo": "Via-Sacra",
+   "especie": "plenaria",
+   "fonte": "Raccolta",
+   "obra": [
+    {
+     "id": "s-001",
+     "tipo": "paragrafo",
+     "texto": "Plenária, feitas as catorze estações."
+    }
+   ]
+  },
+  {
+   "id": "rosario",
+   "titulo": "Rosário diante do Santíssimo",
+   "especie": "plenaria",
+   "fonte": "Raccolta",
+   "obra": [
+    {
+     "id": "s-002",
+     "tipo": "paragrafo",
+     "texto": "Plenária, rezado ao menos um terço."
+    }
+   ]
+  },
+  {
+   "id": "artigo-da-morte",
+   "titulo": "Artigo da morte",
+   "especie": "plenaria",
+   "fonte": "Raccolta",
+   "obra": [
+    {
+     "id": "s-003",
+     "tipo": "paragrafo",
+     "texto": "Bênção apostólica com plenária, no momento da morte."
+    }
+   ]
+  },
+  {
+   "id": "quarenta-horas",
+   "titulo": "Quarenta Horas",
+   "especie": "plenaria",
+   "fonte": "cân. 917 §2",
+   "obra": [
+    {
+     "id": "s-004",
+     "tipo": "paragrafo",
+     "texto": "Todos os altares da igreja ficam privilegiados enquanto dura a exposição. As datas são marcadas pela paróquia."
+    }
+   ]
+  },
+  {
+   "id": "bencao-papal",
+   "titulo": "Bênção papal",
+   "especie": "plenaria",
+   "fonte": "cân. 914",
+   "obra": [
+    {
+     "id": "s-005",
+     "tipo": "paragrafo",
+     "texto": "O bispo pode dá-la com indulgência plenária na sua diocese, na fórmula prescrita."
+    }
+   ]
+  }
+ ]
 }

@@ -1,6 +1,6 @@
 import { PROPRIO_LOCAL } from "./proprioLocal";
 import { mesLiturgico } from "./precedencia";
-import type { DiaLiturgico } from "./tipos";
+import type { DiaLiturgico, Tempo } from "./tipos";
 import type { Bloco } from "../data/tipos";
 
 /**
@@ -25,7 +25,18 @@ export type Quando =
   | { tipo: "festa"; nome: string }
   | { tipo: "titular" }
   | { tipo: "intervalo"; de: { mes: number; dia: number }; ate: { mes: number; dia: number } }
-  | { tipo: "mensal"; diaDaSemana: number; ocorrencia: number };
+  | { tipo: "mensal"; diaDaSemana: number; ocorrencia: number }
+  /**
+   * Um dia da semana dentro de um ou mais tempos litúrgicos: as sextas-feiras
+   * da Quaresma, por exemplo.
+   *
+   * Leva lista de tempos, e não um só, porque o calendário de 1962 separa a
+   * Quaresma do Tempo da Paixão, enquanto o Enchiridion, escrito depois da
+   * reforma, chama de Quaresma o conjunto dos dois. Pedir só "quaresma" aqui
+   * deixaria de fora justamente as últimas sextas-feiras, que são as que mais
+   * importam.
+   */
+  | { tipo: "diaDaSemanaNoTempo"; diaDaSemana: number; tempos: Tempo[] };
 
 export interface DiaDeIndulgencia {
   id: string;
@@ -95,6 +106,9 @@ function casaNoDia(entrada: DiaDeIndulgencia, dia: DiaLiturgico): boolean {
       // a enésima ocorrência daquele dia da semana no mês
       return Math.floor((numero - 1) / 7) + 1 === q.ocorrencia;
     }
+
+    case "diaDaSemanaNoTempo":
+      return dia.data.getUTCDay() === q.diaDaSemana && q.tempos.includes(dia.tempo);
   }
 }
 

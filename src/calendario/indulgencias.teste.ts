@@ -6,6 +6,7 @@
  * plenária no dia errado, que é o defeito mais caro que esta página pode ter.
  */
 
+import bruto from "../data/indulgencias-dias.json";
 import { indulgenciasDoMes, temPlenaria, type DiaDeIndulgencia } from "./indulgencias";
 
 let passaram = 0;
@@ -102,6 +103,48 @@ const mistura = indulgenciasDoMes(
 conferir("dia com plenária", temPlenaria(mistura.get("2026-08-02")), true);
 conferir("dia só com parcial", temPlenaria(mistura.get("2026-08-03")), false);
 conferir("dia sem nada", temPlenaria(mistura.get("2026-08-04")), false);
+
+// --- as obras que o Caio mandou ---------------------------------------------
+// Aqui os dados são os de verdade, e não fixtures: o que se quer provar é que
+// as entradas do site caem nos dias certos.
+const reais = (bruto as { dias: DiaDeIndulgencia[] }).dias;
+
+const naData = (ano: number, mes: number, data: string, id: string): boolean =>
+  !!indulgenciasDoMes(reais, ano, mes)
+    .get(data)
+    ?.some((o) => o.entrada.id === id);
+
+conferir("Pedro e Paulo está no registro",
+  reais.some((d) => d.id === "pedro-e-paulo"), true);
+conferir("Pedro e Paulo cai em 29 de junho",
+  naData(2026, 6, "2026-06-29", "pedro-e-paulo"), true);
+conferir("e não sobra na vigília, 28 de junho",
+  naData(2026, 6, "2026-06-28", "pedro-e-paulo"), false);
+
+/*
+ * As sextas-feiras da Quaresma são o caso que justifica o tipo novo. O
+ * calendário de 1962 separa a Quaresma do Tempo da Paixão, e em 2026 duas das
+ * sete sextas caem no segundo, uma delas a Sexta-feira Santa: casar só com
+ * "quaresma" perderia justamente a principal.
+ */
+const sextas: string[] = [];
+for (const mes of [2, 3, 4]) {
+  for (const [data, ocorrencias] of indulgenciasDoMes(reais, 2026, mes)) {
+    if (ocorrencias.some((o) => o.entrada.id === "sextas-da-quaresma")) sextas.push(data);
+  }
+}
+sextas.sort();
+conferir("sete sextas-feiras em 2026", sextas.length, 7);
+conferir("a primeira é a da I semana", sextas[0], "2026-02-20");
+conferir("a última é a Sexta-feira Santa", sextas[6], "2026-04-03");
+conferir("duas delas estão no Tempo da Paixão",
+  sextas.filter((d) => d >= "2026-03-27").length, 2);
+conferir("a quarta-feira de Cinzas não entra",
+  naData(2026, 2, "2026-02-18", "sextas-da-quaresma"), false);
+conferir("a sexta depois da Páscoa não entra",
+  naData(2026, 4, "2026-04-10", "sextas-da-quaresma"), false);
+conferir("a sexta antes da Quaresma não entra",
+  naData(2026, 2, "2026-02-13", "sextas-da-quaresma"), false);
 
 const total = passaram + falhas.length;
 console.log(`\nindulgências: ${passaram}/${total}`);
