@@ -326,7 +326,65 @@ button {
     rgba(12, 12, 26, 0.86) 100%
   );
 }
-.cabecalho--estampado .cabecalho__titulo {
+.cabecalho--estampado /*
+ * A antífona que abre o documento.
+ *
+ * Deliberadamente diferente do lema: o lema é dourado, em versalete, entre
+ * estrelas, e pertence ao brasão. Esta é tinta comum, em itálico, com um fio
+ * curto embaixo, e pertence ao texto. Quem lê tem de ver duas coisas, e não
+ * a mesma coisa duas vezes.
+ */
+.epigrafe {
+  max-width: var(--medida-centrada);
+  margin: 2.25rem auto 0;
+  padding-bottom: 1.5rem;
+  font-family: var(--titular);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--tinta-suave);
+  position: relative;
+}
+.epigrafe::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  width: 3.25rem;
+  height: 1px;
+  transform: translateX(-50%);
+  background: var(--fio-aceso);
+}
+
+@media (min-width: 46rem) {
+  .epigrafe {
+    font-size: 1.3rem;
+    margin-top: 2.75rem;
+  }
+}
+
+/*
+ * A seção, acima do título da subpágina. Fica entre a chamada e o título e
+ * precisa ser claramente menor que ele: quem chega tem de ler o nome da
+ * página primeiro, e a seção só como endereço.
+ */
+.cabecalho__secao {
+  margin: 0 0 0.15rem;
+  font-family: var(--titular);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ouro);
+  opacity: 0.85;
+}
+.cabecalho--estampado .cabecalho__secao {
+  color: var(--marca-ouro-claro);
+  opacity: 1;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+.cabecalho__titulo {
   color: var(--marca-lirio);
   text-shadow: 0 1px 12px rgba(8, 8, 18, 0.6);
 }
@@ -362,6 +420,64 @@ button {
   max-width: 34ch;
   line-height: 1.5;
   text-wrap: balance;
+}
+
+/*
+ * A antífona que abre o documento.
+ *
+ * Deliberadamente diferente do lema: o lema é dourado, em versalete, entre
+ * estrelas, e pertence ao brasão. Esta é tinta comum, em itálico, com um fio
+ * curto embaixo, e pertence ao texto. Quem lê tem de ver duas coisas, e não
+ * a mesma coisa duas vezes.
+ */
+.epigrafe {
+  max-width: var(--medida-centrada);
+  margin: 2.25rem auto 0;
+  padding-bottom: 1.5rem;
+  font-family: var(--titular);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--tinta-suave);
+  position: relative;
+}
+.epigrafe::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  width: 3.25rem;
+  height: 1px;
+  transform: translateX(-50%);
+  background: var(--fio-aceso);
+}
+
+@media (min-width: 46rem) {
+  .epigrafe {
+    font-size: 1.3rem;
+    margin-top: 2.75rem;
+  }
+}
+
+/*
+ * A seção, acima do título da subpágina. Fica entre a chamada e o título e
+ * precisa ser claramente menor que ele: quem chega tem de ler o nome da
+ * página primeiro, e a seção só como endereço.
+ */
+.cabecalho__secao {
+  margin: 0 0 0.15rem;
+  font-family: var(--titular);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ouro);
+  opacity: 0.85;
+}
+.cabecalho--estampado .cabecalho__secao {
+  color: var(--marca-ouro-claro);
+  opacity: 1;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
 }
 
 .cabecalho__titulo {
@@ -2898,5 +3014,183 @@ button {
   }
   .padroeiro__nome {
     font-size: 1.05rem;
+  }
+}
+
+
+/* Texto só para quem ouve a página: o leitor de tela anuncia "nota 12" em
+   vez de ler um "12" solto no meio da frase. */
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------- notas
+ * A chamada de nota e o balão que a mostra onde ela é lida.
+ *
+ * O balão é `position: fixed` e recebe as coordenadas do JavaScript. Foi a
+ * saída para o problema de verdade: uma nota no fim de uma linha, num celular
+ * de 390px, sairia pela borda se fosse posicionada em relação à chamada. Fixa,
+ * ela é presa à tela e o cálculo a prende dentro dela.
+ */
+.nota-chamada {
+  white-space: nowrap;
+}
+.nota-chamada__marca {
+  font: inherit;
+  font-size: 0.68em;
+  font-family: var(--sem-serifa);
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: super;
+  color: var(--ouro-tinta);
+  background: none;
+  border: 0;
+  border-radius: 0.2rem;
+  /* apertado: a chamada é vizinha da palavra e da pontuação, não uma palavra */
+  padding: 0.1em 0.14em;
+  cursor: help;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nota-chamada__marca:hover,
+.nota-chamada__marca[aria-expanded="true"] {
+  background: var(--realce);
+  color: var(--tinta);
+}
+.nota-chamada__marca:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: 1px;
+}
+.nota-chamada--orfa {
+  font-size: 0.68em;
+  color: var(--tinta-suave);
+}
+
+.nota-balao {
+  position: fixed;
+  z-index: 60;
+  /*
+   * Fechada é `display: none`, e não só o atributo `hidden`.
+   * `[hidden]` do navegador vale `display: none` com a mesma especificidade de
+   * uma classe, então `.nota-balao { display: block }` o vencia por vir depois:
+   * os 124 balões ficavam pintados fora da tela, e uma nota já aberta nunca
+   * mais sumia da tela.
+   */
+  display: none;
+  box-sizing: border-box;
+  padding: 0.7rem 0.85rem;
+  /* --painel, e não --papel: no escuro o papel é a cor da própria página, e
+     o balão ficava sem fundo, como texto solto sobre o parágrafo */
+  background: var(--painel);
+  border: 1px solid var(--fio-aceso);
+  border-radius: 0.35rem;
+  box-shadow: 0 6px 24px var(--sombra);
+  font-family: var(--sem-serifa);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--tinta);
+  text-align: left;
+  white-space: normal;
+  /* nota longa não empurra a página: rola dentro do próprio balão */
+  max-height: 60vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.nota-balao:not([hidden]) {
+  display: block;
+}
+.nota-balao__numero {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  margin-bottom: 0.3rem;
+}
+.nota-balao__texto .lat {
+  font-style: italic;
+}
+
+/* elo dentro do texto: sumário impresso, índice analítico e links externos */
+.elo-texto {
+  color: inherit;
+  text-decoration-color: var(--fio-aceso);
+  text-underline-offset: 0.18em;
+}
+.elo-texto:hover {
+  text-decoration-color: var(--ouro);
+}
+.elo-texto--externo::after {
+  content: " ↗";
+  font-size: 0.8em;
+  color: var(--ouro-tinta);
+}
+
+/* ------------------------------------------------- sumário com subseções */
+.sumario__linha {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+.sumario__linha .sumario__link {
+  flex: 1;
+}
+.sumario__abrir {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0.25rem;
+  color: var(--tinta-suave);
+  cursor: pointer;
+}
+.sumario__abrir:hover {
+  color: var(--ouro-tinta);
+}
+.sumario__abrir:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: -2px;
+}
+.sumario__seta {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.18s ease;
+}
+.sumario__seta--aberta {
+  transform: rotate(180deg);
+}
+.sumario__sublista {
+  list-style: none;
+  margin: 0.15rem 0 0.4rem;
+  padding: 0 0 0 0.9rem;
+  border-left: 1px solid var(--fio);
+}
+.sumario__sublink {
+  display: block;
+  padding: 0.28rem 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--tinta-suave);
+  text-decoration: none;
+}
+.sumario__sublink:hover {
+  color: var(--tinta);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sumario__seta {
+    transition: none;
   }
 }

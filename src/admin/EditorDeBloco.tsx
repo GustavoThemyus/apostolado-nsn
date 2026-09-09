@@ -34,9 +34,25 @@ export function EditorDeBloco({ bloco, aoMudar, aoRemover, aoMover, children }: 
       )}
 
       {bloco.tipo === "subtitulo" && (
-        <Campo rotulo="Título do tópico">
-          <Linha valor={bloco.texto} aoMudar={(texto) => troca({ texto })} />
-        </Campo>
+        <>
+          <Campo rotulo="Título do tópico">
+            <Linha valor={bloco.texto} aoMudar={(texto) => troca({ texto })} />
+          </Campo>
+          <Campo
+            rotulo="Âncora"
+            dica="Nome curto e sem acento. É o que faz o sumário e o índice apontarem para aqui. Mudar quebra os links já feitos."
+          >
+            <Linha valor={bloco.ancora ?? ""} aoMudar={(ancora) => troca({ ancora })} />
+          </Campo>
+          <label className="campo campo--inline">
+            <input
+              type="checkbox"
+              checked={bloco.menor ?? false}
+              onChange={(e) => troca({ menor: e.target.checked })}
+            />
+            <span>Tópico menor, fora do sumário</span>
+          </label>
+        </>
       )}
 
       {bloco.tipo === "lista" && (

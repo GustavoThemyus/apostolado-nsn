@@ -10,6 +10,8 @@ import type { Conteudo } from "../data/tipos";
 import { usarRota } from "../routes/usarRota";
 import { usarSecaoAtiva } from "../hooks/usarSecaoAtiva";
 import { Moldura } from "../components/Moldura";
+import { ProvedorDeNotas } from "../components/Notas";
+import { ProvedorDeSecoes } from "../components/IndiceDoDocumento";
 
 /**
  * A página de conteúdo genérica: serve o guia, as indulgências, o apostolado
@@ -62,6 +64,8 @@ export function PaginaDeDocumento({
   );
 
   return (
+    <ProvedorDeNotas notas={conteudo.notas}>
+    <ProvedorDeSecoes secoes={secoesReais}>
     <ProvedorDeNumeracao secoes={secoesReais}>
       <Moldura
         titulo={conteudo.titulo}
@@ -79,11 +83,21 @@ export function PaginaDeDocumento({
         <Cabecalho
           titulo={conteudo.titulo}
           descricao={conteudo.descricao}
-          epigrafe={conteudo.epigrafe}
         />
 
         {conteudo.emPreparacao && <Vazia />}
         {conteudo.rascunho && <Vazia variante="rascunho" />}
+
+        {/*
+          A antífona abre o texto, e é por isso que ela fica aqui e não no
+          cabeçalho: o cabeçalho é a identidade do apostolado, igual em toda
+          página; esta linha é a voz deste documento.
+        */}
+        {conteudo.epigrafe && (
+          <p className="epigrafe" lang="la">
+            {conteudo.epigrafe}
+          </p>
+        )}
 
         {/*
           Em tela larga o sumário sai de cima do texto e vira coluna à
@@ -122,5 +136,7 @@ export function PaginaDeDocumento({
         )}
       </Moldura>
     </ProvedorDeNumeracao>
+    </ProvedorDeSecoes>
+    </ProvedorDeNotas>
   );
 }

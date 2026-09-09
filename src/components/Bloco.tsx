@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Bloco as TipoBloco, Etiqueta } from "../data/tipos";
+import { IndiceDoDocumento } from "./IndiceDoDocumento";
 import { Legenda } from "./Legenda";
 import { usarNumeroDoPasso } from "./NumeracaoDePassos";
 import { Nota } from "./Nota";
@@ -37,7 +38,19 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
     case "assembleia":
       return <RubricaDaAssembleia texto={bloco.texto} />;
     case "subtitulo":
-      return <h3 className="subtitulo">{bloco.texto}</h3>;
+      // a âncora é o que deixa o sumário e o índice analítico apontarem para
+      // uma concessão, e não só para a seção inteira
+      // o menor é o cabeçalho de uma oração dentro de uma concessão: ganha
+      // âncora para o índice analítico, mas fica fora do sumário
+      return bloco.menor ? (
+        <h4 className="subtitulo subtitulo--menor" id={bloco.ancora}>
+          <TextoRico texto={bloco.texto} />
+        </h4>
+      ) : (
+        <h3 className="subtitulo" id={bloco.ancora}>
+          <TextoRico texto={bloco.texto} />
+        </h3>
+      );
     case "lista":
       return <Lista ordenada={bloco.ordenada} itens={bloco.itens} />;
     case "oracao":
@@ -46,6 +59,10 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
       return <Nota titulo={bloco.titulo} paragrafos={bloco.paragrafos} alerta={bloco.alerta} />;
     case "tabela":
       return <Tabela colunas={bloco.colunas} linhas={bloco.linhas} />;
+    case "separador":
+      return <hr className="separador" />;
+    case "indice":
+      return <IndiceDoDocumento />;
     case "legenda":
       return <Legenda itens={bloco.itens} />;
     case "passo":

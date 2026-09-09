@@ -1,5 +1,5 @@
 import { site } from "../data/site";
-import { chamadaDaRota, imagemDaRota } from "../routes/rotas";
+import { chamadaDaRota, imagemDaRota, rotaPorPadrao } from "../routes/rotas";
 import { usarRota } from "../routes/usarRota";
 import { Brasao } from "./Brasao";
 import { Estrela } from "./Estrela";
@@ -7,10 +7,14 @@ import { Estrela } from "./Estrela";
 /**
  * O cabeçalho de toda página, num só formato.
  *
- * Havia duas alturas, e o guia ficava diferente das demais seções. Agora é um
- * modelo só: brasão grande, chamada em versalete dourado, o título em Playfair
- * e uma epígrafe em latim embaixo. Sem epígrafe própria vale o lema do brasão,
- * que é o que a maioria das páginas mostra.
+ * A ordem é a de uma folha de rosto: o apostolado, depois a seção, depois o
+ * nome da página, e o lema fechando. Numa subpágina a seção aparece em cima,
+ * menor; na página da própria seção não aparece, porque ela repetiria o
+ * título logo abaixo.
+ *
+ * O lema é sempre o lema. Antes uma página podia trocá-lo por uma antífona
+ * própria, e o resultado foi o "Iter para tutum" sumir justamente das páginas
+ * mais compridas: aquela linha é o lugar dele, não um espaço livre.
  *
  * A chamada vem da rota, e não de prop nem do JSON: o rito só se anuncia nas
  * páginas que falam da Missa. Anunciá-lo no calendário e nas indulgências
@@ -19,15 +23,14 @@ import { Estrela } from "./Estrela";
 export function Cabecalho({
   titulo,
   descricao,
-  epigrafe,
 }: {
   titulo: string;
   descricao?: string;
-  /** Antífona própria da página. Na falta dela entra o lema do brasão. */
-  epigrafe?: string;
 }) {
   const { rota } = usarRota();
   const estampa = imagemDaRota(rota);
+  // a seção só se anuncia em cima de uma subpágina dela
+  const secao = rota?.pai ? rotaPorPadrao(rota.pai)?.titulo : undefined;
 
   return (
     <header
@@ -48,11 +51,12 @@ export function Cabecalho({
       <p className="cabecalho__chamada">
         {chamadaDaRota(rota) ?? site.chamada}
       </p>
+      {secao && <p className="cabecalho__secao">{secao}</p>}
       <h1 className="cabecalho__titulo">{titulo}</h1>
       {descricao && <p className="cabecalho__resumo">{descricao}</p>}
       <p className="cabecalho__lema" lang="la">
         <Estrela />
-        {epigrafe ?? site.lema}
+        {site.lema}
         <Estrela />
       </p>
     </header>

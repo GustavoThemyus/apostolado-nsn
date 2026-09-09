@@ -1,15 +1,54 @@
 import { Fragment, type ReactNode } from "react";
+import { BalaoDeNota, usarNota, usarNotaEmCurso } from "./Notas";
 
 const CORES = ["branco", "vermelho", "verde", "roxo", "preto", "rosa"] as const;
 
 type Cor = (typeof CORES)[number];
-type Marca = "lat" | "b" | "i" | "r" | Cor;
+type Marca = "lat" | "b" | "i" | "r" | "nota" | "elo" | Cor;
 
-/** Instância nova a cada chamada: a busca é recursiva e lastIndex é estado mutável. */
+/**
+ * Instância nova a cada chamada: a busca é recursiva e lastIndex é estado
+ * mutável. O `:parametro` é opcional e só o `elo` o usa hoje.
+ */
 const marcacao = () =>
-  /\[(lat|b|i|r|branco|vermelho|verde|roxo|preto|rosa)\]([\s\S]*?)\[\/\1\]/g;
+  /\[(lat|b|i|r|nota|elo|branco|vermelho|verde|roxo|preto|rosa)(?::([^\]]*))?\]([\s\S]*?)\[\/\1\]/g;
 
-function envolver(marca: Marca, conteudo: ReactNode, chave: string): ReactNode {
+/** A chamada de nota: componente porque precisa de contexto. */
+function Nota({ chave }: { chave: string }) {
+  const texto = usarNota(chave);
+  // nota que se cita dentro de si mesma pararia aqui de qualquer jeito; sem
+  // esta guarda ela pararia estourando a memória do navegador
+  const emCurso = usarNotaEmCurso(chave);
+  // nota que não está no mapa vira só o número: não prometer o que não há
+  if (!texto || emCurso) {
+    return <sup className="nota-chamada nota-chamada--orfa">{chave}</sup>;
+  }
+  return (
+    <BalaoDeNota chave={chave}>{interpretar(texto, `nota-${chave}`)}</BalaoDeNota>
+  );
+}
+
+function Elo({ destino, children }: { destino: string; children: ReactNode }) {
+  const externo = /^https?:/.test(destino);
+  return (
+    <a
+      className={`elo-texto${externo ? " elo-texto--externo" : ""}`}
+      // âncora interna começa com #, e o Roteador não intercepta essas
+      href={externo ? destino : `#${destino}`}
+      {...(externo ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+    >
+      {children}
+    </a>
+  );
+}
+
+function envolver(
+  marca: Marca,
+  parametro: string | undefined,
+  conteudo: ReactNode,
+  cru: string,
+  chave: string,
+): ReactNode {
   switch (marca) {
     case "lat":
       return (
@@ -26,6 +65,15 @@ function envolver(marca: Marca, conteudo: ReactNode, chave: string): ReactNode {
         <span className="rubrica rubrica--embutida" key={chave}>
           {conteudo}
         </span>
+      );
+    case "nota":
+      // o corpo é a chave da nota, não texto para interpretar
+      return <Nota chave={cru.trim()} key={chave} />;
+    case "elo":
+      return (
+        <Elo destino={parametro ?? ""} key={chave}>
+          {conteudo}
+        </Elo>
       );
     default:
       // nome de cor litúrgica: a palavra é escrita na própria cor
@@ -61,11 +109,20 @@ export function interpretar(texto: string, prefixo = "t"): ReactNode[] {
   while ((ocorrencia = padrao.exec(texto)) !== null) {
     if (ocorrencia.index > ultimoFim) {
       partes.push(
-        ...comQuebras(texto.slice(ultimoFim, ocorrencia.index), `${prefixo}-${ultimoFim}`)
+        ...comQuebras(texto.slice(ultimoFim, ocorrencia.index), `${prefixo}-${ultimoFim}`),
       );
     }
-    const chave = `${prefixo}-${ocorrencia[1]}-${ocorrencia.index}`;
-    partes.push(envolver(ocorrencia[1] as Marca, interpretar(ocorrencia[2], chave), chave));
+    const marca = ocorrencia[1] as Marca;
+    const chave = `${prefixo}-${marca}-${ocorrencia.index}`;
+    partes.push(
+      envolver(
+        marca,
+        ocorrencia[2],
+        marca === "nota" ? null : interpretar(ocorrencia[3], chave),
+        ocorrencia[3],
+        chave,
+      ),
+    );
     ultimoFim = ocorrencia.index + ocorrencia[0].length;
   }
 

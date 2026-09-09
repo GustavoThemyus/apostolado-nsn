@@ -2,10 +2,13 @@
  * Modelo de conteúdo do guia.
  *
  * O texto corrido usa uma marcação mínima, interpretada por <TextoRico>:
- *   [lat]...[/lat]  termo ou citação em latim
- *   [b]...[/b]      destaque forte
- *   [i]...[/i]      itálico comum (títulos de obras, ênfase)
- *   [r]...[/r]      rubrica embutida no meio de outro texto
+ *   [lat]...[/lat]        termo ou citação em latim
+ *   [b]...[/b]            destaque forte
+ *   [i]...[/i]            itálico comum (títulos de obras, ênfase)
+ *   [r]...[/r]            rubrica embutida no meio de outro texto
+ *   [nota]12[/nota]       chamada de nota; o texto vem de `Conteudo.notas`
+ *   [elo:ancora]...[/elo] link para outro ponto da mesma página
+ *   [elo:https://...]     link externo, que abre em outra aba
  */
 
 /** Classificação litúrgica de cada peça da Missa. */
@@ -40,7 +43,11 @@ export type Bloco = ComId &
   | { tipo: "paragrafo"; texto: string }
   | { tipo: "rubrica"; texto: string }
     | { tipo: "assembleia"; texto: string }
-  | { tipo: "subtitulo"; texto: string }
+  | { tipo: "subtitulo"; texto: string; ancora?: string; menor?: boolean }
+  /** Fio que separa o latim da tradução, como no impresso. */
+  | { tipo: "separador" }
+  /** O índice completo do documento, derivado das seções. */
+  | { tipo: "indice" }
   | { tipo: "lista"; ordenada?: boolean; itens: string[] }
   | { tipo: "oracao"; versos: Verso[] }
   | { tipo: "nota"; titulo: string; paragrafos: string[]; alerta?: boolean }
@@ -75,12 +82,27 @@ export interface Conteudo {
   descricao?: string;
   /** @deprecated A chamada é do site inteiro e vive em site.json. */
   chamada?: string;
-  /** Antífona em latim sob o título, onde há uma própria. */
+  /**
+   * Antífona de abertura, em latim, no alto do documento.
+   *
+   * Tem lugar próprio, e não o do lema: o lema é do brasão e é o mesmo em
+   * toda página, enquanto a antífona é daquele texto. Quando as duas
+   * dividiam a mesma linha, a antífona ganhava e o "Iter para tutum" sumia
+   * justamente das páginas mais longas.
+   */
   epigrafe?: string;
   /** Marca a página como ainda por escrever, para o aviso aparecer. */
   emPreparacao?: boolean;
   /** Texto provisório, a ser substituído pelo definitivo. */
   rascunho?: boolean;
+  /**
+   * As notas do documento, da chamada para o texto.
+   *
+   * Ficam num mapa à parte, e não no meio do texto, porque a mesma nota é
+   * citada de vários pontos e porque a chamada precisa mostrá-la onde ela é
+   * lida, e não no fim do capítulo.
+   */
+  notas?: Record<string, string>;
   secoes: Secao[];
 }
 
@@ -145,8 +167,6 @@ export interface Guia {
   chamada?: string;
   titulo: string;
   descricao: string;
-  /** Antífona de abertura, em latim, sob o título. */
-  epigrafe: string;
   /** Lema do brasão. */
   lema: string;
   secoes: Secao[];
