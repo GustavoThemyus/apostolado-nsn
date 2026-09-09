@@ -1,4 +1,4 @@
-import { EM_PREPARACAO, SECOES_DO_MENU, rotaPorPadrao } from "../routes/rotas";
+import { ESTADO_DA_ROTA, NOME_DO_ESTADO, SECOES_DO_MENU, rotaPorPadrao } from "../routes/rotas";
 import { site } from "../data/site";
 import { Brasao } from "./Brasao";
 import { Estrela } from "./Estrela";
@@ -52,8 +52,10 @@ export function MenuPrincipal({
                 >
                   <span className="menu__nome">
                     {rota.titulo}
-                    {EM_PREPARACAO.has(padrao) && (
-                      <span className="menu__preparo">Em preparação</span>
+                    {ESTADO_DA_ROTA[padrao] && (
+                      <span className="menu__preparo">
+                        {NOME_DO_ESTADO[ESTADO_DA_ROTA[padrao]]}
+                      </span>
                     )}
                   </span>
                   {rota.descricao && (

@@ -7,11 +7,19 @@
  * recursão, antes desta suíte existir.
  */
 
+import apostolado from "./apostolado.json";
+import arquidiocese from "./calendario-arquidiocese.json";
+import brasil from "./calendario-brasil.json";
+import canonica from "./missa-canonica.json";
 import dias from "./indulgencias-dias.json";
 import enchiridion from "./indulgencias-enchiridion.json";
 import guia from "./guia.json";
 import indulgencias from "./indulgencias.json";
 import missa from "./missa.json";
+import ordens from "./indulgencias-ordens.json";
+import partes from "./missa-partes.json";
+import raccolta from "./indulgencias-raccolta.json";
+import { ESTADO_DA_ROTA } from "../routes/rotas";
 import type { Bloco, Conteudo, Secao } from "./tipos";
 
 let passaram = 0;
@@ -125,6 +133,46 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("dias de indulgência: toda entrada tem id", semId === 0);
   const repetidos = todos.map((e) => e.id).filter((id, i, t) => t.indexOf(id) !== i);
   conferir("dias de indulgência: ids sem repetição", repetidos.length === 0, repetidos.join(", "));
+}
+
+/*
+ * A etiqueta "Em preparação" / "Rascunho" que o menu e os cartões mostram sai
+ * de uma lista à mão em rotas.ts, porque a tabela de rotas não pode importar
+ * os JSON sem trazer todos para o pacote inicial. Lista à mão apodrece: esta
+ * já dizia "em preparação" de um documento de catorze seções publicadas.
+ * Aqui ela é conferida contra o que cada página diz de si.
+ */
+{
+  const paginas: [string, Conteudo][] = [
+    ["/missa", missa as unknown as Conteudo],
+    ["/missa/guia", guia as unknown as Conteudo],
+    ["/missa/partes", partes as unknown as Conteudo],
+    ["/missa/situacao-canonica", canonica as unknown as Conteudo],
+    ["/calendario/brasil", brasil as unknown as Conteudo],
+    ["/calendario/arquidiocese", arquidiocese as unknown as Conteudo],
+    ["/indulgencias", indulgencias as unknown as Conteudo],
+    ["/indulgencias/raccolta", raccolta as unknown as Conteudo],
+    ["/indulgencias/enchiridion", enchiridion as unknown as Conteudo],
+    ["/indulgencias/ordens", ordens as unknown as Conteudo],
+    ["/apostolado", apostolado as unknown as Conteudo],
+  ];
+
+  const divergem: string[] = [];
+  for (const [rota, doc] of paginas) {
+    const esperado = doc.emPreparacao ? "preparacao" : doc.rascunho ? "rascunho" : undefined;
+    const anunciado = ESTADO_DA_ROTA[rota];
+    if (esperado !== anunciado) {
+      divergem.push(`${rota}: a rota diz ${anunciado ?? "pronta"}, o JSON diz ${esperado ?? "pronta"}`);
+    }
+  }
+  conferir("a etiqueta da rota bate com o que a página diz de si",
+    divergem.length === 0, divergem.join(" | "));
+
+  const semPagina = Object.keys(ESTADO_DA_ROTA).filter(
+    (r) => !paginas.some(([p]) => p === r),
+  );
+  conferir("nenhuma rota marcada ficou de fora desta conferência",
+    semPagina.length === 0, semPagina.join(", "));
 }
 
 const total = passaram + falhas.length;

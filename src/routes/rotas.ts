@@ -211,17 +211,35 @@ export const filhasDe = (padrao: string): Rota[] =>
   ROTAS.filter((r) => r.pai === padrao && !r.foraDoMenu);
 
 /** Documentos ainda por escrever: ganham etiqueta em vez de sumirem. */
-export const EM_PREPARACAO = new Set([
-  "/missa/partes",
-  "/missa/situacao-canonica",
-  "/calendario/brasil",
-  "/calendario/arquidiocese",
-  "/indulgencias/raccolta",
-  "/indulgencias/enchiridion",
-  "/indulgencias/ordens",
-  "/apostolado",
-]);
+/**
+ * O estado de cada página que ainda não está pronta.
+ *
+ *   "preparacao"  não há texto nenhum
+ *   "rascunho"    há texto, porém provisório
+ *
+ * É uma lista à mão porque a tabela de rotas não pode importar os JSON: cada
+ * um viaja no pedaço da sua rota, e importá-los aqui traria todos para o
+ * pacote inicial. Lista à mão apodrece, e esta já tinha apodrecido, dizendo
+ * "em preparação" de um documento de catorze seções publicadas. Quem a
+ * mantém honesta agora é `src/data/conteudo.teste.ts`, que a confere contra
+ * o que cada JSON diz de si.
+ */
+export type EstadoDaRota = "preparacao" | "rascunho";
 
+export const ESTADO_DA_ROTA: Record<string, EstadoDaRota> = {
+  "/missa/partes": "preparacao",
+  "/missa/situacao-canonica": "preparacao",
+  "/calendario/brasil": "preparacao",
+  "/calendario/arquidiocese": "preparacao",
+  "/indulgencias/raccolta": "rascunho",
+  "/indulgencias/ordens": "rascunho",
+  "/apostolado": "preparacao",
+};
+
+export const NOME_DO_ESTADO: Record<EstadoDaRota, string> = {
+  preparacao: "Em preparação",
+  rascunho: "Rascunho",
+};
 /**
  * A chamada da página, subindo pela rota mãe até achar uma.
  *

@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import { Cabecalho } from "../components/Cabecalho";
-import { CartoesDeSecao } from "../components/CartoesDeSecao";
+import { AtalhosDaSecao, CartoesDeSecao } from "../components/CartoesDeSecao";
 import { ProvedorDeNumeracao } from "../components/NumeracaoDePassos";
 import { Secao } from "../components/Secao";
 import { Sumario } from "../components/Sumario";
@@ -98,6 +98,9 @@ export function PaginaDeDocumento({
             {conteudo.epigrafe}
           </p>
         )}
+
+        {/* antes do texto: quem chega tem de saber que a seção tem mais */}
+        {rota && <AtalhosDaSecao padrao={rota.padrao} />}
 
         {/*
           Em tela larga o sumário sai de cima do texto e vira coluna à

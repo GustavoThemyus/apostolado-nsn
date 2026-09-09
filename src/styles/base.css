@@ -327,6 +327,128 @@ button {
   );
 }
 .cabecalho--estampado /*
+ * O índice da seção, no alto da página.
+ *
+ * Os cartões que levam às outras páginas ficam no fim, e quem chega ao texto
+ * não tinha como saber que existiam sem rolar até lá. Esta linha diz de saída
+ * o que a seção tem. É de propósito discreta: anuncia, não disputa com o
+ * título nem com o começo do texto.
+ */
+.atalhos {
+  margin: 1.75rem 0 0;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--fio);
+}
+.atalhos__rotulo {
+  margin: 0 0 0.45rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+}
+.atalhos__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  /* o ponto separador é do CSS, e não do texto: leitor de tela não o lê */
+  gap: 0 0.9rem;
+}
+.atalhos__item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+/*
+ * O ponto só separa quando os itens estão na mesma linha. Empilhados, ele
+ * vira um marcador pendurado à esquerda, e aí quem separa é a quebra.
+ */
+@media (min-width: 46rem) {
+  .atalhos__item + .atalhos__item::before {
+    content: "·";
+    color: var(--fio-aceso);
+    margin-right: 0.6rem;
+  }
+}
+.atalhos__elo {
+  font-family: var(--titular);
+  font-size: 1.02rem;
+  color: var(--tinta);
+  text-decoration: none;
+  border-bottom: 1px solid var(--fio-aceso);
+  padding: 0 0 0.05rem;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+/*
+ * No celular a tira vira lista de linhas.
+ *
+ * Empilhada, ela já era uma lista; o que faltava era o alvo. Sublinhado com
+ * folga em volta daria 35px de altura, abaixo do dedo, e alvos de 35px
+ * encostados uns nos outros erram para o vizinho, que é pior do que errar
+ * para lugar nenhum. A linha inteira passa a ser o alvo, com a medida do
+ * token, e quem separa é o fio entre elas.
+ */
+@media (max-width: 45.99rem) {
+  .atalhos__item {
+    width: 100%;
+    min-height: var(--alvo-toque);
+  }
+  .atalhos__item + .atalhos__item {
+    border-top: 1px solid var(--fio);
+  }
+  .atalhos__elo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: var(--alvo-toque);
+    border-bottom: 0;
+    padding: 0;
+  }
+  .atalhos__preparo {
+    align-self: center;
+  }
+}
+.atalhos__elo:hover {
+  color: var(--ouro-tinta);
+  border-bottom-color: var(--ouro);
+}
+.atalhos__preparo {
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  color: var(--tinta-suave);
+}
+.atalhos__descer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.35rem;
+  /* também alcança a medida do dedo, ainda que seja o elo secundário */
+  padding: 0.7rem 0;
+  font-family: var(--sem-serifa);
+  font-size: 0.78rem;
+  color: var(--tinta-suave);
+  text-decoration: none;
+}
+.atalhos__descer:hover {
+  color: var(--ouro-tinta);
+}
+.atalhos__seta {
+  width: 0.85rem;
+  height: 0.85rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* a mesma seta dos cartões, virada para baixo: o destino está mais abaixo */
+  transform: rotate(90deg);
+}
+
+/*
  * A antífona que abre o documento.
  *
  * Deliberadamente diferente do lema: o lema é dourado, em versalete, entre
@@ -420,6 +542,128 @@ button {
   max-width: 34ch;
   line-height: 1.5;
   text-wrap: balance;
+}
+
+/*
+ * O índice da seção, no alto da página.
+ *
+ * Os cartões que levam às outras páginas ficam no fim, e quem chega ao texto
+ * não tinha como saber que existiam sem rolar até lá. Esta linha diz de saída
+ * o que a seção tem. É de propósito discreta: anuncia, não disputa com o
+ * título nem com o começo do texto.
+ */
+.atalhos {
+  margin: 1.75rem 0 0;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--fio);
+}
+.atalhos__rotulo {
+  margin: 0 0 0.45rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+}
+.atalhos__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  /* o ponto separador é do CSS, e não do texto: leitor de tela não o lê */
+  gap: 0 0.9rem;
+}
+.atalhos__item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+/*
+ * O ponto só separa quando os itens estão na mesma linha. Empilhados, ele
+ * vira um marcador pendurado à esquerda, e aí quem separa é a quebra.
+ */
+@media (min-width: 46rem) {
+  .atalhos__item + .atalhos__item::before {
+    content: "·";
+    color: var(--fio-aceso);
+    margin-right: 0.6rem;
+  }
+}
+.atalhos__elo {
+  font-family: var(--titular);
+  font-size: 1.02rem;
+  color: var(--tinta);
+  text-decoration: none;
+  border-bottom: 1px solid var(--fio-aceso);
+  padding: 0 0 0.05rem;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+/*
+ * No celular a tira vira lista de linhas.
+ *
+ * Empilhada, ela já era uma lista; o que faltava era o alvo. Sublinhado com
+ * folga em volta daria 35px de altura, abaixo do dedo, e alvos de 35px
+ * encostados uns nos outros erram para o vizinho, que é pior do que errar
+ * para lugar nenhum. A linha inteira passa a ser o alvo, com a medida do
+ * token, e quem separa é o fio entre elas.
+ */
+@media (max-width: 45.99rem) {
+  .atalhos__item {
+    width: 100%;
+    min-height: var(--alvo-toque);
+  }
+  .atalhos__item + .atalhos__item {
+    border-top: 1px solid var(--fio);
+  }
+  .atalhos__elo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: var(--alvo-toque);
+    border-bottom: 0;
+    padding: 0;
+  }
+  .atalhos__preparo {
+    align-self: center;
+  }
+}
+.atalhos__elo:hover {
+  color: var(--ouro-tinta);
+  border-bottom-color: var(--ouro);
+}
+.atalhos__preparo {
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  color: var(--tinta-suave);
+}
+.atalhos__descer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.35rem;
+  /* também alcança a medida do dedo, ainda que seja o elo secundário */
+  padding: 0.7rem 0;
+  font-family: var(--sem-serifa);
+  font-size: 0.78rem;
+  color: var(--tinta-suave);
+  text-decoration: none;
+}
+.atalhos__descer:hover {
+  color: var(--ouro-tinta);
+}
+.atalhos__seta {
+  width: 0.85rem;
+  height: 0.85rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* a mesma seta dos cartões, virada para baixo: o destino está mais abaixo */
+  transform: rotate(90deg);
 }
 
 /*
@@ -2760,10 +3004,6 @@ button {
   }
 }
 
-.vazia--rascunho {
-  border-style: solid;
-  border-left: 3px solid var(--ouro);
-}
 
 /* ---------------- mural de avisos ---------------- */
 

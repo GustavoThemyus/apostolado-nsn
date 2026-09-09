@@ -4,7 +4,7 @@ import { DetalheDoDia } from "../components/DetalheDoDia";
 import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
 import { AssinarAgenda } from "../components/AssinarAgenda";
 import { Cabecalho } from "../components/Cabecalho";
-import { CartoesDeSecao } from "../components/CartoesDeSecao";
+import { AtalhosDaSecao, CartoesDeSecao } from "../components/CartoesDeSecao";
 import {
   LegendaDasAgendas,
   VincularAgenda,
@@ -77,6 +77,9 @@ export default function Calendario() {
         titulo="Calendário Romano Tradicional"
         descricao="O calendário do Missal de 1962, calculado para qualquer ano. Cada rito, e mesmo cada lugar, tem o seu; este é o do rito tradicional, com o próprio da capela."
       />
+
+      {/* antes do texto: quem chega tem de saber que a seção tem mais */}
+      <AtalhosDaSecao padrao="/calendario" />
 
       <aside className="nota" aria-labelledby="qual-calendario">
         <h2 className="nota__titulo" id="qual-calendario">
