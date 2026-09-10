@@ -49,9 +49,15 @@
      diz que é clicável é o "Ver" com seta. O ouro cheio ali gritava. */
   --fio-aceso: #c0ab74;
   --realce: #ecdcae;
-  /* passagem do cursor: a própria superfície, um degrau mais escura. Não usa
-     ouro, que ficou reservado para dizer em que página se está. */
-  --fundo-toque: #e6e0d1;
+  /*
+   * Passagem do cursor: a própria superfície, meio degrau mais escura. Não
+   * usa ouro, que ficou reservado para dizer em que página se está.
+   *
+   * Meio degrau, e não um: entre o painel e a página o site já anda 1,08, e
+   * um passo desse tamanho no hover fazia a linha parecer um buraco em vez de
+   * uma linha sob o cursor.
+   */
+  --fundo-toque: #f2ede0;
   --vidro: rgba(240, 236, 225, 0.88);
   --sombra: rgba(32, 32, 73, 0.16);
   --damasco-cor: var(--marca-azul);
@@ -138,7 +144,7 @@
     --fio-suave: #2b2d3b;
     --fio-aceso: #6a6350;
     --realce: #3e3828;
-    --fundo-toque: #15161e;
+    --fundo-toque: #1c1d26;
     --vidro: rgba(24, 24, 33, 0.88);
     --sombra: rgba(0, 0, 0, 0.45);
     --damasco-cor: var(--marca-ouro);
@@ -169,7 +175,7 @@
   --fio-suave: #2b2d3b;
   --fio-aceso: #6a6350;
   --realce: #3e3828;
-  --fundo-toque: #15161e;
+  --fundo-toque: #1c1d26;
   --vidro: rgba(24, 24, 33, 0.88);
   --sombra: rgba(0, 0, 0, 0.45);
   --damasco-cor: var(--marca-ouro);

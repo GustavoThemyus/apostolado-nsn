@@ -1033,7 +1033,7 @@ button {
   }
   .folha--esquerda {
     right: auto;
-    border-right: 2px solid var(--ouro);
+    /* sem filete dourado na borda: quem separa a gaveta da página é a sombra */
     box-shadow: 12px 0 40px var(--sombra);
     animation: entrar-da-esquerda 0.2s ease-out;
   }
