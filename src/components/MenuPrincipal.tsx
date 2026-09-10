@@ -13,6 +13,10 @@ import { Seta } from "./Seta";
  * o leitor tinha de ler tudo para achar as seções. As subpáginas moram na
  * página da sua seção, em cartões, que é onde elas fazem sentido e onde há
  * espaço para dizer o que são.
+ *
+ * Pela mesma razão o menu traz só o nome de cada seção. A descrição continua
+ * onde é lida de verdade: no cabeçalho da página e no cartão. Aqui ela
+ * dobrava a altura de cada linha e fazia procurar em vez de escolher.
  */
 export function MenuPrincipal({
   aberto,
@@ -58,9 +62,6 @@ export function MenuPrincipal({
                       </span>
                     )}
                   </span>
-                  {rota.descricao && (
-                    <span className="menu__resumo">{rota.descricao}</span>
-                  )}
                   <Seta className="menu__seta" />
                 </Elo>
               </li>

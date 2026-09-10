@@ -544,185 +544,6 @@ button {
   text-wrap: balance;
 }
 
-/*
- * O índice da seção, no alto da página.
- *
- * Os cartões que levam às outras páginas ficam no fim, e quem chega ao texto
- * não tinha como saber que existiam sem rolar até lá. Esta linha diz de saída
- * o que a seção tem. É de propósito discreta: anuncia, não disputa com o
- * título nem com o começo do texto.
- */
-.atalhos {
-  margin: 1.75rem 0 0;
-  padding: 0.85rem 0 0;
-  border-top: 1px solid var(--fio);
-}
-.atalhos__rotulo {
-  margin: 0 0 0.45rem;
-  font-family: var(--sem-serifa);
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ouro-tinta);
-}
-.atalhos__lista {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  /* o ponto separador é do CSS, e não do texto: leitor de tela não o lê */
-  gap: 0 0.9rem;
-}
-.atalhos__item {
-  display: flex;
-  align-items: baseline;
-  gap: 0.3rem;
-}
-/*
- * O ponto só separa quando os itens estão na mesma linha. Empilhados, ele
- * vira um marcador pendurado à esquerda, e aí quem separa é a quebra.
- */
-@media (min-width: 46rem) {
-  .atalhos__item + .atalhos__item::before {
-    content: "·";
-    color: var(--fio-aceso);
-    margin-right: 0.6rem;
-  }
-}
-.atalhos__elo {
-  font-family: var(--titular);
-  font-size: 1.02rem;
-  color: var(--tinta);
-  text-decoration: none;
-  border-bottom: 1px solid var(--fio-aceso);
-  padding: 0 0 0.05rem;
-  transition: border-color 0.15s ease, color 0.15s ease;
-}
-
-/*
- * No celular a tira vira lista de linhas.
- *
- * Empilhada, ela já era uma lista; o que faltava era o alvo. Sublinhado com
- * folga em volta daria 35px de altura, abaixo do dedo, e alvos de 35px
- * encostados uns nos outros erram para o vizinho, que é pior do que errar
- * para lugar nenhum. A linha inteira passa a ser o alvo, com a medida do
- * token, e quem separa é o fio entre elas.
- */
-@media (max-width: 45.99rem) {
-  .atalhos__item {
-    width: 100%;
-    min-height: var(--alvo-toque);
-  }
-  .atalhos__item + .atalhos__item {
-    border-top: 1px solid var(--fio);
-  }
-  .atalhos__elo {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    min-height: var(--alvo-toque);
-    border-bottom: 0;
-    padding: 0;
-  }
-  .atalhos__preparo {
-    align-self: center;
-  }
-}
-.atalhos__elo:hover {
-  color: var(--ouro-tinta);
-  border-bottom-color: var(--ouro);
-}
-.atalhos__preparo {
-  font-family: var(--sem-serifa);
-  font-size: 0.72rem;
-  color: var(--tinta-suave);
-}
-.atalhos__descer {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  margin-top: 0.35rem;
-  /* também alcança a medida do dedo, ainda que seja o elo secundário */
-  padding: 0.7rem 0;
-  font-family: var(--sem-serifa);
-  font-size: 0.78rem;
-  color: var(--tinta-suave);
-  text-decoration: none;
-}
-.atalhos__descer:hover {
-  color: var(--ouro-tinta);
-}
-.atalhos__seta {
-  width: 0.85rem;
-  height: 0.85rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  /* a mesma seta dos cartões, virada para baixo: o destino está mais abaixo */
-  transform: rotate(90deg);
-}
-
-/*
- * A antífona que abre o documento.
- *
- * Deliberadamente diferente do lema: o lema é dourado, em versalete, entre
- * estrelas, e pertence ao brasão. Esta é tinta comum, em itálico, com um fio
- * curto embaixo, e pertence ao texto. Quem lê tem de ver duas coisas, e não
- * a mesma coisa duas vezes.
- */
-.epigrafe {
-  max-width: var(--medida-centrada);
-  margin: 2.25rem auto 0;
-  padding-bottom: 1.5rem;
-  font-family: var(--titular);
-  font-style: italic;
-  font-size: 1.15rem;
-  line-height: 1.4;
-  text-align: center;
-  color: var(--tinta-suave);
-  position: relative;
-}
-.epigrafe::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0.75rem;
-  width: 3.25rem;
-  height: 1px;
-  transform: translateX(-50%);
-  background: var(--fio-aceso);
-}
-
-@media (min-width: 46rem) {
-  .epigrafe {
-    font-size: 1.3rem;
-    margin-top: 2.75rem;
-  }
-}
-
-/*
- * A seção, acima do título da subpágina. Fica entre a chamada e o título e
- * precisa ser claramente menor que ele: quem chega tem de ler o nome da
- * página primeiro, e a seção só como endereço.
- */
-.cabecalho__secao {
-  margin: 0 0 0.15rem;
-  font-family: var(--titular);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--ouro);
-  opacity: 0.85;
-}
-.cabecalho--estampado .cabecalho__secao {
-  color: var(--marca-ouro-claro);
-  opacity: 1;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
-}
 
 .cabecalho__titulo {
   font-family: var(--titular);
@@ -1123,7 +944,10 @@ button {
   overscroll-behavior: contain;
   background: var(--painel);
   border-top: 2px solid var(--ouro);
-  padding: 0.75rem 1.15rem calc(1.5rem + env(safe-area-inset-bottom));
+  /* a folga vira medida nomeada: o item do menu a sangra para ocupar a
+     largura toda, e as duas têm de andar juntas */
+  --folha-lateral: 1.15rem;
+  padding: 0.75rem var(--folha-lateral) calc(1.5rem + env(safe-area-inset-bottom));
   box-shadow: 0 -12px 40px var(--sombra);
   animation: subir 0.2s ease-out;
 }
@@ -1204,7 +1028,8 @@ button {
     width: min(23rem, 85vw);
     max-height: none;
     border-top: none;
-    padding: 1.25rem 1.5rem 2rem;
+    --folha-lateral: 1.5rem;
+    padding: 1.25rem var(--folha-lateral) 2rem;
   }
   .folha--esquerda {
     right: auto;
@@ -1337,33 +1162,64 @@ button {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 0.5rem;
+  /* coladas: quem separa é o fio, não o vão */
+  gap: 0;
 }
 
+/*
+ * O item ocupa a largura inteira da gaveta.
+ *
+ * Era um cartão recuado da folga da folha, e o fundo dele terminava antes da
+ * borda. Agora ele sangra essa folga com margem negativa e a devolve como
+ * recuo interno: o fundo vai de ponta a ponta e o texto continua alinhado com
+ * o brasão e o lema da testeira.
+ */
 .menu__secao {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 0.15rem 0.9rem;
+  gap: 0.9rem;
   min-height: var(--alvo-toque);
-  padding: 0.85rem 0.9rem;
-  border: 1px solid var(--fio);
-  border-radius: 0.4rem;
-  background: var(--painel);
+  margin-inline: calc(-1 * var(--folha-lateral));
+  padding: 0.85rem var(--folha-lateral);
+  border: 0;
+  border-radius: 0;
   color: var(--tinta);
   text-decoration: none;
-  transition: border-color 0.15s ease;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
 }
-.menu__secao:hover,
+.menu__lista li + li .menu__secao {
+  border-top: 1px solid var(--fio);
+}
+
+/*
+ * A passagem do cursor: fundo fraco, filete à esquerda e a seta andando um
+ * passo.
+ *
+ * O filete é sombra interna, e não borda: borda de verdade empurraria o texto
+ * três pixels para a direita a cada passagem, e o menu inteiro tremeria sob o
+ * cursor. E o fundo é o realce fraco, porque o cheio é da faixa da página
+ * atual: se os dois fossem iguais, passar o cursor diria "você está aqui".
+ */
+.menu__secao:hover {
+  background: var(--realce-toque);
+  box-shadow: inset 3px 0 0 var(--ouro);
+}
+.menu__secao:hover .menu__seta {
+  transform: translateX(3px);
+}
+/*
+ * O anel é só do teclado. Sob o cursor quem responde é o filete da esquerda,
+ * e um contorno inteiro ali dizia "isto está selecionado", que é outra coisa.
+ */
 .menu__secao:focus-visible {
-  border-color: var(--fio-aceso);
+  outline: 2px solid var(--ouro);
+  outline-offset: -2px;
 }
-/* a seção corrente já se diz pelo nome em ouro; a borda inteira reforça */
+
+/* a página atual é a faixa cheia: é para isto que o fundo largo serve */
 .menu__secao[aria-current="page"] {
-  border-color: var(--ouro);
-}
-.menu__secao[aria-current="page"] .menu__nome {
-  color: var(--ouro-tinta);
+  background: var(--realce);
 }
 
 .menu__nome {
@@ -1377,15 +1233,8 @@ button {
   font-weight: 600;
   line-height: 1.25;
 }
-.menu__resumo {
-  grid-column: 1;
-  font-size: 0.88rem;
-  line-height: 1.35;
-  color: var(--tinta-suave);
-}
 .menu__seta {
   grid-column: 2;
-  grid-row: 1 / -1;
   width: 1.15rem;
   height: 1.15rem;
   flex: none;
@@ -1394,6 +1243,7 @@ button {
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
+  transition: transform 0.15s ease;
 }
 
 .menu__preparo {
@@ -1616,12 +1466,17 @@ button {
 }
 
 /*
- * FILETE DE 3PX NA ESQUERDA: só em aviso, nunca em bloco clicável.
+ * FILETE DE 3PX NA ESQUERDA: em aviso, sempre; em bloco clicável, só sob o
+ * cursor.
  *
- * Ele marca "leia isto à parte": nota, dia litúrgico, detalhe do dia e texto
- * provisório. Em cartão, item de menu e postagem ele repetia o que o "Ver"
- * com seta já dizia, e em bloco de ação repetia o que o próprio botão diz.
- * Nesses, quem responde ao cursor é a borda de 1px.
+ * Parado, ele marca "leia isto à parte": nota, dia litúrgico, detalhe do dia
+ * e texto provisório. Em cartão, item de menu e postagem, parado, ele repetia
+ * o que o "Ver" com seta já dizia, e em bloco de ação repetia o que o próprio
+ * botão diz.
+ *
+ * Sob o cursor é outra coisa: ali ele não descreve o bloco, responde ao
+ * gesto, e some quando o cursor sai. O item do menu usa isso, com sombra
+ * interna em vez de borda, para não empurrar o texto ao aparecer.
  */
 
 /* ---------------- nota ---------------- */
@@ -2747,7 +2602,6 @@ button {
 }
 .dia__postagem .cartao__seta {
   grid-column: 2;
-  grid-row: 1 / -1;
   width: 1.15rem;
   height: 1.15rem;
   stroke: var(--ouro);

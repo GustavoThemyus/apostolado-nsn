@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#F0ECE1" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#14142C" media="(prefers-color-scheme: dark)" />
+    <!-- O padrão é escuro; usarTema troca esta cor quando o leitor escolhe. -->
+    <meta name="theme-color" content="#181821" />
     <meta
       name="description"
       content="Apostolado Nossa Senhora das Neves: o Rito Romano na forma do Missal de São Pio V. Guia da Missa, calendário litúrgico tradicional e indulgências."
@@ -46,9 +46,9 @@
     />
     <script>
       // Aplica o tema antes da primeira pintura, para não piscar.
-      // O padrão é claro: só quem escolheu "sistema" segue o aparelho.
+      // O padrão é escuro: só quem escolheu "sistema" segue o aparelho.
       (function () {
-        var tema = "claro";
+        var tema = "escuro";
         try {
           var salvo = localStorage.getItem("nsn:tema");
           if (salvo === "claro" || salvo === "escuro" || salvo === "sistema") {

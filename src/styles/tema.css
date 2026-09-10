@@ -49,6 +49,9 @@
      diz que é clicável é o "Ver" com seta. O ouro cheio ali gritava. */
   --fio-aceso: #c0ab74;
   --realce: #ecdcae;
+  /* passagem do cursor: tem de se ver e não competir com a faixa da
+     página atual, que usa --realce cheio */
+  --realce-toque: #f3ead3;
   --vidro: rgba(240, 236, 225, 0.88);
   --sombra: rgba(32, 32, 73, 0.16);
   --damasco-cor: var(--marca-azul);
@@ -135,6 +138,7 @@
     --fio-suave: #2b2d3b;
     --fio-aceso: #6a6350;
     --realce: #3e3828;
+    --realce-toque: #272720;
     --vidro: rgba(24, 24, 33, 0.88);
     --sombra: rgba(0, 0, 0, 0.45);
     --damasco-cor: var(--marca-ouro);
@@ -165,6 +169,7 @@
   --fio-suave: #2b2d3b;
   --fio-aceso: #6a6350;
   --realce: #3e3828;
+  --realce-toque: #272720;
   --vidro: rgba(24, 24, 33, 0.88);
   --sombra: rgba(0, 0, 0, 0.45);
   --damasco-cor: var(--marca-ouro);
