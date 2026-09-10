@@ -65,6 +65,14 @@ export type Bloco = ComId &
 
 export interface Secao {
   id: string;
+  /**
+   * Fica no corpo, mas fora do índice e sem número.
+   *
+   * É para o que o apostolado escreve em torno de um documento oficial: a
+   * apresentação é nossa, e listá-la junto das partes do Enchiridion daria a
+   * entender que faz parte do material original.
+   */
+  foraDoIndice?: boolean;
   /** @deprecated Derivado da posição. Continua nos dados antigos, e é ignorado. */
   numero?: number;
   titulo: string;

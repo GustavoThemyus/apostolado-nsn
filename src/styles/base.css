@@ -456,6 +456,67 @@ button {
 }
 
 /*
+ * O índice por extenso, no corpo do documento.
+ *
+ * Segue o desenho do sumário da lateral, e não o de um link comum: número em
+ * ouro, título em tinta, sem sublinhado. Como link azul ele parecia coisa de
+ * outro site colada no meio de um documento pontifício.
+ */
+.indice-completo__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: indice;
+}
+.indice-completo__lista > li {
+  counter-increment: indice;
+  border-bottom: 1px solid var(--fio-suave);
+}
+.indice-completo__lista > li:last-child {
+  border-bottom: none;
+}
+.indice-completo__link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.6rem 0;
+  min-height: var(--alvo-toque);
+  font-family: var(--titular);
+  font-size: 1.05rem;
+  color: var(--tinta);
+  text-decoration: none;
+  line-height: 1.3;
+}
+.indice-completo__link::before {
+  content: counter(indice);
+  font-family: var(--sem-serifa);
+  font-variant-numeric: lining-nums;
+  font-size: 0.9rem;
+  color: var(--ouro-tinta);
+  min-width: 1.4rem;
+}
+.indice-completo__link:hover {
+  color: var(--ouro-tinta);
+}
+.indice-completo__sublista {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0 0 0 2.1rem;
+  border-left: 1px solid var(--fio-suave);
+}
+.indice-completo__sublink {
+  display: block;
+  padding: 0.35rem 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: var(--tinta-suave);
+  text-decoration: none;
+}
+.indice-completo__sublink:hover {
+  color: var(--tinta);
+}
+
+/*
  * A antífona que abre o documento.
  *
  * Deliberadamente diferente do lema: o lema é dourado, em versalete, entre
@@ -1269,7 +1330,12 @@ button {
 .secao {
   padding: 2.25rem 0 0.5rem;
   border-bottom: 1px solid var(--fio-suave);
-  scroll-margin-top: calc(var(--altura-barra) + 0.75rem);
+  /*
+   * Sem scroll-margin-top aqui: o `html` já tem scroll-padding-top com a
+   * mesma medida, e os dois somavam. A seção parava 128px do alto em vez de
+   * 64, e com o recuo dela por cima o título caía 109px abaixo da barra: era
+   * o "vai um pouco acima e não no conteúdo".
+   */
 }
 .secao:last-of-type {
   border-bottom: none;

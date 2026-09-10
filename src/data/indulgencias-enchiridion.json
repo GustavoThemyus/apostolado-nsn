@@ -160,16 +160,18 @@
      "tipo": "paragrafo",
      "texto": "Espero que todos possam aproveitar o conteúdo, marcar os dias de indulgência plenária, ter o zelo de não as perder e que, reconhecendo os próprios pecados e indignidade diante do Deus que deu-nos seu único Filho para lavar as nossas manchas e tirar-nos da lama do pecado e das sombras da morte eterna, entregando-Se à morte na Cruz sagrada, possamos contristar-nos com tamanho amor e ardente Caridade e queiramos definitivamente unir-nos a Deus e tomar também nós parte da nossa própria salvação fazendo penitência por nossos pecados e pelos dos outros e que possamos nós também juntar os nossos esforços e nossos pequenos méritos no infinito tesouro da Igreja, de onde provém os preciosos favores das indulgências."
     }
-   ]
+   ],
+   "foraDoIndice": true
   },
   {
-   "id": "indice-do-livro",
-   "titulo": "Índice do livro",
+   "id": "indice-geral",
+   "titulo": "Índice geral",
    "blocos": [
     {
      "tipo": "indice"
     }
-   ]
+   ],
+   "foraDoIndice": true
   },
   {
    "id": "aprovacao",
@@ -2449,7 +2451,7 @@
   },
   {
    "id": "urbis-et-orbis",
-   "titulo": "Decreto Urbis et orbis",
+   "titulo": "Decreto Deus cuius misericordiae",
    "blocos": [
     {
      "tipo": "paragrafo",

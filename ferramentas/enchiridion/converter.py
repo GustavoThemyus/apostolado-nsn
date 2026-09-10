@@ -305,7 +305,7 @@ def entrada_do_indice(c):
 # ---------------------------------------------------------------- seções
 FAIXAS = [
     ("apresentacao", "Apresentação", 0, 12, {}, {4, 5, 6, 7, 8, 11}),
-    ("indice-do-livro", "Índice do livro", 13, 67, {}, set(range(13, 68))),
+    ("indice-geral", "Índice geral", 13, 67, {}, set(range(13, 68))),
     ("aprovacao", "Aprovação da Penitenciaria Apostólica", 68, 79, {}, {68}),
     ("decreto-iesu", "Decreto Iesu humani generis", 80, 97, {}, {80}),
     ("abreviaturas", "Abreviaturas e siglas", 98, 99, {}, {98}),
@@ -315,7 +315,7 @@ FAIXAS = [
      anc_quatro, {191, 203}),
     ("outras-concessoes", "Outras concessões", 282, 721, anc_outras, {282, 300} | pular_outras),
     ("apendice", "Apêndice", 722, 771, anc_apendice, {722}),
-    ("urbis-et-orbis", "Decreto Urbis et orbis", 772, 797, {}, {772, 773}),
+    ("urbis-et-orbis", "Decreto Deus cuius misericordiae", 772, 797, {}, {772, 773}),
     ("ecclesia-cathedralis", "Decreto Ecclesia Cathedralis", 798, 814, {}, {798, 799}),
     ("indulgentiarum-doctrina", "Constituição apostólica Indulgentiarum doctrina",
      815, 951, anc_const, {815, 816}),
@@ -325,7 +325,7 @@ FAIXAS = [
 secoes = []
 for ident, titulo, a, b, ancoras, pular in FAIXAS:
     consumidos = colher_notas(a, b) | set(pular)
-    if ident == "indice-do-livro":
+    if ident == "indice-geral":
         blocos = [{"tipo": "indice"}]
     elif ident == "indice-analitico":
         blocos = []
@@ -347,7 +347,15 @@ for ident, titulo, a, b, ancoras, pular in FAIXAS:
             blocos.append({"tipo": "lista", "itens": fila})
     else:
         blocos = blocos_da_faixa(a, b, pular=consumidos, ancoras=ancoras)
-    secoes.append({"id": ident, "titulo": titulo, "blocos": blocos})
+    secao = {"id": ident, "titulo": titulo, "blocos": blocos}
+    # A apresentação é do apostolado, não do Enchiridion: fica no corpo, fora
+    # do índice e sem número, para não passar por parte do material original.
+    # O índice geral fica fora pelo mesmo motivo do impresso, onde o SUMÁRIO
+    # também não se lista: um índice que aponta para si mesmo não leva a lugar
+    # nenhum. Assim a numeração passa a ser a das onze partes do livro.
+    if ident in ("apresentacao", "indice-geral"):
+        secao["foraDoIndice"] = True
+    secoes.append(secao)
 
 # a apresentação: os recados do Perez viram o que ele pediu
 apres = secoes[0]["blocos"]

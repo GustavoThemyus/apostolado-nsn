@@ -2,13 +2,15 @@ import type { Secao as TipoSecao } from "../data/tipos";
 import { ListaDeBlocos } from "./Bloco";
 import { TextoRico } from "./TextoRico";
 
-export function Secao({ secao, numero }: { secao: TipoSecao; numero: number }) {
+export function Secao({ secao, numero }: { secao: TipoSecao; numero?: number }) {
   return (
     <section className="secao" id={secao.id} aria-labelledby={`titulo-${secao.id}`}>
       <h2 className="secao__titulo" id={`titulo-${secao.id}`}>
-        <span className="secao__numero" aria-hidden="true">
-          {numero}
-        </span>
+        {numero !== undefined && (
+          <span className="secao__numero" aria-hidden="true">
+            {numero}
+          </span>
+        )}
         {secao.titulo}
       </h2>
       {secao.resumo && (

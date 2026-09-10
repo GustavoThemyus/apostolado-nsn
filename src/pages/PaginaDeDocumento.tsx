@@ -39,9 +39,14 @@ export function PaginaDeDocumento({
     () => secoesReais.map((s) => s.id),
     [secoesReais],
   );
+  // o que entra no índice e no sumário, e é o que se numera
+  const secoesIndexadas = useMemo(
+    () => secoesReais.filter((s) => !s.foraDoIndice),
+    [secoesReais],
+  );
   const secaoAtiva = usarSecaoAtiva(identificadores);
 
-  const temSumario = secoesReais.length > 3;
+  const temSumario = secoesIndexadas.length > 3;
 
   // usarSecaoAtiva devolve o id; a barra mostra gente, então mostra o título
   const local = useMemo(
@@ -55,17 +60,19 @@ export function PaginaDeDocumento({
    * dezesseis seções e os cinquenta e cinco passos do guia inteiro, o que
    * aparecia como um tranco na rolagem em aparelho modesto.
    */
-  const corpo = useMemo(
-    () =>
-      secoesReais.map((secao, indice) => (
-        <Secao secao={secao} numero={indice + 1} key={secao.id} />
-      )),
-    [secoesReais],
-  );
+  const corpo = useMemo(() => {
+    // o número conta só as seções indexadas: a apresentação abre o documento
+    // sem número, como abertura, e o texto oficial começa em 1
+    let contador = 0;
+    return secoesReais.map((secao) => {
+      const numero = secao.foraDoIndice ? undefined : (contador += 1);
+      return <Secao secao={secao} numero={numero} key={secao.id} />;
+    });
+  }, [secoesReais]);
 
   return (
     <ProvedorDeNotas notas={conteudo.notas}>
-    <ProvedorDeSecoes secoes={secoesReais}>
+    <ProvedorDeSecoes secoes={secoesIndexadas}>
     <ProvedorDeNumeracao secoes={secoesReais}>
       <Moldura
         titulo={conteudo.titulo}
@@ -113,7 +120,7 @@ export function PaginaDeDocumento({
         >
           {temSumario && (
             <Sumario
-              secoes={secoesReais}
+              secoes={secoesIndexadas}
               secaoAtiva={secaoAtiva}
               variante="embutido"
             />
@@ -130,7 +137,7 @@ export function PaginaDeDocumento({
 
         {temSumario && (
           <Sumario
-            secoes={secoesReais}
+            secoes={secoesIndexadas}
             secaoAtiva={secaoAtiva}
             variante="flutuante"
             aberto={sumarioAberto}

@@ -12,6 +12,7 @@ import {
 } from "react";
 import { resolver, type Parametros } from "./casar";
 import { ROTAS, type Rota } from "./rotas";
+import { alvoDaAncora, rolarAteAncora } from "./rolagem";
 
 export interface EstadoDaRota {
   caminho: string;
@@ -39,8 +40,9 @@ function chaveAtual(): number {
  * Decide se um clique num link deve ser tratado aqui ou entregue ao navegador.
  *
  * Fica de fora tudo o que o leitor espera que se comporte como link normal:
- * abrir em outra aba, baixar, ir para outro site. E as âncoras `#`, que o
- * Sumário usa e que dependem do scroll-behavior do CSS.
+ * abrir em outra aba, baixar, ir para outro site. As âncoras `#` também não
+ * mudam de página, mas passam por aqui para rolar com precisão: a rolagem
+ * suave do CSS erra o alvo em documento longo.
  */
 function ehNavegacaoInterna(evento: MouseEvent): string | null {
   if (evento.defaultPrevented || evento.button !== 0) return null;
@@ -59,6 +61,29 @@ function ehNavegacaoInterna(evento: MouseEvent): string | null {
   if (url.origin !== window.location.origin) return null;
 
   return url.pathname + url.search + url.hash;
+}
+
+/**
+ * Clique numa âncora da própria página.
+ *
+ * O endereço continua ganhando o `#`, para poder ser copiado e para o voltar
+ * funcionar; quem rola é o auxiliar, que escolhe entre animar e ir direto.
+ */
+function rolouNaPropriaPagina(evento: MouseEvent): boolean {
+  if (evento.defaultPrevented || evento.button !== 0) return false;
+  if (evento.metaKey || evento.ctrlKey || evento.shiftKey || evento.altKey) return false;
+
+  const elo = (evento.target as Element | null)?.closest("a");
+  const href = elo?.getAttribute("href");
+  if (!elo || !href?.startsWith("#") || href.length < 2) return false;
+
+  const destino = alvoDaAncora(href);
+  if (!destino) return false;
+
+  evento.preventDefault();
+  window.history.pushState(window.history.state, "", href);
+  rolarAteAncora(destino);
+  return true;
 }
 
 export function Roteador({
@@ -104,6 +129,7 @@ export function Roteador({
   // um só ouvinte para todos os links da página
   useEffect(() => {
     const aoClicar = (evento: MouseEvent) => {
+      if (rolouNaPropriaPagina(evento)) return;
       const destino = ehNavegacaoInterna(evento);
       if (!destino) return;
       evento.preventDefault();
@@ -179,9 +205,10 @@ function AoTrocarDePagina({
     }
 
     const hash = window.location.hash;
-    if (hash) {
-      document.querySelector(hash)?.scrollIntoView();
-    } else {
+    const ancora = alvoDaAncora(hash);
+    if (ancora) {
+      rolarAteAncora(ancora);
+    } else if (!hash) {
       // sem animação: com scroll-behavior smooth no html, navegar entre páginas
       // animava a subida inteira e dava a impressão de travamento
       const guardada = rolagens.get(chaveAtual());
