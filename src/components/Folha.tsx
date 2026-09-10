@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
  * A folha que cobre a página: sobe do rodapé no celular e entra pela esquerda
@@ -11,6 +11,10 @@ import { useEffect, useRef, type ReactNode } from "react";
  *
  * Trata o que uma folha modal precisa tratar: fechar no Escape, travar a
  * rolagem de trás, e levar o foco para dentro ao abrir.
+ *
+ * Ela continua montada enquanto sai. Sem isso a gaveta entrava deslizando e
+ * desaparecia de um quadro para o outro, e a saída sem animação faz parecer
+ * que alguma coisa quebrou, não que fechou.
  */
 export function Folha({
   aberto,
@@ -27,6 +31,29 @@ export function Folha({
   children: ReactNode;
 }) {
   const painel = useRef<HTMLDivElement>(null);
+  // montada cobre a saída: fica de pé até a animação de fechar terminar
+  const [montada, definirMontada] = useState(aberto);
+  const [saindo, definirSaindo] = useState(false);
+
+  useEffect(() => {
+    if (aberto) {
+      definirMontada(true);
+      definirSaindo(false);
+      return;
+    }
+    if (!montada) return;
+    definirSaindo(true);
+    /*
+     * O desmonte vem do onAnimationEnd; este relógio é a rede para quando o
+     * evento não chega: aba em segundo plano, ou movimento reduzido, em que a
+     * animação dura 0,01ms e pode terminar antes de o ouvinte existir.
+     */
+    const relogio = window.setTimeout(() => {
+      definirMontada(false);
+      definirSaindo(false);
+    }, 260);
+    return () => window.clearTimeout(relogio);
+  }, [aberto, montada]);
 
   useEffect(() => {
     if (!aberto) return;
@@ -44,20 +71,25 @@ export function Folha({
     };
   }, [aberto, aoFechar]);
 
-  if (!aberto) return null;
+  if (!montada) return null;
 
   return (
     <>
       <button
         type="button"
-        className="folha__cortina"
+        className={`folha__cortina${saindo ? " folha__cortina--saindo" : ""}`}
         onClick={aoFechar}
         aria-hidden="true"
         tabIndex={-1}
       />
       <div
-        className={`folha folha--${lado} damasco`}
+        className={`folha folha--${lado} damasco${saindo ? " folha--saindo" : ""}`}
         ref={painel}
+        onAnimationEnd={() => {
+          if (!saindo) return;
+          definirMontada(false);
+          definirSaindo(false);
+        }}
         tabIndex={-1}
         role="dialog"
         aria-modal="true"

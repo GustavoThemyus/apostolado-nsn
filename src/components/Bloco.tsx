@@ -61,6 +61,18 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
       return <Tabela colunas={bloco.colunas} linhas={bloco.linhas} />;
     case "separador":
       return <hr className="separador" />;
+    case "bilingue":
+      return (
+        <div className="bilingue">
+          {/* lang="la" para o leitor de tela não pronunciar latim em português */}
+          <div className="bilingue__lado bilingue__lado--latim" lang="la">
+            <ListaDeBlocos blocos={bloco.latim} />
+          </div>
+          <div className="bilingue__lado">
+            <ListaDeBlocos blocos={bloco.portugues} />
+          </div>
+        </div>
+      );
     case "indice":
       return <IndiceDoDocumento />;
     case "legenda":

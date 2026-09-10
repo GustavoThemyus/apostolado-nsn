@@ -378,6 +378,14 @@ button {
     content: "·";
     color: var(--fio-aceso);
     margin-right: 0.6rem;
+    /*
+     * A mesma fonte e o mesmo corpo do elo ao lado. O item alinha pela linha
+     * de base, e o ponto vinha na fonte herdada: bastava isso para os itens
+     * com ponto assentarem 1px abaixo do primeiro, que não tem. Com o
+     * sublinhado embaixo de cada um, esse 1px virava uma linha quebrada.
+     */
+    font-family: var(--titular);
+    font-size: 1.02rem;
   }
 }
 .atalhos__elo {
@@ -456,6 +464,49 @@ button {
 }
 
 /*
+ * Oração nas duas línguas.
+ *
+ * Empilhada até 56rem e em duas colunas acima disso. O ponto de quebra é
+ * medido, não escolhido: em 390px cada coluna teria dezoito caracteres de
+ * largura, e em 760px trinta e seis. A partir de 900px dá quarenta e quatro,
+ * que é a medida de um missal bilíngue e onde o texto volta a ser texto.
+ *
+ * O fio no meio é o mesmo do impresso, virado de lado: lá ele separava o que
+ * vinha antes do que vinha depois; aqui, o que está à esquerda do que está à
+ * direita.
+ */
+.bilingue {
+  display: grid;
+  margin: 1.6rem 0;
+}
+.bilingue__lado > :first-child {
+  margin-top: 0;
+}
+.bilingue__lado > :last-child {
+  margin-bottom: 0;
+}
+.bilingue__lado--latim {
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--fio);
+}
+
+@media (min-width: 56rem) {
+  .bilingue {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bilingue__lado--latim {
+    padding: 0 2.4rem 0 0;
+    margin: 0;
+    border-bottom: 0;
+    border-right: 1px solid var(--fio);
+  }
+  .bilingue__lado:last-child {
+    padding-left: 2.4rem;
+  }
+}
+
+/*
  * O índice por extenso, no corpo do documento.
  *
  * Segue o desenho do sumário da lateral, e não o de um link comum: número em
@@ -482,7 +533,7 @@ button {
   padding: 0.6rem 0;
   min-height: var(--alvo-toque);
   font-family: var(--titular);
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   color: var(--tinta);
   text-decoration: none;
   line-height: 1.3;
@@ -506,8 +557,10 @@ button {
 }
 .indice-completo__sublink {
   display: block;
-  padding: 0.35rem 0;
-  font-size: 0.92rem;
+  padding: 0.45rem 0;
+  /* o índice é para ser lido de longe e tocado; 0,92rem dava 14,7px contra os
+     19px do texto, e a diferença por nível não precisa ser tão grande */
+  font-size: 1.02rem;
   line-height: 1.35;
   color: var(--tinta-suave);
   text-decoration: none;
@@ -998,6 +1051,16 @@ button {
   padding: 0;
   display: block;
   width: 100%;
+  animation: acender 0.2s ease-out;
+}
+.folha__cortina--saindo {
+  animation: apagar 0.2s ease-in forwards;
+}
+
+@keyframes acender {
+  from {
+    opacity: 0;
+  }
 }
 
 .folha {
@@ -1018,6 +1081,9 @@ button {
   padding: 0.75rem var(--folha-lateral) calc(1.5rem + env(safe-area-inset-bottom));
   box-shadow: 0 -12px 40px var(--sombra);
   animation: subir 0.2s ease-out;
+}
+.folha--saindo {
+  animation: descer 0.2s ease-in forwards;
 }
 
 /*
@@ -1085,6 +1151,38 @@ button {
 }
 
 /*
+ * As saídas. São o caminho de volta das entradas acima, e existem porque
+ * fechar sem animação parece defeito: a gaveta entra deslizando e sumia de um
+ * quadro para o outro.
+ */
+@keyframes descer {
+  to {
+    transform: translateY(1.5rem);
+    opacity: 0;
+  }
+}
+
+@keyframes sair-pela-esquerda {
+  to {
+    transform: translateX(-1.5rem);
+    opacity: 0;
+  }
+}
+
+@keyframes sair-pela-direita {
+  to {
+    transform: translateX(1.5rem);
+    opacity: 0;
+  }
+}
+
+@keyframes apagar {
+  to {
+    opacity: 0;
+  }
+}
+
+/*
  * A partir de 52rem a folha deixa de ser tira presa no rodapé e vira barra
  * lateral à esquerda, ao lado do botão que a abriu. Mesma marcação, só o CSS
  * muda: nada de matchMedia, que pisca na primeira pintura.
@@ -1105,6 +1203,9 @@ button {
     box-shadow: 12px 0 40px var(--sombra);
     animation: entrar-da-esquerda 0.2s ease-out;
   }
+  .folha--esquerda.folha--saindo {
+    animation: sair-pela-esquerda 0.2s ease-in forwards;
+  }
   /* o Sumário abre pela direita porque o botão dele está à direita, e porque
      é outra proposta que o Menu: um é o mapa do site, o outro é o índice da
      página que se está lendo */
@@ -1117,6 +1218,9 @@ button {
     border-left: 2px solid var(--ouro);
     box-shadow: -12px 0 40px var(--sombra);
     animation: entrar-da-direita 0.2s ease-out;
+  }
+  .folha--direita.folha--saindo {
+    animation: sair-pela-direita 0.2s ease-in forwards;
   }
   .folha__pega {
     display: none;

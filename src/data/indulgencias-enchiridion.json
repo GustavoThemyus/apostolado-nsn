@@ -988,47 +988,51 @@
      "texto": "Concede-se [i]indulgência plenária[/i] ao fiel que, na solenidade de Nosso Senhor Jesus Cristo Rei do Universo, recitar publicamente o ato de consagração do gênero humano ao mesmo Jesus Cristo Rei ([b][i]Dulcíssimo Jesus, Redentor[/i][/b]); em outras circunstâncias a [i]indulgência[/i] será [i]parcial[/i]."
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Iesu dulcissime, Redemptor humani generis, respice nos ante conspectum tuum humillime provolutos. Tui sumus, tui esse volumus; quo autem tibi coniuncti firmius esse possimus, en hodie sacratissimo Cordi tuo se quisque nostrum sponte dedicat.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Te quidem multi novere nunquam; te, spretis mandatis tuis, multi repudiarunt. Miserere utrorumque, benignissime Iesu, atque ad sanctuum Cor tuum rape universos.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Rex esto, Domine, nec fidelium tantum qui nullo tempore discessere a te, sed etiam prodigorum filiorum qui te reliquerunt: fac ut domum paternam cito repetant, ne miseria et fame pereant.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Rex esto eorum, quos aut opinionum error deceptos habet, aut discordia separatos, eosque ad portum veritatis atque ad unitatem fidei revoca, ut brevi fiat unum ovile et unus pastor.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Largire, Domine, Ecclesiae tuae securam cum incolumitate libertatem; largire cunctis gentibus tranquillitatem ordinis; perfice, ut ab utroque terrae vertice una resonet vox: Sit laus divino Cordi, per quod nobis parta salus: ipsi gloria et honor in saecula. Amen.[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Dulcíssimo Jesus, Redentor do gênero humano, lançai sobre nós, que humildemente estamos prostrados na vossa presença, os vossos olhares. Nós somos e queremos ser vossos; e a fim de podermos viver mais intimamente unidos a vós, cada um de nós se consagra, espontaneamente, neste dia, ao vosso sacratíssimo Coração.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Muitos há que nunca vos conheceram; muitos, desprezando os vossos mandamentos, vos renegaram. Benigníssimo Jesus, tende piedade de uns e de outros e trazei-os todos ao vosso Sagrado Coração.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Senhor, sede rei não somente dos fiéis, que nunca de vós se afastaram, mas também dos filhos pródigos, que vos abandonaram; fazei que estes tornem, quanto antes, à casa paterna, para não perecerem de miséria e de fome.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Sede rei dos que vivem iludidos no erro, ou separados de vós pela discórdia; trazei-os ao porto da verdade e à unidade da fé, a fim de que, em breve, haja um só rebanho e um só pastor.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Senhor, conservai incólume a vossa Igreja, e dai-lhe liberdade segura e sem peias; concedei ordem e paz a todos os povos; fazei que, de um pólo a outro do mundo, ressoe uma só voz: louvado seja o Coração divino, que nos trouxe a salvação; honra e glória a ele, por todos os séculos. Amém.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Iesu dulcissime, Redemptor humani generis, respice nos ante conspectum tuum humillime provolutos. Tui sumus, tui esse volumus; quo autem tibi coniuncti firmius esse possimus, en hodie sacratissimo Cordi tuo se quisque nostrum sponte dedicat.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Te quidem multi novere nunquam; te, spretis mandatis tuis, multi repudiarunt. Miserere utrorumque, benignissime Iesu, atque ad sanctuum Cor tuum rape universos.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Rex esto, Domine, nec fidelium tantum qui nullo tempore discessere a te, sed etiam prodigorum filiorum qui te reliquerunt: fac ut domum paternam cito repetant, ne miseria et fame pereant.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Rex esto eorum, quos aut opinionum error deceptos habet, aut discordia separatos, eosque ad portum veritatis atque ad unitatem fidei revoca, ut brevi fiat unum ovile et unus pastor.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Largire, Domine, Ecclesiae tuae securam cum incolumitate libertatem; largire cunctis gentibus tranquillitatem ordinis; perfice, ut ab utroque terrae vertice una resonet vox: Sit laus divino Cordi, per quod nobis parta salus: ipsi gloria et honor in saecula. Amen.[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Dulcíssimo Jesus, Redentor do gênero humano, lançai sobre nós, que humildemente estamos prostrados na vossa presença, os vossos olhares. Nós somos e queremos ser vossos; e a fim de podermos viver mais intimamente unidos a vós, cada um de nós se consagra, espontaneamente, neste dia, ao vosso sacratíssimo Coração.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Muitos há que nunca vos conheceram; muitos, desprezando os vossos mandamentos, vos renegaram. Benigníssimo Jesus, tende piedade de uns e de outros e trazei-os todos ao vosso Sagrado Coração.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Senhor, sede rei não somente dos fiéis, que nunca de vós se afastaram, mas também dos filhos pródigos, que vos abandonaram; fazei que estes tornem, quanto antes, à casa paterna, para não perecerem de miséria e de fome.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Sede rei dos que vivem iludidos no erro, ou separados de vós pela discórdia; trazei-os ao porto da verdade e à unidade da fé, a fim de que, em breve, haja um só rebanho e um só pastor.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Senhor, conservai incólume a vossa Igreja, e dai-lhe liberdade segura e sem peias; concedei ordem e paz a todos os povos; fazei que, de um pólo a outro do mundo, ressoe uma só voz: louvado seja o Coração divino, que nos trouxe a salvação; honra e glória a ele, por todos os séculos. Amém.[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1040,55 +1044,59 @@
      "texto": "Concede-se [i]indulgência plenária[/i] ao fiel que, na solenidade do Sacratíssimo Coração de Jesus, recitar publicamente o ato de reparação ([b][i]Dulcíssimo Jesus[/i][/b]); em outras circunstâncias a [i]indulgência[/i] será [i]parcial[/i]."
     },
     {
-     "tipo": "paragrafo",
-     "texto": "Iesu dulcissime, cuius effusa in homines caritas, tanta oblivione, neglegentia, contemptione, ingratissime rependitur, en nos, ante conspectum tuum provoluti, tam nefariam hominum socordiam iniuriasque, quibus undique amantissimum Cor tuum afficitur, peculiari honore resarcire contendimus."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Attamen, memores tantae nos quoque indignitatis non expertes aliquando fuisse, indeque vehementissimo dolore commoti, tuam in primis misericordiam nobis imploramus, parati, voluntaria expiatione compensare flagitia non modo quae ipsi patravimus, sed etiam illorum, qui, longe a salutis via aberrantes vel te pastorem ducemque sectari detrectant, in sua infidelitate obstinati, vel, baptismatis promissa conculcantes, suavissimum tuae legis iugum excusserunt."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Quae deploranda crimina, cum universa expiare contendimus, tum nobis singula resarcienda proponimus: vitae cultusque immodestiam atque turpitudines, tot corruptelae pedicas innocentium animis instructas, dies festos violatos, exsecranda in te tuosque Sanctos iactata maledicta atque in tuum Vicarium ordinemque sacerdotalem convicia irrogata, ipsum denique amoris divini Sacramentum vel neglectum vel horrendis sacrilegiis profanatum, publica postremo nationum delicta, quae Ecclesiae a te institutae iuribus magisterioque reluctantur."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Quae utinam crimina sanguine ipsi nostro eluere possemus!"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Interea ad violatum divinum honorem resarciendum, quam Tu olim Patri in Cruce satisfactionem obtulisti quamque cotidie in altaribus renovare pergis, hanc eamdem nos tibi praestamus, cum Virginis Matris, omnium Sanctorum, piorum quoque fidelium expiationibus coniunctam, ex animo spondentes, cum praeterita nostra aliorumque peccata ac tanti amoris incuriam firma fide, candidis vitae moribus, perfecta legis evangelicae, caritatis potissimum, observantia, quantum in nobis erit, gratia tua favente, nos esse compensaturos, tum iniurias tibi inferendas pro viribus prohibituros, et quam plurimos potuerimus ad tui sequelam convocaturos."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Excipias, quaesumus, benignissime Iesu, beata Virgine Maria Reparatrice intercedente, voluntarium huius expiationis obsequium nosque in officio tuique servitio fidissimos ad mortem usque velis, magno illo perseverantiae munere, continere, ut ad illam tandem patriam perveniamus omnes, ubi Tu cum Patre et Spiritu Sancto vivis et regnas in saecula saeculorum. Amen."
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Dulcíssimo Jesus, cuja infinita caridade para com os homens é por eles tão ingratamente correspondida com esquecimentos, friezas e desprezos, ei-nos aqui prostrados na vossa presença, para vos desagravarmos, com especiais homenagens, da insensibilidade tão insensata e das nefandas injúrias com que é, de toda a parte, alvejado o vosso amorosíssimo Coração.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Reconhecendo, porém, com a mais profunda dor, que também nós, mais de uma vez, cometemos as mesmas indignidades, para nós, em primeiro lugar, imploramos a vossa misericórdia, prontos a expiar não só as próprias culpas, mas também as daqueles que, errando longe do caminho da salvação, ou se obstinam na sua infidelidade, não vos querendo como pastor e guia, ou, conculcando as promessas do batismo, sacudiram o suavíssimo jugo da vossa santa lei.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]De todos esses tão deploráveis crimes, Senhor, queremos nós hoje desagravar-vos, mas, particularmente, da licença dos costumes e imodéstias do vestido, de tantos laços de corrupção armados à inocência, da violação dos dias santificados, das execrandas blasfêmias contra vós e vossos Santos, dos insultos ao vosso Vigário e a todo o vosso Clero, do desprezo e das horrendas e sacrílegas profanações do Sacramento do divino amor, e, enfim, dos atentados e rebeldias das nações contra os direitos e o magistério da vossa Igreja.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Oh! se pudéssemos lavar, com o próprio sangue, tantas iniquidades![/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Entretanto, para reparar a honra divina ultrajada, vos oferecemos, juntamente com os merecimentos da Virgem Mãe, de todos os Santos e almas piedosas, aquela infinita satisfação, que vós oferecestes ao Eterno Pai sobre a cruz, e que não cessais de renovar, todos os dias, sobre nossos altares. Ajudai-nos, Senhor, com o auxílio da vossa graça, para que possamos, como é nosso firme propósito, com a viveza da fé, com a pureza dos costumes, com a fiel observância da lei e caridade evangélicas, reparar todos os pecados cometidos por nós e por nosso próximo, impedir, por todos os meios, novas injúrias à vossa divina Majestade e atrair ao vosso serviço o maior número possível de almas.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Recebei, ó benigníssimo Jesus, pelas mãos de Maria santíssima reparadora, a espontânea homenagem deste nosso desagravo, e concedei-nos a grande graça de perseverarmos constantes, até à morte, no fiel cumprimento dos nossos deveres e no vosso santo serviço, para que possamos chegar todos à pátria bem-aventurada, onde vós com o Pai e o Espírito Santo viveis e reinais, Deus, por todos os séculos dos séculos. Amém.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Iesu dulcissime, cuius effusa in homines caritas, tanta oblivione, neglegentia, contemptione, ingratissime rependitur, en nos, ante conspectum tuum provoluti, tam nefariam hominum socordiam iniuriasque, quibus undique amantissimum Cor tuum afficitur, peculiari honore resarcire contendimus."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Attamen, memores tantae nos quoque indignitatis non expertes aliquando fuisse, indeque vehementissimo dolore commoti, tuam in primis misericordiam nobis imploramus, parati, voluntaria expiatione compensare flagitia non modo quae ipsi patravimus, sed etiam illorum, qui, longe a salutis via aberrantes vel te pastorem ducemque sectari detrectant, in sua infidelitate obstinati, vel, baptismatis promissa conculcantes, suavissimum tuae legis iugum excusserunt."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Quae deploranda crimina, cum universa expiare contendimus, tum nobis singula resarcienda proponimus: vitae cultusque immodestiam atque turpitudines, tot corruptelae pedicas innocentium animis instructas, dies festos violatos, exsecranda in te tuosque Sanctos iactata maledicta atque in tuum Vicarium ordinemque sacerdotalem convicia irrogata, ipsum denique amoris divini Sacramentum vel neglectum vel horrendis sacrilegiis profanatum, publica postremo nationum delicta, quae Ecclesiae a te institutae iuribus magisterioque reluctantur."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Quae utinam crimina sanguine ipsi nostro eluere possemus!"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Interea ad violatum divinum honorem resarciendum, quam Tu olim Patri in Cruce satisfactionem obtulisti quamque cotidie in altaribus renovare pergis, hanc eamdem nos tibi praestamus, cum Virginis Matris, omnium Sanctorum, piorum quoque fidelium expiationibus coniunctam, ex animo spondentes, cum praeterita nostra aliorumque peccata ac tanti amoris incuriam firma fide, candidis vitae moribus, perfecta legis evangelicae, caritatis potissimum, observantia, quantum in nobis erit, gratia tua favente, nos esse compensaturos, tum iniurias tibi inferendas pro viribus prohibituros, et quam plurimos potuerimus ad tui sequelam convocaturos."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Excipias, quaesumus, benignissime Iesu, beata Virgine Maria Reparatrice intercedente, voluntarium huius expiationis obsequium nosque in officio tuique servitio fidissimos ad mortem usque velis, magno illo perseverantiae munere, continere, ut ad illam tandem patriam perveniamus omnes, ubi Tu cum Patre et Spiritu Sancto vivis et regnas in saecula saeculorum. Amen."
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Dulcíssimo Jesus, cuja infinita caridade para com os homens é por eles tão ingratamente correspondida com esquecimentos, friezas e desprezos, ei-nos aqui prostrados na vossa presença, para vos desagravarmos, com especiais homenagens, da insensibilidade tão insensata e das nefandas injúrias com que é, de toda a parte, alvejado o vosso amorosíssimo Coração.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Reconhecendo, porém, com a mais profunda dor, que também nós, mais de uma vez, cometemos as mesmas indignidades, para nós, em primeiro lugar, imploramos a vossa misericórdia, prontos a expiar não só as próprias culpas, mas também as daqueles que, errando longe do caminho da salvação, ou se obstinam na sua infidelidade, não vos querendo como pastor e guia, ou, conculcando as promessas do batismo, sacudiram o suavíssimo jugo da vossa santa lei.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]De todos esses tão deploráveis crimes, Senhor, queremos nós hoje desagravar-vos, mas, particularmente, da licença dos costumes e imodéstias do vestido, de tantos laços de corrupção armados à inocência, da violação dos dias santificados, das execrandas blasfêmias contra vós e vossos Santos, dos insultos ao vosso Vigário e a todo o vosso Clero, do desprezo e das horrendas e sacrílegas profanações do Sacramento do divino amor, e, enfim, dos atentados e rebeldias das nações contra os direitos e o magistério da vossa Igreja.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Oh! se pudéssemos lavar, com o próprio sangue, tantas iniquidades![/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Entretanto, para reparar a honra divina ultrajada, vos oferecemos, juntamente com os merecimentos da Virgem Mãe, de todos os Santos e almas piedosas, aquela infinita satisfação, que vós oferecestes ao Eterno Pai sobre a cruz, e que não cessais de renovar, todos os dias, sobre nossos altares. Ajudai-nos, Senhor, com o auxílio da vossa graça, para que possamos, como é nosso firme propósito, com a viveza da fé, com a pureza dos costumes, com a fiel observância da lei e caridade evangélicas, reparar todos os pecados cometidos por nós e por nosso próximo, impedir, por todos os meios, novas injúrias à vossa divina Majestade e atrair ao vosso serviço o maior número possível de almas.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Recebei, ó benigníssimo Jesus, pelas mãos de Maria santíssima reparadora, a espontânea homenagem deste nosso desagravo, e concedei-nos a grande graça de perseverarmos constantes, até à morte, no fiel cumprimento dos nossos deveres e no vosso santo serviço, para que possamos chegar todos à pátria bem-aventurada, onde vós com o Pai e o Espírito Santo viveis e reinais, Deus, por todos os séculos dos séculos. Amém.[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1171,39 +1179,43 @@
      "texto": "[i]℣. Panem de caelo praestitisti eis,[/i]"
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]℟. Omne delectamentum in se habentem.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Oremus: Deus, qui nobis sub sacramento mirabili Passionis tuae memoriam reliquisti: tribue, quaesumus, ita nos Corporis et Sanguinis tui sacra mysteria venerari, ut redemptionis tuae fructum in nobis iugiter sentiamus: Qui vivis et regnas in saecula saeculorum. Amen.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i](De Sacra Communione et de Cultu Mysterii Eucharistici extra Missam, 21 iunii 1973, 200 et 192)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Ó sagrado banquete de que somos os convivas, no qual recebemos o Cristo em comunhão! Nele se recorda a sua paixão, o nosso coração se enche de graça e nos é dado o penhor da glória que há de vir.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Tão sublime sacramento adoremos neste Altar, pois o Antigo Testamento deu ao Novo seu lugar. Venha a fé por suplemento os sentidos completar.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Ao Eterno Pai cantemos e a Jesus o Redentor, ao Espírito exaltemos na Trindade eterno amor. Ao Deus Uno e Trino demos a alegria do louvor. Amém.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]℣. Do céu lhes destes o pão, ℟. Que contém todo o sabor.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Oremos: Senhor Jesus Cristo, neste admirável Sacramento, nos deixastes o memorial da vossa Paixão. Dai-nos venerar com tão grande amor o mistério do vosso corpo e do vosso sangue, que possamos colher continuamente os frutos da vossa redenção. Vós que viveis e reinais para sempre. R/. Amém.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℟. Omne delectamentum in se habentem.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Oremus: Deus, qui nobis sub sacramento mirabili Passionis tuae memoriam reliquisti: tribue, quaesumus, ita nos Corporis et Sanguinis tui sacra mysteria venerari, ut redemptionis tuae fructum in nobis iugiter sentiamus: Qui vivis et regnas in saecula saeculorum. Amen.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i](De Sacra Communione et de Cultu Mysterii Eucharistici extra Missam, 21 iunii 1973, 200 et 192)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Ó sagrado banquete de que somos os convivas, no qual recebemos o Cristo em comunhão! Nele se recorda a sua paixão, o nosso coração se enche de graça e nos é dado o penhor da glória que há de vir.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Tão sublime sacramento adoremos neste Altar, pois o Antigo Testamento deu ao Novo seu lugar. Venha a fé por suplemento os sentidos completar.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Ao Eterno Pai cantemos e a Jesus o Redentor, ao Espírito exaltemos na Trindade eterno amor. Ao Deus Uno e Trino demos a alegria do louvor. Amém.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℣. Do céu lhes destes o pão, ℟. Que contém todo o sabor.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Oremos: Senhor Jesus Cristo, neste admirável Sacramento, nos deixastes o memorial da vossa Paixão. Dai-nos venerar com tão grande amor o mistério do vosso corpo e do vosso sangue, que possamos colher continuamente os frutos da vossa redenção. Vós que viveis e reinais para sempre. R/. Amém.[/i]"
+      }
+     ]
     },
     {
      "tipo": "paragrafo",
@@ -1239,41 +1251,49 @@
      "texto": "[i]2º[/i] uma ação de graças após a comunhão (por exemplo, [i]Alma de Cristo[/i]; [i]Eis-me aqui, ó bom e dulcíssimo Jesus[/i])."
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Anima Christi[/i], sanctifica me. \nCorpus Christi, salva me.\nSanguis Christi, inebria me. \nAqua lateris Christi, lava me. \nPassio Christi, conforta me. \nO bone Iesu, exaudi me. \nIntra tua vulnera absconde me. \nNe permittas me separari a te. \nAb hoste maligno defende me. \nIn hora mortis meae voca me: \net iube me venire ad te, \nut cum Sanctis tuis laudem te, \nin saecula saeculorum."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Amen. [i](MR, Gratiarum actio post Missam)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Alma de Cristo, santificai-me. Corpo de Cristo, salvai-me. Sangue de Cristo, inebriai-me. Água do lado de Cristo, lavai-me. Paixão de Cristo, confortai-me. Ó bom Jesus, ouvi-me. Dentro de vossas chagas, escondei-me. Não permitais que me separe de vós. Do espírito maligno defendei-me. Na hora da morte chamai-me e mandai-me ir para vós, para que com vossos Santos vos louve por todos os séculos dos séculos.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Amém. (Miss. Rom., ação de graças depois da missa)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]En ego, o bone et dulcissime Iesu[/i], ante conspectum tuum genibus me provolvo, ac maximo animi ardore te oro atque obtestor, ut meum in cor vividos fidei, spei et caritatis sensus, atque veram peccatorum meorum paenitentiam, eaque emendandi firmissimam voluntatem velis imprimere; dum magno animi affectu et dolore tua quinque vulnera mecum ipse considero, ac mente contemplor, illud prae oculis habens, quod iam in ore ponebat tuo David Propheta de te, o bone Iesu: « Foderunt manus meas et pedes meos; dinumeraverunt omnia ossa mea » ([i]Ps[/i] 21 [Vg 21] 17-18).\n [i](MR, Gratiarum actio post Missam).[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Anima Christi[/i], sanctifica me. \nCorpus Christi, salva me.\nSanguis Christi, inebria me. \nAqua lateris Christi, lava me. \nPassio Christi, conforta me. \nO bone Iesu, exaudi me. \nIntra tua vulnera absconde me. \nNe permittas me separari a te. \nAb hoste maligno defende me. \nIn hora mortis meae voca me: \net iube me venire ad te, \nut cum Sanctis tuis laudem te, \nin saecula saeculorum."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Amen. [i](MR, Gratiarum actio post Missam)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Alma de Cristo, santificai-me. Corpo de Cristo, salvai-me. Sangue de Cristo, inebriai-me. Água do lado de Cristo, lavai-me. Paixão de Cristo, confortai-me. Ó bom Jesus, ouvi-me. Dentro de vossas chagas, escondei-me. Não permitais que me separe de vós. Do espírito maligno defendei-me. Na hora da morte chamai-me e mandai-me ir para vós, para que com vossos Santos vos louve por todos os séculos dos séculos.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Amém. (Miss. Rom., ação de graças depois da missa)[/i]"
+      }
+     ]
     },
     {
      "tipo": "separador"
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Eis-me aqui, ó bom e dulcíssimo Jesus! De joelhos me prostro em vossa presença e vos suplico com todo o fervor de minha alma que vos digneis gravar no meu coração os mais vivos sentimentos de fé, esperança e caridade, verdadeiro arrependimento de meus pecados e firme propósito de emenda, enquanto vou considerando com vivo afeto e dor as vossas cinco chagas, tendo diante dos olhos aquilo que o profeta Davi já vos fazia dizer, ó bom Jesus: \"Transpassaram minhas mãos e meus pés, contaram todos os meus ossos\" (Sl 21,17 [Vg 21] 17-18).[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i](Miss. Rom., Ação de graças depois da Missa)[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]En ego, o bone et dulcissime Iesu[/i], ante conspectum tuum genibus me provolvo, ac maximo animi ardore te oro atque obtestor, ut meum in cor vividos fidei, spei et caritatis sensus, atque veram peccatorum meorum paenitentiam, eaque emendandi firmissimam voluntatem velis imprimere; dum magno animi affectu et dolore tua quinque vulnera mecum ipse considero, ac mente contemplor, illud prae oculis habens, quod iam in ore ponebat tuo David Propheta de te, o bone Iesu: « Foderunt manus meas et pedes meos; dinumeraverunt omnia ossa mea » ([i]Ps[/i] 21 [Vg 21] 17-18).\n [i](MR, Gratiarum actio post Missam).[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Eis-me aqui, ó bom e dulcíssimo Jesus! De joelhos me prostro em vossa presença e vos suplico com todo o fervor de minha alma que vos digneis gravar no meu coração os mais vivos sentimentos de fé, esperança e caridade, verdadeiro arrependimento de meus pecados e firme propósito de emenda, enquanto vou considerando com vivo afeto e dor as vossas cinco chagas, tendo diante dos olhos aquilo que o profeta Davi já vos fazia dizer, ó bom Jesus: \"Transpassaram minhas mãos e meus pés, contaram todos os meus ossos\" (Sl 21,17 [Vg 21] 17-18).[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i](Miss. Rom., Ação de graças depois da Missa)[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1323,15 +1343,19 @@
      "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que recitar devotamente uma oração – legitimamente aprovada – pela unidade dos cristãos (por exemplo: [i]Ó Deus todo-poderoso e cheio de misericórdia[/i])."
     },
     {
-     "tipo": "paragrafo",
-     "texto": "Omnipotens et misericors Deus, qui diversitatem gentium in unum populum per Filium tuum adunare voluisti, concede propitius ut qui christiano nomine gloriantur, qualibet divisione reiecta, unum sint in veritate et caritate, et omnes homines, verae fidei lumine illustrati, in unam Ecclesiam fraterna communione conveniant. Per Christum Dominum nostrum. Amen."
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Ó Deus todo-poderoso e cheio de misericórdia, que por vosso Filho quisestes reunir a diversidade das nações num só povo, concedei aos que se gloriam do nome de cristãos rejeitarem toda a divisão e se unirem na verdade e na caridade, e assim todos os homens, iluminados pela luz da verdadeira fé, se reúnam em comunhão fraterna numa só Igreja. Por Cristo, nosso Senhor. Amém.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Omnipotens et misericors Deus, qui diversitatem gentium in unum populum per Filium tuum adunare voluisti, concede propitius ut qui christiano nomine gloriantur, qualibet divisione reiecta, unum sint in veritate et caritate, et omnes homines, verae fidei lumine illustrati, in unam Ecclesiam fraterna communione conveniant. Per Christum Dominum nostrum. Amen."
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Ó Deus todo-poderoso e cheio de misericórdia, que por vosso Filho quisestes reunir a diversidade das nações num só povo, concedei aos que se gloriam do nome de cristãos rejeitarem toda a divisão e se unirem na verdade e na caridade, e assim todos os homens, iluminados pela luz da verdadeira fé, se reúnam em comunhão fraterna numa só Igreja. Por Cristo, nosso Senhor. Amém.[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1535,27 +1559,31 @@
      "texto": "Ave, Maria..."
     },
     {
-     "tipo": "paragrafo",
-     "texto": "℣. Ora pro nobis, sancta Dei Genitrix,"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℟. Ut digni efficiamur promissionibus Christi."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Oremus. Gratiam tuam, quaesumus Domine, mentibus nostris infunde, ut qui, Angelo nuntiante, Christi Filii tui incarnationem cognovimus, per passionem eius et crucem ad resurrectionis gloriam perducamur. Per Christum Dominum nostrum. Amen. (MR, Dom. IV, Adv., collecta)"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℣. O anjo do Senhor anunciou a Maria."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℟. E ela concebeu do Espírito Santo."
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Ora pro nobis, sancta Dei Genitrix,"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℟. Ut digni efficiamur promissionibus Christi."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Oremus. Gratiam tuam, quaesumus Domine, mentibus nostris infunde, ut qui, Angelo nuntiante, Christi Filii tui incarnationem cognovimus, per passionem eius et crucem ad resurrectionis gloriam perducamur. Per Christum Dominum nostrum. Amen. (MR, Dom. IV, Adv., collecta)"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. O anjo do Senhor anunciou a Maria."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℟. E ela concebeu do Espírito Santo."
+      }
+     ]
     },
     {
      "tipo": "paragrafo",
@@ -1628,39 +1656,43 @@
      "texto": "[i]℟. Quia surrexit Dominus vere, alleluia.[/i]"
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i](LH, Ord. temp. pasch. post Compl.)[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Oremus. Deus, qui per resurrectionem Filii tui Domini nostri Iesu Christi mundum laetificare dignatus es, praesta, quaesumus, ut per eius Genitricem Virginem Mariam perpetuae capiamus gaudia vitae. Per Christum Dominum nostrum. Amen. \n (MR, Commune B.M.V. temp. pasch., collecta)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Rainha do céu, alegrai-vos, aleluia![/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Pois o Senhor que merecestes trazer em vosso seio, aleluia.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Ressuscitou, como disse, aleluia.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Rogai a Deus por nós, aleluia.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]℣. Alegrai-vos e exultai, ó Virgem Maria, aleluia![/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]℟. Porque o Senhor ressuscitou verdadeiramente, aleluia![/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i](LH, Ord. temp. pasch. post Compl.)[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Oremus. Deus, qui per resurrectionem Filii tui Domini nostri Iesu Christi mundum laetificare dignatus es, praesta, quaesumus, ut per eius Genitricem Virginem Mariam perpetuae capiamus gaudia vitae. Per Christum Dominum nostrum. Amen. \n (MR, Commune B.M.V. temp. pasch., collecta)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Rainha do céu, alegrai-vos, aleluia![/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Pois o Senhor que merecestes trazer em vosso seio, aleluia.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Ressuscitou, como disse, aleluia.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Rogai a Deus por nós, aleluia.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℣. Alegrai-vos e exultai, ó Virgem Maria, aleluia![/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℟. Porque o Senhor ressuscitou verdadeiramente, aleluia![/i]"
+      }
+     ]
     },
     {
      "tipo": "paragrafo",
@@ -1693,27 +1725,31 @@
      "texto": "[i]Tu me ab hoste protege[/i]"
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]et mortis hora suscipe.[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Maria, ó Mãe da graça,[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]ó Mãe da misericórdia,[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]do inimigo defendei-me,[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]na hora da morte acolhei-me![/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]et mortis hora suscipe.[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Maria, ó Mãe da graça,[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]ó Mãe da misericórdia,[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]do inimigo defendei-me,[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]na hora da morte acolhei-me![/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1722,15 +1758,19 @@
      "menor": true
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Memorare, o piissima Virgo Maria, non esse auditum a saeculo, quemquam ad tua recurrentem praesidia, tua implorantem auxilia, tua petentem suffragia esse derelictum. Ego tali animatus confidentia ad te, Virgo Virginum, Mater, curro; ad te venio; coram te gemens peccator assisto. Noli, Mater Verbi, verba mea despicere, sed audi propitia et exaudi. Amen.[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Lembrai-vos, ó piíssima Virgem Maria, que nunca se ouviu dizer que algum daqueles que recorreram à vossa proteção, imploraram vossa assistência, reclamaram vosso socorro, fosse por vós desamparado. Animado eu, pois, com igual confiança, a vós, Virgem entre todas singular, como a Mãe recorro; de vós me valho e, gemendo sob o peso de meus pecados, me prostro aos vossos pés. Não desprezeis as minhas súplicas, ó Mãe do Filho de Deus humanado, mas dignai-vos de as ouvir propícia e de me alcançar o que vos rogo. Amém.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Memorare, o piissima Virgo Maria, non esse auditum a saeculo, quemquam ad tua recurrentem praesidia, tua implorantem auxilia, tua petentem suffragia esse derelictum. Ego tali animatus confidentia ad te, Virgo Virginum, Mater, curro; ad te venio; coram te gemens peccator assisto. Noli, Mater Verbi, verba mea despicere, sed audi propitia et exaudi. Amen.[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Lembrai-vos, ó piíssima Virgem Maria, que nunca se ouviu dizer que algum daqueles que recorreram à vossa proteção, imploraram vossa assistência, reclamaram vosso socorro, fosse por vós desamparado. Animado eu, pois, com igual confiança, a vós, Virgem entre todas singular, como a Mãe recorro; de vós me valho e, gemendo sob o peso de meus pecados, me prostro aos vossos pés. Não desprezeis as minhas súplicas, ó Mãe do Filho de Deus humanado, mas dignai-vos de as ouvir propícia e de me alcançar o que vos rogo. Amém.[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1739,15 +1779,19 @@
      "menor": true
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Salve, Regina, mater misericordiae; vita, dulcedo et spes nostra, salve. Ad te clamamus, exsules filii Hevae. Ad te suspiramus, gementes et flentes in hac lacrimarum valle. Eia ergo, advocata nostra, illos tuos misericordes oculos ad nos converte. Et Iesum, benedictum fructum ventris tui, nobis post hoc exsilium ostende. O clemens, o pia, o dulcis Virgo Maria. (LH, Ord. ad Compl.)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Salve, Rainha, mãe de misericórdia, vida, doçura e esperança nossa, salve! A vós bradamos os degredados filhos de Eva; a vós suspiramos, gemendo e chorando neste vale de lágrimas! Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei, e depois deste desterro mostrai-nos Jesus, bendito fruto do vosso ventre! Ó clemente, ó piedosa, ó doce sempre Virgem Maria. (Lit. Hor., no final das Completas.)[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Salve, Regina, mater misericordiae; vita, dulcedo et spes nostra, salve. Ad te clamamus, exsules filii Hevae. Ad te suspiramus, gementes et flentes in hac lacrimarum valle. Eia ergo, advocata nostra, illos tuos misericordes oculos ad nos converte. Et Iesum, benedictum fructum ventris tui, nobis post hoc exsilium ostende. O clemens, o pia, o dulcis Virgo Maria. (LH, Ord. ad Compl.)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Salve, Rainha, mãe de misericórdia, vida, doçura e esperança nossa, salve! A vós bradamos os degredados filhos de Eva; a vós suspiramos, gemendo e chorando neste vale de lágrimas! Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei, e depois deste desterro mostrai-nos Jesus, bendito fruto do vosso ventre! Ó clemente, ó piedosa, ó doce sempre Virgem Maria. (Lit. Hor., no final das Completas.)[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1756,15 +1800,19 @@
      "menor": true
     },
     {
-     "tipo": "paragrafo",
-     "texto": "Sancta Maria, succurre miseris, iuva pusillanimes, refove flebiles, ora pro populo, interveni pro clero, intercede pro devoto femineo sexu: sentiant omnes tuum iuvamen, quicumque celebrant tuam sanctam commemorationem."
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Santa Maria, socorrei os pobres, ajudai os fracos, consolai os tristes, rogai pelo povo, auxiliai o clero, intercedei por todas as mulheres: sintam todos a vossa ajuda, todos os que celebram a vossa memória.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Sancta Maria, succurre miseris, iuva pusillanimes, refove flebiles, ora pro populo, interveni pro clero, intercede pro devoto femineo sexu: sentiant omnes tuum iuvamen, quicumque celebrant tuam sanctam commemorationem."
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Santa Maria, socorrei os pobres, ajudai os fracos, consolai os tristes, rogai pelo povo, auxiliai o clero, intercedei por todas as mulheres: sintam todos a vossa ajuda, todos os que celebram a vossa memória.[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1773,15 +1821,19 @@
      "menor": true
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Sub tuum praesidium confugimus, sancta Dei Genetrix; nostras deprecationes ne despicias in necessitatibus, sed a periculis cunctis libera nos semper, Virgo gloriosa et benedicta. (LH, Ord. ad Compl.)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]À vossa proteção recorremos, santa Mãe de Deus; não desprezeis as nossas súplicas em nossas necessidades, mas livrai-nos sempre de todos os perigos, ó Virgem gloriosa e bendita. (Lit. Hor., no final das Completas.)[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Sub tuum praesidium confugimus, sancta Dei Genetrix; nostras deprecationes ne despicias in necessitatibus, sed a periculis cunctis libera nos semper, Virgo gloriosa et benedicta. (LH, Ord. ad Compl.)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]À vossa proteção recorremos, santa Mãe de Deus; não desprezeis as nossas súplicas em nossas necessidades, mas livrai-nos sempre de todos os perigos, ó Virgem gloriosa e bendita. (Lit. Hor., no final das Completas.)[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1793,15 +1845,19 @@
      "texto": "Concede-se [i]indulgência parcial[/i] ao fiel que invocar piedosamente o seu próprio Anjo da guarda com uma oração legitimamente aprovada (por exemplo, [i]Santo Anjo do Senhor[/i])."
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Angele Dei, qui custos es mei, me tibi commissum pietate superna illumina, custodi, rege et guberna. Amen.[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Santo Anjo do Senhor, meu zeloso guardador, se a ti me confiou a piedade divina, sempre me rege, guarda, governa e ilumina. Amém.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Angele Dei, qui custos es mei, me tibi commissum pietate superna illumina, custodi, rege et guberna. Amen.[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Santo Anjo do Senhor, meu zeloso guardador, se a ti me confiou a piedade divina, sempre me rege, guarda, governa e ilumina. Amém.[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1813,15 +1869,19 @@
      "texto": "Concede-se [i]indulgência parcial[/i] ao fiel que invocar piedosamente a São José, esposo da Beatíssima Virgem Maria, através de uma oração legitimamente aprovada (por exemplo: [i]A vós, São José[/i])."
     },
     {
-     "tipo": "paragrafo",
-     "texto": "Ad te, beate Ioseph, in tribulatione nostra confugimus, atque, implorato Sponsae tuae sanctissimae auxilio, patrocinium quoque tuum fidenter exposcimus. Per eam, quaesumus, quae te cum immaculata Virgine Dei Genetrice coniunxit, caritatem, perque paternum, quo Puerum Iesum amplexus es, amorem, supplices deprecamur, ut ad hereditatem, quam Iesus Christus acquisivit Sanguine suo, benignus respicias, ac necessitatibus nostris tua virtute et ope succurras. Tuere, o Custos providentissime divinae Familiae, Iesu Christi sobolem electam; prohibe a nobis, amantissime Pater, omnem errorum ac corruptelarum luem; propitius nobis, sospitator noster fortissime, in hoc cum potestate tenebrarum certamine e caelo adesto; et sicut olim Puerum Iesum e summo eripuisti vitae discrimine, ita nunc Ecclesiam sanctam Dei ab hostilibus insidiis atque ab omni adversitate defende: nosque singulos perpetuo tege patrocinio, ut ad tui exemplar et ope tua suffulti, sancte vivere, pie emori, sempiternamque in caelis beatitudinem assequi possimus. Amen."
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]A vós, São José, recorremos em nossa tribulação e, depois de ter implorado o auxílio de vossa santíssima esposa, cheios de confiança solicitamos também o vosso patrocínio. Por esse laço sagrado de caridade que vos uniu à Virgem Imaculada Mãe de Deus, e pelo amor paternal que tivestes ao Menino Jesus, ardentemente suplicamos que lanceis um olhar benigno sobre a herança que Jesus Cristo conquistou com seu sangue, e nos socorrais em nossas necessidades com o vosso auxílio e poder. Protegei, ó guarda providente da divina família, o povo eleito de Jesus Cristo. Afastai para longe de nós, ó pai amantíssimo, a peste do erro e do vício. Assisti-nos do alto do céu, ó nosso fortíssimo sustentáculo, na luta contra o poder das trevas, e assim como outrora salvastes da morte a vida ameaçada do Menino Jesus, assim também defendei agora a Santa Igreja de Deus das ciladas de seus inimigos e de toda a adversidade. Amparai a cada um de nós com o vosso constante patrocínio, a fim de que, a vosso exemplo e sustentados com o vosso auxílio, possamos viver virtuosamente, morrer piedosamente e obter no céu a eterna bem-aventurança. Amém.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Ad te, beate Ioseph, in tribulatione nostra confugimus, atque, implorato Sponsae tuae sanctissimae auxilio, patrocinium quoque tuum fidenter exposcimus. Per eam, quaesumus, quae te cum immaculata Virgine Dei Genetrice coniunxit, caritatem, perque paternum, quo Puerum Iesum amplexus es, amorem, supplices deprecamur, ut ad hereditatem, quam Iesus Christus acquisivit Sanguine suo, benignus respicias, ac necessitatibus nostris tua virtute et ope succurras. Tuere, o Custos providentissime divinae Familiae, Iesu Christi sobolem electam; prohibe a nobis, amantissime Pater, omnem errorum ac corruptelarum luem; propitius nobis, sospitator noster fortissime, in hoc cum potestate tenebrarum certamine e caelo adesto; et sicut olim Puerum Iesum e summo eripuisti vitae discrimine, ita nunc Ecclesiam sanctam Dei ab hostilibus insidiis atque ab omni adversitate defende: nosque singulos perpetuo tege patrocinio, ut ad tui exemplar et ope tua suffulti, sancte vivere, pie emori, sempiternamque in caelis beatitudinem assequi possimus. Amen."
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]A vós, São José, recorremos em nossa tribulação e, depois de ter implorado o auxílio de vossa santíssima esposa, cheios de confiança solicitamos também o vosso patrocínio. Por esse laço sagrado de caridade que vos uniu à Virgem Imaculada Mãe de Deus, e pelo amor paternal que tivestes ao Menino Jesus, ardentemente suplicamos que lanceis um olhar benigno sobre a herança que Jesus Cristo conquistou com seu sangue, e nos socorrais em nossas necessidades com o vosso auxílio e poder. Protegei, ó guarda providente da divina família, o povo eleito de Jesus Cristo. Afastai para longe de nós, ó pai amantíssimo, a peste do erro e do vício. Assisti-nos do alto do céu, ó nosso fortíssimo sustentáculo, na luta contra o poder das trevas, e assim como outrora salvastes da morte a vida ameaçada do Menino Jesus, assim também defendei agora a Santa Igreja de Deus das ciladas de seus inimigos e de toda a adversidade. Amparai a cada um de nós com o vosso constante patrocínio, a fim de que, a vosso exemplo e sustentados com o vosso auxílio, possamos viver virtuosamente, morrer piedosamente e obter no céu a eterna bem-aventurança. Amém.[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1833,26 +1893,34 @@
      "texto": "Concede-se [i]indulgência parcial[/i] ao fiel que recitar devotamente a oração aos [i]Santos Apóstolos Pedro e Paulo[/i]."
     },
     {
-     "tipo": "paragrafo",
-     "texto": "Sancti Apostoli Petre et Paule, intercedite pro nobis."
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Sancti Apostoli Petre et Paule, intercedite pro nobis."
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Santos Apóstolos Pedro e Paulo, intercedei por nós.[/i]"
+      }
+     ]
     },
     {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Santos Apóstolos Pedro e Paulo, intercedei por nós.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Protege, Domine, populum tuum; et Apostolorum tuorum Petri et Pauli patrocinio confidentem, perpetua defensione conserva. Per Christum Dominum nostrum. Amen.[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Protegei, Senhor, o vosso povo, que confia na proteção dos vossos Apóstolos Pedro e Paulo, e conservai-o com a vossa contínua defesa. Por Cristo, nosso Senhor. Amém.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Protege, Domine, populum tuum; et Apostolorum tuorum Petri et Pauli patrocinio confidentem, perpetua defensione conserva. Per Christum Dominum nostrum. Amen.[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Protegei, Senhor, o vosso povo, que confia na proteção dos vossos Apóstolos Pedro e Paulo, e conservai-o com a vossa contínua defesa. Por Cristo, nosso Senhor. Amém.[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1923,15 +1991,19 @@
      "texto": "Concede-se [i]indulgência parcial[/i] ao fiel que, levado por uma disposição de gratidão sobrenatural, recitar uma oração pelos benfeitores, legitimamente aprovada (por exemplo, [i]Dignai-vos retribuir, Senhor[/i])."
     },
     {
-     "tipo": "paragrafo",
-     "texto": "Retribuere dignare, Domine, omnibus nobis bona facientibus propter nomen tuum vitam aeternam. Amen."
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Dignai-vos retribuir, Senhor, a vida eterna a todos os que nos fazem o bem por causa do vosso nome. Amém.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Retribuere dignare, Domine, omnibus nobis bona facientibus propter nomen tuum vitam aeternam. Amen."
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Dignai-vos retribuir, Senhor, a vida eterna a todos os que nos fazem o bem por causa do vosso nome. Amém.[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -1957,23 +2029,27 @@
      "menor": true
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]℣. Oremus pro Pontifice nostro N.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]℟. Dominus conservet eum, et vivificet eum, et beatum faciat eum in terra, et non tradat eum in animam inimicorum eius.[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]℣. Oremos pelo nosso Pontífice N.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]℟. O Senhor o conserve, o anime, e o torne feliz na terra, e não o entregue ao poder dos seus inimigos.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℣. Oremus pro Pontifice nostro N.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℟. Dominus conservet eum, et vivificet eum, et beatum faciat eum in terra, et non tradat eum in animam inimicorum eius.[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℣. Oremos pelo nosso Pontífice N.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℟. O Senhor o conserve, o anime, e o torne feliz na terra, e não o entregue ao poder dos seus inimigos.[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -2013,132 +2089,164 @@
      "texto": "proferir devotamente alguma oração de súplica e ação de graças legitimamente aprovada, por exemplo:"
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Actiones nostras,quaesumus, Domine, aspirando praeveni et adiuvando prosequere: ut cuncta nostra operatio a te semper incipiat et per te coepta finiatur. Per Christum Dominum nostrum. Amen. (Prex ad auxilium divinum ante quamlibet actionem implorandum; MR, feria V post Cineres, collecta; LH, I hebd. feria II, ad Laudes)[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Actiones nostras,quaesumus, Domine, aspirando praeveni et adiuvando prosequere: ut cuncta nostra operatio a te semper incipiat et per te coepta finiatur. Per Christum Dominum nostrum. Amen. (Prex ad auxilium divinum ante quamlibet actionem implorandum; MR, feria V post Cineres, collecta; LH, I hebd. feria II, ad Laudes)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Inspirai, ó Deus, as nossas ações e ajudai-nos a realizá-las, para que em vós comece e em vós termine tudo aquilo que fizermos. Por Cristo nosso Senhor. Amém. (Oração para pedir o auxílio divino antes de qualquer tarefa; Miss. Rom., coleta da quinta-feira após as Cinzas; Lit. Hor., I sem. segunda-feira, Laudes.)[/i]"
+      }
+     ]
     },
     {
-     "tipo": "separador"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Adsumus, Domine Sancte Spiritus, adsumus peccati quidem immanitate detenti, sed in nomine tuo specialiter congregati.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Veni ad nos et esto nobiscum et dignare illabi cordibus nostris.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Doce nos quid agamus, quo gradiamur et ostende quid efficere debeamus, ut, te auxiliante, tibi in omnibus placere valeamus.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Esto solus suggestor et effector iudiciorum nostrorum, qui solus cum Deo Patre et eius Filio nomen possides gloriosum.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Non nos patiaris perturbatores esse iustitiae qui summam diligis aequitatem. Non in sinistrum nos ignorantia trahat, non favor inflectat, non acceptio muneris vel personae corrumpat.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Sed iunge nos tibi efficaciter solius tuae gratiae dono, ut simus in te unum et in nullo deviemus a vero; quatenus in nomine tuo collecti, sic in cunctis teneamus cum moderamine pietatis iustitiam, ut et hic a te in nullo dissentiat sententia nostra et in futurum pro bene gestis consequamur praemia sempiterna. Amen. (Oratio ante sessionem ad communia negotia)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Aqui estamos, Divino Espírito Santo, aqui estamos detidos pela crueldade do pecado, mas especialmente reunidos em vosso nome.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Vinde a nós, ficai conosco e dignai-vos entrar em nossos corações.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Ensinai-nos o que devemos fazer e por onde caminhar; mostrai-nos o que devemos executar, a fim de podermos, com vosso auxílio, agradar-vos em tudo.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Só vós nos inspirais e levais a realizar nossos propósitos, só vós, que possuís com Deus Pai e seu Filho um nome glorioso.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Não permitais sejamos perturbadores da justiça, vós que amais a equidade em tudo. Que a ignorância não nos arraste para o mal, não nos dobre a adulação, não nos corrompa a acepção de pessoas ou ambição de cargos.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Mas associai-nos a vós eficazmente pelo dom de vossa graça, para que sejamos um em vós, e por nada nos desviemos da verdade. Unidos em vosso nome, conservemos em tudo a justiça com a bondade. E assim nossas resoluções em nada se apartem de vós e consigamos no futuro o prêmio eterno por todo o bem que fizermos. Amém. (Oração antes de reunião para tratar de negócios comuns)[/i]"
+      }
+     ]
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Inspirai, ó Deus, as nossas ações e ajudai-nos a realizá-las, para que em vós comece e em vós termine tudo aquilo que fizermos. Por Cristo nosso Senhor. Amém. (Oração para pedir o auxílio divino antes de qualquer tarefa; Miss. Rom., coleta da quinta-feira após as Cinzas; Lit. Hor., I sem. segunda-feira, Laudes.)[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Agimus tibi gratias[/i], omnipotens Deus, pro universis beneficiis tuis: Qui vivis et regnas in saecula saeculorum. Amen. [i](Prex pro gratiarum actione)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Nós vos damos graças, Senhor, por todos os vossos benefícios. Vós que viveis e reinais pelos séculos dos séculos. Amém. (Prece para ação de graças)[/i]"
+      }
+     ]
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Adsumus, Domine Sancte Spiritus, adsumus peccati quidem immanitate detenti, sed in nomine tuo specialiter congregati.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Benedic, Domine, nos et haec tua dona, quae de tua largitate sumus sumpturi. Per Christum Dominum nostrum. Amen. (De Ben., 785)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Abençoai, Senhor, a nós e a estes dons, que de vossa bondade recebemos. Por Cristo Nosso Senhor. Amém. (Ritual de Bênçãos, 785)[/i]"
+      }
+     ]
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Veni ad nos et esto nobiscum et dignare illabi cordibus nostris.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Domine, Deus omnipotens, qui ad principium huius diei nos pervenire fecisti, tua nos hodie salva virtute, ut in hac die ad nullum declinemus peccatum, sed semper ad tuam iustitiam faciendam nostra procedant eloquia, dirigantur cogitationes et opera. Per Christum Dominum nostrum. Amen. (LH, II hebd. feria II, ad Laudes)"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Senhor Deus todo-poderoso, que nos fizestes chegar ao começo deste dia, salvai-nos hoje com o vosso poder, para não cairmos em nenhum pecado e fazermos sempre a vossa vontade em nossos pensamentos, palavras e ações. Por nosso Senhor Jesus Cristo, vosso Filho, na unidade do Espírito Santo. Amém. (LH, segunda-feira da II semana, Laudes)[/i]"
+      }
+     ]
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Doce nos quid agamus, quo gradiamur et ostende quid efficere debeamus, ut, te auxiliante, tibi in omnibus placere valeamus.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Exaudi nos, Domine sancte, Pater omnipotens, aeterne Deus: et mittere digneris sanctum Angelum tuum de caelis, qui custodiat, foveat, protegat, visitet atque defendat omnes habitantes in hoc habitaculo. Per Christum Dominum nostrum. Amen."
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Ouvi-nos, Senhor santo, Pai todo-poderoso, Deus eterno, e dignai-vos mandar do céu o vosso santo anjo, para que ele guarde, assista, proteja, visite e defenda todos os que moram nesta casa. Por Cristo, nosso Senhor. Amém.[/i]"
+      }
+     ]
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Esto solus suggestor et effector iudiciorum nostrorum, qui solus cum Deo Patre et eius Filio nomen possides gloriosum.[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Veni, Sancte Spiritus, reple tuorum corda fidelium et tui amoris in eis ignem accende. (LH, Dom. Pentecostes)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Vinde Santo Espírito, enchei os corações de vossos fiéis e acendei neles o fogo do vosso amor. (LH, Domingo de Pentecostes)[/i]"
+      }
+     ]
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Non nos patiaris perturbatores esse iustitiae qui summam diligis aequitatem. Non in sinistrum nos ignorantia trahat, non favor inflectat, non acceptio muneris vel personae corrumpat.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Sed iunge nos tibi efficaciter solius tuae gratiae dono, ut simus in te unum et in nullo deviemus a vero; quatenus in nomine tuo collecti, sic in cunctis teneamus cum moderamine pietatis iustitiam, ut et hic a te in nullo dissentiat sententia nostra et in futurum pro bene gestis consequamur praemia sempiterna. Amen. (Oratio ante sessionem ad communia negotia)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Aqui estamos, Divino Espírito Santo, aqui estamos detidos pela crueldade do pecado, mas especialmente reunidos em vosso nome.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Vinde a nós, ficai conosco e dignai-vos entrar em nossos corações.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Ensinai-nos o que devemos fazer e por onde caminhar; mostrai-nos o que devemos executar, a fim de podermos, com vosso auxílio, agradar-vos em tudo.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Só vós nos inspirais e levais a realizar nossos propósitos, só vós, que possuís com Deus Pai e seu Filho um nome glorioso.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Não permitais sejamos perturbadores da justiça, vós que amais a equidade em tudo. Que a ignorância não nos arraste para o mal, não nos dobre a adulação, não nos corrompa a acepção de pessoas ou ambição de cargos.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Mas associai-nos a vós eficazmente pelo dom de vossa graça, para que sejamos um em vós, e por nada nos desviemos da verdade. Unidos em vosso nome, conservemos em tudo a justiça com a bondade. E assim nossas resoluções em nada se apartem de vós e consigamos no futuro o prêmio eterno por todo o bem que fizermos. Amém. (Oração antes de reunião para tratar de negócios comuns)[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Agimus tibi gratias[/i], omnipotens Deus, pro universis beneficiis tuis: Qui vivis et regnas in saecula saeculorum. Amen. [i](Prex pro gratiarum actione)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Nós vos damos graças, Senhor, por todos os vossos benefícios. Vós que viveis e reinais pelos séculos dos séculos. Amém. (Prece para ação de graças)[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Benedic, Domine, nos et haec tua dona, quae de tua largitate sumus sumpturi. Per Christum Dominum nostrum. Amen. (De Ben., 785)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Abençoai, Senhor, a nós e a estes dons, que de vossa bondade recebemos. Por Cristo Nosso Senhor. Amém. (Ritual de Bênçãos, 785)[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Domine, Deus omnipotens, qui ad principium huius diei nos pervenire fecisti, tua nos hodie salva virtute, ut in hac die ad nullum declinemus peccatum, sed semper ad tuam iustitiam faciendam nostra procedant eloquia, dirigantur cogitationes et opera. Per Christum Dominum nostrum. Amen. (LH, II hebd. feria II, ad Laudes)"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Senhor Deus todo-poderoso, que nos fizestes chegar ao começo deste dia, salvai-nos hoje com o vosso poder, para não cairmos em nenhum pecado e fazermos sempre a vossa vontade em nossos pensamentos, palavras e ações. Por nosso Senhor Jesus Cristo, vosso Filho, na unidade do Espírito Santo. Amém. (LH, segunda-feira da II semana, Laudes)[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Exaudi nos, Domine sancte, Pater omnipotens, aeterne Deus: et mittere digneris sanctum Angelum tuum de caelis, qui custodiat, foveat, protegat, visitet atque defendat omnes habitantes in hoc habitaculo. Per Christum Dominum nostrum. Amen."
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Ouvi-nos, Senhor santo, Pai todo-poderoso, Deus eterno, e dignai-vos mandar do céu o vosso santo anjo, para que ele guarde, assista, proteja, visite e defenda todos os que moram nesta casa. Por Cristo, nosso Senhor. Amém.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Veni, Sancte Spiritus, reple tuorum corda fidelium et tui amoris in eis ignem accende. (LH, Dom. Pentecostes)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Vinde Santo Espírito, enchei os corações de vossos fiéis e acendei neles o fogo do vosso amor. (LH, Domingo de Pentecostes)[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Visita, quaesumus, Domine[/i], habitationem istam, et omnes insidias inimici ab ea longe repelle, angeli tui sancti habitent in ea, qui nos in pace custodiant; et benedictio tua sit super nos semper. Per Christum Dominum nostrum. Amen. [i](LH, Ad Compl. in sollemnitatibus)[/i]"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Visitai, Senhor, esta casa, e afastai as ciladas do inimigo; nela habitem vossos santos Anjos, para nos guardar na paz, e a vossa bênção fique sempre conosco. Por Cristo, nosso Senhor. Amém. (LH, Completas das solenidades)[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Visita, quaesumus, Domine[/i], habitationem istam, et omnes insidias inimici ab ea longe repelle, angeli tui sancti habitent in ea, qui nos in pace custodiant; et benedictio tua sit super nos semper. Per Christum Dominum nostrum. Amen. [i](LH, Ad Compl. in sollemnitatibus)[/i]"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Visitai, Senhor, esta casa, e afastai as ciladas do inimigo; nela habitem vossos santos Anjos, para nos guardar na paz, e a vossa bênção fique sempre conosco. Por Cristo, nosso Senhor. Amém. (LH, Completas das solenidades)[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",
@@ -2236,15 +2344,19 @@
      "texto": "[i]Compete às conferências episcopais o cuidado de acrescentar nas edições do Indulgências - orientações litúrgico-pastorais, nas várias línguas, as preces pelos defuntos mais usadas em seus territórios e mais caras aos fiéis.[/i]"
     },
     {
-     "tipo": "paragrafo",
-     "texto": "Requiem aeternam dona eis, Domine, et lux perpetua luceat eis. Requiescant in pace. Amen. (Ordo exequiarum)"
-    },
-    {
-     "tipo": "separador"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Dai-lhes, Senhor, o repouso eterno, e brilhe para eles a vossa luz. Descansem em paz! Amém. (cf. Rito das exéquias)[/i]"
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Requiem aeternam dona eis, Domine, et lux perpetua luceat eis. Requiescant in pace. Amen. (Ordo exequiarum)"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Dai-lhes, Senhor, o repouso eterno, e brilhe para eles a vossa luz. Descansem em paz! Amém. (cf. Rito das exéquias)[/i]"
+      }
+     ]
     },
     {
      "tipo": "subtitulo",

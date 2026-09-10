@@ -21,6 +21,10 @@ def textos(b):
     for l in b.get("linhas", []):
         for c in l: yield c
     for c in b.get("colunas", []): yield c
+    # o bloco bilíngue guarda os dois lados como blocos dentro dele
+    for k in ("latim", "portugues", "corpo"):
+        for filho in b.get(k, []):
+            yield from textos(filho)
 
 partes = [limpo(s["titulo"]) for s in d["secoes"]]
 for s in d["secoes"]:

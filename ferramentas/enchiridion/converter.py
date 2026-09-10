@@ -380,6 +380,83 @@ apres[:] = [b for b in apres
 apres.insert(len(apres) - 1,
              {"tipo": "nota", "titulo": "Modificações feitas no texto", "paragrafos": itens})
 
+# ------------------------------------------------ orações lado a lado
+"""
+No impresso, o latim vem antes do fio e a tradução depois. Na tela larga os
+dois cabem lado a lado, como num missal bilíngue, e é isso que o bloco
+`bilingue` faz.
+
+O que separa um lado do outro é a língua, e não o itálico: metade das orações
+tem o latim sem itálico, e essa marca falhava em onze dos vinte e nove fios.
+Reconhecer a língua também impede o pior caso, que é parear um fio que na
+verdade separa duas orações diferentes: ali o texto antes do fio é português,
+a regra não casa e o fio fica como estava.
+"""
+LATINAS = {"et", "qui", "quae", "quod", "cum", "ad", "in", "est", "sunt", "nobis", "tuum",
+           "tuae", "tui", "nostrum", "nostris", "per", "pro", "ut", "sed", "atque", "ex",
+           "omnia", "sancta", "sanctum", "domine", "iesu", "christi", "amen", "quaesumus",
+           "tibi", "eius", "suo", "suam", "hoc", "haec", "ipse", "ante", "post", "sine",
+           "super", "dei", "caelis", "gratia", "virgo", "mariae", "nostri"}
+PORTUGUESAS = {"que", "não", "para", "com", "dos", "das", "uma", "vos", "vossa", "vosso",
+               "nossa", "nosso", "como", "pelo", "pela", "seu", "sua", "são", "ao", "aos",
+               "às", "foi", "ser", "todos", "todas", "mais", "muito", "pelos", "até",
+               "também", "onde", "porque", "senhor", "nós", "na", "no", "da", "do", "em",
+               "por", "um", "anjo", "alma", "nome"}
+
+def _texto_do(b):
+    partes = [b[k] for k in ("texto", "titulo") if k in b]
+    for k in ("itens", "paragrafos"):
+        partes += [x for x in b.get(k, []) if isinstance(x, str)]
+    return " ".join(partes)
+
+def lingua_do(b):
+    """"la", "pt" ou "?" quando o bloco não decide."""
+    if b["tipo"] not in ("paragrafo", "lista"):
+        return "?"
+    t = re.sub(r"\[/?\w+(?::[^\]]*)?\]", " ", _texto_do(b)).lower()
+    # ã, õ e ç não aparecem no latim como este documento o escreve
+    if re.search(r"[ãõç]", t):
+        return "pt"
+    palavras = re.findall(r"[a-zàáâéêíóôúü]+", t)
+    if not palavras:
+        return "?"
+    lat = sum(1 for p in palavras if p in LATINAS)
+    por = sum(1 for p in palavras if p in PORTUGUESAS)
+    if lat == por:
+        return "?"
+    return "la" if lat > por else "pt"
+
+def emparelhar_bilingues(blocos):
+    saida = []
+    i = 0
+    while i < len(blocos):
+        b = blocos[i]
+        if b["tipo"] != "separador":
+            saida.append(b)
+            i += 1
+            continue
+        # a corrida em latim já está na saída; a em português vem à frente
+        latim = []
+        while saida and lingua_do(saida[-1]) == "la":
+            latim.insert(0, saida.pop())
+        j = i + 1
+        portugues = []
+        while j < len(blocos) and lingua_do(blocos[j]) == "pt":
+            portugues.append(blocos[j])
+            j += 1
+        if latim and portugues:
+            saida.append({"tipo": "bilingue", "latim": latim, "portugues": portugues})
+            i = j
+        else:
+            # fio que não divide as duas línguas: fica como está
+            saida.extend(latim)
+            saida.append(b)
+            i += 1
+    return saida
+
+for secao in secoes:
+    secao["blocos"] = emparelhar_bilingues(secao["blocos"])
+
 saida = {
     "titulo": "Enchiridion Indulgentiarum",
     "descricao": ("Orientações litúrgico-pastorais: a quarta edição do Enchiridion "

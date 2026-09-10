@@ -14,6 +14,7 @@ export const TIPOS: { tipo: NomeDeTipo; rotulo: string; descricao: string }[] = 
   { tipo: "tabela", rotulo: "Tabela", descricao: "Vira ficha empilhada no celular." },
   { tipo: "legenda", rotulo: "Legenda", descricao: "Lista de chaves com etiqueta." },
   { tipo: "separador", rotulo: "Fio separador", descricao: "Divide o latim da tradução." },
+  { tipo: "bilingue", rotulo: "Oração bilíngue", descricao: "Latim e tradução lado a lado na tela larga." },
   { tipo: "indice", rotulo: "Índice do documento", descricao: "Lista as seções e as partes desta página." },
   { tipo: "passo", rotulo: "Passo da Missa", descricao: "Peça numerada, com etiqueta litúrgica." },
 ];
@@ -42,6 +43,7 @@ export function blocoVazio(tipo: NomeDeTipo): Bloco {
     case "tabela": return { id, tipo, colunas: ["", ""], linhas: [["", ""]] };
     case "legenda": return { id, tipo, itens: [{ chave: "", etiqueta: "ordinario", texto: "" }] };
     case "separador": return { id, tipo };
+    case "bilingue": return { id, tipo, latim: [], portugues: [] };
     case "indice": return { id, tipo };
     case "passo":
       return { id, tipo, etiqueta: "ordinario", titulo: "", corpo: [] };

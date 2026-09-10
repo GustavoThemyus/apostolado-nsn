@@ -46,6 +46,15 @@ export type Bloco = ComId &
   | { tipo: "subtitulo"; texto: string; ancora?: string; menor?: boolean }
   /** Fio que separa o latim da tradução, como no impresso. */
   | { tipo: "separador" }
+  /**
+   * Oração nas duas línguas, lado a lado.
+   *
+   * No impresso o latim vem antes e a tradução depois, separados por um fio,
+   * porque a página de livro não comporta duas colunas. A tela larga comporta,
+   * e é como um missal bilíngue se lê. Abaixo do ponto de quebra volta a ser
+   * empilhado: em 390px cada coluna teria dezoito caracteres de largura.
+   */
+  | { tipo: "bilingue"; latim: Bloco[]; portugues: Bloco[] }
   /** O índice completo do documento, derivado das seções. */
   | { tipo: "indice" }
   | { tipo: "lista"; ordenada?: boolean; itens: string[] }

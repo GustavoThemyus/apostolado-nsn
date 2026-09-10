@@ -42,6 +42,8 @@ function textosDoBloco(bloco: Bloco): string[] {
   if ("versos" in bloco)
     for (const v of bloco.versos) saida.push(v.latim ?? "", v.portugues ?? "");
   if ("corpo" in bloco) for (const filho of bloco.corpo) saida.push(...textosDoBloco(filho));
+  if ("latim" in bloco) for (const filho of bloco.latim) saida.push(...textosDoBloco(filho));
+  if ("portugues" in bloco) for (const filho of bloco.portugues) saida.push(...textosDoBloco(filho));
   return saida;
 }
 
