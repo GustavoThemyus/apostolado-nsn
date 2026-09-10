@@ -326,7 +326,7 @@ button {
     rgba(12, 12, 26, 0.86) 100%
   );
 }
-.cabecalho--estampado /*
+/*
  * O índice da seção, no alto da página.
  *
  * Os cartões que levam às outras páginas ficam no fim, e quem chega ao texto
@@ -335,9 +335,16 @@ button {
  * título nem com o começo do texto.
  */
 .atalhos {
-  margin: 1.75rem 0 0;
+  /* a mesma folga da antífona: as duas são a primeira coisa depois do
+     cabeçalho, e o cabeçalho é uma pintura inteira, que precisa de ar */
+  margin: 2.25rem 0 0;
   padding: 0.85rem 0 0;
   border-top: 1px solid var(--fio);
+}
+@media (min-width: 46rem) {
+  .atalhos {
+    margin-top: 2.75rem;
+  }
 }
 .atalhos__rotulo {
   margin: 0 0 0.45rem;
