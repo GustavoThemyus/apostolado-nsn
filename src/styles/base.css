@@ -1186,24 +1186,22 @@ button {
   border-radius: 0;
   color: var(--tinta);
   text-decoration: none;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
+  transition: background 0.15s ease;
 }
 .menu__lista li + li .menu__secao {
   border-top: 1px solid var(--fio);
 }
 
 /*
- * A passagem do cursor: fundo fraco, filete à esquerda e a seta andando um
- * passo.
+ * A passagem do cursor: a superfície um degrau mais escura, e a seta andando
+ * um passo. Sem ouro.
  *
- * O filete é sombra interna, e não borda: borda de verdade empurraria o texto
- * três pixels para a direita a cada passagem, e o menu inteiro tremeria sob o
- * cursor. E o fundo é o realce fraco, porque o cheio é da faixa da página
- * atual: se os dois fossem iguais, passar o cursor diria "você está aqui".
+ * O ouro ficou reservado para uma coisa só, dizer em que página se está. Ele
+ * marcava também a passagem do cursor, e aí o menu tinha dois amarelos
+ * querendo dizer coisas diferentes: o de estar e o de poder ir.
  */
 .menu__secao:hover {
-  background: var(--realce-toque);
-  box-shadow: inset 3px 0 0 var(--ouro);
+  background: var(--fundo-toque);
 }
 .menu__secao:hover .menu__seta {
   transform: translateX(3px);
