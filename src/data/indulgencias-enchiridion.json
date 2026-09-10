@@ -1163,24 +1163,24 @@
      "texto": "[i]2º[/i] Recitar a Jesus no Santíssimo Sacramento da Eucaristia alguma oração legitimamente aprovada (por exemplo o poema [i]Adoro te devote[/i], ou a oração [i]Ó sagrado banquete[/i], ou as estrofes do [i]Tão sublime Sacramento[/i])."
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]O sacrum convivium, in quo Christus sumitur: recolitur memoria passionis eius, mens impletur gratia, et futurae gloriae nobis pignus datur.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Tantum ergo sacramentum \nveneremur cernui: \net antiquum documentum \nnovo cedat ritui: \npraestet fides supplementum \nsensuum defectui.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Genitori Genitoque \nlaus et iubilatio, \nsalus, honor, virtus quoque \nsit et benedictio: \nprocedenti ab utroque \ncompar sit laudatio. Amen.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]℣. Panem de caelo praestitisti eis,[/i]"
-    },
-    {
      "tipo": "bilingue",
      "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]O sacrum convivium, in quo Christus sumitur: recolitur memoria passionis eius, mens impletur gratia, et futurae gloriae nobis pignus datur.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Tantum ergo sacramentum \nveneremur cernui: \net antiquum documentum \nnovo cedat ritui: \npraestet fides supplementum \nsensuum defectui.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Genitori Genitoque \nlaus et iubilatio, \nsalus, honor, virtus quoque \nsit et benedictio: \nprocedenti ab utroque \ncompar sit laudatio. Amen.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℣. Panem de caelo praestitisti eis,[/i]"
+      },
       {
        "tipo": "paragrafo",
        "texto": "[i]℟. Omne delectamentum in se habentem.[/i]"
@@ -1214,12 +1214,12 @@
       {
        "tipo": "paragrafo",
        "texto": "[i]Oremos: Senhor Jesus Cristo, neste admirável Sacramento, nos deixastes o memorial da vossa Paixão. Dai-nos venerar com tão grande amor o mistério do vosso corpo e do vosso sangue, que possamos colher continuamente os frutos da vossa redenção. Vós que viveis e reinais para sempre. R/. Amém.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i](De Sacra Communione et de Cultu Mysterii Eucharistici extra Missam, 21 de junho de 1973, 200 e 192).[/i]"
       }
      ]
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i](De Sacra Communione et de Cultu Mysterii Eucharistici extra Missam, 21 de junho de 1973, 200 e 192).[/i]"
     },
     {
      "tipo": "subtitulo",
@@ -1272,9 +1272,6 @@
        "texto": "[i]Amém. (Miss. Rom., ação de graças depois da missa)[/i]"
       }
      ]
-    },
-    {
-     "tipo": "separador"
     },
     {
      "tipo": "bilingue",
@@ -1523,44 +1520,44 @@
      "menor": true
     },
     {
-     "tipo": "paragrafo",
-     "texto": "℣. Angelus Domini nuntiavit Mariae,"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℟. Et concepit de Spiritu Sancto."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Ave, Maria..."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℣. Ecce ancilla Domini,"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℟. Fiat mihi secundum verbum tuum."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Ave, Maria..."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℣. Et Verbum caro factum est,"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℟. Et habitavit in nobis."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Ave, Maria..."
-    },
-    {
      "tipo": "bilingue",
      "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Angelus Domini nuntiavit Mariae,"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℟. Et concepit de Spiritu Sancto."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Ave, Maria..."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Ecce ancilla Domini,"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℟. Fiat mihi secundum verbum tuum."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Ave, Maria..."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Et Verbum caro factum est,"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℟. Et habitavit in nobis."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Ave, Maria..."
+      },
       {
        "tipo": "paragrafo",
        "texto": "℣. Ora pro nobis, sancta Dei Genitrix,"
@@ -1582,48 +1579,48 @@
       {
        "tipo": "paragrafo",
        "texto": "℟. E ela concebeu do Espírito Santo."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Ave, Maria..."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Eis aqui a serva do Senhor."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℟. Faça-se em mim segundo a vossa palavra."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Ave, Maria..."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. E o Verbo se fez carne."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℟. E habitou entre nós."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Ave, Maria..."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Rogai por nós, santa Mãe de Deus,"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℟. Para que sejamos dignos das promessas de Cristo."
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Oremos: Derramai, ó Deus, a vossa graça em nossos corações, para que, conhecendo pela mensagem do Anjo a encarnação do vosso Filho, cheguemos, por sua paixão e cruz, à glória da ressurreição. Por Cristo, nosso Senhor. Amém. (Missal Romano, IV Domingo do Adv., coleta.)"
       }
      ]
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Ave, Maria..."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℣. Eis aqui a serva do Senhor."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℟. Faça-se em mim segundo a vossa palavra."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Ave, Maria..."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℣. E o Verbo se fez carne."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℟. E habitou entre nós."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Ave, Maria..."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℣. Rogai por nós, santa Mãe de Deus,"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℟. Para que sejamos dignos das promessas de Cristo."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "Oremos: Derramai, ó Deus, a vossa graça em nossos corações, para que, conhecendo pela mensagem do Anjo a encarnação do vosso Filho, cheguemos, por sua paixão e cruz, à glória da ressurreição. Por Cristo, nosso Senhor. Amém. (Missal Romano, IV Domingo do Adv., coleta.)"
     },
     {
      "tipo": "subtitulo",
@@ -1632,32 +1629,32 @@
      "menor": true
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Regina caeli, laetare, alleluia:[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Quia quem meruisti portare, alleluia,[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Resurrexit, sicut dixit, alleluia.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Ora pro nobis Deum, alleluia.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]℣. Gaude et laetare, virgo Maria, alleluia.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]℟. Quia surrexit Dominus vere, alleluia.[/i]"
-    },
-    {
      "tipo": "bilingue",
      "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Regina caeli, laetare, alleluia:[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Quia quem meruisti portare, alleluia,[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Resurrexit, sicut dixit, alleluia.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Ora pro nobis Deum, alleluia.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℣. Gaude et laetare, virgo Maria, alleluia.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℟. Quia surrexit Dominus vere, alleluia.[/i]"
+      },
       {
        "tipo": "paragrafo",
        "texto": "[i](LH, Ord. temp. pasch. post Compl.)[/i]"
@@ -1691,20 +1688,20 @@
       {
        "tipo": "paragrafo",
        "texto": "[i]℟. Porque o Senhor ressuscitou verdadeiramente, aleluia![/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i](Cf. Lit. Hor., ord. temp. pasc., após compl.)[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Oremos: Ó Deus, que vos dignastes alegrar o mundo com a ressurreição do vosso Filho, concedei-nos por sua Mãe, a Virgem Maria, o júbilo da vida eterna. Por Cristo, nosso Senhor. Amém.[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i](Miss. Rom., comum da B.V. Maria, temp. pasc., coleta.)[/i]"
       }
      ]
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i](Cf. Lit. Hor., ord. temp. pasc., após compl.)[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Oremos: Ó Deus, que vos dignastes alegrar o mundo com a ressurreição do vosso Filho, concedei-nos por sua Mãe, a Virgem Maria, o júbilo da vida eterna. Por Cristo, nosso Senhor. Amém.[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i](Miss. Rom., comum da B.V. Maria, temp. pasc., coleta.)[/i]"
     },
     {
      "tipo": "subtitulo",
@@ -1713,20 +1710,20 @@
      "menor": true
     },
     {
-     "tipo": "paragrafo",
-     "texto": "[i]Maria, Mater gratiae,[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Mater misericordiae,[/i]"
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "[i]Tu me ab hoste protege[/i]"
-    },
-    {
      "tipo": "bilingue",
      "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Maria, Mater gratiae,[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Mater misericordiae,[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]Tu me ab hoste protege[/i]"
+      },
       {
        "tipo": "paragrafo",
        "texto": "[i]et mortis hora suscipe.[/i]"

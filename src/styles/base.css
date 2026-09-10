@@ -2019,6 +2019,29 @@ button {
     max-height: calc(100vh - var(--altura-barra) - 3rem);
     overflow-y: auto;
     overscroll-behavior: contain;
+    /*
+     * Barra fina. A do sistema é dimensionada para a página inteira e num
+     * bloco desta largura ela come uma fatia visível da coluna, além de
+     * pesar mais que o próprio sumário. As duas declarações não são
+     * redundantes: `scrollbar-width` é o padrão e vale no Firefox e no
+     * Chrome recente; o `::-webkit-scrollbar` abaixo cobre o Safari e os
+     * Chrome mais antigos, que ainda ignoram a primeira.
+     */
+    scrollbar-width: thin;
+    scrollbar-color: var(--fio-aceso) transparent;
+  }
+  .documento--com-sumario .sumario--embutido::-webkit-scrollbar {
+    width: 6px;
+  }
+  .documento--com-sumario .sumario--embutido::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .documento--com-sumario .sumario--embutido::-webkit-scrollbar-thumb {
+    background: var(--fio);
+    border-radius: 999px;
+  }
+  .documento--com-sumario .sumario--embutido:hover::-webkit-scrollbar-thumb {
+    background: var(--fio-aceso);
   }
   /* na coluna estreita não cabem duas colunas de itens */
   .documento--com-sumario .sumario--embutido .sumario__lista {

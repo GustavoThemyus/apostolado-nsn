@@ -182,7 +182,8 @@ def blocos_da_faixa(a, b, pular=(), titulos_menores=None, ancoras=None):
         c = so_texto(p)
         if re.fullmatch(r"[_\s]+", c):
             fechar()
-            saida.append({"tipo": "separador"})
+            saida.append({"tipo": "separador", "_corrida": p.get("corrida"),
+                          "_grupo": p.get("grupo"), "_italico": p.get("italico")})
             i += 1
             continue
 
@@ -213,7 +214,9 @@ def blocos_da_faixa(a, b, pular=(), titulos_menores=None, ancoras=None):
         if titulos_menores and i in titulos_menores:
             saida.append({"tipo": "subtitulo", "texto": c, "menor": True})
         else:
-            saida.append({"tipo": "paragrafo", "texto": texto})
+            saida.append({"tipo": "paragrafo", "texto": texto,
+                          "_corrida": p.get("corrida"), "_grupo": p.get("grupo"),
+                          "_italico": p.get("italico")})
         i += 1
 
     fechar()
@@ -382,80 +385,146 @@ apres.insert(len(apres) - 1,
 
 # ------------------------------------------------ orações lado a lado
 """
-No impresso, o latim vem antes do fio e a tradução depois. Na tela larga os
-dois cabem lado a lado, como num missal bilíngue, e é isso que o bloco
-`bilingue` faz.
+No impresso o latim vem antes do fio e a tradução depois. Na tela larga os dois
+cabem lado a lado, como num missal bilíngue.
 
-O que separa um lado do outro é a língua, e não o itálico: metade das orações
-tem o latim sem itálico, e essa marca falhava em onze dos vinte e nove fios.
-Reconhecer a língua também impede o pior caso, que é parear um fio que na
-verdade separa duas orações diferentes: ali o texto antes do fio é português,
-a regra não casa e o fio fica como estava.
+Quem diz onde uma oração começa e termina é a formatação do autor, não a língua
+do texto. Tentei antes reconhecer a língua por palavras frequentes, e errava:
+"℣. Panem de caelo praestitisti eis" pontuava como português por causa do "de",
+e o latim saía cortado no meio. Formatação é fato do documento; língua
+adivinhada é palpite.
+
+O autor não usa uma marca só, e por isso aqui há três, em ordem de confiança:
+
+  1. o *pedaço* — parágrafos seguidos com o mesmo recuo, entre dois blocos que
+     não são parágrafo. É a unidade, e com um fio só ela já resolve: tudo antes
+     é latim, tudo depois é tradução;
+  2. a *linha em branco*, quando o pedaço traz várias orações — é o caso das
+     oito preces curtas da concessão 26, todas no mesmo recuo;
+  3. o *par a par*, quando nem a linha em branco separa. O Anima Christi e o En
+     ego vêm colados, com três fios: os fios ímpares dividem as línguas e o do
+     meio divide as orações, e é isso que o número ímpar de fios diz.
+
+Duas correções que o recuo sozinho não daria:
+
+  - o Anjo do Senhor e o Rainha do céu não estão recuados. O pedaço deles é o
+    que fica entre os dois subtítulos em negrito, e funciona igual;
+  - no O sacrum convivium o recuo se perde no "Oremos" e na fonte, que são o
+    fim da mesma tradução. Por isso o pedaço recuado engole a cauda sem recuo
+    que vier logo depois, enquanto o autor não mudar mais nada.
 """
-LATINAS = {"et", "qui", "quae", "quod", "cum", "ad", "in", "est", "sunt", "nobis", "tuum",
-           "tuae", "tui", "nostrum", "nostris", "per", "pro", "ut", "sed", "atque", "ex",
-           "omnia", "sancta", "sanctum", "domine", "iesu", "christi", "amen", "quaesumus",
-           "tibi", "eius", "suo", "suam", "hoc", "haec", "ipse", "ante", "post", "sine",
-           "super", "dei", "caelis", "gratia", "virgo", "mariae", "nostri"}
-PORTUGUESAS = {"que", "não", "para", "com", "dos", "das", "uma", "vos", "vossa", "vosso",
-               "nossa", "nosso", "como", "pelo", "pela", "seu", "sua", "são", "ao", "aos",
-               "às", "foi", "ser", "todos", "todas", "mais", "muito", "pelos", "até",
-               "também", "onde", "porque", "senhor", "nós", "na", "no", "da", "do", "em",
-               "por", "um", "anjo", "alma", "nome"}
 
-def _texto_do(b):
-    partes = [b[k] for k in ("texto", "titulo") if k in b]
-    for k in ("itens", "paragrafos"):
-        partes += [x for x in b.get(k, []) if isinstance(x, str)]
-    return " ".join(partes)
 
-def lingua_do(b):
-    """"la", "pt" ou "?" quando o bloco não decide."""
-    if b["tipo"] not in ("paragrafo", "lista"):
-        return "?"
-    t = re.sub(r"\[/?\w+(?::[^\]]*)?\]", " ", _texto_do(b)).lower()
-    # ã, õ e ç não aparecem no latim como este documento o escreve
-    if re.search(r"[ãõç]", t):
-        return "pt"
-    palavras = re.findall(r"[a-zàáâéêíóôúü]+", t)
-    if not palavras:
-        return "?"
-    lat = sum(1 for p in palavras if p in LATINAS)
-    por = sum(1 for p in palavras if p in PORTUGUESAS)
-    if lat == por:
-        return "?"
-    return "la" if lat > por else "pt"
+def _fios(blocos):
+    return sum(1 for b in blocos if b["tipo"] == "separador")
 
-def emparelhar_bilingues(blocos):
-    saida = []
+
+def _bilingue(latim, portugues):
+    return {"tipo": "bilingue", "latim": latim, "portugues": portugues}
+
+
+def _segmentos(pedaco):
+    """O pedaço partido nos fios, sem eles."""
+    segmentos, atual = [], []
+    for b in pedaco:
+        if b["tipo"] == "separador":
+            segmentos.append(atual)
+            atual = []
+        else:
+            atual.append(b)
+    segmentos.append(atual)
+    return segmentos
+
+
+def _por_grupo(pedaco):
+    atual, chave = [], object()
+    for b in pedaco:
+        if b.get("_grupo") != chave and atual:
+            yield atual
+            atual = []
+        chave = b.get("_grupo")
+        atual.append(b)
+    if atual:
+        yield atual
+
+
+def _emparelhar_pedaco(pedaco):
+    fios = _fios(pedaco)
+    if fios == 0:
+        return pedaco
+
+    if fios == 1:
+        latim, portugues = _segmentos(pedaco)
+        return [_bilingue(latim, portugues)] if latim and portugues else pedaco
+
+    grupos = list(_por_grupo(pedaco))
+    if len(grupos) > 1:
+        saida = []
+        for g in grupos:
+            saida.extend(_emparelhar_pedaco(g))
+        return saida
+
+    if fios % 2 == 1:
+        segmentos = _segmentos(pedaco)
+        saida = []
+        for latim, portugues in zip(segmentos[::2], segmentos[1::2]):
+            if latim and portugues:
+                saida.append(_bilingue(latim, portugues))
+            else:
+                saida.extend(latim + portugues)
+        return saida
+
+    return pedaco
+
+
+def _pedacos(blocos):
+    """Corta a lista onde o autor mudou de assunto: de bloco ou de recuo."""
     i = 0
     while i < len(blocos):
         b = blocos[i]
-        if b["tipo"] != "separador":
-            saida.append(b)
+        if b["tipo"] not in ("paragrafo", "separador"):
+            yield [b]
             i += 1
             continue
-        # a corrida em latim já está na saída; a em português vem à frente
-        latim = []
-        while saida and lingua_do(saida[-1]) == "la":
-            latim.insert(0, saida.pop())
-        j = i + 1
-        portugues = []
-        while j < len(blocos) and lingua_do(blocos[j]) == "pt":
-            portugues.append(blocos[j])
-            j += 1
-        if latim and portugues:
-            saida.append({"tipo": "bilingue", "latim": latim, "portugues": portugues})
-            i = j
-        else:
-            # fio que não divide as duas línguas: fica como está
-            saida.extend(latim)
-            saida.append(b)
-            i += 1
+
+        recuo = b.get("_corrida")
+        fim = i
+        while (fim < len(blocos) and blocos[fim]["tipo"] in ("paragrafo", "separador")
+               and blocos[fim].get("_corrida") == recuo):
+            fim += 1
+
+        if recuo is not None and _fios(blocos[i:fim]):
+            # a cauda que perdeu o recuo no meio da tradução
+            while (fim < len(blocos) and blocos[fim]["tipo"] == "paragrafo"
+                   and blocos[fim].get("_corrida") is None
+                   and blocos[fim].get("_italico") == blocos[fim - 1].get("_italico")):
+                fim += 1
+
+        yield blocos[i:fim]
+        i = fim
+
+
+def emparelhar_bilingues(blocos):
+    saida = []
+    for pedaco in _pedacos(blocos):
+        saida.extend(_emparelhar_pedaco(pedaco))
     return saida
 
+
+def sem_marcas(blocos):
+    """Tira o andaime da conversão, que não é conteúdo."""
+    for b in blocos:
+        b.pop("_corrida", None)
+        b.pop("_grupo", None)
+        b.pop("_italico", None)
+        for k in ("latim", "portugues", "corpo"):
+            if k in b:
+                sem_marcas(b[k])
+    return blocos
+
+
 for secao in secoes:
-    secao["blocos"] = emparelhar_bilingues(secao["blocos"])
+    secao["blocos"] = sem_marcas(emparelhar_bilingues(secao["blocos"]))
 
 saida = {
     "titulo": "Enchiridion Indulgentiarum",

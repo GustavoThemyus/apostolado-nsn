@@ -10,3 +10,10 @@ guia-nsn-site.zip
 
 # estado local do wrangler dev
 .wrangler/
+
+# resíduo de rodar as ferramentas do Enchiridion: o .docx descompactado e a
+# saída intermediária. O que vale é src/data/indulgencias-enchiridion.json.
+ferramentas/enchiridion/docx/
+ferramentas/enchiridion/paragrafos.json
+ferramentas/enchiridion/enchiridion.json
+__pycache__/

@@ -27,12 +27,38 @@ mkdir -p docx && cd docx && unzip -o "…/Indulgências - Orientações litúrgi
   a chamada mostrá-las onde são lidas. São 123, mais a do asterisco.
 - **O asterisco vermelho** vira a chamada de uma nota de chave `*`, e o texto
   que estava solto no fim do documento vira o conteúdo dela.
-- **O sumário impresso** (parágrafos 13 a 67) não é copiado: a seção "Índice do
-  livro" usa o bloco `indice`, que deriva o índice das próprias seções. Índice
+- **O sumário impresso** (parágrafos 13 a 67) não é copiado: a seção "Índice geral"
+  usa o bloco `indice`, que deriva o índice das próprias seções. Índice
   copiado à mão de um documento de cem páginas começa certo e termina apontando
   para onde o texto não está mais.
 - **O índice analítico** ganha um link por entrada, para a concessão exata, ou
   para a oração quando ela tem âncora própria.
+
+## Como as orações bilíngues são pareadas
+
+No impresso o latim vem antes de um fio de sublinhados e a tradução depois. Na
+tela larga as duas colunas ficam lado a lado. Achar onde uma oração começa e
+acaba é o único ponto do conversor que não é transcrever, e o autor não usa uma
+marca só. São três, em ordem de confiança:
+
+1. **o recuo** — parágrafos recuados seguidos formam uma oração; com um fio só,
+   tudo antes é latim e tudo depois é tradução;
+2. **a linha em branco**, quando o recuo traz várias orações — é o caso das oito
+   preces curtas da concessão 26;
+3. **o número de fios**, quando nem a linha em branco separa: o *Anima Christi*
+   e o *En ego* vêm colados, com três fios, e fio ímpar quer dizer que os pedaços
+   casam dois a dois.
+
+Duas coisas que o recuo sozinho não daria: o *Anjo do Senhor* e o *Rainha do
+céu* não estão recuados, e por isso o pedaço deles é o que fica entre os dois
+subtítulos em negrito; e no *O sacrum convivium* o recuo se perde no "Oremos" e
+na fonte, de modo que o pedaço recuado engole a cauda sem recuo que vem logo
+depois — sem isso a coluna da direita terminava truncada.
+
+Já tentei parear reconhecendo a língua por palavras frequentes. Não funciona:
+"℣. Panem de caelo praestitisti eis" pontua como português por causa do "de", e
+o latim sai cortado no meio. Formatação é fato do documento; língua adivinhada é
+palpite.
 
 ## Duas armadilhas que já custaram caro
 
