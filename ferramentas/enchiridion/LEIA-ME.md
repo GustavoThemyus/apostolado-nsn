@@ -55,6 +55,12 @@ subtítulos em negrito; e no *O sacrum convivium* o recuo se perde no "Oremos" e
 na fonte, de modo que o pedaço recuado engole a cauda sem recuo que vem logo
 depois — sem isso a coluna da direita terminava truncada.
 
+As traduções dos hinos vieram em prosa corrida, e o latim ao lado vem em
+versos. A tabela `VERSOS` do conversor diz onde cada verso da tradução começa —
+só isso: o conversor insere a quebra e não reescreve nada. Se a próxima remessa
+mudar a tradução e algum começo não for achado, o conversor **para**, em vez de
+publicar um hino picado no lugar errado.
+
 Já tentei parear reconhecendo a língua por palavras frequentes. Não funciona:
 "℣. Panem de caelo praestitisti eis" pontua como português por causa do "de", e
 o latim sai cortado no meio. Formatação é fato do documento; língua adivinhada é

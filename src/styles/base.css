@@ -3458,6 +3458,44 @@ button {
   outline: 2px solid var(--ouro);
   outline-offset: 1px;
 }
+/*
+ * O asterisco do decreto Deus cuius misericordiae. Não é nota do livro: é a
+ * única observação do Apostolado dentro de um texto pontifício, e some quando
+ * tem o corpo das outras 123. Ganha o vermelho das rubricas — que é o que ele
+ * tinha no original do Perez —, o tamanho do texto em volta, e o ponto de
+ * apoio para quem não faz o cursor passar por cima.
+ *
+ * Deixa de ser sobrescrito: sobrescrito quer dizer "veja a nota de rodapé", e
+ * esta nota não está no rodapé, está aqui.
+ */
+.nota-chamada__marca--asterisco {
+  font-family: var(--serifada);
+  font-size: 1.25em;
+  font-weight: 400;
+  vertical-align: baseline;
+  line-height: 1;
+  color: var(--rubrica);
+  /* pouca folga à direita: depois da chamada vem o ponto final da frase */
+  padding: 0.15em 0.1em 0.15em 0.2em;
+  border-radius: 0.2rem;
+}
+.nota-chamada__marca--asterisco::after {
+  content: "nota do Apostolado";
+  font-family: var(--sem-serifa);
+  font-size: 0.44em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 0.15em;
+  margin-left: 0.35em;
+  border-bottom: 1px solid currentColor;
+}
+.nota-chamada__marca--asterisco:hover,
+.nota-chamada__marca--asterisco[aria-expanded="true"] {
+  background: var(--fundo-toque);
+  color: var(--rubrica);
+}
+
 .nota-chamada--orfa {
   font-size: 0.68em;
   color: var(--tinta-suave);

@@ -537,6 +537,60 @@ def _alinhar_versiculos(lado):
     return saida
 
 
+# As traduções dos hinos vieram em prosa corrida, e o latim ao lado vem em
+# versos. Perez pediu que ficassem iguais, e tem razão: o Tantum ergo e o Anima
+# Christi são hinos dos dois lados, e prosa ao lado de verso faz a coluna
+# direita parecer comentário da esquerda.
+#
+# Aqui não se reescreve nada. A tabela diz só onde cada verso começa, e o
+# conversor insere a quebra antes dele. Se algum começo não for achado — porque
+# a próxima remessa mudou a tradução —, o conversor para em vez de publicar um
+# hino picado no lugar errado.
+VERSOS = {
+    "Tão sublime sacramento": [
+        "adoremos neste Altar,", "pois o Antigo Testamento", "deu ao Novo seu lugar.",
+        "Venha a fé por suplemento", "os sentidos completar.",
+    ],
+    "Ao Eterno Pai cantemos": [
+        "e a Jesus o Redentor,", "ao Espírito exaltemos", "na Trindade eterno amor.",
+        "Ao Deus Uno e Trino demos", "a alegria do louvor.",
+    ],
+    "Alma de Cristo": [
+        "Corpo de Cristo, salvai-me.", "Sangue de Cristo, inebriai-me.",
+        "Água do lado de Cristo, lavai-me.", "Paixão de Cristo, confortai-me.",
+        "Ó bom Jesus, ouvi-me.", "Dentro de vossas chagas, escondei-me.",
+        "Não permitais que me separe de vós.", "Do espírito maligno defendei-me.",
+        "Na hora da morte chamai-me", "e mandai-me ir para vós,",
+        "para que com vossos Santos vos louve", "por todos os séculos dos séculos.",
+    ],
+}
+
+
+def _em_versos(texto):
+    """Quebra a tradução do hino nos mesmos versos do latim ao lado."""
+    nu = re.sub(r"\[[^\]]*\]", "", texto).lstrip()
+    comecos = next((v for k, v in VERSOS.items() if nu.startswith(k)), None)
+    if comecos is None:
+        return texto
+    onde = 0
+    for comeco in comecos:
+        onde = texto.find(comeco, onde)
+        if onde < 0:
+            raise SystemExit(f"verso não achado na tradução: {comeco!r}")
+        texto = texto[:onde].rstrip() + "\n" + texto[onde:]
+        onde += len(comeco) + 1
+    return texto
+
+
+def _versificar(lado):
+    saida = []
+    for b in lado:
+        if b["tipo"] == "paragrafo":
+            b = dict(b, texto=_em_versos(b["texto"]))
+        saida.append(b)
+    return saida
+
+
 def emparelhar_bilingues(blocos):
     saida = []
     for pedaco in _pedacos(blocos):
@@ -544,7 +598,7 @@ def emparelhar_bilingues(blocos):
     for b in saida:
         if b["tipo"] == "bilingue":
             b["latim"] = _alinhar_versiculos(b["latim"])
-            b["portugues"] = _alinhar_versiculos(b["portugues"])
+            b["portugues"] = _versificar(_alinhar_versiculos(b["portugues"]))
     return saida
 
 

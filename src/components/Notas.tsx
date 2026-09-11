@@ -154,7 +154,14 @@ export function BalaoDeNota({ chave, children }: { chave: string; children: Reac
       <button
         type="button"
         ref={marca}
-        className="nota-chamada__marca"
+        /*
+         * O asterisco não é uma das 123 notas do livro: é a única observação
+         * do Apostolado sobre um texto pontifício. Sobrescrito do tamanho das
+         * outras, ele passava despercebido no meio do parágrafo.
+         */
+        className={`nota-chamada__marca${
+          chave === "*" ? " nota-chamada__marca--asterisco" : ""
+        }`}
         aria-expanded={aberto}
         aria-describedby={aberto ? id : undefined}
         onClick={() => definirAberto((a) => !a)}
