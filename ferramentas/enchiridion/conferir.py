@@ -37,6 +37,10 @@ saco, grande = set(partes), " ¦ ".join(partes)
 TITULOS = {68, 80, 98, 100, 121, 191, 203, 282, 300, 722, 772, 773, 798, 799, 815, 816, 952}
 SUBTITULOS = {192, 283, 723, 729, 953, 1017, 1018, 1025, 1044, 820, 828, 836, 841, 861, 869}
 INSTRUCOES = {4, 5, 6, 7, 8, 11}
+# o único parágrafo que o conversor parte em dois de propósito: o ℣ e o ℟ do
+# "O sacrum convivium", que do lado português couberam na mesma linha e do
+# lado latino são duas. Aqui se exige que as duas metades tenham chegado.
+VERSICULO_PARTIDO = {364}
 SUMARIO = set(range(13, 68))
 ROMANOS = {204, 222, 242, 260}
 
@@ -50,6 +54,10 @@ for i, p in enumerate(ps):
 
 def rotular(i, c):
     if i in INSTRUCOES: return "recado do Perez, atendido em vez de publicado"
+    if i in VERSICULO_PARTIDO:
+        metades = [limpo(x) for x in re.split(r"(?=℟)", c) if x.strip()]
+        if len(metades) == 2 and all(m in saco for m in metades):
+            return "versículo e resposta partidos em dois, para casar com o latim"
     if i in SUMARIO: return "sumário impresso, agora derivado das seções"
     if i in TITULOS: return "virou título de seção"
     if i in SUBTITULOS or i in ROMANOS: return "virou subtítulo"

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import type { Bloco as TipoBloco, Etiqueta } from "../data/tipos";
 import { IndiceDoDocumento } from "./IndiceDoDocumento";
 import { Legenda } from "./Legenda";
@@ -61,18 +61,26 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
       return <Tabela colunas={bloco.colunas} linhas={bloco.linhas} />;
     case "separador":
       return <hr className="separador" />;
-    case "bilingue":
+    case "bilingue": {
+      /*
+       * As duas colunas casam faixa a faixa: cada parágrafo do latim fica na
+       * altura do seu par em português, e a faixa tem a altura do mais alto
+       * dos dois. Quem faz isso é o subgrid, e para isso o pai precisa saber
+       * de quantas faixas se trata — daí o --linhas.
+       */
+      const linhas = Math.max(bloco.latim.length, bloco.portugues.length);
       return (
-        <div className="bilingue">
+        <div className="bilingue" style={{ "--linhas": linhas } as CSSProperties}>
           {/* lang="la" para o leitor de tela não pronunciar latim em português */}
           <div className="bilingue__lado bilingue__lado--latim" lang="la">
             <ListaDeBlocos blocos={bloco.latim} />
           </div>
-          <div className="bilingue__lado">
+          <div className="bilingue__lado bilingue__lado--traducao">
             <ListaDeBlocos blocos={bloco.portugues} />
           </div>
         </div>
       );
+    }
     case "indice":
       return <IndiceDoDocumento />;
     case "legenda":

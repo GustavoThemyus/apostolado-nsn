@@ -504,10 +504,47 @@ def _pedacos(blocos):
         i = fim
 
 
+_ITALICO = re.compile(r"^\[i\]([^\[\]]*)\[/i\]$")
+
+
+def _partir_versiculo(texto):
+    """Versículo e resposta na mesma linha viram duas, como do outro lado."""
+    m = _ITALICO.match(texto)
+    miolo, veste = (m.group(1), "[i]{}[/i]") if m else (texto, "{}")
+    corte = miolo.find("℟")
+    if corte <= 3:
+        return None
+    antes, depois = miolo[:corte].strip(), miolo[corte:].strip()
+    if not antes or not depois:
+        return None
+    return [veste.format(antes), veste.format(depois)]
+
+
+def _alinhar_versiculos(lado):
+    """
+    O autor digitou o ℣ e o ℟ do "O sacrum convivium" na mesma linha só do lado
+    português; no latim são duas. Não é escolha de estilo dele, é a linha que
+    coube: as duas colunas casam linha a linha, e uma linha valendo por duas
+    desalinha a oração inteira dali para baixo. É o único caso no documento.
+    """
+    saida = []
+    for b in lado:
+        partes = _partir_versiculo(b["texto"]) if b["tipo"] == "paragrafo" else None
+        if partes:
+            saida.extend(dict(b, texto=t) for t in partes)
+        else:
+            saida.append(b)
+    return saida
+
+
 def emparelhar_bilingues(blocos):
     saida = []
     for pedaco in _pedacos(blocos):
         saida.extend(_emparelhar_pedaco(pedaco))
+    for b in saida:
+        if b["tipo"] == "bilingue":
+            b["latim"] = _alinhar_versiculos(b["latim"])
+            b["portugues"] = _alinhar_versiculos(b["portugues"])
     return saida
 
 

@@ -46,6 +46,22 @@ body.sem-rolagem {
   overflow: hidden;
 }
 
+/*
+ * O EB Garamond traz uma forma localizada para o latim que troca todo u por v
+ * — a ortografia epigráfica clássica, ANGELVS DOMINI NVNTIAVIT. O navegador a
+ * aplica sozinho por causa do lang="la", e o leitor via "Angelvs Domini
+ * nvntiavit" onde o texto diz "Angelus Domini nuntiavit". Não é erro de
+ * transcrição: é a fonte escrevendo por conta própria.
+ *
+ * O lang fica, que é o que impede o leitor de tela de ler latim com fonética
+ * portuguesa. O que se desliga é a forma. As outras duas não são enfeite: o
+ * font-feature-settings substitui a lista inteira, então tirar "liga" e
+ * "onum" daqui apagaria as ligaduras e os algarismos antigos no latim.
+ */
+[lang="la"] {
+  font-feature-settings: "liga" 1, "onum" 1, "locl" 0;
+}
+
 a {
   color: var(--elo);
   text-decoration: underline;
@@ -492,17 +508,49 @@ button {
 }
 
 @media (min-width: 56rem) {
+  /*
+   * Faixa a faixa. Cada parágrafo do latim fica na altura do seu par em
+   * português, e a faixa tem a altura do mais alto dos dois. Antes cada
+   * coluna corria sozinha e bastava uma linha a mais de um lado para a
+   * oração inteira sair desencontrada dali para baixo.
+   *
+   * Quem casa as faixas é o subgrid: as colunas não têm grade própria,
+   * usam a do bloco. O --linhas vem do componente, que é quem sabe quantos
+   * parágrafos tem o lado mais longo.
+   *
+   * O fio deixou de ser borda da coluna do latim e virou coluna de um
+   * pixel: como borda ele parava onde o latim parava, e no par em que a
+   * tradução é mais longa sobrava tradução sem fio ao lado.
+   */
   .bilingue {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1px 1fr;
+    grid-template-rows: repeat(var(--linhas, 1), auto);
+    column-gap: 2.4rem;
+    row-gap: 0.85rem;
+  }
+  .bilingue::before {
+    content: "";
+    grid-column: 2;
+    grid-row: 1 / -1;
+    background: var(--fio);
+  }
+  .bilingue__lado {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: 1 / -1;
+  }
+  /* o espaço entre parágrafos agora é o row-gap da grade, não a margem */
+  .bilingue__lado > * {
+    margin-block: 0;
   }
   .bilingue__lado--latim {
-    padding: 0 2.4rem 0 0;
+    grid-column: 1;
+    padding: 0;
     margin: 0;
     border-bottom: 0;
-    border-right: 1px solid var(--fio);
   }
-  .bilingue__lado:last-child {
-    padding-left: 2.4rem;
+  .bilingue__lado--traducao {
+    grid-column: 3;
   }
 }
 
@@ -1136,17 +1184,21 @@ button {
   }
 }
 
+/*
+ * A gaveta entra e sai deslizando pela borda de onde nasce, e nada além
+ * disso. Antes era um empurrão de 1,5rem somado a um apagar, e as duas coisas
+ * juntas faziam a barra parecer surgir do nada perto do lugar onde ia parar,
+ * em vez de vir de fora da tela. Quem escurece a página é a cortina.
+ */
 @keyframes entrar-da-esquerda {
   from {
-    transform: translateX(-1.5rem);
-    opacity: 0;
+    transform: translateX(-100%);
   }
 }
 
 @keyframes entrar-da-direita {
   from {
-    transform: translateX(1.5rem);
-    opacity: 0;
+    transform: translateX(100%);
   }
 }
 
@@ -1164,15 +1216,13 @@ button {
 
 @keyframes sair-pela-esquerda {
   to {
-    transform: translateX(-1.5rem);
-    opacity: 0;
+    transform: translateX(-100%);
   }
 }
 
 @keyframes sair-pela-direita {
   to {
-    transform: translateX(1.5rem);
-    opacity: 0;
+    transform: translateX(100%);
   }
 }
 
@@ -1581,6 +1631,40 @@ button {
   display: block;
   margin-top: 0.15rem;
   color: var(--tinta-suave);
+}
+
+/*
+ * No PC as duas línguas ficam lado a lado, como no Enchiridion: uma coluna
+ * para o latim, outra para a tradução, e cada versículo numa faixa só. Antes
+ * elas vinham empilhadas, e num diálogo de duas linhas isso obriga a saltar
+ * para baixo e voltar a cada resposta.
+ *
+ * Para caber, a oração deixa de respeitar a medida de leitura: essa medida
+ * existe para prosa corrida, e aqui cada coluna tem a sua. A partir de 64rem
+ * cada metade fica com 38 a 44 caracteres — medido, com e sem o sumário ao
+ * lado, que é o que muda a largura disponível. Abaixo disso continua
+ * empilhada, porque a metade cairia para trinta e poucos.
+ *
+ * Sem fio no meio, ao contrário do Enchiridion: aqui há versículos só em
+ * latim — "Benedicat vos omnipotens Deus" — e o fio ficaria pendurado ao
+ * lado de nada.
+ */
+@media (min-width: 64rem) {
+  .oracao {
+    max-width: none;
+  }
+  .oracao__verso {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.4rem;
+  }
+  .oracao__latim {
+    grid-column: 1;
+  }
+  .oracao__portugues {
+    grid-column: 2;
+    margin-top: 0;
+  }
 }
 
 /* ---------------- passo litúrgico ---------------- */

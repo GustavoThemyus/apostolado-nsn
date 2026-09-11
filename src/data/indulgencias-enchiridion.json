@@ -1209,7 +1209,11 @@
       },
       {
        "tipo": "paragrafo",
-       "texto": "[i]℣. Do céu lhes destes o pão, ℟. Que contém todo o sabor.[/i]"
+       "texto": "[i]℣. Do céu lhes destes o pão,[/i]"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[i]℟. Que contém todo o sabor.[/i]"
       },
       {
        "tipo": "paragrafo",
