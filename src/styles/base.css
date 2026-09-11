@@ -1236,8 +1236,22 @@ button {
  * A partir de 52rem a folha deixa de ser tira presa no rodapé e vira barra
  * lateral à esquerda, ao lado do botão que a abriu. Mesma marcação, só o CSS
  * muda: nada de matchMedia, que pisca na primeira pintura.
+ *
+ * A gaveta corre mais rápido que o resto do site: 0,14s para entrar e 0,12s
+ * para sair, contra os 0,2s de tudo o mais. É porque ela atravessa a largura
+ * inteira dela, e não os poucos pixels de um realce — no mesmo tempo, o
+ * percurso maior se arrasta. Sair mais rápido do que entrar é o de sempre:
+ * quem fecha já decidiu, e não precisa ver o caminho de volta.
+ *
+ * A cortina acompanha, senão o escuro chega depois da barra ter parado.
  */
 @media (min-width: 52rem) {
+  .folha__cortina {
+    animation-duration: 0.14s;
+  }
+  .folha__cortina--saindo {
+    animation-duration: 0.12s;
+  }
   .folha {
     top: 0;
     bottom: 0;
@@ -1251,10 +1265,10 @@ button {
     right: auto;
     /* sem filete dourado na borda: quem separa a gaveta da página é a sombra */
     box-shadow: 12px 0 40px var(--sombra);
-    animation: entrar-da-esquerda 0.2s ease-out;
+    animation: entrar-da-esquerda 0.14s ease-out;
   }
   .folha--esquerda.folha--saindo {
-    animation: sair-pela-esquerda 0.2s ease-in forwards;
+    animation: sair-pela-esquerda 0.12s ease-in forwards;
   }
   /* o Sumário abre pela direita porque o botão dele está à direita, e porque
      é outra proposta que o Menu: um é o mapa do site, o outro é o índice da
@@ -1267,10 +1281,10 @@ button {
     left: auto;
     border-left: 2px solid var(--ouro);
     box-shadow: -12px 0 40px var(--sombra);
-    animation: entrar-da-direita 0.2s ease-out;
+    animation: entrar-da-direita 0.14s ease-out;
   }
   .folha--direita.folha--saindo {
-    animation: sair-pela-direita 0.2s ease-in forwards;
+    animation: sair-pela-direita 0.12s ease-in forwards;
   }
   .folha__pega {
     display: none;
