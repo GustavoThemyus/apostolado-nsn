@@ -940,13 +940,13 @@ button {
 }
 .desenv__lista dd {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.95em;
 }
 
 /* o motivo que o Ordo dá ao lado do sim: "por causa da Oitava" */
 .desenv__porque {
   margin-left: 0.45rem;
-  font-size: 0.86rem;
+  font-size: 0.86em;
   color: var(--tinta-suave);
 }
 
@@ -1049,7 +1049,7 @@ button {
 .ordo__cores,
 .ordo__guarda {
   margin: 0.5rem 0 0;
-  font-size: 0.88rem;
+  font-size: 0.92em;
   color: var(--tinta-suave);
 }
 .ordo__missa {
@@ -1070,7 +1070,7 @@ button {
   margin: 0.7rem 0 0;
   padding-left: 0.9rem;
   border-left: 2px solid transparent;
-  font-size: 0.95rem;
+  font-size: 1em;
 }
 .ordo__proprio-rotulo {
   font-family: var(--sem-serifa);
@@ -1082,6 +1082,14 @@ button {
   align-self: center;
 }
 
+/*
+ * Daqui para baixo o tamanho vem em `em`, e não em `rem`.
+ *
+ * O corpo do site cresce com a largura — 17px, 19px a partir de 64rem, 20px a
+ * partir de 100rem. Medida em `rem`, a nota ficava presa em 14,7px enquanto a
+ * linha da Missa logo acima chegava a 20: no PC largo ela era 74% do texto ao
+ * lado, e era esse o "muito pequena" que o Perez viu. Em `em` ela acompanha.
+ */
 .ordo__notas {
   margin: 0.9rem 0 0;
   padding: 0;
@@ -1092,7 +1100,7 @@ button {
   position: relative;
   margin: 0 0 0.55rem;
   padding-left: 1rem;
-  font-size: 0.92rem;
+  font-size: 0.95em;
   color: var(--tinta-suave);
 }
 .ordo__nota::before {
@@ -2882,7 +2890,7 @@ button {
 /* a penitência do dia, no detalhe */
 .dia__penitencia {
   margin: 0.7rem 0 0;
-  font-size: 0.92rem;
+  font-size: 0.95em;
   color: var(--tinta-suave);
 }
 .dia__penitencia strong {

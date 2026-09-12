@@ -35,6 +35,14 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
   const [missa, ...resto] = dia.partes;
   const marcado = (p: string) => /^[➢❖]/.test(p);
   const naMissa = naMissaDoOrdo(dia);
+  /*
+   * O parágrafo que só anuncia a penitência sai da lista: ele já virou a
+   * linha em destaque acima e a cruz na grade, e repetido aqui embaixo é a
+   * mesma informação pela terceira vez. Conferido: os 53 dias que a trazem
+   * dizem exatamente "Dia de abstinência", "Dia de jejum e abstinência" ou
+   * "Hoje é dispensada a Abstinência de carne", e mais nada.
+   */
+  const notas = resto.filter((p) => !/^(Dia de (jejum e )?abstinência|Hoje é dispensada a Abstinência de carne)$/i.test(p.trim()));
 
   return (
     <div className="calendario__detalhe">
@@ -164,9 +172,9 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
         </p>
       )}
 
-      {resto.length > 0 && (
+      {notas.length > 0 && (
         <ul className="ordo__notas">
-          {resto.map((p) => (
+          {notas.map((p) => (
             <li className={marcado(p) ? "ordo__nota" : "ordo__nota ordo__nota--corrida"} key={p}>
               {p.replace(/^[➢❖]\s*/, "")}
             </li>
