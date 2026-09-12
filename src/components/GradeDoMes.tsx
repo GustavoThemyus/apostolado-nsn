@@ -1,5 +1,19 @@
 import type { ReactNode } from "react";
-import type { DiaLiturgico } from "../calendario/tipos";
+import type { Cor } from "../calendario/tipos";
+
+/**
+ * O que a grade precisa saber de um dia, e nada mais.
+ *
+ * São dois calendários agora — o de 1962, calculado, e o Ordo pré-55, copiado
+ * — e eles não têm o mesmo vocabulário: um classifica em I a IV classe, o
+ * outro em duples, semiduples e simples. A grade não precisa escolher entre
+ * os dois: ela desenha data, nome e cor, que é o que os dois têm.
+ */
+export interface DiaNaGrade {
+  data: Date;
+  nome: string;
+  cor: Cor;
+}
 
 const SEMANA = ["D", "S", "T", "Q", "Q", "S", "S"];
 
@@ -15,18 +29,18 @@ export const mesmoDia = (a: Date, b: Date) =>
  * ela passa um marcador próprio para os dias que carregam indulgência, e a
  * grade continua sendo uma só.
  */
-export function GradeDoMes({
+export function GradeDoMes<T extends DiaNaGrade>({
   dias,
   hoje,
   escolhido,
   aoEscolher,
   marcar,
 }: {
-  dias: DiaLiturgico[];
+  dias: T[];
   hoje: Date;
   escolhido: Date;
   aoEscolher: (data: Date) => void;
-  marcar?: (dia: DiaLiturgico) => ReactNode;
+  marcar?: (dia: T) => ReactNode;
 }) {
   if (dias.length === 0) return null;
   const primeiro = dias[0].data;

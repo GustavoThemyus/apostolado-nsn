@@ -713,7 +713,6 @@ button {
   text-wrap: balance;
 }
 
-
 .cabecalho__titulo {
   font-family: var(--titular);
   font-weight: 500;
@@ -944,6 +943,13 @@ button {
   font-size: 0.95rem;
 }
 
+/* o motivo que o Ordo dá ao lado do sim: "por causa da Oitava" */
+.desenv__porque {
+  margin-left: 0.45rem;
+  font-size: 0.86rem;
+  color: var(--tinta-suave);
+}
+
 .sinal {
   font-family: var(--sem-serifa);
   font-size: 0.66rem;
@@ -955,6 +961,131 @@ button {
 .sinal--nao { color: var(--tinta-suave); }
 
 /* ---------------- calendário do ano ---------------- */
+
+/*
+ * O seletor dos dois calendários, no canto de cima da grade.
+ *
+ * São duas coisas do mesmo tipo, e por isso um par de botões encostados e não
+ * um interruptor: interruptor diz "ligado/desligado", e aqui nenhum dos dois
+ * é a ausência do outro. Alinha à direita, que é onde o Perez pediu, e no
+ * celular ocupa a linha inteira, com as duas metades iguais.
+ */
+.calendario__uso {
+  display: flex;
+  justify-content: stretch;
+  gap: 0;
+  margin: 0 var(--respiro-lateral) 0.6rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+.uso__opcao {
+  flex: 1;
+  min-height: 2.4rem;
+  padding: 0 0.9rem;
+  border: 0;
+  background: none;
+  color: var(--tinta-suave);
+  font: inherit;
+  font-size: 0.92rem;
+  font-family: var(--sem-serifa);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.uso__opcao + .uso__opcao {
+  border-left: 1px solid var(--fio);
+}
+.uso__opcao:hover {
+  background: var(--fundo-toque);
+  color: var(--tinta);
+}
+.uso__opcao--ativa,
+.uso__opcao--ativa:hover {
+  background: var(--realce);
+  color: var(--tinta);
+  font-weight: 600;
+}
+.uso__opcao:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: -3px;
+}
+@media (min-width: 46rem) {
+  .calendario__uso {
+    /* no PC não precisa da faixa inteira: encosta no canto direito */
+    margin-left: auto;
+    width: max-content;
+  }
+  .uso__opcao {
+    flex: 0 0 auto;
+  }
+}
+
+/* o ano que a capela ainda não publicou: ausência, não falha */
+.calendario__sem-ordo {
+  margin: 0;
+  padding: 2rem var(--respiro-lateral);
+  color: var(--tinta-suave);
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* botão que se lê como link, dentro de uma frase */
+.elo-em-texto {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--elo);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/*
+ * O dia no Ordo. O que o Ordo diz vem em dois tons: a Missa, que é o miolo, e
+ * as rubricas, que são notas de execução — e no impresso elas vêm marcadas
+ * com um ➢, que aqui vira o recuo e o filete.
+ */
+.ordo__cores,
+.ordo__guarda {
+  margin: 0.5rem 0 0;
+  font-size: 0.88rem;
+  color: var(--tinta-suave);
+}
+.ordo__missa {
+  margin: 0.8rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--ouro);
+  max-width: var(--medida-leitura);
+}
+.ordo__notas {
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: var(--medida-leitura);
+}
+.ordo__nota {
+  position: relative;
+  margin: 0 0 0.55rem;
+  padding-left: 1rem;
+  font-size: 0.92rem;
+  color: var(--tinta-suave);
+}
+.ordo__nota::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.4rem;
+  border-top: 1px solid var(--fio-aceso);
+}
+/* parágrafo que no Ordo vinha sem marca: é continuação, não nota */
+.ordo__nota--corrida {
+  padding-left: 0;
+}
+.ordo__nota--corrida::before {
+  content: none;
+}
 
 .calendario__barra {
   display: flex;
@@ -2039,7 +2170,6 @@ button {
   .mural__titulo,
   .sumario__titulo,
   .desenv__titulo,
-  .dia__agenda-titulo,
   .postagem__data {
     font-size: 0.72rem;
   }
@@ -2047,7 +2177,6 @@ button {
   .dia__detalhes dt,
   .desenv__lista dt,
   .contribuir__dados dt,
-  .dia__agenda-fonte,
   .dia__comemoracoes span,
   .assembleia__marca,
   .tabela td::before,
@@ -2062,8 +2191,7 @@ button {
   .dia__link,
   .postagem-cartao__data,
   .postagem-linha__data,
-  .legenda-agendas,
-  .vinculo__limpar {
+  .legenda-agendas {
     font-size: 0.7rem;
   }
 
@@ -2782,82 +2910,6 @@ button {
   gap: 0.35rem;
 }
 
-.vinculo {
-  margin: 2rem 0 1.5rem;
-  padding: 1.15rem 1.2rem 1rem;
-  background: var(--painel);
-  border: 1px solid var(--fio);
-  border-radius: 0.4rem;
-}
-.vinculo__topo {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.vinculo__titulo {
-  font-family: var(--titular);
-  font-size: 1.12rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem;
-}
-.vinculo__limpar {
-  padding: 0.15rem 0.45rem;
-  border: 1px solid var(--fio);
-  border-radius: 0.3rem;
-  background: transparent;
-  font-family: var(--sem-serifa);
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--tinta-suave);
-  white-space: nowrap;
-  cursor: pointer;
-}
-.vinculo__limpar:hover {
-  color: var(--tinta);
-  border-color: var(--tinta-suave);
-}
-.vinculo__explicacao {
-  margin: 0 0 1rem;
-  font-size: 0.95rem;
-  color: var(--tinta-suave);
-  max-width: var(--medida-leitura);
-}
-.vinculo__lista {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.vinculo__item {
-  display: grid;
-  gap: 0.5rem;
-  padding: 0.8rem 0;
-  border-top: 1px solid var(--fio-suave);
-}
-.vinculo__item:first-child {
-  border-top: none;
-  padding-top: 0;
-}
-.vinculo__nome {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-}
-.vinculo__descricao,
-.vinculo__aviso {
-  display: block;
-  font-size: 0.85rem;
-  color: var(--tinta-suave);
-}
-.vinculo__aviso {
-  margin-top: 0.3rem;
-  font-style: italic;
-  color: var(--rubrica);
-  max-width: var(--medida-leitura);
-}
-
 /*
  * O elo para a postagem da festa. O PDF pede que, vendo o dia, o fiel possa
  * clicar para ler a história do santo; como o vínculo é pelo nome da
@@ -2901,66 +2953,6 @@ button {
   width: 1.15rem;
   height: 1.15rem;
   stroke: var(--ouro);
-}
-
-/* os itens vinculados dentro do detalhe do dia */
-.dia__agenda {
-  margin-top: 1.1rem;
-  padding-top: 0.9rem;
-  border-top: 1px dashed var(--fio);
-}
-.dia__agenda-titulo {
-  margin: 0 0 var(--respiro-etiqueta);
-  font-family: var(--sem-serifa);
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--tinta-suave);
-}
-.dia__agenda-lista {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.6rem;
-}
-.dia__agenda-lista > li {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-}
-.dia__agenda-nome {
-  display: flex;
-  align-items: baseline;
-  gap: 0.45rem;
-  font-weight: 600;
-}
-/* a amostra fica na linha do texto, não no meio dele */
-.dia__agenda-nome .dia__amostra {
-  align-self: center;
-}
-.dia__agenda-fonte {
-  display: block;
-  font-family: var(--sem-serifa);
-  font-size: 0.58rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--tinta-suave);
-}
-.dia__agenda-descricao {
-  display: block;
-  margin-top: 0.2rem;
-  font-size: 0.9rem;
-  color: var(--tinta-suave);
-}
-
-@media (min-width: 46rem) {
-  .vinculo__item {
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 1rem;
-  }
 }
 
 /* ---------------- vincular calendário ---------------- */
@@ -3153,7 +3145,6 @@ button {
     width: auto;
   }
 }
-
 
 /* ---------------- mural de avisos ---------------- */
 
@@ -3406,7 +3397,6 @@ button {
     font-size: 1.05rem;
   }
 }
-
 
 /* Texto só para quem ouve a página: o leitor de tela anuncia "nota 12" em
    vez de ler um "12" solto no meio da frase. */

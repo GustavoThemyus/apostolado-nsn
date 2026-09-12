@@ -17,3 +17,6 @@ ferramentas/enchiridion/docx/
 ferramentas/enchiridion/paragrafos.json
 ferramentas/enchiridion/enchiridion.json
 __pycache__/
+
+# o .ics baixado pelo importador do Ordo; o que vale é src/data/ordo/
+ferramentas/ordo/ordo.ics
