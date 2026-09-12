@@ -1,4 +1,5 @@
 import { Desenvolvimento } from "./Desenvolvimento";
+import { NOME_DA_PENITENCIA, penitenciaDe } from "../calendario/penitencia";
 import { postagemDoDia } from "../calendario/vinculo";
 import { publicadas } from "../data/postagens";
 import { Elo } from "../routes/Elo";
@@ -35,6 +36,7 @@ const NOME_DA_COR: Record<string, string> = {
 export function DetalheDoDia({ dia }: { dia: DiaLiturgico }) {
   // a postagem acompanha a festa, e não a casa do calendário
   const postagem = postagemDoDia(publicadas(), dia);
+  const penitencia = penitenciaDe(dia);
 
   return (
     <div className="calendario__detalhe">
@@ -74,6 +76,14 @@ export function DetalheDoDia({ dia }: { dia: DiaLiturgico }) {
         <p className="dia__comemoracoes">
           <span>Comemoração: </span>
           {dia.comemoracoes.join("; ")}
+        </p>
+      )}
+      {penitencia && (
+        <p className="dia__penitencia">
+          <strong>{NOME_DA_PENITENCIA[penitencia]}.</strong>{" "}
+          {penitencia === "dispensada"
+            ? "Dia de preceito fora da Quaresma."
+            : "Nas festas o Ordo pode dispensar; confira."}
         </p>
       )}
       {dia.observacoes.map((o) => (

@@ -1,4 +1,5 @@
 import { ANOS, ARQUIVOS } from "../data/ordo/indice";
+import type { Penitencia } from "./penitencia";
 import { tempoDe } from "./tempo";
 import type { Cor, Tempo } from "./tipos";
 
@@ -25,6 +26,10 @@ export interface DiaDoOrdo {
   /** Só quando a cor não é uma palavra só: dois paramentos, ou o róseo. */
   cores?: string;
   guarda?: boolean;
+  /** Abstinência e jejum, como o próprio Ordo os marca. */
+  penitencia?: Penitencia;
+  /** Os PDF do próprio da Missa, anexados ao dia no Ordo. */
+  anexos?: { nome: string; url: string }[];
   /** Missa, comemorações, Prefácio e rubricas, nas palavras do Ordo. */
   partes: string[];
 }
@@ -107,6 +112,13 @@ export interface NaMissa {
   /** Trato, Sequência, Aleluia: só quando o Ordo se dá ao trabalho de dizer. */
   entreAsLeituras: string[];
   comemoracoes: string[];
+  /**
+   * O que sobra da linha depois de tirar tudo o que já está nos campos acima:
+   * o nome da Missa e as orações. É o que de fato muda de um dia para o
+   * outro — o resto do itinerário se repete o ano inteiro, e repetido duas
+   * vezes na mesma tela vira cansaço.
+   */
+  resto: string[];
 }
 
 /**
@@ -141,11 +153,39 @@ export function naMissaDoOrdo(dia: DiaDoOrdo): NaMissa | null {
 
   const entreAsLeituras: string[] = [];
   const comemoracoes: string[] = [];
-  for (const cru of linha.split(";")) {
+  const resto: string[] = [];
+  /*
+   * O Ordo às vezes cola o primeiro item ao nome da Missa com dois pontos —
+   * "Missa Quasi modo do domingo precedente: Glória", "Missa Ad te levavi do
+   * domingo precedente: comemoração de São Sabas". Sem separar ali, o nome da
+   * Missa ia embora junto com o item, e a linha ficava vazia.
+   */
+  const segmentos = linha.split(";").flatMap((cru) => {
+    const corte = /^Missa\b[^:]*:/.exec(cru);
+    return corte ? [corte[0].slice(0, -1), cru.slice(corte[0].length)] : [cru];
+  });
+  for (const cru of segmentos) {
     const p = cru.trim();
     if (/^(sem\s+)?Trato$/.test(p) || /^Sequência/.test(p) || /Aleluia/.test(p)) {
       entreAsLeituras.push(p);
     } else if (p.includes("comemoração")) comemoracoes.push(p);
+    else {
+      /*
+       * O que sobra do segmento depois de tirar os itens que já viraram
+       * campo. Tira-se de dentro, e não o segmento inteiro, porque o Ordo às
+       * vezes cola dois numa frase só: "Missa Quasi modo do domingo
+       * precedente: Glória" perderia o nome da Missa se o segmento fosse
+       * descartado por causa da Glória.
+       */
+      const sobra = p
+        .replace(/(sem\s+)?(Glória|Credo)(\s*\([^)]*\))?/g, "")
+        .replace(/Prefácio[^;]*/g, "")
+        .replace(/Último Evangelho[^;]*/g, "")
+        .replace(/(Ite, Missa est|Benedicamus Domino|Requiescant in pace)[^;]*/g, "")
+        .replace(/\s*[:,]\s*$/, "")
+        .trim();
+      if (sobra) resto.push(sobra);
+    }
   }
 
   /*
@@ -167,5 +207,6 @@ export function naMissaDoOrdo(dia: DiaDoOrdo): NaMissa | null {
     ultimoEvangelho: evangelho?.replace(/^Último Evangelho\s*/, ""),
     entreAsLeituras,
     comemoracoes,
+    resto,
   };
 }

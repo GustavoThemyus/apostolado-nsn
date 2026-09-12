@@ -1058,6 +1058,30 @@ button {
   border-left: 2px solid var(--ouro);
   max-width: var(--medida-leitura);
 }
+/*
+ * O link para o PDF do próprio da Missa, que o redator anexa ao dia.
+ * São 92 dias em 2026 — os domingos e as festas maiores. Quando há mais de um
+ * (o Natal tem três Missas), cada um vai pelo nome do arquivo.
+ */
+.ordo__proprio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  margin: 0.7rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid transparent;
+  font-size: 0.95rem;
+}
+.ordo__proprio-rotulo {
+  font-family: var(--sem-serifa);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  align-self: center;
+}
+
 .ordo__notas {
   margin: 0.9rem 0 0;
   padding: 0;
@@ -2814,6 +2838,58 @@ button {
   border-radius: 1px;
   border: 1px solid var(--ouro);
 }
+/*
+ * A cruz de abstinência, embaixo da bolinha da cor.
+ *
+ * Cruz, e não outra bolinha, porque é assim que o Ordo impresso marca o dia
+ * penitencial e porque a bolinha já é a cor do paramento. Fica na mesma
+ * coluna do número, e não num canto: a casa do dia é larga, e no canto a
+ * cruz se soltava do número a ponto de parecer que era da casa ao lado.
+ */
+.calendario__penitencia {
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: none;
+  color: var(--tinta-suave);
+  background:
+    linear-gradient(to right, transparent 40%, currentColor 40% 60%, transparent 60%),
+    linear-gradient(to bottom, transparent 40%, currentColor 40% 60%, transparent 60%);
+}
+/* jejum e abstinência: a mesma cruz, em ouro */
+.calendario__penitencia--jejum {
+  color: var(--ouro);
+}
+
+/* a linha que explica a cruz, embaixo da grade */
+.calendario__legenda {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1.1rem;
+  margin: 0.7rem var(--respiro-lateral) 0;
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--tinta-suave);
+}
+.calendario__legenda span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+
+/* a penitência do dia, no detalhe */
+.dia__penitencia {
+  margin: 0.7rem 0 0;
+  font-size: 0.92rem;
+  color: var(--tinta-suave);
+}
+.dia__penitencia strong {
+  font-weight: 600;
+  color: var(--tinta);
+}
+
 .indulgencia__marca--plenaria {
   background: var(--ouro);
 }

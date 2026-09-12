@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { mesLiturgico } from "../calendario/precedencia";
 import { ANOS_COM_ORDO } from "../calendario/ordo";
+import { penitenciaDe } from "../calendario/penitencia";
 import { DetalheDoDia } from "../components/DetalheDoDia";
+import { LegendaDaPenitencia, MarcaDePenitencia } from "../components/MarcaDePenitencia";
 import { DetalheDoOrdo } from "../components/DetalheDoOrdo";
 import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
 import { AssinarAgenda } from "../components/AssinarAgenda";
@@ -195,19 +197,27 @@ export default function Calendario() {
           .
         </p>
       ) : pre55 ? (
-        <GradeDoMes
-          dias={ordo.dias}
-          hoje={hoje}
-          escolhido={escolhido}
-          aoEscolher={(data) => irPara(data)}
-        />
+        <>
+          <GradeDoMes
+            dias={ordo.dias}
+            hoje={hoje}
+            escolhido={escolhido}
+            aoEscolher={(data) => irPara(data)}
+            marcar={(d) => <MarcaDePenitencia penitencia={d.penitencia} />}
+          />
+          <LegendaDaPenitencia />
+        </>
       ) : (
-        <GradeDoMes
-          dias={de1962}
-          hoje={hoje}
-          escolhido={escolhido}
-          aoEscolher={(data) => irPara(data)}
-        />
+        <>
+          <GradeDoMes
+            dias={de1962}
+            hoje={hoje}
+            escolhido={escolhido}
+            aoEscolher={(data) => irPara(data)}
+            marcar={(d) => <MarcaDePenitencia penitencia={penitenciaDe(d)} />}
+          />
+          <LegendaDaPenitencia />
+        </>
       )}
 
       {pre55
@@ -225,8 +235,8 @@ export default function Calendario() {
 
       <p className="calendario__ressalva">
         {pre55
-          ? "Copiado do Ordo publicado pelo Apostolado, dia a dia, sem cálculo nem dedução. Para celebrar, confira no Ordo."
-          : "Cobre o Temporal, o Santoral de I a IV classe, as Têmporas, as Rogações e a transferência das festas de I classe impedidas, com o próprio da capela. Não trata das oitavas menores nem das Missas votivas. Para celebrar, confira no Ordo."}
+          ? "Copiado do Ordo publicado pelo Apostolado, dia a dia, sem cálculo nem dedução — inclusive os dias de abstinência. Para celebrar, confira no Ordo."
+          : "Cobre o Temporal, o Santoral de I a IV classe, as Têmporas, as Rogações e a transferência das festas de I classe impedidas, com o próprio da capela. Não trata das oitavas menores nem das Missas votivas. A abstinência segue a disciplina que o Ordo da capela marca — todas as sextas, e jejum nas Cinzas e na Sexta-feira Santa —, mas as dispensas das festas só o Ordo tem. Para celebrar, confira no Ordo."}
       </p>
     </Moldura>
   );

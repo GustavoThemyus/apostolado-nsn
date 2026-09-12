@@ -1,4 +1,5 @@
 import { naMissaDoOrdo, type DiaDoOrdo } from "../calendario/ordo";
+import { NOME_DA_PENITENCIA } from "../calendario/penitencia";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
 
 const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
@@ -62,6 +63,11 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
 
       {dia.cores && <p className="ordo__cores">{dia.cores[0].toUpperCase() + dia.cores.slice(1)}.</p>}
       {dia.guarda && <p className="ordo__guarda">Dia santo de guarda.</p>}
+      {dia.penitencia && (
+        <p className="dia__penitencia">
+          <strong>{NOME_DA_PENITENCIA[dia.penitencia]}.</strong> Como o Ordo o marca.
+        </p>
+      )}
 
       {naMissa && (
         <div className="desenv">
@@ -114,7 +120,49 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
         </div>
       )}
 
-      {missa && <p className="ordo__missa">{missa}</p>}
+      {/*
+        * A linha da Missa, sem o que a tabela acima já disse.
+        *
+        * Perez: "é só informação repetida, torna mais cansativo". O Glória, o
+        * Credo, o Prefácio e o fecho estão logo ali em cima; o que sobra é o
+        * que muda de um dia para o outro — o nome da Missa e as orações. Nos
+        * três dias sem tabela, a linha vem inteira, que é o rito do dia.
+        */}
+      {naMissa
+        ? naMissa.resto.length > 0 && (
+            <p className="ordo__missa">{naMissa.resto.join("; ")}</p>
+          )
+        : missa && <p className="ordo__missa">{missa}</p>}
+
+      {dia.anexos && dia.anexos.length > 0 && (
+        <p className="ordo__proprio">
+          {dia.anexos.length === 1 ? (
+            <a
+              className="elo-texto elo-texto--externo"
+              href={dia.anexos[0].url}
+              target="_blank"
+              rel="noreferrer noopener external"
+            >
+              Confira o próprio da Missa
+            </a>
+          ) : (
+            <>
+              <span className="ordo__proprio-rotulo">Próprio da Missa:</span>
+              {dia.anexos.map((a) => (
+                <a
+                  className="elo-texto elo-texto--externo"
+                  href={a.url}
+                  key={a.url}
+                  target="_blank"
+                  rel="noreferrer noopener external"
+                >
+                  {a.nome}
+                </a>
+              ))}
+            </>
+          )}
+        </p>
+      )}
 
       {resto.length > 0 && (
         <ul className="ordo__notas">

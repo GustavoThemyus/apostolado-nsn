@@ -15,6 +15,12 @@
     "➢ Missas permitidas: exequial; votiva solene",
     "Indulgência plenária: Na igreja ou oratório, tomar parte no canto ou récita solene do Veni Creátor, suplicando as bênçãos de Deus para o ano que se inicia",
     "Concessão N° 26, §1, 1° do Enchiridion Indulgentiarum"
+   ],
+   "anexos": [
+    {
+     "nome": "Circuncisão do Senhor na Oitava de Natal",
+     "url": "https://drive.google.com/file/d/1Kz3IfPtXYdbkdaAX5Z9hEx4xtDhqzJNR/view?usp=drivesdk"
+    }
    ]
   },
   "2026-01-02": {
@@ -26,7 +32,8 @@
     "➢ Hoje pode-se dizer a Missa Puer natus est da Oitava do Natal (do dia 30 de dezembro) com os mesmos privilégios da Missa votiva do Sacratíssimo Coração de Jesus",
     "➢ Missas permitidas: exequial, 3º, 7º, 30º dias e de aniversário, votiva solene, votiva privada e nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-01-03": {
    "nome": "Dia Oitavo de São João Apóstolo e Evangelista",
@@ -45,6 +52,12 @@
     "Missa In nomine Jesu; Glória; comemoração (nas Missas privadas) do dia Oitavo dos Santos Inocentes Mártires; Credo; Prefácio do Natal; Ite, Missa est",
     "➢ Evangelho estritamente próprio",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Santíssimo Nome",
+     "url": "https://drive.google.com/file/d/1ujsYFvWOlCIHq_luAK9555RqLYhMjRJo/view?usp=drivesdk"
+    }
    ]
   },
   "2026-01-05": {
@@ -69,6 +82,16 @@
     "➢ Hoje se abençoa o giz, que será distribuído aos fiéis para marcar as portas de suas casas; também se abençoa ouro, incenso e mirra",
     "➢ Durante toda a Oitava da Epifania se abençoa as casas dos fiéis (com aspersão e incenso)",
     "➢ Missas permitidas: nenhuma"
+   ],
+   "anexos": [
+    {
+     "nome": "Epifania do Senhor",
+     "url": "https://drive.google.com/file/d/1W-kDAlcsm4qtDz0krrn_XWBmet96L9j7/view?usp=drivesdk"
+    },
+    {
+     "nome": "01-PublicatioPascha2026",
+     "url": "https://drive.google.com/file/d/1h5hPB_Uzmkz2_8BnK5IrsAhA5AA_YUue/view?usp=drivesdk"
+    }
    ]
   },
   "2026-01-07": {
@@ -97,7 +120,8 @@
     "Missa Ecce advenit da festa; Glória; oração Deus, qui salutis e Ecclesiæ; Credo; Prefácio e Communicantes da Epifania; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-01-10": {
    "nome": "Dia quinto da Oitava da Epifania",
@@ -116,6 +140,12 @@
     "Missa Exsultat gaudio; Glória; comemoração do Domingo dentro da Oitava da Epifania, da Oitava da Epifania e de Santo Higino Papa e Mártir; Credo; Prefácio e Communicantes da Epifania; Ite, Missa est; Último Evangelho do prólogo de São João",
     "➢ Evangelho estritamente próprio",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa da Sagrada Família",
+     "url": "https://drive.google.com/file/d/1MKaOSPw4Un-syV4Do-_g-ZJ7QqKse8hn/view?usp=drivesdk"
+    }
    ]
   },
   "2026-01-12": {
@@ -165,7 +195,8 @@
     "Missa Si diligis me; Glória; Coleta própria; oração Deus, qui salutis e Ecclesiæ; Prefácio dos Apóstolos; Ite, Missa est",
     "➢ Missas permitidas: exequial, 3º, 7º, 30º dias e de aniversário, votiva solene, votiva privada e nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-01-17": {
    "nome": "Santo Antão Abade",
@@ -185,6 +216,12 @@
     "➢ Missas permitidas: exequial; votiva solene",
     "Indulgência plenária: Visitar a Igreja Catedral e ali recitar piedosamente o Pai Nosso e o Credo",
     "Concessão N° 33, §1, 3°, c) do Enchiridion Indulgentiarum"
+   ],
+   "anexos": [
+    {
+     "nome": "II Domingo depois da Epifania",
+     "url": "https://drive.google.com/file/d/1ZLnhmz2cOBIplzgfIJPIIHyCtPV_0nB6/view?usp=drivesdk"
+    }
    ]
   },
   "2026-01-19": {
@@ -235,7 +272,8 @@
     "Missa Me exspectaverunt, Glória, comem. de S. Raimundo e or. Deus, qui salutis, Pref. Comum, Ite",
     "➢ Missas permitidas: exequial, 3º, 7º, 30º dias e de aniversário, votiva solene, votiva privada e nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-01-24": {
    "nome": "São Timóteo Bispo e Mártir",
@@ -253,6 +291,12 @@
    "partes": [
     "Missa Adorate Deum; Glória; comemoração da Conversão de São Paulo Apóstolo e comemoração de São Pedro Apóstolo; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "III Domingo depois da Epifania",
+     "url": "https://drive.google.com/file/d/1oz1uBVr1bquNpk-iIciELdbxTOvUr9-1/view?usp=drivesdk"
+    }
    ]
   },
   "2026-01-26": {
@@ -299,7 +343,8 @@
     "Missa Loquebar; Glória; oração Deus, qui salutis e Ecclesiæ; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial, 3º, 7º, 30º dias e de aniversário, votiva solene, votiva privada e nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-01-31": {
    "nome": "IV Domingo depois da Epifania [Antecipado]",
@@ -308,6 +353,12 @@
    "partes": [
     "Missa Adorate Deum; Glória; comemoração São João Bosco Confessor; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dia e de aniversário; votiva solene; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "IV Domingo depois de Epifania",
+     "url": "https://drive.google.com/file/d/1CM8RYCE5Pd4B-KK0wc2eVXu4clU38DXc/view?usp=drivesdk"
+    }
    ]
   },
   "2026-02-01": {
@@ -317,6 +368,12 @@
    "partes": [
     "Missa Circumdederunt me; comemoração de Santo Inácio Bispo e Mártir; Credo; Prefácio da Santíssima Trindade; Benedicamus Domino",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Domingo da Setuagésima (antes)",
+     "url": "https://drive.google.com/file/d/1-QRviL6yHWNOcYApPwEkP1I6-B4z7w7y/view?usp=drivesdk"
+    }
    ]
   },
   "2026-02-02": {
@@ -334,6 +391,12 @@
     "➢ Hoje é proibida qualquer Missa votiva em honra a Cristo Senhor, mesmo solene",
     "➢ Hoje é proibida qualquer Missa votiva solene nas igrejas onde há apenas uma Missa e houver a benção das velas",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Purificação da Bem-aventurada Virgem Maria",
+     "url": "https://drive.google.com/file/d/17rytTZGvioJ5hDYxcdbG2vzP-5q83tkn/view?usp=drivesdk"
+    }
    ]
   },
   "2026-02-03": {
@@ -376,7 +439,8 @@
     "Missa Cogitationes; Glória; oração única; Trato; Credo; Pref. do Coração de Jesus; Ite",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-02-07": {
    "nome": "São Romualdo Abade",
@@ -394,6 +458,12 @@
    "partes": [
     "Missa Exsurge; comemoração de São João da Mata Confessor; Credo; Prefácio da Santíssima Trindade; Benedicamus Domino",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Domingo da Sexagésima (depois)",
+     "url": "https://drive.google.com/file/d/16C6d5XQXGUVJWpH1fu6lZVQ00lE0Bb80/view?usp=drivesdk"
+    }
    ]
   },
   "2026-02-09": {
@@ -446,7 +516,8 @@
     "➢ Hoje, como Missa principal, faz-se a Missa quotidiana de Requiem, em lugar da Missa do dia",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-02-14": {
    "nome": "Santa Maria no sábado",
@@ -467,6 +538,12 @@
    "partes": [
     "Missa Esto mihi; comemoração dos Santos Faustino e Jovita Mártires e oração A cunctis; Credo; Prefácio da Santíssima Trindade; Benedicamus Domino",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Domingo da Quinquagésima (depois)",
+     "url": "https://drive.google.com/file/d/1ivYCwPchczQ6SPOH0Y2ALgm5a6Vf5j22/view?usp=drivesdk"
+    }
    ]
   },
   "2026-02-16": {
@@ -498,6 +575,13 @@
     "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
     "➢ Missas permitidas: exequial apenas",
     "Dia de jejum e abstinência"
+   ],
+   "penitencia": "jejum-e-abstinencia",
+   "anexos": [
+    {
+     "nome": "Quarta-feira nas Cinzas",
+     "url": "https://drive.google.com/file/d/1e1YmAVMscjg2INNr2GjKS1vdXFKMiKZu/view?usp=drivesdk"
+    }
    ]
   },
   "2026-02-19": {
@@ -520,7 +604,8 @@
     "Dia de abstinência",
     "Indulgência plenária: Recitar piedosamente, diante de uma imagem de Jesus Cristo crucificado, a oração En ego o bone et dulcissime Jesu depois da comunhão",
     "Concessão N° 8, §1, 2°, do Enchiridion Indulgentiarum"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-02-21": {
    "nome": "Sábado depois das Cinzas",
@@ -540,6 +625,12 @@
     "➢ Missas permitidas: exequial apenas",
     "Indulgência plenária: Visitar a Igreja Catedral e ali recitar piedosamente o Pai Nosso e o Credo",
     "Concessão N° 33, §1, 3°, c) do Enchiridion Indulgentiarum"
+   ],
+   "anexos": [
+    {
+     "nome": "I Domingo da Quaresma",
+     "url": "https://drive.google.com/file/d/1B9L7SxOGpITkzkGP26kw467SbPJoqBe5/view?usp=drivesdk"
+    }
    ]
   },
   "2026-02-23": {
@@ -598,7 +689,8 @@
     "Dia de abstinência",
     "Indulgência plenária: Recitar piedosamente, diante de uma imagem de Jesus Cristo crucificado, a oração En ego o bone et dulcissime Jesu depois da comunhão",
     "Concessão N° 8, §1, 2°, do Enchiridion Indulgentiarum"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-02-28": {
    "nome": "Sábado das Quatro Têmporas da Quaresma",
@@ -617,6 +709,12 @@
    "partes": [
     "Missa Reminiscere; oração A cunctis e Omnipotens; Credo; Prefácio da Quaresma; Benedicamus Domino",
     "➢ Missas permitidas: exequial apenas"
+   ],
+   "anexos": [
+    {
+     "nome": "II Domingo da Quaresma",
+     "url": "https://drive.google.com/file/d/1lo3MvS1efroPWJR5F9XrouxIbJu4zE1P/view?usp=drivesdk"
+    }
    ]
   },
   "2026-03-02": {
@@ -674,7 +772,8 @@
     "Dia de abstinência",
     "Indulgência plenária: Recitar piedosamente, diante de uma imagem de Jesus Cristo crucificado, a oração En ego o bone et dulcissime Jesu depois da comunhão",
     "Concessão N° 8, §1, 2°, do Enchiridion Indulgentiarum"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-03-07": {
    "nome": "Santo Tomás de Aquino Confessor e Doutor da Igreja",
@@ -695,6 +794,12 @@
     "Missa Oculi mei; comemoração de São João de Deus Confessor; Credo; Prefácio da Quaresma; Benedicamus Domino",
     "➢ Hoje é o aniversário da nomeação de Sua Excelência Reverendíssima Dom Manoel Delson como Arcebispo da Arquidiocese da Paraíba",
     "➢ Missas permitidas: exequial apenas"
+   ],
+   "anexos": [
+    {
+     "nome": "III Domingo da Quaresma",
+     "url": "https://drive.google.com/file/d/1IR_03CEyvnha_Dlxhoe_60BiZdivri_B/view?usp=drivesdk"
+    }
    ]
   },
   "2026-03-09": {
@@ -751,7 +856,8 @@
     "Dia de abstinência",
     "Indulgência plenária: Recitar piedosamente, diante de uma imagem de Jesus Cristo crucificado, a oração En ego o bone et dulcissime Jesu depois da comunhão",
     "Concessão N° 8, §1, 2°, do Enchiridion Indulgentiarum"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-03-14": {
    "nome": "Sábado depois do III Domingo da Quaresma",
@@ -772,6 +878,12 @@
     "➢ É permitido usar o órgão e ornar o altar com flores ou relicários",
     "➢ Na Missa solene, os ministros sagrados usam dalmática e tunicela",
     "➢ Missas permitidas: exequial apenas"
+   ],
+   "anexos": [
+    {
+     "nome": "IV Domingo da Quaresma",
+     "url": "https://drive.google.com/file/d/1RNrka4o3E1YaI5ABqKIWxUOZ4E5oZjIN/view?usp=drivesdk"
+    }
    ]
   },
   "2026-03-16": {
@@ -813,6 +925,12 @@
    "partes": [
     "Missa própria Justus ut palma; Glória; comemoração da Quinta-feira depois do IV Domingo da Quaresma; Trato; Credo; Prefácio de São José (Et te in Festivitate); Ite, Missa est; Último Evangelho da féria",
     "➢ Missas permitidas: nenhuma"
+   ],
+   "anexos": [
+    {
+     "nome": "São José Esposo da Virgem Maria",
+     "url": "https://drive.google.com/file/d/1-zrmI2YnMznyWki7NJEj0OKMlO-hfxBF/view?usp=drivesdk"
+    }
    ]
   },
   "2026-03-20": {
@@ -826,7 +944,8 @@
     "Dia de abstinência",
     "Indulgência plenária: Recitar piedosamente, diante de uma imagem de Jesus Cristo crucificado, a oração En ego o bone et dulcissime Jesu depois da comunhão",
     "Concessão N° 8, §1, 2°, do Enchiridion Indulgentiarum"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-03-21": {
    "nome": "São Bento Abade",
@@ -847,6 +966,12 @@
     "Missa Judica me Deus; oração Ecclesiæ; Credo; Prefácio da Santa Cruz; Benedicamus Domino",
     "➢ Omitem-se o Sl 42 (Judica me, Deus) e o Gloria Patri no Asperges, no Introito e Lavabo",
     "➢ Missas permitidas: exequial apenas"
+   ],
+   "anexos": [
+    {
+     "nome": "Domingo da Paixão",
+     "url": "https://drive.google.com/file/d/1qflaoDHs3rfzBqGRbIX1wuyvXl1wwFQt/view?usp=drivesdk"
+    }
    ]
   },
   "2026-03-23": {
@@ -880,6 +1005,12 @@
     "Missa própria Vultum tuum; Glória; comemoração da Quarta-feira depois do Domingo da Paixão; Trato; Credo; Prefácio de Nossa Senhora (Et te in Annuntiatióne); Ite, Missa est; Último Evangelho da féria",
     "➢ Nas Missas cantadas, durante o Credo, o sacerdote deve ir ajoelhar-se ao pé do altar ao Et incarnatus est",
     "➢ Missas permitidas: nenhuma"
+   ],
+   "anexos": [
+    {
+     "nome": "Anunciação da Bem-aventurada Virgem Maria",
+     "url": "https://drive.google.com/file/d/1P6CZXbbxs7bREgNM7SehqgiOVnN3VgP5/view?usp=drivesdk"
+    }
    ]
   },
   "2026-03-26": {
@@ -905,7 +1036,8 @@
     "Dia de abstinência",
     "Indulgência plenária: Recitar piedosamente, diante de uma imagem de Jesus Cristo crucificado, a oração En ego o bone et dulcissime Jesu depois da comunhão",
     "Concessão N° 8, §1, 2°, do Enchiridion Indulgentiarum"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-03-28": {
    "nome": "São João Capistrano Confessor",
@@ -1013,7 +1145,8 @@
     "Dia de jejum e abstinência",
     "Indulgência plenária: Participar com piedade da Adoração da Santa Cruz neste dia",
     "Concessão N° 13, 1° do Enchiridion Indulgentiarum"
-   ]
+   ],
+   "penitencia": "jejum-e-abstinencia"
   },
   "2026-04-04": {
    "nome": "SÁBADO SANTO",
@@ -1045,6 +1178,12 @@
     "➢ Missas permitidas: nenhuma",
     "Indulgência plenária: Receber com devoção a bênção Urbi et Orbi, dada pelo Papa, mesmo que por televisão ou rádio. Também é possível receber a bênção do Bispo diocesano",
     "Concessão N° 4 do Enchiridion Indulgentiarum, norma 7, 2"
+   ],
+   "anexos": [
+    {
+     "nome": "Domingo da Ressurreição",
+     "url": "https://drive.google.com/file/d/132wYtVCjGgefcYpCxXp0tfwyElr4uWhc/view?usp=drivesdk"
+    }
    ]
   },
   "2026-04-06": {
@@ -1096,7 +1235,8 @@
     "➢ Evangelho deve-se comemorar na ocorrência",
     "➢ Missas permitidas: exequial; votiva solene",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-04-11": {
    "nome": "Sábado in Albis",
@@ -1115,6 +1255,12 @@
    "partes": [
     "Missa Quasi modo; Glória; Credo; Prefácio Pascal (in hoc potissimum); Ite, Missa est",
     "➢ Missas permitidas: exequial"
+   ],
+   "anexos": [
+    {
+     "nome": "Domingo in Albis (I Depois da Páscoa)",
+     "url": "https://drive.google.com/file/d/1VhM3DgOJ5Yp2XEIMJJVtM7DWWxK4bnhZ/view?usp=drivesdk"
+    }
    ]
   },
   "2026-04-13": {
@@ -1161,7 +1307,8 @@
     "Missa Si diligis me; Glória; oração Concede e Ecclesiæ; Aleluia Pascal; Prefácio dos Apóstolos; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-04-18": {
    "nome": "Santa Maria no sábado",
@@ -1180,6 +1327,12 @@
    "partes": [
     "Missa Misericordia Domini; Glória; oração Concede e Ecclesiæ; Credo; Prefácio Pascal (in hoc potissimum); Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "II Domingo depois da Páscoa",
+     "url": "https://drive.google.com/file/d/1ot4SrOynHpIiIxkPpUia8h3IK9jLwKKT/view?usp=drivesdk"
+    }
    ]
   },
   "2026-04-20": {
@@ -1207,6 +1360,12 @@
    "partes": [
     "Missa própria Adjutor et protector; Glória; comemoração (nas Missas privadas) dos Santos Sotero e Caio Papas e Mártires; Credo; Prefácio de São José (Et te in Festivitate); Ite, Missa est",
     "➢ Missas permitidas: nenhuma"
+   ],
+   "anexos": [
+    {
+     "nome": "Solenidade de São José Esposo da Virgem Maria",
+     "url": "https://drive.google.com/file/d/1bQYpMTiax3hOD3rDXt8ZgGFV22hC-xHw/view?usp=drivesdk"
+    }
    ]
   },
   "2026-04-23": {
@@ -1228,7 +1387,8 @@
     "Missa Protexisti me Deus; Glória; Coleta própria; comemoração da Oitava da Solenidade de São José; Aleluia Pascal; Credo (por causa da Oitava); Prefácio de São José (Et te in Festivitate); Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-04-25": {
    "nome": "São Marcos Evangelista",
@@ -1258,6 +1418,12 @@
     "➢ Hoje pode-se celebrar uma só missa, cantada ou rezada, da Solenidade exterior de São José – cor branca",
     "Missa da festa, Glória, comem. do domingo e (nas Missas privadas) dos Ss. Cleto e Marcelino, Credo, Pref. de S. José (Et te in Festivitate), Ite, Últ. Evan. do domingo",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "III Domingo depois da Páscoa",
+     "url": "https://drive.google.com/file/d/1z5pzaAST7HfK94Nww6pplrqeV7VYHlpy/view?usp=drivesdk"
+    }
    ]
   },
   "2026-04-27": {
@@ -1313,7 +1479,8 @@
     "Missa Cogitationes; Glória; comem. dos Ss. Felipe e Tiago; Aleluia Pascal; Credo; Pref. do Coração de Jesus; Ite; Últ. Evan. da festa",
     "➢ Missas permitidas: exequial; votiva solene",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-05-02": {
    "nome": "Santo Atanásio Bispo, Confessor e Doutor da Igreja",
@@ -1339,6 +1506,12 @@
     "Invenção da Santa Cruz, duples de 2ª classe – cor vermelha",
     "➢ Missa como acima, exceto que se faz a comemoração dos Santos Alexandre, Evêncio e Teódulo Mártires e Juvenal Bispo e Confessor somente nas missas privadas após a comemoração do Domingo",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Invenção da Santa Cruz",
+     "url": "https://drive.google.com/file/d/1TTTuClHPuIjCWdw9eVYQpi-es9m49V-M/view?usp=drivesdk"
+    }
    ]
   },
   "2026-05-04": {
@@ -1399,7 +1572,8 @@
     "➢ Em todas as Missas no mundo todo que não seja na catedral, deve-se comemorar a Eleição do Soberano Pontífice como última oração",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-05-09": {
    "nome": "São Gregório Nazianzeno Bispo, Confessor e Doutor da Igreja",
@@ -1419,6 +1593,12 @@
     "Missa Vocem jucunditatis; Glória; comemoração de Santo Antonino Bispo e Confessor e dos Santos Gordiano e Epímaco Mártires; Credo; Prefácio Pascal (in hoc potissimum); Ite, Missa est",
     "➢ No Brasil: comemoração do dia Oitavo da Invenção da Santa Cruz (em primeiro lugar)",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "V Domingo depois da Páscoa",
+     "url": "https://drive.google.com/file/d/14R03kEhvRg6KZVtAb2-d_C09E87pezVc/view?usp=drivesdk"
+    }
    ]
   },
   "2026-05-11": {
@@ -1487,6 +1667,12 @@
     "➢ Após o Evangelho apaga-se o Círio Pascal que após a Missa é retirado",
     "➢ Este ano suprime-se São Bonifácio Mártir",
     "➢ Missas permitidas: nenhuma"
+   ],
+   "anexos": [
+    {
+     "nome": "Ascensão do Senhor",
+     "url": "https://drive.google.com/file/d/10yVdEf-iTp9n7NYiKi4Qa1_F8t0j0ESs/view?usp=drivesdk"
+    }
    ]
   },
   "2026-05-15": {
@@ -1497,7 +1683,8 @@
     "Missa Os justi; Glória; Coleta e Evangelho próprios; comemoração da Oitava da Ascensão; Aleluia Pascal; Credo (por causa da Oitava); Prefácio e Communicantes da Ascensão; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-05-16": {
    "nome": "Santo Ubaldo Bispo e Confessor",
@@ -1517,6 +1704,12 @@
    "partes": [
     "Missa Exaudi Domine; Glória; comemoração de São Pascoal Bailão Confessor e da Oitava da Ascensão; Credo; Prefácio e Communicantes da Ascensão; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Domingo depois da Ascensão",
+     "url": "https://drive.google.com/file/d/1YlGVN3bzXfGenaP3hNjAsLA4_cPSFF5D/view?usp=drivesdk"
+    }
    ]
   },
   "2026-05-18": {
@@ -1569,7 +1762,8 @@
     "Missa Exaudi Domine do domingo precedente: Glória; oração Concede e Ecclesiæ; sem Credo; Prefácio da Ascensão; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-05-23": {
    "nome": "VIGÍLIA DE PENTECOSTES",
@@ -1602,6 +1796,12 @@
     "➢ Missas permitidas: nenhuma",
     "Indulgência plenária: Na igreja ou oratório, tomar parte no canto ou récita solene do Veni Creator",
     "Concessão N° 26, §1, 1° do Enchiridion Indulgentiarum"
+   ],
+   "anexos": [
+    {
+     "nome": "Domingo de Pentecostes",
+     "url": "https://drive.google.com/file/d/1TgqjupkoRSnRe5ehEMrSfGW4iqDQhaGC/view?usp=drivesdk"
+    }
    ]
   },
   "2026-05-25": {
@@ -1661,7 +1861,8 @@
     "➢ Evangelho deve-se comemorar na ocorrência",
     "➢ Missas permitidas: exequial; votiva solene",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-05-30": {
    "nome": "Sábado das Quatro Têmporas de Pentecostes",
@@ -1685,6 +1886,12 @@
     "➢ A partir de hoje retoma-se a antífona Asperges me",
     "➢ Este ano transfere-se Bem-aventurada Virgem Maria Rainha para o dia 1º de junho e suprime-se Santa Petronila Virgem",
     "➢ Missas permitidas: nenhuma"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa da Santíssima Trindade",
+     "url": "https://drive.google.com/file/d/1xTqslehvvVWoNti-BwFE_qMvwgrS5uj6/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-01": {
@@ -1742,6 +1949,12 @@
     "Indulgência plenária: Participar piedosamente da solene procissão eucarística, seja ela dentro ou fora da igreja",
     "Concessão N° 7, §1, 3° do Enchiridion Indulgentiarum",
     "Esta indulgência se lucra toties-quoties não só hoje, mas pode-se lucrar em todos os dias do ano"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa do Santíssimo Corpo de Cristo",
+     "url": "https://drive.google.com/file/d/1PecZ77mVq2YTWWy_6KK83Sm3i4YR9wph/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-05": {
@@ -1755,6 +1968,13 @@
     "➢ Hoje diz-se a Missa do dia com os mesmos privilégios da Missa votiva do Sacratíssimo Coração de Jesus",
     "➢ Missas permitidas: exequial; votiva solene",
     "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia",
+   "anexos": [
+    {
+     "nome": "Festa do Santíssimo Corpo de Cristo",
+     "url": "https://drive.google.com/file/d/1PecZ77mVq2YTWWy_6KK83Sm3i4YR9wph/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-06": {
@@ -1766,6 +1986,12 @@
     "➢ A Sequência pode ser omitida nas Missas privadas rezadas",
     "➢ Nas igrejas consagradas do Brasil: 3ª oração da comemoração da Oitava da Dedicação da própria igreja",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa do Santíssimo Corpo de Cristo",
+     "url": "https://drive.google.com/file/d/1PecZ77mVq2YTWWy_6KK83Sm3i4YR9wph/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-07": {
@@ -1778,6 +2004,12 @@
     "➢ Hoje onde é realizada a procissão solene após a Missa pode-se celebrar uma Missa votiva solene do Santíssimo Corpo de Cristo – cor branca",
     "Missa da festa, Glória, comem. do domingo, Sequência, Credo, Pref. do Natal, Ite, Últ. Evan. do domingo",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "II Domingo depois de Pentecostes (Domingo dentro da Oitava de Corpus Christi)",
+     "url": "https://drive.google.com/file/d/1PpHqOrzCFsw1IRuft6ZK99n_21P-_YPj/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-08": {
@@ -1789,6 +2021,12 @@
     "➢ A Sequência pode ser omitida nas Missas privadas rezadas",
     "➢ Nas igrejas consagradas do Brasil: comemoração do dia Oitavo da Dedicação da própria igreja",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa do Santíssimo Corpo de Cristo",
+     "url": "https://drive.google.com/file/d/1PecZ77mVq2YTWWy_6KK83Sm3i4YR9wph/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-09": {
@@ -1799,6 +2037,12 @@
     "Missa Cibavit eos da festa; Glória; comemoração dos Santos Primo e Feliciano Mártires e oração Concede; Sequência; Credo; Prefácio do Natal; Ite, Missa est",
     "➢ A Sequência pode ser omitida nas Missas privadas rezadas",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa do Santíssimo Corpo de Cristo",
+     "url": "https://drive.google.com/file/d/1PecZ77mVq2YTWWy_6KK83Sm3i4YR9wph/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-10": {
@@ -1809,6 +2053,12 @@
     "Missa Cibavit eos da festa; Glória; comemoração Santa Margarida Rainha e Viúva e oração Concede; Sequência; Credo; Prefácio do Natal; Ite, Missa est",
     "➢ A Sequência pode ser omitida nas Missas privadas rezadas",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa do Santíssimo Corpo de Cristo",
+     "url": "https://drive.google.com/file/d/1PecZ77mVq2YTWWy_6KK83Sm3i4YR9wph/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-11": {
@@ -1819,6 +2069,12 @@
     "Missa Cibavit eos da festa; Glória; comemoração de São Barnabé Apóstolo; Sequência; Credo; Prefácio do Natal; Ite, Missa est",
     "➢ A Sequência pode ser omitida nas Missas privadas rezadas",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa do Santíssimo Corpo de Cristo",
+     "url": "https://drive.google.com/file/d/1PecZ77mVq2YTWWy_6KK83Sm3i4YR9wph/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-12": {
@@ -1833,6 +2089,13 @@
     "Hoje é dispensada a Abstinência de carne",
     "Indulgência plenária: Recitar publicamente o ato de reparação Dulcíssimo Jesus",
     "Concessão N° 3 do Enchiridion Indulgentiarum"
+   ],
+   "penitencia": "dispensada",
+   "anexos": [
+    {
+     "nome": "Festa do Sagrado Coração de Jesus",
+     "url": "https://drive.google.com/file/d/1ThTTA-gXnm3FIcVfMVIGMGFKKdqXmHhy/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-13": {
@@ -1846,6 +2109,12 @@
     "Santo Antônio de Pádua Confessor e Doutor da Igreja, duples – cor branca",
     "➢ Missa como acima",
     "➢ Missas permitidas: exequial; votiva solene; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "\"Santo Antônio, Brasil.pdf\"",
+     "url": "https://drive.google.com/file/d/1Brsd7m72dr5dgO5B5V-GcSdWi0zHKh51/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-14": {
@@ -1855,6 +2124,12 @@
    "partes": [
     "Missa Respice in me; Glória; comemoração de São Basílio Magno Bispo, Confessor e Doutor da Igreja e da Oitava do Sacratíssimo Coração de Jesus; Credo; Prefácio do Sagrado Coração de Jesus; Ite, Missa est",
     "➢ Missas permitidas: exequial e votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "III Domingo depois de Pentecostes (Domingo dentro da Oitava do Sagrado Coração)",
+     "url": "https://drive.google.com/file/d/1NrDxcJBCtv57LQ2UOu06WplE-KryUs4o/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-15": {
@@ -1864,6 +2139,12 @@
    "partes": [
     "Missa Cogitationes da festa; Glória; comemoração dos Santos Vito, Modesto e Crescência Mártires e oração Concede; Credo; Prefácio do Sagrado Coração de Jesus; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa do Sagrado Coração de Jesus",
+     "url": "https://drive.google.com/file/d/1ThTTA-gXnm3FIcVfMVIGMGFKKdqXmHhy/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-16": {
@@ -1873,6 +2154,12 @@
    "partes": [
     "Missa Cogitationes da festa; Glória; oração Concede e Ecclesiæ; Credo; Prefácio do Sagrado Coração de Jesus; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa do Sagrado Coração de Jesus",
+     "url": "https://drive.google.com/file/d/1ThTTA-gXnm3FIcVfMVIGMGFKKdqXmHhy/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-17": {
@@ -1882,6 +2169,12 @@
    "partes": [
     "Missa Cogitationes da festa; Glória; oração Concede e Ecclesiæ; Credo; Prefácio do Sagrado Coração de Jesus; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "Festa do Sagrado Coração de Jesus",
+     "url": "https://drive.google.com/file/d/1ThTTA-gXnm3FIcVfMVIGMGFKKdqXmHhy/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-18": {
@@ -1907,6 +2200,13 @@
     "Missa Cogitationes da festa; Glória; comemoração de Santa Juliana de Falconieri Virgem e dos Santos Gervásio e Protásio Mártires; Credo; Prefácio do Sagrado Coração de Jesus; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene; nupcial",
     "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia",
+   "anexos": [
+    {
+     "nome": "Festa do Sagrado Coração de Jesus",
+     "url": "https://drive.google.com/file/d/1ThTTA-gXnm3FIcVfMVIGMGFKKdqXmHhy/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-20": {
@@ -1928,6 +2228,12 @@
    "partes": [
     "Missa Dominus illuminatio mea; Glória; comemoração de São Luiz Gonzaga Confessor; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "IV Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1rbBkiMRlX-vi09Ay7KP5Kh4Ebmn7bw-6/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-22": {
@@ -1957,6 +2263,12 @@
    "partes": [
     "Missa própria De ventre; Glória; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: nenhuma"
+   ],
+   "anexos": [
+    {
+     "nome": "Natalício de São João Batista",
+     "url": "https://drive.google.com/file/d/1IdoXujsblVPSrs52S1h5bX65kvy5gX_r/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-25": {
@@ -1976,7 +2288,8 @@
     "Missa Multæ tribulationes; Glória; comemoração da Oitava do Natalício de São João Batista; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-06-27": {
    "nome": "Vigília de São Pedro e São Paulo Apóstolos (antecipada)",
@@ -1999,6 +2312,12 @@
     "➢ Hoje pode-se celebrar uma só missa, cantada ou rezada, da Solenidade de São João Batista – cor branca",
     "Missa da festa, Glória, comem. do domingo e (nas Missas privadas) de S. Irineu, Credo (por causa do domingo), Pref. da Trindade, Ite, Últ. Evan. do domingo",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "V Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1HucWYn0xDnTTBvLXykwndSqewokyXPlm/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-29": {
@@ -2012,6 +2331,12 @@
     "Concessão N° 33, §1, 3°, a) do Enchiridion Indulgentiarum",
     "Indulgência plenária: Utilizar com devoção um objeto de piedade (crucifixo, cruz, Rosário, escapulário, medalha etc.) abençoado ritualmente pelo Papa ou por um bispo e ajuntar uma fórmula de profissão de Fé aprovada",
     "Concessão N° 14, §1, norma 15 do Enchiridion Indulgentiarum; Norma N° 17 da Constituição Apostólica"
+   ],
+   "anexos": [
+    {
+     "nome": "\"São Pedro e São Paulo, Apóstolos.pdf\"",
+     "url": "https://drive.google.com/file/d/1L493ViVbey-eHD7LqdnUL4u49ComFO24/view?usp=drivesdk"
+    }
    ]
   },
   "2026-06-30": {
@@ -2031,6 +2356,12 @@
     "Missa própria Redemisti nos Domine; Glória; comemoração (nas Missas privadas) do dia Oitavo do Natalício de São João Batista; Credo; Prefácio da Santa Cruz; Ite, Missa est",
     "➢ Evangelho estritamente próprio",
     "➢ Missas permitidas: exequial apenas"
+   ],
+   "anexos": [
+    {
+     "nome": "Preciosíssimo Sangue de nosso Senhor Jesus Cristo",
+     "url": "https://drive.google.com/file/d/1CGIGr3ONEJeaXU-Ois6cefGZcFTwiykw/view?usp=drivesdk"
+    }
    ]
   },
   "2026-07-02": {
@@ -2056,7 +2387,8 @@
     "Missa Cogitationes; Glória; or. única; Credo; Pref. do Coração de Jesus; Ite",
     "➢ Missas permitidas: exequial; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-07-04": {
    "nome": "Dia sexto da Oitava de São Pedro e São Paulo",
@@ -2077,6 +2409,12 @@
     "➢ Hoje pode-se celebrar uma só missa, cantada ou rezada, da Solenidade do Preciosíssimo Sangue de Nosso Senhor Jesus Cristo – cor vermelha",
     "Missa da festa, Glória, comem. do domingo e (nas Missas privadas) de S. Antônio Maria, Credo, Pref. da Cruz, Ite, Últ. Evan. do domingo",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "VI Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1iu7nbvWSzSRwTYUM94ksPlf3NRnQVMH-/view?usp=drivesdk"
+    }
    ]
   },
   "2026-07-06": {
@@ -2130,7 +2468,8 @@
     "Missa própria Laudate pueri; Glória; oração A cunctis e ad libitum; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-07-11": {
    "nome": "Santa Maria no sábado",
@@ -2151,6 +2490,12 @@
    "partes": [
     "Missa Omnes gentes; Glória; comemoração de São João Gualberto Abade e dos Santos Nabor e Félix Mártires; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "VII Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/16BrjTWGXVmaAbLL_0d5mk9tBaodaYIZO/view?usp=drivesdk"
+    }
    ]
   },
   "2026-07-13": {
@@ -2204,7 +2549,8 @@
     "Missa Os justi; Glória; oração A cunctis e ad libitum; Epístola e Evangelho próprios; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-07-18": {
    "nome": "São Camilo de Lellis Confessor",
@@ -2222,6 +2568,12 @@
    "partes": [
     "Missa Suscepimus Deus; Glória; comemoração de São Vicente de Paulo Confessor; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "VIII Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1C9Gw9ttAiQinXXRyelj6jvqmy2YMPoOQ/view?usp=drivesdk"
+    }
    ]
   },
   "2026-07-20": {
@@ -2270,7 +2622,8 @@
     "➢ Evangelho deve-se comemorar na ocorrência",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-07-25": {
    "nome": "São Tiago [Maior] Apóstolo",
@@ -2289,6 +2642,12 @@
    "partes": [
     "Missa própria Gaudeamus omnes; Glória; comemoração do IX Domingo depois de Pentecostes; Credo (por causa do domingo); Prefácio da Santíssima Trindade; Ite, Missa est; Último Evangelho do domingo",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Santa Ana",
+     "url": "https://drive.google.com/file/d/1XmYozY1ejQsVuOCC0OliV-uwWqtJmamO/view?usp=drivesdk"
+    }
    ]
   },
   "2026-07-27": {
@@ -2300,6 +2659,12 @@
     "➢ Nas Missas privadas pode-se celebrar São Pantaleão Mártir – cor vermelha",
     "Missa Lætabitur justus; Glória; comem. do domingo e or. A cunctis; Pref. Comum; Ite",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dia e de aniversário; votiva solene; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "IX Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1cwkGyrw_mNA2ytWxAm9Du5wgvRxyinSX/view?usp=drivesdk"
+    }
    ]
   },
   "2026-07-28": {
@@ -2340,7 +2705,8 @@
     "Missa própria In nomine Jesu; Glória; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-08-01": {
    "nome": "DEDICAÇÃO DA IGREJA CATEDRAL",
@@ -2367,6 +2733,12 @@
     "➢ Missas permitidas: exequial; votiva solene",
     "Indulgência plenária: Visitar a Igreja Catedral ou paroquial e ali recitar piedosamente o Pai Nosso e o Credo",
     "Concessão N° 33, §1, 3°, b) e e), do Enchiridion Indulgentiarum"
+   ],
+   "anexos": [
+    {
+     "nome": "X Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1CBkcq-Pwru0SAGMGdE_4BHpI7GsKi3kx/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-03": {
@@ -2401,6 +2773,12 @@
     "Dedicação de Santa Maria das Neves (Santa Maria Maior), duples maior – cor branca",
     "Missa Salve sancta parens; Glória; Credo; Prefácio de Nossa Senhora (Et te in Festivitate); Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "Dedicação de Santa Maria das Neves",
+     "url": "https://drive.google.com/file/d/1OqTf0hOjdHn8a4DCdjTiGTooT9V4lcle/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-06": {
@@ -2412,6 +2790,12 @@
     "➢ Evangelho estritamente próprio",
     "➢ Hoje diz-se a Missa do dia no lugar da Missa votiva de Nosso Senhor Jesus Cristo Sumo e Eterno Sacerdote",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Transfiguração de nosso Senhor Jesus Cristo",
+     "url": "https://drive.google.com/file/d/1_CFdDS36AzJ0MQJrp2_WhXde6L5q0yvA/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-07": {
@@ -2425,7 +2809,8 @@
     "Missa Cogitationes; Glória; or. única; Credo; Pref. do Coração de Jesus; Ite",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-08-08": {
    "nome": "Dia Oitavo da Dedicação da Igreja Catedral",
@@ -2457,6 +2842,12 @@
     "➢ Na Arquidiocese da Paraíba pode-se celebrar uma Missa cantada e outra rezada da Solenidade da Dedicação de Santa Maria das Neves – cor branca",
     "Missa da festa, Glória, comem. do domingo e (nas Missas privadas) de S. João Maria Vianney, Credo, Pref. BVM (Et te in Festivitáte), Ite, Últ. Evan. do domingo",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "XI Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1bTmGLSeSFhsYMvQlMMHkSHatDXJsVpYy/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-10": {
@@ -2481,6 +2872,12 @@
     "Santos Tibúrcio e Susana Virgem, Mártires, simples – cor vermelha",
     "Missa Salus autem; Glória; Orações e Epístola próprias; oração A cunctis e ad libitum; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "Dedicação de Santa Maria das Neves",
+     "url": "https://drive.google.com/file/d/1OqTf0hOjdHn8a4DCdjTiGTooT9V4lcle/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-12": {
@@ -2495,6 +2892,12 @@
     "Santa Clara Virgem, duples – cor branca",
     "Missa Dilexisti justitiam; Glória; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "Dedicação de Santa Maria das Neves",
+     "url": "https://drive.google.com/file/d/1OqTf0hOjdHn8a4DCdjTiGTooT9V4lcle/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-13": {
@@ -2515,7 +2918,8 @@
     "➢ Evangelho deve-se comemorar na ocorrência",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-08-15": {
    "nome": "ASSUNÇÃO DA BEM-AVENTURADA VIRGEM MARIA",
@@ -2525,6 +2929,12 @@
     "Missa própria Signum magnum; Glória; Credo; Prefácio de Nossa Senhora (Et te in Assumptione); Ite, Missa est",
     "➢ Hoje, imediatamente antes da missa, faz-se a bênção das ervas e dos frutos (com aspersão e incenso)",
     "➢ Missas permitidas: nenhuma"
+   ],
+   "anexos": [
+    {
+     "nome": "Assunção da Santíssima Virgem Maria",
+     "url": "https://drive.google.com/file/d/1Rr9rYO0QKv9EtIE4nLBJU4SBbCxNcBG-/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-16": {
@@ -2534,6 +2944,12 @@
    "partes": [
     "Missa própria Dispersit; Glória; comemoração do XII Domingo depois de Pentecostes; Credo (por causa do domingo); Prefácio da Santíssima Trindade; Ite, Missa est; Último Evangelho do domingo",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "São Joaquim",
+     "url": "https://drive.google.com/file/d/1vo_wazp0hAs9QzR1RvZpTFlE17GzgWfO/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-17": {
@@ -2556,6 +2972,12 @@
     "➢ Nas Missas privadas pode-se celebrar o Dia quarto da Oitava da Assunção – cor branca",
     "Missa da festa, Glória, comem. do domingo e de S. Agapito, Credo, Pref. BVM (Et te in Assumptione); Ite",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dia e de aniversário; votiva solene; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "XII Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1YK6XTej_DJ26z1s1M3Gt_JQ39a5Zuwzc/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-19": {
@@ -2584,7 +3006,8 @@
     "Missa Cognovi Domine; Glória; Orações próprias; comemoração da Oitava da Assunção; Credo e Prefácio de Nossa Senhora (Et te in Assumptione), por causa da Oitava; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-08-22": {
    "nome": "Imaculado Coração da Bem-aventurada Virgem Maria",
@@ -2604,6 +3027,12 @@
    "partes": [
     "Missa Respice Domine; Glória; comemoração de São Filipe Benício Confessor; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "XIII Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/17D4JgOmlniIqWx1g174iNrzLg9PBuFMl/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-24": {
@@ -2651,7 +3080,8 @@
     "Missa In medio; Glória; Coleta, Gradual e Aleluia próprios; comemoração de Santo Hermes Mártir; Credo; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-08-29": {
    "nome": "Degolação de São João Batista",
@@ -2675,6 +3105,12 @@
     "XIV Domingo depois de Pentecostes, menor, semiduples – cor verde",
     "Missa Protector noster; Glória; comemoração de Santa Rosa de Santa Maria de Lima Virgem e dos Santos Felix e Adauto Mártires; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Santa Rosa de Lima",
+     "url": "https://drive.google.com/file/d/1yxVs97NlIpNZz_wOl6Bp54fw0LALlPXN/view?usp=drivesdk"
+    }
    ]
   },
   "2026-08-31": {
@@ -2703,6 +3139,12 @@
     "➢ Na América Latina pode-se dizer, com rito festivo, a Missa de Santo Egídio Abade ou dos Santos Doze Irmãos Mártires",
     "Missas como acima: comemoração da Oitava, do domingo e do outro Santo, Credo (por causa da Oitava), Último Evangelho do prólogo de São João",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "XIV Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1ROJEJbGF4b8Vn5RW9oMpOLxA2Y8p30BV/view?usp=drivesdk"
+    }
    ]
   },
   "2026-09-02": {
@@ -2745,6 +3187,13 @@
     "➢ Hoje pode-se celebrar uma única Missa votiva solene do Sacratíssimo Coração de Jesus como acima",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia",
+   "anexos": [
+    {
+     "nome": "Santa Rosa de Lima",
+     "url": "https://drive.google.com/file/d/1yxVs97NlIpNZz_wOl6Bp54fw0LALlPXN/view?usp=drivesdk"
+    }
    ]
   },
   "2026-09-05": {
@@ -2767,6 +3216,12 @@
     "Missa Inclina Domine; Glória; oração A cunctis e ad libitum; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Na América Latina: comemoração do dia Oitavo de Santa Rosa de Lima",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "XV Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1MmTzZHgaClRMHeqP9Z4iNfg0P10W__G0/view?usp=drivesdk"
+    }
    ]
   },
   "2026-09-07": {
@@ -2777,6 +3232,12 @@
     "Missa Inclina Domine do domingo precedente: sem Glória; oração A cunctis, Fidelium e ad libitum; sem Credo; Prefácio Comum; Benedicamus Domino",
     "➢ Hoje pode-se celebrar a Missa quotidiana de Requiem, em lugar da Missa do dia",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "XV Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1MmTzZHgaClRMHeqP9Z4iNfg0P10W__G0/view?usp=drivesdk"
+    }
    ]
   },
   "2026-09-08": {
@@ -2816,7 +3277,8 @@
     "Missa Salus autem; Glória; Orações próprias; oração A cunctis e ad libitum; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-09-12": {
    "nome": "Santíssimo Nome da Bem-aventurada Virgem Maria",
@@ -2835,6 +3297,12 @@
    "partes": [
     "Missa Miserere mihi; Glória; oração A cunctis e ad libitum; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "XVI Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1h6M9jbZyyPsU0Kal5yTE8OMf4eyPX2lS/view?usp=drivesdk"
+    }
    ]
   },
   "2026-09-14": {
@@ -2894,7 +3362,8 @@
     "➢ Esse Evangelho deve-se comemorar na ocorrência",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-09-19": {
    "nome": "Santos Januário Bispo e Companheiros Mártires",
@@ -2920,6 +3389,12 @@
     "➢ Hoje pode-se celebrar uma só missa, cantada ou rezada, da Solenidade das Sete dores da Bem-aventurada Virgem Maria – cor branca",
     "Missa da festa, Glória, comem. do domingo e dos Ss. Eustáquio e Companheiros, Sequência, Credo, Pref. BVM (Et te in Transfixione), Ite, Últ. Evan. do domingo",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "XVII Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/13xIAHo_YpL5goNcj5cKeC3kRKrSHYt_3/view?usp=drivesdk"
+    }
    ]
   },
   "2026-09-21": {
@@ -2974,7 +3449,8 @@
     "Missa Justus es Domine do domingo precedente: sem Glória; oração A cunctis e ad libitum; sem Credo; Prefácio Comum; Benedicamus Domino",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-09-26": {
    "nome": "Santa Maria no sábado",
@@ -2995,6 +3471,12 @@
    "partes": [
     "Missa Da pacem Domine; Glória; comemoração dos Santos Cosme e Damião Mártires e oração A cunctis; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "XVIII Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1L4w8YVZVkjElM57ClOERUQUI-8qdiCZc/view?usp=drivesdk"
+    }
    ]
   },
   "2026-09-28": {
@@ -3052,7 +3534,8 @@
     "Missa Cogitationes; Glória; or. única; Credo; Pref. do Coração de Jesus; Ite",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-10-03": {
    "nome": "Santa Teresa do Menino Jesus Virgem",
@@ -3072,6 +3555,12 @@
     "➢ Hoje pode-se celebrar uma só missa, cantada ou rezada, da Solenidade do Sacratíssimo Rosário da Bem-aventurada Virgem Maria – cor branca",
     "Missa da festa, Glória, comem. do domingo e de S. Francisco, Credo, Pref. BVM (Et te in Festivitate), Últ. Evan. do domingo",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "XIX Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1W3Ouj2gmTd5Bh5odRo-vj_gOvomeSuYi/view?usp=drivesdk"
+    }
    ]
   },
   "2026-10-05": {
@@ -3119,7 +3608,8 @@
     "Missa própria In sermonibus; Glória; comemoração dos Santos Dionísio Bispo, Rústico e Eleutério, Mártires; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-10-10": {
    "nome": "São Francisco de Bórgia Confessor",
@@ -3196,7 +3686,8 @@
     "Missa da festa, Glória, comem. de S. Hedwiges e or. Deus qui corda fidelium, Credo, Pref. BVM (Et te in Conceptione immaculata), Ite",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-10-17": {
    "nome": "Santa Margarida Maria Alacoque Virgem",
@@ -3258,6 +3749,12 @@
     "➢ Pode-se dizer, com rito festivo, a Missa das Santas Úrsula e Companheiras Virgens e Mártires – cor vermelha",
     "Missa Loquebar, Glória, or. próprias, comem. de S. Hilarião e or. A cunctis, Pref. Comum, Ite",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "XXI Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/18G_CzdkcYZgyEsS2M84LbXEgm_FUI1Wg/view?usp=drivesdk"
+    }
    ]
   },
   "2026-10-22": {
@@ -3284,7 +3781,8 @@
     "➢ Hoje, como Missa principal, faz-se a Missa quotidiana de Requiem, em lugar da Missa do dia",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-10-24": {
    "nome": "São Rafael Arcanjo",
@@ -3350,6 +3848,12 @@
    "partes": [
     "Missa Si iniquitates; sem Glória; oração A cunctis e ad libitum; sem Credo; Prefácio Comum; Benedicamus Domino",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dia e de aniversário; votiva solene; nupcial"
+   ],
+   "anexos": [
+    {
+     "nome": "XXII Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1s2HQ2jdGrCRpl1_Rri07YO0uEF_KiMlZ/view?usp=drivesdk"
+    }
    ]
   },
   "2026-10-30": {
@@ -3362,6 +3866,13 @@
     "➢ No Brasil: hoje, como Missa principal, faz-se a Missa quotidiana de Requiem, em lugar da Missa do dia",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia",
+   "anexos": [
+    {
+     "nome": "XXII Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1s2HQ2jdGrCRpl1_Rri07YO0uEF_KiMlZ/view?usp=drivesdk"
+    }
    ]
   },
   "2026-10-31": {
@@ -3416,6 +3927,12 @@
     "Indulgência plenária: Oitava pelas almas do purgatório, aplicável apenas aos fiéis defuntos",
     "Visitar devotamente um cemitério e lá rezar, mesmo que só mentalmente, em sufrágio dos defuntos.",
     "Concessão N° 29, §1, 1° do Enchiridion Indulgentiarum"
+   ],
+   "anexos": [
+    {
+     "nome": "XXIII Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/12orblFqitcEoq_MOV1rfxiV5Gx8UP4PT/view?usp=drivesdk"
+    }
    ]
   },
   "2026-11-04": {
@@ -3462,7 +3979,8 @@
     "Indulgência plenária: Oitava pelas almas do purgatório, aplicável apenas aos fiéis defuntos",
     "Visitar devotamente um cemitério e lá rezar, mesmo que só mentalmente, em sufrágio dos defuntos.",
     "Concessão N° 29, §1, 1° do Enchiridion Indulgentiarum"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-11-07": {
    "nome": "Dia sétimo da Oitava de Todos os Santos",
@@ -3535,7 +4053,8 @@
     "Missa Justus ut palma; Glória; Coleta própria; oração A cunctis e ad libitum; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-11-14": {
    "nome": "São Josafá Bispo e Mártir",
@@ -3606,7 +4125,8 @@
     "Missa Justus ut palma; Glória; Coleta própria; Prefácio Comum; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-11-21": {
    "nome": "Apresentação da Bem-aventurada Virgem Maria",
@@ -3625,6 +4145,12 @@
    "partes": [
     "Missa Dicit Dominus; Glória; comemoração Santa Cecília Virgem e Mártir; Credo; Prefácio da Santíssima Trindade; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "XXIV e Último Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1IBF3UZ850uiN4mVekIgVg4BLc4ycqLoH/view?usp=drivesdk"
+    }
    ]
   },
   "2026-11-23": {
@@ -3671,6 +4197,13 @@
     "Missa Dicit Dominus do domingo precedente: sem Glória; oração A cunctis e ad libitum; sem Credo; Prefácio Comum; Benedicamus Domino",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
     "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia",
+   "anexos": [
+    {
+     "nome": "XXIV e Último Domingo depois de Pentecostes",
+     "url": "https://drive.google.com/file/d/1IBF3UZ850uiN4mVekIgVg4BLc4ycqLoH/view?usp=drivesdk"
+    }
    ]
   },
   "2026-11-28": {
@@ -3690,6 +4223,12 @@
    "partes": [
     "Missa Ad te levavi; comemoração de São Saturnino Mártir e oração Deus, qui de beatæ Mariæ; Credo; Prefácio da Santíssima Trindade; Benedicamus Domino",
     "➢ Missas permitidas: exequial apenas"
+   ],
+   "anexos": [
+    {
+     "nome": "I Domingo do Advento",
+     "url": "https://drive.google.com/file/d/106fV_2yxCCsJnGiM7Wz4KdjqOpNsAuAZ/view?usp=drivesdk"
+    }
    ]
   },
   "2026-11-30": {
@@ -3709,6 +4248,12 @@
    "partes": [
     "Missa Ad te levavi do domingo precedente: oração Deus, qui de beatæ Mariæ e Ecclesiæ; Gradual, sem Aleluia; sem Credo; Prefácio Comum; Benedicamus Domino",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada"
+   ],
+   "anexos": [
+    {
+     "nome": "I Domingo do Advento",
+     "url": "https://drive.google.com/file/d/106fV_2yxCCsJnGiM7Wz4KdjqOpNsAuAZ/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-02": {
@@ -3741,7 +4286,8 @@
     "Missa Cogitationes; Glória; comem. da féria; Credo; Pref. do Coração de Jesus; Ite",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-12-05": {
    "nome": "Féria do Advento",
@@ -3754,6 +4300,12 @@
     "➢ Pode-se dizer, com rito festivo, a Missa de São Sabas Abade – cor branca",
     "Missa Os justi, Glória, or. própria, comem. da féria e or. Deus, qui de beatæ Mariæ, Pref. Comum, Ite",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada"
+   ],
+   "anexos": [
+    {
+     "nome": "I Domingo do Advento",
+     "url": "https://drive.google.com/file/d/106fV_2yxCCsJnGiM7Wz4KdjqOpNsAuAZ/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-06": {
@@ -3763,6 +4315,12 @@
    "partes": [
     "Missa Populus Sion; comemoração de São Nicolau Bispo e Confessor; Credo; Prefácio da Santíssima Trindade; Benedicamus Domino",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "II Domingo do Advento",
+     "url": "https://drive.google.com/file/d/1H9wbaf4Q6raUAfxsZkzs3Nx3_6DIXYPy/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-07": {
@@ -3815,7 +4373,8 @@
     "Missa Si diligis me; Glória; comemoração da Oitava da Imaculada Conceição e da féria (II Domingo do Advento); Credo (por causa da Oitava); Prefácio dos Apóstolos; Ite, Missa est",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-12-12": {
    "nome": "BEM-AVENTURADA VIRGEM MARIA DE GUADALUPE",
@@ -3841,6 +4400,12 @@
     "➢ Na Missa solene, os ministros sagrados usam dalmática e tunicela",
     "➢ Na América Latina: pode-se ajuntar à oração do III Domingo do Advento, sob única conclusão, a comemoração da Solenidade de Nossa Senhora de Guadalupe (neste caso, não se faz a comemoração da Oitava da Imaculada Conceição)",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "III Domingo do Advento",
+     "url": "https://drive.google.com/file/d/1tFvqt723b1iCpNr-pleQuxNbwWKDSVmG/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-14": {
@@ -3885,6 +4450,12 @@
     "Missa Gaudete in Domino do domingo precedente: oração Deus, qui de beatæ Mariæ e Ecclesiæ; Gradual, sem Aleluia; sem Credo; Prefácio Comum; Benedicamus Domino",
     "➢ A partir de hoje cessam-se todas as Oitavas particulares até a Vigília do Natal do Senhor inclusive",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "III Domingo do Advento",
+     "url": "https://drive.google.com/file/d/1tFvqt723b1iCpNr-pleQuxNbwWKDSVmG/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-18": {
@@ -3896,7 +4467,8 @@
     "➢ Evangelho deve-se comemorar na ocorrência",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene",
     "Dia de abstinência"
-   ]
+   ],
+   "penitencia": "abstinencia"
   },
   "2026-12-19": {
    "nome": "Sábado das Quatro Têmporas do Advento",
@@ -3918,6 +4490,12 @@
    "partes": [
     "Missa Rorate cæli; comemoração Deus, qui de beatæ Mariæ e oração Ecclesiæ; Credo; Prefácio da Santíssima Trindade; Benedicamus Domino",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "IV Domingo do Advento",
+     "url": "https://drive.google.com/file/d/1nsQzcNloI5dieoT1Sm_gDfXg1DOaHGIs/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-21": {
@@ -3937,6 +4515,12 @@
    "partes": [
     "Missa Rorate cæli do domingo precedente: oração Deus, qui de beatæ Mariæ e Ecclesiæ; Gradual, sem Aleluia; sem Credo; Prefácio Comum; Benedicamus Domino",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "IV Domingo do Advento",
+     "url": "https://drive.google.com/file/d/1nsQzcNloI5dieoT1Sm_gDfXg1DOaHGIs/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-23": {
@@ -3946,6 +4530,12 @@
    "partes": [
     "Missa Rorate cæli do domingo precedente: oração Deus, qui de beatæ Mariæ e Ecclesiæ; Gradual, sem Aleluia; sem Credo; Prefácio Comum; Benedicamus Domino",
     "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "IV Domingo do Advento",
+     "url": "https://drive.google.com/file/d/1nsQzcNloI5dieoT1Sm_gDfXg1DOaHGIs/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-24": {
@@ -3983,6 +4573,21 @@
     "Hoje é dispensada a Abstinência de carne",
     "Indulgência plenária: Receber com devoção a bênção Urbi et Orbi, dada pelo Papa, mesmo que por televisão ou rádio. Também é possível receber a bênção do Bispo diocesano.",
     "Concessão N° 4 do Enchiridion Indulgentiarum, norma 7, 2"
+   ],
+   "penitencia": "dispensada",
+   "anexos": [
+    {
+     "nome": "Natal de nosso Senhor Jesus Cristo - Missa da noite",
+     "url": "https://drive.google.com/file/d/1B21Oh27JsrWKApg8pDLiQltLh7kS3TD2/view?usp=drivesdk"
+    },
+    {
+     "nome": "Natal de nosso Senhor Jesus Cristo - Missa da aurora",
+     "url": "https://drive.google.com/file/d/1Y5v159ZEOmhTXVbYT5-GHhuZPlO5lTHl/view?usp=drivesdk"
+    },
+    {
+     "nome": "Natal de nosso Senhor Jesus Cristo - Missa do dia",
+     "url": "https://drive.google.com/file/d/1oFAm15Vd8EtT4fr0loUODzwzz37Qh8I6/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-26": {
@@ -4013,6 +4618,12 @@
     "Missa própria Ex ore infantium; comemoração da Oitava do Natal do Senhor; Trato; Credo, Prefácio e Communicantes do Natal (por causa da Oitava); Benedicamus Domino",
     "➢ Evangelho estritamente próprio",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Santos Inocentes",
+     "url": "https://drive.google.com/file/d/1SqOttfVobo3XOcBMzQ3bw81CSancZeC6/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-29": {
@@ -4031,6 +4642,12 @@
    "partes": [
     "Missa Dum medium silentium; Glória; comemoração da Oitava do Natal; Credo; Prefácio e Communicantes do Natal; Ite, Missa est",
     "➢ Missas permitidas: exequial; votiva solene"
+   ],
+   "anexos": [
+    {
+     "nome": "Domingo dentro da Oitava do Natal do Senhor",
+     "url": "https://drive.google.com/file/d/1NmF7f2pXDs5DVxVX1Y1GNlbb1_o4dI0d/view?usp=drivesdk"
+    }
    ]
   },
   "2026-12-31": {

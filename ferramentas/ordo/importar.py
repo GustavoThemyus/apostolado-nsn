@@ -69,10 +69,47 @@ def desescapar(texto):
                   lambda m: "\n" if m.group(1) in "nN" else m.group(1), texto)
 
 
+def ler_anexos(evento):
+    """
+    Os PDF do próprio da Missa, que o redator anexa ao dia no Google Agenda.
+    São 92 dias em 2026 — os domingos e as festas maiores, por enquanto.
+
+    O Natal traz três, um para cada Missa; a Epifania traz o próprio e a
+    Publicatio Paschae. Por isso cada um guarda o nome do arquivo: com mais de
+    um, dizer só "o próprio da Missa" esconderia de qual deles se trata.
+    """
+    anexos = []
+    for parametros, url in re.findall(r"\r?\nATTACH([^:]*):(\S+)", evento):
+        nome = re.search(r"FILENAME=([^;:]+)", parametros)
+        anexos.append({
+            "nome": desescapar(nome.group(1)).removesuffix(".pdf") if nome else "Próprio da Missa",
+            "url": url.strip(),
+        })
+    return anexos
+
+
 def campo(evento, nome):
     achado = re.search(rf"\r?\n{nome}[^:\r\n]*:(.*?)(?=\r?\n[A-Z][A-Z0-9-]*[;:])",
                        evento, re.S)
     return desescapar(achado.group(1)).strip() if achado else ""
+
+
+# O Ordo diz, com estas palavras, quando é dia de abstinência. Sai daqui, e
+# não de regra deduzida: o Brasil tem indulto próprio, e o que a capela segue
+# está escrito no Ordo dela.
+PENITENCIA = [
+    (re.compile(r"dispensada a abstinência", re.I), "dispensada"),
+    (re.compile(r"jejum e abstinência", re.I), "jejum-e-abstinencia"),
+    (re.compile(r"dia de abstinência", re.I), "abstinencia"),
+]
+
+
+def ler_penitencia(partes):
+    texto = " ".join(partes)
+    for padrao, nome in PENITENCIA:
+        if padrao.search(texto):
+            return nome
+    return None
 
 
 def ler(dados):
@@ -113,6 +150,12 @@ def ler(dados):
         partes = [p.strip() for p in re.split(r"\n\s*\n", resto) if p.strip()]
         if partes:
             dia["partes"] = partes
+        penitencia = ler_penitencia(partes)
+        if penitencia:
+            dia["penitencia"] = penitencia
+        anexos = ler_anexos(evento)
+        if anexos:
+            dia["anexos"] = anexos
         dias[data] = dia
     return dias, problemas
 
