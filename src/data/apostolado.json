@@ -35,17 +35,6 @@
           "texto": "Este texto ainda será escrito."
         }
       ]
-    },
-    {
-      "id": "brasao",
-      "titulo": "O brasão",
-      "blocos": [
-        {
-          "id": "ap-004",
-          "tipo": "paragrafo",
-          "texto": "Este texto ainda será escrito."
-        }
-      ]
     }
   ]
 }

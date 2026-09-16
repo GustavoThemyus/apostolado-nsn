@@ -167,6 +167,24 @@ export interface Site {
   lema: string;
   rodape: string[];
   agendas: Agenda[];
+  /** Os retratos da lateral das páginas, no computador. */
+  lateral?: Retrato[];
+}
+
+/**
+ * Um retrato da lateral: o Papa, o Arcebispo, a Padroeira.
+ *
+ * `imagem` vazia quer dizer que o arquivo ainda não chegou, e aí o retrato não
+ * aparece: um quadro vazio com "Papa Leão XIV" embaixo, repetido em todas as
+ * páginas, parece defeito e não espera.
+ */
+export interface Retrato {
+  id: string;
+  /** "Soberano Pontífice": o ofício, em cima. */
+  titulo: string;
+  /** "Papa Leão XIV": quem, embaixo. */
+  nome: string;
+  imagem: string;
 }
 
 /** Um calendário do Google que o fiel pode vincular ao aparelho dele. */

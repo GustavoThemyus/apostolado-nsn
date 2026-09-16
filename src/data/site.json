@@ -44,5 +44,25 @@
       "google": "a3977bfc4cbddd7ee81462739e0fdd21018601deff3dbf1dad28dfa5ed03f639@group.calendar.google.com"
     }
   ],
-  "chamada": "Apostolado Nossa Senhora das Neves"
+  "chamada": "Apostolado Nossa Senhora das Neves",
+  "lateral": [
+    {
+      "id": "papa",
+      "titulo": "Soberano Pontífice",
+      "nome": "Papa Leão XIV",
+      "imagem": ""
+    },
+    {
+      "id": "arcebispo",
+      "titulo": "Arcebispo Metropolitano",
+      "nome": "Dom Manoel Delson, OFMCap",
+      "imagem": ""
+    },
+    {
+      "id": "padroeira",
+      "titulo": "Nossa Excelsa Padroeira",
+      "nome": "Nossa Senhora das Neves",
+      "imagem": "/padroeiros/neves-12d3d280.webp"
+    }
+  ]
 }

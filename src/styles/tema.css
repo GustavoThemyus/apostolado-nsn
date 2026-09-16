@@ -189,3 +189,22 @@
   --lit-rosa: #f0a8c8;
   color-scheme: dark;
 }
+
+/*
+ * Celular deitado: a prosa vai até a borda.
+ *
+ * Perez: "o texto não vai até o final quando o telefone está em modo
+ * paisagem". Medido, a medida de leitura parava o parágrafo em 638px numa
+ * coluna de 735 a 870, e sobrava de 97 a 232px de tela vazia à direita — sem
+ * nada ao lado, porque o sumário lateral só aparece a partir de 76rem. Ali
+ * aquele vazio parece defeito, e não margem.
+ *
+ * Três condições juntas, para pegar só o celular deitado: paisagem, altura
+ * curta (tablet deitado tem mais de 700px) e toque (janela baixa de
+ * computador não é celular, e nela a medida continua valendo).
+ */
+@media (orientation: landscape) and (max-height: 32rem) and (pointer: coarse) {
+  :root {
+    --medida-leitura: none;
+  }
+}

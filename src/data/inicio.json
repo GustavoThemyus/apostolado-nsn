@@ -28,17 +28,21 @@
     {
       "id": "filomena",
       "nome": "Santa Filomena",
-      "imagem": "/padroeiros/filomena-29f7005b.webp"
+      "imagem": "/padroeiros/filomena-29f7005b.webp",
+      "descricao": "Co-Padroeira secundária"
     },
     {
       "id": "neves",
       "nome": "Nossa Senhora das Neves",
-      "imagem": "/padroeiros/neves-12d3d280.webp"
+      "imagem": "/padroeiros/neves-12d3d280.webp",
+      "descricao": "Titular e Padroeira principal do Apostolado",
+      "principal": true
     },
     {
       "id": "antonio",
       "nome": "Santo Antônio",
-      "imagem": "/padroeiros/antonio-428c9b44.webp"
+      "imagem": "/padroeiros/antonio-428c9b44.webp",
+      "descricao": "Co-Padroeiro secundário"
     }
   ]
 }

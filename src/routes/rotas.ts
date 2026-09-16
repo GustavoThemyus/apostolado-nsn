@@ -159,6 +159,13 @@ export const ROTAS: Rota[] = [
     imagem: "/cartoes/apostolado-9af0559c.webp",
     pagina: () => import("../pages/Apostolado"),
   },
+  {
+    padrao: "/apostolado/brasao",
+    titulo: "Nosso brasão",
+    descricao: "O significado de cada elemento do brasão do Apostolado.",
+    pai: "/apostolado",
+    pagina: () => import("../pages/ApostoladoBrasao"),
+  },
 
   // ------------------------------------------------------------- Postagens
   {

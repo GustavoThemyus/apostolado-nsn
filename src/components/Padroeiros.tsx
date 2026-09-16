@@ -3,6 +3,10 @@ export interface Padroeiro {
   nome: string;
   /** Vazio enquanto a imagem não chega. */
   imagem: string;
+  /** O que o santo é para o Apostolado: "Co-Padroeira secundária". */
+  descricao?: string;
+  /** A Titular: a estampa dela é um pouco maior que as dos lados. */
+  principal?: boolean;
 }
 
 export function Padroeiros({ padroeiros }: { padroeiros: Padroeiro[] }) {
@@ -13,7 +17,10 @@ export function Padroeiros({ padroeiros }: { padroeiros: Padroeiro[] }) {
       </h2>
       <ul className="padroeiros__lista">
         {padroeiros.map((p) => (
-          <li className="padroeiro" key={p.id}>
+          <li
+            className={`padroeiro${p.principal ? " padroeiro--principal" : ""}`}
+            key={p.id}
+          >
             {/* a moldura é elemento próprio: é ela que leva o filete dourado
                 e a margem de papel, e a estampa fica dentro, sem raio */}
             <span className="padroeiro__moldura">
@@ -31,6 +38,7 @@ export function Padroeiros({ padroeiros }: { padroeiros: Padroeiro[] }) {
               )}
             </span>
             <span className="padroeiro__nome">{p.nome}</span>
+            {p.descricao && <span className="padroeiro__descricao">{p.descricao}</span>}
           </li>
         ))}
       </ul>

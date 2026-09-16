@@ -382,6 +382,16 @@ apres[:] = [b for b in apres
             and b["tipo"] != "lista"]
 apres.insert(len(apres) - 1,
              {"tipo": "nota", "titulo": "Modificações feitas no texto", "paragrafos": itens})
+# A observação que o Perez mandou depois (15/09/2026), para logo abaixo da
+# caixa. Não é modificação do texto, é aviso de leitura, e por isso fica fora
+# dela. Os títulos latinos em itálico, como o resto da apresentação.
+apres.insert(len(apres) - 1, {
+    "tipo": "paragrafo",
+    "texto": ("[b]Obs.:[/b] Todas as referências ao [i]Missale Romanum[/i] nesta página "
+              "dizem respeito ao Missal Romano novo, constituído após o Concílio "
+              "Vaticano II, bem como o Ofício Divino é referenciado como "
+              "[i]Liturgia Horarum[/i] reformado."),
+})
 
 # ------------------------------------------------ orações lado a lado
 """
@@ -617,6 +627,49 @@ def sem_marcas(blocos):
 for secao in secoes:
     secao["blocos"] = sem_marcas(emparelhar_bilingues(secao["blocos"]))
 
+# ------------------------------------------------------------- correções
+"""
+Correções que o Perez mandou depois da remessa, sem mandar um .docx novo.
+
+Cada uma diz o texto errado e o certo, e tem de casar exatamente uma vez. Se
+não casar, o conversor para: é sinal de que o .docx novo já veio corrigido e
+a correção pode sair daqui — ou de que o texto mudou e ela precisa ser
+revista. Nos dois casos, aplicar às cegas seria pior que parar.
+"""
+CORRECOES = [
+    # 15/09/2026, pelo WhatsApp: "Depois de omnipotentiam, coloca 'tuam'.
+    # Passou despercebido aqui. A tradução está certa."
+    ("qui parcendo et miserando omnipotentiam manifestas",
+     "qui parcendo et miserando omnipotentiam tuam manifestas"),
+]
+
+
+def _textos_de(no):
+    """Todo campo de texto do documento, com um jeito de reescrevê-lo."""
+    if isinstance(no, dict):
+        for k, v in no.items():
+            if isinstance(v, str):
+                yield no, k
+            else:
+                yield from _textos_de(v)
+    elif isinstance(no, list):
+        for i, v in enumerate(no):
+            if isinstance(v, str):
+                yield no, i
+            else:
+                yield from _textos_de(v)
+
+
+def corrigir(documento):
+    for errado, certo in CORRECOES:
+        achados = [(dono, k) for dono, k in _textos_de(documento) if errado in dono[k]]
+        vezes = sum(dono[k].count(errado) for dono, k in achados)
+        if vezes != 1:
+            raise SystemExit(f"correção casou {vezes} vez(es), e não 1: {errado!r}")
+        for dono, k in achados:
+            dono[k] = dono[k].replace(errado, certo)
+
+
 saida = {
     "titulo": "Enchiridion Indulgentiarum",
     "descricao": ("Orientações litúrgico-pastorais: a quarta edição do Enchiridion "
@@ -625,6 +678,7 @@ saida = {
     "notas": NOTAS,
     "secoes": secoes,
 }
+corrigir(saida)
 io.open("enchiridion.json", "w", encoding="utf-8").write(
     json.dumps(saida, ensure_ascii=False, indent=1) + "\n")
 

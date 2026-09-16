@@ -8,6 +8,7 @@
  */
 
 import apostolado from "./apostolado.json";
+import brasao from "./brasao.json";
 import arquidiocese from "./calendario-arquidiocese.json";
 import brasil from "./calendario-brasil.json";
 import canonica from "./missa-canonica.json";
@@ -175,6 +176,39 @@ conferir("enchiridion: as 33 concessões têm âncora",
   );
   conferir("nenhuma rota marcada ficou de fora desta conferência",
     semPagina.length === 0, semPagina.join(", "));
+}
+
+/*
+ * A página do brasão. Não é um `Conteudo` de seções, e por isso tem conferência
+ * própria: os quatro elementos, cada um com o seu texto, e os números sobre a
+ * imagem na mesma ordem das caixas à direita. Essa ordem não é gosto: é ela
+ * que impede as linhas de se cruzarem, porque cada linha sai do número e vai
+ * para a caixa de mesma posição.
+ */
+{
+  const partes = brasao.partes;
+  const ids = partes.map((p) => p.id).join(",");
+  conferir("o brasão tem os quatro elementos, na ordem",
+    ids === "fundo,lirio,flecha,lema", ids);
+
+  const semTexto = partes.filter(
+    (p) => !p.rotulo.trim() || p.paragrafos.length === 0 || p.paragrafos.some((t) => !t.trim()));
+  conferir("todo elemento tem nome e texto", semTexto.length === 0,
+    semTexto.map((p) => p.id).join(", "));
+
+  const fora = partes.filter((p) => !(p.x > 0 && p.x < 100 && p.y > 0 && p.y < 100));
+  conferir("os números ficam dentro da imagem", fora.length === 0,
+    fora.map((p) => p.id).join(", "));
+
+  const foraDeOrdem = partes.filter((p, i) => i > 0 && p.y <= partes[i - 1].y);
+  conferir("os números descem na ordem das caixas, e as linhas não se cruzam",
+    foraDeOrdem.length === 0, foraDeOrdem.map((p) => p.id).join(", "));
+
+  const textos = [brasao.abertura, brasao.fecho, ...partes.flatMap((p) => p.paragrafos)];
+  const desbalanceados = textos.filter((t) =>
+    (t.match(/\[lat\]/g) ?? []).length !== (t.match(/\[\/lat\]/g) ?? []).length);
+  conferir("toda marcação de latim no brasão abre e fecha",
+    desbalanceados.length === 0, desbalanceados.map((t) => t.slice(0, 40)).join(" | "));
 }
 
 const total = passaram + falhas.length;

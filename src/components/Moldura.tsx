@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { Lateral } from "./Lateral";
 import { site } from "../data/site";
 import { usarProgressoDeLeitura } from "../hooks/usarProgressoDeLeitura";
 import { usarTema } from "../hooks/usarTema";
@@ -99,6 +100,8 @@ export function Moldura({
       </BarraSuperior>
 
       <main className="moldura conteudo" id="conteudo">
+        {/* em toda página menos a inicial, que já traz os padroeiros no corpo */}
+        {rota?.padrao !== "/" && <Lateral />}
         <Trilha rota={rota} atual={titulo} />
         {children}
         <Rodape paragrafos={site.rodape} marca={site.marca} lema={site.lema} />

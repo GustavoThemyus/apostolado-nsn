@@ -2,7 +2,7 @@
  "titulo": "Enchiridion Indulgentiarum",
  "descricao": "Orientações litúrgico-pastorais: a quarta edição do Enchiridion Indulgentiarum, publicada por João Paulo II em 16 de julho de 1999, na tradução aprovada pela CNBB.",
  "notas": {
-  "*": "Uma vez que o Soberano Pontífice apenas recomenda a jaculatória “Ó Jesus Misericordioso, confio em ti” e considerando a relação da referida jaculatória com a imagem de Jesus misericordioso, a qual Santa Sé oficialmente proibiu outrora a sua publicação e circulação¹, o Apostolado Nossa Senhora das Neves recomenda utilizar da seguinte jaculatória: [i]Deus, qui parcendo et miserando omnipotentiam manifestas, miserere mei.[/i] ([i]Ó Deus, que perdoando e usando de misericórdia manifestais vosso poder, tende piedade de mim)² ou mesmo o princípio do Salmo 50: Miserére mei, Deus, secúndum magnam misericórdiam tuam. (Tende compaixão de mim, ó Deus, segundo a vossa grande misericórdia.)[/i]\n\n[i]¹ Notificação da Suprema Sacra Congregação do S. Ofício datada de 6 de março de 1959 ² Retirado da Coleta do X Domingo depois de Pentecostes[/i]",
+  "*": "Uma vez que o Soberano Pontífice apenas recomenda a jaculatória “Ó Jesus Misericordioso, confio em ti” e considerando a relação da referida jaculatória com a imagem de Jesus misericordioso, a qual Santa Sé oficialmente proibiu outrora a sua publicação e circulação¹, o Apostolado Nossa Senhora das Neves recomenda utilizar da seguinte jaculatória: [i]Deus, qui parcendo et miserando omnipotentiam tuam manifestas, miserere mei.[/i] ([i]Ó Deus, que perdoando e usando de misericórdia manifestais vosso poder, tende piedade de mim)² ou mesmo o princípio do Salmo 50: Miserére mei, Deus, secúndum magnam misericórdiam tuam. (Tende compaixão de mim, ó Deus, segundo a vossa grande misericórdia.)[/i]\n\n[i]¹ Notificação da Suprema Sacra Congregação do S. Ofício datada de 6 de março de 1959 ² Retirado da Coleta do X Domingo depois de Pentecostes[/i]",
   "1": "Cf. Aloc. de Paulo VI ao Colégio de Cardeais e à Cúria, a 23 de dezembro de 1966, AAS 59(1967)57.",
   "2": "Cf. ID 11.",
   "3": "Cf. ID 11.",
@@ -155,6 +155,10 @@
       "Adicionamos as versões latinas das orações, extraindo diretamente do enquiridio original latino",
       "Reduzimos o número de notas de citações para melhorar a dinâmica da leitura, inserindo a citação no corpo do texto. Isto reduziu a quantidade original de 200 notas para 123 na nossa transcrição. Reitero que todas as citações encontram-se em nossa transcrição."
      ]
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "[b]Obs.:[/b] Todas as referências ao [i]Missale Romanum[/i] nesta página dizem respeito ao Missal Romano novo, constituído após o Concílio Vaticano II, bem como o Ofício Divino é referenciado como [i]Liturgia Horarum[/i] reformado."
     },
     {
      "tipo": "paragrafo",

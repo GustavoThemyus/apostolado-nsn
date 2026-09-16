@@ -1,0 +1,45 @@
+{
+  "titulo": "Nosso brasão",
+  "descricao": "O significado de cada elemento do brasão do Apostolado.",
+  "abertura": "Muito nos alegra em poder apresentar ao público os elementos do brasão do Apostolado Nossa Senhora das Neves! Segue uma sucinta exposição acerca do significado dos elementos que compõem o brasão:",
+  "partes": [
+    {
+      "id": "fundo",
+      "rotulo": "O fundo",
+      "x": 70,
+      "y": 13,
+      "paragrafos": [
+        "O fundo azul escuro, encoberto por flocos brancos, assim como o de nossa arquidiocese, representa a neve que à noite cobriu o monte Esquilino em pleno verão italiano, e que serviu para demarcar onde seria edificada a primeira igreja dedicada à Santíssima Virgem no Ocidente: a Basílica Papal de Santa Maria Maior, que lhe deu o título pelo qual a honramos como Rainha da Paraíba, nossa Excelsa Patrona, Nossa Senhora das Neves. O fundo representa, portanto, não somente a profunda devoção por esse título mariano, como também as nossas raízes geográficas na cidade de João Pessoa, fundada em 5 de Agosto, e nossa filiação a essa arquidiocese, às quais ambas recorrem ao patrocínio exclusivo de Santa Missa das Neves."
+      ]
+    },
+    {
+      "id": "lirio",
+      "rotulo": "O lírio",
+      "x": 50,
+      "y": 33,
+      "paragrafos": [
+        "O lírio no centro representa a pureza, quase sinônimo de Nossa Senhora e símbolo particular de Santo Antônio de Lisboa, nosso Co-padroeiro secundário, bem como remete à São José, Patrono da Igreja universal. Representa o ideal de vida de todo cristão, que deve manter sempre pura a alma, livre de qualquer mancha, para que, uma vez lavadas no Sangue do Cordeiro, possam bendizer a magnificência da redenção que Nosso Senhor operou sobre o madeiro da Cruz."
+      ]
+    },
+    {
+      "id": "flecha",
+      "rotulo": "A flecha",
+      "x": 50,
+      "y": 64,
+      "paragrafos": [
+        "O lírio envolve uma flecha, símbolo de nossa Co-padroeira secundária, Santa Filomena, uma das formas tentadas de martirizá-la e símbolo de nossa batalha traçada em favor da Missa Tradicional, cuja riqueza espiritual que compõe todos os elementos do rito antigo são representados pela cor dourada da flecha. E, tal qual a flecha disparada segue imparável, sem se desviar do alvo até o atingir, possamos também nós seguir intrépidos e irrefreáveis, sem olhar para trás nessa luta tão árdua e possamos no final dessa trajetória encontrar aquilo que buscávamos no início: nossa santificação por meio desses ritos e a salvação eterna."
+      ]
+    },
+    {
+      "id": "lema",
+      "rotulo": "O lema",
+      "x": 50,
+      "y": 88,
+      "paragrafos": [
+        "O lema \"[lat]Iter para tutum[/lat]\" (Guiai-nos pela via segura), trecho retirado do hino litúrgico [lat]Ave Maris Stella[/lat], nos lembra que apesar da batalha traçada, Nossa Senhora sempre nos guiará pelo caminho mais seguro, nos conformando sempre com a vontade de Deus. É lição de ânimo também para nós, que apesar das injúrias e perseguições que sofremos quando escolhemos lutar em favor da Missa Tridentina, é essa a via mais segura para nos transmitir a doutrina de sempre, louvar a Deus da forma que a Igreja sempre o fez, nos alimentar da palavra do Senhor e do pão dos céus e santificar nossas almas e de nossos filhos.",
+        "[lat]Iter para tutum[/lat] é também coincidentemente o lema episcopal de Dom Adauto, primeiro bispo e arcebispo de nossa Arquidiocese da Paraíba, qual lema orna a fachada do palácio episcopal e de Dom Vital, admirável bispo de Olinda, que hoje é o primeiro paraibano em processo de canonização."
+      ]
+    }
+  ],
+  "fecho": "O nosso profundo desejo é que esse símbolo que carregamos nos transmita os ideais que devemos buscar em meio à crise e ao exílio terrestre. Que a pureza de alma, a garra da obstinação e da coragem, a confiança e devoção à Nossa Senhora nos sejam verdadeiros pilares para seguir em defesa desses veneráveis ritos e por fim, nos rendam as graças para viver por amor de Deus e de Nossa Senhora e que um dia possamos expirar felizes e limpos de consciência e gozar da visão beatífica, juntos à nossa terna Mãe, e aos nossos exemplos destas preciosas virtudes, o Glorioso Santo Antônio e Santa Filomena."
+}

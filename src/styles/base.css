@@ -1500,8 +1500,16 @@ button {
 }
 
 .sumario__lista li {
-  counter-increment: sumario;
   border-bottom: 1px solid var(--fio-suave);
+}
+/*
+ * Só o item de primeiro nível conta. Com o seletor de descendente, os
+ * subitens de uma seção aberta também incrementavam: abrir as Quatro
+ * concessões, com cinco subitens, fazia a seção seguinte sair numerada 12 em
+ * vez de 7. O índice por extenso já contava assim.
+ */
+.sumario__lista > li {
+  counter-increment: sumario;
 }
 .sumario__lista li:last-child {
   border-bottom: none;
@@ -1677,9 +1685,19 @@ button {
 
 /* ---------------- seções ---------------- */
 
+/*
+ * O fio entre as seções é 2px em --fio, e não 1px em --fio-suave.
+ *
+ * Perez: "está quase imperceptível". Medido, era: 1,14:1 contra o papel no
+ * tema claro, que é o do celular dele. Só engrossar não resolvia um contraste
+ * desses, e só escurecer deixava um fio de cabelo; as duas coisas juntas são
+ * um degrau na própria escala do site, sem cor nova. Os fios de linha de
+ * tabela e de lista continuam finos: são divisões dentro do tópico, e
+ * engrossá-los pesaria a página inteira.
+ */
 .secao {
   padding: 2.25rem 0 0.5rem;
-  border-bottom: 1px solid var(--fio-suave);
+  border-bottom: 2px solid var(--fio);
   /*
    * Sem scroll-margin-top aqui: o `html` já tem scroll-padding-top com a
    * mesma medida, e os dois somavam. A seção parava 128px do alto em vez de
@@ -1865,12 +1883,10 @@ button {
 
 /* ---------------- passo litúrgico ---------------- */
 
+/* o mesmo fio das seções: cada passo do guia é um tópico */
 .passo {
   padding: 1.1rem 0;
-  border-top: 1px solid var(--fio-suave);
-}
-.passo:first-of-type {
-  border-top: 1px solid var(--fio);
+  border-top: 2px solid var(--fio);
 }
 
 .passo__trilho {
@@ -3368,13 +3384,23 @@ button {
 
 /* ---------------- padroeiros ---------------- */
 
+/*
+ * A Titular no meio, um pouco maior que os dois lados, como num tríptico.
+ *
+ * As três casas partilham as linhas da grade — estampa, nome, legenda — por
+ * subgrid. Sem isso, a estampa maior do meio empurrava o nome dela para baixo
+ * e as três legendas saíam em alturas diferentes. Assim as estampas assentam
+ * na mesma base, e os nomes e as legendas começam na mesma linha.
+ */
 .padroeiros__lista {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
+  grid-template-columns: 1fr 1.25fr 1fr;
+  grid-template-rows: auto auto auto;
+  column-gap: 0.75rem;
+  row-gap: 0.4rem;
   text-align: center;
 }
 /*
@@ -3386,9 +3412,12 @@ button {
  */
 .padroeiro {
   display: grid;
-  align-content: start;
-  gap: 0.4rem;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
   justify-items: center;
+}
+.padroeiro .padroeiro__moldura {
+  align-self: end;
 }
 /*
  * A moldura: filete dourado por fora, margem de papel e um segundo filete
@@ -3466,11 +3495,279 @@ button {
   font-weight: 600;
   line-height: 1.2;
 }
+.padroeiro__descricao {
+  font-size: 0.8em;
+  line-height: 1.3;
+  color: var(--tinta-suave);
+  text-wrap: balance;
+}
+/* a Titular: 9rem × 1,25 */
+.padroeiro--principal .padroeiro__moldura {
+  max-width: 11.25rem;
+}
 
 @media (min-width: 46rem) {
   .contribuir__vias {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+  }
+}
+
+/* ---------------- o brasão comentado ---------------- */
+
+/*
+ * A página do brasão, no desenho que o Perez mandou: a abertura em cima, o
+ * brasão grande à esquerda com os textos surgindo à direita, e o fecho
+ * embaixo. No celular tudo empilha, e as caixas abrem embaixo do brasão.
+ */
+.brasao-pagina {
+  padding-block: 1.5rem 0.5rem;
+}
+.brasao-pagina__abertura,
+.brasao-pagina__fecho {
+  max-width: var(--medida-leitura);
+  margin: 0 0 1.5rem;
+}
+.brasao-pagina__fecho {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--fio);
+}
+
+.brasao-comentado {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.brasao-comentado__coluna {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+}
+
+.brasao-comentado__escudo {
+  position: relative;
+  width: min(100%, 17rem);
+  cursor: pointer;
+  /* o toque não pinta o escudo de azul no celular */
+  -webkit-tap-highlight-color: transparent;
+}
+.brasao-comentado__imagem {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*
+ * Os números fantasmas. Invisíveis e sem receber clique até o cursor entrar
+ * no escudo ou o dedo tocá-lo: sem o `pointer-events`, o primeiro toque no
+ * lírio abria o texto direto, pulando o passo de revelar que o Perez pediu.
+ * O teclado alcança os quatro de qualquer jeito, e o foco os revela.
+ * O número que está aberto fica visível: é dele que a linha sai.
+ */
+.brasao-comentado__numero {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  margin: -1.05rem 0 0 -1.05rem;
+  padding: 0;
+  border: 1.5px solid var(--ouro);
+  border-radius: 50%;
+  background: rgba(24, 24, 33, 0.72);
+  color: #f3e7c4;
+  font-family: var(--titular);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  /*
+   * Algarismo alinhado, e não o antigo que o corpo do site usa: dentro de um
+   * círculo o "1" antigo vira um "ı" e o "3" desce abaixo da linha. Declarar
+   * font-feature-settings substitui a lista herdada inteira, então isto
+   * sozinho já desliga o "onum".
+   */
+  font-feature-settings: "lnum" 1;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.85);
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.15s ease;
+}
+.brasao-comentado__escudo:focus-within .brasao-comentado__numero,
+.brasao-comentado__escudo--revelado .brasao-comentado__numero,
+.brasao-comentado__numero[aria-expanded="true"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+/*
+ * O cursor revela, mas só onde existe cursor. O celular aplica :hover no
+ * próprio toque, antes do clique chegar: o botão destravava no meio do gesto
+ * e o primeiro toque no lírio já abria o texto, pulando o revelar.
+ */
+@media (hover: hover) {
+  .brasao-comentado__escudo:hover .brasao-comentado__numero {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+}
+.brasao-comentado__numero:hover,
+.brasao-comentado__numero[aria-expanded="true"] {
+  background: var(--ouro);
+  color: #16161e;
+}
+.brasao-comentado__numero:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: 2px;
+}
+
+.brasao-comentado__dica {
+  margin: 0.6rem 0 0;
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--tinta-suave);
+  text-align: center;
+}
+
+.brasao-comentado__partes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.4rem;
+}
+.brasao-comentado__rotulo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.45rem;
+  font-family: var(--titular);
+  font-size: 1.1em;
+  font-weight: 600;
+}
+/* o mesmo número do brasão, repetido à cabeça do texto: é onde a linha chega */
+.brasao-comentado__marca {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--ouro);
+  color: #16161e;
+  font-size: 0.85rem;
+  font-feature-settings: "lnum" 1;
+}
+.brasao-comentado__texto {
+  max-width: var(--medida-leitura);
+  margin: 0 0 0.7rem;
+}
+.brasao-comentado__texto:last-child {
+  margin-bottom: 0;
+}
+
+/* enquanto a linha se projeta, a caixa já ocupa o lugar, mas não aparece */
+.brasao-comentado__parte--linha {
+  visibility: hidden;
+}
+.brasao-comentado__parte--aberta {
+  animation: brasao-surgir 0.28s ease-out both;
+}
+.brasao-comentado__parte--fechando {
+  animation: brasao-sumir 0.14s ease-in both;
+}
+
+@keyframes brasao-surgir {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}
+@keyframes brasao-sumir {
+  to {
+    opacity: 0;
+  }
+}
+
+/* as linhas, por cima de tudo menos dos números, e sem receber clique */
+.brasao-comentado__linhas {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+/*
+ * `pathLength="1"` no SVG deixa o traço medir 1 qualquer que seja o tamanho
+ * da linha. É o que permite animar a projeção sem saber o comprimento, e
+ * redesenhar as pontas a cada rolagem sem desmanchar o traço.
+ */
+.brasao-comentado__linha {
+  stroke: var(--ouro);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.brasao-comentado__linha--linha {
+  animation: brasao-projetar 0.38s ease-out both;
+}
+.brasao-comentado__linha--fechando {
+  animation: brasao-recolher 0.22s ease-in 0.14s both;
+}
+@keyframes brasao-projetar {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+@keyframes brasao-recolher {
+  to {
+    stroke-dashoffset: 1;
+  }
+}
+
+/*
+ * Duas colunas: o brasão grande à esquerda, grudado na tela enquanto se lê à
+ * direita — os quatro textos inteiros passam bem da altura dele, e sem isso a
+ * quarta caixa ficava longe do brasão de onde a linha sai.
+ *
+ * O tamanho tem teto honesto: o arquivo tem 331px de largura, e o brasão aqui
+ * vai a 24rem. Em tela comum isso já é ampliar 1,16 vez; em tela de alta
+ * densidade, mais de duas. Um original maior, ou vetorial, resolveria.
+ */
+@media (min-width: 56rem) {
+  .brasao-comentado {
+    grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
+    column-gap: 4.5rem;
+    align-items: start;
+    min-height: 26rem;
+  }
+  .brasao-comentado__coluna {
+    position: sticky;
+    top: calc(var(--altura-barra) + 1.5rem);
+  }
+  .brasao-comentado__escudo {
+    width: 100%;
+  }
+  .brasao-comentado__linhas {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brasao-comentado__parte--aberta,
+  .brasao-comentado__parte--fechando,
+  .brasao-comentado__linha--linha,
+  .brasao-comentado__linha--fechando {
+    animation: none;
   }
 }
 
@@ -3491,10 +3788,17 @@ button {
     max-width: 13rem;
     padding: 0.6rem;
   }
+  /*
+   * A do meio vai a 15,5rem, e não mais: a estampa tem 480px, e a 2x o quadro
+   * de 15,5rem pede 458 deles. Acima disso a Titular maior sairia borrada.
+   */
+  .padroeiro--principal .padroeiro__moldura {
+    max-width: 15.5rem;
+  }
   .padroeiros__lista {
-    grid-template-columns: repeat(3, minmax(0, 13rem));
+    grid-template-columns: minmax(0, 13rem) minmax(0, 15.5rem) minmax(0, 13rem);
     justify-content: center;
-    gap: 2.75rem;
+    column-gap: 2.75rem;
   }
   .padroeiro__nome {
     font-size: 1.05rem;
@@ -3713,5 +4017,114 @@ button {
 @media (prefers-reduced-motion: reduce) {
   .sumario__seta {
     transition: none;
+  }
+}
+
+/* ---------------- a lateral dos retratos ---------------- */
+
+/*
+ * O Soberano Pontífice, o Arcebispo e a Padroeira, numa coluna à direita,
+ * em toda página menos a inicial. Só no computador largo.
+ *
+ * A conta que decidiu o ponto de corte: a página, com a lateral, passa a
+ * ocupar a margem que já sobrava dos dois lados da coluna de 76rem. Em 1440px
+ * a área do texto encolhe 16px; em 1920, nada. Abaixo de 90rem não há margem
+ * a ocupar, e a lateral teria de sair da própria coluna do texto — que é a
+ * largura de que as orações lado a lado do Enchiridion precisam para caber.
+ *
+ * O `:has()` é o que liga tudo sem JavaScript: a moldura da barra e a da
+ * página só alargam quando a lateral existe, e as duas juntas, para o menu
+ * continuar alinhado com o texto.
+ */
+.lateral {
+  display: none;
+}
+
+@media (min-width: 90rem) {
+  :root {
+    --largura-lateral: 12rem;
+    --vao-lateral: 3rem;
+  }
+  body:has(.lateral) .moldura {
+    max-width: calc(var(--largura-texto) + var(--largura-lateral) + var(--vao-lateral));
+  }
+  main.moldura:has(> .lateral) {
+    position: relative;
+    padding-right: calc(var(--respiro-lateral) + var(--largura-lateral) + var(--vao-lateral));
+  }
+
+  .lateral {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: var(--respiro-lateral);
+    width: var(--largura-lateral);
+  }
+
+  /*
+   * Grudada na tela enquanto se lê. Para isso os retratos têm de caber
+   * inteiros na altura da janela, senão o último nunca aparece.
+   *
+   * A conta, por retrato: a janela, menos a barra e os 5,7rem fixos da pilha
+   * (o recuo do topo, o respiro de cima, os dois vãos entre retratos e uma
+   * folga embaixo), dividida pelo número de retratos; disso sai o que não é
+   * foto — a moldura, o vão até a legenda e a legenda em duas linhas, porque
+   * "Dom Manoel Delson, OFMCap" quebra. Medido com os três simulados: a
+   * primeira versão, que contava a legenda em uma linha só e esquecia os
+   * vãos, deixava o último retrato 30px abaixo da janela.
+   */
+  .lateral__pilha {
+    position: sticky;
+    top: calc(var(--altura-barra) + 1.25rem);
+    display: grid;
+    gap: 1.1rem;
+    justify-items: center;
+    padding-top: 1.25rem;
+  }
+
+  .lateral__retrato {
+    display: grid;
+    justify-items: center;
+    gap: 0.45rem;
+    margin: 0;
+    text-align: center;
+  }
+  .lateral__moldura {
+    width: max-content;
+    max-width: none;
+    padding: 0.5rem;
+  }
+  .lateral__imagem {
+    display: block;
+    height: min(
+      14rem,
+      calc((100vh - var(--altura-barra) - 5.7rem) / var(--retratos, 3) - 5.1rem)
+    );
+    width: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border: 1px solid var(--fio);
+    background: var(--papel-fundo);
+  }
+
+  .lateral__legenda {
+    display: grid;
+    gap: 0.1rem;
+    line-height: 1.25;
+  }
+  .lateral__titulo {
+    font-family: var(--sem-serifa);
+    font-size: 0.56em;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ouro-tinta);
+  }
+  .lateral__nome {
+    font-family: var(--titular);
+    font-size: 0.82em;
+    font-weight: 600;
+    text-wrap: balance;
   }
 }
