@@ -28,6 +28,9 @@
 # a URL, então o cache pode ser eterno sem prender ninguém na versão antiga.
 /padroeiros/*
   Cache-Control: public, max-age=31536000, immutable
+# os retratos da lateral, pelo mesmo motivo
+/retratos/*
+  Cache-Control: public, max-age=31536000, immutable
 
 # O HTML nunca fica em cache, senão uma correção no guia demora a aparecer.
 /
