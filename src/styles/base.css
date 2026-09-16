@@ -943,6 +943,25 @@ button {
   font-size: 0.95em;
 }
 
+/*
+ * O rito próprio, no lugar da tabela. São os três dias do Tríduo, e o nome do
+ * rito é a informação: dizer "Glória: não, Credo: não" numa tarde em que não
+ * há Missa é responder à pergunta errada.
+ */
+.desenv__proprio {
+  margin: 0;
+  font-family: var(--titular);
+  font-size: 1.05em;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.desenv__proprio-nota {
+  margin: 0.35rem 0 0;
+  font-size: 0.95em;
+  color: var(--tinta-suave);
+  max-width: var(--medida-leitura);
+}
+
 /* o motivo que o Ordo dá ao lado do sim: "por causa da Oitava" */
 .desenv__porque {
   margin-left: 0.45rem;

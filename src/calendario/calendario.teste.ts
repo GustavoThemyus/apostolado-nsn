@@ -10,7 +10,7 @@
  */
 
 import { eixoDoAno, pascoa } from "./computo";
-import { desenvolvimentoDe } from "./desenvolvimento";
+import { desenvolvimentoDe, ritoProprioDe } from "./desenvolvimento";
 import { diaLiturgico, mesLiturgico } from "./precedencia";
 import { corDe, tempoDe } from "./tempo";
 
@@ -217,10 +217,57 @@ suite("Desenvolvimento da Missa", () => {
   ];
   for (const [data, esperado] of casos) {
     const d = desenvolvimentoDe(diaLiturgico(dia(data)));
+    if (!d) {
+      conferir(`${data} tem desenvolvimento`, "nulo", "um objeto");
+      continue;
+    }
     if (esperado.gloria !== undefined) conferir(`${data} Glória`, d.gloria, esperado.gloria);
     if (esperado.credo !== undefined) conferir(`${data} Credo`, d.credo, esperado.credo);
     if (esperado.prefacio) conferir(`${data} Prefácio`, d.prefacio, esperado.prefacio);
   }
+});
+
+/*
+ * O Tríduo, que o Perez pegou errado.
+ *
+ * A Sexta-feira Santa vinha com Dies irae e Prefácio dos Defuntos, igual a
+ * Finados, porque a regra de Missa de defuntos olhava só a cor preta. Naquele
+ * dia não há Missa nenhuma. O conserto foi parar de deduzir os três dias, e é
+ * isso que se confere aqui — junto com Finados, que continua sendo Requiem de
+ * verdade e não pode ter ido embora no conserto.
+ */
+suite("Tríduo Sacro", () => {
+  const triduo: [string, string][] = [
+    ["2026-04-02", "Missa vespertina in Cena Domini"],
+    ["2026-04-03", "Solene ação litúrgica da Paixão e Morte do Senhor"],
+    ["2026-04-04", "Vigília pascal"],
+    // ano com Páscoa em data bem diferente, para não casar por coincidência
+    ["2027-03-25", "Missa vespertina in Cena Domini"],
+    ["2027-03-26", "Solene ação litúrgica da Paixão e Morte do Senhor"],
+    ["2027-03-27", "Vigília pascal"],
+  ];
+  for (const [data, nome] of triduo) {
+    const d = diaLiturgico(dia(data));
+    conferir(`${data} tem rito próprio`, ritoProprioDe(d)?.nome, nome);
+    conferir(`${data} não deduz desenvolvimento`, desenvolvimentoDe(d), null);
+  }
+
+  const sextaSanta = diaLiturgico(dia("2026-04-03"));
+  conferir("a Sexta-feira Santa diz que não há Missa",
+    ritoProprioDe(sextaSanta)?.nota.startsWith("Não há Missa"), true);
+
+  const finados = diaLiturgico(dia("2026-11-02"));
+  conferir("Finados continua sendo Missa de defuntos",
+    desenvolvimentoDe(finados)?.prefacio, "dos Defuntos");
+  conferir("com o Dies irae",
+    desenvolvimentoDe(finados)?.cantoInterlecional.includes("Dies irae"), true);
+  conferir("e sem rito próprio", ritoProprioDe(finados), null);
+
+  // a Páscoa não é Semana Santa: o Último Evangelho volta
+  conferir("o Último Evangelho volta no Domingo de Páscoa",
+    desenvolvimentoDe(diaLiturgico(dia("2026-04-05")))?.ultimoEvangelho, "prólogo de São João");
+  conferir("e continua omitido na Quinta-feira Santa... que nem tabela tem",
+    desenvolvimentoDe(diaLiturgico(dia("2026-04-02"))), null);
 });
 
 // ------------------------------------------------------------- integridade

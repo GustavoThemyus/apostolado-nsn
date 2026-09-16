@@ -80,10 +80,14 @@ export function DetalheDoDia({ dia }: { dia: DiaLiturgico }) {
       )}
       {penitencia && (
         <p className="dia__penitencia">
-          <strong>{NOME_DA_PENITENCIA[penitencia]}.</strong>{" "}
-          {penitencia === "dispensada"
-            ? "Dia de preceito fora da Quaresma."
-            : "Nas festas o Ordo pode dispensar; confira."}
+          <strong>{NOME_DA_PENITENCIA[penitencia]}.</strong>
+          {/*
+            * A ressalva só cabe na sexta comum. Nas Cinzas e na Sexta-feira
+            * Santa não há dispensa de festa a ressalvar, e dizer que poderia
+            * haver seria semear dúvida onde não existe.
+            */}
+          {penitencia === "dispensada" && " Dia de preceito fora da Quaresma."}
+          {penitencia === "abstinencia" && " Nas festas o Ordo pode dispensar; confira."}
         </p>
       )}
       {dia.observacoes.map((o) => (

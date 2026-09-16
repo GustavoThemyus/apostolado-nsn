@@ -5,6 +5,7 @@ import { SANTORAL } from "./santoral";
 import type { DiaLiturgico, Tempo } from "./tipos";
 
 const soData = (d: Date) => Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+const DIA = 86400000;
 const PENITENCIAIS: Tempo[] = ["advento", "septuagesima", "quaresma", "paixao"];
 
 export interface Desenvolvimento {
@@ -19,6 +20,54 @@ export interface Desenvolvimento {
   leoninas: boolean;
 }
 
+/**
+ * Os três dias que não seguem o desenvolvimento comum da Missa.
+ *
+ * Perez achou o defeito: a Sexta-feira Santa saía com Dies irae e Prefácio dos
+ * Defuntos, igual a Finados. A causa era `ehRequiem` olhar só a cor, e o preto
+ * da Sexta-feira Santa não ser o preto de uma Missa de defuntos — naquele dia
+ * não há Missa nenhuma.
+ *
+ * O conserto não é acertar a dedução, é parar de deduzir. Estas regras são as
+ * gerais do Missal, e o Tríduo é justamente onde elas não valem: cada um dos
+ * três dias tem rito próprio, escrito por extenso no Missal. Deduzir ali não
+ * dá para errar menos, dá para errar em silêncio.
+ */
+export interface RitoProprio {
+  nome: string;
+  nota: string;
+}
+
+export function ritoProprioDe(dia: DiaLiturgico): RitoProprio | null {
+  const e = eixoDoAno(dia.data.getUTCFullYear());
+  const hoje = soData(dia.data);
+  const pascoa = soData(e.pascoa);
+
+  if (hoje === pascoa - 3 * DIA) {
+    return {
+      nome: "Missa vespertina in Cena Domini",
+      nota: "Tem rito próprio, com a procissão ao altar da reposição e a desnudação dos altares.",
+    };
+  }
+  if (hoje === pascoa - 2 * DIA) {
+    return {
+      nome: "Solene ação litúrgica da Paixão e Morte do Senhor",
+      nota: "Não há Missa: há as leituras com a Paixão, as orações solenes, a adoração da Cruz e a comunhão dos pré-santificados.",
+    };
+  }
+  if (hoje === pascoa - DIA) {
+    return {
+      nome: "Vigília pascal",
+      nota: "Tem rito próprio, celebrado à noite, e só depois dele vem a Missa.",
+    };
+  }
+  return null;
+}
+
+/**
+ * Missa de defuntos. A cor basta *depois* de o Tríduo estar fora do caminho:
+ * os únicos dias pretos do calendário são Finados e a Sexta-feira Santa.
+ */
 function ehRequiem(dia: DiaLiturgico): boolean {
   return dia.cor === "preto";
 }
@@ -98,7 +147,8 @@ function ultimoEvangelho(dia: DiaLiturgico): string {
   if (ehRequiem(dia)) return "omitido";
   const e = eixoDoAno(dia.data.getUTCFullYear());
   const hoje = soData(dia.data);
-  if (hoje >= soData(e.ramos) && hoje <= soData(e.pascoa)) return "omitido na Semana Santa";
+  // até o Sábado Santo, e não até a Páscoa: no domingo o Último Evangelho volta
+  if (hoje >= soData(e.ramos) && hoje < soData(e.pascoa)) return "omitido na Semana Santa";
   if (dia.nome.includes("Ramos")) return "próprio do dia";
   return "prólogo de São João";
 }
@@ -108,8 +158,11 @@ function ultimoEvangelho(dia: DiaLiturgico): string {
  *
  * É dedução a partir das rubricas gerais, não transcrição de um Ordo: serve
  * para se orientar, e não dispensa a conferência quando o dia é incomum.
+ *
+ * Devolve nulo nos três dias do Tríduo, que não têm desenvolvimento comum.
  */
-export function desenvolvimentoDe(dia: DiaLiturgico): Desenvolvimento {
+export function desenvolvimentoDe(dia: DiaLiturgico): Desenvolvimento | null {
+  if (ritoProprioDe(dia)) return null;
   return {
     gloria: temGloria(dia),
     credo: temCredo(dia),
