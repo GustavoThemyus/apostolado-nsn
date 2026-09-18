@@ -3931,13 +3931,52 @@ button {
 .nota-balao:not([hidden]) {
   display: block;
 }
+/* fixado: a borda em ouro diz que ele não some sozinho */
+.nota-balao--fixado {
+  border-color: var(--ouro);
+}
+.nota-balao__cabeca {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: -0.25rem -0.35rem 0.3rem 0;
+}
 .nota-balao__numero {
-  display: block;
+  flex: 1;
   font-size: 0.62rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--ouro-tinta);
-  margin-bottom: 0.3rem;
+}
+/*
+ * Copiar e fechar. Pequenos, para não pesar numa nota de uma linha, mas com
+ * altura de alvo de toque: é no celular que o Perez precisava do copiar.
+ */
+.nota-balao__acao {
+  min-height: 2rem;
+  padding: 0 0.55rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.3rem;
+  background: none;
+  color: var(--tinta-suave);
+  font: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.nota-balao__acao:hover {
+  border-color: var(--fio-aceso);
+  color: var(--tinta);
+}
+.nota-balao__acao:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: 1px;
+}
+.nota-balao__fechar {
+  min-width: 2rem;
+  padding: 0;
+  font-size: 1.05rem;
+  line-height: 1;
 }
 .nota-balao__texto .lat {
   font-style: italic;
@@ -4097,9 +4136,15 @@ button {
   }
   .lateral__imagem {
     display: block;
+    /*
+     * Três quartos do que caberia, com teto de 9rem. Perez achou os retratos
+     * chamativos demais no tamanho cheio, e pediu espaço livre embaixo deles
+     * para ver se ali entra a chave Pix ou as últimas postagens. O quarto que
+     * sobra de cada um vira esse espaço.
+     */
     height: min(
-      14rem,
-      calc((100vh - var(--altura-barra) - 5.7rem) / var(--retratos, 3) - 5.1rem)
+      9rem,
+      calc(((100vh - var(--altura-barra) - 5.7rem) / var(--retratos, 3) - 5.1rem) * 0.75)
     );
     width: auto;
     aspect-ratio: 3 / 4;
