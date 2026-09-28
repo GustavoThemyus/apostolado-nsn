@@ -38,6 +38,21 @@ publicar o ano seguinte, é rodar `importar.py --baixar` de novo.
 Um arquivo por ano, carregado sob demanda: 27 KB comprimidos cada, e quem fica
 no calendário de 1962 — que é o padrão — não baixa nenhum.
 
+## Mudar o calendário de conta apaga os anexos
+
+Em 28/09/2026 o Perez passou os calendários para o e-mail do Apostolado. O
+texto dos 365 dias veio idêntico; os **92 dias com o PDF do próprio da Missa
+vieram sem nada**, porque mover eventos no Google não leva os anexos junto — o
+.ics novo não tem uma linha `ATTACH`.
+
+Reimportar por cima teria apagado do site os links de "Confira o próprio da
+Missa". Por isso `conferir.py` compara o número de anexos do .ics com o do JSON
+já publicado e **para** se diminuiu. Quando ele reanexar os PDF no calendário
+novo, a importação volta a passar sozinha.
+
+Os links antigos continuam abrindo, mas apontam para o Drive da conta antiga.
+Vale pedir que os PDF também mudem para o Drive do Apostolado.
+
 ## A armadilha que já custou caro
 
 **O iCalendar dobra linhas longas.** A continuação vem na linha seguinte com um

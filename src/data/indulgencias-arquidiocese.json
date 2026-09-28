@@ -1,0 +1,742 @@
+{
+  "titulo": "Calendário de Indulgências Arquidiocesano",
+  "descricao": "Os dias em que se pode lucrar indulgência plenária visitando uma igreja da Arquidiocese da Paraíba: paróquias, santuários, a Basílica e as casas religiosas.",
+  "notas": {
+    "§1": "ID, n. 16; EI 1999, n. 19.",
+    "§2": "CIC 1917, cân. 923; EI 1999, n. 14.",
+    "§3": "EI 1999, n. 16, §1.",
+    "§4": "EI 1999, n. 20.",
+    "§5": "EI 1999, n. 20.",
+    "§6": "(cada Indulgência Plenária requer uma oração nas intenções do Papa, preferencialmente se fazem no mesmo dia da obra).\n\nRezar nas intenções do Papa não é rezar pela pessoa do Papa, mas trata-se de intenções predefinidas em prol da Igreja e da Fé (por exemplo: a exaltação da Santa Igreja, a propagação da Fé, a extirpação das heresias, a conversão dos pecadores, etc). Essas orações são livres, podendo-se rezar diversas orações, mas bastam um Pai-nosso e Ave-Maria.\n\nEI 1999, n. 20.",
+    "§7": "EI 1999, n. 20.",
+    "§8": "EI 1999, n. 20.",
+    "§9": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 5°, a) do Enchiridion Indulgentiarum.",
+    "§10": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 5°, b) do Enchiridion Indulgentiarum.",
+    "~1": "No Calendário pós-Conciliar a festa mudou a data para o Domingo dentro da Oitava do Natal",
+    "^": "Falta de consenso quanto à data; e, nas festas propriamente particulares, usar-se-á a data que a paróquia comemora.",
+    "^1": "É uma data que sempre foi diferente nas diversas localidades onde se celebra Nossa Senhora da Penha, mesmo no Calendário Tradicional local. Pode-se variar desde essa data, 1 de Setembro, 8 de Setembro, algum domingo de Outubro, Novembro, entre outras datas. A presente paróquia celebra em 2 de Fevereiro, recomendo se ater a esse dia.",
+    "*1": "Festa instituída por Pio XII em 1955",
+    "§11": "Nota: Esta paróquia também comemora a festa em 13 de Outubro",
+    "§12": "Nota: Esta paróquia também comemora a festa em 13 de Novembro",
+    "^2": "A presente festa possui como data mundial o primeiro Domingo de Junho, mas em diversas localidades pode assumir outras datas, como o Natal do Senhor e demais datas no final de Dezembro e início de Janeiro. Aparentemente a Paróquia não comemora a festa do Titular, então optamos pela data mundialmente associada",
+    "§13": "Nota: Essa paróquia comemora o titular em um domingo na metade do mês de Agosto ou de Setembro",
+    "~2": "No Calendário pós-Conciliar a festa se celebra juntamente com São Joaquim",
+    "~3": "No Calendário pós-Conciliar a festa mudou o data para 11 de Agosto",
+    "§14": "Nota: Nesta Paróquia celebra-se no Domingo mais próximo ao dia 22 de Agosto",
+    "~4": "No Calendário pós-Conciliar a festa mudou a data para 26 de Julho, juntamente com Santa Ana",
+    "§15": "Nota: Há também outra paróquia na Arquidiocese com a mesma titular, mas celebra-se em 15 de Outubro",
+    "~5": "No Calendário pós-Conciliar a festa mudou a data para 01 de Outubro",
+    "~6": "No Calendário pós-Conciliar a festa mudou o nome para “Solenidade de Santa Maria Mãe de Deus” e foi fixada em 1 de Janeiro",
+    "§16": "Nota: A Paróquia celebra sua Festa Patronal no dia 31 de Maio.",
+    "§17": "Nota: Há também outra paróquia na Arquidiocese com a mesma titular, mas celebra-se em 08 de Setembro",
+    "~7": "No Calendário pós-Conciliar a festa mudou a data para 29 de Setembro, juntamente com São Miguel e São Gabriel",
+    "~8": "No Calendário pós-Conciliar a festa mudou a data para o Último Domingo do Ano Litúrgico",
+    "§18": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 4°, a) do Enchiridion Indulgentiarum.",
+    "§19": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 4°, b) do Enchiridion Indulgentiarum.",
+    "§20": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 4°, c) do Enchiridion Indulgentiarum.",
+    "§21": "Nota: A principal romaria se faz no dia 22 de Maio",
+    "§22": "Nota: A principal romaria se faz no último Sábado do mês de Novembro",
+    "§23": "Nota: A principal romaria se faz no dia 12 de Outubro",
+    "§24": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 2°, b) e [elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 3°, b) do Enchiridion Indulgentiarum.",
+    "§25": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 2°, a) e [elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 3°, a) do Enchiridion Indulgentiarum.",
+    "§26": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 3°, c) do Enchiridion Indulgentiarum.",
+    "§27": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 3°, d) do Enchiridion Indulgentiarum.",
+    "§28": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 2°, c) e [elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 3°, e) do Enchiridion Indulgentiarum.",
+    "§29": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 2°, d) do Enchiridion Indulgentiarum.",
+    "§30": "[elo:/indulgencias/enchiridion#concessao-33]Concessão N° 33[/elo], §1, 7° do Enchiridion Indulgentiarum.",
+    "*2": "A Canonização foi proclamada em 2001",
+    "*3": "A Beatificação foi proclamada em 1988",
+    "*4": "A Canonização foi proclamada em 1984",
+    "§31": "Nota: Certamente S. Agostinho não fundou a referida Ordem, por mais que seus membros lhe tenham como Pai espiritual e carregam seu nome, mas não sabemos se S. Agostinho é tido como “Santo Fundador” da Ordem para os fins que a Indulgência requer.",
+    "*5": "A Canonização foi proclamada em 2009",
+    "*6": "A Canonização foi proclamada em 2003",
+    "*7": "A Beatificação foi proclamada em 2010"
+  },
+  "secoes": [
+    {
+      "id": "introducao",
+      "titulo": "Introdução",
+      "foraDoIndice": true,
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "O presente calendário visa reunir em um único lugar os dias em que é possível lucrar Indulgências Plenárias por todo o território pertencente à Arquidiocese da Paraíba, abrangendo os dias dos Santos Titulares de cada Paróquia criada na presente diocese, bem como a reunião de todos os Santuários arquidiocesanos, os dias de indulgências da própria Basílica e os dias festivos de comemoração dos santos Fundadores das diversas Ordens e Congregações religiosas que atualmente se encontram residentes nesta arquidiocese.",
+          "id": "introducao-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A listagem de todas as Paróquias e Foranias da Arquidiocese foi obtida diretamente no [elo:http://162.241.101.195/~lumenpastoral/anuario/home]Anuário Digital 2026[/elo] e as festas correspondentes aos Santos Titulares das referidas paróquias foram obtidos pela pesquisa nos calendários litúrgicos e pela pesquisa paróquia por paróquia em suas respectivas mídias sociais. Se encontrar qualquer erro, favor entrar em contato.",
+          "id": "introducao-002"
+        }
+      ]
+    },
+    {
+      "id": "legenda",
+      "titulo": "Legenda",
+      "foraDoIndice": true,
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "As marcas do documento acompanham a festa ou a igreja a que se referem. Toque numa delas para ler a observação do autor.",
+          "id": "legenda-001"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Marca",
+            "O que quer dizer"
+          ],
+          "linhas": [
+            [
+              "§",
+              "Nota"
+            ],
+            [
+              "~",
+              "Data diferente no calendário novo"
+            ],
+            [
+              "^",
+              "Falta de consenso"
+            ],
+            [
+              "^",
+              "Festas propriamente particulares, usar-se-á a data que a paróquia comemora"
+            ],
+            [
+              "*",
+              "Festas do calendário novo"
+            ],
+            [
+              "*",
+              "Santos que foram canonizados posteriormente"
+            ]
+          ],
+          "id": "legenda-002"
+        }
+      ]
+    },
+    {
+      "id": "observacoes",
+      "titulo": "Observações",
+      "foraDoIndice": true,
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Por ser o Apostolado um grupo de fiéis ligados ao Rito Tradicional, assim como foi dito no [elo:/indulgencias/calendario]Calendário das Indulgências Universais[/elo], seguimos ordinariamente o calendário tradicional, em especial associado às rubricas de S. Pio X, portanto todos os dias de indulgência associados às festas que possuem lugar no calendário do Rito Tradicional serão representados aqui segundo o calendário tradicional. Quanto às festas instituídas [i]a posteriori[/i], bem como os títulos que são próprios e não constam em qualquer calendário, serão atribuídas as datas popularmente conhecidas.",
+          "id": "observacoes-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Todas as indulgências aqui dispostas têm por obra indulgenciada a cumprir a visita à referida igreja. Vale, portanto, lembrar as determinações que regem as disposições para poder lucrar essas indulgências:",
+          "id": "observacoes-002"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "[b]A obra prescrita[/b] para alcançar a Indulgência Plenária, quando anexa à igreja ou oratório, [b]é sempre a visita[/b], não é preciso assistir a Missa na igreja ou participar de qualquer cerimônia. Na igreja se deve recitar a oração dominical e o símbolo aos apóstolos (Pai-nosso e Credo), a não ser caso especial em que se estabeleça outra coisa.[nota]§1[/nota]",
+            "Para ganhar a indulgência anexa a algum dia, quando de exige a visita à igreja ou oratório, esta pode fazer-se [b]desde o meio-dia precedente até a meia-noite do dia determinado.[/b][nota]§2[/nota]",
+            "A indulgência anexa à visita à igreja ainda pode ser lucrada mesmo se o edifício se demolir completamente e seja reconstruído dentro de cinquenta anos no mesmo lugar ou em local bem próximo, desde que conserve o mesmo título.[nota]§3[/nota]"
+          ],
+          "ordenada": true,
+          "id": "observacoes-003"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Além disso, convém de início relembrar quais são as condições ordinárias que sempre são exigidas para obter qualquer Indulgência Plenária:",
+          "id": "observacoes-004"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Confessar-se sacramentalmente em um período de até 14 dias (uma única confissão pode lucrar diversas Indulgências Plenárias).[nota]§4[/nota]",
+            "Receber a comunhão em um período de até 8 dias (cada comunhão pode lucrar uma Indulgência Plenária, somente. Precisando comungar novamente para lucrar outra Indulgência).[nota]§5[/nota]",
+            "Rezar nas intenções do Sumo Pontífice[nota]§6[/nota]",
+            "Ter o profundo desapego de todo pecado, mesmo venial.[nota]§7[/nota]",
+            "Cumprir a obra indulgenciada prescrita (visitar uma igreja, um cemitério, cantar o [lat]Veni Creator[/lat], etc).[nota]§8[/nota]"
+          ],
+          "ordenada": true,
+          "id": "observacoes-005"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Segundo a normativa geral da nova disciplina para as indulgências, convém também relembrar que para lucrar Indulgência Plenária é necessário ser batizado e não estar impedido canonicamente pela excomunhão ou pena análoga, bem como lembramos que só se pode obter uma Indulgência Plenária por dia, exceto [lat]in articulo mortis[/lat].",
+          "id": "observacoes-006"
+        }
+      ]
+    },
+    {
+      "id": "paroquias",
+      "titulo": "Paróquias",
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A nossa Arquidiocese possui 93 Paróquias que se dividem em 9 Foranias e abrangem 38 municípios. A seguir, o calendário apresenta a respectiva Paróquia, seguida por sua Forania e o ano de criação da mesma. Dispor-se-á o endereço por escrito das paróquias e a respectiva localização.",
+          "id": "paroquias-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É possível lucrar Indulgências na Igreja Paroquial nas seguintes circunstâncias:",
+          "id": "paroquias-002"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Ao visitar a igreja no dia de seu Titular[nota]§9[/nota]",
+            "No dia 02 de Agosto para a Indulgência da Porciúncula[nota]§10[/nota]"
+          ],
+          "id": "paroquias-003"
+        },
+        {
+          "tipo": "nota",
+          "titulo": "Nota",
+          "paragrafos": [
+            "Para todos os casos, cumpre-se visitando somente a IGREJA PAROQUIAL e não qualquer outra igreja ou capela dependente da Paróquia e lá se deve recitar o Pai-nosso e o Credo, além de cumprir as condições ordinárias."
+          ],
+          "id": "paroquias-004"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Data",
+            "Festa Patronal",
+            "Paróquia"
+          ],
+          "linhas": [
+            [
+              "Domingo dentro da Oitava da Epifania",
+              "Sagrada família de Jesus, Maria e José [nota]~1[/nota]",
+              "• Jesus, Maria e José em São José dos Ramos (Forania Agreste) (2012)\nPraça Noé Rodrigues de Lima, s/n, Centro - São José Dos Ramos (Paraíba), 58339-000\n[mapa:Jesus, Maria e José em São José dos Ramos, Praça Noé Rodrigues de Lima, s/n, Centro - São José Dos Ramos - PB, 58339-000]Conferir a localização[/mapa]\n\n• Sagrada Família em João Pessoa (Forania Conjuntos) (2021)\nRua Vitaliano Barbosa de Albuquerque, s/n, Mangabeira - João Pessoa (Paraíba), 58057-322\n[mapa:Sagrada Família em João Pessoa, Rua Vitaliano Barbosa de Albuquerque, s/n, Mangabeira - João Pessoa - PB, 58057-322]Conferir a localização[/mapa]"
+            ],
+            [
+              "15 de Janeiro",
+              "Maria Virgem Mãe dos Pobres [nota]^[/nota]",
+              "Paróquia Virgem Mãe dos Pobres em João Pessoa (Forania Urbana Sul) (1997)\nRua Compositor Rosil Cavalcanti, 130, Oitizeiro - João Pessoa (Paraíba), 58088-000\n[mapa:Paróquia Virgem Mãe dos Pobres em João Pessoa, Rua Compositor Rosil Cavalcanti, 130, Oitizeiro - João Pessoa - PB, 58088-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "20 de Janeiro",
+              "São Sebastião",
+              "• Titular da Paróquia São Sebastião em Bayeux (Forania Urbana Sul) (1960)\nAv. da Liberdade, 2799, Sesi - Bayeux (Paraíba), 58306-000\n[mapa:Paróquia São Sebastião em Bayeux, Av. da Liberdade, 2799, Sesi - Bayeux - PB, 58306-000]Conferir a localização[/mapa]\n\n• Co-Titular da Paróquia Nossa Senhora da Soledade e São Sebastião em Juripiranga (Forania Agreste) (2007)\nAv. Brasil, s/n, Centro - Juripiranga (Paraíba), 58330-000\n[mapa:Paróquia Nossa Senhora da Soledade e São Sebastião em Juripiranga, Av. Brasil, s/n, Centro - Juripiranga - PB, 58330-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "30 de Janeiro",
+              "Sagrado Coração de Jesus Menino [nota]^[/nota]",
+              "Paróquia Sagrado Coração de Jesus Menino em Lucena (Forania Várzea) (2000)\nRua Américo Falcão, 998, Centro - Lucena (Paraíba), 58315-000\n[mapa:Paróquia Sagrado Coração de Jesus Menino em Lucena, Rua Américo Falcão, 998, Centro - Lucena - PB, 58315-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "02 de Fevereiro",
+              "Nossa Senhora da Penha [nota]^1[/nota]",
+              "Paróquia Nossa Senhora da Penha de França em Pitimbu (Forania Litoral) (1765)\nLargo da Matriz, s/n, Centro - Pitimbu (Paraíba), 58324-000\n[mapa:Paróquia Nossa Senhora da Penha de França em Pitimbu, Largo da Matriz, s/n, Centro - Pitimbu - PB, 58324-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "11 de Fevereiro",
+              "Nossa Senhora de Lourdes",
+              "Paróquia Nossa Senhora de Lourdes em João Pessoa (Forania Centro) (1913)\nAvenida João Machado, 51, Centro - João Pessoa (Paraíba), 58013-520\n[mapa:Paróquia Nossa Senhora de Lourdes em João Pessoa, Avenida João Machado, 51, Centro - João Pessoa - PB, 58013-520]Conferir a localização[/mapa]"
+            ],
+            [
+              "19 de Março",
+              "São José, Esposo de Nossa Senhora",
+              "Paróquia São José em João Pessoa (Forania Conjuntos) (2004)\nRua Rosa Paula Barbosa, 460, José Américo De Almeida - João Pessoa (Paraíba), 58073-370\n[mapa:Paróquia São José em João Pessoa, Rua Rosa Paula Barbosa, 460, José Américo De Almeida - João Pessoa - PB, 58073-370]Conferir a localização[/mapa]"
+            ],
+            [
+              "Domingo de Páscoa",
+              "Jesus Ressuscitado",
+              "Paróquia Jesus Ressuscitado em João Pessoa (Forania Praia Sul) (2002)\nRua dos Eucalíptos, 100, Anatólia - João Pessoa (Paraíba), 58052-060\n[mapa:Paróquia Jesus Ressuscitado em João Pessoa, Rua dos Eucalíptos, 100, Anatólia - João Pessoa - PB, 58052-060]Conferir a localização[/mapa]"
+            ],
+            [
+              "01 de Maio",
+              "São José Operário [nota]*1[/nota]",
+              "Paróquia São José Operário em João Pessoa (Forania Urbana Sul) (1959)\nAvenida Cruz das Armas, s/n, Cruz Das Armas - João Pessoa (Paraíba), 58085-000\n[mapa:Paróquia São José Operário em João Pessoa, Avenida Cruz das Armas, s/n, Cruz Das Armas - João Pessoa - PB, 58085-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "13 de Maio",
+              "Nossa Senhora Mãe dos Homens [nota]^[/nota]",
+              "Paróquia Santuário Mãe dos Homens em João Pessoa (Forania Centro) (2019)\nRua Monsenhor Walfredo Leal, 41, Tambiá - João Pessoa (Paraíba), 58020-540\n[mapa:Paróquia Santuário Mãe dos Homens em João Pessoa, Rua Monsenhor Walfredo Leal, 41, Tambiá - João Pessoa - PB, 58020-540]Conferir a localização[/mapa]"
+            ],
+            [
+              "13 de Maio",
+              "Nossa Senhora de Fátima",
+              "• Nossa Senhora de Fátima em João Pessoa (Forania Praia Sul) (1961) [nota]§11[/nota]\nRua Nevinha Cavalcanti, s/n, Miramar - João Pessoa (Paraíba), 58043-000\n[mapa:Nossa Senhora de Fátima em João Pessoa, Rua Nevinha Cavalcanti, s/n, Miramar - João Pessoa - PB, 58043-000]Conferir a localização[/mapa]\n\n• Nossa Senhora de Fátima em Pedro Régis (Forania Vale do Mamanguape) (2010) [nota]§12[/nota]\nAv. Senador Ruy Carneiro, 188, Centro - Pedro Régis (Paraíba), 58273-000\n[mapa:Nossa Senhora de Fátima em Pedro Régis, Av. Senador Ruy Carneiro, 188, Centro - Pedro Régis - PB, 58273-000]Conferir a localização[/mapa]\n\n• Co-Titular da Paróquia Nossa Senhora de Fátima e São João Batista em Riachão do Poço (Forania Várzea) (2013)\nRua João Ferreira Alves, s/n, Centro - Riachão Do Poço (Paraíba), 58348-000\n[mapa:Paróquia Nossa Senhora de Fátima e São João Batista em Riachão do Poço, Rua João Ferreira Alves, s/n, Centro - Riachão Do Poço - PB, 58348-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "18 de Maio",
+              "São Félix de Cantalice",
+              "Paróquia São Félix de Cantalice em Salgado de São Félix (Forania Agreste) (2002)\nRua Francelina Paz de Araújo, s/n, Centro - Salgado De São Félix (Paraíba), 58370-000\n[mapa:Paróquia São Félix de Cantalice em Salgado de São Félix, Rua Francelina Paz de Araújo, s/n, Centro - Salgado De São Félix - PB, 58370-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "22 de Maio",
+              "Santa Júlia",
+              "Paróquia Santa Júlia em João Pessoa (Forania Centro) (1953)\nAvenida Júlia Freire, s/n, Torre - João Pessoa (Paraíba), 58040-040\n[mapa:Paróquia Santa Júlia em João Pessoa, Avenida Júlia Freire, s/n, Torre - João Pessoa - PB, 58040-040]Conferir a localização[/mapa]"
+            ],
+            [
+              "22 de Maio",
+              "Santa Rita de Cássia",
+              "• Santuário Santa Rita em Santa Rita (Forania Várzea) (1839)\nPraça Getúlio Vargas, 129, Centro - Santa Rita (Paraíba), 58300-130\n[mapa:Santuário Santa Rita em Santa Rita, Praça Getúlio Vargas, 129, Centro - Santa Rita - PB, 58300-130]Conferir a localização[/mapa]\n\n• Santa Rita em Rio Tinto (Forania Vale do Mamanguape) (1994)\nPraça João Pessoa, 15, Centro - Rio Tinto (Paraíba), 58297-000\n[mapa:Santa Rita em Rio Tinto, Praça João Pessoa, 15, Centro - Rio Tinto - PB, 58297-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "24 de Maio",
+              "Nossa Senhora Auxiliadora",
+              "Paróquia Nossa Senhora Auxiliadora em João Pessoa (Forania Praia Norte) (1994)\nRua Valdemar Chianca, 330, Jardim Oceania - João Pessoa (Paraíba), 58037-255\n[mapa:Paróquia Nossa Senhora Auxiliadora em João Pessoa, Rua Valdemar Chianca, 330, Jardim Oceania - João Pessoa - PB, 58037-255]Conferir a localização[/mapa]"
+            ],
+            [
+              "Domingo de Pentecostes",
+              "Divino Espírito Santo",
+              "Paróquia Divino Espírito Santo em Cruz do Espírito Santo (Forania Várzea) (1904)\nRua Pe. Herculano, 6, Centro - Cruz Do Espírito Santo (Paraíba), 58337-000\n[mapa:Paróquia Divino Espírito Santo em Cruz do Espírito Santo, Rua Pe. Herculano, 6, Centro - Cruz Do Espírito Santo - PB, 58337-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "Segunda-feira após Pentecostes",
+              "Maria Mãe da Igreja [nota]^[/nota]",
+              "Paróquia Maria Mãe da Igreja em João Pessoa (Forania Urbana Sul) (2021)\nRua Maria José Miranda do Amaral, 344, Jardim Veneza - João Pessoa (Paraíba), 58084-160\n[mapa:Paróquia Maria Mãe da Igreja em João Pessoa, Rua Maria José Miranda do Amaral, 344, Jardim Veneza - João Pessoa - PB, 58084-160]Conferir a localização[/mapa]"
+            ],
+            [
+              "Domingo após Pentecostes",
+              "Santíssima Trindade",
+              "Paróquia Santíssima Trindade em João Pessoa (Forania Conjuntos) (1994)\nRua Inspetora Emília Mendonça Gomes, 240, Valentina De Figueiredo - João Pessoa (Paraíba), 58064-360\n[mapa:Paróquia Santíssima Trindade em João Pessoa, Rua Inspetora Emília Mendonça Gomes, 240, Valentina De Figueiredo - João Pessoa - PB, 58064-360]Conferir a localização[/mapa]"
+            ],
+            [
+              "Primeiro Domingo de Junho",
+              "Menino Jesus de Praga [nota]^2[/nota]",
+              "Paróquia Menino Jesus de Praga em João Pessoa (Forania Praia Sul) (1994)\nRua Venâncio José Neto, s/n, Bancários - João Pessoa (Paraíba), 58051-140\n[mapa:Paróquia Menino Jesus de Praga em João Pessoa, Rua Venâncio José Neto, s/n, Bancários - João Pessoa - PB, 58051-140]Conferir a localização[/mapa]"
+            ],
+            [
+              "13 de Junho",
+              "Santo Antônio de Pádua",
+              "• Santo Antônio de Pádua em João Pessoa (Forania Conjuntos) (1994)\nRua Maria das Graças Oliveira Cartaxo, s/n, Geisel - João Pessoa (Paraíba), 58075-332\n[mapa:Santo Antônio de Pádua em João Pessoa, Rua Maria das Graças Oliveira Cartaxo, s/n, Geisel - João Pessoa - PB, 58075-332]Conferir a localização[/mapa]\n\n• Santo Antônio de Lisboa em João Pessoa (Forania Praia Sul) (2001)\nAvenida Olinda, s/n, Tambaú - João Pessoa (Paraíba), 58039-120\n[mapa:Santo Antônio de Lisboa em João Pessoa, Avenida Olinda, s/n, Tambaú - João Pessoa - PB, 58039-120]Conferir a localização[/mapa]\n\n• Santo Antônio em Itatuba (Forania Agreste) (2002)\nPraça Andrade Lima, s/n, Centro - Itatuba (Paraíba), 58378-000\n[mapa:Santo Antônio em Itatuba, Praça Andrade Lima, s/n, Centro - Itatuba - PB, 58378-000]Conferir a localização[/mapa]\n\n• Santo Antônio de Pádua em Alhandra (Forania Litoral) (2008)\nRua Silvino Bezerra de Lima, s/n, Mata Redonda (Zona Urbana) - Alhandra (Paraíba), 58320-000\n[mapa:Santo Antônio de Pádua em Alhandra, Rua Silvino Bezerra de Lima, s/n, Mata Redonda (Zona Urbana) - Alhandra - PB, 58320-000]Conferir a localização[/mapa]\n\n• Santo Antônio em Santa Rita (Forania Várzea) (2009)\nRua Doutor Francisco Retumba, s/n, Marcos Moura - Santa Rita (Paraíba), 58302-485\n[mapa:Santo Antônio em Santa Rita, Rua Doutor Francisco Retumba, s/n, Marcos Moura - Santa Rita - PB, 58302-485]Conferir a localização[/mapa]\n\n• Santo Antônio do Menino Deus em João Pessoa (Forania Praia Sul) (2010)\nRua Rejane Freire Correia, 2015, Jardim Cidade Universitária - João Pessoa (Paraíba), 58052-197\n[mapa:Santo Antônio do Menino Deus em João Pessoa, Rua Rejane Freire Correia, 2015, Jardim Cidade Universitária - João Pessoa - PB, 58052-197]Conferir a localização[/mapa]"
+            ],
+            [
+              "24 de Junho",
+              "São João Batista",
+              "• São João Batista em João Pessoa (Forania Conjuntos) (1994)\nRua Jornalista José Ramalho, s/n, Costa E Silva - João Pessoa (Paraíba), 58081-110\n[mapa:São João Batista em João Pessoa, Rua Jornalista José Ramalho, s/n, Costa E Silva - João Pessoa - PB, 58081-110]Conferir a localização[/mapa]\n\n• São João Batista em Itapororoca (Forania Vale do Mamanguape) (1998)\nRua São João, s/n, Centro - Itapororoca (Paraíba), 58275-000\n[mapa:São João Batista em Itapororoca, Rua São João, s/n, Centro - Itapororoca - PB, 58275-000]Conferir a localização[/mapa]\n\n• São João Batista em Bayeux (Forania Urbana Sul) (2006)\nRua Júlio César, 150, Conjunto Mário Andreazza - Bayeux (Paraíba), 58309-700\n[mapa:São João Batista em Bayeux, Rua Júlio César, 150, Conjunto Mário Andreazza - Bayeux - PB, 58309-700]Conferir a localização[/mapa]\n\n• São João Batista no Conde (Forania Litoral) (2008)\nRua Ilza Ribeiro, s/n, Jacumã - Conde (Paraíba), 58322-000\n[mapa:São João Batista no Conde, Rua Ilza Ribeiro, s/n, Jacumã - Conde - PB, 58322-000]Conferir a localização[/mapa]\n\n• Co-Titular da Paróquia Nossa Senhora de Fátima e São João Batista em Riachão do Poço (Forania Várzea) (2013)\nRua João Ferreira Alves, s/n, Centro - Riachão Do Poço (Paraíba), 58348-000\n[mapa:Paróquia Nossa Senhora de Fátima e São João Batista em Riachão do Poço, Rua João Ferreira Alves, s/n, Centro - Riachão Do Poço - PB, 58348-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "27 de Junho",
+              "Nossa Senhora do Perpétuo Socorro",
+              "Paróquia Nossa Senhora do Perpétuo Socorro em João Pessoa (Forania Praia Sul) (2006)\nRua Emílio de Araújo Chaves, s/n, Altiplano Cabo Branco - João Pessoa (Paraíba), 58046-150\n[mapa:Paróquia Nossa Senhora do Perpétuo Socorro em João Pessoa, Rua Emílio de Araújo Chaves, s/n, Altiplano Cabo Branco - João Pessoa - PB, 58046-150]Conferir a localização[/mapa]"
+            ],
+            [
+              "29 de Junho",
+              "São Pedro e São Paulo",
+              "• São Pedro e São Paulo em Mamanguape (Forania Vale do Mamanguape) (1630)\nPraça Padre João, 32, Centro - Mamanguape (Paraíba), 58280-000\n[mapa:São Pedro e São Paulo em Mamanguape, Praça Padre João, 32, Centro - Mamanguape - PB, 58280-000]Conferir a localização[/mapa]\n\n• São Pedro em Serra Redonda (Forania Agreste) (1971)\nRua Pedro de Azevedo Cruz, 94, Centro - Serra Redonda (Paraíba), 58385-000\n[mapa:São Pedro em Serra Redonda, Rua Pedro de Azevedo Cruz, 94, Centro - Serra Redonda - PB, 58385-000]Conferir a localização[/mapa]\n\n• São Pedro e São Paulo em Santa Rita (Forania Várzea) (1995)\nRua Patos, s/n, Municípios - Santa Rita (Paraíba), 58302-290\n[mapa:São Pedro e São Paulo em Santa Rita, Rua Patos, s/n, Municípios - Santa Rita - PB, 58302-290]Conferir a localização[/mapa]\n\n• São Pedro e São Paulo em João Pessoa (Forania Praia Norte) (1998)\nRua Newton Timóteo de Souza, 25, Brisamar - João Pessoa (Paraíba), 58033-510\n[mapa:São Pedro e São Paulo em João Pessoa, Rua Newton Timóteo de Souza, 25, Brisamar - João Pessoa - PB, 58033-510]Conferir a localização[/mapa]\n\n• São Pedro Pescador em João Pessoa (Forania Praia Norte) (2001)\nAvenida Maria Rosa, 1124, Manaíra - João Pessoa (Paraíba), 58038-460\n[mapa:São Pedro Pescador em João Pessoa, Avenida Maria Rosa, 1124, Manaíra - João Pessoa - PB, 58038-460]Conferir a localização[/mapa]\n\n• São Pedro Apóstolo em Bayeux (Forania Urbana Sul) (2007)\nRua Daura Saraiva, 559, Jardim Aeroporto - Bayeux (Paraíba), 58308-130\n[mapa:São Pedro Apóstolo em Bayeux, Rua Daura Saraiva, 559, Jardim Aeroporto - Bayeux - PB, 58308-130]Conferir a localização[/mapa]"
+            ],
+            [
+              "Sexta após a Oitava de Corpus Christi",
+              "Sagrado Coração de Jesus",
+              "• Sagrado Coração de Jesus em Cabedelo (Forania Praia Norte) (1951)\nRua Aderbal Piragibe, 05, Centro - Cabedelo (Paraíba), 58100-110\n[mapa:Sagrado Coração de Jesus em Cabedelo, Rua Aderbal Piragibe, 05, Centro - Cabedelo - PB, 58100-110]Conferir a localização[/mapa]\n\n• Sagrado Coração de Jesus em João Pessoa (Forania Centro) (1992)\nRua Celerina Paiva, s/n, Mandacaru - João Pessoa (Paraíba), 58027-390\n[mapa:Sagrado Coração de Jesus em João Pessoa, Rua Celerina Paiva, s/n, Mandacaru - João Pessoa - PB, 58027-390]Conferir a localização[/mapa]\n\n• Sagrado Coração de Jesus em Santa Rita (Forania Várzea) (2007) [nota]§13[/nota]\nPraça Antônio Ribeiro Pessoa, s/n, Popular - Santa Rita (Paraíba), 58301-460\n[mapa:Sagrado Coração de Jesus em Santa Rita, Praça Antônio Ribeiro Pessoa, s/n, Popular - Santa Rita - PB, 58301-460]Conferir a localização[/mapa]\n\n• Sagrado Coração de Jesus em Bayeux (Forania Urbana Sul) (2009)\nRua Engenheiro de Carvalho, 192, Centro - Bayeux (Paraíba), 58307-150\n[mapa:Sagrado Coração de Jesus em Bayeux, Rua Engenheiro de Carvalho, 192, Centro - Bayeux - PB, 58307-150]Conferir a localização[/mapa]"
+            ],
+            [
+              "16 de Julho",
+              "Nossa Senhora do Carmo",
+              "Paróquia Nossa Senhora do Carmo em Mamanguape (Forania Vale do Mamanguape) (2012)\nPraça Augusto Nemésio de Meireles, s/n, Centro - Mamanguape (Paraíba), 58280-000\n[mapa:Paróquia Nossa Senhora do Carmo em Mamanguape, Praça Augusto Nemésio de Meireles, s/n, Centro - Mamanguape - PB, 58280-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "26 de Julho",
+              "Santa Ana Mãe de Nossa Senhora [nota]~2[/nota]",
+              "• Titular da Paróquia Sant'ana em João Pessoa (Forania Conjuntos) (2002)\nRua José Lúcio dos Santos, s/n, Funcionários - João Pessoa (Paraíba), 58078-220\n[mapa:Paróquia Sant'ana em João Pessoa, Rua José Lúcio dos Santos, s/n, Funcionários - João Pessoa - PB, 58078-220]Conferir a localização[/mapa]\n\n• Co-Titular da Paróquia Sant'Anna e São Joaquim em João Pessoa (Forania Centro) (2010)\nRua Adália Suassuna Barreto, s/n, Pedro Gondim - João Pessoa (Paraíba), 58031-112\n[mapa:Paróquia Sant'Anna e São Joaquim em João Pessoa, Rua Adália Suassuna Barreto, s/n, Pedro Gondim - João Pessoa - PB, 58031-112]Conferir a localização[/mapa]"
+            ],
+            [
+              "31 de Julho",
+              "Santo Inácio de Loyola",
+              "Paróquia Santo Inácio de Loyola (Forania Centro) (2021)\nRua João de Brito Lima Moura, s/n, Alto Do Céu - João Pessoa (Paraíba), 58027-695\n[mapa:Paróquia Santo Inácio de Loyola, Rua João de Brito Lima Moura, s/n, Alto Do Céu - João Pessoa - PB, 58027-695]Conferir a localização[/mapa]"
+            ],
+            [
+              "02 de Agosto",
+              "Nossa Senhora dos Anjos",
+              "Paróquia Nossa Senhora dos Anjos em São Miguel de Taipú (Forania Agreste) (1745)\nPraça Elias Cavalcante, 23, Centro - São Miguel De Taipu (Paraíba), 58334-000\n[mapa:Paróquia Nossa Senhora dos Anjos em São Miguel de Taipú, Praça Elias Cavalcante, 23, Centro - São Miguel De Taipu - PB, 58334-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "05 de Agosto",
+              "Nossa Senhora das Neves",
+              "Paróquia Nossa Senhora das Neves em João Pessoa (Forania Centro) (1586)\nPraça Dom Ulrico, s/n, Centro - João Pessoa (Paraíba), 58010-740\n[mapa:Paróquia Nossa Senhora das Neves em João Pessoa, Praça Dom Ulrico, s/n, Centro - João Pessoa - PB, 58010-740]Conferir a localização[/mapa]"
+            ],
+            [
+              "12 de Agosto",
+              "Santa Clara [nota]~3[/nota]",
+              "Paróquia Santa Clara em João Pessoa (Forania Urbana Sul) (2004)\nRua Luiz de França Pereira, s/n, Alto Do Mateus - João Pessoa (Paraíba), 58090-580\n[mapa:Paróquia Santa Clara em João Pessoa, Rua Luiz de França Pereira, s/n, Alto Do Mateus - João Pessoa - PB, 58090-580]Conferir a localização[/mapa]"
+            ],
+            [
+              "15 de Agosto",
+              "Assunção de Nossa Senhora",
+              "• Nossa Senhora da Assunção em Alhandra (Forania Litoral) (1758)\nRua Nossa Senhora da Assunção, 66, Centro - Alhandra (Paraíba), 58320-000\n[mapa:Nossa Senhora da Assunção em Alhandra, Rua Nossa Senhora da Assunção, 66, Centro - Alhandra - PB, 58320-000]Conferir a localização[/mapa]\n\n• Nossa Senhora da Assunção em João Pessoa (Forania Conjuntos) (2012) [nota]§14[/nota]\nRua Frei Antônio Gonçalves, s/n, Funcionários - João Pessoa (Paraíba), 58079-300\n[mapa:Nossa Senhora da Assunção em João Pessoa, Rua Frei Antônio Gonçalves, s/n, Funcionários - João Pessoa - PB, 58079-300]Conferir a localização[/mapa]\n\n• Nossa Senhora da Assunção em Cabedelo (Forania Praia Norte) (2014)\nRua Santa Luzia, 69, Renascer - Cabedelo (Paraíba), 58108-288\n[mapa:Nossa Senhora da Assunção em Cabedelo, Rua Santa Luzia, 69, Renascer - Cabedelo - PB, 58108-288]Conferir a localização[/mapa]"
+            ],
+            [
+              "16 de Agosto",
+              "São Joaquim Pai de Nossa Senhora [nota]~4[/nota]",
+              "Co-Titular da Paróquia Sant'Anna e São Joaquim em João Pessoa (Forania Centro) (2010)\nRua Adália Suassuna Barreto, s/n, Pedro Gondim - João Pessoa (Paraíba), 58031-112\n[mapa:Paróquia Sant'Anna e São Joaquim em João Pessoa, Rua Adália Suassuna Barreto, s/n, Pedro Gondim - João Pessoa - PB, 58031-112]Conferir a localização[/mapa]"
+            ],
+            [
+              "08 de Setembro",
+              "Nossa Senhora de Nazaré",
+              "Paróquia de Nossa Senhora de Nazaré em Cabedelo (Forania Praia Norte) (2018) [nota]§15[/nota]\nRua Carolino Cardoso, 15, Poço - Cabedelo (Paraíba), 58101-502\n[mapa:Paróquia de Nossa Senhora de Nazaré em Cabedelo, Rua Carolino Cardoso, 15, Poço - Cabedelo - PB, 58101-502]Conferir a localização[/mapa]"
+            ],
+            [
+              "08 de Setembro",
+              "Nossa Senhora do Livramento",
+              "Paróquia Nossa Senhora do Livramento em Santa Rita (Forania Várzea) (1813)\nRua São José, s/n, Nossa Senhora Do Livramento - Santa Rita (Paraíba), 58304-000\n[mapa:Paróquia Nossa Senhora do Livramento em Santa Rita, Rua São José, s/n, Nossa Senhora Do Livramento - Santa Rita - PB, 58304-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "15 de Setembro",
+              "Nossa Senhora das Dores",
+              "• Nossa Senhora das Dores em Mogeiro (Forania Agreste) (1874)\nPraça Otaviano Joaquim da Silveira, s/n, Centro - Mogeiro (Paraíba), 58375-000\n[mapa:Nossa Senhora das Dores em Mogeiro, Praça Otaviano Joaquim da Silveira, s/n, Centro - Mogeiro - PB, 58375-000]Conferir a localização[/mapa]\n\n• Nossa Senhora das Dores em João Pessoa (Forania Conjuntos) (2009)\nAvenida Coronel Calixto, s/n, Mangabeira - João Pessoa (Paraíba), 58059-000\n[mapa:Nossa Senhora das Dores em João Pessoa, Avenida Coronel Calixto, s/n, Mangabeira - João Pessoa - PB, 58059-000]Conferir a localização[/mapa]\n\n• Co-Titular da Paróquia São Miguel Arcanjo e Nossa Senhora das Dores em Curral de Cima (Forania Vale do Mamanguape) (2012)\nRua Antônio Fernandes, 189, Centro - Curral De Cima (Paraíba), 58291-000\n[mapa:Paróquia São Miguel Arcanjo e Nossa Senhora das Dores em Curral de Cima, Rua Antônio Fernandes, 189, Centro - Curral De Cima - PB, 58291-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "15 de Setembro",
+              "Maria Mãe do Redentor [nota]^[/nota]",
+              "Paróquia Mãe do Redentor em João Pessoa (Forania Urbana Sul) (2002)\nRua dos Milagres, 2520, Cristo Redentor - João Pessoa (Paraíba), 58071-260\n[mapa:Paróquia Mãe do Redentor em João Pessoa, Rua dos Milagres, 2520, Cristo Redentor - João Pessoa - PB, 58071-260]Conferir a localização[/mapa]"
+            ],
+            [
+              "15 de Setembro",
+              "Nossa Senhora da Soledade [nota]^[/nota]",
+              "Co-Titular da Paróquia Nossa Senhora da Soledade e São Sebastião em Juripiranga (Forania Agreste) (2007)\nAv. Brasil, s/n, Centro - Juripiranga (Paraíba), 58330-000\n[mapa:Paróquia Nossa Senhora da Soledade e São Sebastião em Juripiranga, Av. Brasil, s/n, Centro - Juripiranga - PB, 58330-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "29 de Setembro",
+              "São Miguel Arcanjo",
+              "• São Miguel em Baía da Traição (Forania Vale do Mamanguape) (1762)\nRua Dom Pedro II, s/n, Centro - Baía Da Traição (Paraíba), 58295-000\n[mapa:São Miguel em Baía da Traição, Rua Dom Pedro II, s/n, Centro - Baía Da Traição - PB, 58295-000]Conferir a localização[/mapa]\n\n• São Miguel Arcanjo em João Pessoa (Forania Praia Norte) (2002)\nRua Renato de Souza Maciel, 335, Bessa - João Pessoa (Paraíba) 58035-150\n[mapa:São Miguel Arcanjo em João Pessoa, Rua Renato de Souza Maciel, 335, Bessa - João Pessoa - PB 58035-150]Conferir a localização[/mapa]\n\n• Co-Titular da Paróquia São Miguel Arcanjo e Nossa Senhora das Dores em Curral de Cima (Forania Vale do Mamanguape) (2012)\nRua Antônio Fernandes, 189, Centro - Curral De Cima (Paraíba), 58291-000\n[mapa:Paróquia São Miguel Arcanjo e Nossa Senhora das Dores em Curral de Cima, Rua Antônio Fernandes, 189, Centro - Curral De Cima - PB, 58291-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "03 de Outubro",
+              "Santa Teresinha do Menino Jesus [nota]~5[/nota]",
+              "• Santa Teresinha (Forania Centro) (1962)\nRua Carlos Pessoa, s/n, Roger - João Pessoa (Paraíba), 58020-050\n[mapa:Santa Teresinha, Rua Carlos Pessoa, s/n, Roger - João Pessoa - PB, 58020-050]Conferir a localização[/mapa]\n\n• Santa Teresinha em Sapé (Forania Várzea) (2007)\nRua Lauro da Silva Torres, s/n, Centro - Sapé (Paraíba), 58340-000\n[mapa:Santa Teresinha em Sapé, Rua Lauro da Silva Torres, s/n, Centro - Sapé - PB, 58340-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "04 de Outubro",
+              "São Francisco de Assis",
+              "• São Francisco de Assis em João Pessoa (Forania Urbana Sul) (1983)\nRua da Importação, s/n, Indústrias - João Pessoa (Paraíba), 58083-100\n[mapa:São Francisco de Assis em João Pessoa, Rua da Importação, s/n, Indústrias - João Pessoa - PB, 58083-100]Conferir a localização[/mapa]\n\n• São Francisco das Chagas em João Pessoa (Forania Urbana Sul) (1999)\nAvenida Dois de Fevereiro, 546, Varjão - João Pessoa (Paraíba), 58070-000\n[mapa:São Francisco das Chagas em João Pessoa, Avenida Dois de Fevereiro, 546, Varjão - João Pessoa - PB, 58070-000]Conferir a localização[/mapa]\n\n• São Francisco de Assis em João Pessoa (Forania Conjuntos) (2002)\nRua Renato Gomes de Oliveira, s/n, Mangabeira - João Pessoa (Paraíba), 58058-232\n[mapa:São Francisco de Assis em João Pessoa, Rua Renato Gomes de Oliveira, s/n, Mangabeira - João Pessoa - PB, 58058-232]Conferir a localização[/mapa]\n\n• São Francisco de Assis em João Pessoa (Forania Praia Sul) (2013)\nRua Joaquim Borba Filho, 413, Jardim São Paulo - João Pessoa (Paraíba), 58053-110\n[mapa:São Francisco de Assis em João Pessoa, Rua Joaquim Borba Filho, 413, Jardim São Paulo - João Pessoa - PB, 58053-110]Conferir a localização[/mapa]"
+            ],
+            [
+              "07 de Outubro",
+              "Nossa Senhora do Rosário",
+              "Paróquia Nossa Senhora do Rosário em João Pessoa (Forania Centro) (1929)\nRua Frei Martinho, s/n, Jaguaribe - João Pessoa (Paraíba), 58015-100\n[mapa:Paróquia Nossa Senhora do Rosário em João Pessoa, Rua Frei Martinho, s/n, Jaguaribe - João Pessoa - PB, 58015-100]Conferir a localização[/mapa]"
+            ],
+            [
+              "11 de Outubro",
+              "Maternidade de Nossa Senhora [nota]~6[/nota]",
+              "Paróquia Maria Mãe de Deus em Cabedelo (Forania Praia Norte) (2000) [nota]§16[/nota]\nRua Golfo de Aden, s/n, Intermares - Cabedelo (Paraíba), 58102-023\n[mapa:Paróquia Maria Mãe de Deus em Cabedelo, Rua Golfo de Aden, s/n, Intermares - Cabedelo - PB, 58102-023]Conferir a localização[/mapa]"
+            ],
+            [
+              "12 de Outubro",
+              "Nossa Senhora Aparecida",
+              "• Nossa Senhora Aparecida em João Pessoa (Forania Centro) (1997)\nRua Carteiro Francisco Marques, s/n, Treze De Maio - João Pessoa (Paraíba), 58025-160\n[mapa:Nossa Senhora Aparecida em João Pessoa, Rua Carteiro Francisco Marques, s/n, Treze De Maio - João Pessoa - PB, 58025-160]Conferir a localização[/mapa]\n\n• Nossa Senhora Aparecida em João Pessoa (Forania Urbana Sul) (2006)\nRua Horácio Trajano de Oliveira, 630, Cristo Redentor - João Pessoa (Paraíba), 58070-450\n[mapa:Nossa Senhora Aparecida em João Pessoa, Rua Horácio Trajano de Oliveira, 630, Cristo Redentor - João Pessoa - PB, 58070-450]Conferir a localização[/mapa]\n\n• Nossa Senhora da Conceição Aparecida em João Pessoa (Forania Conjuntos) (2010)\nRua Prefeito Severino Alves da Silveira, s/n, Gramame - João Pessoa (Paraíba), 58069-015\n[mapa:Nossa Senhora da Conceição Aparecida em João Pessoa, Rua Prefeito Severino Alves da Silveira, s/n, Gramame - João Pessoa - PB, 58069-015]Conferir a localização[/mapa]\n\n• Nossa Senhora da Conceição Aparecida em João Pessoa (Forania Conjuntos) (2012)\nRua Mariângela Lucena Peixoto, s/n, Valentina De Figueiredo - João Pessoa (Paraíba), 58063-300\n[mapa:Nossa Senhora da Conceição Aparecida em João Pessoa, Rua Mariângela Lucena Peixoto, s/n, Valentina De Figueiredo - João Pessoa - PB, 58063-300]Conferir a localização[/mapa]"
+            ],
+            [
+              "12 de Outubro",
+              "Nossa Senhora do Pilar",
+              "Paróquia Nossa Senhora do Pilar em Pilar (Forania Agreste) (1765)\nPraça João José Maroja, s/n, Centro - Pilar (Paraíba), 58338-000\n[mapa:Paróquia Nossa Senhora do Pilar em Pilar, Praça João José Maroja, s/n, Centro - Pilar - PB, 58338-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "15 de Outubro",
+              "Nossa Senhora de Nazaré",
+              "Paróquia de Nossa Senhora de Nazaré em João Pessoa (Forania Praia Norte) (2003) [nota]§17[/nota]\nRua Oceano Antártico, 200, Jardim Oceania - João Pessoa (Paraíba), 58037-655\n[mapa:Paróquia de Nossa Senhora de Nazaré em João Pessoa, Rua Oceano Antártico, 200, Jardim Oceania - João Pessoa - PB, 58037-655]Conferir a localização[/mapa]"
+            ],
+            [
+              "16 de Outubro",
+              "Santa Edwiges",
+              "Paróquia Santa Edwiges em João Pessoa (Forania Conjuntos) (2018)\nRua Jaguatirica, s/n, Paratibe - João Pessoa (Paraíba), 58062-288\n[mapa:Paróquia Santa Edwiges em João Pessoa, Rua Jaguatirica, s/n, Paratibe - João Pessoa - PB, 58062-288]Conferir a localização[/mapa]"
+            ],
+            [
+              "18 de Outubro",
+              "Nossa Senhora Mãe Rainha [nota]^[/nota]",
+              "Paróquia Santuário Nossa Senhora Mãe Rainha em João Pessoa (Forania Praia Norte) (2012)\nRua Francisco Leocádio Ribeiro Coutinho, s/n, Aeroclube - João Pessoa (Paraíba), 58036-450\n[mapa:Paróquia Santuário Nossa Senhora Mãe Rainha em João Pessoa, Rua Francisco Leocádio Ribeiro Coutinho, s/n, Aeroclube - João Pessoa - PB, 58036-450]Conferir a localização[/mapa]"
+            ],
+            [
+              "24 de Outubro",
+              "São Rafael Arcanjo [nota]~7[/nota]",
+              "Paróquia São Rafael em João Pessoa (Forania Praia Sul) (1998)\nRua Hermenegildo de Almeida, s/n, Castelo Branco - João Pessoa (Paraíba), 58050-290\n[mapa:Paróquia São Rafael em João Pessoa, Rua Hermenegildo de Almeida, s/n, Castelo Branco - João Pessoa - PB, 58050-290]Conferir a localização[/mapa]"
+            ],
+            [
+              "28 de Outubro",
+              "São Judas Tadeu",
+              "• Santuário São Judas Tadeu (Forania Centro) (2007)\nAvenida Nossa Senhora de Fátima, s/n, Torre - João Pessoa (Paraíba), 58040-380\n[mapa:Santuário São Judas Tadeu, Avenida Nossa Senhora de Fátima, s/n, Torre - João Pessoa - PB, 58040-380]Conferir a localização[/mapa]\n\n• São Judas Tadeu em Cabedelo (Forania Praia Norte) (2018)\nRua Nilo Montenegro, 626, Jardim Camboinha - Cabedelo (Paraíba), 58103-676\n[mapa:São Judas Tadeu em Cabedelo, Rua Nilo Montenegro, 626, Jardim Camboinha - Cabedelo - PB, 58103-676]Conferir a localização[/mapa]"
+            ],
+            [
+              "Último Domingo de Outubro",
+              "Cristo Rei [nota]~8[/nota]",
+              "Paróquia de Cristo Rei em João Pessoa (Forania Conjuntos) (1994)\nRua Ana Leal Correia, s/n, Mangabeira - João Pessoa (Paraíba), 58056-190\n[mapa:Paróquia de Cristo Rei em João Pessoa, Rua Ana Leal Correia, s/n, Mangabeira - João Pessoa - PB, 58056-190]Conferir a localização[/mapa]"
+            ],
+            [
+              "27 de Novembro",
+              "Nossa Senhora da Medalha Milagrosa",
+              "Paróquia Nossa Senhora das Graças em Santa Rita (Forania Várzea) (2005)\nRua João Gomes Vieira, s/n, Várzea Nova - Santa Rita (Paraíba), 58304-500\n[mapa:Paróquia Nossa Senhora das Graças em Santa Rita, Rua João Gomes Vieira, s/n, Várzea Nova - Santa Rita - PB, 58304-500]Conferir a localização[/mapa]"
+            ],
+            [
+              "08 de Dezembro",
+              "Nossa Senhora da Conceição",
+              "• Nossa Senhora da Conceição no Conde (Forania Litoral) (1768)\nRua Nossa Senhora da Conceição, 59, Centro - Conde (Paraíba), 58322-000\n[mapa:Nossa Senhora da Conceição no Conde, Rua Nossa Senhora da Conceição, 59, Centro - Conde - PB, 58322-000]Conferir a localização[/mapa]\n\n• Nossa Senhora da Conceição em Ingá (Forania Agreste) (1841)\nRua Getúlio Vargas, 27, Centro - Ingá (Paraíba), 58380-000\n[mapa:Nossa Senhora da Conceição em Ingá, Rua Getúlio Vargas, 27, Centro - Ingá - PB, 58380-000]Conferir a localização[/mapa]\n\n• Nossa Senhora da Conceição em Gurinhém (Forania Agreste) (1873)\nRua Senador Humberto Lucena, 02, Centro - Gurinhém (Paraíba), 58356-000\n[mapa:Nossa Senhora da Conceição em Gurinhém, Rua Senador Humberto Lucena, 02, Centro - Gurinhém - PB, 58356-000]Conferir a localização[/mapa]\n\n• Nossa Senhora da Conceição em Itabaiana (Forania Agreste) (1903)\nPraça Mons. Francisco Coelho, s/n, Centro - Itabaiana (Paraíba), 58360-000\n[mapa:Nossa Senhora da Conceição em Itabaiana, Praça Mons. Francisco Coelho, s/n, Centro - Itabaiana - PB, 58360-000]Conferir a localização[/mapa]\n\n• Nossa Senhora da Conceição em Sapé (Forania Várzea) (1926)\nPraça da Matriz, s/n, Centro - Sapé (Paraíba), 58340-000\n[mapa:Nossa Senhora da Conceição em Sapé, Praça da Matriz, s/n, Centro - Sapé - PB, 58340-000]Conferir a localização[/mapa]\n\n• Nossa Senhora da Conceição em Jacaraú (Forania Vale do Mamanguape) (1948)\nRua São João, 11, Centro - Jacaraú (Paraíba), 58278-000\n[mapa:Nossa Senhora da Conceição em Jacaraú, Rua São João, 11, Centro - Jacaraú - PB, 58278-000]Conferir a localização[/mapa]\n\n• Santuário Nossa Senhora da Conceição em João Pessoa (Forania Centro) (1963)\nRua São Miguel, s/n, Varadouro - João Pessoa (Paraíba), 58010-270\n[mapa:Santuário Nossa Senhora da Conceição em João Pessoa, Rua São Miguel, s/n, Varadouro - João Pessoa - PB, 58010-270]Conferir a localização[/mapa]\n\n• Santuário Nossa Senhora da Conceição em Pedras de Fogo (Forania Agreste) (1994)\nAv. Dom Vital, 01, Centro - Pedras De Fogo (Paraíba), 58328-000\n[mapa:Santuário Nossa Senhora da Conceição em Pedras de Fogo, Av. Dom Vital, 01, Centro - Pedras De Fogo - PB, 58328-000]Conferir a localização[/mapa]\n\n• Imaculada Conceição em Cuité de Mamanguape (Forania Vale do Mamanguape) (2002)\nRua da Matriz, 04, Centro - Cuité De Mamanguape (Paraíba), 58289-000\n[mapa:Imaculada Conceição em Cuité de Mamanguape, Rua da Matriz, 04, Centro - Cuité De Mamanguape - PB, 58289-000]Conferir a localização[/mapa]\n\n• Nossa Senhora da Conceição em Caaporã (Forania Litoral) (2005)\nRua Salomão Veloso, s/n, Centro - Caaporã (Paraíba), 58326-000\n[mapa:Nossa Senhora da Conceição em Caaporã, Rua Salomão Veloso, s/n, Centro - Caaporã - PB, 58326-000]Conferir a localização[/mapa]\n\n• Imaculada Conceição de Bayeux em Bayeux (Forania Urbana Sul) (2012)\nRua Plácido de Oliveira Lima, s/n, Imaculada - Bayeux (Paraíba), 58305-000\n[mapa:Imaculada Conceição de Bayeux em Bayeux, Rua Plácido de Oliveira Lima, s/n, Imaculada - Bayeux - PB, 58305-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "12 de Dezembro",
+              "Nossa Senhora de Guadalupe",
+              "Paróquia Nossa Senhora de Guadalupe em João Pessoa (Forania Praia Sul) (1998)\nAvenida Monsenhor Odilon Coutinho, 115, Cabo Branco - João Pessoa (Paraíba), 58045-120\n[mapa:Paróquia Nossa Senhora de Guadalupe em João Pessoa, Avenida Monsenhor Odilon Coutinho, 115, Cabo Branco - João Pessoa - PB, 58045-120]Conferir a localização[/mapa]"
+            ],
+            [
+              "31 de Dezembro",
+              "Senhor Bom Jesus [nota]^[/nota]",
+              "Paróquia Senhor Bom Jesus em Mataraca (Forania Vale do Mamanguape) (1994)\nRua Daniel Toscano, 272, Centro - Mataraca (Paraíba), 58292-000\n[mapa:Paróquia Senhor Bom Jesus em Mataraca, Rua Daniel Toscano, 272, Centro - Mataraca - PB, 58292-000]Conferir a localização[/mapa]"
+            ]
+          ],
+          "id": "paroquias-005"
+        }
+      ]
+    },
+    {
+      "id": "santuarios",
+      "titulo": "Santuários",
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Além das paróquias supra listadas, existem ainda 9 santuários erigidos pela autoridade diocesana, alguns dos quais são também paróquias e já foram citadas anteriormente.",
+          "id": "santuarios-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É possível lucrar Indulgências nos Santuários nas seguintes circunstâncias:",
+          "id": "santuarios-002"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Ao visitar a igreja no dia de seu Titular[nota]§18[/nota]",
+            "Em algum dos dias do ano, à escolha do fiel, mediante visita[nota]§19[/nota]",
+            "Todas as vezes que, junto a um grupo, fizer peregrinação ao Santuário[nota]§20[/nota]"
+          ],
+          "id": "santuarios-003"
+        },
+        {
+          "tipo": "nota",
+          "titulo": "Nota",
+          "paragrafos": [
+            "Para todos os casos, se deve recitar no Santuário o Pai-nosso e o Credo, além de cumprir as condições ordinárias."
+          ],
+          "id": "santuarios-004"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Data",
+            "Titular",
+            "Santuário"
+          ],
+          "linhas": [
+            [
+              "13 de Maio",
+              "Nossa Senhora Mãe dos Homens [nota]^[/nota]",
+              "Paróquia Santuário Mãe dos Homens em João Pessoa (Forania Centro) (2019)\nRua Monsenhor Walfredo Leal, 41, Tambiá - João Pessoa (Paraíba), 58020-540\n[mapa:Paróquia Santuário Mãe dos Homens em João Pessoa, Rua Monsenhor Walfredo Leal, 41, Tambiá - João Pessoa - PB, 58020-540]Conferir a localização[/mapa]"
+            ],
+            [
+              "22 de Maio",
+              "Santa Rita de Cássia",
+              "Paróquia Santuário Santa Rita em Santa Rita (Forania Várzea) (1839) [nota]§21[/nota]\nPraça Getúlio Vargas, 129, Centro - Santa Rita (Paraíba), 58300-130\n[mapa:Paróquia Santuário Santa Rita em Santa Rita, Praça Getúlio Vargas, 129, Centro - Santa Rita - PB, 58300-130]Conferir a localização[/mapa]"
+            ],
+            [
+              "1 de Setembro",
+              "Nossa Senhora da Penha",
+              "Santuário Nossa Senhora da Penha em João Pessoa (Forania Praia Sul) (2019) [nota]§22[/nota]\nPraia da Penha, s/n, Penha - João Pessoa (Paraíba), 58047-000\n[mapa:Santuário Nossa Senhora da Penha em João Pessoa, Praia da Penha, s/n, Penha - João Pessoa - PB, 58047-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "18 de Outubro",
+              "Nossa Senhora Mãe Rainha [nota]^[/nota]",
+              "Paróquia Santuário Nossa Senhora Mãe Rainha em João Pessoa (Forania Praia Norte) (2012)\nRua Francisco Leocádio Ribeiro Coutinho, s/n, Aeroclube - João Pessoa (Paraíba), 58036-450\n[mapa:Paróquia Santuário Nossa Senhora Mãe Rainha em João Pessoa, Rua Francisco Leocádio Ribeiro Coutinho, s/n, Aeroclube - João Pessoa - PB, 58036-450]Conferir a localização[/mapa]"
+            ],
+            [
+              "28 de Outubro",
+              "São Judas Tadeu",
+              "Paróquia Santuário São Judas Tadeu (Forania Centro) (2007)\nAvenida Nossa Senhora de Fátima, s/n, Torre - João Pessoa (Paraíba), 58040-380\n[mapa:Paróquia Santuário São Judas Tadeu, Avenida Nossa Senhora de Fátima, s/n, Torre - João Pessoa - PB, 58040-380]Conferir a localização[/mapa]"
+            ],
+            [
+              "8 de Dezembro",
+              "Nossa Senhora da Guia [nota]^[/nota]",
+              "Santuário Nossa Senhora da Guia em Lucena (Forania Várzea) [nota]§23[/nota]\nPlanta de Lucena, s/n, - Lucena (Paraíba), 58315-000\n[mapa:Santuário Nossa Senhora da Guia em Lucena, Planta de Lucena, s/n, - Lucena - PB, 58315-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "8 de Dezembro",
+              "Nossa Senhora da Conceição",
+              "• Paróquia Nossa Senhora da Conceição em João Pessoa (Forania Centro) (1963)\nRua São Miguel, s/n, Varadouro - João Pessoa (Paraíba), 58010-270\n[mapa:Paróquia Nossa Senhora da Conceição em João Pessoa, Rua São Miguel, s/n, Varadouro - João Pessoa - PB, 58010-270]Conferir a localização[/mapa]\n\n• Paróquia Nossa Senhora da Conceição em Pedras de Fogo (Forania Agreste) (1994)\nAv. Dom Vital, 01, Centro - Pedras De Fogo (Paraíba), 58328-000\n[mapa:Paróquia Nossa Senhora da Conceição em Pedras de Fogo, Av. Dom Vital, 01, Centro - Pedras De Fogo - PB, 58328-000]Conferir a localização[/mapa]\n\n• Imaculada Conceição em João Pessoa (Forania Praia Sul) (2024)\nRua Estudante Carlos Henrique Braga, s/n, Tambauzinho - João Pessoa (Paraíba), 58042-070\n[mapa:Imaculada Conceição em João Pessoa, Rua Estudante Carlos Henrique Braga, s/n, Tambauzinho - João Pessoa - PB, 58042-070]Conferir a localização[/mapa]"
+            ]
+          ],
+          "id": "santuarios-005"
+        }
+      ]
+    },
+    {
+      "id": "basilica",
+      "titulo": "Basílica",
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A nossa Catedral, além de Catedral e Paróquia, é também Basílica Menor.",
+          "id": "basilica-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É possível lucrar Indulgências na Catedral arquidiocesana nas seguintes circunstâncias:",
+          "id": "basilica-002"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Ao visitar a igreja no dia de seu Titular[nota]§24[/nota]",
+            "Na festa de São Pedro e São Paulo em 29 de Junho[nota]§25[/nota]",
+            "Nos dias da Cátedra de São Pedro em 18 de Janeiro e 22 de Fevereiro[nota]§26[/nota]",
+            "Na festa da Dedicação de São Salvador (São João de Latrão) em 09 de Novembro[nota]§27[/nota]",
+            "No dia 02 de Agosto para a Indulgência da Porciúncula[nota]§28[/nota]",
+            "Em algum dos dias do ano, à escolha do fiel, mediante visita[nota]§29[/nota]"
+          ],
+          "id": "basilica-003"
+        },
+        {
+          "tipo": "nota",
+          "titulo": "Nota",
+          "paragrafos": [
+            "Para todos os casos, se deve recitar na Catedral Basílica o Pai-nosso e o Credo, além de cumprir as condições ordinárias."
+          ],
+          "id": "basilica-004"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Data",
+            "Titular",
+            "Basílica"
+          ],
+          "linhas": [
+            [
+              "05 de Agosto",
+              "Nossa Senhora das Neves",
+              "Basílica Paroquial Nossa Senhora das Neves em João Pessoa (Forania Centro) (1586)\nPraça Dom Ulrico, s/n, Centro - João Pessoa (Paraíba), 58010-740\n[mapa:Basílica Paroquial Nossa Senhora das Neves em João Pessoa, Praça Dom Ulrico, s/n, Centro - João Pessoa - PB, 58010-740]Conferir a localização[/mapa]"
+            ]
+          ],
+          "id": "basilica-005"
+        }
+      ]
+    },
+    {
+      "id": "ordens",
+      "titulo": "Ordens Religiosas",
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A Arquidiocese abriga dezenas de Ordens, Institutos e Congregações religiosas.",
+          "id": "ordens-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É possível lucrar Indulgências nas casas/igrejas religiosas na seguinte circunstância:",
+          "id": "ordens-002"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Na visita das igrejas ou oratórios desses Institutos de vida consagrada ou Sociedades de vida apostólica no dia dedicado ao seu Fundador[nota]§30[/nota]"
+          ],
+          "id": "ordens-003"
+        },
+        {
+          "tipo": "nota",
+          "titulo": "Nota",
+          "paragrafos": [
+            "No caso, se deve recitar na igreja o Pai-nosso e o Credo, além de cumprir as condições ordinárias."
+          ],
+          "id": "ordens-004"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Data",
+            "Festa Litúrgica / Santo Fundador",
+            "Instituição / Paróquia Relacionada"
+          ],
+          "linhas": [
+            [
+              "09 de Janeiro",
+              "Beata Alice Le Clerc",
+              "Fundadora das Cônegas de Santo Agostinho da Congregação de Nossa Senhora\n\nCasa Das Irmãs De Nossa Senhora"
+            ],
+            [
+              "31 de Janeiro",
+              "São João Bosco",
+              "Fundador da Sociedade São Francisco de Sales (Salesianos)\n\nParóquia Nossa Senhora Das Dores em João Pessoa (Forania Conjuntos) (2009)\nAvenida Coronel Calixto, s/n, Mangabeira - João Pessoa (Paraíba), 58059-000\n[mapa:Paróquia Nossa Senhora Das Dores em João Pessoa, Avenida Coronel Calixto, s/n, Mangabeira - João Pessoa - PB, 58059-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "03 de Abril",
+              "São Luis Scrosoppi [nota]*2[/nota]",
+              "Fundador das irmãs da Providência de São Caetano de Thiene\n\nIrmãs da Providência de São Caetano de Thiene\nRua Cassiano Ribeiro Coutinho, 195, Marcos Moura - Santa Rita (Paraíba), 58300-970\n[mapa:Irmãs da Providência de São Caetano de Thiene, Rua Cassiano Ribeiro Coutinho, 195, Marcos Moura - Santa Rita - PB, 58300-970]Conferir a localização[/mapa]"
+            ],
+            [
+              "18 de Abril",
+              "Beata Savina Petrilli [nota]*3[/nota]",
+              "Fundadora das irmãs dos Pobres de Santa Catarina de Sena\n\nLar da Providência Carneiro da Cunha\nAv. Santa Catarina, 05, Estados - João Pessoa (Paraíba), 58030-070\n[mapa:Lar da Providência Carneiro da Cunha, Av. Santa Catarina, 05, Estados - João Pessoa - PB, 58030-070]Conferir a localização[/mapa]"
+            ],
+            [
+              "11 de Junho",
+              "Santa Paula Frassinetti [nota]*4[/nota]",
+              "Fundadora das irmãs de Santa Dorotéia\n\nColégio Santa Dorotéia\nRua Eduardo Medeiros, 89, Castelo Branco - João Pessoa (Paraíba), 58050-080\n[mapa:Colégio Santa Dorotéia, Rua Eduardo Medeiros, 89, Castelo Branco - João Pessoa - PB, 58050-080]Conferir a localização[/mapa]"
+            ],
+            [
+              "31 de Julho",
+              "Santo Inácio de Loyola",
+              "Fundador da Companhia de Jesus (Jesuítas)\n\nParóquia Sagrado Coração de Jesus em João Pessoa (Forania Centro) (1992)\nRua Celerina Paiva, s/n, Mandacaru - João Pessoa (Paraíba), 58027-390\n[mapa:Paróquia Sagrado Coração de Jesus em João Pessoa, Rua Celerina Paiva, s/n, Mandacaru - João Pessoa - PB, 58027-390]Conferir a localização[/mapa]"
+            ],
+            [
+              "28 de Agosto",
+              "Santo Agostinho",
+              "Fundador da Ordem dos Cônegos Regulares Lateranenses [nota]§31[/nota]\n\nParóquia Santa Clara\nRua Luís de França Pereira, 103, Alto do Mateus - João Pessoa (Paraíba), 58090-580\n[mapa:Paróquia Santa Clara, Rua Luís de França Pereira, 103, Alto do Mateus - João Pessoa - PB, 58090-580]Conferir a localização[/mapa]"
+            ],
+            [
+              "17 de Setembro",
+              "São Zygmunt Szczęsny Feliński [nota]*5[/nota]",
+              "Fundador das irmãs da Sagrada Família\n\nComunidade Sagrada Família\nRua Frei Martinho, 335, Jaguaribe - João Pessoa (Paraíba), 58015-100\n[mapa:Comunidade Sagrada Família, Rua Frei Martinho, 335, Jaguaribe - João Pessoa - PB, 58015-100]Conferir a localização[/mapa]"
+            ],
+            [
+              "04 de Outubro",
+              "São Francisco de Assis",
+              "Fundador das três Ordens Seráficas (Franciscanos)\n\n• Ordem dos Frades Menores (OFM): Paróquia Nossa Senhora do Rosário em João Pessoa (Forania Centro) (1929)\nRua Frei Martinho, s/n, Jaguaribe - João Pessoa (Paraíba), 58015-100\n[mapa:Paróquia Nossa Senhora do Rosário em João Pessoa, Rua Frei Martinho, s/n, Jaguaribe - João Pessoa - PB, 58015-100]Conferir a localização[/mapa]\n\n• Ordem dos Frades Menores Capuchinhos (OFMCap): Santuário Nossa Senhora da Conceição em João Pessoa (Forania Praia Sul) (2024)\nRua Estudante Carlos Henrique Braga, s/n, Tambauzinho - João Pessoa (Paraíba), 58042-070\n[mapa:Santuário Nossa Senhora da Conceição em João Pessoa, Rua Estudante Carlos Henrique Braga, s/n, Tambauzinho - João Pessoa - PB, 58042-070]Conferir a localização[/mapa]\n\n• Ordem dos Frades Menores Conventuais (OFMConv): Paróquia Nossa Senhora Aparecida em João Pessoa (Forania Urbana Sul) (2006)\nRua Horácio Trajano de Oliveira, 630, Cristo Redentor - João Pessoa (Paraíba), 58070-450\n[mapa:Paróquia Nossa Senhora Aparecida em João Pessoa, Rua Horácio Trajano de Oliveira, 630, Cristo Redentor - João Pessoa - PB, 58070-450]Conferir a localização[/mapa]\n\n• Ordem dos Frades Menores Conventuais (OFMConv): Paróquia Mãe do Redentor em João Pessoa (Forania Urbana Sul) (2002)\nRua dos Milagres, 2520, Cristo Redentor - João Pessoa (Paraíba), 58071-260\n[mapa:Paróquia Mãe do Redentor em João Pessoa, Rua dos Milagres, 2520, Cristo Redentor - João Pessoa - PB, 58071-260]Conferir a localização[/mapa]\n\n• Ordem Terceira Regular Franciscanas de Dillingen: Fraternidade Do Instituto João XXIII\nRua Professor Batista Leite, 151, Roger - João Pessoa (Paraíba), 58020-245\n[mapa:Fraternidade Do Instituto João XXIII, Rua Professor Batista Leite, 151, Roger - João Pessoa - PB, 58020-245]Conferir a localização[/mapa]"
+            ],
+            [
+              "10 de Outubro",
+              "São Daniel Comboni [nota]*6[/nota]",
+              "Fundador dos Missionários Combonianos\n\nParóquia Santo Antônio\nRua Dr. Francisco Retumba, s/n, Marcos Moura - Santa Rita (Paraíba), 58302-485\n[mapa:Paróquia Santo Antônio, Rua Dr. Francisco Retumba, s/n, Marcos Moura - Santa Rita - PB, 58302-485]Conferir a localização[/mapa]"
+            ],
+            [
+              "15 de Outubro",
+              "Santa Teresa D'Ávila",
+              "Fundadora da Ordem dos Carmelitas Descalços\n\nCarmelo Santa Maria Mãe de Deus\nEstrada de Caxitú, s/n, Zona Rural - Conde (Paraíba), 58322-000\n[mapa:Carmelo Santa Maria Mãe de Deus, Estrada de Caxitú, s/n, Zona Rural - Conde - PB, 58322-000]Conferir a localização[/mapa]"
+            ],
+            [
+              "06 de Novembro",
+              "Beata Maria Bárbara da Santíssima Trindade [nota]*7[/nota]",
+              "Fundadora das irmãs do Imaculado Coração de Maria\n\n• Comunidade Margarida Maria Alves\nRua Manoel Vicente Rodrigues, 78, Jardim Veneza - João Pessoa (Paraíba), 58084-133\n[mapa:Comunidade Margarida Maria Alves, Rua Manoel Vicente Rodrigues, 78, Jardim Veneza - João Pessoa - PB, 58084-133]Conferir a localização[/mapa]\n\n• Comunidade Nossa Senhora Aparecida\nRua José Carlos da Silva, 114, José Américo de Almeida - João Pessoa (Paraíba), 58074-635\n[mapa:Comunidade Nossa Senhora Aparecida, Rua José Carlos da Silva, 114, José Américo de Almeida - João Pessoa - PB, 58074-635]Conferir a localização[/mapa]"
+            ],
+            [
+              "09 de Dezembro",
+              "São Pedro Fourier",
+              "Fundador das Cônegas de Santo Agostinho da Congregação de Nossa Senhora\n\nCasa Das Irmãs De Nossa Senhora"
+            ]
+          ],
+          "id": "ordens-005"
+        }
+      ]
+    },
+    {
+      "id": "conclusao",
+      "titulo": "Conclusão",
+      "foraDoIndice": true,
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "É sabido que a quantidade de indulgências foi drasticamente reduzida por Paulo VI em 1967, deixando os fiéis em sua maioria desassistidos dessa grande e inestimável graça, que a Igreja sempre se preocupou em explicar e instigar ardentemente seus filhos a terem a mais alta estima às indulgências.",
+          "id": "conclusao-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Contudo, por mais que sejam poucas as indulgências anuais (pouco mais que 10 indulgências), podemos ajuntar as festividades locais para agregar ao nosso calendário para poder lucrar mais e mais indulgências para satisfazer os males que produzimos com nossos pecados, bem como excitar a caridade e aplicar esses benefícios para alguma alma do purgatório.",
+          "id": "conclusao-002"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Esperamos pois, que assim possamos ter cada vez mais apreço a essas graças, que isto nos excite s contrição dos nossos pecados e s perseverança na graça de Deus, além do benefício de poder conhecer novas igrejas e rezar nelas, que comunica também nosso vínculo com a nossa Arquidiocese.",
+          "id": "conclusao-003"
+        }
+      ]
+    }
+  ]
+}

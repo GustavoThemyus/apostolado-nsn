@@ -11,37 +11,44 @@
       "grupo": "ordo",
       "nome": "Ordo Litúrgico diário de São Pio X",
       "descricao": "O Ordo que a capela segue, anterior à reforma de 1955.",
-      "google": "e99e1c5824d2cb9b22d9ef2790640cfdca3d36059a4271bc177c6d87552d9625@group.calendar.google.com"
+      "google": "2f72d6d6256cb18ea6ebe417018de1a59f8477fef4881205a92534b5a0941570@group.calendar.google.com"
+    },
+    {
+      "id": "indulgencias-apostolado",
+      "grupo": "indulgencias-apostolado",
+      "nome": "Indulgências",
+      "descricao": "O calendário de indulgências que o Apostolado mantém.",
+      "google": "af65badfbfa2edf0dd57885aac529a667132c50441938850c11177261bff8599@group.calendar.google.com"
     },
     {
       "id": "apostolado-oracao",
       "grupo": "indulgencias",
       "nome": "Apostolado da Oração",
-      "google": "bddf4402439fe8cd54f9cc7d12ee6096a1ce1030376502cba2d55a59a7ab9019@group.calendar.google.com"
+      "google": "fe064ea5965e30bb8a9b2b1a4048c58bfa65e25cbca890bdbc6df55d664c0ac4@group.calendar.google.com"
     },
     {
       "id": "escapulario",
       "grupo": "indulgencias",
       "nome": "Confraria do Escapulário do Carmo",
-      "google": "eec947dc8927b470b185ce9bea11da753d44b782cbe2554696449500112a2303@group.calendar.google.com"
+      "google": "4ba4fb912ee0e5d180f3d2a7dc44e9ee1e9bf29f01e53fb954669eb5aa215b5e@group.calendar.google.com"
     },
     {
       "id": "cordao",
       "grupo": "indulgencias",
       "nome": "Arquiconfraria do Cordão de São Francisco",
-      "google": "45946b2558e774684cadce808e8167a6813f5ea02e81a0819b91952fcc6c536a@group.calendar.google.com"
+      "google": "af044f64af3ca4e1027be06c3a84fe28e38bd348485a6ab2d065c622ddbd9a26@group.calendar.google.com"
     },
     {
       "id": "franciscana",
       "grupo": "indulgencias",
       "nome": "Ordem Terceira Franciscana",
-      "google": "6a6e8fff0af2f7cc9add6ab4854a14807c7d3243689707816bb123d583789e29@group.calendar.google.com"
+      "google": "31ccd9557ab71714e44620cc28b2b5ca301f86d5b98713a6f2bf91a87763989e@group.calendar.google.com"
     },
     {
       "id": "dominicana",
       "grupo": "indulgencias",
       "nome": "Ordem Terceira Dominicana",
-      "google": "a3977bfc4cbddd7ee81462739e0fdd21018601deff3dbf1dad28dfa5ed03f639@group.calendar.google.com"
+      "google": "4ca6dfeb9407a7be85d3c5ff8b6ecb1bdcb17c133072e6c828c871d6449208fb@group.calendar.google.com"
     }
   ],
   "chamada": "Apostolado Nossa Senhora das Neves",

@@ -8,7 +8,11 @@
  *   [r]...[/r]            rubrica embutida no meio de outro texto
  *   [nota]12[/nota]       chamada de nota; o texto vem de `Conteudo.notas`
  *   [elo:ancora]...[/elo] link para outro ponto da mesma página
+ *   [elo:/rota]...[/elo]  link para outra página do site
  *   [elo:https://...]     link externo, que abre em outra aba
+ *   [botao:/rota]...[/botao]   o mesmo, com cara de botão: para o elo que é o
+ *                              destino da página, e não uma nota de rodapé
+ *   [mapa:consulta]...[/mapa]  abre as opções de Maps e Waze para um endereço
  */
 
 /** Classificação litúrgica de cada peça da Missa. */
@@ -193,7 +197,7 @@ export interface Agenda {
   nome: string;
   descricao?: string;
   /** Onde ela aparece no site. */
-  grupo: "ordo" | "indulgencias";
+  grupo: "ordo" | "indulgencias" | "indulgencias-apostolado";
   /** Identificador do calendário, que só funciona se ele for público. */
   google: string;
 }

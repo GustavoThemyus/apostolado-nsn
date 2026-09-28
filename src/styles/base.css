@@ -2802,6 +2802,15 @@ button {
   color: var(--tinta-suave);
 }
 
+.postagem__estampa {
+  display: block;
+  width: min(15rem, 60%);
+  height: auto;
+  margin: 0 auto 1.75rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.4rem;
+}
+
 .postagem__data {
   margin: 1.5rem 0 1.25rem;
   text-align: center;
@@ -3995,6 +4004,103 @@ button {
   content: " ↗";
   font-size: 0.8em;
   color: var(--ouro-tinta);
+}
+
+/*
+ * O elo de destaque: o que leva o leitor adiante no fim de uma postagem.
+ *
+ * O elo comum herda a cor do texto e se anuncia só por um fio embaixo, que é
+ * o certo no meio do parágrafo e some quando o elo é o destino da página. Este
+ * tem moldura, e por isso se lê como coisa em que se clica.
+ */
+.elo-botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.35rem 0;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--fio-aceso);
+  border-radius: 0.4rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+.elo-botao:hover,
+.elo-botao:focus-visible {
+  border-color: var(--ouro);
+  background-color: var(--papel-fundo);
+}
+.elo-botao::after {
+  content: "→";
+  font-size: 0.95em;
+}
+.elo-botao--externo::after {
+  content: "↗";
+}
+
+/* ---------------- localização de uma igreja ---------------- */
+
+/*
+ * "Conferir a localização" abre as opções no lugar, em vez de levar direto ao
+ * Maps: o documento do Perez lista mais de cem igrejas, e três elos abertos em
+ * cada uma encheriam a tabela de ruído.
+ */
+.local {
+  display: inline;
+}
+.local__gatilho {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ouro-tinta);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--fio-aceso);
+  text-underline-offset: 0.25em;
+}
+.local__gatilho:hover {
+  text-decoration-color: var(--ouro);
+}
+.local__gatilho[aria-expanded="true"] {
+  text-decoration: none;
+}
+.local__opcoes {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-left: 0.5rem;
+  vertical-align: baseline;
+}
+.local__opcao {
+  appearance: none;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--fio);
+  border-radius: 999px;
+  background: none;
+  font-family: var(--sem-serifa);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--tinta);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.local__opcao:hover,
+.local__opcao:focus-visible {
+  border-color: var(--ouro);
 }
 
 /* ------------------------------------------------- sumário com subseções */

@@ -122,6 +122,14 @@ export const REGISTRO: DocumentoRegistrado[] = [
     ajuda: "Os dias que carregam indulgência. Os presos a uma festa acompanham a transferência.",
   },
   {
+    id: "indulgencias-arquidiocese",
+    titulo: "Calendário de Indulgências Arquidiocesano",
+    caminho: emDados("indulgencias-arquidiocese.json"),
+    forma: "documento",
+    rota: "/indulgencias/arquidiocese",
+    ajuda: "As igrejas da Arquidiocese e o dia de indulgência de cada uma. Gerado por ferramentas/arquidiocese: correção aqui tem de voltar para lá.",
+  },
+  {
     id: "indulgencias-raccolta",
     titulo: "Raccolta",
     caminho: emDados("indulgencias-raccolta.json"),

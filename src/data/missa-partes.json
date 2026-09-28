@@ -1,16 +1,87 @@
 {
   "titulo": "Da Missa e suas partes",
-  "descricao": "Cada parte da Missa em detalhe: origem, sentido e rubricas.",
-  "emPreparacao": true,
+  "descricao": "Cada parte da Missa Tridentina explicada e comentada: o que é, de onde veio, o que significa e que rubricas a regem.",
   "secoes": [
     {
-      "id": "em-preparacao",
-      "titulo": "Em preparação",
+      "id": "apresentacao",
+      "titulo": "Apresentação",
       "blocos": [
         {
-          "id": "prep-001",
+          "id": "partes-001",
           "tipo": "paragrafo",
-          "texto": "Este guia detalhado ainda está sendo escrito."
+          "texto": "A presente seção destina-se a apresentar os detalhes e composição de cada parte da Missa Tridentina, para isso, subdividiremos as partes da Missa para que cada trecho dela seja devidamente explicado e comentado."
+        },
+        {
+          "id": "partes-002",
+          "tipo": "paragrafo",
+          "texto": "A intenção é que as explicações sirvam de catequese acerca da Missa Tradicional, abordando a explicação básica de cada parte, o desenvolvimento de cada trecho da Missa ao longo dos séculos, bem com a sua realidade espiritual e quais frutos podemos colher de cada movimento que o sacerdote faz no altar."
+        },
+        {
+          "id": "partes-003",
+          "tipo": "nota",
+          "titulo": "Estrutura dos textos",
+          "paragrafos": [
+            "Com exceção do primeiro, cada artigo versará sobre uma parte da Missa em específico e, conforme seja conveniente, os detalhes podem ser subdivididos para dar a atenção necessária a cada parte.",
+            "Cada artigo seguirá a parte da Missa com quatro parágrafos: o primeiro será uma introdução, onde se explicará o que é aquele trecho; o segundo tratará do desenvolvimento histórico, qual a origem e porque determinado movimento é do jeito que é; o terceiro se aprofundara sobre o simbolismo espiritual de cada trecho, o que aquele gesto representa no âmbito espiritual do sacrifício; o quarto versará de forma breve e simples sobre as rubricas, isto é, as normas que regem esta cerimônia litúrgica específica."
+          ]
+        },
+        {
+          "id": "partes-004",
+          "tipo": "paragrafo",
+          "texto": "Esperamos que esses estudos motivem cada vez mais o apreço pela Missa Tridentina e aumentar a devoção acerca da Missa em si. A intenção é trazer a tona toda a profundidade da riqueza que possui a Santa Missa Tradicional que tanto amamos e defendemos, esperamos que da mesma forma, inundados pela riqueza teológica e litúrgica, possam todos crescer no amor por isso esse Missa e lutar pela sua aprovação, difusão e expansão em todos os ambientes católicos."
+        }
+      ]
+    },
+    {
+      "id": "fontes",
+      "titulo": "Fontes",
+      "blocos": [
+        {
+          "id": "partes-101",
+          "tipo": "paragrafo",
+          "texto": "As fontes utilizadas para a realização desses artigos foram as seguintes:"
+        },
+        {
+          "id": "partes-102",
+          "tipo": "lista",
+          "itens": [
+            "Curso de Liturgia Romana – Tomo II – Dom Antônio Coelho (Ed. Livraria Litúrgica, 1943)",
+            "Curso de Liturgia – João Batista Reus (Ed. Vozes, 1944)",
+            "Missa Tridentina: Explicações das orações e das cerimônias da Santa Missa – Dom Prosper Guéranger (Ed. Permanência, 2010)",
+            "El Sacrificio de la Misa: Tratado Historico-Liturgico – Jose A. Jungmann, S. I. (Ed. Biblioteca de Autores Cristianos, 1951)",
+            "Explication de la Messe – Tome Premier – Pierre Le Brun (Ed. Chez Seguin Sine, 1843)",
+            "Compêndio de Liturgia Romana – António de Vasconcelloz – Vol I (Ed. França Amado, 1901)",
+            "Dicionário Litúrgico – Frei Basílio Rower, OFM (Ed. Vozes, 1947)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indice",
+      "titulo": "Índice",
+      "blocos": [
+        {
+          "id": "partes-201",
+          "tipo": "paragrafo",
+          "texto": "Esta é a ordem em que os artigos serão publicados. Nenhum deles está no ar ainda: enquanto isso, o [elo:/missa/guia]guia prático da Missa[/elo] acompanha a celebração de ponta a ponta."
+        },
+        {
+          "id": "partes-202",
+          "tipo": "lista",
+          "ordenada": true,
+          "itens": [
+            "[b]As Diferenças mais notáveis do rito Tradicional[/b]\na. Posição Versus Deum\nb. Língua Latina\nc. Silêncio",
+            "[b]Asperges[/b]\na. Procissão de entrada\nb. Rito do Asperges",
+            "[b]Orações ao pé do altar[/b]\na. Salmo 42\nb. Confiteor\nc. Subida ao altar",
+            "[b]Intróito[/b]",
+            "[b]Kyrie eleison[/b]",
+            "[b]Glória[/b]",
+            "[b]Coleta[/b]",
+            "[b]Epístola[/b]",
+            "[b]Gradual/Aleluia/Trato/Sequência[/b]",
+            "[b]Evangelho[/b]\na. Preparação para o Evangelho\nb. Evangelho",
+            "[b]Credo[/b]"
+          ]
         }
       ]
     }

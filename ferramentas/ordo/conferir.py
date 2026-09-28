@@ -64,6 +64,23 @@ for data, dia in sorted(publicado.items()):
         problemas.append(f"{data}: as partes não batem ({len(doOrdo)} no Ordo, "
                          f"{len(dia.get('partes', []))} publicadas)")
 
+# --- os PDF do próprio da Missa não podem sumir -----------------------------
+#
+# Em 28/09/2026 o Perez passou os calendários para o e-mail do Apostolado. O
+# texto dos 365 dias veio igualzinho, e os 92 anexos não vieram: mover eventos
+# no Google não leva os anexos junto, e o .ics novo saiu sem uma linha ATTACH.
+# Uma importação distraída teria apagado do site os links de "Confira o próprio
+# da Missa", que é coisa que ele mesmo pediu.
+#
+# Daí esta conferência olhar para trás: se o Ordo novo traz menos anexos do que
+# o já publicado, ela para. Quem decide o que fazer é gente, não o script.
+noIcs = sum(len(d.get("anexos") or []) for d in publicado.values())
+naOrigem = len(re.findall(r"\r?\nATTACH", bruto))
+if naOrigem < noIcs:
+    problemas.append(
+        f"o Ordo publicado tem {noIcs} anexos e o .ics traz {naOrigem}: "
+        "reanexar os PDF no calendário novo, ou manter o JSON como está")
+
 # --- nenhum buraco no ano ---------------------------------------------------
 for arquivo in anos:
     ano = int(arquivo.removesuffix(".json"))

@@ -129,6 +129,15 @@ export const ROTAS: Rota[] = [
     pagina: () => import("../pages/IndulgenciasCalendario"),
   },
   {
+    padrao: "/indulgencias/arquidiocese",
+    titulo: "Calendário de Indulgências Arquidiocesano",
+    curto: "Calendário arquidiocesano",
+    descricao:
+      "As igrejas da Arquidiocese da Paraíba e o dia em que cada uma dá indulgência plenária a quem a visita.",
+    pai: "/indulgencias",
+    pagina: () => import("../pages/IndulgenciasArquidiocese"),
+  },
+  {
     padrao: "/indulgencias/raccolta",
     titulo: "Raccolta",
     descricao: "A coleção de orações e obras indulgenciadas anterior a 1968.",
@@ -234,7 +243,6 @@ export const filhasDe = (padrao: string): Rota[] =>
 export type EstadoDaRota = "preparacao" | "rascunho";
 
 export const ESTADO_DA_ROTA: Record<string, EstadoDaRota> = {
-  "/missa/partes": "preparacao",
   "/missa/situacao-canonica": "preparacao",
   "/calendario/brasil": "preparacao",
   "/calendario/arquidiocese": "preparacao",

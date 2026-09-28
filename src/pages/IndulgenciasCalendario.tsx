@@ -247,10 +247,21 @@ export default function IndulgenciasCalendario() {
         </ul>
       </section>
 
+      {/*
+        Dois blocos, e não um: o calendário do Apostolado vale para qualquer
+        fiel, e os das confrarias só para quem é de uma delas. Junto, o de cima
+        parecia mais uma associação na lista.
+      */}
+      <AssinarAgenda
+        grupo="indulgencias-apostolado"
+        titulo="Levar as indulgências no celular"
+        explicacao="O calendário que o Apostolado mantém, com os dias que ele marca."
+      />
+
       <AssinarAgenda
         grupo="indulgencias"
-        titulo="Levar as indulgências no celular"
-        explicacao="Os calendários das confrarias e ordens terceiras, para não perder os dias."
+        titulo="Calendários das confrarias e ordens terceiras"
+        explicacao="Cada um traz os dias próprios de uma associação. Vincule o da que você pertence, para não perder as datas."
       />
     </Moldura>
   );

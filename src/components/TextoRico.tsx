@@ -1,17 +1,22 @@
 import { Fragment, type ReactNode } from "react";
+import { Localizacao } from "./Localizacao";
 import { BalaoDeNota, usarNota, usarNotaEmCurso } from "./Notas";
 
 const CORES = ["branco", "vermelho", "verde", "roxo", "preto", "rosa"] as const;
 
 type Cor = (typeof CORES)[number];
-type Marca = "lat" | "b" | "i" | "r" | "nota" | "elo" | Cor;
+type Marca = "lat" | "b" | "i" | "r" | "nota" | "elo" | "botao" | "mapa" | Cor;
 
 /**
  * Instância nova a cada chamada: a busca é recursiva e lastIndex é estado
- * mutável. O `:parametro` é opcional e só o `elo` o usa hoje.
+ * mutável. O `:parametro` é opcional; usam-no o `elo`, o `botao` e o `mapa`.
+ *
+ * `botao` vem antes de `b` na alternância de propósito: as duas começam com a
+ * mesma letra, e ainda que o retrocesso do motor acabasse acertando, a ordem
+ * explícita poupa o leitor de ter que descobrir isso.
  */
 const marcacao = () =>
-  /\[(lat|b|i|r|nota|elo|branco|vermelho|verde|roxo|preto|rosa)(?::([^\]]*))?\]([\s\S]*?)\[\/\1\]/g;
+  /\[(lat|botao|b|i|r|nota|elo|mapa|branco|vermelho|verde|roxo|preto|rosa)(?::([^\]]*))?\]([\s\S]*?)\[\/\1\]/g;
 
 /** A chamada de nota: componente porque precisa de contexto. */
 function Nota({ chave }: { chave: string }) {
@@ -34,12 +39,25 @@ function Nota({ chave }: { chave: string }) {
  *   /indulgencias/enchiridion#x    outra página daqui, o Roteador intercepta
  *   concessao-14                   ponto desta mesma página
  */
-function Elo({ destino, children }: { destino: string; children: ReactNode }) {
+function Elo({
+  destino,
+  botao,
+  children,
+}: {
+  destino: string;
+  /** Elo de destaque: o que leva o leitor adiante, e por isso parece botão. */
+  botao?: boolean;
+  children: ReactNode;
+}) {
   const externo = /^(https?:|mailto:)/.test(destino);
   const interno = destino.startsWith("/");
   return (
     <a
-      className={`elo-texto${externo ? " elo-texto--externo" : ""}`}
+      className={
+        botao
+          ? `elo-botao${externo ? " elo-botao--externo" : ""}`
+          : `elo-texto${externo ? " elo-texto--externo" : ""}`
+      }
       // âncora da própria página começa com #, e o Roteador não intercepta essas
       href={externo || interno ? destino : `#${destino}`}
       {...(externo ? { target: "_blank", rel: "noreferrer noopener" } : {})}
@@ -81,6 +99,19 @@ function envolver(
         <Elo destino={parametro ?? ""} key={chave}>
           {conteudo}
         </Elo>
+      );
+    case "botao":
+      return (
+        <Elo destino={parametro ?? ""} botao key={chave}>
+          {conteudo}
+        </Elo>
+      );
+    case "mapa":
+      // o parâmetro é o que se procura no mapa: nome da igreja e endereço
+      return (
+        <Localizacao consulta={parametro ?? ""} key={chave}>
+          {conteudo}
+        </Localizacao>
       );
     default:
       // nome de cor litúrgica: a palavra é escrita na própria cor

@@ -13,6 +13,7 @@ import arquidiocese from "./calendario-arquidiocese.json";
 import brasil from "./calendario-brasil.json";
 import canonica from "./missa-canonica.json";
 import dias from "./indulgencias-dias.json";
+import arquidioceseIndulgencias from "./indulgencias-arquidiocese.json";
 import enchiridion from "./indulgencias-enchiridion.json";
 import guia from "./guia.json";
 import indulgencias from "./indulgencias.json";
@@ -20,7 +21,7 @@ import missa from "./missa.json";
 import ordens from "./indulgencias-ordens.json";
 import partes from "./missa-partes.json";
 import raccolta from "./indulgencias-raccolta.json";
-import { ESTADO_DA_ROTA } from "../routes/rotas";
+import { ESTADO_DA_ROTA, ROTAS } from "../routes/rotas";
 import type { Bloco, Conteudo, Secao } from "./tipos";
 
 let passaram = 0;
@@ -59,6 +60,29 @@ const ancorasDe = (secoes: Secao[]): Set<string> => {
   return saida;
 };
 
+const CAMINHOS_DE_ROTA = new Set(ROTAS.map((r) => r.padrao));
+
+/**
+ * Três destinos, e os três se quebram calados.
+ *
+ * Âncora desta página, caminho de outra página do site e endereço externo. O
+ * caminho é conferido contra a tabela de rotas, e a âncora dele contra o
+ * documento de destino quando temos como saber — hoje, o Enchiridion, que é
+ * para onde o calendário arquidiocesano aponta as 33 concessões.
+ */
+function destinoExiste(destino: string, ancoras: Set<string>): boolean {
+  if (/^(https?:|mailto:)/.test(destino)) return true;
+  if (!destino.startsWith("/")) return ancoras.has(destino);
+
+  const [caminho, ancora] = destino.split("#");
+  if (!CAMINHOS_DE_ROTA.has(caminho)) return false;
+  if (!ancora) return true;
+  if (caminho === "/indulgencias/enchiridion") {
+    return ancorasDe((enchiridion as unknown as Conteudo).secoes).has(ancora);
+  }
+  return true;
+}
+
 function examinar(nome: string, bruto: unknown) {
   const doc = bruto as Conteudo;
   const notas = doc.notas ?? {};
@@ -80,10 +104,13 @@ function examinar(nome: string, bruto: unknown) {
   conferir(`${nome}: nenhuma nota se cita a si mesma`, seCitam.length === 0, seCitam.join(", "));
 
   const destinos = [...corpo.matchAll(/\[elo:([^\]]+)\]/g)].map((m) => m[1]);
-  const quebrados = [...new Set(destinos)].filter(
-    (d) => !/^(https?:|mailto:)/.test(d) && !ancoras.has(d),
-  );
+  const quebrados = [...new Set(destinos)].filter((d) => !destinoExiste(d, ancoras));
   conferir(`${nome}: todo elo tem destino`, quebrados.length === 0, quebrados.join(", "));
+
+  const semConsulta = [...corpo.matchAll(/\[mapa:([^\]]*)\]/g)]
+    .map((m) => m[1])
+    .filter((c) => c.trim() === "");
+  conferir(`${nome}: todo mapa tem o que procurar`, semConsulta.length === 0);
 
   const vazias = Object.entries(notas).filter(([, t]) => !t.trim()).map(([c]) => c);
   conferir(`${nome}: nenhuma nota vazia`, vazias.length === 0, vazias.join(", "));
@@ -92,6 +119,7 @@ function examinar(nome: string, bruto: unknown) {
   conferir(`${nome}: ids de seção sem repetição`, repetidas.length === 0, repetidas.join(", "));
 }
 
+examinar("arquidiocese (indulgências)", arquidioceseIndulgencias);
 examinar("enchiridion", enchiridion);
 examinar("guia", guia);
 examinar("indulgências", indulgencias);
@@ -154,6 +182,7 @@ conferir("enchiridion: as 33 concessões têm âncora",
     ["/calendario/brasil", brasil as unknown as Conteudo],
     ["/calendario/arquidiocese", arquidiocese as unknown as Conteudo],
     ["/indulgencias", indulgencias as unknown as Conteudo],
+    ["/indulgencias/arquidiocese", arquidioceseIndulgencias as unknown as Conteudo],
     ["/indulgencias/raccolta", raccolta as unknown as Conteudo],
     ["/indulgencias/enchiridion", enchiridion as unknown as Conteudo],
     ["/indulgencias/ordens", ordens as unknown as Conteudo],

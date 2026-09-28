@@ -160,6 +160,33 @@ def ler(dados):
     return dias, problemas
 
 
+def conferir_anexos(caminho, dias):
+    """
+    Não deixa uma importação apagar os PDF do próprio da Missa.
+
+    Em 28/09/2026 o Perez passou os calendários para o e-mail do Apostolado. O
+    texto dos 365 dias veio idêntico e os 92 anexos não vieram: mover eventos
+    no Google não leva os anexos junto. Reimportar por cima teria apagado do
+    site os links de "Confira o próprio da Missa", que ele mesmo pediu.
+
+    A trava fica aqui, e não só no conferir.py: lá ela compara o .ics com o
+    JSON publicado, e uma vez escrito o arquivo sem anexos os dois passam a
+    concordar em não ter nada.
+    """
+    if not os.path.exists(caminho):
+        return
+    with open(caminho, encoding="utf-8") as f:
+        publicado = json.load(f)["dias"]
+    antes = sum(len(d.get("anexos") or []) for d in publicado.values())
+    agora = sum(len(d.get("anexos") or []) for d in dias.values())
+    if agora < antes and "--sem-anexos" not in sys.argv:
+        raise SystemExit(
+            f"{caminho}: o publicado tem {antes} anexos e esta importação traz "
+            f"{agora}. Reanexar os PDF no calendário, ou repetir com "
+            "--sem-anexos para gravar assim mesmo."
+        )
+
+
 def principal():
     if "--baixar" in sys.argv or not os.path.exists(ICS):
         dados = baixar()
@@ -185,6 +212,7 @@ def principal():
             "ano": int(ano),
             "dias": doAno,
         }
+        conferir_anexos(os.path.join(PASTA, f"{ano}.json"), doAno)
         with open(os.path.join(PASTA, f"{ano}.json"), "w", encoding="utf-8") as f:
             json.dump(saida, f, ensure_ascii=False, indent=1)
             f.write("\n")

@@ -3,6 +3,36 @@
   "descricao": "Vidas de santos e escritos sobre a liturgia.",
   "postagens": [
     {
+      "id": "enchiridion-indulgentiarum",
+      "titulo": "Enchiridion Indulgentiarum",
+      "resumo": "O conjunto da legislação e das concessões de indulgências em vigor, na tradução aprovada pela CNBB, agora completo no site.",
+      "data": "2026-09-28",
+      "categoria": "liturgia",
+      "imagem": "/capas/enchiridion-eee7ab38.webp",
+      "blocos": [
+        {
+          "id": "p-enchiridion-1",
+          "tipo": "paragrafo",
+          "texto": "O presente conteúdo trata-se de uma transcrição feita de um documento eclesiástico: o [i]Enchiridion Indulgentiarum quarto editur[/i], publicado em 16 de julho de 1999 pelo Sumo Pontífice João Paulo II."
+        },
+        {
+          "id": "p-enchiridion-2",
+          "tipo": "paragrafo",
+          "texto": "Este documento representa o conjunto da legislação e concessões atualmente em vigor que versam sobre a disciplina das indulgências para toda a Igreja latina. A sua publicação tomou o lugar das concessões de Paulo VI na Constituição Apostólica [i]Indulgentiarum Doctrina[/i], do [i]Enchiridion Indulgentiarum[/i] de 1968 e de 1986."
+        },
+        {
+          "id": "p-enchiridion-3",
+          "tipo": "paragrafo",
+          "texto": "Trata-se de um documento importantíssimo para o dia-a-dia do fiel católico e é uma imensa alegria poder trazer uma versão digital do enquiridio em português."
+        },
+        {
+          "id": "p-enchiridion-4",
+          "tipo": "paragrafo",
+          "texto": "[botao:/indulgencias/enchiridion]Ler o Enchiridion Indulgentiarum[/botao]"
+        }
+      ]
+    },
+    {
       "id": "nossa-senhora-das-neves",
       "titulo": "Nossa Senhora das Neves",
       "resumo": "A titular da capela e a dedicação de Santa Maria Maior.",

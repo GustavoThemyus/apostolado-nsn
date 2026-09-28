@@ -28,6 +28,17 @@ export default function Postagem() {
       <p className="postagem__data">
         <time dateTime={postagem.data}>{dataPorExtenso(postagem.data)}</time>
       </p>
+      {/* a estampa já aparecia na faixa do início; aqui ela faltava, e a
+          postagem abria em texto puro logo depois do título */}
+      {postagem.imagem && (
+        <img
+          className="postagem__estampa"
+          src={postagem.imagem}
+          alt=""
+          width={480}
+          height={640}
+        />
+      )}
       {postagem.rascunho && <Vazia variante="rascunho" />}
       <ListaDeBlocos blocos={postagem.blocos} />
     </Moldura>
