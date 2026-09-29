@@ -201,3 +201,12 @@ Cada seção é um objeto `Secao` com `id`, `numero`, `titulo`, `resumo` opciona
 e uma lista de `blocos`. Os tipos estão em `src/data/tipos.ts`, e as seções
 são reunidas em `src/data/guia.ts`. O sumário se monta sozinho a partir dessa
 lista, então basta acrescentar a seção no arquivo do grupo correspondente.
+
+## Licença
+
+O código está sob a licença MIT, em [LICENSE](LICENSE).
+
+O conteúdo publicado e as imagens **não estão**: os textos são do Apostolado,
+a tradução do Enchiridion é da CNBB, e o brasão é a identidade da instituição.
+[LICENCA-DO-CONTEUDO.md](LICENCA-DO-CONTEUDO.md) diz o que é de quem e o que
+precisa ser trocado por quem quiser reaproveitar o código.

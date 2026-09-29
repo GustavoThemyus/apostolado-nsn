@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Apostolado Nossa Senhora das Neves - guia do Rito Romano na forma do Missal de São Pio V",
+  "license": "MIT",
+  "author": "Gustavo Themyus",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
