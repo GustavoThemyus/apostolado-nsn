@@ -204,7 +204,7 @@ secoes.append({
             "a não ser caso especial em que se estabeleça outra coisa."
             + nota("§", "ID, n. 16; EI 1999, n. 19."),
 
-            "Para ganhar a indulgência anexa a algum dia, quando de exige a visita à "
+            "Para ganhar a indulgência anexa a algum dia, quando se exige a visita à "
             "igreja ou oratório, esta pode fazer-se [b]desde o meio-dia precedente até "
             "a meia-noite do dia determinado.[/b]"
             + nota("§", "CIC 1917, cân. 923; EI 1999, n. 14."),
@@ -373,7 +373,7 @@ secoes.append({
           "os males que produzimos com nossos pecados, bem como excitar a caridade e "
           "aplicar esses benefícios para alguma alma do purgatório."),
         p("Esperamos pois, que assim possamos ter cada vez mais apreço a essas graças, "
-          "que isto nos excite s contrição dos nossos pecados e s perseverança na "
+          "que isto nos excite à contrição dos nossos pecados e à perseverança na "
           "graça de Deus, além do benefício de poder conhecer novas igrejas e rezar "
           "nelas, que comunica também nosso vínculo com a nossa Arquidiocese."),
     ],

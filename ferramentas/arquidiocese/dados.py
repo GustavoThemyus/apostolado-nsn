@@ -235,7 +235,7 @@ PAROQUIAS = [
         festa="Santa Ana Mãe de Nossa Senhora",
         marca=("~", "No Calendário pós-Conciliar a festa se celebra juntamente com São Joaquim"),
         igrejas=[
-            igreja("Titular da Paróquia Sant'ana em João Pessoa", "Rua José Lúcio dos Santos, s/n, Funcionários - João Pessoa (Paraíba), 58078-220", "Forania Conjuntos", 2002),
+            igreja("Titular da Paróquia Sant'Anna em João Pessoa", "Rua José Lúcio dos Santos, s/n, Funcionários - João Pessoa (Paraíba), 58078-220", "Forania Conjuntos", 2002),
             igreja("Co-Titular da Paróquia Sant'Anna e São Joaquim em João Pessoa", "Rua Adália Suassuna Barreto, s/n, Pedro Gondim - João Pessoa (Paraíba), 58031-112", "Forania Centro", 2010),
         ],
     ),
@@ -263,7 +263,7 @@ PAROQUIAS = [
     dict(
         data="12 de Agosto",
         festa="Santa Clara",
-        marca=("~", "No Calendário pós-Conciliar a festa mudou o data para 11 de Agosto"),
+        marca=("~", "No Calendário pós-Conciliar a festa mudou a data para 11 de Agosto"),
         igrejas=[
             igreja("Paróquia Santa Clara em João Pessoa", "Rua Luiz de França Pereira, s/n, Alto Do Mateus - João Pessoa (Paraíba), 58090-580", "Forania Urbana Sul", 2004),
         ],

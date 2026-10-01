@@ -21,7 +21,7 @@
     "^2": "A presente festa possui como data mundial o primeiro Domingo de Junho, mas em diversas localidades pode assumir outras datas, como o Natal do Senhor e demais datas no final de Dezembro e início de Janeiro. Aparentemente a Paróquia não comemora a festa do Titular, então optamos pela data mundialmente associada",
     "§13": "Nota: Essa paróquia comemora o titular em um domingo na metade do mês de Agosto ou de Setembro",
     "~2": "No Calendário pós-Conciliar a festa se celebra juntamente com São Joaquim",
-    "~3": "No Calendário pós-Conciliar a festa mudou o data para 11 de Agosto",
+    "~3": "No Calendário pós-Conciliar a festa mudou a data para 11 de Agosto",
     "§14": "Nota: Nesta Paróquia celebra-se no Domingo mais próximo ao dia 22 de Agosto",
     "~4": "No Calendário pós-Conciliar a festa mudou a data para 26 de Julho, juntamente com Santa Ana",
     "§15": "Nota: Há também outra paróquia na Arquidiocese com a mesma titular, mas celebra-se em 15 de Outubro",
@@ -135,7 +135,7 @@
           "tipo": "lista",
           "itens": [
             "[b]A obra prescrita[/b] para alcançar a Indulgência Plenária, quando anexa à igreja ou oratório, [b]é sempre a visita[/b], não é preciso assistir a Missa na igreja ou participar de qualquer cerimônia. Na igreja se deve recitar a oração dominical e o símbolo aos apóstolos (Pai-nosso e Credo), a não ser caso especial em que se estabeleça outra coisa.[nota]§1[/nota]",
-            "Para ganhar a indulgência anexa a algum dia, quando de exige a visita à igreja ou oratório, esta pode fazer-se [b]desde o meio-dia precedente até a meia-noite do dia determinado.[/b][nota]§2[/nota]",
+            "Para ganhar a indulgência anexa a algum dia, quando se exige a visita à igreja ou oratório, esta pode fazer-se [b]desde o meio-dia precedente até a meia-noite do dia determinado.[/b][nota]§2[/nota]",
             "A indulgência anexa à visita à igreja ainda pode ser lucrada mesmo se o edifício se demolir completamente e seja reconstruído dentro de cinquenta anos no mesmo lugar ou em local bem próximo, desde que conserve o mesmo título.[nota]§3[/nota]"
           ],
           "ordenada": true,
@@ -331,7 +331,7 @@
             [
               "26 de Julho",
               "Santa Ana Mãe de Nossa Senhora [nota]~2[/nota]",
-              "• Titular da Paróquia Sant'ana em João Pessoa (Forania Conjuntos) (2002)\nRua José Lúcio dos Santos, s/n, Funcionários - João Pessoa (Paraíba), 58078-220\n[mapa:Paróquia Sant'ana em João Pessoa, Rua José Lúcio dos Santos, s/n, Funcionários - João Pessoa - PB, 58078-220]Conferir a localização[/mapa]\n\n• Co-Titular da Paróquia Sant'Anna e São Joaquim em João Pessoa (Forania Centro) (2010)\nRua Adália Suassuna Barreto, s/n, Pedro Gondim - João Pessoa (Paraíba), 58031-112\n[mapa:Paróquia Sant'Anna e São Joaquim em João Pessoa, Rua Adália Suassuna Barreto, s/n, Pedro Gondim - João Pessoa - PB, 58031-112]Conferir a localização[/mapa]"
+              "• Titular da Paróquia Sant'Anna em João Pessoa (Forania Conjuntos) (2002)\nRua José Lúcio dos Santos, s/n, Funcionários - João Pessoa (Paraíba), 58078-220\n[mapa:Paróquia Sant'Anna em João Pessoa, Rua José Lúcio dos Santos, s/n, Funcionários - João Pessoa - PB, 58078-220]Conferir a localização[/mapa]\n\n• Co-Titular da Paróquia Sant'Anna e São Joaquim em João Pessoa (Forania Centro) (2010)\nRua Adália Suassuna Barreto, s/n, Pedro Gondim - João Pessoa (Paraíba), 58031-112\n[mapa:Paróquia Sant'Anna e São Joaquim em João Pessoa, Rua Adália Suassuna Barreto, s/n, Pedro Gondim - João Pessoa - PB, 58031-112]Conferir a localização[/mapa]"
             ],
             [
               "31 de Julho",
@@ -733,7 +733,7 @@
         },
         {
           "tipo": "paragrafo",
-          "texto": "Esperamos pois, que assim possamos ter cada vez mais apreço a essas graças, que isto nos excite s contrição dos nossos pecados e s perseverança na graça de Deus, além do benefício de poder conhecer novas igrejas e rezar nelas, que comunica também nosso vínculo com a nossa Arquidiocese.",
+          "texto": "Esperamos pois, que assim possamos ter cada vez mais apreço a essas graças, que isto nos excite à contrição dos nossos pecados e à perseverança na graça de Deus, além do benefício de poder conhecer novas igrejas e rezar nelas, que comunica também nosso vínculo com a nossa Arquidiocese.",
           "id": "conclusao-003"
         }
       ]
