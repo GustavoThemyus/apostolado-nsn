@@ -23,9 +23,26 @@ const json = (corpo: unknown, status = 200) =>
     headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
   });
 
+/** O endereço de casa, sem o `www`. */
+const CASA = "ansn.com.br";
+
 export default {
   async fetch(pedido: Request, env: Env): Promise<Response> {
     const url = new URL(pedido.url);
+
+    /*
+     * O `www` leva ao apex, com o caminho e a busca intactos.
+     *
+     * Os dois são domínio do mesmo Worker, então sem isto o site responderia
+     * nos dois endereços e os buscadores veriam o mesmo texto em dois lugares.
+     * O redirecionamento é permanente porque a decisão é permanente: o nome do
+     * site é `ansn.com.br`.
+     */
+    if (url.hostname === `www.${CASA}`) {
+      url.hostname = CASA;
+      return Response.redirect(url.toString(), 301);
+    }
+
     if (!url.pathname.startsWith("/api/")) return env.ASSETS.fetch(pedido);
 
     /*

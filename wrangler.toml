@@ -1,5 +1,5 @@
-# Worker que serve o guia e a API do painel.
-# Publica em https://apostolado-nsn.gustavothemyus.workers.dev
+# Worker que serve o site e a API do painel.
+# Publica em https://ansn.com.br
 #
 # Manualmente:  npm run publicar
 # Automático:   repositório conectado em Workers Builds, no painel.
@@ -7,6 +7,21 @@
 name = "apostolado-nsn"
 main = "worker/index.ts"
 compatibility_date = "2026-09-03"
+
+# A conta do Apostolado, e não a pessoal. O domínio personalizado de um Worker
+# só alcança zona da mesma conta, e `ansn.com.br` mora nesta:
+account_id = "c23ff08c6635b3e1d1676bc86ed42d60"
+
+# Sem endereço em workers.dev: o site tem domínio próprio, e um segundo
+# endereço servindo o mesmo conteúdo só dividiria o que os buscadores veem.
+workers_dev = false
+
+# O `www` também entra como domínio do Worker, e não como um CNAME solto: o
+# apex é domínio de Worker, e uma requisição com Host `www` não casaria com
+# ele. Quem manda o `www` para o apex é o próprio Worker, em worker/index.ts.
+routes = [
+  { pattern = "ansn.com.br", custom_domain = true },
+]
 
 [assets]
 directory = "./dist"
