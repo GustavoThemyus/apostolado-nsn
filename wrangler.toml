@@ -21,6 +21,7 @@ workers_dev = false
 # ele. Quem manda o `www` para o apex é o próprio Worker, em worker/index.ts.
 routes = [
   { pattern = "ansn.com.br", custom_domain = true },
+  { pattern = "www.ansn.com.br", custom_domain = true },
 ]
 
 [assets]
@@ -28,6 +29,19 @@ directory = "./dist"
 binding = "ASSETS"
 # /admin é rota do próprio site: caminho desconhecido devolve o index
 not_found_handling = "single-page-application"
+
+# O Worker roda antes do armazém de ativos.
+#
+# Sem isto, todo caminho que casa com um arquivo de verdade é servido direto,
+# e o Worker nem é chamado. Medido: `www.ansn.com.br/missa/guia` redirecionava,
+# mas `www.ansn.com.br/` devolvia 200 e servia o site inteiro, porque `/` casa
+# com o index.html. O endereço que as pessoas compartilham era exatamente o
+# que escapava do redirecionamento.
+#
+# O preço é uma invocação de Worker por arquivo. Para o tamanho deste site
+# isso cabe de sobra no plano gratuito, e deixa a regra morando no repositório
+# em vez de escondida numa tela do painel.
+run_worker_first = true
 
 [vars]
 # Preencher com os valores do Cloudflare Access e do repositório.
