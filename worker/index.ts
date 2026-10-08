@@ -1,7 +1,7 @@
 import { buscarAgenda } from "./agenda";
 import { porId } from "../src/data/registro";
 import { emailAutenticado } from "./acesso";
-import { ConflitoDeEdicao, gravarConteudo, lerConteudo } from "./github";
+import { ConflitoDeEdicao, CredencialInvalida, gravarConteudo, lerConteudo } from "./github";
 import { validar } from "./validar";
 
 export interface Env {
@@ -87,6 +87,8 @@ export default {
         const { texto, sha } = await lerConteudo(cfg);
         return json({ documento: doc.id, conteudo: JSON.parse(texto), sha, quem });
       } catch (e) {
+        // 503: é configuração do site, não erro de quem está editando
+        if (e instanceof CredencialInvalida) return json({ erro: e.message }, 503);
         return json({ erro: e instanceof Error ? e.message : "falha ao ler" }, 502);
       }
     }
@@ -113,6 +115,7 @@ export default {
         return json({ ok: true, documento: doc.id, commit, sha, quem });
       } catch (e) {
         if (e instanceof ConflitoDeEdicao) return json({ erro: e.message }, 409);
+        if (e instanceof CredencialInvalida) return json({ erro: e.message }, 503);
         return json({ erro: e instanceof Error ? e.message : "falha ao gravar" }, 502);
       }
     }

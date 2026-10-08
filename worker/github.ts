@@ -34,12 +34,41 @@ export class ConflitoDeEdicao extends Error {
   }
 }
 
+/**
+ * Token recusado pelo GitHub.
+ *
+ * Existe porque o token é fine-grained e **expira**. Sem isto, o dia em que
+ * ele vencer o painel mostra "502" com o JSON cru do GitHub dentro, que se lê
+ * como servidor quebrado em vez de credencial vencida — e quem estiver
+ * editando não tem como saber que a solução é gerar outro token. A falha é
+ * certa; o que não pode ser é silenciosa.
+ */
+export class CredencialInvalida extends Error {
+  constructor(detalhe: string) {
+    super(`o GitHub recusou a credencial do site (${detalhe}). O token provavelmente expirou ou foi revogado: gere outro e grave com "wrangler secret put GITHUB_TOKEN".`);
+    this.name = "CredencialInvalida";
+  }
+}
+
+/**
+ * O GitHub usa 403 tanto para credencial sem permissão quanto para limite de
+ * uso estourado. Quem separa os dois é o cabeçalho de limite restante.
+ */
+function conferirCredencial(r: Response): void {
+  if (r.status === 401) throw new CredencialInvalida("401, credencial inválida");
+  if (r.status === 403) {
+    if (r.headers.get("x-ratelimit-remaining") === "0") return;
+    throw new CredencialInvalida("403, sem permissão para este repositório");
+  }
+}
+
 /** Conteúdo publicado e o sha **do arquivo**, necessário para gravar por cima. */
 export async function lerConteudo(c: Config): Promise<{ texto: string; sha: string }> {
   const r = await fetch(
     `https://api.github.com/repos/${c.repo}/contents/${c.caminho}?ref=${c.ramo}`,
     { headers: cabecalhos(c.token) }
   );
+  conferirCredencial(r);
   if (r.status === 404) throw new Error(`documento ainda não existe no repositório: ${c.caminho}`);
   if (!r.ok) throw new Error(`GitHub leu ${r.status}: ${await r.text()}`);
   const d = (await r.json()) as { content: string; sha: string };
@@ -79,6 +108,7 @@ export async function gravarConteudo(
     }),
   });
 
+  conferirCredencial(r);
   // 409 é o conflito documentado; a API também devolve 422 quando o sha está velho
   if (r.status === 409 || r.status === 422) throw new ConflitoDeEdicao();
   if (!r.ok) throw new Error(`GitHub gravou ${r.status}: ${await r.text()}`);
