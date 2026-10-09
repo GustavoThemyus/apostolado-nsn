@@ -2081,6 +2081,17 @@ button {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--ouro-tinta);
+}
+
+/*
+ * A especificidade a mais é de propósito, e conserta um defeito antigo.
+ *
+ * `.rodape p` vale 0-1-1 e zera a margem de cima no atalho, então o
+ * `margin-top` que vivia na regra acima, com 0-1-0, nunca chegou a pegar: a
+ * marca sempre veio colada no que estivesse em cima dela. Com o selo no meio
+ * o espaço foi a zero e o desequilíbrio ficou visível.
+ */
+.rodape .rodape__marca {
   margin-top: 1.5rem;
 }
 .rodape__lema {
@@ -2113,21 +2124,26 @@ button {
   width: 3.75rem;
   /* a proporção do arquivo, 200x217 */
   aspect-ratio: 200 / 217;
-  margin: 2rem auto 0;
+  /*
+   * Igual dos dois lados. Margem de irmãos adjacentes se funde, então o vão
+   * de cima é o maior entre esta e os 0,75rem do parágrafo, e o de baixo o
+   * maior entre esta e o `margin-top` da marca: 1,5rem nos dois casos.
+   */
+  margin: 1.5rem auto;
   background: center / contain no-repeat url("/brasao-escuro-7569753f.webp");
-  opacity: 0.4;
+  opacity: 0.7;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .rodape__selo {
     background-image: url("/brasao-claro-7c64c1c8.webp");
-    opacity: 0.32;
+    opacity: 0.55;
   }
 }
 
 :root[data-theme="dark"] .rodape__selo {
   background-image: url("/brasao-claro-7c64c1c8.webp");
-  opacity: 0.32;
+  opacity: 0.55;
 }
 
 /*
