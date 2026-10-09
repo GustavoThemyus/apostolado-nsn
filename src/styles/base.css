@@ -2156,7 +2156,29 @@ button {
   font-size: 0.68rem;
   letter-spacing: 0.02em;
   color: var(--tinta-suave);
-  opacity: 0.8;
+}
+
+/*
+ * O nome sem fio embaixo, e um tom acima do resto da linha.
+ *
+ * A seta de elo externo já diz que leva a algum lugar, então o sublinhado
+ * seria um segundo aviso do mesmo. E é a seta que torna isso defensável:
+ * sem ela, o elo se anunciaria só pela cor, que é justamente o que não se
+ * deve fazer. O fio volta no cursor, para quem passa por cima confirmar.
+ *
+ * A opacidade saiu da linha inteira em vez de ficar: com ela, `--tinta` a
+ * 80% sobre o papel claro cai quase em cima de `--tinta-suave`, e o
+ * destaque que o nome deveria ganhar simplesmente não aparecia.
+ */
+.rodape__credito .elo-texto {
+  color: var(--tinta);
+  text-decoration: none;
+}
+.rodape__credito .elo-texto:hover,
+.rodape__credito .elo-texto:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: var(--fio-aceso);
+  text-underline-offset: 0.18em;
 }
 
 /* ---------------- telas maiores ---------------- */
