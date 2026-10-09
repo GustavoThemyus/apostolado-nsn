@@ -194,10 +194,23 @@ button {
   color: var(--ouro-tinta);
   white-space: nowrap;
 }
+/*
+ * Na barra o brasão vai em silhueta, não colorido.
+ *
+ * A 2,05rem o desenho colorido virava borrão: o campo estrelado, o lírio e a
+ * fita se misturavam num borrão azul e dourado de trinta e poucos pixels. A
+ * silhueta é a mesma forma sem o que não cabe, e lê.
+ *
+ * Não custa requisição: é o mesmo arquivo do selo do rodapé, que toda página
+ * já baixa. Qual das duas artes vem, quem decide é `--brasao-mono`, no
+ * tema.css, junto das outras coisas que mudam com o tema.
+ */
 .barra__brasao {
+  display: block;
   width: 2.05rem;
   height: 2.05rem;
-  object-fit: contain;
+  background: center / contain no-repeat;
+  background-image: var(--brasao-mono);
 }
 
 /*
@@ -2130,19 +2143,24 @@ button {
    * maior entre esta e o `margin-top` da marca: 1,5rem nos dois casos.
    */
   margin: 1.5rem auto;
-  background: center / contain no-repeat url("/brasao-escuro-7569753f.webp");
+  background: center / contain no-repeat;
+  background-image: var(--brasao-mono);
   opacity: 0.7;
 }
 
+/*
+ * Só a opacidade continua dependendo do tema; a arte vem da variável.
+ * Branco sobre quase preto rende mais que preto sobre creme, e igualar os
+ * dois números deixaria o selo do tema escuro brilhando mais do que a marca
+ * dourada logo abaixo dele.
+ */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .rodape__selo {
-    background-image: url("/brasao-claro-7c64c1c8.webp");
     opacity: 0.55;
   }
 }
 
 :root[data-theme="dark"] .rodape__selo {
-  background-image: url("/brasao-claro-7c64c1c8.webp");
   opacity: 0.55;
 }
 

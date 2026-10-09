@@ -113,6 +113,19 @@
    */
   --respiro-etiqueta: 0.5rem;
 
+  /*
+   * O brasão em silhueta, que serve a barra do alto e o selo do rodapé.
+   *
+   * Mora aqui, e não em cada regra, porque é a única coisa do site cuja arte
+   * muda com o tema: preta sobre papel claro, branca sobre papel escuro. Com
+   * o nome do arquivo repetido em cada lugar, trocar o desenho exigiria achar
+   * os quatro, e o que escapasse ficaria invisível em um dos temas.
+   *
+   * O navegador baixa só a arte do tema em uso, e as duas telas compartilham
+   * o mesmo arquivo: a barra não custa requisição nenhuma a mais.
+   */
+  --brasao-mono: url("/brasao-escuro-7569753f.webp");
+
   color-scheme: light;
 }
 
@@ -157,6 +170,8 @@
     --lit-preto: #9c98ac;
     --lit-rosa: #f0a8c8;
 
+    --brasao-mono: url("/brasao-claro-7c64c1c8.webp");
+
     color-scheme: dark;
   }
 }
@@ -187,6 +202,8 @@
   --lit-roxo: #c0a3e8;
   --lit-preto: #9c98ac;
   --lit-rosa: #f0a8c8;
+  --brasao-mono: url("/brasao-claro-7c64c1c8.webp");
+
   color-scheme: dark;
 }
 
