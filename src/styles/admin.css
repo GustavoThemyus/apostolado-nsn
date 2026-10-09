@@ -258,16 +258,100 @@
   border-left: 2px solid var(--fio);
 }
 
-.admin__tipos {
-  display: grid;
-  gap: 0.5rem;
+/* ---------------- paleta de tipos de bloco ---------------- */
+
+/*
+ * Cada cartão traz o nome, para que serve, e uma amostra do bloco de verdade
+ * — renderizada pelo mesmo componente do site, debaixo do mesmo base.css.
+ * Por isso o cartão não pinta nem dimensiona nada por dentro: quem decide a
+ * cor da rubrica é a folha do site, e é justamente isso que se quer ver aqui.
+ */
+.paleta {
   margin: 0.75rem 0;
 }
-.admin__tipo {
+.paleta__guia {
+  font-family: var(--sem-serifa);
+  font-size: 0.78rem;
+  color: var(--tinta-suave);
+  margin: 0 0 0.75rem;
+}
+.paleta__grade {
   display: grid;
-  gap: 0.15rem;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+.paleta__tipo {
+  display: grid;
+  gap: 0.3rem;
+  width: 100%;
   text-align: left;
-  padding: 0.7rem 0.8rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.35rem;
+  background: var(--painel);
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.paleta__tipo:hover,
+.paleta__tipo:focus-visible {
+  border-color: var(--ouro-tinta);
+}
+.paleta__nome {
+  font-family: var(--titular);
+  font-size: 1.02rem;
+}
+.paleta__descricao {
+  font-family: var(--sem-serifa);
+  font-size: 0.74rem;
+  color: var(--tinta-suave);
+}
+
+/*
+ * A amostra fica sobre o papel do site, e não sobre o painel do cartão: a
+ * rubrica, o ouro e os fios foram medidos contra `--papel`, e mostrá-los
+ * sobre outro fundo daria uma ideia errada do contraste que terão na página.
+ *
+ * A escala é só visual. Encolher por `font-size` mudaria as proporções, que
+ * é o que a amostra existe para mostrar; `zoom` reduz o conjunto inteiro.
+ */
+.amostra {
+  margin-top: 0.35rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 0.3rem;
+  background: var(--papel);
+  border: 1px dashed var(--fio);
+  zoom: 0.82;
+  pointer-events: none;
+  overflow: hidden;
+}
+.amostra > :first-child {
+  margin-top: 0;
+}
+.amostra > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------- escolha do documento ---------------- */
+
+.escolha {
+  margin-bottom: 2rem;
+}
+.escolha__lista {
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.escolha__item {
+  display: grid;
+  gap: 0.2rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem 0.9rem;
   border: 1px solid var(--fio);
   border-radius: 0.35rem;
   background: var(--painel);
@@ -276,9 +360,59 @@
   color: inherit;
   min-height: var(--alvo-toque);
 }
-.admin__tipo:hover { border-color: var(--ouro-tinta); }
-.admin__tipo strong { font-family: var(--titular); font-size: 1rem; }
-.admin__tipo span { font-size: 0.85rem; color: var(--tinta-suave); }
+.escolha__item:hover:not(:disabled),
+.escolha__item:focus-visible {
+  border-color: var(--ouro-tinta);
+}
+.escolha__item:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+.escolha__nome {
+  font-family: var(--titular);
+  font-size: 1.05rem;
+}
+.escolha__ajuda {
+  font-family: var(--sem-serifa);
+  font-size: 0.74rem;
+  color: var(--tinta-suave);
+}
+.escolha__falta {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--fio-aceso);
+  border-radius: 999px;
+  font-family: var(--sem-serifa);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  vertical-align: middle;
+}
+.escolha__ver {
+  display: inline-block;
+  margin: 0.3rem 0 0.1rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.68rem;
+  color: var(--tinta-suave);
+}
+
+/* o ponto que diz que há coisa por salvar */
+.admin__sujo {
+  margin-left: 0.4rem;
+  color: var(--rubrica);
+  font-size: 1.1rem;
+  line-height: 0;
+}
+
+.admin__ajuda--atencao {
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--rubrica);
+  background: var(--painel);
+  border-radius: 0 0.3rem 0.3rem 0;
+}
 
 .admin__perigo {
   margin-top: 2.5rem;
@@ -288,5 +422,5 @@
 
 @media (min-width: 46rem) {
   .admin__corpo { padding-top: 1.75rem; }
-  .admin__tipos { grid-template-columns: 1fr 1fr; }
+  .paleta__grade { grid-template-columns: 1fr 1fr; }
 }

@@ -209,17 +209,3 @@ export interface Agenda {
   /** Identificador do calendário, que só funciona se ele for público. */
   google: string;
 }
-
-export interface Guia {
-  chamada?: string;
-  titulo: string;
-  descricao: string;
-  /** Lema do brasão. */
-  lema: string;
-  secoes: Secao[];
-  rodape: string[];
-  /** Assinatura institucional, por extenso, no fim da página. */
-  marca: string;
-  /** Sigla, para a barra fixa, onde não cabe o nome inteiro. */
-  marcaCurta: string;
-}

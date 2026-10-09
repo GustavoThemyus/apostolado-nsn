@@ -33,6 +33,15 @@ export function validar(forma: Forma, conteudo: unknown): string | null {
           return `identidade do site sem ${campo}`;
         }
       }
+      /*
+       * Os calendários não se editam pelo painel, de propósito: identificador
+       * errado deixa o botão de vincular quebrado sem aviso nenhum. Gravação
+       * que os perca só pode ser defeito do editor, e publicá-la tiraria do
+       * visitante a agenda do Ordo e as das confrarias de uma vez.
+       */
+      if (!listaComItens(conteudo.agendas)) {
+        return "identidade do site sem os calendários: recusado para não quebrar os botões de vincular";
+      }
       return null;
 
     case "inicio":
