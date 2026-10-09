@@ -104,7 +104,12 @@ export function Moldura({
         {rota?.padrao !== "/" && <Lateral />}
         <Trilha rota={rota} atual={titulo} />
         {children}
-        <Rodape paragrafos={site.rodape} marca={site.marca} lema={site.lema} />
+        <Rodape
+          paragrafos={site.rodape}
+          marca={site.marca}
+          lema={site.lema}
+          credito={site.credito}
+        />
       </main>
 
       <MenuPrincipal

@@ -170,6 +170,14 @@ export interface Site {
   marcaCurta: string;
   lema: string;
   rodape: string[];
+  /**
+   * Quem fez o site, numa linha, no fim do rodapé.
+   *
+   * Fica aqui, e não no código, porque é texto do site: o Apostolado pode
+   * reescrevê-lo pelo painel sem pedir nada a ninguém. Aceita a mesma
+   * marcação do resto, então o nome pode levar a algum lugar.
+   */
+  credito?: string;
   agendas: Agenda[];
   /** Os retratos da lateral das páginas, no computador. */
   lateral?: Retrato[];

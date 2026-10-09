@@ -6,10 +6,10 @@
  * ícone da aba, que é onde 66px bastam.
  */
 const TAMANHOS = {
-  barra: { classe: "barra__brasao", arquivo: "/brasao-b7c45edf.webp", largura: 331, altura: 360 },
-  cabecalho: { classe: "cabecalho__brasao", arquivo: "/brasao-b7c45edf.webp", largura: 331, altura: 360 },
-  pagina: { classe: "cabecalho__brasao cabecalho__brasao--pagina", arquivo: "/brasao-b7c45edf.webp", largura: 331, altura: 360 },
-  menu: { classe: "menu__brasao", arquivo: "/brasao-b7c45edf.webp", largura: 331, altura: 360 },
+  barra: { classe: "barra__brasao", arquivo: "/brasao-9ea57f61.webp", largura: 572, altura: 620 },
+  cabecalho: { classe: "cabecalho__brasao", arquivo: "/brasao-9ea57f61.webp", largura: 572, altura: 620 },
+  pagina: { classe: "cabecalho__brasao cabecalho__brasao--pagina", arquivo: "/brasao-9ea57f61.webp", largura: 572, altura: 620 },
+  menu: { classe: "menu__brasao", arquivo: "/brasao-9ea57f61.webp", largura: 572, altura: 620 },
 } as const;
 
 /** Brasão do Apostolado: campo estrelado, lírio e o lema Iter para tutum. */

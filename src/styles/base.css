@@ -2094,6 +2094,55 @@ button {
   color: var(--tinta-suave);
 }
 
+/*
+ * O selo do rodapé: o brasão em silhueta, fechando a página.
+ *
+ * Duas artes, e não uma pintada por CSS: o Perez mandou o branco e o preto
+ * prontos, e o desenho deles não é o colorido dessaturado — a silhueta tem
+ * traço próprio. O preto serve o tema claro e o branco o escuro.
+ *
+ * A troca segue os mesmos seletores do tema.css, e não só a consulta de
+ * mídia: o site tem botão de tema, e quem o usa para forçar o claro num
+ * sistema escuro receberia um selo branco sobre papel claro, invisível.
+ *
+ * Como fundo, o navegador baixa só a arte do tema em uso. Como <img>, viriam
+ * as duas.
+ */
+.rodape__selo {
+  display: block;
+  width: 3.75rem;
+  /* a proporção do arquivo, 200x217 */
+  aspect-ratio: 200 / 217;
+  margin: 2rem auto 0;
+  background: center / contain no-repeat url("/brasao-escuro-7569753f.webp");
+  opacity: 0.4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .rodape__selo {
+    background-image: url("/brasao-claro-7c64c1c8.webp");
+    opacity: 0.32;
+  }
+}
+
+:root[data-theme="dark"] .rodape__selo {
+  background-image: url("/brasao-claro-7c64c1c8.webp");
+  opacity: 0.32;
+}
+
+/*
+ * O crédito de quem fez o site. Última linha, menor que tudo, e sem o
+ * dourado da marca: é informação de colofão, não assinatura de dono.
+ */
+.rodape__credito {
+  margin-top: 1.1rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  color: var(--tinta-suave);
+  opacity: 0.8;
+}
+
 /* ---------------- telas maiores ---------------- */
 
 @media (min-width: 46rem) {
@@ -3748,9 +3797,9 @@ button {
  * direita — os quatro textos inteiros passam bem da altura dele, e sem isso a
  * quarta caixa ficava longe do brasão de onde a linha sai.
  *
- * O tamanho tem teto honesto: o arquivo tem 331px de largura, e o brasão aqui
- * vai a 24rem. Em tela comum isso já é ampliar 1,16 vez; em tela de alta
- * densidade, mais de duas. Um original maior, ou vetorial, resolveria.
+ * O tamanho tem teto honesto: o arquivo tem 572px de largura, e o brasão aqui
+ * vai a 24rem, ou 480px na raiz de 20px. Em tela comum sobra; em tela de alta
+ * densidade ainda falta, porque 2x pediriam 960. Só o vetorial resolve de vez.
  */
 @media (min-width: 56rem) {
   .brasao-comentado {

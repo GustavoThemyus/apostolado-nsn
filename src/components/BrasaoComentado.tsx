@@ -148,10 +148,10 @@ export function BrasaoComentado({ partes }: { partes: ParteDoBrasao[] }) {
         >
           <img
             className="brasao-comentado__imagem"
-            src="/brasao-b7c45edf.webp"
+            src="/brasao-9ea57f61.webp"
             alt="Brasão do Apostolado Nossa Senhora das Neves"
-            width={331}
-            height={360}
+            width={572}
+            height={620}
           />
           {partes.map((parte, i) => (
             <button
