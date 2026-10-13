@@ -44,9 +44,14 @@ not_found_handling = "single-page-application"
 run_worker_first = true
 
 [vars]
-# Preencher com os valores do Cloudflare Access e do repositório.
-ACCESS_TEAM = "SEU-TIME"
-ACCESS_AUD = "SUA-TAG-DE-AUDIENCIA"
+# O time do Zero Trust da conta do Apostolado. O Worker busca as chaves
+# públicas em https://<time>.cloudflareaccess.com/cdn-cgi/access/certs para
+# conferir a assinatura do token do Access.
+ACCESS_TEAM = "apostolado-nsn"
+# A AUD Tag da aplicação do Access que protege /admin. O Worker confere que
+# o token foi emitido para esta aplicação, e não para outra do mesmo time:
+# sem isso, um token de qualquer aplicação da conta abriria o painel.
+ACCESS_AUD = "0642f55b879542a13ae862fba2e6802382cdd8e23ea1b491ffcec39a55235cac"
 GITHUB_REPO = "GustavoThemyus/apostolado-nsn"
 GITHUB_RAMO = "main"
 
