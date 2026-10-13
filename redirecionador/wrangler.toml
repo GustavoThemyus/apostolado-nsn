@@ -1,0 +1,20 @@
+# O Worker do endereço antigo, na conta PESSOAL do Gustavo.
+#
+# Não é o site: é só o redirecionamento para ansn.com.br. O site mora em
+# ../wrangler.toml, na conta do Apostolado.
+#
+#   cd redirecionador && npx wrangler@4.85.0 deploy
+#
+# ATENÇÃO: só publique isto depois de desligar o Workers Builds desta conta.
+# Com ele ligado, o próximo push reconstrói o site inteiro por cima daqui e o
+# endereço antigo volta a servir uma cópia velha.
+
+name = "apostolado-nsn"
+main = "index.ts"
+compatibility_date = "2026-09-03"
+
+# a conta pessoal, que é dona do subdomínio gustavothemyus.workers.dev
+account_id = "7f752642c0bc4c8415fe32ba7f067ead"
+
+# aqui o endereço em workers.dev é o ponto, e não um sobrando
+workers_dev = true
