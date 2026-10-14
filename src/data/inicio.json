@@ -1,7 +1,20 @@
 {
   "titulo": "Apostolado Nossa Senhora das Neves",
   "descricao": "Os avisos da capela, o calendário litúrgico do dia, o guia da Missa, as indulgências e as vidas dos santos.",
-  "avisos": [],
+  "avisos": [
+    {
+      "id": "aviso-mv7een1x",
+      "titulo": "Teste",
+      "blocos": [
+        {
+          "id": "paragrafo-mv7eg57f-3",
+          "tipo": "paragrafo",
+          "texto": "Teste para apresentação dos avisos na página inicial"
+        }
+      ],
+      "ate": "2026-10-14"
+    }
+  ],
   "blocos": [],
   "sobre": {
     "titulo": "O que é o Apostolado Nossa Senhora das Neves",
