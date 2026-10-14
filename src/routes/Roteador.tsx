@@ -167,7 +167,13 @@ export function Roteador({
     <ContextoDeRota.Provider value={valor}>
       {children(
         <Suspense fallback={<div className="carregando" aria-hidden="true" />}>
-          <AoTrocarDePagina caminho={caminho} titulo={casamento?.rota.titulo}>
+          <AoTrocarDePagina
+          caminho={caminho}
+          /* sem rota é a página de não encontrada, e a aba tem de dizer isso:
+             a aba e o histórico do navegador são o que sobra quando alguém
+             volta ali dias depois */
+          titulo={casamento ? casamento.rota.titulo : "Página não encontrada"}
+        >
             <Pagina />
           </AoTrocarDePagina>
         </Suspense>,

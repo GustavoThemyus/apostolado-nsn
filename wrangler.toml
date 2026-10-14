@@ -27,8 +27,10 @@ routes = [
 [assets]
 directory = "./dist"
 binding = "ASSETS"
-# /admin é rota do próprio site: caminho desconhecido devolve o index
-not_found_handling = "single-page-application"
+# Quem devolve o index para as rotas do site é o Worker, e não o armazém.
+# Com "single-page-application" aqui, **todo** caminho inventado recebia o
+# index com status 200, e buscador indexa o que a gente promete que existe.
+not_found_handling = "none"
 
 # O Worker roda antes do armazém de ativos.
 #

@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import type { Padrao } from "./padroes";
 
 /**
  * Tabela de rotas do site.
@@ -9,7 +10,8 @@ import type { ComponentType } from "react";
  */
 
 export interface Rota {
-  padrao: string;
+  /** Tipado pela lista de `padroes.ts`: rota com caminho de fora não compila. */
+  padrao: Padrao;
   /** Vai para o <title> e para as migalhas. */
   titulo: string;
   /** Rótulo curto para a barra, onde o título inteiro não cabe. */
