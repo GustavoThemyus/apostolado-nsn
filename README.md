@@ -1,70 +1,51 @@
-# Guia da Missa Tridentina
+# Apostolado Nossa Senhora das Neves
 
-Guia do Rito Romano na forma do Missal de São Pio V, do Apostolado Nossa Senhora das Neves
-(NSN).
+O site do Apostolado Nossa Senhora das Neves, em <https://ansn.com.br>: o guia
+da Missa no Rito Romano na forma do Missal de São Pio V, o calendário
+litúrgico calculado, as indulgências e as publicações da capela.
 
-Aplicação React em Vite, escrita para ser lida principalmente no celular:
-layout de coluna única a partir de 320px, tabelas que viram fichas empilhadas
-em tela estreita, sumário em folha deslizante, tema claro/escuro e alvos de
-toque de 44px.
+Aplicação React em Vite, servida por um Worker da Cloudflare. Escrita para ser
+lida principalmente no celular, em dados móveis: coluna única a partir de
+320px, tabelas que viram fichas empilhadas em tela estreita, sumário em folha
+deslizante, tema claro e escuro, e alvos de toque de 44px.
 
-## Design system
+Nada aqui é genérico por acaso. O vocabulário do código é português — classes,
+funções, tipos e comentários —, porque é a língua de quem escreve o conteúdo e
+de quem vai manter isto depois.
 
-As cores saíram por amostragem das imagens em `design_system/`: o brasão
-(campo azul estrelado, borda e fita douradas, lírio branco) e o impresso em
-papel damasco.
+## O que o site faz
 
-| Token | Claro | Escuro | Uso |
-| --- | --- | --- | --- |
-| `--papel` | `#F0ECE1` | `#14142C` | fundo; papel damasco / campo do escudo |
-| `--painel` | `#F8F5EC` | `#1D1D3D` | caixas, sumário |
-| `--tinta` | `#1F1E3A` | `#ECE7D8` | corpo do texto |
-| `--tinta-suave` | `#5A5670` | `#A8A2BB` | texto secundário |
-| `--ouro-tinta` | `#7A6026` | `#E9DA93` | numeração, etiquetas, títulos de apoio |
-| `--ouro` | `#A3863F` | `#D0BA74` | filetes e bordas (decorativo) |
-| `--rubrica` | `#A32220` | `#E08A80` | rubricas do missal |
-| `--elo` | `#2E3A70` | `#9FB6E2` | links e etiqueta Ordinário |
+| | |
+| --- | --- |
+| **Guia da Missa** | as cinquenta e cinco peças da Missa em ordem, com rubricas, latim e tradução |
+| **Calendário** | o calendário de 1962 **calculado**, não tabelado: computo da Páscoa, precedência, transferências, Têmporas e Rogações |
+| **Ordo pré-55** | o Ordo da capela, importado do calendário do Google, dia a dia |
+| **Indulgências** | o Enchiridion de 1999 inteiro, os dias de plenária presos ao calendário, e o calendário arquidiocesano com 129 igrejas |
+| **Postagens** | vidas de santos e escritos sobre a liturgia |
+| **Painel** | `/admin`, atrás do Cloudflare Access, onde o conteúdo se edita sem tocar em código |
 
-Todo par de texto sobre fundo passa de 5:1 nos dois temas. `--ouro` fica em
-2.95:1 no claro e por isso só entra em filete e borda, nunca em texto; para
-texto dourado existe `--ouro-tinta`.
-
-O vermelho não vem do brasão, mas continua no sistema porque é conteúdo: a
-rubrica impressa é vermelha por definição, e o guia explica isso na seção 1.
-Foi só reaquecido para conviver com o creme e o dourado. Como consequência, o
-vermelho passou a ser exclusivo de rubrica, e a numeração e as etiquetas que
-antes eram vermelhas foram para o dourado.
-
-### Tipografia
-
-| Papel | Fonte | De onde veio |
-| --- | --- | --- |
-| Títulos | Playfair Display | o display azul do impresso da Epifania |
-| Corpo | EB Garamond | a página de novena |
-| Etiquetas e interface | Inter | a assinatura institucional no rodapé do impresso |
-
-### Ornamentos
-
-`src/styles/damasco.svg` é a fonte do padrão damasco, embutido em `tema.css`
-como data URI e aplicado por `mask-image` na classe `.damasco`. A cor vem de
-`--damasco-cor`, então ele fica azul sobre creme e dourado sobre azul. Só
-aparece no cabeçalho e no sumário flutuante, nunca atrás do texto corrido.
-
-O brasão está em `public/brasao.png` (cabeçalho, favicon) e
-`public/brasao-pequeno.png` (barra), recortados do original com fundo
-transparente. A estrela de oito pontas do campo do escudo vira ornamento no
-componente `Estrela`.
+O calendário é o que só este código faz: uma indulgência presa a uma festa
+acompanha a transferência dela sozinha, porque o motor sabe para onde a festa
+foi. Um segundo calendário, tabelado, divergiria do primeiro na primeira
+exceção.
 
 ## Comandos
 
 ```bash
 npm install
 npm run dev            # servidor de desenvolvimento, já exposto na rede local
+npm test               # calendário, rotas, iCal, Ordo, indulgências, conteúdo e CSS
 npm run build          # checagem de tipos e build de produção em dist/
 npm run preview        # serve o build de produção
 npm run checar-tipos   # só a checagem de tipos
-npm run publicar       # build e publicação no Cloudflare Pages
+npm run publicar       # build e publicação à mão (normalmente não é preciso)
 ```
+
+`npm test` roda sete suítes sem dependência de teste: as verificações do
+calendário em catorze anos, o casamento de rotas, a leitura de iCal, o Ordo, as
+indulgências, a integridade do conteúdo e a conferência estrutural do CSS.
+**Rode antes de publicar qualquer coisa que toque no calendário** — o Corpus
+Christi já saiu verde uma vez, e quem denunciou foi o teste.
 
 ## Ver no celular durante o desenvolvimento
 
@@ -75,132 +56,203 @@ local e imprime o endereço:
 ➜  Network: http://192.168.x.x:5173/
 ```
 
-Abra esse endereço no celular, com o telefone na mesma Wi-Fi. Se não carregar,
-o firewall está bloqueando a porta:
+Abra no celular, na mesma Wi-Fi. Se não carregar, o firewall está bloqueando:
 
 ```bash
 sudo ufw allow 5173/tcp
 ```
 
-Para testar o build de produção em vez do de desenvolvimento:
+## Publicação
+
+**Cada `git push` no `main` publica sozinho.** O repositório está ligado ao
+Workers Builds, na conta da Cloudflare do Apostolado, que roda `npm run build`
+e `npx wrangler deploy`. Não é preciso rodar comando nenhum.
+
+Isso vale também para o painel: quando o Perez salva um texto em `/admin`, o
+Worker grava um commit no repositório, o Builds vê o push e republica. O
+histórico do git é o histórico das edições, com autor e possibilidade de
+voltar atrás.
+
+Para publicar à mão — útil quando a esteira está fora do ar:
 
 ```bash
-npm run build && npm run preview -- --host
+npx wrangler@4.85.0 login
+npm run publicar
 ```
 
-## Publicar
+A versão está presa em 4.85.0 porque a 4.86 em diante exige Node 22. O
+`.nvmrc` já pede 22; depois de confirmar que tudo roda nele, a trava pode sair.
 
-O site é estático, então qualquer host de arquivo serve. Está configurado para
-**Cloudflare Pages**, que é grátis sem limite de banda e tem boa presença de
-CDN no Brasil.
+### Como o Worker serve o site
 
-### Caminho mais curto: subir a pasta pelo painel
+`wrangler.toml` na raiz. Três decisões que não são óbvias:
 
-Não exige CLI, git nem versão específica de Node.
+- **`account_id`** aponta para a conta do Apostolado, e não para uma conta
+  pessoal. Domínio personalizado de Worker só alcança zona da mesma conta.
+- **`workers_dev = false`**: o site tem domínio próprio, e um segundo endereço
+  servindo o mesmo conteúdo só dividiria o que os buscadores veem.
+- **`run_worker_first = true`**: sem isso, todo caminho que casa com um arquivo
+  de verdade é servido sem chamar o Worker — e o redirecionamento de `www`
+  funcionava em `/missa/guia` e falhava em `/`, que é o endereço que as pessoas
+  compartilham.
 
-```bash
-npm run build
-zip -r guia-nsn-site.zip -j dist   # ou apenas arraste a pasta dist
-```
+`www.ansn.com.br` é domínio do próprio Worker e volta ao apex com 301.
 
-No painel da Cloudflare, em **Workers & Pages → Create → Pages → Upload
-assets**, envie a pasta `dist` (ou o zip). O site sai em `guia-nsn.pages.dev`,
-acessível de qualquer rede, inclusive dados móveis.
+### O endereço antigo
 
-Para atualizar depois, é **Create new deployment** dentro do mesmo projeto,
-enviando a `dist` de novo.
-
-### Pela linha de comando
-
-```bash
-npx wrangler@4.85.0 login   # abre o navegador para autorizar a conta
-npm run publicar            # build e envio
-```
-
-A versão está presa em 4.85.0 porque a partir da 4.86 o wrangler exige
-Node 22, e este projeto ainda roda em Node 20. Depois de atualizar o Node,
-troque o script `publicar` para usar `wrangler` sem versão fixa.
-
-### Publicar a cada push, sem rodar comando
-
-No painel do Cloudflare Pages, em **Workers & Pages → Create → Pages → Connect
-to Git**, aponte para o repositório e use:
-
-| Campo | Valor |
-| --- | --- |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Node version | 20 ou mais |
-
-A partir daí cada `git push` na branch `main` republica sozinho.
-
-### Domínio próprio
-
-Em **Custom domains**, dentro do projeto no painel. O certificado HTTPS sai
-automático. Se o domínio do apostolado já estiver na Cloudflare, é só apontar;
-se não, o painel mostra os registros DNS a criar.
+`redirecionador/` é um Worker de nove linhas, publicado numa conta separada,
+que manda `apostolado-nsn.gustavothemyus.workers.dev` para `ansn.com.br`
+preservando caminho e busca. **Não apague esse Worker:** o endereço antigo está
+impresso na página 2 do PDF do calendário arquidiocesano que o Apostolado
+distribui, e apagá-lo liberaria o nome e transformaria aqueles links em erro.
 
 ### Cache
 
-`public/_headers` define o cache: os arquivos de `assets/` levam hash no nome e
-ficam guardados para sempre, enquanto o HTML nunca fica em cache, para que uma
-correção no guia apareça na hora para quem já visitou.
+`public/_headers` define o cache: os arquivos de `assets/` levam impressão do
+conteúdo no nome e ficam guardados para sempre, enquanto o HTML nunca fica em
+cache, para que uma correção apareça na hora para quem já visitou. É também por
+isso que trocar uma imagem exige trocar o nome do arquivo.
+
+## O painel
+
+`/admin` lista os dezesseis documentos editáveis e abre cada um em
+`/admin/<id>`. Quem traduz um id em caminho de arquivo é `src/data/registro.ts`,
+**no servidor**: aceitar um caminho vindo do navegador daria escrita em
+qualquer arquivo do repositório, e o repositório publica sozinho.
+
+A autenticação é do **Cloudflare Access**, com política de e-mails. O Worker
+confere o token de novo por conta própria, para que a API não fique aberta se
+um dia a rota for exposta por engano. `/api/agenda` é a exceção deliberada:
+fica pública, porque é ela que deixa o visitante vincular os calendários ao
+próprio celular.
+
+Ao criar um bloco, a paleta mostra **o bloco de verdade**, renderizado pelo
+mesmo componente do site e sob o mesmo `base.css`. Amostra pintada à mão
+começaria certa e terminaria mentindo.
+
+## Design system
+
+As cores saíram por amostragem das imagens em `design_system/`: o brasão
+(campo azul estrelado, borda e fita douradas, lírio branco) e o impresso em
+papel damasco.
+
+| Token | Claro | Escuro | Uso |
+| --- | --- | --- | --- |
+| `--papel` | `#f0ece1` | `#181821` | fundo |
+| `--painel` | `#f8f5ec` | `#21222c` | caixas, sumário |
+| `--tinta` | `#1f1e3a` | `#e8e3d6` | corpo do texto |
+| `--tinta-suave` | `#5a5670` | `#a6a2a0` | texto secundário |
+| `--ouro-tinta` | `#7a6026` | `#cab577` | numeração, etiquetas, títulos de apoio |
+| `--ouro` | `#a3863f` | `#baa35e` | filetes e bordas (decorativo) |
+| `--rubrica` | `#a32220` | `#e08a80` | rubricas do missal |
+| `--elo` | `#2e3a70` | `#9fb6e2` | elos e etiqueta Ordinário |
+
+Todo par de texto sobre fundo passa de 5:1 nos dois temas. `--ouro` fica em
+2.95:1 no claro e por isso só entra em filete e borda, nunca em texto; para
+texto dourado existe `--ouro-tinta`.
+
+O vermelho não vem do brasão, mas continua no sistema porque é conteúdo: a
+rubrica impressa é vermelha por definição. Como consequência, o vermelho é
+exclusivo de rubrica, e a numeração e as etiquetas que antes eram vermelhas
+foram para o dourado.
+
+### Tipografia
+
+| Papel | Fonte | De onde veio |
+| --- | --- | --- |
+| Títulos | Playfair Display | o display azul do impresso da Epifania |
+| Corpo | EB Garamond | a página de novena |
+| Etiquetas e interface | Inter | a assinatura institucional no rodapé do impresso |
+
+O EB Garamond troca todo `u` por `v` em texto marcado como latim — é a forma
+localizada que a fonte traz. `base.css` desliga isso com
+`font-feature-settings: "locl" 0`, senão o lema do site aparece como
+"ITER PARA TVTVM" em toda página.
+
+### Ornamentos e o brasão
+
+`src/styles/damasco.svg` é a fonte do padrão damasco, embutido em `tema.css`
+como data URI e aplicado por `mask-image`. Só aparece no cabeçalho e no sumário
+flutuante, nunca atrás do texto corrido.
+
+O brasão vem em três artes, geradas por `ferramentas/brasao/gerar.py`:
+
+| Arquivo | Onde |
+| --- | --- |
+| `brasao-9ea57f61.webp` | colorido: cabeçalho, menu e a página do brasão |
+| `brasao-claro-*.webp` / `brasao-escuro-*.webp` | silhueta: barra do alto e selo do rodapé |
+| `brasao-pequeno.png` | ícone da aba |
+| `brasao.png` | ícone de toque do iOS e as folhas de rosto |
+
+Qual silhueta aparece é decidido por `--brasao-mono`, no `tema.css`, junto do
+resto que muda com o tema: repetido em cada regra, o nome do arquivo escaparia
+de uma delas um dia, e a regra esquecida ficaria invisível num dos temas sem
+erro nenhum para denunciar.
 
 ## Como o projeto está organizado
 
 ```
 src/
+  pages/         uma por rota; quase todas são cinco linhas sobre PaginaDeDocumento
   components/    peças de interface, uma por arquivo
-  data/          o conteúdo do guia, separado da apresentação
+  calendario/    o motor de 1962, o Ordo, as indulgências e as suítes
+  routes/        roteador escrito à mão: tabela, casamento, Elo, Roteador
+  admin/         o painel de edição
+  data/          o conteúdo, em JSON, separado da apresentação
   hooks/         tema, seção ativa e progresso de leitura
   styles/        tokens em tema.css, layout em base.css, damasco.svg
-public/          brasão recortado, usado como marca e favicon
-design_system/   as imagens de referência da identidade
-legado/          o arquivo HTML único que deu origem ao projeto
+worker/          o Worker: API do painel, Access, GitHub, agendas
+ferramentas/     importadores e geradores (Ordo, Enchiridion, brasão, retratos)
+redirecionador/  o Worker do endereço antigo
+public/          imagens e _headers
+legado/          o HTML único que deu origem ao projeto
 ```
 
-### Componentes
+O roteador é escrito à mão de propósito: não há loaders, revalidação nem dados
+presos à rota, então o que sobra é casar uma string e renderizar. Pagar 10 a 15
+KB comprimidos por isso, num orçamento de 82 KB e para quem lê em dados móveis,
+não se sustenta.
 
-| Componente        | O que faz                                                  |
-| ----------------- | ---------------------------------------------------------- |
-| `BarraSuperior`   | barra fixa com marca, seção atual e barra de progresso      |
-| `Cabecalho`       | brasão, chamada, título, descrição e epígrafe latina         |
-| `Brasao`          | brasão do Apostolado, em dois tamanhos                       |
-| `Estrela`         | estrela de oito pontas usada como ornamento                  |
-| `Sumario`         | índice, embutido na página ou em folha deslizante           |
-| `SeletorDeTema`   | alterna entre sistema, claro e escuro                       |
-| `Secao`           | uma seção numerada do guia                                  |
-| `Bloco`           | escolhe o componente certo para cada bloco de conteúdo      |
-| `Passo`           | uma peça da Missa, com número e etiqueta litúrgica          |
-| `Rubrica`         | texto vermelho de rubrica                                   |
-| `Oracao`          | citação com latim e tradução                                |
-| `Nota`            | caixa de observação, normal ou de alerta                    |
-| `Tabela`          | tabela responsiva, com nome da coluna em tela estreita      |
-| `Legenda`         | lista de chaves de leitura                                  |
-| `Etiqueta`        | Ordinário, Próprio, Variável ou Comum                       |
-| `TextoRico`       | interpreta a marcação mínima do conteúdo                    |
-| `Rodape`          | nota final e assinatura do Apostolado                       |
+## O conteúdo
 
-### Marcação do conteúdo
+Tudo em `src/data/`, em JSON, com um identificador por bloco para o painel
+alterar um sem reescrever o resto. Os tipos estão em `src/data/tipos.ts`.
 
-O texto fica em `src/data/` como string, com uma marcação curta que o
-`TextoRico` converte em elementos React (nunca em HTML cru):
+### Marcação
 
-| Marca            | Vira                        |
-| ---------------- | --------------------------- |
-| `[lat]...[/lat]` | latim, em itálico           |
-| `[b]...[/b]`     | destaque forte              |
-| `[i]...[/i]`     | itálico comum               |
-| `[r]...[/r]`     | rubrica no meio do parágrafo |
+O texto é string com uma marcação curta que o `TextoRico` converte em elementos
+React — nunca em HTML cru:
+
+| Marca | Vira |
+| --- | --- |
+| `[lat]...[/lat]` | latim, em itálico e marcado para o leitor de tela |
+| `[b]...[/b]` | destaque forte |
+| `[i]...[/i]` | itálico comum |
+| `[r]...[/r]` | rubrica no meio do parágrafo |
+| `[nota]12[/nota]` | chamada de nota; o texto vem de `Conteudo.notas` |
+| `[elo:ancora]...[/elo]` | outro ponto da mesma página |
+| `[elo:/rota]...[/elo]` | outra página do site |
+| `[elo:https://...]...[/elo]` | endereço externo, abre em outra aba |
+| `[botao:/rota]...[/botao]` | o mesmo, com cara de botão: para o elo que é o destino da página |
+| `[mapa:consulta]...[/mapa]` | abre as opções de Maps e Waze para um endereço |
+| `[vermelho]...[/vermelho]` | as seis cores litúrgicas, escritas na própria cor |
 
 Quebra de linha dentro de uma célula ou parágrafo: `\n`.
 
-### Como acrescentar conteúdo
+### Acrescentar conteúdo
 
-Cada seção é um objeto `Secao` com `id`, `numero`, `titulo`, `resumo` opcional
-e uma lista de `blocos`. Os tipos estão em `src/data/tipos.ts`, e as seções
-são reunidas em `src/data/guia.ts`. O sumário se monta sozinho a partir dessa
-lista, então basta acrescentar a seção no arquivo do grupo correspondente.
+Pelo painel, em `/admin`, que é como o Apostolado edita. Mexendo no JSON
+direto, cada seção é um objeto `Secao` com `id`, `titulo`, `resumo` opcional e
+uma lista de `blocos`; o número da seção **não se guarda**, é derivado da
+posição, porque valor derivado que se guarda volta a divergir a cada mudança.
+
+Dois documentos não se editam à mão: `src/data/ordo/` vem de
+`ferramentas/ordo/` e `indulgencias-arquidiocese.json` vem de
+`ferramentas/arquidiocese/`. Os dois têm LEIA-ME explicando por quê.
+
+`src/data/conteudo.teste.ts` confere o que quebra calado: chamada de nota sem
+nota, elo sem destino, nota que se cita dentro de si mesma, e a etiqueta "em
+preparação" da rota contra o que cada página diz de si.
 
 ## Licença
 
