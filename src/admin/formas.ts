@@ -17,4 +17,5 @@ export const TEM_EDITOR: ReadonlySet<Forma> = new Set<Forma>([
   "postagens",
   "inicio",
   "site",
+  "paginas",
 ]);

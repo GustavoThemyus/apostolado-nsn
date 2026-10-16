@@ -162,6 +162,42 @@ export interface ColecaoDePostagens {
   postagens: Postagem[];
 }
 
+/**
+ * Os textos de uma página, fora do corpo dela.
+ *
+ * É o que o leitor vê sem rolar: o título da aba e do cabeçalho, o rótulo do
+ * menu, a descrição que aparece no cartão da seção e na prévia ao
+ * compartilhar, a linha em versalete e a estampa atrás do cabeçalho.
+ *
+ * Mora em `paginas.json`, separado do corpo, porque **uma página pode não ter
+ * corpo e ainda assim ter cabeçalho**: o calendário e as postagens são
+ * montados por código e não têm documento nenhum, mas precisam de título e
+ * descrição como qualquer outra.
+ */
+export interface TextoDaPagina {
+  /** Vai para o título da aba, para o cabeçalho e para as migalhas. */
+  titulo: string;
+  /** Onde o título inteiro não cabe: a barra do alto e os atalhos da seção. */
+  curto?: string;
+  /** Uma linha. Abaixo do título, no cartão da seção e na prévia do WhatsApp. */
+  descricao?: string;
+  /**
+   * A linha em versalete dourado acima do título.
+   *
+   * Sem valor próprio, herda da página mãe e, na falta dela, usa a do site.
+   * O rito só se anuncia onde a página fala da Missa; no calendário e nas
+   * indulgências ele seria ruído.
+   */
+  chamada?: string;
+  /**
+   * A estampa da seção, em /public.
+   *
+   * Vale para a seção inteira, herdada pelas filhas: é ela que identifica a
+   * seção no cartão e atrás do cabeçalho de toda página dela.
+   */
+  imagem?: string;
+}
+
 /** O que é do site inteiro, e não de uma página. */
 export interface Site {
   /** A linha em versalete dourado acima do título, igual em toda página. */

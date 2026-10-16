@@ -1,0 +1,97 @@
+{
+  "/": {
+    "titulo": "Início",
+    "descricao": "Apostolado Nossa Senhora das Neves: avisos, calendário litúrgico e publicações.",
+    "chamada": "Rito Romano na forma do Missal de São Pio V",
+    "imagem": "/cartoes/inicio-d1e8306e.webp"
+  },
+  "/missa": {
+    "titulo": "A Missa Tridentina",
+    "curto": "Missa",
+    "descricao": "O rito romano na forma do Missal de São Pio V.",
+    "chamada": "Apostolado Nossa Senhora das Neves - Rito Romano na forma do Missal de São Pio V",
+    "imagem": "/cartoes/missa-4c2b9f3f.webp"
+  },
+  "/missa/guia": {
+    "titulo": "Guia prático da Missa",
+    "descricao": "Cada peça da Missa em ordem: o que é dito, quem diz e o que muda conforme o dia."
+  },
+  "/missa/partes": {
+    "titulo": "Da Missa e suas partes",
+    "descricao": "Cada parte da Missa em detalhe: origem, sentido e rubricas."
+  },
+  "/missa/situacao-canonica": {
+    "titulo": "A situação canônica da Missa",
+    "descricao": "A parte jurídica do rito."
+  },
+  "/calendario": {
+    "titulo": "Calendário Romano Tradicional",
+    "curto": "Calendário",
+    "descricao": "O calendário de 1962, calculado para qualquer ano.",
+    "imagem": "/cartoes/calendario-8b43148b.webp"
+  },
+  "/calendario/santos": {
+    "titulo": "As festas do calendário",
+    "descricao": "As vidas dos santos que o calendário celebra."
+  },
+  "/calendario/brasil": {
+    "titulo": "O próprio do Brasil",
+    "descricao": "As festas próprias do calendário brasileiro."
+  },
+  "/calendario/arquidiocese": {
+    "titulo": "O próprio arquidiocesano",
+    "descricao": "O calendário próprio da Arquidiocese da Paraíba."
+  },
+  "/indulgencias": {
+    "titulo": "Indulgências",
+    "curto": "Indulgências",
+    "descricao": "O que são, como se obtêm e de onde vêm, segundo o Código de 1917.",
+    "imagem": "/cartoes/indulgencias-931d7d10.webp"
+  },
+  "/indulgencias/calendario": {
+    "titulo": "Dias de indulgência plenária",
+    "descricao": "Os dias que carregam indulgência no calendário."
+  },
+  "/indulgencias/arquidiocese": {
+    "titulo": "Calendário de Indulgências Arquidiocesano",
+    "curto": "Calendário arquidiocesano",
+    "descricao": "As igrejas da Arquidiocese da Paraíba e o dia em que cada uma dá indulgência plenária a quem a visita."
+  },
+  "/indulgencias/raccolta": {
+    "titulo": "Raccolta",
+    "descricao": "A coleção de orações e obras indulgenciadas anterior a 1968."
+  },
+  "/indulgencias/enchiridion": {
+    "titulo": "Enchiridion Indulgentiarum",
+    "descricao": "A coleção em vigor, de 1968 em diante."
+  },
+  "/indulgencias/ordens": {
+    "titulo": "Indulgências próprias",
+    "descricao": "As concedidas a ordens, confrarias e associações de fiéis."
+  },
+  "/apostolado": {
+    "titulo": "Sobre o Apostolado",
+    "curto": "Apostolado",
+    "descricao": "Nossa posição, situação canônica, história e o brasão.",
+    "imagem": "/cartoes/apostolado-9af0559c.webp"
+  },
+  "/apostolado/brasao": {
+    "titulo": "Nosso brasão",
+    "descricao": "O significado de cada elemento do brasão do Apostolado."
+  },
+  "/postagens": {
+    "titulo": "Postagens",
+    "curto": "Postagens",
+    "descricao": "Vidas de santos e escritos sobre a liturgia.",
+    "imagem": "/cartoes/postagens-3455e1c2.webp"
+  },
+  "/postagens/:id": {
+    "titulo": "Postagem"
+  },
+  "/admin": {
+    "titulo": "Administração"
+  },
+  "/admin/:documento": {
+    "titulo": "Administração"
+  }
+}

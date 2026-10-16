@@ -1,4 +1,5 @@
 import type { Forma } from "../src/data/registro";
+import { PADROES } from "../src/routes/padroes";
 
 /**
  * Guardas mínimas por forma de documento.
@@ -67,6 +68,23 @@ export function validar(forma: Forma, conteudo: unknown): string | null {
         }
         if (vistos.has(p.id)) return `duas postagens com o mesmo endereço: ${p.id}`;
         vistos.add(p.id);
+      }
+      return null;
+    }
+
+    case "paginas": {
+      /*
+       * Página sem título some do menu, das migalhas e da aba do navegador
+       * sem erro nenhum — ela continua abrindo, só que anônima. É o tipo de
+       * estrago que ninguém vê ao salvar e alguém descobre semanas depois,
+       * então é melhor recusar a gravação.
+       */
+      for (const caminho of PADROES) {
+        const texto = conteudo[caminho];
+        if (!ehObjeto(texto)) return `falta o texto da página ${caminho}`;
+        if (typeof texto.titulo !== "string" || texto.titulo.trim() === "") {
+          return `a página ${caminho} ficaria sem título`;
+        }
       }
       return null;
     }

@@ -1,83 +1,65 @@
 import type { ComponentType } from "react";
+import textos from "../data/paginas.json";
+import type { TextoDaPagina } from "../data/tipos";
 import type { Padrao } from "./padroes";
 
 /**
  * Tabela de rotas do site.
+ *
+ * Divide-se em duas metades, e a divisão é o ponto: **a estrutura é código e
+ * os textos são conteúdo.**
+ *
+ * Aqui ficam o caminho, de quem a página é filha, se ela aparece no menu e
+ * qual componente a desenha. Nada disso o Apostolado edita, e nada disso faria
+ * sentido editar: caminho novo exige página nova, que exige código.
+ *
+ * O que o leitor lê — título, rótulo curto, descrição, chamada e estampa —
+ * mora em `src/data/paginas.json` e se edita pelo painel. Antes vivia aqui, e
+ * por isso o Perez conseguia escrever o corpo de uma página mas não o
+ * cabeçalho dela, nem os cartões que a seção mostra das filhas.
  *
  * `pagina` usa import dinâmico com caminho literal, que é o que permite ao
  * Vite emitir um pedaço por rota. O JSON de cada página viaja no pedaço dela,
  * então quem abre o início não baixa os 17 KB do guia.
  */
 
-export interface Rota {
+/** A metade que é código: caminho, hierarquia e componente. */
+interface Estrutura {
   /** Tipado pela lista de `padroes.ts`: rota com caminho de fora não compila. */
   padrao: Padrao;
-  /** Vai para o <title> e para as migalhas. */
-  titulo: string;
-  /** Rótulo curto para a barra, onde o título inteiro não cabe. */
-  curto?: string;
-  descricao?: string;
-  /**
-   * A linha em versalete acima do título. Sem valor próprio, herda da rota
-   * mãe e, na falta dela, usa a do site. O rito só se anuncia onde a página
-   * fala da Missa; no calendário e nas indulgências ele seria ruído.
-   */
-  chamada?: string;
-  /**
-   * A estampa da seção. Vale para a seção inteira, herdada pela rota mãe: é o
-   * que identifica a seção no cartão e atrás do cabeçalho de toda página dela.
-   */
-  imagem?: string;
   /** Rota mãe, para as migalhas e para o menu. */
-  pai?: string;
+  pai?: Padrao;
   /** Fora do menu: páginas de detalhe e o painel. */
   foraDoMenu?: boolean;
   pagina: () => Promise<{ default: ComponentType }>;
 }
 
-export const ROTAS: Rota[] = [
+/** A rota pronta: a estrutura com os textos do `paginas.json` em cima. */
+export type Rota = Estrutura & TextoDaPagina;
+
+const ESTRUTURA: Estrutura[] = [
   {
     padrao: "/",
-    titulo: "Início",
-    descricao:
-      "Apostolado Nossa Senhora das Neves: avisos, calendário litúrgico e publicações.",
-    // o título logo abaixo já é o nome do apostolado; aqui vai só o rito
-    chamada: "Rito Romano na forma do Missal de São Pio V",
-    imagem: "/cartoes/inicio-d1e8306e.webp",
     pagina: () => import("../pages/Inicio"),
   },
 
   // ---------------------------------------------------------------- Missa
   {
     padrao: "/missa",
-    titulo: "A Missa Tridentina",
-    curto: "Missa",
-    descricao: "O rito romano na forma do Missal de São Pio V.",
-    // as quatro páginas da Missa herdam esta chamada
-    chamada:
-      "Apostolado Nossa Senhora das Neves - Rito Romano na forma do Missal de São Pio V",
-    imagem: "/cartoes/missa-4c2b9f3f.webp",
     pagina: () => import("../pages/Missa"),
   },
   {
     padrao: "/missa/guia",
-    titulo: "Guia prático da Missa",
-    descricao:
-      "Cada peça da Missa em ordem: o que é dito, quem diz e o que muda conforme o dia.",
     pai: "/missa",
     pagina: () => import("../pages/GuiaDaMissa"),
   },
   {
     padrao: "/missa/partes",
-    titulo: "Da Missa e suas partes",
-    descricao: "Cada parte da Missa em detalhe: origem, sentido e rubricas.",
     pai: "/missa",
     pagina: () => import("../pages/MissaPartes"),
   },
   {
     padrao: "/missa/situacao-canonica",
-    titulo: "A situação canônica da Missa",
-    descricao: "A parte jurídica do rito.",
     pai: "/missa",
     pagina: () => import("../pages/MissaSituacaoCanonica"),
   },
@@ -85,30 +67,20 @@ export const ROTAS: Rota[] = [
   // ----------------------------------------------------------- Calendário
   {
     padrao: "/calendario",
-    titulo: "Calendário Romano Tradicional",
-    curto: "Calendário",
-    descricao: "O calendário de 1962, calculado para qualquer ano.",
-    imagem: "/cartoes/calendario-8b43148b.webp",
     pagina: () => import("../pages/Calendario"),
   },
   {
     padrao: "/calendario/santos",
-    titulo: "As festas do calendário",
-    descricao: "As vidas dos santos que o calendário celebra.",
     pai: "/calendario",
     pagina: () => import("../pages/Santos"),
   },
   {
     padrao: "/calendario/brasil",
-    titulo: "O próprio do Brasil",
-    descricao: "As festas próprias do calendário brasileiro.",
     pai: "/calendario",
     pagina: () => import("../pages/CalendarioBrasil"),
   },
   {
     padrao: "/calendario/arquidiocese",
-    titulo: "O próprio arquidiocesano",
-    descricao: "O calendário próprio da Arquidiocese da Paraíba.",
     pai: "/calendario",
     pagina: () => import("../pages/CalendarioArquidiocese"),
   },
@@ -116,47 +88,30 @@ export const ROTAS: Rota[] = [
   // ---------------------------------------------------------- Indulgências
   {
     padrao: "/indulgencias",
-    titulo: "Indulgências",
-    curto: "Indulgências",
-    descricao:
-      "O que são, como se obtêm e de onde vêm, segundo o Código de 1917.",
-    imagem: "/cartoes/indulgencias-931d7d10.webp",
     pagina: () => import("../pages/Indulgencias"),
   },
   {
     padrao: "/indulgencias/calendario",
-    titulo: "Dias de indulgência plenária",
-    descricao: "Os dias que carregam indulgência no calendário.",
     pai: "/indulgencias",
     pagina: () => import("../pages/IndulgenciasCalendario"),
   },
   {
     padrao: "/indulgencias/arquidiocese",
-    titulo: "Calendário de Indulgências Arquidiocesano",
-    curto: "Calendário arquidiocesano",
-    descricao:
-      "As igrejas da Arquidiocese da Paraíba e o dia em que cada uma dá indulgência plenária a quem a visita.",
     pai: "/indulgencias",
     pagina: () => import("../pages/IndulgenciasArquidiocese"),
   },
   {
     padrao: "/indulgencias/raccolta",
-    titulo: "Raccolta",
-    descricao: "A coleção de orações e obras indulgenciadas anterior a 1968.",
     pai: "/indulgencias",
     pagina: () => import("../pages/IndulgenciasRaccolta"),
   },
   {
     padrao: "/indulgencias/enchiridion",
-    titulo: "Enchiridion Indulgentiarum",
-    descricao: "A coleção em vigor, de 1968 em diante.",
     pai: "/indulgencias",
     pagina: () => import("../pages/IndulgenciasEnchiridion"),
   },
   {
     padrao: "/indulgencias/ordens",
-    titulo: "Indulgências próprias",
-    descricao: "As concedidas a ordens, confrarias e associações de fiéis.",
     pai: "/indulgencias",
     pagina: () => import("../pages/IndulgenciasOrdens"),
   },
@@ -164,16 +119,10 @@ export const ROTAS: Rota[] = [
   // ------------------------------------------------------------ Apostolado
   {
     padrao: "/apostolado",
-    titulo: "Sobre o Apostolado",
-    curto: "Apostolado",
-    descricao: "Nossa posição, situação canônica, história e o brasão.",
-    imagem: "/cartoes/apostolado-9af0559c.webp",
     pagina: () => import("../pages/Apostolado"),
   },
   {
     padrao: "/apostolado/brasao",
-    titulo: "Nosso brasão",
-    descricao: "O significado de cada elemento do brasão do Apostolado.",
     pai: "/apostolado",
     pagina: () => import("../pages/ApostoladoBrasao"),
   },
@@ -181,15 +130,10 @@ export const ROTAS: Rota[] = [
   // ------------------------------------------------------------- Postagens
   {
     padrao: "/postagens",
-    titulo: "Postagens",
-    curto: "Postagens",
-    descricao: "Vidas de santos e escritos sobre a liturgia.",
-    imagem: "/cartoes/postagens-3455e1c2.webp",
     pagina: () => import("../pages/Postagens"),
   },
   {
     padrao: "/postagens/:id",
-    titulo: "Postagem",
     pai: "/postagens",
     foraDoMenu: true,
     pagina: () => import("../pages/Postagem"),
@@ -198,18 +142,32 @@ export const ROTAS: Rota[] = [
   // ---------------------------------------------------------------- painel
   {
     padrao: "/admin",
-    titulo: "Administração",
     foraDoMenu: true,
     pagina: () => import("../admin/Admin").then((m) => ({ default: m.Admin })),
   },
   {
     padrao: "/admin/:documento",
-    titulo: "Administração",
     pai: "/admin",
     foraDoMenu: true,
     pagina: () => import("../admin/Admin").then((m) => ({ default: m.Admin })),
   },
 ];
+
+/*
+ * Os textos entram aqui, e não em cada componente que os lê.
+ *
+ * Página sem texto no JSON ficaria sem título, e um título vazio some do
+ * menu, das migalhas e da aba do navegador sem erro nenhum — a página
+ * continua abrindo, só que anônima. Por isso o título cai no caminho quando
+ * falta: é feio, e ser feio é o aviso. `paginas.teste.ts` confere que não
+ * falta nenhum, para que ninguém dependa desse último recurso.
+ */
+const TEXTOS = textos as Record<string, TextoDaPagina>;
+
+export const ROTAS: Rota[] = ESTRUTURA.map((estrutura) => {
+  const texto = TEXTOS[estrutura.padrao];
+  return { ...estrutura, ...texto, titulo: texto?.titulo || estrutura.padrao };
+});
 
 /** As seções de topo, na ordem em que aparecem no menu. */
 export const SECOES_DO_MENU = [

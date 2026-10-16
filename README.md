@@ -115,8 +115,10 @@ isso que trocar uma imagem exige trocar o nome do arquivo.
 
 ## O painel
 
-`/admin` lista os dezesseis documentos editáveis e abre cada um em
-`/admin/<id>`. Quem traduz um id em caminho de arquivo é `src/data/registro.ts`,
+`/admin` lista os dezessete documentos editáveis e abre cada um em
+`/admin/<id>`. Um deles é `paginas.json`, que guarda o título, a descrição
+e a chamada de cada página: a estrutura das rotas é código, mas o que se lê
+no alto delas é conteúdo. Quem traduz um id em caminho de arquivo é `src/data/registro.ts`,
 **no servidor**: aceitar um caminho vindo do navegador daria escrita em
 qualquer arquivo do repositório, e o repositório publica sozinho.
 

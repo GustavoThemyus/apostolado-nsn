@@ -1,9 +1,10 @@
 import { porId } from "../data/registro";
-import type { ColecaoDePostagens, Conteudo, Site } from "../data/tipos";
+import type { ColecaoDePostagens, Conteudo, Site, TextoDaPagina } from "../data/tipos";
 import { usarParametros, usarRota } from "../routes/usarRota";
 import { Botao } from "./Campos";
 import { EditorDeDocumento } from "./EditorDeDocumento";
 import { EditorDeInicio, type PaginaInicial } from "./EditorDeInicio";
+import { EditorDePaginas } from "./EditorDePaginas";
 import { EditorDePostagens } from "./EditorDePostagens";
 import { EditorDeSite } from "./EditorDeSite";
 import { Escolha } from "./Escolha";
@@ -74,6 +75,11 @@ function Documento({ id, aoVoltar }: { id: string; aoVoltar: () => void }) {
         <EditorDeInicio conteudo={conteudo as PaginaInicial} aoMudar={mudar} />
       ) : registro.forma === "site" ? (
         <EditorDeSite conteudo={conteudo as Site} aoMudar={mudar} />
+      ) : registro.forma === "paginas" ? (
+        <EditorDePaginas
+          conteudo={conteudo as Record<string, TextoDaPagina>}
+          aoMudar={mudar}
+        />
       ) : (
         <p className="admin__ajuda">
           Esta forma de documento ainda não tem editor no painel.

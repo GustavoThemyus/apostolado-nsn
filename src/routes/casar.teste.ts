@@ -9,6 +9,7 @@
 import { casar, resolver } from "./casar";
 import { PADROES } from "./padroes";
 import { ROTAS } from "./rotas";
+import textos from "../data/paginas.json";
 
 let passaram = 0;
 const falhas: string[] = [];
@@ -48,6 +49,29 @@ conferir("nada casa", resolver(rotas, "/outro"), null);
   const orfaos = PADROES.filter((p) => !comRota.has(p));
   conferir(`todo padrão tem rota${orfaos.length ? `: ${orfaos.join(", ")}` : ""}`, orfaos, []);
   conferir("nenhum padrão repetido", PADROES.length, new Set(PADROES).size);
+}
+
+/*
+ * Toda página precisa de texto, e texto nenhum pode sobrar.
+ *
+ * Falta de texto não dá erro: a página abre, só que sem título — e título
+ * vazio some do menu, das migalhas e da aba do navegador sem ninguém
+ * perceber. Texto sobrando é o contrário, e também engana: fica no painel
+ * para o Apostolado editar uma página que não existe mais.
+ */
+{
+  const comTexto = new Set(Object.keys(textos));
+  const semTexto = PADROES.filter((p) => !comTexto.has(p));
+  conferir(`toda página tem texto${semTexto.length ? `: ${semTexto.join(", ")}` : ""}`, semTexto, []);
+
+  const caminhos = new Set<string>(PADROES);
+  const sobrando = [...comTexto].filter((c) => !caminhos.has(c));
+  conferir(`nenhum texto sem página${sobrando.length ? `: ${sobrando.join(", ")}` : ""}`, sobrando, []);
+
+  const semTitulo = Object.entries(textos as Record<string, { titulo?: string }>)
+    .filter(([, t]) => !t.titulo?.trim())
+    .map(([c]) => c);
+  conferir(`nenhuma página sem título${semTitulo.length ? `: ${semTitulo.join(", ")}` : ""}`, semTitulo, []);
 }
 
 const total = passaram + falhas.length;

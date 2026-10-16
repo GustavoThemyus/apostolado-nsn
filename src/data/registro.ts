@@ -23,6 +23,8 @@ export type Forma =
   | "inicio"
   /** A coleção de postagens. */
   | "postagens"
+  /** Os textos de cabeçalho de cada página do site. */
+  | "paginas"
   /** Os dias que carregam indulgência. */
   | "diasDeIndulgencia";
 
@@ -56,6 +58,13 @@ export const REGISTRO: DocumentoRegistrado[] = [
     caminho: emDados("site.json"),
     forma: "site",
     ajuda: "Nome, lema, rodapé e o endereço da agenda do Google. Mexe em todas as páginas.",
+  },
+  {
+    id: "paginas",
+    titulo: "Títulos e cabeçalhos",
+    caminho: emDados("paginas.json"),
+    forma: "paginas",
+    ajuda: "O que cada página mostra no alto e nos cartões da seção. Mexe no menu e nas migalhas.",
   },
   {
     id: "missa",
