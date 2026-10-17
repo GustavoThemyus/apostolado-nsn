@@ -1,0 +1,135 @@
+{
+  "titulo": "Folhetos",
+  "descricao": "Os impressos que o Apostolado distribui, servidos como página: abrem no celular sem baixar PDF e sem dar zoom.",
+  "condicoes": {
+    "titulo": "Condições ordinárias para lucrar uma indulgência plenária",
+    "blocos": [
+      {
+        "tipo": "lista",
+        "ordenada": true,
+        "id": "condicoes-lista",
+        "itens": [
+          "Confessar-se sacramentalmente em não mais que quinze dias antes ou depois do dia da indulgência.",
+          "Receber piedosamente a Eucaristia em não mais que oito dias antes ou depois do dia da indulgência.",
+          "Rezar nas intenções do Sumo Pontífice.",
+          "Ter o desapego de todo o pecado, mesmo venial."
+        ]
+      },
+      {
+        "tipo": "subtitulo",
+        "texto": "Observações",
+        "menor": true,
+        "id": "condicoes-observacoes"
+      },
+      {
+        "tipo": "lista",
+        "id": "condicoes-notas",
+        "itens": [
+          "Com uma confissão pode-se lucrar várias indulgências, mas cada indulgência requer uma comunhão.",
+          "Não é possível lucrar mais de uma indulgência plenária por dia, exceto [lat]in articulo mortis[/lat], salvo disposição contrária.",
+          "Toda indulgência plenária pode ser aplicada pelos fiéis defuntos, mas jamais por outra pessoa viva.",
+          "Qualquer oração pode satisfazer a terceira obrigação desde que com as seguintes intenções. Outrossim, a Igreja diz que bastam um Pai nosso e uma Ave Maria.",
+          "As orações nas intenções do Sumo Pontífice são sempre fixas e gerais, tais como a exaltação da Igreja, a propagação da Fé, a extirpação das heresias, a conversão dos pecadores e a concórdia entre os príncipes cristãos."
+        ]
+      },
+      {
+        "tipo": "paragrafo",
+        "id": "condicoes-remissao",
+        "texto": "O tratamento completo — de onde vêm estas condições e o que cada uma exige — está em [elo:/indulgencias]Indulgências[/elo]."
+      }
+    ]
+  },
+  "folhetos": [
+    {
+      "id": "cristo-rei",
+      "chapeu": "Obra indulgenciada",
+      "titulo": "Festa de Nosso Senhor Jesus Cristo Rei",
+      "resumo": "O ato de consagração do gênero humano, rezado publicamente na solenidade de Cristo Rei.",
+      "categoria": "indulgencia",
+      "imagem": "/folhetos/cristo-rei-54c2c4fb.webp",
+      "obra": "Concede-se indulgência plenária ao fiel que, na solenidade de Nosso Senhor Jesus Cristo Rei, recitar publicamente o ato de consagração do gênero humano ao mesmo Jesus Cristo Rei: [i]Dulcíssimo Jesus, Redentor[/i].",
+      "concessao": "Concessão nº 2 do Enchiridion Indulgentiarum",
+      "condicoes": true,
+      "blocos": [
+        {
+          "tipo": "bilingue",
+          "id": "cristo-rei-consagracao",
+          "latim": [
+            {
+              "tipo": "paragrafo",
+              "texto": "Jesu dulcissime,* Redémptor humáni géneris, — réspice nos ad altáre tuum humillime provolútos. — Tui sumus, tui esse vólumus; — quo autem Tibi conjuncti firmius esse possímus, — en hódie Sacratíssimo Cordi Tuo — se quisque nostrum sponte dedicat.",
+              "id": "cristo-rei-la-01"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Te quidem multi novére numquam; — Te, spretis mandátis tuis, multi repudiárunt. — Miserére utrorúmque, benigníssime Jesu; — atque ad sanctum Cor tuum rape univérsos.",
+              "id": "cristo-rei-la-02"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Rex esto, Dómine, — nec fidélium tantum qui nullo témpore discessére a Te, — sed etiam prodigórum filiórum qui Te reliquérunt: — fac hos, ut domum patérnam cito répetant, — ne miséria et fame péreant.",
+              "id": "cristo-rei-la-03"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Rex esto eórum, — quos aut opiniónum error decéptos habet, — aut discórdia separátos, — eósque ad portum veritátis — atque ad unitátem fidei révoca, — ut brevi fiat unum ovíle et unus pastor.",
+              "id": "cristo-rei-la-04"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Rex esto eórum ómnium, — qui in ténebris idololatríæ aut Islamísmi adhuc versántur, — eósque in lumen regnúmque tuum vindicáre ne rénuas.",
+              "id": "cristo-rei-la-05"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Réspice dénique misericordiæ óculis — illius gentis filios, quæ támdiu pópulus eléctus fuit; — et Sanguis, qui olim super eos invocátus est, — nunc in illos quoque, — redemptiónis vitæque lavácrum, descéndat.",
+              "id": "cristo-rei-la-06"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Largíre, Dómine, Ecclésiæ tuæ — securam cum incolumitáte libertátem; — largíre cunctis géntibus tranquillitátem órdinis: — pérfice, ut ab utróque terræ vértice una résonet vox: — Sit laus divíno Cordi, — per quod nobis parta salus: — ipsi glória et honor in sǽcula. — Amen.",
+              "id": "cristo-rei-la-07"
+            }
+          ],
+          "portugues": [
+            {
+              "tipo": "paragrafo",
+              "texto": "Dulcíssimo Jesus,* Redentor do gênero humano, — lançai os Vossos olhares sobre nós, humildemente prostrados diante de Vosso altar. — Nós somos e queremos ser Vossos; — e para que possamos viver mais intimamente unidos a Vós, — cada um de nós neste dia se consagra espontaneamente ao Vosso Sacratíssimo Coração.",
+              "id": "cristo-rei-pt-01"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Muitos nunca Vos conheceram; — muitos desprezaram os Vossos mandamentos e Vos renegaram. — Benigníssimo Jesus, tende piedade de uns e de outros — e trazei-os todos ao Vosso Sagrado Coração.",
+              "id": "cristo-rei-pt-02"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Senhor, sede o Rei — não somente dos fiéis que nunca de Vós se afastaram, — mas também dos filhos pródigos que Vos abandonaram; — fazei que eles tornem, quanto antes, à casa paterna, — para que não pereçam de miséria e de fome.",
+              "id": "cristo-rei-pt-03"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Sede o Rei dos — que vivem iludidos no erro, — ou separados de Vós pela discórdia; — trazei-os ao porto da verdade — e à unidade da fé, — a fim de que em breve haja um só rebanho e um só pastor.",
+              "id": "cristo-rei-pt-04"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Sede o Rei de todos aqueles — que estão sepultados nas trevas da idolatria e do islamismo, — e não recuseis conduzi-los todos à luz e ao Reino de Deus.",
+              "id": "cristo-rei-pt-05"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Volvei, enfim, um olhar de misericórdia — aos filhos do que foi outrora Vosso povo escolhido; — desça também sobre eles, — num batismo de redenção e vida, — aquele sangue que um dia sobre si invocaram.",
+              "id": "cristo-rei-pt-06"
+            },
+            {
+              "tipo": "paragrafo",
+              "texto": "Senhor, conservai incólume a Vossa Igreja, — e dai-lhe uma liberdade segura e sem peias; — concedei ordem e paz a todos os povos; — fazei que de um a outro pólo do mundo, ressoe uma só voz: — Louvado seja o Coração divino, — que nos trouxe a salvação! — A Ele, honra e glória por todos os séculos dos séculos. — Amém.",
+              "id": "cristo-rei-pt-07"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

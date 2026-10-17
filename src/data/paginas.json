@@ -79,6 +79,14 @@
     "titulo": "Nosso brasão",
     "descricao": "O significado de cada elemento do brasão do Apostolado."
   },
+  "/folhetos": {
+    "titulo": "Folhetos",
+    "curto": "Folhetos",
+    "descricao": "Os impressos que o Apostolado distribui, servidos como página: abrem no celular sem baixar PDF e sem dar zoom."
+  },
+  "/folhetos/:id": {
+    "titulo": "Folheto"
+  },
   "/postagens": {
     "titulo": "Postagens",
     "curto": "Postagens",

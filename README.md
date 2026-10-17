@@ -21,6 +21,7 @@ de quem vai manter isto depois.
 | **Calendário** | o calendário de 1962 **calculado**, não tabelado: computo da Páscoa, precedência, transferências, Têmporas e Rogações |
 | **Ordo pré-55** | o Ordo da capela, importado do calendário do Google, dia a dia |
 | **Indulgências** | o Enchiridion de 1999 inteiro, os dias de plenária presos ao calendário, e o calendário arquidiocesano com 129 igrejas |
+| **Folhetos** | os impressos que o Apostolado distribui, servidos como página: a oração que no papel atravessa duas folhas corre inteira, e o latim casa com a tradução linha a linha |
 | **Postagens** | vidas de santos e escritos sobre a liturgia |
 | **Painel** | `/admin`, atrás do Cloudflare Access, onde o conteúdo se edita sem tocar em código |
 

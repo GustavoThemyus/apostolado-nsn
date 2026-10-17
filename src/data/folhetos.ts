@@ -1,0 +1,31 @@
+import bruto from "./folhetos.json";
+import type { ColecaoDeFolhetos, Folheto } from "./tipos";
+
+/**
+ * A coleção de folhetos, já filtrada.
+ *
+ * Mesmo critério das postagens: tudo num arquivo enquanto couber, e, passando
+ * de ~120 KB crus, quebrar em src/data/folhetos/<id>.json. Aqui o limite chega
+ * mais cedo que lá — um próprio de Missa inteiro é muito texto, e o Perez
+ * falou em próprios, cantos de procissão, vésperas e ofícios de Semana Santa.
+ */
+export const colecao = bruto as unknown as ColecaoDeFolhetos;
+
+/** Na ordem em que estão no arquivo: folha não tem data, tem assunto. */
+export function publicados(): Folheto[] {
+  return colecao.folhetos.filter((f) => f.publicado !== false);
+}
+
+export function porId(id: string | undefined): Folheto | undefined {
+  return id ? publicados().find((f) => f.id === id) : undefined;
+}
+
+/**
+ * As condições ordinárias, que o folheto pede por `condicoes: true`.
+ *
+ * Escritas uma vez na raiz da coleção. São as mesmas em toda obra
+ * indulgenciada, e o impresso as repete em cada folha porque papel não tem
+ * como fazer diferente — aqui tem, e repeti-las faria corrigir uma vírgula
+ * custar uma edição por folheto.
+ */
+export const condicoes = colecao.condicoes;

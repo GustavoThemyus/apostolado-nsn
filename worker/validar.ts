@@ -72,6 +72,30 @@ export function validar(forma: Forma, conteudo: unknown): string | null {
       return null;
     }
 
+    case "folhetos": {
+      if (!Array.isArray(conteudo.folhetos)) return "sem lista de folhetos";
+      /*
+       * As condições ordinárias são de toda obra indulgenciada e moram aqui
+       * uma vez só. Gravação que as perca deixaria cada folha afirmando uma
+       * plenária sem dizer o que ela exige — e o estrago apareceria em todas
+       * de uma vez, não naquela que estava sendo editada.
+       */
+      if (!ehObjeto(conteudo.condicoes) || !listaComItens(conteudo.condicoes.blocos)) {
+        return "folhetos sem as condições ordinárias: recusado para não esvaziá-las em toda folha";
+      }
+      const idsVistos = new Set<string>();
+      for (const f of conteudo.folhetos as unknown[]) {
+        if (!ehObjeto(f)) return "folheto que não é objeto";
+        if (typeof f.id !== "string" || f.id.trim() === "") return "folheto sem endereço";
+        if (typeof f.titulo !== "string" || f.titulo.trim() === "") {
+          return `folheto "${f.id}" sem título`;
+        }
+        if (idsVistos.has(f.id)) return `dois folhetos com o mesmo endereço: ${f.id}`;
+        idsVistos.add(f.id);
+      }
+      return null;
+    }
+
     case "paginas": {
       /*
        * Página sem título some do menu, das migalhas e da aba do navegador

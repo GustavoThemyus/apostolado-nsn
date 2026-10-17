@@ -29,6 +29,8 @@ export const PADROES = [
   "/indulgencias/ordens",
   "/apostolado",
   "/apostolado/brasao",
+  "/folhetos",
+  "/folhetos/:id",
   "/postagens",
   "/postagens/:id",
   "/admin",

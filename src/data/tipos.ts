@@ -156,6 +156,85 @@ export interface Postagem {
   blocos: Bloco[];
 }
 
+/**
+ * Um folheto: o impresso que o Apostolado distribui, servido como página.
+ *
+ * O Perez pediu que o folheto abrisse como documento corrido — cabeçalho do
+ * site, a folha inteira sem quebra de página, rodapé do site — em vez de um
+ * PDF que o fiel tem de baixar e dar zoom para ler no celular.
+ *
+ * O corpo usa os mesmos blocos do resto do site. Isso não é economia: é o que
+ * faz a oração bilíngue do folheto casar linha a linha como no impresso, e o
+ * latim ser lido como latim por quem usa leitor de tela. Um formato próprio
+ * de folheto teria de reconquistar as duas coisas.
+ */
+export interface Folheto {
+  /** Vai na URL. Imutável depois de publicado, senão os links impressos quebram. */
+  id: string;
+  /**
+   * A linha acima do título, que diz de que gênero é a folha.
+   *
+   * "Obra indulgenciada", "Próprio da Missa", "Canto de procissão". No
+   * impresso ela vem em caixa alta e maior que o título; aqui é o título que
+   * manda, porque é ele que vai para a aba do navegador e para o WhatsApp.
+   */
+  chapeu?: string;
+  titulo: string;
+  resumo: string;
+  categoria: CategoriaDeFolheto;
+  /** A figura da folha, em /public/folhetos. Gerada de ferramentas/folhetos. */
+  imagem?: string;
+  /**
+   * A obra indulgenciada: o que se tem de fazer para lucrar a indulgência.
+   *
+   * Campo, e não bloco de rubrica. No impresso ela é vermelha e em itálico,
+   * que é o registro da rubrica no site — mas rubrica diz gesto e posição, e
+   * o bloco traz o sinal ℞ junto. Aqui o que se afirma é o que a Igreja
+   * concede, e sai na ordem do impresso: a obra, quem a concedeu, e então a
+   * oração.
+   */
+  obra?: string;
+  /**
+   * De onde vem a concessão: "Concessão nº 2 do Enchiridion Indulgentiarum".
+   *
+   * Linha curta, logo abaixo do que se concede. Sem ela o folheto afirmaria
+   * uma indulgência sem dizer quem a concedeu, que é o que o impresso nunca
+   * faz.
+   */
+  concessao?: string;
+  /**
+   * Fecha com as condições ordinárias para lucrar indulgência plenária.
+   *
+   * É verdadeiro nas obras indulgenciadas e falso no resto. O texto não fica
+   * aqui: é o mesmo em toda folha do gênero, e repeti-lo em cada uma faria
+   * com que corrigir uma vírgula exigisse corrigir vinte arquivos. Mora uma
+   * vez só em `folhetos.json`, na raiz da coleção.
+   */
+  condicoes?: boolean;
+  /** Falso esconde do site inteiro, para preparar com calma. */
+  publicado?: boolean;
+  /** Texto provisório: mostra o aviso de rascunho. */
+  rascunho?: boolean;
+  blocos: Bloco[];
+}
+
+export type CategoriaDeFolheto = "indulgencia" | "proprio" | "canto" | "oficio";
+
+export const NOME_DA_CATEGORIA: Record<CategoriaDeFolheto, string> = {
+  indulgencia: "Obras indulgenciadas",
+  proprio: "Próprios da Missa",
+  canto: "Cantos e procissões",
+  oficio: "Ofícios e vésperas",
+};
+
+export interface ColecaoDeFolhetos {
+  titulo: string;
+  descricao?: string;
+  /** As condições ordinárias, escritas uma vez e usadas por `condicoes`. */
+  condicoes: { titulo: string; blocos: Bloco[] };
+  folhetos: Folheto[];
+}
+
 export interface ColecaoDePostagens {
   titulo: string;
   descricao?: string;

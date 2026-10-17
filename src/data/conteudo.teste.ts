@@ -21,6 +21,8 @@ import missa from "./missa.json";
 import ordens from "./indulgencias-ordens.json";
 import partes from "./missa-partes.json";
 import raccolta from "./indulgencias-raccolta.json";
+import { existsSync } from "node:fs";
+import folhetos from "./folhetos.json";
 import { ESTADO_DA_ROTA, ROTAS } from "../routes/rotas";
 import type { Bloco, Conteudo, Secao } from "./tipos";
 
@@ -61,6 +63,19 @@ const ancorasDe = (secoes: Secao[]): Set<string> => {
 };
 
 const CAMINHOS_DE_ROTA = new Set(ROTAS.map((r) => r.padrao));
+
+/**
+ * A estampa existe mesmo em /public?
+ *
+ * Caminho errado numa imagem não dá erro nenhum: o navegador mostra o alt
+ * vazio e a folha fica sem a figura, que é a parte que o Perez mais quer ver
+ * publicada. O nome leva a impressão do conteúdo, então um arquivo
+ * regenerado troca de nome e deixa o JSON apontando para o antigo.
+ *
+ * Caminho relativo à raiz: a suíte é empacotada em CJS e rodada de lá pelo
+ * `npm test`, onde `import.meta.url` não existe.
+ */
+const existeEmPublico = (caminho: string): boolean => existsSync(`public${caminho}`);
 
 /**
  * Três destinos, e os três se quebram calados.
@@ -164,6 +179,72 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("dias de indulgência: toda entrada tem id", semId === 0);
   const repetidos = todos.map((e) => e.id).filter((id, i, t) => t.indexOf(id) !== i);
   conferir("dias de indulgência: ids sem repetição", repetidos.length === 0, repetidos.join(", "));
+}
+
+/*
+ * Os folhetos.
+ *
+ * O invariante que é só deles: no bloco bilíngue, as duas colunas casam faixa
+ * a faixa pelo subgrid, e quem decide quantas faixas são é o lado mais
+ * comprido. Um parágrafo a mais de um lado não quebra nada à vista — ele
+ * desencontra a oração dali para baixo, e o leitor passa a rezar o latim de
+ * uma estrofe ao lado da tradução de outra. Em 390px, onde as colunas vêm
+ * empilhadas, nem isso aparece: o erro só se revela no computador.
+ */
+{
+  const colecao = folhetos as unknown as {
+    condicoes: { titulo: string; blocos: Bloco[] };
+    folhetos: {
+      id: string;
+      titulo: string;
+      imagem?: string;
+      blocos: Bloco[];
+    }[];
+  };
+
+  const desencontrados: string[] = [];
+  const conferirPares = (onde: string, blocos: Bloco[]) => {
+    for (const bloco of blocos) {
+      if (bloco.tipo === "bilingue") {
+        if (bloco.latim.length !== bloco.portugues.length) {
+          desencontrados.push(
+            `${onde}: ${bloco.latim.length} de latim para ${bloco.portugues.length} de português`,
+          );
+        }
+        conferirPares(onde, bloco.latim);
+        conferirPares(onde, bloco.portugues);
+      }
+      if ("corpo" in bloco) conferirPares(onde, bloco.corpo);
+    }
+  };
+
+  const quebrados: string[] = [];
+  const semImagem: string[] = [];
+  for (const f of colecao.folhetos) {
+    conferirPares(f.id, f.blocos);
+    const corpo = f.blocos.flatMap(textosDoBloco).join("\n");
+    for (const m of corpo.matchAll(/\[elo:([^\]]+)\]/g)) {
+      if (!destinoExiste(m[1], new Set())) quebrados.push(`${f.id} -> ${m[1]}`);
+    }
+    if (f.imagem && !existeEmPublico(f.imagem)) semImagem.push(`${f.id} -> ${f.imagem}`);
+  }
+
+  const condicoes = colecao.condicoes.blocos.flatMap(textosDoBloco).join("\n");
+  for (const m of condicoes.matchAll(/\[elo:([^\]]+)\]/g)) {
+    if (!destinoExiste(m[1], new Set())) quebrados.push(`condições -> ${m[1]}`);
+  }
+
+  conferir("folhetos: a oração bilíngue casa faixa a faixa",
+    desencontrados.length === 0, desencontrados.join("; "));
+  conferir("folhetos: todo elo tem destino", quebrados.length === 0, quebrados.join(", "));
+  conferir("folhetos: toda estampa existe em /public",
+    semImagem.length === 0, semImagem.join(", "));
+
+  const ids = colecao.folhetos.map((f) => f.id);
+  const repetidos = ids.filter((id, i) => ids.indexOf(id) !== i);
+  conferir("folhetos: endereços sem repetição", repetidos.length === 0, repetidos.join(", "));
+  conferir("folhetos: as condições ordinárias não estão vazias",
+    colecao.condicoes.blocos.length > 0);
 }
 
 /*

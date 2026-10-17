@@ -4445,3 +4445,140 @@ button {
     text-wrap: balance;
   }
 }
+
+/* ------------------------------------------------------------------ folheto
+ *
+ * A folha: o impresso que o Apostolado distribui, servido como página.
+ *
+ * O que ela não é: uma imitação do papel creme do PDF. O site é escuro por
+ * padrão porque é lido no celular, e uma folha creme acesa no meio da página
+ * escura cega quem abre dentro da igreja. O que faz reconhecer a folha é a
+ * moldura de dois fios, a serifa e a oração em duas colunas — e isso ela tem
+ * nos dois temas.
+ *
+ * O fio de dentro é tracejado e fica a 5px do de fora, como no impresso. Por
+ * isso o respiro de dentro é generoso: com padding curto, a primeira linha do
+ * texto encostaria no tracejado.
+ */
+.folheto {
+  margin: 1.8rem var(--respiro-lateral) 0;
+}
+
+.folheto__folha {
+  position: relative;
+  background: var(--painel);
+  border: 1px solid var(--fio-aceso);
+  padding: 1.7rem 1.1rem;
+}
+.folheto__folha::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed var(--fio);
+  pointer-events: none;
+}
+/* o primeiro e o último bloco não precisam da margem deles: a folha já dá */
+.folheto__folha > :first-child { margin-top: 0; }
+.folheto__folha > :last-child { margin-bottom: 0; }
+
+/* "Obra indulgenciada": o gênero da folha, como no alto do impresso */
+.folheto__chapeu {
+  margin: 0 0 1.1rem;
+  text-align: center;
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+
+.folheto__estampa {
+  display: block;
+  width: 100%;
+  max-width: 21rem;
+  height: auto;
+  margin: 0 auto 1.3rem;
+  border: 1px solid var(--fio);
+}
+
+/*
+ * A obra indulgenciada: o que se tem de fazer.
+ *
+ * Vermelha e em itálico como no impresso, mas sem o sinal ℞ do bloco de
+ * rubrica: rubrica diz gesto e posição, e aqui o que se afirma é o que a
+ * Igreja concede.
+ */
+.folheto__obra {
+  margin: 0 0 0.7rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--rubrica);
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+/* "Concessão nº 2 do Enchiridion": quem concedeu, miúdo e centrado */
+.folheto__concessao {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  font-family: var(--sem-serifa);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--tinta-suave);
+}
+
+/*
+ * As condições ordinárias, no pé da folha.
+ *
+ * Fio em cima em vez de caixa própria: caixa dentro de caixa, com o
+ * tracejado da moldura por perto, vira três molduras aninhadas em 390px.
+ */
+.folheto__condicoes {
+  margin-top: 1.8rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--fio);
+}
+.folheto__condicoes-titulo {
+  margin: 0 0 0.9rem;
+  text-align: center;
+  font-family: var(--sem-serifa);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+.folheto__condicoes .lista {
+  font-size: 0.92rem;
+}
+
+/* o gênero, no índice dos folhetos */
+.folhetos__genero {
+  margin: 1.8rem var(--respiro-lateral) 0.6rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+/*
+ * Na tela larga a folha ganha medida própria e para de crescer.
+ *
+ * O resto do site segura o texto em --medida-leitura, que é de prosa corrida.
+ * A folha tem a oração em duas colunas dentro dela, e cada coluna precisa da
+ * sua medida: apertada na largura da prosa, o latim quebra a cada três
+ * palavras.
+ */
+@media (min-width: 56rem) {
+  .folheto {
+    max-width: 52rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .folheto__folha {
+    padding: 2.4rem 2.2rem;
+  }
+}

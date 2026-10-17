@@ -127,6 +127,18 @@ const ESTRUTURA: Estrutura[] = [
     pagina: () => import("../pages/ApostoladoBrasao"),
   },
 
+  // -------------------------------------------------------------- Folhetos
+  {
+    padrao: "/folhetos",
+    pagina: () => import("../pages/Folhetos"),
+  },
+  {
+    padrao: "/folhetos/:id",
+    pai: "/folhetos",
+    foraDoMenu: true,
+    pagina: () => import("../pages/Folheto"),
+  },
+
   // ------------------------------------------------------------- Postagens
   {
     padrao: "/postagens",
@@ -175,6 +187,7 @@ export const SECOES_DO_MENU = [
   "/missa",
   "/calendario",
   "/indulgencias",
+  "/folhetos",
   "/apostolado",
   "/postagens",
 ] as const;

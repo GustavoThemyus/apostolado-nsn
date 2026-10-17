@@ -23,6 +23,8 @@ export type Forma =
   | "inicio"
   /** A coleção de postagens. */
   | "postagens"
+  /** A coleção de folhetos: os impressos servidos como página. */
+  | "folhetos"
   /** Os textos de cabeçalho de cada página do site. */
   | "paginas"
   /** Os dias que carregam indulgência. */
@@ -169,6 +171,14 @@ export const REGISTRO: DocumentoRegistrado[] = [
     forma: "documento",
     rota: "/apostolado",
     ajuda: "Posição, situação canônica, história e o brasão. Uma seção para cada.",
+  },
+  {
+    id: "folhetos",
+    titulo: "Folhetos",
+    caminho: emDados("folhetos.json"),
+    forma: "folhetos",
+    rota: "/folhetos",
+    ajuda: "Os impressos do Apostolado servidos como página. As condições ordinárias ficam na raiz do arquivo e valem para toda obra indulgenciada.",
   },
   {
     id: "postagens",
