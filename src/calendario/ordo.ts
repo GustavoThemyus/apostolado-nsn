@@ -98,6 +98,57 @@ export function mesDoOrdo(arquivo: ArquivoDoOrdo, ano: number, mes: number): Dia
  * "Glória" ou de "Credo" é uma afirmação, e não uma omissão — e o redator
  * ainda escreve "sem Credo" onde quer deixar claro.
  */
+/**
+ * As Missas que o dia permite além da do dia: votiva, nupcial, de defuntos.
+ *
+ * O Ordo as traz numa linha só, sempre com a mesma abertura, em 385 das 365
+ * — alguns dias trazem mais de uma. Vira parágrafo próprio porque é a
+ * resposta a uma pergunta diferente das outras: não é "como é a Missa de
+ * hoje", é "o que posso celebrar hoje".
+ */
+export function missasPermitidasDoOrdo(dia: DiaDoOrdo): string[] {
+  return dia.partes
+    .filter((p) => /^➢\s*Missas permitidas/i.test(p))
+    .map((p) => p.replace(/^➢\s*Missas permitidas:\s*/i, "").trim());
+}
+
+/** A linha reconhecida como "Missas permitidas", para a lista de notas não a repetir. */
+export const ehMissasPermitidas = (p: string): boolean =>
+  /^➢\s*Missas permitidas/i.test(p);
+
+/**
+ * O grau do dia, separado do patrocínio quando há um.
+ *
+ * O Ordo escreve os dois numa frase só: "Padroeiro principal do país, duples
+ * de 1ª classe com Oitava comum". São duas coisas de natureza diferente — o
+ * que o santo é para esta terra, e que grau a festa tem —, e o Perez pediu
+ * que aparecessem separadas.
+ *
+ * São cinco dias no ano, e o corte é sempre na vírgula antes da palavra do
+ * grau. Quando ela não aparece, não se corta nada: inventar um corte num dia
+ * que não previmos seria pior do que mostrar a frase inteira, como sempre.
+ */
+export function patrocinioDoGrau(grau: string): { patrocinio?: string; grau: string } {
+  const corte = /^(.*?),\s*((?:semi)?duples\b.*)$/i.exec(grau);
+  if (!corte || !/padroeir|titular/i.test(corte[1])) return { grau };
+  return { patrocinio: corte[1].trim(), grau: corte[2].trim() };
+}
+
+/**
+ * Festa maior: a de 1ª ou 2ª classe, no vocabulário pré-55.
+ *
+ * O Ordo escreve a classe dentro do grau — "Duples de 1ª classe" — e só as
+ * duas primeiras existem: nos 365 dias de 2026 há 43 de 1ª e 38 de 2ª, e
+ * nenhuma terceira. O resto se classifica por outra escala (duples,
+ * semiduples, simples), que não se mistura com esta.
+ *
+ * Cuidado com a palavra vizinha: o Ordo também diz "féria maior de 2ª ordem"
+ * e "Oitava privilegiada de 1ª ordem". Ordem não é classe, e por isso a
+ * expressão inteira entra na busca.
+ */
+export const ehFestaMaiorDoOrdo = (dia: DiaDoOrdo): boolean =>
+  /[12]\s*[ªa]\s*classe/i.test(dia.grau);
+
 export interface NaMissa {
   gloria: boolean;
   credo: boolean;

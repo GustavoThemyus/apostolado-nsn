@@ -20,8 +20,14 @@ export function MarcaDePenitencia({ penitencia }: { penitencia?: Penitencia }) {
   );
 }
 
-/** A linha que explica as duas cruzes, embaixo da grade. */
-export function LegendaDaPenitencia() {
+/**
+ * A linha que explica os sinais da grade, embaixo dela.
+ *
+ * Mora neste arquivo porque duas das três entradas são as cruzes daqui. A
+ * terceira é a bolinha maior das festas de 1ª e 2ª classe, que a grade
+ * desenha sozinha e que ninguém adivinharia sem esta linha.
+ */
+export function LegendaDaGrade() {
   return (
     <p className="calendario__legenda">
       <span>
@@ -31,6 +37,13 @@ export function LegendaDaPenitencia() {
       <span>
         <span className="calendario__penitencia calendario__penitencia--jejum" aria-hidden="true" />
         Jejum e abstinência
+      </span>
+      <span>
+        <span
+          className="calendario__ponto calendario__ponto--exemplo calendario__ponto--maior"
+          aria-hidden="true"
+        />
+        Festa de 1ª ou 2ª classe
       </span>
     </p>
   );

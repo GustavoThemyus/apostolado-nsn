@@ -1,4 +1,10 @@
-import { naMissaDoOrdo, type DiaDoOrdo } from "../calendario/ordo";
+import {
+  ehMissasPermitidas,
+  missasPermitidasDoOrdo,
+  naMissaDoOrdo,
+  patrocinioDoGrau,
+  type DiaDoOrdo,
+} from "../calendario/ordo";
 import { NOME_DA_PENITENCIA } from "../calendario/penitencia";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
 
@@ -42,7 +48,13 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
    * dizem exatamente "Dia de abstinência", "Dia de jejum e abstinência" ou
    * "Hoje é dispensada a Abstinência de carne", e mais nada.
    */
-  const notas = resto.filter((p) => !/^(Dia de (jejum e )?abstinência|Hoje é dispensada a Abstinência de carne)$/i.test(p.trim()));
+  const notas = resto.filter(
+    (p) =>
+      !/^(Dia de (jejum e )?abstinência|Hoje é dispensada a Abstinência de carne)$/i.test(p.trim()) &&
+      !ehMissasPermitidas(p),
+  );
+  const permitidas = missasPermitidasDoOrdo(dia);
+  const { patrocinio, grau } = patrocinioDoGrau(dia.grau);
 
   return (
     <div className="calendario__detalhe">
@@ -51,6 +63,11 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
         {dia.data.getUTCFullYear()}
       </p>
       <p className="calendario__detalhe-nome">{dia.nome}</p>
+      {/*
+        O que o santo é para esta terra vem antes do grau, e separado dele:
+        são coisas de natureza diferente, e o Ordo as escreve numa frase só.
+      */}
+      {patrocinio && <p className="ordo__patrocinio">{patrocinio}</p>}
       <dl className="dia__detalhes">
         <div>
           <dt>Tempo</dt>
@@ -65,7 +82,7 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
         </div>
         <div>
           <dt>Grau</dt>
-          <dd>{dia.grau}</dd>
+          <dd>{grau}</dd>
         </div>
       </dl>
 
@@ -81,6 +98,17 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
         <div className="desenv">
           <p className="desenv__titulo">Na Missa deste dia</p>
           <dl className="desenv__lista">
+            {/*
+              A Missa abre a tabela. Antes vinha depois dela, como parágrafo
+              solto, e era a primeira coisa que se procura: é ela que muda de
+              um dia para o outro, enquanto Glória e Credo se repetem.
+            */}
+            {naMissa.resto.length > 0 && (
+              <div>
+                <dt>Missa</dt>
+                <dd>{naMissa.resto.join("; ")}</dd>
+              </div>
+            )}
             <div>
               <dt>Glória</dt>
               <dd><Sim v={naMissa.gloria} porque={naMissa.gloriaPorque} /></dd>
@@ -112,15 +140,26 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
                 </dd>
               </div>
             )}
-            {naMissa.ultimoEvangelho && (
-              <div>
-                <dt>Último Evangelho</dt>
-                <dd>{naMissa.ultimoEvangelho}</dd>
-              </div>
-            )}
+            {/*
+              Sempre presente, porque o Perez quer o quadro igual em todo dia.
+              O Ordo só o menciona quando foge do comum; calado, vale a regra
+              geral — e isso fica dito, para a dedução não se passar pela
+              palavra dele, que é o que esta tela evita em todo o resto.
+            */}
+            <div>
+              <dt>Último Evangelho</dt>
+              <dd>
+                {naMissa.ultimoEvangelho ?? (
+                  <>
+                    prólogo de São João
+                    <span className="desenv__porque"> pela regra geral</span>
+                  </>
+                )}
+              </dd>
+            </div>
             {naMissa.fecho && (
               <div>
-                <dt>Fecho</dt>
+                <dt>Despedida</dt>
                 <dd>{naMissa.fecho}</dd>
               </div>
             )}
@@ -129,18 +168,11 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
       )}
 
       {/*
-        * A linha da Missa, sem o que a tabela acima já disse.
-        *
-        * Perez: "é só informação repetida, torna mais cansativo". O Glória, o
-        * Credo, o Prefácio e o fecho estão logo ali em cima; o que sobra é o
-        * que muda de um dia para o outro — o nome da Missa e as orações. Nos
-        * três dias sem tabela, a linha vem inteira, que é o rito do dia.
+        * Nos dias sem tabela a linha vem inteira, porque ali ela não é a
+        * Missa: é o rito próprio do dia, e não cabe em campos. Nos demais, a
+        * linha já subiu para a primeira casa da tabela.
         */}
-      {naMissa
-        ? naMissa.resto.length > 0 && (
-            <p className="ordo__missa">{naMissa.resto.join("; ")}</p>
-          )
-        : missa && <p className="ordo__missa">{missa}</p>}
+      {!naMissa && missa && <p className="ordo__missa">{missa}</p>}
 
       {dia.anexos && dia.anexos.length > 0 && (
         <p className="ordo__proprio">
@@ -169,6 +201,13 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
               ))}
             </>
           )}
+        </p>
+      )}
+
+      {permitidas.length > 0 && (
+        <p className="ordo__permitidas">
+          <span className="ordo__permitidas-rotulo">Missas permitidas</span>
+          {permitidas.join("; ")}
         </p>
       )}
 

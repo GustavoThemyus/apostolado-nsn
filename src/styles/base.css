@@ -1240,6 +1240,29 @@ button {
   border: 1px solid var(--tinta-suave);
 }
 
+/*
+ * Festa de 1ª ou 2ª classe: a bolinha cresce, e não fica dourada.
+ *
+ * O Perez pediu ouro, e ouro é justamente o que não cabia: nesta mesma grade
+ * ele já diz duas outras coisas — a cruz do jejum e a borda do dia de hoje —,
+ * e seria a terceira. Pior, trocar a cor da bolinha pelo ouro apagaria a cor
+ * litúrgica nos dias em que ela mais importa: um mártir de 1ª classe deixaria
+ * de ser vermelho. O tamanho estava livre e diz o mesmo sem tirar nada.
+ *
+ * Cresce por `transform`, que não ocupa espaço no leiaute. Mudar a largura
+ * empurraria o número do dia um fio para cima só nas casas de festa, e a
+ * linha dos números perderia o alinhamento.
+ */
+.calendario__ponto--maior {
+  transform: scale(1.45);
+}
+
+/* Só na legenda: a bolinha de exemplo não tem cor litúrgica para mostrar. */
+.calendario__ponto--exemplo {
+  flex: none;
+  background: var(--tinta-suave);
+}
+
 .calendario__detalhe {
   margin-top: 1.25rem;
   padding: 1rem 1.1rem;
@@ -2073,6 +2096,44 @@ button {
 }
 .tabela td:first-child::before {
   content: none;
+}
+
+/*
+ * O patrocínio do santo, entre o nome e o quadro.
+ *
+ * Cinco dias no ano. O Ordo escreve "Padroeiro principal do país, duples de
+ * 1ª classe com Oitava comum" numa frase só, e o Perez pediu para separar: o
+ * que o santo é para esta terra não é o grau da festa dele.
+ */
+.ordo__patrocinio {
+  margin: -0.35rem 0 1.1rem;
+  text-align: center;
+  font-family: var(--titular);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--ouro-tinta);
+}
+
+/*
+ * As Missas que o dia permite além da do dia.
+ *
+ * Fica à parte do quadro porque responde a outra pergunta: o quadro diz como
+ * é a Missa de hoje, e isto diz o que se pode celebrar hoje.
+ */
+.ordo__permitidas {
+  margin: 1.1rem 0 0;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+}
+.ordo__permitidas-rotulo {
+  display: block;
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  margin-bottom: var(--respiro-etiqueta);
 }
 
 /* ---------------- rodapé ---------------- */

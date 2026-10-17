@@ -13,7 +13,14 @@
 import { ANOS, ARQUIVOS } from "../data/ordo/indice";
 import { penitenciaDe } from "./penitencia";
 import { diaLiturgico } from "./precedencia";
-import { ANOS_COM_ORDO, carregarOrdo, mesDoOrdo, naMissaDoOrdo, temOrdo } from "./ordo";
+import {
+  ANOS_COM_ORDO,
+  carregarOrdo,
+  ehFestaMaiorDoOrdo,
+  mesDoOrdo,
+  naMissaDoOrdo,
+  temOrdo,
+} from "./ordo";
 import type { Cor } from "./tipos";
 
 let passaram = 0;
@@ -207,6 +214,28 @@ async function rodar() {
     conferir("o Ordo marca 49 abstinências, 2 jejuns e 2 dispensas",
       [contar("abstinencia"), contar("jejum-e-abstinencia"), contar("dispensada")],
       [49, 2, 2]);
+  }
+
+  {
+    /*
+     * A bolinha maior da grade sai daqui, e o risco é a palavra vizinha: o
+     * Ordo escreve "féria maior de 2ª ordem" e "Oitava privilegiada de 1ª
+     * ordem", que não são classe nenhuma. Se a busca afrouxar para o número
+     * sozinho, 51 dias comuns viram festa maior e a marca perde o sentido.
+     */
+    const maiores = Object.values(de2026.dias).filter(ehFestaMaiorDoOrdo);
+    conferir("81 festas de 1ª ou 2ª classe em 2026", maiores.length, 81);
+
+    const porGrau = (q: string) =>
+      Object.values(de2026.dias).filter((d) => d.grau === q);
+    conferir("'Duples de 1ª classe' é festa maior",
+      porGrau("Duples de 1ª classe").every(ehFestaMaiorDoOrdo), true);
+    conferir("'Féria maior de 2ª ordem, simples' não é: ordem não é classe",
+      porGrau("Féria maior de 2ª ordem, simples").some(ehFestaMaiorDoOrdo), false);
+    conferir("'Oitava privilegiada de 1ª ordem, semiduples' também não",
+      porGrau("Oitava privilegiada de 1ª ordem, semiduples").some(ehFestaMaiorDoOrdo), false);
+    conferir("'Duples maior' não é festa maior, apesar do nome",
+      porGrau("Duples maior").some(ehFestaMaiorDoOrdo), false);
   }
 
   const total = passaram + falhas.length;

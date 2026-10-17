@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { mesLiturgico } from "../calendario/precedencia";
-import { ANOS_COM_ORDO } from "../calendario/ordo";
+import { ANOS_COM_ORDO, ehFestaMaiorDoOrdo } from "../calendario/ordo";
 import { penitenciaDe } from "../calendario/penitencia";
 import { DetalheDoDia } from "../components/DetalheDoDia";
-import { LegendaDaPenitencia, MarcaDePenitencia } from "../components/MarcaDePenitencia";
+import { LegendaDaGrade, MarcaDePenitencia } from "../components/MarcaDePenitencia";
 import { DetalheDoOrdo } from "../components/DetalheDoOrdo";
 import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
 import { AssinarAgenda } from "../components/AssinarAgenda";
@@ -204,8 +204,9 @@ export default function Calendario() {
             escolhido={escolhido}
             aoEscolher={(data) => irPara(data)}
             marcar={(d) => <MarcaDePenitencia penitencia={d.penitencia} />}
+            destacar={ehFestaMaiorDoOrdo}
           />
-          <LegendaDaPenitencia />
+          <LegendaDaGrade />
         </>
       ) : (
         <>
@@ -215,8 +216,9 @@ export default function Calendario() {
             escolhido={escolhido}
             aoEscolher={(data) => irPara(data)}
             marcar={(d) => <MarcaDePenitencia penitencia={penitenciaDe(d)} />}
+            destacar={(d) => d.classe <= 2}
           />
-          <LegendaDaPenitencia />
+          <LegendaDaGrade />
         </>
       )}
 
