@@ -82,35 +82,14 @@ export function mesDoOrdo(arquivo: ArquivoDoOrdo, ano: number, mes: number): Dia
 }
 
 /**
- * O que acontece na Missa do dia, segundo o Ordo.
- *
- * O irmão disto do lado de 1962 é `desenvolvimentoDe`, que *deduz* das
- * rubricas gerais. Aqui não se deduz nada: o Ordo já escreve a linha da Missa
- * — "Missa Ecce advenit; Glória; Credo; Prefácio da Epifania; Ite, Missa est"
- * — e o que se faz é separá-la em campos.
- *
- * A diferença não é de estilo. No Natalício de São João Batista o Ordo não
- * manda Credo, e a dedução de 1962 mandaria, porque ela olha a classe: o
- * Credo depende da categoria da festa, não do grau. Onde os dois discordam,
- * quem está certo é o Ordo.
- *
- * A convenção da linha é que ela enumera o que se diz. Por isso a ausência de
- * "Glória" ou de "Credo" é uma afirmação, e não uma omissão — e o redator
- * ainda escreve "sem Credo" onde quer deixar claro.
- */
-/**
  * As Missas que o dia permite além da do dia: votiva, nupcial, de defuntos.
  *
  * O Ordo as traz numa linha só, sempre com a mesma abertura, em 385 das 365
- * — alguns dias trazem mais de uma. Vira parágrafo próprio porque é a
- * resposta a uma pergunta diferente das outras: não é "como é a Missa de
- * hoje", é "o que posso celebrar hoje".
+ * — e o excedente não é um dia dizer duas vezes: é a segunda celebração
+ * trazendo as dela. Por isso cada celebração guarda as suas, e não o dia.
  */
-export function missasPermitidasDoOrdo(dia: DiaDoOrdo): string[] {
-  return dia.partes
-    .filter((p) => /^➢\s*Missas permitidas/i.test(p))
-    .map((p) => p.replace(/^➢\s*Missas permitidas:\s*/i, "").trim());
-}
+export const soAsPermitidas = (linha: string): string =>
+  linha.replace(/^➢\s*Missas permitidas:\s*/i, "").trim();
 
 /** A linha reconhecida como "Missas permitidas", para a lista de notas não a repetir. */
 export const ehMissasPermitidas = (p: string): boolean =>
@@ -148,6 +127,126 @@ export function patrocinioDoGrau(grau: string): { patrocinio?: string; grau: str
  */
 export const ehFestaMaiorDoOrdo = (dia: DiaDoOrdo): boolean =>
   /[12]\s*[ªa]\s*classe/i.test(dia.grau);
+
+/**
+ * Uma celebração dentro do dia.
+ *
+ * O Ordo do Perez não traz uma Missa por dia: traz a da capela e, em 32 dias
+ * de 2026, a do mesmo dia como outro calendário o guarda — o Universal, o do
+ * Brasil, o da Igreja Catedral da Arquidiocese. Em alguns dias traz também
+ * uma segunda celebração da própria capela, como a Missa das Rogações, que
+ * se anuncia só pelo posto.
+ *
+ * Tudo isso vinha num bloco de observações corrido, porque a tela lia só a
+ * primeira linha e empilhava o resto. O Perez chegou a perguntar se teria de
+ * criar um segundo evento no Google Calendar para separá-las; não tem — o
+ * texto dele já vem separado e rotulado, faltava quem lesse.
+ */
+export interface Celebracao {
+  /** "No Calendário Universal", "No Brasil", "Na Igreja Catedral…". */
+  rotulo?: string;
+  /** "Féria menor, simples – cor roxa": o posto do dia naquele calendário. */
+  posto?: string;
+  /** A linha da Missa, crua. Ausente quando o Ordo diz "Missa como acima". */
+  missa?: string;
+  /** Rubricas e o mais que vier, na ordem em que o Ordo as escreve. */
+  notas: string[];
+  /** As linhas de "Missas permitidas", cruas. */
+  permitidas: string[];
+}
+
+/*
+ * Os três rótulos que o Ordo usa, e só eles, em linha que não diga mais nada.
+ *
+ * Estrito de propósito. Há uma linha que começa com "No Brasil" e continua
+ * por uma frase inteira — "No Brasil pode-se dizer, com rito festivo, a Missa
+ * do Dia segundo da Oitava de Nossa Senhora Aparecida – cor branca" —, e ela
+ * não é rótulo: é o próprio anúncio da celebração, que entra pelo posto logo
+ * abaixo.
+ */
+const EH_ROTULO =
+  /^(No Calendário Universal|No Brasil|Na Igreja Catedral[^:]*?)\s*:?\s*$/;
+
+/*
+ * O posto: a linha que diz o grau e a cor daquela celebração, e que termina
+ * sempre em "– cor <alguma>". É o único anúncio que a Missa das Rogações tem
+ * — ela não vem debaixo de rótulo nenhum.
+ */
+const EH_POSTO = /[–-]\s*cor\s+\p{L}+\s*$/u;
+
+const ehRubrica = (p: string) => p.startsWith("➢");
+
+/**
+ * Separa o dia nas celebrações que ele traz.
+ *
+ * A propriedade que vale mais que o acerto da estrutura: **nenhuma linha se
+ * perde e nenhuma se repete.** O que o separador não reconhece continua
+ * aparecendo, como nota, na ordem em que o Ordo escreveu. `ordo.teste.ts`
+ * confere isso nos 365 dias — inventar estrutura é pior que mostrar a linha
+ * crua, porque o que some ninguém vê sumir.
+ */
+export function celebracoesDoOrdo(dia: DiaDoOrdo): Celebracao[] {
+  const saida: Celebracao[] = [];
+  let atual: Celebracao = { notas: [], permitidas: [] };
+
+  const fechar = () => {
+    const vazia =
+      !atual.rotulo && !atual.posto && !atual.missa &&
+      atual.notas.length === 0 && atual.permitidas.length === 0;
+    if (!vazia) saida.push(atual);
+    atual = { notas: [], permitidas: [] };
+  };
+
+  for (const cru of dia.partes) {
+    const p = cru.trim();
+
+    if (!ehRubrica(p) && EH_ROTULO.test(p)) {
+      fechar();
+      atual.rotulo = cru;
+      continue;
+    }
+    if (!ehRubrica(p) && !p.startsWith("Missa") && EH_POSTO.test(p)) {
+      /*
+       * Rótulo e posto são o mesmo anúncio em duas linhas — "No Calendário
+       * Universal:" e, embaixo, "São Pedro Canísio…, duples – cor branca".
+       * Abrir celebração no posto quando o rótulo acabou de abrir uma
+       * deixava o rótulo sozinho num bloco vazio e jogava a Missa e as
+       * rubricas para um terceiro.
+       */
+      const soTemRotulo =
+        atual.rotulo && !atual.posto && !atual.missa &&
+        atual.notas.length === 0 && atual.permitidas.length === 0;
+      if (!soTemRotulo) fechar();
+      atual.posto = cru;
+      continue;
+    }
+    if (ehMissasPermitidas(p)) {
+      atual.permitidas.push(cru);
+      continue;
+    }
+    /*
+     * A primeira linha da celebração, e só ela. Não se exige que comece em
+     * "Missa": no Tríduo e na Vigília de Pentecostes ela começa em "Rito:",
+     * porque ali o que se faz não é uma Missa — é a ação litúrgica do dia.
+     * Quem decide se dá para analisá-la em campos é `analisarMissa`, e,
+     * quando não dá, a tela mostra a linha inteira.
+     *
+     * Só a primeira porque o Ordo escreve outras Missas mais abaixo, debaixo
+     * da rubrica que diz em que caso valem — "Nas Missas privadas", "Onde se
+     * fizer procissão e celebrar apenas uma Missa". Promovê-las separaria
+     * cada uma da rubrica que lhe dá sentido, e a tela mostraria como Missa
+     * do dia o que é exceção.
+     */
+    if (!ehRubrica(p) && !atual.missa) {
+      atual.missa = cru;
+      continue;
+    }
+    atual.notas.push(cru);
+  }
+
+  fechar();
+  return saida;
+}
 
 export interface NaMissa {
   gloria: boolean;
@@ -190,8 +289,28 @@ function achar(linha: string, termo: string): { tem: boolean; porque?: string } 
 
 const primeiro = (linha: string, padrao: RegExp) => linha.match(padrao)?.[0]?.trim();
 
-export function naMissaDoOrdo(dia: DiaDoOrdo): NaMissa | null {
-  const linha = dia.partes[0];
+/**
+ * O que acontece na Missa do dia, segundo o Ordo.
+ *
+ * O irmão disto do lado de 1962 é `desenvolvimentoDe`, que *deduz* das
+ * rubricas gerais. Aqui não se deduz nada: o Ordo já escreve a linha da Missa
+ * — "Missa Ecce advenit; Glória; Credo; Prefácio da Epifania; Ite, Missa est"
+ * — e o que se faz é separá-la em campos.
+ *
+ * A diferença não é de estilo. No Natalício de São João Batista o Ordo não
+ * manda Credo, e a dedução de 1962 mandaria, porque ela olha a classe: o
+ * Credo depende da categoria da festa, não do grau. Onde os dois discordam,
+ * quem está certo é o Ordo.
+ *
+ * A convenção da linha é que ela enumera o que se diz. Por isso a ausência de
+ * "Glória" ou de "Credo" é uma afirmação, e não uma omissão — e o redator
+ * ainda escreve "sem Credo" onde quer deixar claro.
+ *
+ * Recebe a linha, e não o dia, desde que o dia passou a ter mais de uma: a
+ * mesma análise serve à Missa da capela e à do Calendário Universal logo
+ * abaixo, que antes nem era lida.
+ */
+export function analisarMissa(linha: string | undefined): NaMissa | null {
   // Sexta-feira Santa, Sábado Santo e a Vigília de Pentecostes não abrem com
   // "Missa": abrem com o rito do dia, que não cabe nesta tabela
   if (!linha?.startsWith("Missa")) return null;
@@ -261,3 +380,7 @@ export function naMissaDoOrdo(dia: DiaDoOrdo): NaMissa | null {
     resto,
   };
 }
+
+/** A Missa da capela: a primeira do dia. */
+export const naMissaDoOrdo = (dia: DiaDoOrdo): NaMissa | null =>
+  analisarMissa(dia.partes[0]);

@@ -2105,6 +2105,42 @@ button {
  * 1ª classe com Oitava comum" numa frase só, e o Perez pediu para separar: o
  * que o santo é para esta terra não é o grau da festa dele.
  */
+/*
+ * A segunda celebração do dia — e a terceira.
+ *
+ * Em 35 dias de 2026 o Ordo traz o mesmo dia como outro calendário o guarda,
+ * ou uma segunda Missa da própria capela. Antes tudo isso caía na lista de
+ * observações, onde a Missa do Calendário Universal ficava com a mesma cara
+ * de uma rubrica sobre quando ajoelhar.
+ *
+ * Separa por fio e respiro, e não por caixa: a caixa competiria com a do
+ * "Na Missa deste dia" que mora dentro dela.
+ */
+.ordo__celebracao--outra {
+  display: block;
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--fio);
+}
+
+/* "No Calendário Universal", "No Brasil", "Na Igreja Catedral…" */
+.ordo__celebracao-rotulo {
+  margin: 0 0 0.3rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+
+/* "São Pedro Canísio Confessor e Doutor da Igreja, duples – cor branca" */
+.ordo__celebracao-posto {
+  margin: 0 0 0.7rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
 .ordo__patrocinio {
   margin: -0.35rem 0 1.1rem;
   text-align: center;

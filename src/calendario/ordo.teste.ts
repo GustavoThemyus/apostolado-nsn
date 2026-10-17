@@ -15,7 +15,10 @@ import { penitenciaDe } from "./penitencia";
 import { diaLiturgico } from "./precedencia";
 import {
   ANOS_COM_ORDO,
+  analisarMissa,
   carregarOrdo,
+  celebracoesDoOrdo,
+  type DiaDoOrdo,
   ehFestaMaiorDoOrdo,
   mesDoOrdo,
   naMissaDoOrdo,
@@ -236,6 +239,126 @@ async function rodar() {
       porGrau("Oitava privilegiada de 1ª ordem, semiduples").some(ehFestaMaiorDoOrdo), false);
     conferir("'Duples maior' não é festa maior, apesar do nome",
       porGrau("Duples maior").some(ehFestaMaiorDoOrdo), false);
+  }
+
+  {
+    /*
+     * As celebrações do dia.
+     *
+     * A primeira conferência é a que vale: **nada se perde e nada se
+     * repete.** O separador olha a forma das linhas do Perez, e forma é
+     * coisa que varia — um dia escreve "No Brasil:" e outro "No Brasil", um
+     * anuncia a celebração por rótulo e outro só pelo posto. Se um dia
+     * dessas linhas mudar, o pior desfecho não é a estrutura sair errada: é
+     * uma linha sumir da tela sem ninguém ver sumir.
+     */
+    const perdidas: string[] = [];
+    let comSegunda = 0;
+    let comRotulo = 0;
+    const porRotulo = new Map<string, number>();
+
+    for (const [data, bruto] of Object.entries(de2026.dias)) {
+      const dia = { ...bruto, data: new Date(`${data}T00:00:00Z`), tempo: "tempo-comum" } as DiaDoOrdo;
+      const celebracoes = celebracoesDoOrdo(dia);
+
+      const recolhidas = celebracoes.flatMap((c) => [
+        ...(c.rotulo ? [c.rotulo] : []),
+        ...(c.posto ? [c.posto] : []),
+        ...(c.missa ? [c.missa] : []),
+        ...c.notas,
+        ...c.permitidas,
+      ]);
+      const ordenar = (lista: string[]) => [...lista].sort();
+      if (JSON.stringify(ordenar(recolhidas)) !== JSON.stringify(ordenar(dia.partes))) {
+        perdidas.push(`${data}: ${dia.partes.length} linhas viraram ${recolhidas.length}`);
+      }
+
+      if (celebracoes.length > 1) comSegunda += 1;
+      for (const c of celebracoes.slice(1)) {
+        if (c.rotulo) {
+          comRotulo += 1;
+          const chave = c.rotulo.replace(/\s*:\s*$/, "").trim();
+          porRotulo.set(chave, (porRotulo.get(chave) ?? 0) + 1);
+        }
+      }
+    }
+
+    conferir("celebrações: nenhuma linha se perde nem se repete em 2026",
+      perdidas, []);
+    conferir("celebrações: a primeira é sempre a da capela",
+      celebracoesDoOrdo({
+        ...de2026.dias["2026-02-26"],
+        data: new Date("2026-02-26T00:00:00Z"),
+        tempo: "quaresma",
+      } as DiaDoOrdo).length, 1);
+
+    conferir("31 celebrações rotuladas em 2026", comRotulo, 31);
+    conferir("em 35 dias o dia tem mais de uma celebração", comSegunda, 35);
+    conferir("os três rótulos do Ordo, com as contagens dele",
+      [...porRotulo.entries()].sort((a, b) => a[0].localeCompare(b[0])),
+      [["Na Igreja Catedral", 1],
+       ["Na Igreja Catedral da Arquidiocese da Paraíba", 2],
+       ["No Brasil", 2],
+       ["No Calendário Universal", 26]]);
+
+    // 27 de abril: a Missa da capela e a do Calendário Universal, inteiras
+    const abril27 = celebracoesDoOrdo({
+      ...de2026.dias["2026-04-27"],
+      data: new Date("2026-04-27T00:00:00Z"),
+      tempo: "pascoa",
+    } as DiaDoOrdo);
+    conferir("27 de abril tem duas celebrações", abril27.length, 2);
+    conferir("a segunda é a do Calendário Universal", abril27[1].rotulo?.trim(),
+      "No Calendário Universal:");
+    conferir("e traz o posto daquele calendário", abril27[1].posto,
+      "São Pedro Canísio Confessor e Doutor da Igreja, duples – cor branca");
+    conferir("a Missa dela é lida como a da capela",
+      analisarMissa(abril27[1].missa)?.gloria, true);
+
+    /*
+     * O Tríduo: a primeira linha não começa em "Missa", e começa em "Rito:",
+     * porque ali o que se faz é a ação litúrgica do dia. Ela tem de seguir
+     * em destaque — exigir a palavra "Missa" a jogava na lista de notas, no
+     * meio das rubricas sobre velas e toalhas de altar.
+     */
+    for (const data of ["2026-04-03", "2026-04-04", "2026-05-23"]) {
+      const c = celebracoesDoOrdo({
+        ...de2026.dias[data],
+        data: new Date(`${data}T00:00:00Z`),
+        tempo: "quaresma",
+      } as DiaDoOrdo);
+      conferir(`${data}: a abertura do rito é a primeira linha`,
+        c[0]?.missa?.startsWith("Rito:"), true);
+      conferir(`${data}: e não se analisa em campos`, analisarMissa(c[0]?.missa), null);
+    }
+
+    /*
+     * A Vigília de Pentecostes escreve, debaixo de "Nas Missas privadas",
+     * uma Missa que não é a do dia. Promovê-la mostraria como Missa
+     * principal o que é exceção.
+     */
+    const pentecostes = celebracoesDoOrdo({
+      ...de2026.dias["2026-05-23"],
+      data: new Date("2026-05-23T00:00:00Z"),
+      tempo: "pascoa",
+    } as DiaDoOrdo);
+    conferir("a Missa privada da Vigília fica com a rubrica dela",
+      pentecostes[0].notas.some((n) => /^Missa Cum sanctificatus/.test(n)), true);
+
+    /*
+     * 3 de maio é o caso que não pode regredir: o Ordo diz "Missa como
+     * acima, exceto…" em vez de repeti-la. A celebração fica sem Missa de
+     * propósito, e a rubrica é que carrega o recado.
+     */
+    const maio3 = celebracoesDoOrdo({
+      ...de2026.dias["2026-05-03"],
+      data: new Date("2026-05-03T00:00:00Z"),
+      tempo: "pascoa",
+    } as DiaDoOrdo);
+    conferir("3 de maio: a segunda celebração não repete a Missa",
+      maio3[1]?.missa, undefined);
+    conferir("3 de maio: a rubrica é que diz 'como acima'",
+      maio3[1]?.notas.some((n) => /Missa como acima/.test(n)), true);
   }
 
   const total = passaram + falhas.length;
