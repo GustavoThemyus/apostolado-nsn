@@ -314,6 +314,32 @@ export interface Retrato {
   imagem: string;
 }
 
+/**
+ * Um dia de um calendário do Google, já lido do iCal.
+ *
+ * Mora aqui, e não no Worker que o produz, porque a tela também o consome.
+ * Posto lá, o `import type` do cliente arrastava `worker/agenda.ts` para o
+ * projeto do navegador, que não conhece os tipos da Cloudflare e passava a
+ * reprovar o `cf` do fetch.
+ */
+export interface ItemDeAgenda {
+  /** AAAA-MM-DD */
+  data: string;
+  titulo: string;
+  descricao?: string;
+  /** Cor litúrgica, quando o título vem marcado com ela. */
+  cor?: CorDaAgenda;
+}
+
+export type CorDaAgenda =
+  | "branco"
+  | "vermelho"
+  | "verde"
+  | "roxo"
+  | "preto"
+  | "rosa"
+  | "ouro";
+
 /** Um calendário do Google que o fiel pode vincular ao aparelho dele. */
 export interface Agenda {
   id: string;

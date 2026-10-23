@@ -1,4 +1,7 @@
 import site from "../src/data/site.json";
+import type { CorDaAgenda, ItemDeAgenda } from "../src/data/tipos";
+
+export type { CorDaAgenda, ItemDeAgenda };
 
 /**
  * Ponte para os calendários públicos do Google.
@@ -15,23 +18,6 @@ import site from "../src/data/site.json";
  * fronteira da gravação.
  */
 
-export interface ItemDeAgenda {
-  /** AAAA-MM-DD */
-  data: string;
-  titulo: string;
-  descricao?: string;
-  /** Cor litúrgica, quando o título vem marcado com ela. */
-  cor?: CorDaAgenda;
-}
-
-export type CorDaAgenda =
-  | "branco"
-  | "vermelho"
-  | "verde"
-  | "roxo"
-  | "preto"
-  | "rosa"
-  | "ouro";
 
 /*
  * O Ordo da capela põe a cor litúrgica como emoji no começo do título
@@ -101,18 +87,132 @@ function desescapar(valor: string): string {
 }
 
 /**
- * Lê os VEVENT de um iCal.
+ * A repetição de um evento, no pouco que estes calendários usam.
  *
- * Não trata RRULE de propósito: o Google já entrega as ocorrências expandidas
- * em eventos separados, com RECURRENCE-ID. Implementar recorrência aqui seria
- * escrever um motor de datas que o servidor do outro lado já rodou.
+ * Havia aqui um comentário dizendo que o Google entregava as ocorrências já
+ * expandidas, com RECURRENCE-ID, e que por isso tratar RRULE seria refazer
+ * conta alheia. **Não é verdade.** No iCal do Escapulário há 7 eventos, 7
+ * RRULE e zero RECURRENCE-ID; o Google entrega a regra, não as ocorrências.
+ * Como a regra era ignorada e só o DTSTART guardado, cada festa anual ficou
+ * parada no ano em que foi criada, e cinco calendários do Apostolado
+ * mostravam quase nada de 2026 em diante.
  */
-export function lerIcal(texto: string): ItemDeAgenda[] {
+interface Repeticao {
+  /** Em anos. O que não for anual não se expande. */
+  passo: number;
+  /** AAAA-MM-DD, quando a série termina. */
+  ate?: string;
+  mes?: number;
+  diaDoMes?: number;
+  /** "BYDAY=-1SU": o último domingo. Ordem negativa conta do fim. */
+  diaDaSemana?: { ordem: number; dia: number };
+}
+
+const DIAS_DA_SEMANA: Record<string, number> = {
+  SU: 0, MO: 1, TU: 2, WE: 3, TH: 4, FR: 5, SA: 6,
+};
+
+/**
+ * Lê a RRULE, e devolve nulo para o que não sabemos expandir.
+ *
+ * Nulo não perde o evento: ele continua valendo pela data do DTSTART, como
+ * valia antes. É de propósito que o desconhecido degrade para uma ocorrência
+ * em vez de sumir ou de virar palpite.
+ *
+ * O que estes seis calendários usam, conferido um a um: 58 regras anuais e
+ * uma mensal de doze em doze meses, com BYMONTH, BYMONTHDAY, BYDAY e UNTIL.
+ * Nenhum EXDATE, nenhum COUNT, nenhum RECURRENCE-ID.
+ */
+export function lerRepeticao(valor: string): Repeticao | null {
+  const partes: Record<string, string> = {};
+  for (const pedaco of valor.split(";")) {
+    const i = pedaco.indexOf("=");
+    if (i > 0) partes[pedaco.slice(0, i).toUpperCase()] = pedaco.slice(i + 1);
+  }
+
+  const intervalo = Number(partes.INTERVAL ?? 1) || 1;
+  let passo: number;
+  if (partes.FREQ === "YEARLY") passo = intervalo;
+  // "de doze em doze meses" é uma vez por ano dita de outro jeito
+  else if (partes.FREQ === "MONTHLY" && intervalo % 12 === 0) passo = intervalo / 12;
+  else return null;
+
+  const r: Repeticao = { passo };
+  if (partes.UNTIL) {
+    const ate = comoData(partes.UNTIL);
+    if (ate) r.ate = ate;
+  }
+  if (partes.BYMONTH) r.mes = Number(partes.BYMONTH);
+  if (partes.BYMONTHDAY) r.diaDoMes = Number(partes.BYMONTHDAY);
+  if (partes.BYDAY) {
+    const m = /^(-?\d+)?([A-Z]{2})$/.exec(partes.BYDAY.trim().toUpperCase());
+    if (m && m[2] in DIAS_DA_SEMANA) {
+      r.diaDaSemana = { ordem: Number(m[1] ?? 1), dia: DIAS_DA_SEMANA[m[2]] };
+    } else {
+      // BYDAY com lista ("MO,WE") não é coisa destes calendários
+      return null;
+    }
+  }
+  return r;
+}
+
+/** A enésima ocorrência de um dia da semana no mês. Ordem negativa conta do fim. */
+function diaDaOcorrencia(ano: number, mes: number, ordem: number, dia: number): number | null {
+  const noMes = new Date(Date.UTC(ano, mes, 0)).getUTCDate();
+  const casam: number[] = [];
+  for (let d = 1; d <= noMes; d += 1) {
+    if (new Date(Date.UTC(ano, mes - 1, d)).getUTCDay() === dia) casam.push(d);
+  }
+  const escolhido = ordem > 0 ? casam[ordem - 1] : casam[casam.length + ordem];
+  return escolhido ?? null;
+}
+
+/**
+ * As datas em que a série cai, dentro da janela.
+ *
+ * A janela existe porque o retorno é uma lista chata, sem o ano pedido: o ano
+ * passado serve para quem olha janeiro e volta para dezembro, e dois à frente
+ * cobrem o calendário que o Apostolado prepara com antecedência.
+ */
+function expandir(inicio: string, r: Repeticao, de: number, ate: number): string[] {
+  const [ano0, mes0, dia0] = inicio.split("-").map(Number);
+  const saida: string[] = [];
+
+  for (let ano = Math.max(de, ano0); ano <= ate; ano += 1) {
+    if ((ano - ano0) % r.passo !== 0) continue;
+    const mes = r.mes ?? mes0;
+    const dia = r.diaDaSemana
+      ? diaDaOcorrencia(ano, mes, r.diaDaSemana.ordem, r.diaDaSemana.dia)
+      : (r.diaDoMes ?? dia0);
+    if (!dia) continue;
+    const data = `${ano}-${String(mes).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
+    if (data < inicio) continue;
+    if (r.ate && data > r.ate) break;
+    saida.push(data);
+  }
+  return saida;
+}
+
+/** A janela padrão, em torno do ano corrente. */
+function janelaPadrao(): { de: number; ate: number } {
+  const ano = new Date().getUTCFullYear();
+  return { de: ano - 1, ate: ano + 2 };
+}
+
+/**
+ * Lê os VEVENT de um iCal, expandindo as séries anuais.
+ *
+ * Evento sem RRULE, ou com uma que não sabemos ler, entra uma vez só, pela
+ * data do DTSTART. Nada se perde por não ser entendido.
+ */
+export function lerIcal(texto: string, janela = janelaPadrao()): ItemDeAgenda[] {
   const itens: ItemDeAgenda[] = [];
+  const vistos = new Set<string>();
   let dentro = false;
   let data: string | null = null;
   let titulo = "";
   let descricao = "";
+  let repeticao: Repeticao | null = null;
 
   for (const linha of desdobrar(texto)) {
     if (linha === "BEGIN:VEVENT") {
@@ -120,15 +220,23 @@ export function lerIcal(texto: string): ItemDeAgenda[] {
       data = null;
       titulo = "";
       descricao = "";
+      repeticao = null;
       continue;
     }
     if (linha === "END:VEVENT") {
       if (dentro && data && titulo) {
         const { titulo: limpo, cor } = separarCor(titulo);
-        const item: ItemDeAgenda = { data, titulo: limpo };
-        if (descricao) item.descricao = descricao;
-        if (cor) item.cor = cor;
-        itens.push(item);
+        const datas = repeticao ? expandir(data, repeticao, janela.de, janela.ate) : [data];
+        for (const quando of datas) {
+          // a mesma festa pode vir como série e como evento solto
+          const chave = `${quando}\u0000${limpo}`;
+          if (vistos.has(chave)) continue;
+          vistos.add(chave);
+          const item: ItemDeAgenda = { data: quando, titulo: limpo };
+          if (descricao) item.descricao = descricao;
+          if (cor) item.cor = cor;
+          itens.push(item);
+        }
       }
       dentro = false;
       continue;
@@ -143,6 +251,7 @@ export function lerIcal(texto: string): ItemDeAgenda[] {
     if (chave === "DTSTART") data = comoData(valor);
     else if (chave === "SUMMARY") titulo = desescapar(valor);
     else if (chave === "DESCRIPTION") descricao = desescapar(valor);
+    else if (chave === "RRULE") repeticao = lerRepeticao(valor);
   }
 
   itens.sort((a, b) => a.data.localeCompare(b.data));

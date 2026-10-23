@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import bruto from "../data/indulgencias-dias.json";
 import {
   indulgenciasDoMes,
@@ -13,6 +13,9 @@ import { Cabecalho } from "../components/Cabecalho";
 import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
 import { Moldura } from "../components/Moldura";
 import { porExtensoCurto } from "../components/DiaDeHoje";
+import { SeletorDeAgendas } from "../components/SeletorDeAgendas";
+import { usarAgendas } from "../hooks/usarAgendas";
+import { site } from "../data/site";
 import { usarRota } from "../routes/usarRota";
 
 const MESES = [
@@ -45,6 +48,36 @@ interface Colecao {
 }
 
 const colecao = bruto as unknown as Colecao;
+
+/*
+ * Quais calendários vinculados o leitor mandou mostrar.
+ *
+ * Fica no aparelho dele, e não na URL: é preferência de quem lê, não parte do
+ * endereço que se compartilha. Quem é da Terceira Franciscana quer os dias
+ * dela toda vez que voltar, e não quer que o link que mandou para um amigo
+ * leve junto a confraria a que ele não pertence.
+ */
+const LEMBRANCA = "nsn:indulgencias:agendas";
+
+/** "escapulario, cordao" não é frase: o aviso fala o nome que o leitor leu. */
+function nomesDas(ids: string[]): string {
+  const nomes = ids.map((id) => site.agendas.find((a) => a.id === id)?.nome ?? id);
+  if (nomes.length <= 1) return nomes.join("");
+  return `${nomes.slice(0, -1).join(", ")} e ${nomes[nomes.length - 1]}`;
+}
+
+function agendasLembradas(): string[] {
+  try {
+    const cru = localStorage.getItem(LEMBRANCA);
+    const lista = cru ? (JSON.parse(cru) as unknown) : null;
+    if (!Array.isArray(lista)) return [];
+    // o que foi removido do site.json desde a última visita não volta
+    const validos = new Set(site.agendas.map((a) => a.id));
+    return lista.filter((x): x is string => typeof x === "string" && validos.has(x));
+  } catch {
+    return [];
+  }
+}
 
 const hojeUTC = () => {
   const a = new Date();
@@ -89,7 +122,25 @@ export default function IndulgenciasCalendario() {
   const andar = (passo: number) =>
     irPara(new Date(Date.UTC(ano, mes - 1 + passo, 1)));
 
+  const [ligadas, definirLigadas] = useState<string[]>(agendasLembradas);
+  const vinculadas = usarAgendas(ligadas);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(LEMBRANCA, JSON.stringify(ligadas));
+    } catch {
+      /* navegador com os dados do site bloqueados: a escolha vale só nesta visita */
+    }
+  }, [ligadas]);
+
+  const alternar = useCallback((id: string) => {
+    definirLigadas((atuais) =>
+      atuais.includes(id) ? atuais.filter((x) => x !== id) : [...atuais, id],
+    );
+  }, []);
+
   const doDia = porDia.get(comoIso(escolhido)) ?? [];
+  const vinculadosDoDia = vinculadas.porDia.get(comoIso(escolhido)) ?? [];
   const diaLiturgico = dias.find((d) => mesmoDia(d.data, escolhido));
 
   return (
@@ -114,6 +165,30 @@ export default function IndulgenciasCalendario() {
           é apenas parcial.
         </p>
       </aside>
+
+      <SeletorDeAgendas
+        grupos={[
+          { grupo: "indulgencias-apostolado", titulo: "Do Apostolado" },
+          { grupo: "indulgencias", titulo: "Das confrarias e ordens terceiras" },
+        ]}
+        ligadas={ligadas}
+        aoAlternar={alternar}
+        carregando={vinculadas.carregando}
+      />
+
+      {vinculadas.falharam.length > 0 && (
+        <p className="agendas__aviso">
+          Não consegui buscar {nomesDas(vinculadas.falharam)}. Pode ser que o
+          calendário tenha saído do ar ou deixado de ser público.
+        </p>
+      )}
+      {vinculadas.semDetalhes.length > 0 && (
+        <p className="agendas__aviso">
+          {nomesDas(vinculadas.semDetalhes)} está partilhado sem os detalhes, e
+          o Google devolve todo dia como "Busy". Para aparecer aqui, tem de
+          estar público <em>com</em> os detalhes.
+        </p>
+      )}
 
       <div className="calendario__barra">
         <button
@@ -150,15 +225,35 @@ export default function IndulgenciasCalendario() {
         escolhido={escolhido}
         aoEscolher={irPara}
         marcar={(d) => {
-          const ocorrencias = porDia.get(comoIso(d.data));
-          if (!ocorrencias?.length) return null;
+          const iso = comoIso(d.data);
+          const ocorrencias = porDia.get(iso);
+          /*
+           * As agendas de fora não se somam ao marcador de plenária: aquele
+           * diz o que esta página calcula, e misturar com o que vem do Google
+           * faria o leitor atribuir a uma coisa a garantia da outra. Cada
+           * agenda ligada ganha o seu próprio ponto, na cor dela.
+           */
+          const deFora = vinculadas.porDia.get(iso) ?? [];
+          const agendas = [...new Set(deFora.map((i) => i.agenda))];
+          if (!ocorrencias?.length && agendas.length === 0) return null;
           return (
-            <span
-              className={`indulgencia__marca${
-                temPlenaria(ocorrencias) ? " indulgencia__marca--plenaria" : ""
-              }`}
-              aria-hidden="true"
-            />
+            <>
+              {ocorrencias?.length ? (
+                <span
+                  className={`indulgencia__marca${
+                    temPlenaria(ocorrencias) ? " indulgencia__marca--plenaria" : ""
+                  }`}
+                  aria-hidden="true"
+                />
+              ) : null}
+              {agendas.length > 0 && (
+                <span className="agendas__bandeiras" aria-hidden="true">
+                  {agendas.map((id) => (
+                    <span className="agendas__ponto" key={id} />
+                  ))}
+                </span>
+              )}
+            </>
           );
         }}
       />
@@ -186,11 +281,11 @@ export default function IndulgenciasCalendario() {
           <p className="calendario__detalhe-nome">{diaLiturgico.nome}</p>
         )}
 
-        {doDia.length === 0 ? (
+        {doDia.length === 0 && vinculadosDoDia.length === 0 ? (
           <p className="dia__observacao">
             Nenhuma indulgência presa a este dia.
           </p>
-        ) : (
+        ) : doDia.length === 0 ? null : (
           <ul className="indulgencias-dia">
             {doDia.map(({ entrada, transferidaDe }) => (
               <li key={entrada.id}>
@@ -217,6 +312,34 @@ export default function IndulgenciasCalendario() {
           </ul>
         )}
       </div>
+
+      {vinculadosDoDia.length > 0 && (
+        /*
+         * Em bloco próprio, e não misturado com as de cima.
+         *
+         * As de cima este site calcula, e responde por elas: a obra, a fonte
+         * e a transferência saem do motor. Estas vêm do calendário que a
+         * associação mantém no Google, com o texto que ela escreveu. Juntar
+         * as duas numa lista só faria o leitor cobrar deste site a exatidão
+         * do que é de outro.
+         */
+        <section className="vinculados" aria-labelledby="vinculados">
+          <h2 className="vinculados__titulo" id="vinculados">
+            Dos calendários que você ligou
+          </h2>
+          <ul className="indulgencias-dia">
+            {vinculadosDoDia.map((i) => (
+              <li key={`${i.agenda}-${i.titulo}`}>
+                <p className="indulgencias-dia__titulo">
+                  {i.titulo}
+                  <span className="vinculados__fonte">{i.nome}</span>
+                </p>
+                {i.descricao && <p className="paragrafo">{i.descricao}</p>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="nota" aria-labelledby="sem-dia">
         <h2 className="nota__titulo" id="sem-dia">

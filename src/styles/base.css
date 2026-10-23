@@ -4652,3 +4652,129 @@ button {
     padding: 2.4rem 2.2rem;
   }
 }
+
+/* ------------------------------------------------- calendários vinculados
+ *
+ * O Apostolado mantém seis calendários no Google além do que este site
+ * calcula: o dele e os das confrarias e ordens terceiras. Até agora eram só
+ * botão de assinar. O Perez pediu para poder ligá-los e desligá-los e ver
+ * tudo numa grade só.
+ *
+ * Caixas de seleção, e não abas: aba troca, caixa soma, e somar é o pedido.
+ */
+.agendas {
+  margin: 1.2rem var(--respiro-lateral) 0;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.4rem;
+  background: var(--painel);
+}
+.agendas__titulo {
+  padding: 0 0.3rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.agendas__carregando {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-style: italic;
+}
+.agendas__lista {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+.agendas__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+/* 44px de alvo no celular, que é o mínimo para o dedo não errar a vizinha */
+.agendas__item input {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin: 0;
+  accent-color: var(--ouro);
+}
+.agendas__nome {
+  line-height: 1.3;
+}
+
+.agendas__aviso {
+  margin: 0.7rem var(--respiro-lateral) 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
+/*
+ * Na casa do dia: uma marca por agenda que tem algo ali.
+ *
+ * Neutra de propósito. A casa já carrega a bolinha da cor litúrgica e o
+ * marcador de plenária, e uma terceira escala de cor com seis valores faria
+ * a grade dizer mais do que se lê de relance.
+ */
+.agendas__bandeiras {
+  display: flex;
+  gap: 0.12rem;
+  margin-top: 0.08rem;
+}
+.agendas__ponto {
+  width: 0.24rem;
+  height: 0.24rem;
+  border-radius: 50%;
+  background: var(--tinta-suave);
+}
+
+/*
+ * O bloco dos vinculados fica à parte das indulgências de cima.
+ *
+ * As de cima este site calcula e responde por elas. Estas vêm do calendário
+ * que a associação mantém, com o texto que ela escreveu. Numa lista só, o
+ * leitor cobraria deste site a exatidão do que é de outro.
+ */
+.vinculados {
+  margin: 1.4rem var(--respiro-lateral) 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--fio);
+}
+.vinculados__titulo {
+  margin: 0 0 0.7rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.vinculados__fonte {
+  display: block;
+  margin-top: 0.1rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--tinta-suave);
+}
+
+/* "Do Apostolado" / "Das confrarias e ordens terceiras" */
+.agendas__grupo + .agendas__grupo {
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--fio-suave);
+}
+.agendas__grupo-titulo {
+  margin: 0.5rem 0 0.1rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.68rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
