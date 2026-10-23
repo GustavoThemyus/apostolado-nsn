@@ -3,7 +3,7 @@
     "titulo": "Início",
     "descricao": "Apostolado Nossa Senhora das Neves: avisos, calendário litúrgico e publicações.",
     "chamada": "Rito Romano na forma do Missal de São Pio V",
-    "imagem": "/cartoes/inicio-d1e8306e.webp"
+    "imagem": "/cartoes/inicio-a440bec4.webp"
   },
   "/missa": {
     "titulo": "A Missa Tridentina",
@@ -73,7 +73,7 @@
     "titulo": "Sobre o Apostolado",
     "curto": "Apostolado",
     "descricao": "Nossa posição, situação canônica, história e o brasão.",
-    "imagem": "/cartoes/apostolado-9af0559c.webp"
+    "imagem": "/cartoes/apostolado-6f7f49b0.webp"
   },
   "/apostolado/brasao": {
     "titulo": "Nosso brasão",

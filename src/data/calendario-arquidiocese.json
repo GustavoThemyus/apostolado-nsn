@@ -10,7 +10,7 @@
         {
           "tipo": "paragrafo",
           "id": "arq-001",
-          "texto": "Abaixo do próprio do Brasil há ainda o da Arquidiocese. Ele é curto, e as duas festas que o compõem dizem a mesma coisa por dois caminhos: a igreja onde o Arcebispo tem a sua cátedra, e a Senhora a quem essa igreja é dedicada — [b]Nossa Senhora das Neves[/b], que é também a Titular deste Apostolado."
+          "texto": "Abaixo do próprio do Brasil há ainda o da Arquidiocese. Ele é curto. As duas festas que o compõem celebram a mesma igreja por dois títulos: a igreja onde o Arcebispo tem a sua cátedra, e a Senhora a quem essa igreja é dedicada, [b]Nossa Senhora das Neves[/b], que é também a Titular deste Apostolado."
         }
       ]
     },
@@ -22,8 +22,8 @@
           "tipo": "lista",
           "id": "arq-festas",
           "itens": [
-            "[b]1º de agosto[/b] — Dedicação da Igreja Catedral Metropolitana, com Oitava. O dia oitavo cai em 8 de agosto.",
-            "[b]5 de agosto[/b] — Dedicação de Santa Maria das Neves, com Oitava. O dia oitavo cai em 12 de agosto."
+            "[b]1º de agosto[/b]: Dedicação da Igreja Catedral Metropolitana, com Oitava. O dia oitavo cai em 8 de agosto.",
+            "[b]5 de agosto[/b]: Dedicação de Santa Maria das Neves, com Oitava. O dia oitavo cai em 12 de agosto."
           ]
         },
         {
