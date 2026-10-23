@@ -1,16 +1,66 @@
 {
   "titulo": "O próprio do Brasil",
-  "descricao": "As festas próprias do calendário brasileiro.",
-  "emPreparacao": true,
+  "descricao": "As festas que o Brasil guarda além do calendário universal, e as que aqui se guardam com grau mais alto.",
   "secoes": [
     {
-      "id": "em-preparacao",
-      "titulo": "Em preparação",
+      "id": "o-que-e",
+      "titulo": "O que é um calendário próprio",
+      "foraDoIndice": true,
       "blocos": [
         {
-          "id": "prep-001",
           "tipo": "paragrafo",
-          "texto": "Estas festas ainda serão reunidas."
+          "id": "o-que-e-001",
+          "texto": "O calendário romano é um só, e sobre ele cada nação acrescenta o que lhe é próprio: os santos da sua terra, os padroeiros que a Igreja lhe deu e as festas que aqui se guardam com grau mais alto do que no resto do mundo. É por isso que a lista abaixo tem duas naturezas misturadas — há festas que só existem no Brasil, como os Beatos Inácio de Azevedo, e há festas de toda a Igreja que aqui sobem de grau, como a Exaltação da Santa Cruz."
+        },
+        {
+          "tipo": "paragrafo",
+          "id": "o-que-e-002",
+          "texto": "No [elo:/calendario]calendário[/elo], nos dias em que o Brasil se separa do calendário universal, o Ordo mostra as duas celebrações lado a lado: a que se reza aqui e, embaixo, sob o título [i]No Calendário Universal[/i], a do resto da Igreja."
+        }
+      ]
+    },
+    {
+      "id": "festas",
+      "titulo": "As festas próprias",
+      "resumo": "Como o Ordo da capela as traz.",
+      "blocos": [
+        {
+          "tipo": "lista",
+          "id": "festas-lista",
+          "itens": [
+            "[b]13 de fevereiro[/b] — São João de Brito Mártir, duples.",
+            "[b]27 de abril[/b] — São Turíbio de Mongrovejo Bispo e Confessor, duples de 2ª classe; comemoração de São Pedro Canísio Confessor e Doutor da Igreja.",
+            "[b]Quinta-feira da Oitava do Sagrado Coração[/b] — Coração Eucarístico de Jesus, duples maior.",
+            "[b]3 de maio[/b] — Invenção da Santa Cruz, duples de 1ª classe com Oitava comum.",
+            "[b]1º de junho[/b] — Dedicação da igreja — em todas as igrejas consagradas, exceto as catedrais e metropolitanas, duples de 1ª classe com Oitava comum.",
+            "[b]13 de junho[/b] — Santo Antônio de Pádua Confessor e Doutor da Igreja, duples de 2ª classe.",
+            "[b]9 de julho[/b] — Nossa Senhora Rainha da Paz, duples maior.",
+            "[b]15 de julho[/b] — Beatos Inácio de Azevedo e Companheiros Mártires, duples maior; comemoração de Santo Henrique Imperador e Confessor.",
+            "[b]30 de agosto[/b] — Santa Rosa de Lima Virgem, Padroeira principal da América Latina, duples de 1ª classe com Oitava comum.",
+            "[b]14 de setembro[/b] — Exaltação da Santa Cruz, duples de 2ª classe.",
+            "[b]1º de outubro[/b] — Bem-aventurada Virgem Maria Medianeira de todas as graças, duples maior; comemoração de São Remígio Bispo e Confessor.",
+            "[b]12 de outubro[/b] — Nossa Senhora da Conceição Aparecida, Padroeira principal do país, duples de 1ª classe com Oitava comum.",
+            "[b]19 de outubro[/b] — São Pedro de Alcântara Confessor, Padroeiro principal do país, duples de 1ª classe com Oitava comum.",
+            "[b]5 de novembro[/b] — Sagradas Relíquias que são conservadas nas igrejas do Brasil, duples maior; comemoração da Oitava de Todos os Santos.",
+            "[b]17 de novembro[/b] — Beatos Roque Gonçalves e Companheiros Mártires, duples maior; comemoração de São Gregório Taumaturgo Bispo e Confessor.",
+            "[b]12 de dezembro[/b] — Nossa Senhora de Guadalupe, Padroeira Principal da América Latina, duples de 1ª classe com Oitava comum."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oitavas",
+      "titulo": "As Oitavas",
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "id": "oitavas-001",
+          "texto": "Onde a lista diz [i]com Oitava comum[/i], a festa não acaba no seu dia: ela se prolonga por oito, e os dias de dentro da Oitava também são próprios do Brasil. São eles que explicam por que o calendário daqui diverge do universal em datas que, à primeira vista, não têm festa nenhuma — o dia sexto da Oitava de Santa Rosa, em setembro, ou os dias quarto, quinto e oitavo da Oitava de São Pedro de Alcântara, em outubro."
+        },
+        {
+          "tipo": "paragrafo",
+          "id": "oitavas-002",
+          "texto": "Quando uma dessas festas ou a sua Oitava ocupa um domingo, o domingo não se perde: é [b]retomado[/b] num dia livre da semana seguinte, e esse dia é próprio do Brasil como os demais. A data muda de ano para ano, porque depende de onde caem os domingos — o calendário a mostra no dia certo."
         }
       ]
     }

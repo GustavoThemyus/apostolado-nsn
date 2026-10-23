@@ -217,8 +217,6 @@ export type EstadoDaRota = "preparacao" | "rascunho";
 
 export const ESTADO_DA_ROTA: Record<string, EstadoDaRota> = {
   "/missa/situacao-canonica": "preparacao",
-  "/calendario/brasil": "preparacao",
-  "/calendario/arquidiocese": "preparacao",
   "/indulgencias/raccolta": "rascunho",
   "/indulgencias/ordens": "rascunho",
   "/apostolado": "preparacao",

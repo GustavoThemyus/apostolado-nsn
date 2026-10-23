@@ -135,6 +135,8 @@ function examinar(nome: string, bruto: unknown) {
 }
 
 examinar("arquidiocese (indulgências)", arquidioceseIndulgencias);
+examinar("próprio do Brasil", brasil);
+examinar("próprio arquidiocesano", arquidiocese);
 examinar("enchiridion", enchiridion);
 examinar("guia", guia);
 examinar("indulgências", indulgencias);

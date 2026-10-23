@@ -1,16 +1,35 @@
 {
   "titulo": "O próprio arquidiocesano",
-  "descricao": "O calendário próprio da Arquidiocese da Paraíba.",
-  "emPreparacao": true,
+  "descricao": "O que a Arquidiocese da Paraíba guarda de seu, e o que a Igreja Catedral guarda do dela.",
   "secoes": [
     {
-      "id": "em-preparacao",
-      "titulo": "Em preparação",
+      "id": "o-que-e",
+      "titulo": "Duas festas, e as suas Oitavas",
+      "foraDoIndice": true,
       "blocos": [
         {
-          "id": "prep-001",
           "tipo": "paragrafo",
-          "texto": "Este calendário ainda será reunido."
+          "id": "arq-001",
+          "texto": "Abaixo do próprio do Brasil há ainda o da Arquidiocese. Ele é curto, e as duas festas que o compõem dizem a mesma coisa por dois caminhos: a igreja onde o Arcebispo tem a sua cátedra, e a Senhora a quem essa igreja é dedicada — [b]Nossa Senhora das Neves[/b], que é também a Titular deste Apostolado."
+        }
+      ]
+    },
+    {
+      "id": "festas",
+      "titulo": "As festas",
+      "blocos": [
+        {
+          "tipo": "lista",
+          "id": "arq-festas",
+          "itens": [
+            "[b]1º de agosto[/b] — Dedicação da Igreja Catedral Metropolitana, com Oitava. O dia oitavo cai em 8 de agosto.",
+            "[b]5 de agosto[/b] — Dedicação de Santa Maria das Neves, com Oitava. O dia oitavo cai em 12 de agosto."
+          ]
+        },
+        {
+          "tipo": "paragrafo",
+          "id": "arq-festas-002",
+          "texto": "Os dias de dentro das duas Oitavas são próprios da Arquidiocese como as festas que os abrem, e o [elo:/calendario]calendário[/elo] os traz um a um."
         }
       ]
     }

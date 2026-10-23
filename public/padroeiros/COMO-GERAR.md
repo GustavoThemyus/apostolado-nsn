@@ -8,12 +8,23 @@ o nome muda junto.
 Ao substituir uma estampa, atualizar o caminho em `src/data/inicio.json`, em
 `src/data/postagens.json` e, para a Padroeira, em `src/data/site.json` (a lateral).
 
-## Como foram geradas
+## Como gerar
+
+```
+python3 ferramentas/padroeiros/gerar.py <imagem> <nome> [ancora]
+```
+
+`ancora` vai de 0 a 1 e diz de onde sai o corte 3:4 na dimensão que sobra —
+0 é o topo, 1 é a base. As usadas: **1,0 no Antônio** (é a única que preserva
+o "SI QUÆRIS MIRACULA" inteiro no pé do santinho), **0,0 na Filomena** (mantém
+os dois anjos e descarta só o fundo florido vazio de baixo), 0,32 nas Neves.
+
+## O que o gerador faz
 
 A partir do arquivo original, com Pillow:
 
 1. Recorte 3:4, com a âncora escolhida por imagem para não cortar rosto
-   (0,42 na Filomena, 0,32 nas Neves, 0,46 no Antônio; 0 é topo/esquerda).
+   (ver as âncoras acima).
 2. Redução para 480x640 com LANCZOS. 480 cobre o pior caso medido: o quadro
    para de crescer em 9rem, o que num celular a 3x pede 432 pixels de tela.
 3. Máscara de nitidez, raio 0,8, força 80%, limiar 2. A imagem é reamostrada
