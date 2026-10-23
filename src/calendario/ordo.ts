@@ -153,7 +153,25 @@ export interface Celebracao {
   notas: string[];
   /** As linhas de "Missas permitidas", cruas. */
   permitidas: string[];
+  /**
+   * É uma das Missas que a capela pode dizer no lugar da principal.
+   *
+   * Diferente de uma celebração rotulada: aquela é o mesmo dia noutro
+   * calendário, e esta é uma escolha dentro deste. O Perez pediu as duas
+   * coisas separadas, e com razão, porque "o que o Brasil reza" e "o que eu
+   * posso rezar hoje" são perguntas distintas.
+   */
+  alternativa?: boolean;
 }
+
+/**
+ * A linha que abre as Missas à escolha, no Ordo de 2027 em diante.
+ *
+ * Exata, e uma só. Aceitar variações seria a mesma frouxidão que já deixou
+ * "No Brasil" e "No Brasil:" conviverem, e que custa uma conferência a cada
+ * ano novo.
+ */
+const ABRE_ESCOLHA = /^Pode-se celebrar, à escolha:?$/i;
 
 /*
  * Os três rótulos que o Ordo usa, e só eles, em linha que não diga mais nada.
@@ -188,6 +206,8 @@ const ehRubrica = (p: string) => p.startsWith("➢");
 export function celebracoesDoOrdo(dia: DiaDoOrdo): Celebracao[] {
   const saida: Celebracao[] = [];
   let atual: Celebracao = { notas: [], permitidas: [] };
+  /* uma vez aberta, vale até um rótulo começar outro calendário */
+  let escolhendo = false;
 
   const fechar = () => {
     const vazia =
@@ -200,8 +220,14 @@ export function celebracoesDoOrdo(dia: DiaDoOrdo): Celebracao[] {
   for (const cru of dia.partes) {
     const p = cru.trim();
 
+    if (!ehRubrica(p) && ABRE_ESCOLHA.test(p)) {
+      fechar();
+      escolhendo = true;
+      continue;
+    }
     if (!ehRubrica(p) && EH_ROTULO.test(p)) {
       fechar();
+      escolhendo = false;
       atual.rotulo = cru;
       continue;
     }
@@ -218,6 +244,7 @@ export function celebracoesDoOrdo(dia: DiaDoOrdo): Celebracao[] {
         atual.notas.length === 0 && atual.permitidas.length === 0;
       if (!soTemRotulo) fechar();
       atual.posto = cru;
+      if (escolhendo) atual.alternativa = true;
       continue;
     }
     if (ehMissasPermitidas(p)) {

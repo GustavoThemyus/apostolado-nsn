@@ -2123,6 +2123,51 @@ button {
   border-top: 1px solid var(--fio);
 }
 
+/*
+ * A linha que abre o bloco recolhido.
+ *
+ * A seta é a do navegador, de propósito: ela já gira ao abrir e o leitor de
+ * tela já anuncia o estado. Desenhar uma própria custaria as duas coisas.
+ */
+.ordo__celebracao-resumo {
+  cursor: pointer;
+  list-style-position: outside;
+  padding: 0.15rem 0;
+}
+.ordo__celebracao-resumo::marker {
+  color: var(--ouro);
+}
+.ordo__celebracao-resumo:hover .ordo__celebracao-rotulo,
+.ordo__celebracao-resumo:focus-visible .ordo__celebracao-rotulo {
+  color: var(--ouro-tinta);
+}
+.ordo__celebracao--outra .ordo__celebracao-rotulo {
+  margin: 0;
+}
+/* o conteúdo respira só quando está aberto */
+.ordo__celebracao--outra[open] .ordo__celebracao-resumo {
+  margin-bottom: 0.6rem;
+}
+
+/* "Pode-se celebrar, à escolha:" antes do grupo das alternativas */
+.ordo__escolha {
+  margin: 1.6rem 0 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--fio);
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+/* o primeiro bloco depois do aviso não repete o fio */
+.ordo__escolha + .ordo__celebracao--outra {
+  margin-top: 0.5rem;
+  padding-top: 0;
+  border-top: none;
+}
+
 /* "No Calendário Universal", "No Brasil", "Na Igreja Catedral…" */
 .ordo__celebracao-rotulo {
   margin: 0 0 0.3rem;

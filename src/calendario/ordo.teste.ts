@@ -361,6 +361,49 @@ async function rodar() {
       maio3[1]?.notas.some((n) => /Missa como acima/.test(n)), true);
   }
 
+  {
+    /*
+     * O formato combinado com o Perez para o Ordo de 2027: as Missas que a
+     * capela pode dizer no lugar da principal vêm debaixo de uma linha só, e
+     * são coisa diferente do mesmo dia noutro calendário.
+     *
+     * Em 2026 não há nenhum dia assim, porque a convenção é nova. Este dia é
+     * construído, e é justamente por isso que ele existe: sem ele eu estaria
+     * prometendo ao Perez um formato que ninguém leu.
+     */
+    const dia = {
+      data: new Date("2027-01-14T00:00:00Z"),
+      tempo: "tempo-comum",
+      nome: "Dia quinto da Oitava da Epifania",
+      cor: "branco",
+      grau: "Semiduples",
+      partes: [
+        "Missa Ecce advenit; Glória; Credo; Prefácio da Epifania; Ite, Missa est",
+        "➢ Missas permitidas: exequial; votiva solene",
+        "Pode-se celebrar, à escolha:",
+        "São Hilário Bispo, Confessor e Doutor, duples – cor branca",
+        "Missa In medio; Glória; comemoração da Oitava; Credo; Ite, Missa est",
+        "São Félix de Nola Mártir, simples – cor vermelha",
+        "Missa Os justi; sem Glória; comemoração da Oitava; Ite, Missa est",
+        "No Calendário Universal:",
+        "São Hilário, duples – cor branca",
+        "Missa In medio; Glória; comemoração de São Félix; Credo; Ite, Missa est",
+      ],
+    } as unknown as DiaDoOrdo;
+
+    const c = celebracoesDoOrdo(dia);
+    conferir("à escolha: a principal, duas opções e o universal", c.length, 4);
+    conferir("a principal não é alternativa", c[0].alternativa, undefined);
+    conferir("as duas do meio são", [c[1].alternativa, c[2].alternativa], [true, true]);
+    conferir("o universal não é, apesar de vir depois", c[3].alternativa, undefined);
+    conferir("e ele mantém o rótulo", c[3].rotulo?.trim(), "No Calendário Universal:");
+    conferir(
+      "a linha que abre a escolha não sobra como nota em lugar nenhum",
+      c.flatMap((x) => x.notas).filter((n) => /à escolha/i.test(n)),
+      [],
+    );
+  }
+
   const total = passaram + falhas.length;
   console.log(`\nOrdo pré-55: ${passaram}/${total}`);
   if (falhas.length > 0) {

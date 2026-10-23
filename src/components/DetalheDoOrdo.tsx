@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   analisarMissa,
   celebracoesDoOrdo,
@@ -58,10 +59,12 @@ function BlocoDaCelebracao({
   const permitidas = celebracao.permitidas.map(soAsPermitidas);
   const rotulo = celebracao.rotulo?.replace(/\s*:\s*$/, "").trim();
 
-  return (
-    <section className={primeira ? "ordo__celebracao" : "ordo__celebracao ordo__celebracao--outra"}>
-      {!primeira && rotulo && <p className="ordo__celebracao-rotulo">{rotulo}</p>}
-      {celebracao.posto && <p className="ordo__celebracao-posto">{celebracao.posto}</p>}
+  const corpo = (
+    <>
+      {/* o posto só se repete no corpo quando não foi ele o resumo */}
+      {celebracao.posto && (primeira || !!rotulo) && (
+        <p className="ordo__celebracao-posto">{celebracao.posto}</p>
+      )}
 
       {naMissa && (
         <div className="desenv">
@@ -160,7 +163,28 @@ function BlocoDaCelebracao({
           ))}
         </ul>
       )}
-    </section>
+    </>
+  );
+
+  if (primeira) return <section className="ordo__celebracao">{corpo}</section>;
+
+  /*
+   * Recolhida, e aberta por uma seta.
+   *
+   * É o que o Perez pediu desde a primeira mensagem sobre o calendário: "você
+   * coloca uma setinha, aí dessa setinha ela vai puxar outra missa". O que
+   * interessa a quem abre o dia é a Missa da capela; as outras são consulta.
+   *
+   * `<details>` e não um botão: a seta vem de graça, abre sem script, e o
+   * leitor de tela já sabe anunciar o estado.
+   */
+  return (
+    <details className="ordo__celebracao ordo__celebracao--outra">
+      <summary className="ordo__celebracao-resumo">
+        <span className="ordo__celebracao-rotulo">{rotulo ?? celebracao.posto ?? "Outra Missa"}</span>
+      </summary>
+      {corpo}
+    </details>
   );
 }
 
@@ -222,7 +246,13 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
       )}
 
       {celebracoes.map((c, i) => (
-        <BlocoDaCelebracao celebracao={c} primeira={i === 0} key={i} />
+        <Fragment key={i}>
+          {/* o aviso entra uma vez, antes da primeira das alternativas */}
+          {c.alternativa && !celebracoes[i - 1]?.alternativa && (
+            <p className="ordo__escolha">Pode-se celebrar, à escolha:</p>
+          )}
+          <BlocoDaCelebracao celebracao={c} primeira={i === 0} />
+        </Fragment>
       ))}
 
       {/* o próprio é do dia, e não de uma das celebrações dele */}
