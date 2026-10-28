@@ -1,135 +1,827 @@
 {
-  "titulo": "Folhetos",
-  "descricao": "Os impressos que o Apostolado distribui, servidos como página: abrem no celular sem baixar PDF e sem dar zoom.",
-  "condicoes": {
-    "titulo": "Condições ordinárias para lucrar uma indulgência plenária",
-    "blocos": [
-      {
-        "tipo": "lista",
-        "ordenada": true,
-        "id": "condicoes-lista",
-        "itens": [
-          "Confessar-se sacramentalmente em não mais que quinze dias antes ou depois do dia da indulgência.",
-          "Receber piedosamente a Eucaristia em não mais que oito dias antes ou depois do dia da indulgência.",
-          "Rezar nas intenções do Sumo Pontífice.",
-          "Ter o desapego de todo o pecado, mesmo venial."
-        ]
-      },
-      {
-        "tipo": "subtitulo",
-        "texto": "Observações",
-        "menor": true,
-        "id": "condicoes-observacoes"
-      },
-      {
-        "tipo": "lista",
-        "id": "condicoes-notas",
-        "itens": [
-          "Com uma confissão pode-se lucrar várias indulgências, mas cada indulgência requer uma comunhão.",
-          "Não é possível lucrar mais de uma indulgência plenária por dia, exceto [lat]in articulo mortis[/lat], salvo disposição contrária.",
-          "Toda indulgência plenária pode ser aplicada pelos fiéis defuntos, mas jamais por outra pessoa viva.",
-          "Qualquer oração pode satisfazer a terceira obrigação desde que com as seguintes intenções. Outrossim, a Igreja diz que bastam um Pai nosso e uma Ave Maria.",
-          "As orações nas intenções do Sumo Pontífice são sempre fixas e gerais, tais como a exaltação da Igreja, a propagação da Fé, a extirpação das heresias, a conversão dos pecadores e a concórdia entre os príncipes cristãos."
-        ]
-      },
-      {
-        "tipo": "paragrafo",
-        "id": "condicoes-remissao",
-        "texto": "O tratamento completo — de onde vêm estas condições e o que cada uma exige — está em [elo:/indulgencias]Indulgências[/elo]."
-      }
+ "titulo": "Folhetos",
+ "descricao": "Os impressos que o Apostolado distribui, servidos como página: abrem no celular sem baixar PDF e sem dar zoom.",
+ "condicoes": {
+  "titulo": "Condições ordinárias para lucrar uma indulgência plenária",
+  "blocos": [
+   {
+    "tipo": "lista",
+    "ordenada": true,
+    "id": "condicoes-lista",
+    "itens": [
+     "Confessar-se sacramentalmente em não mais que quinze dias antes ou depois do dia da indulgência.",
+     "Receber piedosamente a Eucaristia em não mais que oito dias antes ou depois do dia da indulgência.",
+     "Rezar nas intenções do Sumo Pontífice.",
+     "Ter o desapego de todo o pecado, mesmo venial."
     ]
-  },
-  "folhetos": [
-    {
-      "id": "cristo-rei",
-      "chapeu": "Obra indulgenciada",
-      "titulo": "Festa de Nosso Senhor Jesus Cristo Rei",
-      "resumo": "O ato de consagração do gênero humano, rezado publicamente na solenidade de Cristo Rei.",
-      "categoria": "indulgencia",
-      "imagem": "/folhetos/cristo-rei-54c2c4fb.webp",
-      "obra": "Concede-se indulgência plenária ao fiel que, na solenidade de Nosso Senhor Jesus Cristo Rei, recitar publicamente o ato de consagração do gênero humano ao mesmo Jesus Cristo Rei: [i]Dulcíssimo Jesus, Redentor[/i].",
-      "concessao": "Concessão nº 2 do Enchiridion Indulgentiarum",
-      "condicoes": true,
-      "blocos": [
-        {
-          "tipo": "bilingue",
-          "id": "cristo-rei-consagracao",
-          "latim": [
-            {
-              "tipo": "paragrafo",
-              "texto": "Jesu dulcissime,* Redémptor humáni géneris, — réspice nos ad altáre tuum humillime provolútos. — Tui sumus, tui esse vólumus; — quo autem Tibi conjuncti firmius esse possímus, — en hódie Sacratíssimo Cordi Tuo — se quisque nostrum sponte dedicat.",
-              "id": "cristo-rei-la-01"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Te quidem multi novére numquam; — Te, spretis mandátis tuis, multi repudiárunt. — Miserére utrorúmque, benigníssime Jesu; — atque ad sanctum Cor tuum rape univérsos.",
-              "id": "cristo-rei-la-02"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Rex esto, Dómine, — nec fidélium tantum qui nullo témpore discessére a Te, — sed etiam prodigórum filiórum qui Te reliquérunt: — fac hos, ut domum patérnam cito répetant, — ne miséria et fame péreant.",
-              "id": "cristo-rei-la-03"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Rex esto eórum, — quos aut opiniónum error decéptos habet, — aut discórdia separátos, — eósque ad portum veritátis — atque ad unitátem fidei révoca, — ut brevi fiat unum ovíle et unus pastor.",
-              "id": "cristo-rei-la-04"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Rex esto eórum ómnium, — qui in ténebris idololatríæ aut Islamísmi adhuc versántur, — eósque in lumen regnúmque tuum vindicáre ne rénuas.",
-              "id": "cristo-rei-la-05"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Réspice dénique misericordiæ óculis — illius gentis filios, quæ támdiu pópulus eléctus fuit; — et Sanguis, qui olim super eos invocátus est, — nunc in illos quoque, — redemptiónis vitæque lavácrum, descéndat.",
-              "id": "cristo-rei-la-06"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Largíre, Dómine, Ecclésiæ tuæ — securam cum incolumitáte libertátem; — largíre cunctis géntibus tranquillitátem órdinis: — pérfice, ut ab utróque terræ vértice una résonet vox: — Sit laus divíno Cordi, — per quod nobis parta salus: — ipsi glória et honor in sǽcula. — Amen.",
-              "id": "cristo-rei-la-07"
-            }
-          ],
-          "portugues": [
-            {
-              "tipo": "paragrafo",
-              "texto": "Dulcíssimo Jesus,* Redentor do gênero humano, — lançai os Vossos olhares sobre nós, humildemente prostrados diante de Vosso altar. — Nós somos e queremos ser Vossos; — e para que possamos viver mais intimamente unidos a Vós, — cada um de nós neste dia se consagra espontaneamente ao Vosso Sacratíssimo Coração.",
-              "id": "cristo-rei-pt-01"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Muitos nunca Vos conheceram; — muitos desprezaram os Vossos mandamentos e Vos renegaram. — Benigníssimo Jesus, tende piedade de uns e de outros — e trazei-os todos ao Vosso Sagrado Coração.",
-              "id": "cristo-rei-pt-02"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Senhor, sede o Rei — não somente dos fiéis que nunca de Vós se afastaram, — mas também dos filhos pródigos que Vos abandonaram; — fazei que eles tornem, quanto antes, à casa paterna, — para que não pereçam de miséria e de fome.",
-              "id": "cristo-rei-pt-03"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Sede o Rei dos — que vivem iludidos no erro, — ou separados de Vós pela discórdia; — trazei-os ao porto da verdade — e à unidade da fé, — a fim de que em breve haja um só rebanho e um só pastor.",
-              "id": "cristo-rei-pt-04"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Sede o Rei de todos aqueles — que estão sepultados nas trevas da idolatria e do islamismo, — e não recuseis conduzi-los todos à luz e ao Reino de Deus.",
-              "id": "cristo-rei-pt-05"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Volvei, enfim, um olhar de misericórdia — aos filhos do que foi outrora Vosso povo escolhido; — desça também sobre eles, — num batismo de redenção e vida, — aquele sangue que um dia sobre si invocaram.",
-              "id": "cristo-rei-pt-06"
-            },
-            {
-              "tipo": "paragrafo",
-              "texto": "Senhor, conservai incólume a Vossa Igreja, — e dai-lhe uma liberdade segura e sem peias; — concedei ordem e paz a todos os povos; — fazei que de um a outro pólo do mundo, ressoe uma só voz: — Louvado seja o Coração divino, — que nos trouxe a salvação! — A Ele, honra e glória por todos os séculos dos séculos. — Amém.",
-              "id": "cristo-rei-pt-07"
-            }
-          ]
-        }
-      ]
-    }
+   },
+   {
+    "tipo": "subtitulo",
+    "texto": "Observações",
+    "menor": true,
+    "id": "condicoes-observacoes"
+   },
+   {
+    "tipo": "lista",
+    "id": "condicoes-notas",
+    "itens": [
+     "Com uma confissão pode-se lucrar várias indulgências, mas cada indulgência requer uma comunhão.",
+     "Não é possível lucrar mais de uma indulgência plenária por dia, exceto [lat]in articulo mortis[/lat], salvo disposição contrária.",
+     "Toda indulgência plenária pode ser aplicada pelos fiéis defuntos, mas jamais por outra pessoa viva.",
+     "Qualquer oração pode satisfazer a terceira obrigação desde que com as seguintes intenções. Outrossim, a Igreja diz que bastam um Pai nosso e uma Ave Maria.",
+     "As orações nas intenções do Sumo Pontífice são sempre fixas e gerais, tais como a exaltação da Igreja, a propagação da Fé, a extirpação das heresias, a conversão dos pecadores e a concórdia entre os príncipes cristãos."
+    ]
+   },
+   {
+    "tipo": "paragrafo",
+    "id": "condicoes-remissao",
+    "texto": "O tratamento completo — de onde vêm estas condições e o que cada uma exige — está em [elo:/indulgencias]Indulgências[/elo]."
+   }
   ]
+ },
+ "folhetos": [
+  {
+   "id": "primeiro-dia-do-ano",
+   "chapeu": "Obra indulgenciada",
+   "titulo": "Primeiro dia do ano ou Domingo de Pentecostes",
+   "resumo": "O Veni Creator, cantado ou recitado solenemente na igreja ou oratório.",
+   "categoria": "indulgencia",
+   "obra": "Concede-se indulgência plenária ao fiel que, na igreja ou no oratório, tomar parte no canto ou récita solene do hino [i]Veni Creátor[/i]. No primeiro dia do ano, suplicando as bênçãos de Deus para o ano que se inicia.",
+   "concessao": "Concessão nº 26, §1, 1.º do Enchiridion Indulgentiarum",
+   "condicoes": true,
+   "blocos": [
+    {
+     "tipo": "nota",
+     "id": "primeiro-dia-do-ano-escolha",
+     "titulo": "Uma indulgência, dois dias à escolha",
+     "paragrafos": [
+      "A mesma concessão abre dois dias: 1.º de janeiro e o Domingo de Pentecostes. Não são duas indulgências, e sim uma, que se pode lucrar num dia ou no outro."
+     ]
+    },
+    {
+     "tipo": "bilingue",
+     "id": "primeiro-dia-do-ano-veni",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Veni, Creátor Spíritus, — Mentes tuórum vísita: — Imple supérna grátia — Quæ tu creásti péctora.",
+       "id": "primeiro-dia-do-ano-veni-la-01"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Qui díceris Paráclitus, — Altíssimi donum Dei, — Fons vivus, ignis, cáritas, — Et spiritális únctio.",
+       "id": "primeiro-dia-do-ano-veni-la-02"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Tu septifórmis múnere, — Dígitus patérnæ déxteræ, — Tu rite promíssum Patris, — Sermóne ditans gúttura.",
+       "id": "primeiro-dia-do-ano-veni-la-03"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Accénde lumen sénsibus: — Infúnde amórem córdibus: — Infírma nostri córporis — Virtúte firmans pérpeti.",
+       "id": "primeiro-dia-do-ano-veni-la-04"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Hostem repéllas lóngius, — Pacémque dones prótinus: — Ductóre sic te prǽvio — Vitémus omne nóxium.",
+       "id": "primeiro-dia-do-ano-veni-la-05"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Per te sciámus da Patrem, — Noscámus atque Fílium, — Teque utriúsque Spíritum — Credámus omni témpore.",
+       "id": "primeiro-dia-do-ano-veni-la-06"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Deo Patri sit glória, — Et Fílio, qui a mórtuis — Surréxit, ac Paráclito, — In sæculórum sǽcula. Amen.",
+       "id": "primeiro-dia-do-ano-veni-la-07"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Emítte Spíritum tuum, et creabúntur. — ℟. Et renovábis fáciem terræ.",
+       "id": "primeiro-dia-do-ano-veni-la-08"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Orémus. Deus, qui (hodiérna die) corda fidélium Sancti Spíritus illustratióne docuísti: da nobis in eódem Spíritu recta sápere, et de ejus semper consolatióne gaudére. Per Christum Dóminum nostrum. — ℟. Amen.",
+       "id": "primeiro-dia-do-ano-veni-la-09"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Vinde, Espírito Criador, — visitai a alma dos Vossos fiéis; — enchei de graça celestial — os corações que Vós criastes.",
+       "id": "primeiro-dia-do-ano-veni-pt-01"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Vós, chamado o Consolador, — Dom do Deus altíssimo, — Fonte viva, fogo, caridade — e unção espiritual.",
+       "id": "primeiro-dia-do-ano-veni-pt-02"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Vós, com Vossos sete dons, — sois força da destra de Deus, — Vós, o prometido pelo Pai; — Vossa palavra abunda nossos lábios.",
+       "id": "primeiro-dia-do-ano-veni-pt-03"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Acendei a luz em nossas almas, — infundi o amor em nossos corações; — e a fraqueza da nossa carne — fortalecei-a com redobrada força.",
+       "id": "primeiro-dia-do-ano-veni-pt-04"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "O inimigo, afugentai-o para longe, — dai-nos a paz quanto antes; — abrindo-nos caminho como guia, — evitemos todo mal.",
+       "id": "primeiro-dia-do-ano-veni-pt-05"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Que por Vós conheçamos o Pai, — conheçamos igualmente o Filho, — e em Vós, Espírito de ambos, — creiamos todo o tempo.",
+       "id": "primeiro-dia-do-ano-veni-pt-06"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "A Deus Pai seja a glória, — e ao Filho, que dos mortos — ressurgiu, e ao Paráclito, — nos séculos dos séculos. Amém.",
+       "id": "primeiro-dia-do-ano-veni-pt-07"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Enviai o Vosso Espírito e tudo será criado. — ℟. E renovareis a face da terra.",
+       "id": "primeiro-dia-do-ano-veni-pt-08"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Oremos. Deus, que (no dia de hoje) instruístes os corações dos Vossos fiéis com a luz do Espírito Santo, fazei que apreciemos retamente todas as coisas segundo o mesmo Espírito e gozemos sempre de Sua consolação. Por Cristo, Senhor nosso. — ℟. Amém.",
+       "id": "primeiro-dia-do-ano-veni-pt-09"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sextas-feiras-da-quaresma",
+   "chapeu": "Obra indulgenciada",
+   "titulo": "Todas as sextas-feiras da Quaresma",
+   "resumo": "A oração En ego, o bone et dulcissime Jesu, rezada depois da comunhão diante de um crucifixo.",
+   "categoria": "indulgencia",
+   "imagem": "/folhetos/sextas-feiras-da-quaresma-f12d5365.webp",
+   "largura": 720,
+   "altura": 347,
+   "obra": "Concede-se indulgência plenária ao fiel que recitar piedosamente a oração [i]En ego, o bone et dulcíssime Jesu[/i], diante da imagem de Jesus Cristo crucificado, depois da comunhão, em qualquer sexta-feira do tempo da Quaresma e da Paixão.",
+   "concessao": "Concessão nº 8, §1, 2.º do Enchiridion Indulgentiarum",
+   "condicoes": true,
+   "blocos": [
+    {
+     "tipo": "nota",
+     "id": "sextas-feiras-da-quaresma-sexta-santa",
+     "titulo": "A Sexta-feira Santa entra, com uma ressalva",
+     "paragrafos": [
+      "A Sexta-feira Santa é uma delas, e nela a indulgência se lucra depois da comunhão como nas outras.",
+      "Nas cerimônias Pré-55, porém, o rito não abre espaço para a comunhão dos fiéis, e sem comunhão esta indulgência não se lucra naquele dia. Restam as que já são próprias dele: a adoração da Cruz e a Via Sacra."
+     ]
+    },
+    {
+     "tipo": "bilingue",
+     "id": "sextas-feiras-da-quaresma-en-ego",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "En ego, o bone et dulcíssime Jesu, ante conspéctum tuum génibus me provólvo, ac máximo ánimi ardóre te oro atque obtéstor, ut meum in cor vívidos fídei, spei et caritátis sensus, atque veram peccatórum meórum pæniténtiam, éaque emendándi firmíssimam voluntátem velis imprímere; dum magno ánimi afféctu et dolóre tua quinque vúlnera mecum ipse consídero ac mente contémplor, illud præ óculis habens, quod jam in ore ponébat tuo David prophéta de te, o bone Jesu: Fodérunt manus meas et pedes meos; dinumeravérunt ómnia ossa mea. — Ps. 21, 17-18.",
+       "id": "sextas-feiras-da-quaresma-en-ego-la-01"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Eis-me aqui, ó bom e dulcíssimo Jesus! De joelhos me prostro em Vossa presença e Vos suplico com todo o fervor de minha alma que vos digneis gravar no meu coração os mais vivos sentimentos de fé, esperança e caridade, verdadeiro arrependimento de meus pecados e firme propósito de emenda, enquanto vou considerando com vivo afeto e dor as Vossas cinco chagas, tendo diante dos olhos aquilo que o profeta Davi já Vos fazia dizer, ó bom Jesus: «Transpassaram minhas mãos e meus pés, contaram todos os meus ossos» (Sl 21, 17-18). — [i]Missale Romanum[/i], Ação de graças depois da Missa.",
+       "id": "sextas-feiras-da-quaresma-en-ego-pt-01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quinta-feira-santa",
+   "chapeu": "Obra indulgenciada",
+   "titulo": "Quinta-feira Santa",
+   "resumo": "As estrofes do Tantum Ergo, na solene reposição do Santíssimo depois da Missa in Cœna Dómini.",
+   "categoria": "indulgencia",
+   "imagem": "/folhetos/quinta-feira-santa-5a3c5282.webp",
+   "largura": 640,
+   "altura": 359,
+   "obra": "Concede-se indulgência plenária ao fiel que, na quinta-feira da Semana Santa, recitar piedosamente as estrofes do hino [i]Tantum Ergo Sacraméntum[/i] na solene reposição do Santíssimo Sacramento, depois da Missa [lat]in Cœna Dómini[/lat].",
+   "concessao": "Concessão nº 7, §1, 2.º do Enchiridion Indulgentiarum",
+   "condicoes": true,
+   "blocos": [
+    {
+     "tipo": "bilingue",
+     "id": "quinta-feira-santa-tantum",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Tantum ergo Sacraméntum — Venerémur cérnui: — Et antíquum documéntum — Novo cedat rítui: — Præstet fides suppleméntum — Sénsuum deféctui.",
+       "id": "quinta-feira-santa-tantum-la-01"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Genitóri Genitóque — Laus et jubilátio, — Salus, honor, virtus quoque — Sit et benedíctio: — Procedénti ab utróque — Compar sit laudátio. Amen.",
+       "id": "quinta-feira-santa-tantum-la-02"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Tão sublime sacramento — adoremos neste Altar, — pois o Antigo Testamento — deu ao Novo seu lugar. — Venha à fé por suplemento — os sentidos completar.",
+       "id": "quinta-feira-santa-tantum-pt-01"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Ao Eterno Pai cantemos — e a Jesus o Redentor, — ao Espírito exaltemos — na Trindade eterno amor. — Ao Deus Uno e Trino demos — a alegria do louvor. Amém.",
+       "id": "quinta-feira-santa-tantum-pt-02"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sacratissimo-coracao",
+   "chapeu": "Obra indulgenciada",
+   "titulo": "Festa do Sacratíssimo Coração de Jesus",
+   "resumo": "O ato de reparação Dulcíssimo Jesus, recitado publicamente na solenidade.",
+   "categoria": "indulgencia",
+   "imagem": "/folhetos/sacratissimo-coracao-0510f8a4.webp",
+   "largura": 500,
+   "altura": 318,
+   "obra": "Concede-se indulgência plenária ao fiel que, na solenidade do Sacratíssimo Coração de Jesus, recitar publicamente o ato de reparação [i]Dulcíssimo Jesus[/i].",
+   "concessao": "Concessão nº 3 do Enchiridion Indulgentiarum",
+   "condicoes": true,
+   "blocos": [
+    {
+     "tipo": "bilingue",
+     "id": "sacratissimo-coracao-reparacao",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Jesu dulcíssime,* cujus effúsa in hómines cáritas, — tanta oblivióne, negligéntia, contemptióne, ingratíssime repénditur, — en nos, ante altária tua provolúti, — tam nefáriam hóminum socórdiam — injuriásque, quibus úndique amantíssimum Cor tuum affícitur, — peculiári honóre resarcíre conténdimus.",
+       "id": "sacratissimo-coracao-reparacao-la-01"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Attamen, mémores tantæ nos quoque indignitátis — non expértes aliquándo fuísse, — indeque vehementíssimo dolóre commóti, — tuam in primis misericórdiam nobis implorámus, — parátis, voluntária expiatióne compensáre flagítia — non modo quæ ipsi patrávimus, — sed étiam illórum, qui, longe a salútis via aberrántes, — vel te pastórem ducémque sectári detréctant, — in sua infidelitáte obstináti, — vel, baptísmatis promíssa conculcántes, — suavíssimum tuæ legis jugum excussérunt.",
+       "id": "sacratissimo-coracao-reparacao-la-02"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Quæ deploránda crímina, cum univérsa expiáre conténdimus, — tum nobis síngula resarciénda propónimus: — vitæ cultúsque immodéstiam atque turpitúdines, — tot corruptélæ pédicas innocéntiam ánimis instrúctas, — dies festos violátos, — exsecránda in Te tuósque Sanctos jactáta maledícta — atque in tuum Vicárium ordinémque sacerdotálem convícia irrogáta, — ipsum dénique amóris divíni Sacraméntum — vel negléctum vel horréndis sacrilégiis profanátum, — pública postrémo natiónum delícta, — quæ Ecclésiæ a Te institútæ júribus magisterióque reluctántur.",
+       "id": "sacratissimo-coracao-reparacao-la-03"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Quæ útinam crímina sánguine ipsi nostro elúere possémus!",
+       "id": "sacratissimo-coracao-reparacao-la-04"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Intérea ad violátum divínum honórem resarciéndum, — quam Tu olim Patri in Cruce satisfactiónem obtulísti — quamque quotídie in altáribus renováre pergis, — hanc eámdem nos tibi præstámus, — cum Vírginis Matris, ómnium Sanctórum, — piórum quoque fidélium expiatiónibus conjunctam, — ex ánimo spondéntes, — cum prætérita nostra aliorúmque peccáta ac tanti amóris incúriam — firma fide, cándidis vitæ móribus, — perfécta legis evangélicæ, caritátis potíssimum, observántia, — quantum in nobis erit, grátia tua favénte, — nos esse compensatúros, — tum injúrias tibi inferéndas pro víribus prohibitúros, — et quam plúrimos potuérimus ad tui sequélam convocatúros.",
+       "id": "sacratissimo-coracao-reparacao-la-05"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Excípias, quǽsumus, benigníssime Jesu, — beátæ Vírginis Maríæ Reparatrícis intercedénte, — voluntárium hujus expiatiónis obséquium — nosque in offício tuíque servítio fidelíssimos ad mortem usque velis, — magno illo perseverántiæ múnere, continére, — ut ad illam tandem pátriam perveniámus omnes, — ubi Tu cum Patre et Spíritu Sancto vivis et regnas Deus in sǽcula sæculórum. — Amen.",
+       "id": "sacratissimo-coracao-reparacao-la-06"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Dulcíssimo Jesus,* cuja infinita caridade para com os homens é por eles tão ingratamente correspondida com esquecimentos, friezas e desprezos, — ei-nos aqui prostrados na Vossa presença, — para Vos desagravarmos, com especiais homenagens, — da insensibilidade tão insensata — e das nefandas injúrias com que é, de toda a parte, alvejado o Vosso amorosíssimo Coração.",
+       "id": "sacratissimo-coracao-reparacao-pt-01"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Reconhecendo, porém, com a mais profunda dor, — que também nós, mais de uma vez, cometemos as mesmas indignidades, — para nós, em primeiro lugar, imploramos a Vossa misericórdia, — prontos a expiar — não só as próprias culpas, — mas também as daqueles que, errando longe do caminho da salvação, — ou se obstinam na sua infidelidade, — não Vos querendo como pastor e guia, — ou, conculcando as promessas do batismo, — sacudiram o suavíssimo jugo da Vossa santa lei.",
+       "id": "sacratissimo-coracao-reparacao-pt-02"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "De todos esses tão deploráveis crimes, Senhor, queremos nós hoje desagravar-Vos, — mas, particularmente, — da licença dos costumes e imodéstias do vestido, — de tantos laços de corrupção armados à inocência, — da violação dos dias santificados, — das execrandas blasfêmias contra Vós e Vossos Santos, — dos insultos ao Vosso Vigário e a todo o Vosso Clero, — do desprezo — e das horrendas e sacrílegas profanações do Sacramento do divino amor, — e, enfim, dos atentados e rebeldias das nações — contra os direitos e o magistério da Vossa Igreja.",
+       "id": "sacratissimo-coracao-reparacao-pt-03"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Oh! se pudéssemos lavar, com o próprio sangue, tantas iniquidades!",
+       "id": "sacratissimo-coracao-reparacao-pt-04"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Entretanto, para reparar a honra divina ultrajada, — Vos oferecemos, — juntamente com os merecimentos da Virgem Mãe, de todos os Santos e almas piedosas, — aquela infinita satisfação que Vós oferecestes ao Eterno Pai sobre a cruz, — e que não cessais de renovar, todos os dias, sobre nossos altares. — Ajudai-nos, Senhor, com o auxílio da Vossa graça, — para que possamos, como é nosso firme propósito, — com a viveza da fé, — com a pureza dos costumes, — com a fiel observância da lei e caridade evangélicas, — reparar todos os pecados cometidos por nós e por nosso próximo, — impedir, por todos os meios, novas injúrias à Vossa divina Majestade — e atrair ao Vosso serviço o maior número possível de almas.",
+       "id": "sacratissimo-coracao-reparacao-pt-05"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Recebei, ó benigníssimo Jesus, — pelas mãos de Maria santíssima reparadora, — a espontânea homenagem deste nosso desagravo, — e concedei-nos a grande graça de perseverarmos constantes, até à morte, — no fiel cumprimento dos nossos deveres e no Vosso santo serviço, — para que possamos chegar todos à pátria bem-aventurada, — onde Vós com o Pai e o Espírito Santo viveis e reinais, Deus, por todos os séculos dos séculos. — Amém.",
+       "id": "sacratissimo-coracao-reparacao-pt-06"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pedro-e-paulo",
+   "chapeu": "Obra indulgenciada",
+   "titulo": "Festa de São Pedro e São Paulo, Apóstolos",
+   "resumo": "O uso devoto de um objeto de piedade bento pelo Papa ou por um Bispo, com a profissão de fé.",
+   "categoria": "indulgencia",
+   "imagem": "/folhetos/pedro-e-paulo-98b7b3e7.webp",
+   "largura": 532,
+   "altura": 768,
+   "obra": "Concede-se indulgência plenária ao fiel que, na solenidade dos Santos Apóstolos Pedro e Paulo, usar devotamente um objeto de piedade — crucifixo, cruz, Rosário, escapulário, medalha — bento ritualmente pelo Sumo Pontífice ou por qualquer Bispo, acrescentando a profissão de fé em qualquer fórmula legítima.",
+   "concessao": "Concessão nº 14, §1, norma 15 do Enchiridion Indulgentiarum e norma 17 da Constituição Apostólica Indulgentiarum Doctrina",
+   "condicoes": true,
+   "blocos": [
+    {
+     "tipo": "nota",
+     "id": "pedro-e-paulo-formula",
+     "titulo": "Qual fórmula",
+     "paragrafos": [
+      "Serve qualquer fórmula legítima de profissão de fé. Mais seguro e recomendável é recitar o Credo."
+     ]
+    },
+    {
+     "tipo": "bilingue",
+     "id": "pedro-e-paulo-credo",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Credo in Deum, Patrem omnipoténtem, Creatórem cæli et terræ. Et in Jesum Christum, Fílium ejus únicum, Dóminum nostrum: qui concéptus est de Spíritu Sancto, natus ex María Vírgine, passus sub Póntio Piláto, crucifíxus, mórtuus, et sepúltus: descéndit ad ínferos; tértia die resurréxit a mórtuis; ascéndit ad cælos; sedet ad déxteram Dei Patris omnipoténtis: inde ventúrus est judicáre vivos et mórtuos. Credo in Spíritum Sanctum, sanctam Ecclésiam cathólicam, Sanctórum communiónem, remissiónem peccatórum, carnis resurrectiónem, vitam ætérnam. Amen.",
+       "id": "pedro-e-paulo-credo-la-01"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Creio em Deus Pai Todo-Poderoso, criador do céu e da terra. E em Jesus Cristo, um só seu Filho Nosso Senhor, o qual foi concebido do Espírito Santo, nasceu de Maria Virgem, padeceu sob o poder de Pôncio Pilatos, foi crucificado, morto e sepultado, desceu aos infernos, ao terceiro dia ressurgiu dos mortos, subiu aos céus, está sentado à mão direita de Deus Pai todo-poderoso, donde há de vir a julgar os vivos e os mortos. Creio no Espírito Santo, na Santa Igreja Católica, na comunhão dos santos, na remissão dos pecados, na ressurreição da carne, na vida eterna. Amém.",
+       "id": "pedro-e-paulo-credo-pt-01"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cristo-rei",
+   "chapeu": "Obra indulgenciada",
+   "titulo": "Festa de Nosso Senhor Jesus Cristo Rei",
+   "resumo": "O ato de consagração do gênero humano, rezado publicamente na solenidade de Cristo Rei.",
+   "categoria": "indulgencia",
+   "imagem": "/folhetos/cristo-rei-54c2c4fb.webp",
+   "largura": 692,
+   "altura": 800,
+   "obra": "Concede-se indulgência plenária ao fiel que, na solenidade de Nosso Senhor Jesus Cristo Rei, recitar publicamente o ato de consagração do gênero humano ao mesmo Jesus Cristo Rei: [i]Dulcíssimo Jesus, Redentor[/i].",
+   "concessao": "Concessão nº 2 do Enchiridion Indulgentiarum",
+   "condicoes": true,
+   "blocos": [
+    {
+     "tipo": "bilingue",
+     "id": "cristo-rei-consagracao",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Jesu dulcissime,* Redémptor humáni géneris, — réspice nos ad altáre tuum humillime provolútos. — Tui sumus, tui esse vólumus; — quo autem Tibi conjuncti firmius esse possímus, — en hódie Sacratíssimo Cordi Tuo — se quisque nostrum sponte dedicat.",
+       "id": "cristo-rei-la-01"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Te quidem multi novére numquam; — Te, spretis mandátis tuis, multi repudiárunt. — Miserére utrorúmque, benigníssime Jesu; — atque ad sanctum Cor tuum rape univérsos.",
+       "id": "cristo-rei-la-02"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Rex esto, Dómine, — nec fidélium tantum qui nullo témpore discessére a Te, — sed etiam prodigórum filiórum qui Te reliquérunt: — fac hos, ut domum patérnam cito répetant, — ne miséria et fame péreant.",
+       "id": "cristo-rei-la-03"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Rex esto eórum, — quos aut opiniónum error decéptos habet, — aut discórdia separátos, — eósque ad portum veritátis — atque ad unitátem fidei révoca, — ut brevi fiat unum ovíle et unus pastor.",
+       "id": "cristo-rei-la-04"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Rex esto eórum ómnium, — qui in ténebris idololatríæ aut Islamísmi adhuc versántur, — eósque in lumen regnúmque tuum vindicáre ne rénuas.",
+       "id": "cristo-rei-la-05"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Réspice dénique misericordiæ óculis — illius gentis filios, quæ támdiu pópulus eléctus fuit; — et Sanguis, qui olim super eos invocátus est, — nunc in illos quoque, — redemptiónis vitæque lavácrum, descéndat.",
+       "id": "cristo-rei-la-06"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Largíre, Dómine, Ecclésiæ tuæ — securam cum incolumitáte libertátem; — largíre cunctis géntibus tranquillitátem órdinis: — pérfice, ut ab utróque terræ vértice una résonet vox: — Sit laus divíno Cordi, — per quod nobis parta salus: — ipsi glória et honor in sǽcula. — Amen.",
+       "id": "cristo-rei-la-07"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Dulcíssimo Jesus,* Redentor do gênero humano, — lançai os Vossos olhares sobre nós, humildemente prostrados diante de Vosso altar. — Nós somos e queremos ser Vossos; — e para que possamos viver mais intimamente unidos a Vós, — cada um de nós neste dia se consagra espontaneamente ao Vosso Sacratíssimo Coração.",
+       "id": "cristo-rei-pt-01"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Muitos nunca Vos conheceram; — muitos desprezaram os Vossos mandamentos e Vos renegaram. — Benigníssimo Jesus, tende piedade de uns e de outros — e trazei-os todos ao Vosso Sagrado Coração.",
+       "id": "cristo-rei-pt-02"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Senhor, sede o Rei — não somente dos fiéis que nunca de Vós se afastaram, — mas também dos filhos pródigos que Vos abandonaram; — fazei que eles tornem, quanto antes, à casa paterna, — para que não pereçam de miséria e de fome.",
+       "id": "cristo-rei-pt-03"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Sede o Rei dos — que vivem iludidos no erro, — ou separados de Vós pela discórdia; — trazei-os ao porto da verdade — e à unidade da fé, — a fim de que em breve haja um só rebanho e um só pastor.",
+       "id": "cristo-rei-pt-04"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Sede o Rei de todos aqueles — que estão sepultados nas trevas da idolatria e do islamismo, — e não recuseis conduzi-los todos à luz e ao Reino de Deus.",
+       "id": "cristo-rei-pt-05"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Volvei, enfim, um olhar de misericórdia — aos filhos do que foi outrora Vosso povo escolhido; — desça também sobre eles, — num batismo de redenção e vida, — aquele sangue que um dia sobre si invocaram.",
+       "id": "cristo-rei-pt-06"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Senhor, conservai incólume a Vossa Igreja, — e dai-lhe uma liberdade segura e sem peias; — concedei ordem e paz a todos os povos; — fazei que de um a outro pólo do mundo, ressoe uma só voz: — Louvado seja o Coração divino, — que nos trouxe a salvação! — A Ele, honra e glória por todos os séculos dos séculos. — Amém.",
+       "id": "cristo-rei-pt-07"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ultimo-dia-do-ano",
+   "chapeu": "Obra indulgenciada",
+   "titulo": "Último dia do ano civil",
+   "resumo": "O Te Deum, cantado ou recitado solenemente em ação de graças pelo ano que acaba.",
+   "categoria": "indulgencia",
+   "imagem": "/folhetos/ultimo-dia-do-ano-a5076fcc.webp",
+   "largura": 756,
+   "altura": 1008,
+   "obra": "Concede-se indulgência plenária ao fiel que, na igreja ou no oratório, participar devotamente do canto ou da recitação solene do hino [i]Te Deum[/i], no último dia do ano, para render graças a Deus pelos benefícios concedidos no decurso de todo o ano.",
+   "concessao": "Concessão nº 26, §1, 2.º do Enchiridion Indulgentiarum",
+   "condicoes": true,
+   "blocos": [
+    {
+     "tipo": "bilingue",
+     "id": "ultimo-dia-do-ano-te-deum",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Te Deum laudámus: * te Dóminum confitémur.",
+       "id": "ultimo-dia-do-ano-te-deum-la-01"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Te ætérnum Patrem * omnis terra venerátur.",
+       "id": "ultimo-dia-do-ano-te-deum-la-02"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Tibi omnes Ángeli, * tibi Cæli, et univérsæ Potestátes:",
+       "id": "ultimo-dia-do-ano-te-deum-la-03"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Tibi Chérubim et Séraphim * incessábili voce proclámant:",
+       "id": "ultimo-dia-do-ano-te-deum-la-04"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Sanctus, Sanctus, Sanctus * Dóminus Deus Sábaoth.",
+       "id": "ultimo-dia-do-ano-te-deum-la-05"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Pleni sunt cæli et terra * majestátis glóriæ tuæ.",
+       "id": "ultimo-dia-do-ano-te-deum-la-06"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Te gloriósus * Apostolórum chorus,",
+       "id": "ultimo-dia-do-ano-te-deum-la-07"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Te Prophetárum * laudábilis númerus,",
+       "id": "ultimo-dia-do-ano-te-deum-la-08"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Te Mártyrum candidátus * laudat exércitus.",
+       "id": "ultimo-dia-do-ano-te-deum-la-09"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Te per orbem terrárum * sancta confitétur Ecclésia,",
+       "id": "ultimo-dia-do-ano-te-deum-la-10"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Patrem * imménsæ majestátis;",
+       "id": "ultimo-dia-do-ano-te-deum-la-11"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Venerándum tuum verum * et únicum Fílium;",
+       "id": "ultimo-dia-do-ano-te-deum-la-12"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Sanctum quoque * Paráclitum Spíritum.",
+       "id": "ultimo-dia-do-ano-te-deum-la-13"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Tu Rex glóriæ, * Christe.",
+       "id": "ultimo-dia-do-ano-te-deum-la-14"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Tu Patris * sempitérnus es Fílius.",
+       "id": "ultimo-dia-do-ano-te-deum-la-15"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Tu, ad liberándum susceptúrus hóminem: * non horruísti Vírginis úterum.",
+       "id": "ultimo-dia-do-ano-te-deum-la-16"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Tu, devícto mortis acúleo, * aperuísti credéntibus regna cælórum.",
+       "id": "ultimo-dia-do-ano-te-deum-la-17"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Tu ad déxteram Dei sedes, * in glória Patris.",
+       "id": "ultimo-dia-do-ano-te-deum-la-18"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Judex créderis * esse ventúrus.",
+       "id": "ultimo-dia-do-ano-te-deum-la-19"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[r](O seguinte versículo diz-se de joelhos)[/r] Te ergo quǽsumus, tuis fámulis súbveni, * quos pretióso sánguine redemísti.",
+       "id": "ultimo-dia-do-ano-te-deum-la-20"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Ætérna fac cum Sanctis tuis * in glória numerári.",
+       "id": "ultimo-dia-do-ano-te-deum-la-21"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Salvum fac pópulum tuum, Dómine, * et bénedic hereditáti tuæ.",
+       "id": "ultimo-dia-do-ano-te-deum-la-22"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Et rege eos, * et extólle illos usque in ætérnum.",
+       "id": "ultimo-dia-do-ano-te-deum-la-23"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Per síngulos dies * benedícimus te.",
+       "id": "ultimo-dia-do-ano-te-deum-la-24"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Et laudámus nomen tuum in sǽculum, * et in sǽculum sǽculi.",
+       "id": "ultimo-dia-do-ano-te-deum-la-25"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Dignáre, Dómine, die isto * sine peccáto nos custodíre.",
+       "id": "ultimo-dia-do-ano-te-deum-la-26"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Miserére nostri, Dómine, * miserére nostri.",
+       "id": "ultimo-dia-do-ano-te-deum-la-27"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Fiat misericórdia tua, Dómine, super nos, * quemádmodum sperávimus in te.",
+       "id": "ultimo-dia-do-ano-te-deum-la-28"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "In te, Dómine, sperávi: * non confúndar in ætérnum.",
+       "id": "ultimo-dia-do-ano-te-deum-la-29"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Benedicámus Patrem et Fílium cum Sancto Spíritu. — ℟. Laudémus et superexaltémus eum in sǽcula.",
+       "id": "ultimo-dia-do-ano-te-deum-la-30"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Benedíctus es Dómine in firmaménto cæli. — ℟. Et laudábilis, et gloriósus, et superexaltátus in sǽcula.",
+       "id": "ultimo-dia-do-ano-te-deum-la-31"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Dómine, exáudi oratiónem meam. — ℟. Et clamor meus ad te véniat.",
+       "id": "ultimo-dia-do-ano-te-deum-la-32"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Dóminus vobíscum. — ℟. Et cum spíritu tuo.",
+       "id": "ultimo-dia-do-ano-te-deum-la-33"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Orémus. Deus, cujus misericórdiæ non est númerus, et bonitátis infinítus est thesáurus: piíssimæ majestáti tuæ pro collátis donis grátias ágimus, tuam semper cleméntiam exorántes; ut qui peténtibus postuláta concédis, eósdem non déserens, ad prǽmia futúra dispónas. Per Christum Dóminum nostrum. — Amen.",
+       "id": "ultimo-dia-do-ano-te-deum-la-34"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "A Vós, ó Deus, louvamos; a Vós, Senhor, bendizemos.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-01"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "A Vós, ó eterno Pai, adora toda a terra.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-02"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "A Vós, todos os Anjos, os Céus, e todas as Potestades:",
+       "id": "ultimo-dia-do-ano-te-deum-pt-03"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "A Vós, os Querubins e Serafins proclamam com incessantes vozes:",
+       "id": "ultimo-dia-do-ano-te-deum-pt-04"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Santo, Santo, Santo, sois Vós, Senhor, Deus dos exércitos!",
+       "id": "ultimo-dia-do-ano-te-deum-pt-05"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Cheios estão os céus e a terra da majestade de Vossa glória.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-06"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "A Vós, o glorioso coro dos Apóstolos.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-07"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "A Vós, o louvável número dos Profetas.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-08"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "A Vós louva o brilhante exército dos Mártires.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-09"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "A Vós confessa a Santa Igreja por toda a redondeza da terra,",
+       "id": "ultimo-dia-do-ano-te-deum-pt-10"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Pai de imensa majestade.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-11"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Ao Vosso adorável Filho, verdadeiro e único.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-12"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "E também ao Espírito Santo, Consolador.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-13"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Vós, ó Cristo, sois o Rei da glória.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-14"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Vós sois o Filho eterno do Pai.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-15"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Vós, para remir o homem, havendo de tomar a sua carne, não hesitastes em tomá-la no seio da Virgem.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-16"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Vós, triunfando da espada da morte, abristes aos fiéis o reino dos céus.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-17"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Vós estais sentados à mão direita de Deus, na glória do Pai.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-18"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Cremos que haveis de vir como Juiz.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-19"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "[r](O seguinte versículo diz-se de joelhos)[/r] Por isso Vos rogamos, socorrais aos Vossos servos, que remistes com o Vosso precioso Sangue.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-20"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Permiti que sejamos do número de Vossos Santos na glória eterna.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-21"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Salvai, Senhor, o Vosso povo, e abençoai a Vossa herança.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-22"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Governai-os e exaltai-os eternamente.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-23"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Todos os dias, Vos bendizemos.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-24"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "E louvamos o Vosso Nome sem fim, por todos os séculos dos séculos.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-25"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Dignai-Vos, Senhor, preservar-nos, neste dia, de todo o pecado.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-26"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Tende piedade de nós, Senhor; compadecei-Vos de nós.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-27"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Venha, Senhor, Vossa misericórdia sobre nós, segundo temos esperado em Vós.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-28"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Em Vós, Senhor, esperei; não serei confundido eternamente.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-29"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Bendigamos ao Padre, e ao Filho, e ao Espírito Santo. — ℟. Louvemos e por todos os séculos O exaltemos.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-30"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Bendito sois, Senhor Deus de nossos pais! — ℟. E digno de louvor e glorioso eternamente.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-31"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. Senhor, ouvi a minha oração. — ℟. E chegue até Vós o meu clamor.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-32"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "℣. O Senhor seja convosco. — ℟. E com o vosso espírito.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-33"
+      },
+      {
+       "tipo": "paragrafo",
+       "texto": "Oremos. Ó Deus, cuja misericórdia é sem limites e cuja bondade é um tesouro inesgotável, prostrados ante a Vossa piíssima Majestade Vos rendemos graças pelos benefícios que nos haveis feito, suplicando sempre a Vossa clemência, para que não desampareis nunca aos que concedestes o que Vos pediram, e os disponhais para receberem os prêmios eternos. Pelo Cristo, Nosso Senhor. — Amém.",
+       "id": "ultimo-dia-do-ano-te-deum-pt-34"
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

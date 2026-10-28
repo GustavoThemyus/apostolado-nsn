@@ -61,6 +61,15 @@ export type Bloco = ComId &
   | { tipo: "bilingue"; latim: Bloco[]; portugues: Bloco[] }
   /** O índice completo do documento, derivado das seções. */
   | { tipo: "indice" }
+  /**
+   * O calendário das indulgências em quadro, derivado de
+   * `indulgencias-dias.json`.
+   *
+   * Como o `indice`, não traz conteúdo: aponta para onde ele já mora. Escrito
+   * à mão aqui, o quadro e o calendário interativo diriam coisas diferentes
+   * na primeira correção de uma vírgula.
+   */
+  | { tipo: "calendarioDasIndulgencias" }
   | { tipo: "lista"; ordenada?: boolean; itens: string[] }
   | { tipo: "oracao"; versos: Verso[] }
   | { tipo: "nota"; titulo: string; paragrafos: string[]; alerta?: boolean }
@@ -149,6 +158,18 @@ export interface Postagem {
   festa?: { nome: string } | { mes: number; dia: number };
   /** Caminho em /public. Sem ela a faixa mostra o brasão. */
   imagem?: string;
+  /** As medidas da estampa, como ela está no arquivo. Ver `Folheto.largura`. */
+  largura?: number;
+  altura?: number;
+  /**
+   * As notas de rodapé, da chamada para o texto: `{ "1": "São Cirilo…" }`.
+   *
+   * Mesmo mapa do `Conteudo`, porque é o mesmo `[nota]1[/nota]` do texto
+   * rico. Sem ele a chamada não some — vira o número solto, sem balão —, e
+   * uma vida de santo que cita encíclicas ficaria afirmando sem dizer de
+   * onde.
+   */
+  notas?: Record<string, string>;
   /** Falso esconde do site inteiro, para escrever com calma. */
   publicado?: boolean;
   /** Texto provisório: mostra o aviso de rascunho. */
@@ -184,6 +205,17 @@ export interface Folheto {
   categoria: CategoriaDeFolheto;
   /** A figura da folha, em /public/folhetos. Gerada de ferramentas/folhetos. */
   imagem?: string;
+  /**
+   * As medidas da figura, em pixels, como ela está no arquivo.
+   *
+   * Vão junto com `imagem` e saem da mesma ferramenta, porque é delas que o
+   * navegador tira a proporção antes de a imagem chegar. Fixas no componente,
+   * como estavam, toda folha herdava a proporção da primeira: a estampa de
+   * Cristo Rei é retrato e a da Quinta-feira Santa é paisagem, e o texto
+   * saltava ao carregar.
+   */
+  largura?: number;
+  altura?: number;
   /**
    * A obra indulgenciada: o que se tem de fazer para lucrar a indulgência.
    *

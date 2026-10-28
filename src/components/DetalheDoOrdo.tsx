@@ -30,6 +30,26 @@ function Sim({ v, porque }: { v: boolean; porque?: string }) {
 
 const ehMarcada = (p: string) => /^[➢❖]/.test(p);
 
+/**
+ * Tira o chapéu que repete o nome da casa.
+ *
+ * O Ordo escreve "comemoração de São Telésforo Papa e Mártir" e "oração
+ * A cunctis e ad libitum"; numa casa chamada Comemoração, ou Orações, a
+ * primeira palavra é a etiqueta de novo. Foi o que o Perez pediu — "retirar
+ * a forma 'comemoração de'… antes do nome do primeiro santo".
+ *
+ * Só o chapéu do começo: "comemoração da Oitava da Epifania e de Santo
+ * Higino" continua dizendo "e de Santo Higino", que é o segundo comemorado e
+ * não repetição de nada. E o que sobra sobe de maiúscula, porque passa a
+ * abrir a frase.
+ */
+const CHAPEU = /^(comemoraç(ão|ões)|oraç(ão|ões))\s+(d[aeos]s?\s+)?/i;
+
+function semOChapeu(texto: string): string {
+  const limpo = texto.replace(CHAPEU, "");
+  return limpo ? limpo[0].toUpperCase() + limpo.slice(1) : texto;
+}
+
 /*
  * O parágrafo que só anuncia a penitência sai da lista: ele já virou a linha
  * em destaque acima e a cruz na grade, e repetido aqui embaixo é a mesma
@@ -92,7 +112,25 @@ function BlocoDaCelebracao({
             {naMissa.comemoracoes.length > 0 && (
               <div>
                 <dt>Comemoração</dt>
-                <dd>{naMissa.comemoracoes.join("; ")}</dd>
+                <dd>{naMissa.comemoracoes.map(semOChapeu).join("; ")}</dd>
+              </div>
+            )}
+            {/*
+              As orações que se acrescentam à do dia. Pedido do Perez, e com
+              razão: elas vinham na casa "Missa", onde se lia "Missa Ecce
+              advenit da festa; oração Deus, qui salutis e Ecclesiæ" como se
+              o nome da Missa fosse a frase inteira.
+
+              A casa se chama "Orações", e não "Orações do tempo", que foi o
+              nome que ele deu. Vinte e cinco das linhas de 2026 dizem
+              "Orações próprias" ou "Orações e Evangelho próprios": são as
+              orações da própria festa, e não do tempo. O nome mais curto
+              abriga as duas; se ele preferir o dele, é uma palavra.
+            */}
+            {naMissa.oracoes.length > 0 && (
+              <div>
+                <dt>Orações</dt>
+                <dd>{naMissa.oracoes.map(semOChapeu).join("; ")}</dd>
               </div>
             )}
             {naMissa.entreAsLeituras.length > 0 && (

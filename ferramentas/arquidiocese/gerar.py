@@ -186,7 +186,7 @@ secoes.append({
     "blocos": [
         p("Por ser o Apostolado um grupo de fiéis ligados ao Rito Tradicional, assim "
           "como foi dito no [elo:/indulgencias/calendario]Calendário das Indulgências "
-          "Universais[/elo], seguimos ordinariamente o calendário tradicional, em "
+          "Plenárias Universais[/elo], seguimos ordinariamente o calendário tradicional, em "
           "especial associado às rubricas de S. Pio X, portanto todos os dias de "
           "indulgência associados às festas que possuem lugar no calendário do Rito "
           "Tradicional serão representados aqui segundo o calendário tradicional. "

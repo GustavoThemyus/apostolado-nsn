@@ -290,6 +290,16 @@ export interface NaMissa {
   entreAsLeituras: string[];
   comemoracoes: string[];
   /**
+   * As orações que se acrescentam à do dia: "A cunctis e ad libitum",
+   * "Deus, qui salutis e Ecclesiæ", "Oração sobre o povo".
+   *
+   * Campo próprio porque o Perez pediu seção própria, e porque antes elas
+   * caíam no `resto` e apareciam na casa "Missa" — onde se lia "Missa Ecce
+   * advenit da festa; oração Deus, qui salutis e Ecclesiæ" como se fosse
+   * tudo o nome da Missa. Em 2026 são 126 linhas.
+   */
+  oracoes: string[];
+  /**
    * O que sobra da linha depois de tirar tudo o que já está nos campos acima:
    * o nome da Missa e as orações. É o que de fato muda de um dia para o
    * outro — o resto do itinerário se repete o ano inteiro, e repetido duas
@@ -315,6 +325,22 @@ function achar(linha: string, termo: string): { tem: boolean; porque?: string } 
 }
 
 const primeiro = (linha: string, padrao: RegExp) => linha.match(padrao)?.[0]?.trim();
+
+/**
+ * O segmento é sobre as orações acrescentadas?
+ *
+ * Abre com a palavra, e o "após a" cobre as duas linhas da Quaresma que
+ * dizem "após a Oração Devotionem populi oração A cunctis e Omnipotens".
+ */
+const EH_ORACAO = /^(após a )?[Oo]raç(ão|ões)\b/;
+
+/**
+ * O Ordo gruda a oração na comemoração: "comemoração de São Telésforo Papa e
+ * Mártir e oração Deus, qui salutis". Aqui se corta no " e " que vem antes
+ * de "oração" — e só nesse, para "oração Deus, qui salutis e Ecclesiæ" não
+ * virar duas, que é uma oração com duas partes.
+ */
+const CORTE_DA_ORACAO = /\s+e\s+(?=[Oo]ração\b)/;
 
 /**
  * O que acontece na Missa do dia, segundo o Ordo.
@@ -350,6 +376,7 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
 
   const entreAsLeituras: string[] = [];
   const comemoracoes: string[] = [];
+  const oracoes: string[] = [];
   const resto: string[] = [];
   /*
    * O Ordo às vezes cola o primeiro item ao nome da Missa com dois pontos —
@@ -365,7 +392,12 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
     const p = cru.trim();
     if (/^(sem\s+)?Trato$/.test(p) || /^Sequência/.test(p) || /Aleluia/.test(p)) {
       entreAsLeituras.push(p);
-    } else if (p.includes("comemoração")) comemoracoes.push(p);
+    } else if (p.includes("comemoração")) {
+      // "comemoração de X e oração Y" são duas coisas numa frase só
+      const [comemorado, ...oracao] = p.split(CORTE_DA_ORACAO);
+      comemoracoes.push(comemorado.trim());
+      for (const o of oracao) oracoes.push(o.trim());
+    } else if (EH_ORACAO.test(p)) oracoes.push(p);
     else {
       /*
        * O que sobra do segmento depois de tirar os itens que já viraram
@@ -404,6 +436,7 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
     ultimoEvangelho: evangelho?.replace(/^Último Evangelho\s*/, ""),
     entreAsLeituras,
     comemoracoes,
+    oracoes,
     resto,
   };
 }

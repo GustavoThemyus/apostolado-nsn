@@ -97,9 +97,15 @@ def principal() -> None:
         figura = Image.open(bruta)
         nome_base = sys.argv[3] if len(sys.argv) > 3 else pdf.stem.lower().replace(" ", "-")
         destino = gravar(bruta, nome_base)
+    gravada = Image.open(destino)
     print(f"{destino.relative_to(RAIZ)}  {figura.size[0]}x{figura.size[1]}"
           f"  {destino.stat().st_size // 1024} KB")
-    print(f'  "imagem": "/folhetos/{destino.name}"')
+    # as tres linhas juntas, e nao so a do caminho: o navegador tira a
+    # proporcao das medidas, e copiar o caminho sem elas deixa a folha com a
+    # proporcao da estampa anterior ate a imagem chegar
+    print(f'  "imagem": "/folhetos/{destino.name}",')
+    print(f'  "largura": {gravada.width},')
+    print(f'  "altura": {gravada.height},')
 
 
 if __name__ == "__main__":

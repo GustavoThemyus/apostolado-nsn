@@ -29,8 +29,9 @@ export function SeletorDeAgendas({
    *
    * Com rótulo porque o nome de uma agenda nem sempre basta sozinho: o
    * calendário próprio se chama "Indulgências" no site.json, e numa página
-   * intitulada "Dias de indulgência plenária" essa caixa sozinha parecia
-   * oferecer o que a página já mostra. O rótulo do grupo diz de quem é.
+   * chamada "Calendário das Indulgências Plenárias Universais" essa caixa
+   * sozinha parecia oferecer o que a página já mostra. O rótulo do grupo diz
+   * de quem é.
    */
   grupos: { grupo: Agenda["grupo"]; titulo: string }[];
   ligadas: string[];

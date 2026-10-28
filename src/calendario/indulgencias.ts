@@ -42,6 +42,16 @@ export interface DiaDeIndulgencia {
   id: string;
   titulo: string;
   quando: Quando;
+  /**
+   * A mesma data em palavras: "2 de agosto", "Último domingo de outubro".
+   *
+   * Não se deriva de `quando`, e é por isso que está escrita. A coluna da
+   * data é prosa: "22 de fevereiro" e "29 de junho" são `festa` no motor,
+   * porque acompanham a transferência, mas quem lê quer ler o dia; e
+   * "Variável, conforme a Páscoa" é a única resposta honesta para a
+   * Quinta-feira Santa num quadro que não é de um ano só.
+   */
+  quandoPorExtenso: string;
   especie: Especie;
   /** Cânon ou decreto que a concede. */
   fonte?: string;

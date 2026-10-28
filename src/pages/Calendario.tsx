@@ -186,45 +186,63 @@ export default function Calendario() {
         </button>
       </div>
 
-      {ordo.semOrdo ? (
-        <p className="calendario__sem-ordo">
-          O Apostolado ainda não publicou o Ordo de {ano}. Publicado, ele entra
-          aqui. Por enquanto há {ANOS_COM_ORDO.length > 1 ? "os anos" : "o ano"}{" "}
-          {anos} — ou veja este mês{" "}
-          <button type="button" className="elo-em-texto" onClick={() => trocar("1962")}>
-            pelo calendário de 1962
-          </button>
-          .
-        </p>
-      ) : pre55 ? (
-        <>
-          <GradeDoMes
-            dias={ordo.dias}
-            hoje={hoje}
-            escolhido={escolhido}
-            aoEscolher={(data) => irPara(data)}
-            marcar={(d) => <MarcaDePenitencia penitencia={d.penitencia} />}
-            destacar={ehFestaMaiorDoOrdo}
-          />
-          <LegendaDaGrade />
-        </>
-      ) : (
-        <>
-          <GradeDoMes
-            dias={de1962}
-            hoje={hoje}
-            escolhido={escolhido}
-            aoEscolher={(data) => irPara(data)}
-            marcar={(d) => <MarcaDePenitencia penitencia={penitenciaDe(d)} />}
-            destacar={(d) => d.classe <= 2}
-          />
-          <LegendaDaGrade />
-        </>
-      )}
+      {/*
+        Grade e detalhe lado a lado no computador.
+ 
+        O Perez: "na versão de desktop o calendário mensal está muito grande,
+        poderia usar metade da página para o mês e a outra metade para as
+        qualificações da festa". Em 76rem de coluna a casa do dia chegava a
+        160px — tamanho de botão de aplicativo —, e o que se quer ler sobre o
+        dia ficava a uma rolagem de distância da casa em que se clicou.
+ 
+        No celular o painel não é grade nenhuma: continua sendo a grade
+        empilhada sobre o detalhe, que é a ordem em que se lê.
+      */}
+      <div className="calendario__painel">
+        <div className="calendario__coluna-grade">
+          {ordo.semOrdo ? (
+            <p className="calendario__sem-ordo">
+              O Apostolado ainda não publicou o Ordo de {ano}. Publicado, ele entra
+              aqui. Por enquanto há {ANOS_COM_ORDO.length > 1 ? "os anos" : "o ano"}{" "}
+              {anos} — ou veja este mês{" "}
+              <button type="button" className="elo-em-texto" onClick={() => trocar("1962")}>
+                pelo calendário de 1962
+              </button>
+              .
+            </p>
+          ) : pre55 ? (
+            <>
+              <GradeDoMes
+                dias={ordo.dias}
+                hoje={hoje}
+                escolhido={escolhido}
+                aoEscolher={(data) => irPara(data)}
+                marcar={(d) => <MarcaDePenitencia penitencia={d.penitencia} />}
+                destacar={ehFestaMaiorDoOrdo}
+              />
+              <LegendaDaGrade />
+            </>
+          ) : (
+            <>
+              <GradeDoMes
+                dias={de1962}
+                hoje={hoje}
+                escolhido={escolhido}
+                aoEscolher={(data) => irPara(data)}
+                marcar={(d) => <MarcaDePenitencia penitencia={penitenciaDe(d)} />}
+                destacar={(d) => d.classe <= 2}
+              />
+              <LegendaDaGrade />
+            </>
+          )}
+        </div>
 
-      {pre55
-        ? doOrdo && <DetalheDoOrdo dia={doOrdo} />
-        : de62 && <DetalheDoDia dia={de62} />}
+        <div className="calendario__coluna-detalhe">
+          {pre55
+            ? doOrdo && <DetalheDoOrdo dia={doOrdo} />
+            : de62 && <DetalheDoDia dia={de62} />}
+        </div>
+      </div>
 
       <AssinarAgenda
         grupo="ordo"

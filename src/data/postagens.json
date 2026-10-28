@@ -1,94 +1,255 @@
 {
-  "titulo": "Postagens",
-  "descricao": "Vidas de santos e escritos sobre a liturgia.",
-  "postagens": [
+ "titulo": "Postagens",
+ "descricao": "Vidas de santos e escritos sobre a liturgia.",
+ "postagens": [
+  {
+   "id": "enchiridion-indulgentiarum",
+   "titulo": "Enchiridion Indulgentiarum",
+   "resumo": "O conjunto da legislação e das concessões de indulgências em vigor, na tradução aprovada pela CNBB, agora completo no site.",
+   "data": "2026-09-28",
+   "categoria": "liturgia",
+   "imagem": "/capas/enchiridion-dd0b710c.webp",
+   "blocos": [
     {
-      "id": "enchiridion-indulgentiarum",
-      "titulo": "Enchiridion Indulgentiarum",
-      "resumo": "O conjunto da legislação e das concessões de indulgências em vigor, na tradução aprovada pela CNBB, agora completo no site.",
-      "data": "2026-09-28",
-      "categoria": "liturgia",
-      "imagem": "/capas/enchiridion-dd0b710c.webp",
-      "blocos": [
-        {
-          "id": "p-enchiridion-1",
-          "tipo": "paragrafo",
-          "texto": "O presente conteúdo trata-se de uma transcrição feita de um documento eclesiástico: o [i]Enchiridion Indulgentiarum quarto editur[/i], publicado em 16 de julho de 1999 pelo Sumo Pontífice João Paulo II."
-        },
-        {
-          "id": "p-enchiridion-2",
-          "tipo": "paragrafo",
-          "texto": "Este documento representa o conjunto da legislação e concessões atualmente em vigor que versam sobre a disciplina das indulgências para toda a Igreja latina. A sua publicação tomou o lugar das concessões de Paulo VI na Constituição Apostólica [i]Indulgentiarum Doctrina[/i], do [i]Enchiridion Indulgentiarum[/i] de 1968 e de 1986."
-        },
-        {
-          "id": "p-enchiridion-3",
-          "tipo": "paragrafo",
-          "texto": "Trata-se de um documento importantíssimo para o dia-a-dia do fiel católico e é uma imensa alegria poder trazer uma versão digital do enquiridio em português."
-        },
-        {
-          "id": "p-enchiridion-4",
-          "tipo": "paragrafo",
-          "texto": "[botao:/indulgencias/enchiridion]Ler o Enchiridion Indulgentiarum[/botao]"
-        }
-      ]
+     "id": "p-enchiridion-1",
+     "tipo": "paragrafo",
+     "texto": "O presente conteúdo trata-se de uma transcrição feita de um documento eclesiástico: o [i]Enchiridion Indulgentiarum quarto editur[/i], publicado em 16 de julho de 1999 pelo Sumo Pontífice João Paulo II."
     },
     {
-      "id": "nossa-senhora-das-neves",
-      "titulo": "Nossa Senhora das Neves",
-      "resumo": "A titular da capela e a dedicação de Santa Maria Maior.",
-      "data": "2026-08-05",
-      "categoria": "santo",
-      "imagem": "/padroeiros/neves-d5e531fa.webp",
-      "rascunho": true,
-      "blocos": [
-        {
-          "id": "p-neves-1",
-          "tipo": "paragrafo",
-          "texto": "Este texto ainda será escrito. A festa é em 5 de agosto, dedicação da basílica de Santa Maria Maior, e é a titular desta capela."
-        }
-      ],
-      "festa": {
-        "nome": "Nossa Senhora das Neves"
-      }
+     "id": "p-enchiridion-2",
+     "tipo": "paragrafo",
+     "texto": "Este documento representa o conjunto da legislação e concessões atualmente em vigor que versam sobre a disciplina das indulgências para toda a Igreja latina. A sua publicação tomou o lugar das concessões de Paulo VI na Constituição Apostólica [i]Indulgentiarum Doctrina[/i], do [i]Enchiridion Indulgentiarum[/i] de 1968 e de 1986."
     },
     {
-      "id": "santo-antonio",
-      "titulo": "Santo Antônio",
-      "resumo": "Padroeiro da capela, doutor da Igreja.",
-      "data": "2026-06-13",
-      "categoria": "santo",
-      "imagem": "/padroeiros/antonio-d0b8e602.webp",
-      "rascunho": true,
-      "blocos": [
-        {
-          "id": "p-antonio-1",
-          "tipo": "paragrafo",
-          "texto": "Este texto ainda será escrito. A festa é em 13 de junho."
-        }
-      ],
-      "festa": {
-        "nome": "Santo Antônio de Pádua"
-      }
+     "id": "p-enchiridion-3",
+     "tipo": "paragrafo",
+     "texto": "Trata-se de um documento importantíssimo para o dia-a-dia do fiel católico e é uma imensa alegria poder trazer uma versão digital do enquiridio em português."
     },
     {
-      "id": "santa-filomena",
-      "titulo": "Santa Filomena",
-      "resumo": "Padroeira da capela, virgem e mártir.",
-      "data": "2026-08-11",
-      "categoria": "santo",
-      "imagem": "/padroeiros/filomena-3d5ac43c.webp",
-      "rascunho": true,
-      "blocos": [
-        {
-          "id": "p-filomena-1",
-          "tipo": "paragrafo",
-          "texto": "Este texto ainda será escrito. A festa é em 11 de agosto."
-        }
-      ],
-      "festa": {
-        "mes": 8,
-        "dia": 11
-      }
+     "id": "p-enchiridion-4",
+     "tipo": "paragrafo",
+     "texto": "[botao:/indulgencias/enchiridion]Ler o Enchiridion Indulgentiarum[/botao]"
     }
-  ]
+   ]
+  },
+  {
+   "id": "nossa-senhora-das-neves",
+   "titulo": "Nossa Senhora das Neves",
+   "resumo": "A titular da capela e a dedicação de Santa Maria Maior.",
+   "data": "2026-08-05",
+   "categoria": "santo",
+   "imagem": "/padroeiros/neves-d5e531fa.webp",
+   "rascunho": true,
+   "blocos": [
+    {
+     "id": "p-neves-1",
+     "tipo": "paragrafo",
+     "texto": "Este texto ainda será escrito. A festa é em 5 de agosto, dedicação da basílica de Santa Maria Maior, e é a titular desta capela."
+    }
+   ],
+   "festa": {
+    "nome": "Nossa Senhora das Neves"
+   }
+  },
+  {
+   "id": "santo-antonio",
+   "titulo": "Santo Antônio",
+   "resumo": "Padroeiro da capela, doutor da Igreja.",
+   "data": "2026-06-13",
+   "categoria": "santo",
+   "imagem": "/padroeiros/antonio-d0b8e602.webp",
+   "rascunho": true,
+   "blocos": [
+    {
+     "id": "p-antonio-1",
+     "tipo": "paragrafo",
+     "texto": "Este texto ainda será escrito. A festa é em 13 de junho."
+    }
+   ],
+   "festa": {
+    "nome": "Santo Antônio de Pádua"
+   }
+  },
+  {
+   "id": "santa-filomena",
+   "titulo": "Santa Filomena",
+   "resumo": "Padroeira da capela, virgem e mártir.",
+   "data": "2026-08-11",
+   "categoria": "santo",
+   "imagem": "/padroeiros/filomena-3d5ac43c.webp",
+   "rascunho": true,
+   "blocos": [
+    {
+     "id": "p-filomena-1",
+     "tipo": "paragrafo",
+     "texto": "Este texto ainda será escrito. A festa é em 11 de agosto."
+    }
+   ],
+   "festa": {
+    "mes": 8,
+    "dia": 11
+   }
+  },
+  {
+   "id": "cristo-rei",
+   "titulo": "Nosso Senhor Jesus Cristo Rei",
+   "resumo": "A festa instituída por Pio XI em 1925, no último domingo de outubro: por que num domingo, e por que neste.",
+   "data": "2026-10-25",
+   "categoria": "santo",
+   "imagem": "/folhetos/cristo-rei-54c2c4fb.webp",
+   "largura": 692,
+   "altura": 800,
+   "festa": {
+    "nome": "Nosso Senhor Jesus Cristo Rei"
+   },
+   "notas": {
+    "1": "São Cirilo de Alexandria, [i]In Lucam[/i], 10.",
+    "2": "Pio XI, encíclica [i]Quas primas[/i], 1925.",
+    "3": "Leão XIII, encíclica [i]Annum sacrum[/i], 1899.",
+    "4": "Leão XIII, encíclica [i]Annum sacrum[/i], 1899.",
+    "5": "Leão XIII, encíclica [i]Annum sacrum[/i], 1899; Fl 2, 11."
+   },
+   "blocos": [
+    {
+     "id": "p-cristo-rei-01",
+     "tipo": "subtitulo",
+     "texto": "Introdução",
+     "ancora": "cristo-rei-introducao"
+    },
+    {
+     "id": "p-cristo-rei-02",
+     "tipo": "paragrafo",
+     "texto": "A festa de Nosso Senhor Jesus Cristo Rei é uma festa universal, instituída pelo Papa Pio XI em 11 de dezembro de 1925 pela publicação da encíclica [i]Quas primas[/i], tendo por dia próprio o último domingo de outubro."
+    },
+    {
+     "id": "p-cristo-rei-03",
+     "tipo": "paragrafo",
+     "texto": "Fixá-la num domingo manifesta a importância deste mistério para a vida da Igreja: ocupa o dia que é próprio do Senhor e em que os fiéis são obrigados por preceito a fazer-se presentes. Trata-se, pois, de um ato catequético e combativo, que busca reavivar o espírito de levar com caridade, por dever de justiça, Jesus Cristo a ocupar o lugar que lhe cabe por direito no mais alto dos tronos, e de lhe consagrar todas as potestades num necessário e justo reinado."
+    },
+    {
+     "id": "p-cristo-rei-04",
+     "tipo": "subtitulo",
+     "texto": "Contexto histórico",
+     "ancora": "cristo-rei-contexto"
+    },
+    {
+     "id": "p-cristo-rei-05",
+     "tipo": "paragrafo",
+     "texto": "A presença cada vez mais abundante do secularismo na sociedade tomou conta dos Estados católicos e de seus líderes desde a idade moderna, desencadeando um afastamento gradual entre o Estado e a Igreja e um afastamento coercivo da Igreja em relação à sociedade civil. Na administração dos Estados a autoridade da lei divina foi sendo deixada de lado, excluindo a religião da devida participação na vida pública."
+    },
+    {
+     "id": "p-cristo-rei-06",
+     "tipo": "paragrafo",
+     "texto": "Essa política traz a tendência de equiparar a Santa Igreja às falsas religiões, reduzindo-a ao mesmo patamar em função da laicidade do Estado, negando a soberania de Cristo e rechaçando o direito divino da Igreja. Trata-se, portanto, de uma revolução diabólica que busca a desordem em si, destronando o Rei por excelência e expulsando Deus da sociedade civil."
+    },
+    {
+     "id": "p-cristo-rei-07",
+     "tipo": "paragrafo",
+     "texto": "Essa revolta do homem, que quer negar o que é de Deus por Sua própria natureza, tem consequências gravíssimas. Daí a abundância de males espirituais e temporais que há muito se abatem sobre o mundo: a discórdia civil, com um egoísmo cego e desenfreado; a discórdia nas famílias, promovida pela negligência e pelo relaxamento dos deveres familiares, que culmina no fim da paz doméstica; e, enfim, o abalo e a morte da sociedade humana. É consequência natural desta rejeição de Nosso Senhor como legítimo e verdadeiro Rei que se coloque o homem em Seu lugar."
+    },
+    {
+     "id": "p-cristo-rei-08",
+     "tipo": "paragrafo",
+     "texto": "Por fim, muito bem encaminhada a Igreja nesse rumo pelo Papa Leão XIII e pelo próprio Pio XI, o Pontífice apresenta uma solução racional, tradicional e certamente efetiva para esse seríssimo problema: [b]a Santa Missa[/b]. O Papa reafirma sabiamente que por meio da Missa foram destruídas as heresias, condenados os erros e repelidas as artimanhas demoníacas, elucidando a doutrina e direcionando os fiéis católicos ao combate pela Fé."
+    },
+    {
+     "id": "p-cristo-rei-09",
+     "tipo": "subtitulo",
+     "texto": "Considerações sobre a doutrina",
+     "ancora": "cristo-rei-doutrina"
+    },
+    {
+     "id": "p-cristo-rei-10",
+     "tipo": "paragrafo",
+     "texto": "Verdadeiramente em Deus está contida toda a majestade, intrínseca à Sua divina natureza e essência. O Verbo, portanto, participa com o Pai e o Espírito Santo da suprema majestade, uma vez que a Trindade é indivisível por comungarem as três Pessoas da mesma essência e natureza. Cristo é, pois, verdadeiro rei por Sua essência e natureza divina, como esclarece São Cirilo de Alexandria: «Cristo possui soberania sobre todas as criaturas, não arrancada à força ou tirada de ninguém, mas em virtude de sua própria essência e natureza»[nota]1[/nota]."
+    },
+    {
+     "id": "p-cristo-rei-11",
+     "tipo": "paragrafo",
+     "texto": "Tendo o Verbo assumido a natureza humana ao Se encarnar para a nossa salvação, recebeu do Pai, enquanto homem, todo império, glória e realeza, detendo não somente um reinado espiritual, mas também temporal, com absoluto poder sobre todas as criaturas. Todo o gênero humano está sob o poder de Cristo segundo Sua própria humanidade, como comenta o Papa: «Seria um grave erro negar o poder do Cristo-Homem sobre todas as coisas humanas e temporais, pois o Pai lhe conferiu um direito absoluto sobre as coisas criadas»[nota]2[/nota]. O Senhor atesta inclusive que detém o poder absoluto, dado pelo Pai, de ser segundo a carne o juiz supremo, uma vez que «a autoridade judicial flui naturalmente da autoridade real»[nota]3[/nota]. [b]Cristo é, portanto, rei por herança[/b], dada pelo Pai ao assumir em Si a natureza humana."
+    },
+    {
+     "id": "p-cristo-rei-12",
+     "tipo": "paragrafo",
+     "texto": "Ademais, o Senhor, por Seus méritos infinitos, ao consolidar a redenção do gênero humano padecendo e morrendo na cruz, solveu-nos a dívida de Adão e, ressuscitando, fez-nos participantes da graça. Portanto, dignamente aclamado como nosso Redentor, foi ornado ainda, por justiça, da realeza por direito de conquista. Cristo reina verdadeiramente triunfante nos cultos públicos da Igreja, e Seu reinado se dá nela não somente no aspecto espiritual, mas ainda no temporal, apresentando-Se glorioso como verdadeiro Rei enquanto chefe supremo de Sua Igreja. Como cita Leão XIII: «Portanto, não só os católicos… mas também todos os homens, individual e coletivamente, tornaram-se para Ele um povo comprado»[nota]4[/nota]. [b]Cristo é, portanto, rei por conquista[/b], tendo a primazia sobre todo o gênero humano ao nos redimir na Cruz."
+    },
+    {
+     "id": "p-cristo-rei-13",
+     "tipo": "subtitulo",
+     "texto": "A liturgia da festa",
+     "ancora": "cristo-rei-liturgia"
+    },
+    {
+     "id": "p-cristo-rei-14",
+     "tipo": "paragrafo",
+     "texto": "O ofício da festa de Cristo Rei foi agraciado com a celebração segundo o rito [lat]duplex[/lat] de 1.ª classe. Tratando-se de uma festa universal do Senhor, goza dos maiores privilégios litúrgicos quanto à precedência em concorrência com outros ritos e ao emprego dos mais belos e abundantes adornos nos ofícios. Traz ainda, de maneira exclusiva, um prefácio inédito composto para esta festa."
+    },
+    {
+     "id": "p-cristo-rei-15",
+     "tipo": "paragrafo",
+     "texto": "Nota-se também, pela proximidade com o fim do ano litúrgico, a coroação do ano com a última festa do Senhor no calendário — até então a da Transfiguração, em agosto. A escolha do dia foi feita de maneira consciente e responsável: evita dispor a festa em novembro, onde a liturgia proporciona a restauração dos domingos perdidos no tempo depois da Epifania, e conserva intacto o XXIV Domingo depois de Pentecostes, que tem grande apelo espiritual e relação direta com o I Domingo do Advento, que o segue imediatamente. Leva ainda em conta a mobilidade dos domingos em decorrência da Páscoa, para evitar impedir perpetuamente a celebração de um domingo — como infelizmente ocorre com o Domingo dentro da Oitava da Epifania e com o I Domingo depois de Pentecostes. Assim, se Cristo Rei este ano impede o XXI Domingo depois de Pentecostes, no ano seguinte impedirá o XXII, variando todos os anos."
+    },
+    {
+     "id": "p-cristo-rei-16",
+     "tipo": "paragrafo",
+     "texto": "A principal razão de instituir a festa num domingo é que o Papa quer trazê-la aos fiéis no dia da semana em que há maior concurso deles nas igrejas, para que todos participem e conheçam a realeza do Senhor na sociedade e na Igreja, e para que essa catequese e apresentação clara da doutrina, feita publicamente todos os anos, colabore com o auxílio do Senhor para a restauração desta sociedade."
+    },
+    {
+     "id": "p-cristo-rei-17",
+     "tipo": "paragrafo",
+     "texto": "A classificação do rito como [lat]duplex[/lat] de 1.ª classe é perfeitamente cabível e adequada: a festa é do Senhor, e as festas do Senhor sempre são envoltas de tremenda dignidade, ocupando os graus mais elevados quanto à qualidade do rito. O próprio aspecto do Senhor abordado na festa exala um sentido soleníssimo, atributo de Sua natureza e de Seu merecimento insondável pela nossa redenção."
+    },
+    {
+     "id": "p-cristo-rei-18",
+     "tipo": "subtitulo",
+     "texto": "Conclusão",
+     "ancora": "cristo-rei-conclusao"
+    },
+    {
+     "id": "p-cristo-rei-19",
+     "tipo": "paragrafo",
+     "texto": "Os problemas citados por Pio XI e Leão XIII permanecem em nossa sociedade contemporânea, talvez até com maior perversidade e de forma mais generalizada. A luta por este reinado é justa e devida, e ao mesmo tempo necessária para podermos nos dizer cristãos. O reinado social de Nosso Senhor é uma necessidade natural, uma vez que ninguém senão Cristo tem o legítimo direito de ocupá-lo."
+    },
+    {
+     "id": "p-cristo-rei-20",
+     "tipo": "paragrafo",
+     "texto": "Cabe a nós tomar parte ativa na restauração do Reino de Cristo, pois somente nele teremos a verdadeira paz a que se referem os textos desta festa. Só então será possível que nossas muitas feridas sejam curadas e que toda a justiça brote novamente com a esperança de autoridade restaurada; que se renovem os esplendores da paz e as espadas caiam das mãos, quando todos os homens reconhecerem o império de Cristo e obedecerem voluntariamente à Sua palavra, e toda língua confesse que Nosso Senhor Jesus Cristo está na glória de Deus Pai[nota]5[/nota]."
+    },
+    {
+     "id": "p-cristo-rei-21",
+     "tipo": "subtitulo",
+     "texto": "Oração",
+     "ancora": "cristo-rei-oracao"
+    },
+    {
+     "id": "p-cristo-rei-22",
+     "tipo": "oracao",
+     "versos": [
+      {
+       "portugues": "Ó Cristo Jesus! Reconheço-Vos como Rei universal. Tudo o que foi feito, para Vós foi criado. Exercei sobre mim todos os Vossos direitos."
+      },
+      {
+       "portugues": "Renovo as minhas promessas do batismo, renunciando a Satanás, às suas pompas e às suas obras; e muito particularmente me comprometo a fazer triunfar, por todos os meios ao meu alcance, os direitos de Deus e da Vossa Igreja."
+      },
+      {
+       "portugues": "Divino Coração de Jesus! Ofereço-Vos minhas pobres ações para alcançar que todos os corações reconheçam Vossa realeza sagrada e assim se estabeleça no universo inteiro o reinado da Vossa paz. Assim seja."
+      }
+     ]
+    },
+    {
+     "id": "p-cristo-rei-23",
+     "tipo": "nota",
+     "titulo": "A indulgência plenária deste dia",
+     "paragrafos": [
+      "Neste dia a Santa Igreja concede indulgência plenária a quem recitar publicamente o ato de consagração do gênero humano a Cristo Rei."
+     ]
+    },
+    {
+     "id": "p-cristo-rei-24",
+     "tipo": "paragrafo",
+     "texto": "[botao:/folhetos/cristo-rei]Conferir o texto do ato de consagração[/botao]"
+    }
+   ]
+  }
+ ]
 }

@@ -1,135 +1,135 @@
 {
- "titulo": "Dias de indulgência",
- "descricao": "Os dias que carregam indulgência no calendário.",
+ "titulo": "Calendário das Indulgências Plenárias Universais",
+ "descricao": "Os dias do ano em que a Igreja universal concede indulgência plenária, e a obra que se deve cumprir em cada um. A indulgência presa a uma festa acompanha a transferência dela.",
+ "condicoes": {
+  "titulo": "Condições ordinárias para lucrar uma indulgência plenária",
+  "blocos": [
+   {
+    "tipo": "paragrafo",
+    "id": "cond-abertura",
+    "texto": "Valem para [b]toda[/b] plenária desta página, e por isso ficam aqui, e não repetidas em cada dia. Faltando alguma, a indulgência deixa de ser plenária e se converte em parcial."
+   },
+   {
+    "tipo": "lista",
+    "ordenada": true,
+    "id": "cond-lista",
+    "itens": [
+     "Haver-se confessado sacramentalmente em não mais que quinze dias antes ou depois do dia da indulgência.[nota]1[/nota]",
+     "Receber piedosamente a Eucaristia, de preferência no mesmo dia; não sendo possível, em não mais que oito dias antes ou depois.[nota]1[/nota]",
+     "Rezar nas intenções do Sumo Pontífice, de preferência no mesmo dia, mas pode ser em outro.[nota]2[/nota]",
+     "Ter o desapego de todo o pecado, mesmo venial, desde o início do cumprimento das condições — ainda que só seja possível confessar, e até recuperar o estado de graça, depois.[nota]2[/nota]"
+    ]
+   },
+   {
+    "tipo": "paragrafo",
+    "id": "cond-obra",
+    "texto": "A isso se acrescenta, em cada dia, a [b]obra indulgenciada prescrita[/b]: a oração ou o exercício piedoso que se deve cumprir no tempo e no lugar marcados. É o que a grade abaixo traz, dia a dia."
+   }
+  ]
+ },
+ "observacoes": {
+  "titulo": "Observações",
+  "blocos": [
+   {
+    "tipo": "lista",
+    "id": "obs-lista",
+    "itens": [
+     "Com uma única confissão pode-se lucrar várias indulgências, mas cada indulgência requer uma comunhão.[nota]3[/nota]",
+     "Não é possível lucrar mais de uma plenária por dia, exceto [lat]in articulo mortis[/lat], salvo disposição contrária.[nota]4[/nota]",
+     "Toda plenária pode ser aplicada em sufrágio pelos fiéis defuntos. Para isso é preciso aplicá-la a uma alma, ainda que nomeada como «a alma mais necessitada»; jamais se pode aplicar por outra pessoa viva.[nota]5[/nota]",
+     "Qualquer oração pode satisfazer a obrigação das orações nas intenções do Papa: a Igreja assegura que bastam um Pai-nosso e uma Ave-Maria.[nota]6[/nota]",
+     "As intenções do Sumo Pontífice são sempre fixas e gerais — a exaltação da Igreja, a propagação da Fé, a extirpação das heresias, a conversão dos pecadores e a concórdia entre os príncipes cristãos. Não é simplesmente rezar pelo Papa, nem pelo que ele está pensando.",
+     "Para lucrar qualquer indulgência é preciso ser batizado, não estar excomungado nem com pena análoga, e estar em estado de graça até o cumprimento de todas as condições; além disso, é necessário ter a intenção de lucrá-la, mesmo geral.[nota]7[/nota]",
+     "Se alguma das condições não puder ser cumprida a tempo, a indulgência deixa de ser plenária e se converte em parcial.[nota]8[/nota]",
+     "Quando a obra exige a visita a uma igreja ou oratório, esta pode fazer-se desde o meio-dia precedente até a meia-noite do dia determinado.[nota]9[/nota]",
+     "Em caso de ocorrência litúrgica, quando a festa a que a indulgência está associada é transferida para outro dia, [b]a indulgência é transferida junto[/b].[nota]10[/nota] É o que a grade desta página calcula."
+    ]
+   }
+  ]
+ },
+ "notas": {
+  "1": "EI 1999, n. 20, §1 e §3; ID, nn. 7 e 8.",
+  "2": "EI 1999, n. 20, §1; ID, n. 7.",
+  "3": "EI 1999, n. 20, §2; ID, n. 9.",
+  "4": "EI 1999, n. 18, §1 e §2; ID, n. 6.",
+  "5": "CIC 1983, cân. 994; EI 1999, n. 3; ID, n. 3.",
+  "6": "EI 1999, n. 20, §5; ID, n. 10.",
+  "7": "CIC 1983, cân. 996, §2; EI 1999, n. 17, §1 e §2.",
+  "8": "EI 1999, n. 20, §4.",
+  "9": "CIC 1917, cân. 923; EI 1999, n. 14.",
+  "10": "CIC 1917, cân. 922; EI 1999, n. 13."
+ },
  "dias": [
   {
-   "id": "finados",
-   "titulo": "Comemoração dos Fiéis Defuntos",
+   "id": "primeiro-dia-do-ano",
+   "titulo": "Primeiro dia do ano civil",
    "quando": {
     "tipo": "fixa",
-    "mes": 11,
-    "dia": 2
+    "mes": 1,
+    "dia": 1
    },
+   "quandoPorExtenso": "1 de janeiro",
    "especie": "plenaria",
-   "fonte": "cân. 917 §1",
+   "fonte": "Concessão n.º 26, §1, 1.º do [elo:/indulgencias/enchiridion#concessao-26]Enchiridion Indulgentiarum[/elo]",
    "obra": [
     {
-     "id": "d-001",
      "tipo": "paragrafo",
-     "texto": "Visitando uma igreja, plenária [i]toties quoties[/i], aplicável somente aos defuntos. Toda Missa celebrada nesse dia goza do privilégio de altar privilegiado."
-    }
-   ]
-  },
-  {
-   "id": "oitava-todos-os-santos",
-   "titulo": "Visita ao cemitério",
-   "quando": {
-    "tipo": "intervalo",
-    "de": {
-     "mes": 11,
-     "dia": 1
+     "id": "d-primeiro-dia-do-ano",
+     "texto": "Na igreja ou oratório, tomar parte no canto ou récita solene do [elo:/folhetos/primeiro-dia-do-ano][i]Veni Creátor[/i][/elo], suplicando as bênçãos de Deus para o ano que se inicia."
     },
-    "ate": {
-     "mes": 11,
-     "dia": 8
-    }
-   },
-   "especie": "plenaria",
-   "fonte": "Raccolta",
-   "obra": [
     {
-     "id": "d-002",
-     "tipo": "paragrafo",
-     "texto": "Plenária diária pela visita ao cemitério, aplicável somente aos defuntos."
+     "tipo": "nota",
+     "id": "d-primeiro-dia-do-ano-nota",
+     "titulo": "Hoje ou em Pentecostes, à escolha",
+     "paragrafos": [
+      "Esta mesma indulgência pode ser lucrada hoje ou no Domingo de Pentecostes. É uma só indulgência, e se opta por um dia ou pelo outro."
+     ]
     }
    ]
   },
   {
-   "id": "porciuncula",
-   "titulo": "Porciúncula",
+   "id": "catedra-roma",
+   "titulo": "Cátedra de São Pedro Apóstolo em Roma",
    "quando": {
     "tipo": "fixa",
-    "mes": 8,
-    "dia": 2
+    "mes": 1,
+    "dia": 18
    },
+   "quandoPorExtenso": "18 de janeiro",
    "especie": "plenaria",
-   "fonte": "indulto",
+   "fonte": "Concessão n.º 33, §1, 3.º, c) do [elo:/indulgencias/enchiridion#concessao-33]Enchiridion Indulgentiarum[/elo]",
    "obra": [
     {
-     "id": "d-003",
      "tipo": "paragrafo",
-     "texto": "Plenária [i]toties quoties[/i], tantas vezes quantas forem as visitas."
+     "id": "d-catedra-roma",
+     "texto": "Visitar a Igreja Catedral e ali recitar piedosamente o Pai-nosso e o Credo."
+    },
+    {
+     "tipo": "nota",
+     "id": "d-catedra-roma-nota",
+     "titulo": "Só no calendário Pré-55",
+     "paragrafos": [
+      "No calendário Pré-55 há duas festas da Cátedra de São Pedro: a de 18 de janeiro, da sua Sé em Roma, e a de 22 de fevereiro, da sua Sé em Antioquia — as duas juntas representando a universalidade da autoridade papal, no Ocidente e no Oriente.",
+      "O calendário de 1962 excluiu a festa de 18 de janeiro, e nele a Cátedra se comemora somente em 22 de fevereiro. Quem segue o de 1962 lucra a indulgência apenas naquele dia."
+     ]
     }
    ]
   },
   {
-   "id": "titular",
-   "titulo": "Festa do Titular da capela",
-   "quando": {
-    "tipo": "titular"
-   },
-   "especie": "plenaria",
-   "fonte": "cân. 921 §3",
-   "obra": [
-    {
-     "id": "d-004",
-     "tipo": "paragrafo",
-     "texto": "Plenária aos que visitam a própria igreja. Presa à celebração, acompanha a transferência, pelo cânon 922."
-    }
-   ]
-  },
-  {
-   "id": "primeiras-sextas",
-   "titulo": "Primeiras sextas-feiras",
-   "quando": {
-    "tipo": "mensal",
-    "diaDaSemana": 5,
-    "ocorrencia": 1
-   },
-   "especie": "parcial",
-   "fonte": "Raccolta",
-   "obra": [
-    {
-     "id": "d-005",
-     "tipo": "paragrafo",
-     "texto": "Concessões próprias da devoção ao Sagrado Coração, conforme a obra."
-    }
-   ]
-  },
-  {
-   "id": "pedro-e-paulo",
-   "titulo": "São Pedro e São Paulo",
+   "id": "catedra-antioquia",
+   "titulo": "Cátedra de São Pedro Apóstolo em Antioquia",
    "quando": {
     "tipo": "festa",
-    "nome": "São Pedro e São Paulo"
+    "nome": "Cátedra de São Pedro"
    },
+   "quandoPorExtenso": "22 de fevereiro",
    "especie": "plenaria",
-   "fonte": "Concessão [elo:/indulgencias/enchiridion#concessao-14]14, § 1[/elo] do Enchiridion, com a norma 15; norma 17 da [elo:/indulgencias/enchiridion#id-normas]Indulgentiarum Doctrina[/elo].",
+   "fonte": "Concessão n.º 33, §1, 3.º, c) do [elo:/indulgencias/enchiridion#concessao-33]Enchiridion Indulgentiarum[/elo]",
    "obra": [
     {
-     "id": "d-pp-1",
      "tipo": "paragrafo",
-     "texto": "Usar devotamente, neste dia, um [b]objeto de piedade[/b] bento por um bispo ou pelo Papa, e acrescentar a profissão de fé."
-    },
-    {
-     "id": "d-pp-2",
-     "tipo": "paragrafo",
-     "texto": "Objeto de piedade, na norma 15, é crucifixo ou cruz, rosário, escapulário ou medalha. Bento por sacerdote ou diácono, o mesmo uso rende indulgência parcial em qualquer dia."
-    },
-    {
-     "id": "d-pp-3",
-     "tipo": "paragrafo",
-     "texto": "Serve qualquer fórmula legítima de profissão de fé. O Símbolo dos Apóstolos é o de uso mais seguro."
-    },
-    {
-     "id": "d-pp-4",
-     "tipo": "oracao",
-     "versos": [
-      {
-       "latim": "Credo in Deum, Patrem omnipoténtem, Creatórem cæli et terræ. Et in Jesum Christum, Fílium ejus únicum, Dóminum nostrum: qui concéptus est de Spíritu Sancto, natus ex María Vírgine, passus sub Póntio Piláto, crucifíxus, mórtuus, et sepúltus: descéndit ad ínferos; tértia die resurréxit a mórtuis; ascéndit ad cælos; sedet ad déxteram Dei Patris omnipoténtis: inde ventúrus est judicáre vivos et mórtuos. Credo in Spíritum Sanctum, sanctam Ecclésiam cathólicam, Sanctórum communiónem, remissiónem peccatórum, carnis resurrectiónem, vitam ætérnam. Amen.",
-       "portugues": "Creio em Deus Pai todo-poderoso, criador do céu e da terra. E em Jesus Cristo, um só seu Filho, Nosso Senhor, o qual foi concebido do Espírito Santo, nasceu de Maria Virgem, padeceu sob o poder de Pôncio Pilatos, foi crucificado, morto e sepultado, desceu aos infernos, ao terceiro dia ressurgiu dos mortos, subiu aos céus, está sentado à mão direita de Deus Pai todo-poderoso, donde há de vir a julgar os vivos e os mortos. Creio no Espírito Santo, na santa Igreja Católica, na comunhão dos santos, na remissão dos pecados, na ressurreição da carne, na vida eterna. Amém."
-      }
-     ]
+     "id": "d-catedra-antioquia",
+     "texto": "Visitar a Igreja Catedral e ali recitar piedosamente o Pai-nosso e o Credo."
     }
    ]
   },
@@ -144,100 +144,520 @@
      "paixao"
     ]
    },
+   "quandoPorExtenso": "Variável, conforme a Páscoa\ntodas as sextas-feiras da Quaresma",
    "especie": "plenaria",
-   "fonte": "Concessão [elo:/indulgencias/enchiridion#concessao-8]8, § 1, 2º[/elo] do Enchiridion.",
+   "fonte": "Concessão n.º 8, §1, 2.º do [elo:/indulgencias/enchiridion#concessao-8]Enchiridion Indulgentiarum[/elo]",
    "obra": [
     {
-     "id": "d-sq-1",
      "tipo": "paragrafo",
-     "texto": "Recitar a oração [lat]En ego, o bone et dulcíssime Iesu[/lat] diante de uma imagem de Cristo crucificado, [b]depois da comunhão[/b]."
+     "id": "d-sextas-da-quaresma",
+     "texto": "Recitar piedosamente, diante de uma imagem de Jesus Cristo crucificado, a oração [elo:/folhetos/sextas-feiras-da-quaresma][i]En ego, o bone et dulcíssime Jesu[/i][/elo] depois da comunhão."
     },
     {
-     "id": "d-sq-2",
-     "tipo": "paragrafo",
-     "texto": "O calendário de 1962 separa a Quaresma do Tempo da Paixão; a concessão abrange as sextas-feiras dos dois, e por isso a Sexta-feira Santa também aparece aqui."
-    },
-    {
-     "id": "d-sq-3",
-     "tipo": "oracao",
-     "versos": [
-      {
-       "latim": "En ego, o bone et dulcíssime Iesu, ante conspéctum tuum génibus me provólvo, ac máximo ánimi ardóre te oro atque obtéstor, ut meum in cor vívidos fídei, spei et caritátis sensus, atque veram peccatórum meórum pæniténtiam, éaque emendándi firmíssimam voluntátem velis imprímere; dum magno ánimi afféctu et dolóre tua quinque vúlnera mecum ipse consídero, ac mente contémplor, illud præ óculis habens, quod jam in ore ponébat tuo David Prophéta de te, o bone Iesu: «Fodérunt manus meas et pedes meos; dinumeravérunt ómnia ossa mea.»",
-       "portugues": "Eis-me aqui, ó bom e dulcíssimo Jesus! De joelhos me prostro em vossa presença e vos suplico com todo o fervor de minha alma que vos digneis gravar no meu coração os mais vivos sentimentos de fé, esperança e caridade, verdadeiro arrependimento de meus pecados e firme propósito de emenda, enquanto vou considerando com vivo afeto e dor as vossas cinco chagas, tendo diante dos olhos aquilo que o profeta Davi já vos fazia dizer, ó bom Jesus: «Transpassaram minhas mãos e meus pés, contaram todos os meus ossos.»"
-      }
+     "tipo": "nota",
+     "id": "d-sextas-da-quaresma-nota",
+     "titulo": "A Sexta-feira Santa entra, com uma ressalva",
+     "paragrafos": [
+      "A Sexta-feira Santa é uma delas, e nela a indulgência se lucra depois da comunhão como nas outras.",
+      "Nas cerimônias Pré-55, porém, o rito não abre espaço para a comunhão dos fiéis, e sem comunhão esta indulgência não se lucra naquele dia. Restam as que já são próprias dele: a adoração da Cruz e a Via Sacra."
      ]
+    }
+   ]
+  },
+  {
+   "id": "quinta-feira-santa",
+   "titulo": "Quinta-feira na Ceia do Senhor",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Quinta-feira Santa"
+   },
+   "quandoPorExtenso": "Variável, conforme a Páscoa\nQuinta-feira Santa",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 7, §1, 2.º do [elo:/indulgencias/enchiridion#concessao-7]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-quinta-feira-santa",
+     "texto": "Recitar piedosamente as estrofes do [elo:/folhetos/quinta-feira-santa][i]Tantum Ergo[/i][/elo] na solene reposição do Santíssimo depois da Missa deste dia."
+    }
+   ]
+  },
+  {
+   "id": "sexta-feira-santa",
+   "titulo": "Sexta-feira Santa",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Sexta-feira Santa"
+   },
+   "quandoPorExtenso": "Variável, conforme a Páscoa\nSexta-feira Santa",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 13, 1.º do [elo:/indulgencias/enchiridion#concessao-13]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-sexta-feira-santa",
+     "texto": "Participar com piedade da Adoração da Santa Cruz neste dia."
+    }
+   ]
+  },
+  {
+   "id": "sabado-santo",
+   "titulo": "Vigília Pascal",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Sábado Santo"
+   },
+   "quandoPorExtenso": "Variável, conforme a Páscoa\nSábado Santo",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 28, §1 do [elo:/indulgencias/enchiridion#concessao-28]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-sabado-santo",
+     "texto": "Renovar, na celebração do Sábado Santo, as promessas batismais por qualquer forma legitimamente aprovada."
     },
     {
-     "id": "d-sq-4",
+     "tipo": "nota",
+     "id": "d-sabado-santo-nota",
+     "titulo": "No rito Pré-55, no aniversário do Batismo",
+     "paragrafos": [
+      "Nas cerimônias do Sábado Santo Pré-55 não há espaço no rito para a renovação das promessas do Batismo. Quem segue este rito faz a renovação no dia do seu aniversário de Batismo, e assim lucra a mesma indulgência.",
+      "Essa opção vale para qualquer fiel: pode-se renovar as promessas no aniversário do próprio batismo em vez de hoje."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pascoa",
+   "titulo": "Domingo da Ressurreição do Senhor",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Domingo de Páscoa"
+   },
+   "quandoPorExtenso": "Variável, conforme a Páscoa\nDomingo de Páscoa",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 4 do [elo:/indulgencias/enchiridion#concessao-4]Enchiridion Indulgentiarum[/elo], norma 7, 2",
+   "obra": [
+    {
      "tipo": "paragrafo",
-     "texto": "Salmo 21, 17-18. Do [i]Missal Romano[/i], ação de graças depois da Missa."
+     "id": "d-pascoa",
+     "texto": "Receber com devoção a bênção [i]Urbi et Orbi[/i], dada pelo Papa, mesmo que por televisão ou rádio. Também é possível receber a bênção do Bispo diocesano."
+    }
+   ]
+  },
+  {
+   "id": "in-albis",
+   "titulo": "Segundo Domingo da Páscoa (in albis)",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Domingo da Oitava da Páscoa"
+   },
+   "quandoPorExtenso": "Variável, conforme a Páscoa\nDomingo depois da Páscoa",
+   "especie": "plenaria",
+   "fonte": "Paenitentiaria Apostolica, decreto [i]Deus, cuius misericordiae[/i], 29 de junho de 2002: AAS 94 (2002), pp. 634-636",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-in-albis",
+     "texto": "Na igreja ou oratório, participar das práticas de piedade em honra da Divina Misericórdia, ou recitar diante do Santíssimo Sacramento — exposto ou no sacrário — o Pai-nosso e o Credo, juntamente com uma invocação piedosa ao Senhor Jesus Misericordioso."
+    },
+    {
+     "tipo": "nota",
+     "id": "d-in-albis-nota",
+     "titulo": "Qual invocação o Apostolado recomenda",
+     "paragrafos": [
+      "O Soberano Pontífice apenas recomenda a jaculatória «Ó Jesus Misericordioso, confio em Vós», ligada à imagem de Jesus misericordioso, cuja publicação e circulação a Santa Sé proibiu outrora, por notificação do Santo Ofício de 6 de março de 1959.",
+      "Por isso o Apostolado Nossa Senhora das Neves recomenda antes: [lat]Deus, qui parcendo et miserando omnipotentiam tuam manifestas, miserere mei[/lat] — «Ó Deus, que perdoando e usando de misericórdia manifestais Vosso poder, tende piedade de mim», inspirada na Coleta do X Domingo depois de Pentecostes; ou mesmo o princípio do Salmo 50: [lat]Miserere mei, Deus, secundum magnam misericordiam tuam[/lat] — «Tende compaixão de mim, ó Deus, segundo a Vossa grande misericórdia»."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pentecostes",
+   "titulo": "Domingo de Pentecostes",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Domingo de Pentecostes"
+   },
+   "quandoPorExtenso": "Variável, conforme a Páscoa\nDomingo de Pentecostes",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 26, §1, 1.º do [elo:/indulgencias/enchiridion#concessao-26]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-pentecostes",
+     "texto": "Na igreja ou oratório, tomar parte no canto ou récita solene do [elo:/folhetos/primeiro-dia-do-ano][i]Veni Creátor[/i][/elo]."
+    },
+    {
+     "tipo": "nota",
+     "id": "d-pentecostes-nota",
+     "titulo": "Hoje ou em 1.º de janeiro, à escolha",
+     "paragrafos": [
+      "Esta mesma indulgência pode ser lucrada hoje ou em 1.º de janeiro, pedindo pelo novo ano civil que se inicia. É uma só indulgência, e se opta por um dia ou pelo outro."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "corpus-christi",
+   "titulo": "Santíssimo Corpo de Cristo",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Corpus Christi"
+   },
+   "quandoPorExtenso": "Variável, conforme a Páscoa\nquinta-feira depois da Santíssima Trindade",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 7, §1, 3.º do [elo:/indulgencias/enchiridion#concessao-7]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-corpus-christi",
+     "texto": "Participar piedosamente da solene procissão eucarística, seja ela dentro ou fora da igreja."
+    },
+    {
+     "tipo": "nota",
+     "id": "d-corpus-christi-nota",
+     "titulo": "Não está presa a este dia",
+     "paragrafos": [
+      "Esta indulgência não está necessariamente anexa ao dia de hoje: pode ser lucrada [i]toties quoties[/i] em qualquer dia em que se fizer uma procissão eucarística."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sagrado-coracao",
+   "titulo": "Sacratíssimo Coração de Jesus",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Sagrado Coração de Jesus"
+   },
+   "quandoPorExtenso": "Variável, conforme a Páscoa\nsexta-feira depois da Oitava de Corpus Christi",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 3 do [elo:/indulgencias/enchiridion#concessao-3]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-sagrado-coracao",
+     "texto": "Recitar publicamente o ato de reparação [elo:/folhetos/sacratissimo-coracao][i]Dulcíssimo Jesus[/i][/elo]."
+    }
+   ]
+  },
+  {
+   "id": "pedro-e-paulo-catedral",
+   "titulo": "São Pedro e São Paulo, Apóstolos",
+   "quando": {
+    "tipo": "festa",
+    "nome": "São Pedro e São Paulo"
+   },
+   "quandoPorExtenso": "29 de junho",
+   "especie": "plenaria",
+   "fonte": "Concessões n.º 33, §1, 3.º, a) e n.º 33, §1, 2.º, a) do [elo:/indulgencias/enchiridion#concessao-33]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-pedro-e-paulo-catedral",
+     "texto": "Visitar a Igreja Catedral ou Basílica Menor e ali recitar piedosamente o Pai-nosso e o Credo."
+    }
+   ]
+  },
+  {
+   "id": "pedro-e-paulo-objeto",
+   "titulo": "São Pedro e São Paulo, Apóstolos",
+   "quando": {
+    "tipo": "festa",
+    "nome": "São Pedro e São Paulo"
+   },
+   "quandoPorExtenso": "29 de junho",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 14, §1, norma 15 do [elo:/indulgencias/enchiridion#concessao-14]Enchiridion Indulgentiarum[/elo] e norma n.º 17 da Constituição Apostólica [i]Indulgentiarum Doctrina[/i]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-pedro-e-paulo-objeto",
+     "texto": "Utilizar com devoção um objeto de piedade — crucifixo, cruz, Rosário, escapulário, medalha — abençoado ritualmente pelo Papa ou por um Bispo, e ajuntar uma [elo:/folhetos/pedro-e-paulo]fórmula de profissão de fé aprovada[/elo]."
+    }
+   ]
+  },
+  {
+   "id": "porciuncula",
+   "titulo": "Indulgência da Porciúncula",
+   "quando": {
+    "tipo": "fixa",
+    "mes": 8,
+    "dia": 2
+   },
+   "quandoPorExtenso": "2 de agosto",
+   "especie": "plenaria",
+   "fonte": "Concessões n.º 33, §1, 3.º, e), n.º 33, §1, 2.º, e) e n.º 33, §1, 5.º, b) do [elo:/indulgencias/enchiridion#concessao-33]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-porciuncula",
+     "texto": "Visitar a Igreja Catedral, Basílica Menor ou igreja Paroquial e ali recitar piedosamente o Pai-nosso e o Credo."
+    }
+   ]
+  },
+  {
+   "id": "cristo-rei",
+   "titulo": "Nosso Senhor Jesus Cristo Rei",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Nosso Senhor Jesus Cristo Rei"
+   },
+   "quandoPorExtenso": "Último domingo de outubro",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 2 do [elo:/indulgencias/enchiridion#concessao-2]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-cristo-rei",
+     "texto": "Recitar publicamente o ato de consagração do gênero humano a Cristo Rei: [elo:/folhetos/cristo-rei][i]Dulcíssimo Jesus, Redentor[/i][/elo]."
+    }
+   ]
+  },
+  {
+   "id": "oitava-dos-defuntos",
+   "titulo": "Oitava dedicada às almas do Purgatório",
+   "quando": {
+    "tipo": "intervalo",
+    "de": {
+     "mes": 11,
+     "dia": 1
+    },
+    "ate": {
+     "mes": 11,
+     "dia": 8
+    }
+   },
+   "quandoPorExtenso": "Todos os dias de 1 a 8 de novembro",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 29, §1, 1.º do [elo:/indulgencias/enchiridion#concessao-29]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-oitava-dos-defuntos",
+     "texto": "Visitar devotamente um cemitério e lá rezar, mesmo que só mentalmente, em sufrágio dos defuntos. [b]Aplicável apenas aos fiéis defuntos.[/b]"
+    },
+    {
+     "tipo": "nota",
+     "id": "d-oitava-dos-defuntos-nota",
+     "titulo": "São oito, e não uma",
+     "paragrafos": [
+      "Não se trata de uma única indulgência que se pode lucrar em qualquer um dos oito dias: são oito indulgências, e os fiéis podem lucrar todas para aplicar em sufrágio dos defuntos."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finados",
+   "titulo": "Comemoração de Todos os Fiéis Defuntos",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Comemoração de Todos os Fiéis Defuntos"
+   },
+   "quandoPorExtenso": "2 de novembro",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 29, §1, 2.º do [elo:/indulgencias/enchiridion#concessao-29]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-finados",
+     "texto": "Visitar piedosamente uma igreja ou oratório e ali recitar o Pai-nosso e o Credo. [b]Aplicável somente aos fiéis defuntos.[/b]"
+    }
+   ]
+  },
+  {
+   "id": "dedicacao-latrao",
+   "titulo": "Dedicação da Arquibasílica do Santíssimo Salvador",
+   "quando": {
+    "tipo": "festa",
+    "nome": "Dedicação da Arquibasílica do Salvador"
+   },
+   "quandoPorExtenso": "9 de novembro",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 33, §1, 3.º, d) do [elo:/indulgencias/enchiridion#concessao-33]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-dedicacao-latrao",
+     "texto": "Visitar a Igreja Catedral e ali recitar piedosamente o Pai-nosso e o Credo."
+    }
+   ]
+  },
+  {
+   "id": "natal",
+   "titulo": "Natividade do Senhor",
+   "quando": {
+    "tipo": "fixa",
+    "mes": 12,
+    "dia": 25
+   },
+   "quandoPorExtenso": "25 de dezembro",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 4 do [elo:/indulgencias/enchiridion#concessao-4]Enchiridion Indulgentiarum[/elo], norma 7, 2",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-natal",
+     "texto": "Receber com devoção a bênção [i]Urbi et Orbi[/i], dada pelo Papa, mesmo que por televisão ou rádio. Também é possível receber a bênção do Bispo diocesano."
+    }
+   ]
+  },
+  {
+   "id": "ultimo-dia-do-ano",
+   "titulo": "Último dia do ano civil",
+   "quando": {
+    "tipo": "fixa",
+    "mes": 12,
+    "dia": 31
+   },
+   "quandoPorExtenso": "31 de dezembro",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 26, §1, 2.º do [elo:/indulgencias/enchiridion#concessao-26]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "d-ultimo-dia-do-ano",
+     "texto": "Na igreja ou oratório, tomar parte no canto ou récita solene do [elo:/folhetos/ultimo-dia-do-ano][i]Te Deum[/i][/elo], em ação de graças pelos benefícios recebidos ao longo do ano."
     }
    ]
   }
  ],
  "semDiaFixo": [
   {
-   "id": "via-sacra",
-   "titulo": "Via-Sacra",
+   "id": "adoracao-eucaristica",
+   "titulo": "Adoração eucarística",
    "especie": "plenaria",
-   "fonte": "Raccolta",
+   "fonte": "Concessão n.º 7, §1, 1.º do [elo:/indulgencias/enchiridion#concessao-7]Enchiridion Indulgentiarum[/elo]",
    "obra": [
     {
-     "id": "s-001",
      "tipo": "paragrafo",
-     "texto": "Plenária, feitas as catorze estações."
+     "id": "s-adoracao-eucaristica",
+     "texto": "Visitar o Santíssimo Sacramento e fazer adoração por pelo menos meia hora."
+    }
+   ]
+  },
+  {
+   "id": "procissao-eucaristica",
+   "titulo": "Procissão eucarística",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 7, §1, 3.º do [elo:/indulgencias/enchiridion#concessao-7]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "s-procissao-eucaristica",
+     "texto": "Participar piedosamente da solene procissão eucarística, seja ela dentro ou fora da igreja."
+    }
+   ]
+  },
+  {
+   "id": "via-sacra",
+   "titulo": "Via Sacra",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 13, 2.º do [elo:/indulgencias/enchiridion#concessao-13]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "s-via-sacra",
+     "texto": "Fazer o piedoso exercício da Via Sacra, ou acompanhar com devoção quando o Papa o fizer, mesmo que por televisão ou rádio."
+    },
+    {
+     "tipo": "nota",
+     "id": "s-via-sacra-nota",
+     "titulo": "O que a Via Sacra exige",
+     "paragrafos": [
+      "As estações têm de ter sido erigidas legitimamente por autoridade competente, seguindo o respectivo rito.",
+      "Exige-se o movimento de uma estação para outra. Quando se faz o exercício com muitas pessoas e não é possível a todos se moverem, basta que o dirigente se mova.",
+      "É preciso fazer piedosa meditação sobre a Paixão e Morte do Senhor durante o exercício. Quem está legitimamente impedido de fazer o exercício ainda lucra a indulgência fazendo uma leitura espiritual e essa meditação por um tempo razoável, como quinze minutos."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "leitura-da-escritura",
+   "titulo": "Leitura espiritual da Sagrada Escritura",
+   "especie": "plenaria",
+   "fonte": "Concessão n.º 30, §1 e §2 do [elo:/indulgencias/enchiridion#concessao-30]Enchiridion Indulgentiarum[/elo]",
+   "obra": [
+    {
+     "tipo": "paragrafo",
+     "id": "s-leitura-da-escritura",
+     "texto": "Fazer leitura da Sagrada Escritura, com texto aprovado pela autoridade competente, com a devida reverência à palavra divina, tomando-a como leitura espiritual por pelo menos meia hora."
+    },
+    {
+     "tipo": "nota",
+     "id": "s-leitura-da-escritura-nota",
+     "titulo": "Quem não pode ler",
+     "paragrafos": [
+      "Havendo causa razoável que impossibilite a leitura, a indulgência é concedida pela audiência dos textos da Sagrada Escritura lidos por outra pessoa, ou por instrumentos de vídeo ou áudio, nas mesmas condições."
+     ]
     }
    ]
   },
   {
    "id": "rosario",
-   "titulo": "Rosário diante do Santíssimo",
+   "titulo": "Récita do Rosário mariano",
    "especie": "plenaria",
-   "fonte": "Raccolta",
+   "fonte": "Concessão n.º 17, §1, 1.º e 2.º do [elo:/indulgencias/enchiridion#concessao-17]Enchiridion Indulgentiarum[/elo]",
    "obra": [
     {
-     "id": "s-002",
      "tipo": "paragrafo",
-     "texto": "Plenária, rezado ao menos um terço."
+     "id": "s-rosario",
+     "texto": "Recitar com piedade o Rosário em igreja ou oratório, ou em família, em comunidade religiosa, em associação de fiéis, ou ainda quando muitos se reúnem para algum fim honroso. Também se lucra unindo-se piedosamente ao Sumo Pontífice, mesmo que por televisão ou rádio, quando ele estiver recitando o Rosário."
+    },
+    {
+     "tipo": "nota",
+     "id": "s-rosario-nota",
+     "titulo": "O que conta como Rosário",
+     "paragrafos": [
+      "O Rosário consiste em 150 Ave-Marias divididas em 15 mistérios, cada dezena intercalada por um Pai-nosso, com meditação dos mistérios da nossa redenção.",
+      "Para lucrar a indulgência basta rezar um terço do Rosário, sem interrupção, e as cinco dezenas de uma vez. Deve-se acompanhar a récita vocal com a meditação adequada dos mistérios. Quando se recita publicamente é obrigatório anunciar o mistério meditado; na recitação privada basta fazer a meditação junto com a récita vocal."
+     ]
     }
    ]
   },
   {
-   "id": "artigo-da-morte",
-   "titulo": "Artigo da morte",
+   "id": "basilicas-patriarcais",
+   "titulo": "Visita às Basílicas Patriarcais de Roma",
    "especie": "plenaria",
-   "fonte": "Raccolta",
+   "fonte": "Concessão n.º 33, §1, 1.º do [elo:/indulgencias/enchiridion#concessao-33]Enchiridion Indulgentiarum[/elo]",
    "obra": [
     {
-     "id": "s-003",
      "tipo": "paragrafo",
-     "texto": "Bênção apostólica com plenária, no momento da morte."
+     "id": "s-basilicas-patriarcais",
+     "texto": "Visitar piedosamente uma das quatro Basílicas Patriarcais em Roma, seja em peregrinação com outras pessoas, seja durante a visita, em espírito de filial obediência ao Papa, e ali recitar o Pai-nosso e o Credo."
+    },
+    {
+     "tipo": "lista",
+     "id": "s-basilicas-patriarcais-lista",
+     "itens": [
+      "[b]Basílica de São Pedro[/b] — Piazza San Pietro, 00120, Città del Vaticano, Cidade do Vaticano. [mapa:Basilica di San Pietro, Piazza San Pietro, 00120 Città del Vaticano]Conferir a localização[/mapa]",
+      "[b]Basílica de São João de Latrão[/b] — Piazza di San Giovanni in Laterano, 00184, Roma, Itália. [mapa:Basilica di San Giovanni in Laterano, Piazza di San Giovanni in Laterano, 00184 Roma]Conferir a localização[/mapa]",
+      "[b]Basílica de Santa Maria Maior[/b] — Piazza di Santa Maria Maggiore, 00100, Roma, Itália. [mapa:Basilica di Santa Maria Maggiore, Piazza di Santa Maria Maggiore, 00100 Roma]Conferir a localização[/mapa]",
+      "[b]Basílica de São Paulo Extramuros[/b] — Piazzale San Paolo, 1, 00146, Roma, Itália. [mapa:Basilica di San Paolo fuori le Mura, Piazzale San Paolo 1, 00146 Roma]Conferir a localização[/mapa]"
+     ]
     }
    ]
   },
   {
-   "id": "quarenta-horas",
-   "titulo": "Quarenta Horas",
+   "id": "akathistos",
+   "titulo": "Récita do Hino Akathistos e do ofício Paráclisis",
    "especie": "plenaria",
-   "fonte": "cân. 917 §2",
+   "fonte": "Concessão n.º 23, §1 do [elo:/indulgencias/enchiridion#concessao-23]Enchiridion Indulgentiarum[/elo]",
    "obra": [
     {
-     "id": "s-004",
      "tipo": "paragrafo",
-     "texto": "Todos os altares da igreja ficam privilegiados enquanto dura a exposição. As datas são marcadas pela paróquia."
-    }
-   ]
-  },
-  {
-   "id": "bencao-papal",
-   "titulo": "Bênção papal",
-   "especie": "plenaria",
-   "fonte": "cân. 914",
-   "obra": [
+     "id": "s-akathistos",
+     "texto": "Recitar com piedade o Hino grego [i]Akathistos[/i] ou o ofício grego [i]Paráclisis[/i] em igreja ou oratório, ou em família, em comunidade religiosa, em associação de fiéis, ou ainda quando muitos se reúnem para algum fim honesto."
+    },
     {
-     "id": "s-005",
-     "tipo": "paragrafo",
-     "texto": "O bispo pode dá-la com indulgência plenária na sua diocese, na fórmula prescrita."
+     "tipo": "nota",
+     "id": "s-akathistos-nota",
+     "titulo": "Quanto basta recitar",
+     "paragrafos": [
+      "O Hino [i]Akathistos[/i] não precisa ser recitado por inteiro: basta a recitação contínua de alguma parte conveniente, conforme costume legítimo.",
+      "Para os fiéis orientais onde não houver o costume dessas devoções, gozam das mesmas indulgências exercícios semelhantes instituídos pelos Patriarcas em honra da Bem-aventurada Virgem Maria."
+     ]
     }
    ]
   }

@@ -4,10 +4,12 @@ import {
   indulgenciasDoMes,
   temPlenaria,
   type DiaDeIndulgencia,
+  type Especie,
 } from "../calendario/indulgencias";
 import { mesLiturgico } from "../calendario/precedencia";
 import { AssinarAgenda } from "../components/AssinarAgenda";
 import { ListaDeBlocos } from "../components/Bloco";
+import { ProvedorDeNotas } from "../components/Notas";
 import { TextoRico } from "../components/TextoRico";
 import { Cabecalho } from "../components/Cabecalho";
 import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
@@ -17,6 +19,7 @@ import { SeletorDeAgendas } from "../components/SeletorDeAgendas";
 import { usarAgendas } from "../hooks/usarAgendas";
 import { site } from "../data/site";
 import { usarRota } from "../routes/usarRota";
+import type { Bloco } from "../data/tipos";
 
 const MESES = [
   "janeiro",
@@ -36,14 +39,20 @@ const MESES = [
 interface Colecao {
   titulo: string;
   descricao: string;
+  /** As quatro condições ordinárias, escritas uma vez para toda a página. */
+  condicoes: { titulo: string; blocos: Bloco[] };
+  /** O que vale para todas elas: nove itens, com a citação de cada um. */
+  observacoes: { titulo: string; blocos: Bloco[] };
+  /** As notas de rodapé das duas, pela chamada. */
+  notas: Record<string, string>;
   dias: DiaDeIndulgencia[];
   /** As que valem em qualquer dia, e por isso não entram na grade. */
   semDiaFixo: {
     id: string;
     titulo: string;
-    especie: string;
+    especie: Especie;
     fonte?: string;
-    obra: [];
+    obra: Bloco[];
   }[];
 }
 
@@ -145,26 +154,39 @@ export default function IndulgenciasCalendario() {
 
   return (
     <Moldura titulo={colecao.titulo}>
-      <Cabecalho
-        titulo="Dias de indulgência plenária"
-        descricao={colecao.descricao}
-      />
+      <Cabecalho titulo={colecao.titulo} descricao={colecao.descricao} />
 
-      <aside className="nota" aria-labelledby="condicoes">
-        <h2 className="nota__titulo" id="condicoes">
-          As condições, uma vez só
-        </h2>
-        <p>
-          Confissão sacramental, comunhão eucarística, oração pelas intenções do
-          Sumo Pontífice e desapego de todo pecado, mesmo venial. Valem para
-          toda plenária desta página, e por isso ficam aqui em vez de repetidas
-          em cada dia: repetidas, divergem.
-        </p>
-        <p>
-          Sem o desapego, ou faltando alguma das outras condições, a indulgência
-          é apenas parcial.
-        </p>
-      </aside>
+      {/*
+        As condições e as observações vêm do JSON, e não daqui.
+
+        São o texto que o Perez escreveu para abrir o calendário, com as
+        citações canônicas de cada item, e ele continua corrigindo-o. Escrito
+        na página, cada vírgula dele exigiria mexer em TSX; no JSON o painel
+        de edição alcança, como alcança o resto do conteúdo do site.
+
+        As duas caixas, e não uma: a primeira é o que se tem de fazer, e é
+        curta de propósito; a segunda é o que costuma ser perguntado depois, e
+        tem nove itens. Juntas, as nove linhas enterravam as quatro.
+      */}
+      {/* o provedor envolve só estas duas caixas, que é onde estão as
+          chamadas: as citações canônicas vivem em balão, como no resto do
+          site, e sem ele virariam números soltos no meio da frase */}
+      <ProvedorDeNotas notas={colecao.notas}>
+        <aside className="nota" aria-labelledby="condicoes">
+          <h2 className="nota__titulo" id="condicoes">
+            {colecao.condicoes.titulo}
+          </h2>
+          <ListaDeBlocos blocos={colecao.condicoes.blocos} />
+        </aside>
+
+        <details className="observacoes">
+          <summary className="observacoes__resumo">
+            {colecao.observacoes.titulo}
+            <span className="observacoes__pista"> o que vale para todas elas</span>
+          </summary>
+          <ListaDeBlocos blocos={colecao.observacoes.blocos} />
+        </details>
+      </ProvedorDeNotas>
 
       <SeletorDeAgendas
         grupos={[
@@ -219,127 +241,139 @@ export default function IndulgenciasCalendario() {
         </button>
       </div>
 
-      <GradeDoMes
-        dias={dias}
-        hoje={hoje}
-        escolhido={escolhido}
-        aoEscolher={irPara}
-        marcar={(d) => {
-          const iso = comoIso(d.data);
-          const ocorrencias = porDia.get(iso);
-          /*
-           * As agendas de fora não se somam ao marcador de plenária: aquele
-           * diz o que esta página calcula, e misturar com o que vem do Google
-           * faria o leitor atribuir a uma coisa a garantia da outra. Cada
-           * agenda ligada ganha o seu próprio ponto, na cor dela.
-           */
-          const deFora = vinculadas.porDia.get(iso) ?? [];
-          const agendas = [...new Set(deFora.map((i) => i.agenda))];
-          if (!ocorrencias?.length && agendas.length === 0) return null;
-          return (
-            <>
-              {ocorrencias?.length ? (
-                <span
-                  className={`indulgencia__marca${
-                    temPlenaria(ocorrencias) ? " indulgencia__marca--plenaria" : ""
-                  }`}
-                  aria-hidden="true"
-                />
-              ) : null}
-              {agendas.length > 0 && (
-                <span className="agendas__bandeiras" aria-hidden="true">
-                  {agendas.map((id) => (
-                    <span className="agendas__ponto" key={id} />
-                  ))}
-                </span>
-              )}
-            </>
-          );
-        }}
-      />
-
-      <p className="legenda-agendas">
-        <span className="legenda-agendas__rotulo">Na grade:</span>
-        <span className="legenda-agendas__item">
-          <span
-            className="indulgencia__marca indulgencia__marca--plenaria"
-            aria-hidden="true"
+      {/*
+        Grade e detalhe lado a lado no computador, como no calendário
+        litúrgico: o Perez achou o mês grande demais em tela larga, e aqui
+        valia o mesmo — a casa em que se clica e o que ela traz ficavam
+        longe uma da outra. No celular continua empilhado.
+      */}
+      <div className="calendario__painel">
+        <div className="calendario__coluna-grade">
+          <GradeDoMes
+            dias={dias}
+            hoje={hoje}
+            escolhido={escolhido}
+            aoEscolher={irPara}
+            marcar={(d) => {
+              const iso = comoIso(d.data);
+              const ocorrencias = porDia.get(iso);
+              /*
+               * As agendas de fora não se somam ao marcador de plenária: aquele
+               * diz o que esta página calcula, e misturar com o que vem do Google
+               * faria o leitor atribuir a uma coisa a garantia da outra. Cada
+               * agenda ligada ganha o seu próprio ponto, na cor dela.
+               */
+              const deFora = vinculadas.porDia.get(iso) ?? [];
+              const agendas = [...new Set(deFora.map((i) => i.agenda))];
+              if (!ocorrencias?.length && agendas.length === 0) return null;
+              return (
+                <>
+                  {ocorrencias?.length ? (
+                    <span
+                      className={`indulgencia__marca${
+                        temPlenaria(ocorrencias) ? " indulgencia__marca--plenaria" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                  ) : null}
+                  {agendas.length > 0 && (
+                    <span className="agendas__bandeiras" aria-hidden="true">
+                      {agendas.map((id) => (
+                        <span className="agendas__ponto" key={id} />
+                      ))}
+                    </span>
+                  )}
+                </>
+              );
+            }}
           />
-          plenária
-        </span>
-        <span className="legenda-agendas__item">
-          <span className="indulgencia__marca" aria-hidden="true" />
-          parcial
-        </span>
-      </p>
 
-      <div className="calendario__detalhe">
-        <p className="calendario__detalhe-data">
-          {escolhido.getUTCDate()} de {MESES[escolhido.getUTCMonth()]} de {ano}
-        </p>
-        {diaLiturgico && (
-          <p className="calendario__detalhe-nome">{diaLiturgico.nome}</p>
-        )}
-
-        {doDia.length === 0 && vinculadosDoDia.length === 0 ? (
-          <p className="dia__observacao">
-            Nenhuma indulgência presa a este dia.
+          <p className="legenda-agendas">
+            <span className="legenda-agendas__rotulo">Na grade:</span>
+            <span className="legenda-agendas__item">
+              <span
+                className="indulgencia__marca indulgencia__marca--plenaria"
+                aria-hidden="true"
+              />
+              plenária
+            </span>
+            <span className="legenda-agendas__item">
+              <span className="indulgencia__marca" aria-hidden="true" />
+              parcial
+            </span>
           </p>
-        ) : doDia.length === 0 ? null : (
-          <ul className="indulgencias-dia">
-            {doDia.map(({ entrada, transferidaDe }) => (
-              <li key={entrada.id}>
-                <p className="indulgencias-dia__titulo">
-                  {entrada.titulo}
-                  <span className={`etiqueta etiqueta--${entrada.especie}`}>
-                    {entrada.especie === "plenaria" ? "Plenária" : "Parcial"}
-                  </span>
-                </p>
-                {transferidaDe && (
-                  <p className="dia__transferida">
-                    Acompanha a festa, transferida de{" "}
-                    {porExtensoCurto(transferidaDe)}.
-                  </p>
-                )}
-                <ListaDeBlocos blocos={entrada.obra} />
-                {entrada.fonte && (
-                  <p className="indulgencias-dia__fonte">
-                    <TextoRico texto={entrada.fonte} />
-                  </p>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+        </div>
 
-      {vinculadosDoDia.length > 0 && (
-        /*
-         * Em bloco próprio, e não misturado com as de cima.
-         *
-         * As de cima este site calcula, e responde por elas: a obra, a fonte
-         * e a transferência saem do motor. Estas vêm do calendário que a
-         * associação mantém no Google, com o texto que ela escreveu. Juntar
-         * as duas numa lista só faria o leitor cobrar deste site a exatidão
-         * do que é de outro.
-         */
-        <section className="vinculados" aria-labelledby="vinculados">
-          <h2 className="vinculados__titulo" id="vinculados">
-            Dos calendários que você ligou
-          </h2>
-          <ul className="indulgencias-dia">
-            {vinculadosDoDia.map((i) => (
-              <li key={`${i.agenda}-${i.titulo}`}>
-                <p className="indulgencias-dia__titulo">
-                  {i.titulo}
-                  <span className="vinculados__fonte">{i.nome}</span>
-                </p>
-                {i.descricao && <p className="paragrafo">{i.descricao}</p>}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+        <div className="calendario__coluna-detalhe">
+          <div className="calendario__detalhe">
+            <p className="calendario__detalhe-data">
+              {escolhido.getUTCDate()} de {MESES[escolhido.getUTCMonth()]} de {ano}
+            </p>
+            {diaLiturgico && (
+              <p className="calendario__detalhe-nome">{diaLiturgico.nome}</p>
+            )}
+
+            {doDia.length === 0 && vinculadosDoDia.length === 0 ? (
+              <p className="dia__observacao">
+                Nenhuma indulgência presa a este dia.
+              </p>
+            ) : doDia.length === 0 ? null : (
+              <ul className="indulgencias-dia">
+                {doDia.map(({ entrada, transferidaDe }) => (
+                  <li key={entrada.id}>
+                    <p className="indulgencias-dia__titulo">
+                      {entrada.titulo}
+                      <span className={`etiqueta etiqueta--${entrada.especie}`}>
+                        {entrada.especie === "plenaria" ? "Plenária" : "Parcial"}
+                      </span>
+                    </p>
+                    {transferidaDe && (
+                      <p className="dia__transferida">
+                        Acompanha a festa, transferida de{" "}
+                        {porExtensoCurto(transferidaDe)}.
+                      </p>
+                    )}
+                    <ListaDeBlocos blocos={entrada.obra} />
+                    {entrada.fonte && (
+                      <p className="indulgencias-dia__fonte">
+                        <TextoRico texto={entrada.fonte} />
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {vinculadosDoDia.length > 0 && (
+            /*
+             * Em bloco próprio, e não misturado com as de cima.
+             *
+             * As de cima este site calcula, e responde por elas: a obra, a fonte
+             * e a transferência saem do motor. Estas vêm do calendário que a
+             * associação mantém no Google, com o texto que ela escreveu. Juntar
+             * as duas numa lista só faria o leitor cobrar deste site a exatidão
+             * do que é de outro.
+             */
+            <section className="vinculados" aria-labelledby="vinculados">
+              <h2 className="vinculados__titulo" id="vinculados">
+                Dos calendários que você ligou
+              </h2>
+              <ul className="indulgencias-dia">
+                {vinculadosDoDia.map((i) => (
+                  <li key={`${i.agenda}-${i.titulo}`}>
+                    <p className="indulgencias-dia__titulo">
+                      {i.titulo}
+                      <span className="vinculados__fonte">{i.nome}</span>
+                    </p>
+                    {i.descricao && <p className="paragrafo">{i.descricao}</p>}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </div>
+      </div>
 
       <section className="nota" aria-labelledby="sem-dia">
         <h2 className="nota__titulo" id="sem-dia">

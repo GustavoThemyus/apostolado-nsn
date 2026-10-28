@@ -142,11 +142,58 @@ async function rodar() {
    * a linha ficava vazia.
    */
   conferir("o nome da Missa sobrevive à Glória colada com dois pontos",
-    em("2026-04-15")?.resto, ["Missa Quasi modo do domingo precedente", "oração Concede e Ecclesiæ"]);
+    em("2026-04-15")?.resto, ["Missa Quasi modo do domingo precedente"]);
   conferir("e à comemoração colada com dois pontos",
     em("2026-12-05")?.resto, ["Missa Ad te levavi do domingo precedente"]);
   conferir("a linha não repete o que a tabela diz",
     em("2026-01-06")?.resto, ["Missa Ecce advenit"]);
+
+  /*
+   * As orações que se acrescentam à do dia, na casa delas.
+   *
+   * Pedido do Perez. Antes caíam no `resto` e eram lidas como parte do nome
+   * da Missa: "Missa Ecce advenit da festa; oração Deus, qui salutis e
+   * Ecclesiæ" aparecia inteiro na casa "Missa".
+   *
+   * O caso que obriga a cortar dentro do segmento é o terceiro: o Ordo gruda
+   * a oração na comemoração com um " e ", e sem o corte o nome do santo
+   * comemorado saía com a oração pendurada.
+   */
+  conferir("a oração sai do nome da Missa",
+    em("2026-04-15")?.oracoes, ["oração Concede e Ecclesiæ"]);
+  conferir("a oração de duas partes não vira duas",
+    em("2026-01-02")?.oracoes, ["oração Deus, qui salutis e Ecclesiæ"]);
+  conferir("a oração grudada na comemoração se separa dela",
+    em("2026-01-05")?.oracoes, ["oração Deus, qui salutis"]);
+  conferir("e a comemoração fica só com o santo",
+    em("2026-01-05")?.comemoracoes, ["comemoração de São Telésforo Papa e Mártir"]);
+  conferir("dia sem oração acrescentada não ganha casa",
+    em("2026-01-06")?.oracoes, []);
+
+  /*
+   * Nenhuma oração pode ficar presa no `resto`.
+   *
+   * É a conferência que vale mais do que as de cima, porque é a que percorre
+   * os 365 dias: o Ordo escreve estas frases de dezenas de maneiras, e uma
+   * forma nova não dá erro nenhum — ela só volta a aparecer na casa "Missa",
+   * calada, como estava antes deste campo existir.
+   */
+  conferir("nenhuma oração sobra na casa da Missa",
+    dias2026.flatMap((d) => naMissaDoOrdo(d)?.resto ?? [])
+      .filter((r) => /\boraç(ão|ões)\b/i.test(r)), []);
+
+  /*
+   * As comemorações não podem sumir numa reimportação.
+   *
+   * O Perez avisou que mudou a forma no calendário — tirou o "comemoração
+   * de" antes do nome do primeiro santo. Quem as reconhece aqui é a palavra
+   * "comemoração" no segmento; sem ela, elas caem no `resto` e a casa
+   * Comemoração fica vazia, sem erro nenhum. Em 2026 são 179 dias dos 362
+   * que têm tabela; o piso é generoso de propósito, para pegar o colapso e
+   * não a variação de um ano para o outro.
+   */
+  conferir("as comemorações continuam sendo reconhecidas",
+    dias2026.filter((d) => (naMissaDoOrdo(d)?.comemoracoes.length ?? 0) > 0).length > 120, true);
 
   // cobertura: se a leitura regredir, estes números caem
   const comTabela = dias2026.map(naMissaDoOrdo).filter((n) => n !== null);

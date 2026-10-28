@@ -1294,6 +1294,55 @@ button {
   color: var(--tinta-suave);
 }
 
+/*
+ * O painel do calendário: grade de um lado, o dia do outro.
+ *
+ * No celular não é grade nenhuma — as duas colunas ficam uma embaixo da
+ * outra, que é a ordem em que se lê: escolhe-se o dia e desce-se para ver o
+ * que ele traz. É de 64rem para cima que a coluna de texto fica larga
+ * demais para a grade sozinha: a casa do dia chegava a 160px, e o detalhe
+ * ficava a uma rolagem de distância da casa em que se tinha clicado.
+ */
+.calendario__painel {
+  display: grid;
+  gap: 0;
+}
+
+@media (min-width: 64rem) {
+  .calendario__painel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0 2.5rem;
+    align-items: start;
+  }
+
+  /*
+   * O detalhe acompanha a rolagem.
+   *
+   * Um dia do Ordo pode ter três celebrações e render mais altura do que o
+   * mês inteiro; sem isto, a grade terminava no alto e a metade esquerda
+   * virava uma faixa vazia de 400px. Grudento, o mês continua à vista
+   * enquanto se lê, e trocar de dia não exige subir de novo.
+   */
+  .calendario__coluna-detalhe {
+    position: sticky;
+    top: calc(var(--altura-barra) + 1rem);
+    max-height: calc(100vh - var(--altura-barra) - 2rem);
+    /*
+     * Sem `overscroll-behavior: contain` de propósito. Na maioria dos dias o
+     * detalhe é curto e nem chega a rolar; nos poucos compridos — a Quinta-
+     * feira Santa rende 1580px — prender a rolagem faria quem desce a página
+     * com o ponteiro do lado direito ficar preso no quadro. Encadeando, a
+     * página continua descendo quando o detalhe acaba.
+     */
+    overflow-y: auto;
+  }
+
+  /* na coluna, o detalhe começa na altura da grade e não depois dela */
+  .calendario__coluna-detalhe > .calendario__detalhe:first-child {
+    margin-top: 0.9rem;
+  }
+}
+
 @media (min-width: 46rem) {
   .calendario__grade {
     gap: 0.35rem;
@@ -1304,6 +1353,87 @@ button {
   .calendario__mes {
     font-size: 1.2rem;
   }
+}
+
+/* ---------------- observações recolhidas ---------------- */
+
+/*
+ * As nove observações do calendário das indulgências, atrás de uma seta.
+ *
+ * Recolhidas porque não são o que a página promete: quem chega quer saber
+ * em que dias há plenária, e nove linhas de disciplina canônica entre o
+ * título e a grade empurravam o calendário para fora da primeira tela num
+ * celular. Quem precisa delas abre; quem não precisa passa.
+ *
+ * `<details>` e não um botão, como nas celebrações do Ordo: a seta vem de
+ * graça, abre sem script, e o leitor de tela já anuncia o estado.
+ */
+.observacoes {
+  margin: 0.9rem 0 0;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.3rem;
+}
+
+.observacoes__resumo {
+  cursor: pointer;
+  list-style-position: outside;
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.observacoes__resumo::marker {
+  color: var(--ouro);
+}
+.observacoes__resumo:hover,
+.observacoes__resumo:focus-visible {
+  color: var(--ouro-tinta);
+}
+
+/* a pista em caixa baixa: diz o que há dentro sem virar um segundo título */
+.observacoes__pista {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-style: italic;
+}
+
+.observacoes[open] .observacoes__resumo {
+  margin-bottom: 0.7rem;
+}
+
+/* ---------------- calendário das indulgências em quadro ---------------- */
+
+/*
+ * O mesmo calendário, transportado para a página geral das Indulgências.
+ *
+ * Usa `.tabela` por dentro, e por isso herda de graça o empilhamento em
+ * ficha no celular, com o rótulo da coluna antes de cada célula. O que é
+ * próprio daqui é pouco: a fonte da concessão, menor e abaixo da obra, e o §
+ * que leva à ressalva no calendário interativo.
+ */
+.calendario-compacto {
+  margin-top: 1.25rem;
+}
+
+.calendario-compacto__fonte {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
+.calendario-compacto__ressalva {
+  font-weight: 600;
+  color: var(--ouro-tinta);
+  text-decoration: none;
+}
+.calendario-compacto__ressalva:hover {
+  text-decoration: underline;
 }
 
 /* ---------------- folha que sobe do rodapé ---------------- */

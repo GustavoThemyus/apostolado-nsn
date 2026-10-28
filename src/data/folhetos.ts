@@ -11,7 +11,15 @@ import type { ColecaoDeFolhetos, Folheto } from "./tipos";
  */
 export const colecao = bruto as unknown as ColecaoDeFolhetos;
 
-/** Na ordem em que estão no arquivo: folha não tem data, tem assunto. */
+/*
+ * Na ordem em que estão no arquivo: folha não tem data, tem assunto.
+ *
+ * Dentro das obras indulgenciadas essa ordem é a do calendário — 1.º de
+ * janeiro, Quaresma, Semana Santa, até 31 de dezembro —, porque é a ordem em
+ * que o fiel vai precisar delas, e a mesma do quadro das indulgências. Nos
+ * outros gêneros ela será outra: um ofício de Semana Santa não tem data
+ * única, e um canto de procissão não tem nenhuma.
+ */
 export function publicados(): Folheto[] {
   return colecao.folhetos.filter((f) => f.publicado !== false);
 }

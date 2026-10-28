@@ -21,8 +21,10 @@ import missa from "./missa.json";
 import ordens from "./indulgencias-ordens.json";
 import partes from "./missa-partes.json";
 import raccolta from "./indulgencias-raccolta.json";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import folhetos from "./folhetos.json";
+import postagens from "./postagens.json";
+import { casar } from "../routes/casar";
 import { ESTADO_DA_ROTA, ROTAS } from "../routes/rotas";
 import type { Bloco, Conteudo, Secao } from "./tipos";
 
@@ -64,6 +66,18 @@ const ancorasDe = (secoes: Secao[]): Set<string> => {
 
 const CAMINHOS_DE_ROTA = new Set(ROTAS.map((r) => r.padrao));
 
+/*
+ * O destino de um elo pode cair num padrão com curinga.
+ *
+ * "/folhetos/cristo-rei" não está na lista de rotas — quem está é
+ * "/folhetos/:id". Comparar só por igualdade reprovava todo link para um
+ * folheto ou uma postagem, que são justamente os destinos que mais se
+ * escrevem à mão. Aqui o caminho passa pelo mesmo `casar` do Roteador, e é a
+ * conferência de id logo abaixo que diz se o folheto existe de fato.
+ */
+const ehRotaConhecida = (caminho: string): boolean =>
+  CAMINHOS_DE_ROTA.has(caminho) || ROTAS.some((r) => casar(r.padrao, caminho) !== null);
+
 /**
  * A estampa existe mesmo em /public?
  *
@@ -78,6 +92,32 @@ const CAMINHOS_DE_ROTA = new Set(ROTAS.map((r) => r.padrao));
 const existeEmPublico = (caminho: string): boolean => existsSync(`public${caminho}`);
 
 /**
+ * As medidas reais de um WebP, lidas do cabeçalho.
+ *
+ * O folheto declara `largura` e `altura` ao lado de `imagem`, e é delas que o
+ * navegador tira a proporção antes de a figura chegar. Declaradas erradas,
+ * nada falha: a folha abre com um buraco de proporção errada e o texto salta
+ * quando a imagem carrega. Como o nome do arquivo leva a impressão do
+ * conteúdo, trocar a figura troca o nome — e é fácil copiar o caminho novo
+ * esquecendo as duas linhas de baixo. Aqui as três são conferidas juntas.
+ *
+ * Só o VP8 com perdas, que é o que `ferramentas/folhetos/gerar.py` grava.
+ * Outro formato devolve `null` e a conferência o deixa passar, em vez de
+ * reprovar um arquivo que o teste é que não sabe ler.
+ */
+function medidasDoWebp(caminho: string): { largura: number; altura: number } | null {
+  const dados = readFileSync(`public${caminho}`);
+  if (dados.length < 30) return null;
+  if (dados.toString("ascii", 0, 4) !== "RIFF") return null;
+  if (dados.toString("ascii", 8, 12) !== "WEBP") return null;
+  if (dados.toString("ascii", 12, 16) !== "VP8 ") return null;
+  return {
+    largura: dados.readUInt16LE(26) & 0x3fff,
+    altura: dados.readUInt16LE(28) & 0x3fff,
+  };
+}
+
+/**
  * Três destinos, e os três se quebram calados.
  *
  * Âncora desta página, caminho de outra página do site e endereço externo. O
@@ -90,7 +130,7 @@ function destinoExiste(destino: string, ancoras: Set<string>): boolean {
   if (!destino.startsWith("/")) return ancoras.has(destino);
 
   const [caminho, ancora] = destino.split("#");
-  if (!CAMINHOS_DE_ROTA.has(caminho)) return false;
+  if (!ehRotaConhecida(caminho)) return false;
   if (!ancora) return true;
   if (caminho === "/indulgencias/enchiridion") {
     return ancorasDe((enchiridion as unknown as Conteudo).secoes).has(ancora);
@@ -177,6 +217,32 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("dias de indulgência: todo elo cai numa âncora do Enchiridion",
     quebrados.length === 0, quebrados.join(", "));
 
+  /*
+   * As condições e as observações citam cânones por chamada de nota, e a
+   * chamada sem nota vira um número solto grudado na frase — "oito dias
+   * antes ou depois.1" — sem nada que o explique. São vinte e tantas
+   * citações; conferi-las a olho é o que não se faz duas vezes.
+   */
+  const prefacio = dias as unknown as {
+    condicoes: { blocos: Bloco[] };
+    observacoes: { blocos: Bloco[] };
+    notas: Record<string, string>;
+  };
+  const textoDoPrefacio = [
+    ...prefacio.condicoes.blocos.flatMap(textosDoBloco),
+    ...prefacio.observacoes.blocos.flatMap(textosDoBloco),
+  ].join("\n");
+  const orfas = [...textoDoPrefacio.matchAll(/\[nota\]([^[]*)\[\/nota\]/g)]
+    .map((m) => m[1].trim())
+    .filter((c) => !(c in prefacio.notas));
+  conferir("dias de indulgência: toda citação das condições tem nota",
+    orfas.length === 0, [...new Set(orfas)].join(", "));
+
+  const naoCitadas = Object.keys(prefacio.notas)
+    .filter((c) => !textoDoPrefacio.includes(`[nota]${c}[/nota]`));
+  conferir("dias de indulgência: nenhuma nota sobra sem quem a chame",
+    naoCitadas.length === 0, naoCitadas.join(", "));
+
   const semId = todos.filter((e) => !e.id).length;
   conferir("dias de indulgência: toda entrada tem id", semId === 0);
   const repetidos = todos.map((e) => e.id).filter((id, i, t) => t.indexOf(id) !== i);
@@ -200,6 +266,8 @@ conferir("enchiridion: as 33 concessões têm âncora",
       id: string;
       titulo: string;
       imagem?: string;
+      largura?: number;
+      altura?: number;
       blocos: Bloco[];
     }[];
   };
@@ -222,13 +290,25 @@ conferir("enchiridion: as 33 concessões têm âncora",
 
   const quebrados: string[] = [];
   const semImagem: string[] = [];
+  const medidasErradas: string[] = [];
   for (const f of colecao.folhetos) {
     conferirPares(f.id, f.blocos);
     const corpo = f.blocos.flatMap(textosDoBloco).join("\n");
     for (const m of corpo.matchAll(/\[elo:([^\]]+)\]/g)) {
       if (!destinoExiste(m[1], new Set())) quebrados.push(`${f.id} -> ${m[1]}`);
     }
-    if (f.imagem && !existeEmPublico(f.imagem)) semImagem.push(`${f.id} -> ${f.imagem}`);
+    if (f.imagem && !existeEmPublico(f.imagem)) {
+      semImagem.push(`${f.id} -> ${f.imagem}`);
+    } else if (f.imagem) {
+      const reais = medidasDoWebp(f.imagem);
+      if (!f.largura || !f.altura) {
+        medidasErradas.push(`${f.id}: estampa sem largura e altura`);
+      } else if (reais && (reais.largura !== f.largura || reais.altura !== f.altura)) {
+        medidasErradas.push(
+          `${f.id}: diz ${f.largura}x${f.altura}, o arquivo tem ${reais.largura}x${reais.altura}`,
+        );
+      }
+    }
   }
 
   const condicoes = colecao.condicoes.blocos.flatMap(textosDoBloco).join("\n");
@@ -241,12 +321,148 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("folhetos: todo elo tem destino", quebrados.length === 0, quebrados.join(", "));
   conferir("folhetos: toda estampa existe em /public",
     semImagem.length === 0, semImagem.join(", "));
+  conferir("folhetos: a estampa declara as medidas que o arquivo tem",
+    medidasErradas.length === 0, medidasErradas.join("; "));
 
   const ids = colecao.folhetos.map((f) => f.id);
   const repetidos = ids.filter((id, i) => ids.indexOf(id) !== i);
   conferir("folhetos: endereços sem repetição", repetidos.length === 0, repetidos.join(", "));
   conferir("folhetos: as condições ordinárias não estão vazias",
     colecao.condicoes.blocos.length > 0);
+}
+
+/*
+ * As postagens.
+ *
+ * Mesmas três armadilhas dos folhetos, e por isso mesmas conferências: elo
+ * que não leva a lugar nenhum, estampa que não existe, medida que não é a do
+ * arquivo. A quarta é delas: a vida de santo cita encíclicas, e a chamada de
+ * nota sem nota vira um número solto na frase, sem nada que o explique — o
+ * leitor vê a afirmação e não vê a fonte, que é exatamente o contrário do
+ * que a nota existe para fazer.
+ */
+{
+  const colecao = postagens as unknown as {
+    postagens: {
+      id: string;
+      titulo: string;
+      imagem?: string;
+      largura?: number;
+      altura?: number;
+      notas?: Record<string, string>;
+      blocos: Bloco[];
+    }[];
+  };
+
+  const quebrados: string[] = [];
+  const semImagem: string[] = [];
+  const medidasErradas: string[] = [];
+  const semNota: string[] = [];
+
+  for (const p of colecao.postagens) {
+    const corpo = p.blocos.flatMap(textosDoBloco).join("\n");
+    for (const m of corpo.matchAll(/\[elo:([^\]]+)\]/g)) {
+      if (!destinoExiste(m[1], new Set())) quebrados.push(`${p.id} -> ${m[1]}`);
+    }
+    for (const m of corpo.matchAll(/\[botao:([^\]]+)\]/g)) {
+      if (!destinoExiste(m[1], new Set())) quebrados.push(`${p.id} -> ${m[1]}`);
+    }
+    for (const m of corpo.matchAll(/\[nota\]([^[]*)\[\/nota\]/g)) {
+      const chave = m[1].trim();
+      if (!p.notas || !(chave in p.notas)) semNota.push(`${p.id} -> ${chave}`);
+    }
+    if (p.imagem && !existeEmPublico(p.imagem)) {
+      semImagem.push(`${p.id} -> ${p.imagem}`);
+    } else if (p.imagem) {
+      const reais = medidasDoWebp(p.imagem);
+      if (p.largura && p.altura && reais) {
+        if (reais.largura !== p.largura || reais.altura !== p.altura) {
+          medidasErradas.push(
+            `${p.id}: diz ${p.largura}x${p.altura}, o arquivo tem ${reais.largura}x${reais.altura}`,
+          );
+        }
+      }
+    }
+  }
+
+  conferir("postagens: todo elo tem destino", quebrados.length === 0, quebrados.join(", "));
+  conferir("postagens: toda chamada de nota tem nota", semNota.length === 0, semNota.join(", "));
+  conferir("postagens: toda estampa existe em /public",
+    semImagem.length === 0, semImagem.join(", "));
+  conferir("postagens: a estampa declara as medidas que o arquivo tem",
+    medidasErradas.length === 0, medidasErradas.join("; "));
+
+  const ids = colecao.postagens.map((p) => p.id);
+  const repetidos = ids.filter((id, i) => ids.indexOf(id) !== i);
+  conferir("postagens: endereços sem repetição", repetidos.length === 0, repetidos.join(", "));
+}
+
+/*
+ * O elo que aponta para um folheto ou uma postagem aponta para um id, e o id
+ * não está na tabela de rotas: `/folhetos/:id` casa com qualquer coisa. Então
+ * `/folhetos/credo` passa por rota boa e abre a página de "não encontrado".
+ *
+ * Isso importa agora porque o calendário das indulgências manda o leitor ao
+ * folheto da oração — foi o que o Perez pediu: "basta clicar no texto
+ * explicando qual obra precisa ser realizada que você será direcionado para
+ * a transcrição da oração". Sete entradas do calendário fazem esse salto, e
+ * nenhuma delas avisa quando ele cai no vazio.
+ */
+{
+  const fol = folhetos as unknown as { folhetos: { id: string; publicado?: boolean }[] };
+  const pos = postagens as unknown as { postagens: { id: string; publicado?: boolean }[] };
+  const vivos = new Map<string, Set<string>>([
+    ["/folhetos", new Set(fol.folhetos.filter((f) => f.publicado !== false).map((f) => f.id))],
+    ["/postagens", new Set(pos.postagens.filter((p) => p.publicado !== false).map((p) => p.id))],
+  ]);
+
+  const dadosDosDias = dias as unknown as {
+    dias: { id: string; fonte?: string; obra: Bloco[] }[];
+    semDiaFixo: { id: string; fonte?: string; obra: Bloco[] }[];
+  };
+
+  const fontes: [string, string][] = [];
+  const juntar = (onde: string, textos: string[]) =>
+    fontes.push([onde, textos.join("\n")]);
+
+  for (const [nome, bruto] of [
+    ["arquidiocese (indulgências)", arquidioceseIndulgencias],
+    ["próprio do Brasil", brasil],
+    ["próprio arquidiocesano", arquidiocese],
+    ["enchiridion", enchiridion],
+    ["guia", guia],
+    ["indulgências", indulgencias],
+    ["missa", missa],
+  ] as [string, unknown][]) {
+    const doc = bruto as Conteudo;
+    juntar(nome, [
+      ...doc.secoes.flatMap((s) => s.blocos.flatMap(textosDoBloco)),
+      ...Object.values(doc.notas ?? {}),
+    ]);
+  }
+  for (const f of (folhetos as unknown as { folhetos: { id: string; blocos: Bloco[] }[] }).folhetos) {
+    juntar(`folheto ${f.id}`, f.blocos.flatMap(textosDoBloco));
+  }
+  for (const p of (postagens as unknown as { postagens: { id: string; blocos: Bloco[] }[] }).postagens) {
+    juntar(`postagem ${p.id}`, p.blocos.flatMap(textosDoBloco));
+  }
+  for (const e of [...dadosDosDias.dias, ...dadosDosDias.semDiaFixo]) {
+    juntar(`indulgência ${e.id}`, [e.fonte ?? "", ...e.obra.flatMap(textosDoBloco)]);
+  }
+
+  const mortos: string[] = [];
+  for (const [onde, corpo] of fontes) {
+    for (const m of corpo.matchAll(/\[(?:elo|botao):(\/[^\]]+)\]/g)) {
+      const [caminho] = m[1].split("#");
+      const barra = caminho.lastIndexOf("/");
+      const colecao = caminho.slice(0, barra);
+      const id = caminho.slice(barra + 1);
+      const existentes = vivos.get(colecao);
+      if (existentes && !existentes.has(id)) mortos.push(`${onde} -> ${caminho}`);
+    }
+  }
+  conferir("todo elo para folheto ou postagem aponta para um que existe",
+    mortos.length === 0, mortos.join(", "));
 }
 
 /*

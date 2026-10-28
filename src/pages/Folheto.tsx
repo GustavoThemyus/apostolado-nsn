@@ -50,8 +50,8 @@ export default function Folheto() {
               className="folheto__estampa"
               src={folheto.imagem}
               alt=""
-              width={692}
-              height={800}
+              width={folheto.largura}
+              height={folheto.altura}
             />
           )}
 

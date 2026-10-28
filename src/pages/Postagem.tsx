@@ -1,6 +1,7 @@
 import { ListaDeBlocos } from "../components/Bloco";
 import { Cabecalho } from "../components/Cabecalho";
 import { Moldura } from "../components/Moldura";
+import { ProvedorDeNotas } from "../components/Notas";
 import { Vazia } from "../components/Vazia";
 import { dataPorExtenso, porId } from "../data/postagens";
 import { Elo } from "../routes/Elo";
@@ -35,12 +36,16 @@ export default function Postagem() {
           className="postagem__estampa"
           src={postagem.imagem}
           alt=""
-          width={480}
-          height={640}
+          width={postagem.largura ?? 480}
+          height={postagem.altura ?? 640}
         />
       )}
       {postagem.rascunho && <Vazia variante="rascunho" />}
-      <ListaDeBlocos blocos={postagem.blocos} />
+      {/* as notas são do texto, e precisam de provedor como no documento:
+          sem ele a chamada vira só o número, sem o balão que a explica */}
+      <ProvedorDeNotas notas={postagem.notas}>
+        <ListaDeBlocos blocos={postagem.blocos} />
+      </ProvedorDeNotas>
     </Moldura>
   );
 }

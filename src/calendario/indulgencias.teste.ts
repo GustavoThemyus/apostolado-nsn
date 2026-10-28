@@ -104,7 +104,7 @@ conferir("dia com plenária", temPlenaria(mistura.get("2026-08-02")), true);
 conferir("dia só com parcial", temPlenaria(mistura.get("2026-08-03")), false);
 conferir("dia sem nada", temPlenaria(mistura.get("2026-08-04")), false);
 
-// --- as obras que o Caio mandou ---------------------------------------------
+// --- o calendário que o Perez mandou ----------------------------------------
 // Aqui os dados são os de verdade, e não fixtures: o que se quer provar é que
 // as entradas do site caem nos dias certos.
 const reais = (bruto as { dias: DiaDeIndulgencia[] }).dias;
@@ -114,12 +114,85 @@ const naData = (ano: number, mes: number, data: string, id: string): boolean =>
     .get(data)
     ?.some((o) => o.entrada.id === id);
 
-conferir("Pedro e Paulo está no registro",
-  reais.some((d) => d.id === "pedro-e-paulo"), true);
+/*
+ * Toda entrada tem de cair em algum dia, todo ano.
+ *
+ * É a conferência que pega o erro mais barato e mais calado de todos: o nome
+ * de festa escrito de um jeito no calendário e de outro aqui. "Dedicação da
+ * Arquibasílica do Santíssimo Salvador" é como o Perez a chama; o motor a
+ * chama de "Dedicação da Arquibasílica do Salvador", e com o nome dele a
+ * entrada simplesmente nunca apareceria — sem erro, sem aviso, sem dia.
+ */
+for (const ano of [2025, 2026, 2027, 2028]) {
+  const achadas = new Set<string>();
+  for (let mes = 1; mes <= 12; mes += 1) {
+    for (const ocorrencias of indulgenciasDoMes(reais, ano, mes).values()) {
+      for (const o of ocorrencias) achadas.add(o.entrada.id);
+    }
+  }
+  const sumidas = reais.filter((d) => !achadas.has(d.id)).map((d) => d.id);
+  conferir(`em ${ano} nenhuma entrada fica sem dia`, sumidas, []);
+}
+
+conferir("Pedro e Paulo está no registro duas vezes, como no impresso",
+  reais.filter((d) => d.id.startsWith("pedro-e-paulo")).length, 2);
 conferir("Pedro e Paulo cai em 29 de junho",
-  naData(2026, 6, "2026-06-29", "pedro-e-paulo"), true);
+  naData(2026, 6, "2026-06-29", "pedro-e-paulo-catedral"), true);
 conferir("e não sobra na vigília, 28 de junho",
-  naData(2026, 6, "2026-06-28", "pedro-e-paulo"), false);
+  naData(2026, 6, "2026-06-28", "pedro-e-paulo-catedral"), false);
+
+/*
+ * O cânon 922 na prática, com os dados de verdade.
+ *
+ * Em 2025 o dia 2 de novembro é domingo, e Finados anda para o dia 3. A
+ * entrada é `festa`, e não `fixa`, justamente para a indulgência andar junto
+ * — era este o caso que o Perez perguntou se o calendário resolvia sozinho.
+ */
+conferir("em 2025 Finados não fica no dia 2",
+  naData(2025, 11, "2025-11-02", "finados"), false);
+conferir("em 2025 Finados vai para o dia 3",
+  naData(2025, 11, "2025-11-03", "finados"), true);
+conferir("e a tela sabe dizer de onde ele veio",
+  indulgenciasDoMes(reais, 2025, 11).get("2025-11-03")
+    ?.find((o) => o.entrada.id === "finados")?.transferidaDe,
+  "2025-11-02");
+
+/*
+ * Cristo Rei é o último domingo de outubro, e por isso anda todo ano. Ele
+ * entra como `festa`: quem calcula a data é o motor do calendário, e repetir
+ * a regra aqui seria uma segunda máquina de datas para divergir da primeira.
+ */
+conferir("Cristo Rei em 2026", naData(2026, 10, "2026-10-25", "cristo-rei"), true);
+conferir("Cristo Rei em 2027", naData(2027, 10, "2027-10-31", "cristo-rei"), true);
+conferir("Cristo Rei em 2028", naData(2028, 10, "2028-10-29", "cristo-rei"), true);
+
+/*
+ * A Cátedra de São Pedro, em 2026, perde a precedência para o II Domingo da
+ * Quaresma e sobra como comemoração. A indulgência continua sendo daquele
+ * dia, e é por isso que `casaNoDia` olha também as comemorações.
+ */
+conferir("a Cátedra vale mesmo quando só se comemora",
+  naData(2026, 2, "2026-02-22", "catedra-antioquia"), true);
+conferir("e vale quando é a festa do dia",
+  naData(2027, 2, "2027-02-22", "catedra-antioquia"), true);
+
+/*
+ * Dois dias de 2026 levam duas plenárias: 29 de junho, pelas duas concessões
+ * de Pedro e Paulo, e a Sexta-feira Santa, pela adoração da Cruz e pela
+ * sexta-feira da Quaresma. O quadro tem de mostrar as duas, e não uma.
+ */
+conferir("29 de junho tem duas",
+  indulgenciasDoMes(reais, 2026, 6).get("2026-06-29")?.length, 2);
+conferir("a Sexta-feira Santa tem duas",
+  indulgenciasDoMes(reais, 2026, 4).get("2026-04-03")?.length, 2);
+
+/*
+ * O quadro compacto da página de Indulgências lê a mesma coleção, e a coluna
+ * da data sai de `quandoPorExtenso`. Faltando numa entrada, a linha abre com
+ * a célula vazia e nada falha.
+ */
+conferir("toda entrada diz a data por extenso",
+  reais.filter((d) => !d.quandoPorExtenso?.trim()).map((d) => d.id), []);
 
 /*
  * As sextas-feiras da Quaresma são o caso que justifica o tipo novo. O

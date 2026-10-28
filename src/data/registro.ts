@@ -126,11 +126,11 @@ export const REGISTRO: DocumentoRegistrado[] = [
   },
   {
     id: "indulgencias-dias",
-    titulo: "Dias de indulgência",
+    titulo: "Calendário das Indulgências Plenárias Universais",
     caminho: emDados("indulgencias-dias.json"),
     forma: "diasDeIndulgencia",
     rota: "/indulgencias/calendario",
-    ajuda: "Os dias que carregam indulgência. Os presos a uma festa acompanham a transferência.",
+    ajuda: "Os dias do ano em que a Igreja universal concede plenária, com a obra de cada um. Os presos a uma festa acompanham a transferência dela.",
   },
   {
     id: "indulgencias-arquidiocese",

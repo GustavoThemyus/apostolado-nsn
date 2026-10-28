@@ -49,8 +49,9 @@
     "imagem": "/cartoes/indulgencias-931d7d10.webp"
   },
   "/indulgencias/calendario": {
-    "titulo": "Dias de indulgência plenária",
-    "descricao": "Os dias que carregam indulgência no calendário."
+    "titulo": "Calendário das Indulgências Plenárias Universais",
+    "descricao": "Os dias do ano em que a Igreja universal concede indulgência plenária, e a obra que se deve cumprir em cada um.",
+    "curto": "Calendário das indulgências"
   },
   "/indulgencias/arquidiocese": {
     "titulo": "Calendário de Indulgências Arquidiocesano",
