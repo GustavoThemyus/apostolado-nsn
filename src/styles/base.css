@@ -999,7 +999,7 @@ button {
   display: flex;
   justify-content: stretch;
   gap: 0;
-  margin: 0 var(--respiro-lateral) 0.6rem;
+  margin: 0 0 0.6rem;
   border: 1px solid var(--fio);
   border-radius: 0.4rem;
   overflow: hidden;
@@ -1148,6 +1148,9 @@ button {
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  /* o mesmo respiro dos cartões empilhados acima: sem ele a barra encostava
+     no que vem antes, e o mês parecia parte da caixa de cima */
+  margin-top: 1.35rem;
   padding: 0 var(--respiro-lateral);
   height: var(--altura-barra);
   border-bottom: 1px solid var(--fio);
@@ -1261,7 +1264,6 @@ button {
   padding: 1rem 1.1rem;
   background: var(--painel);
   border: 1px solid var(--fio);
-  border-left: 3px solid var(--ouro);
 }
 .calendario__detalhe-data {
   font-family: var(--sem-serifa);
