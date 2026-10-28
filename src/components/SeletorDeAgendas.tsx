@@ -47,23 +47,23 @@ export function SeletorDeAgendas({
   if (blocos.length === 0) return null;
 
   return (
-    <fieldset className="agendas">
-      <legend className="agendas__titulo">
+    <fieldset className="agendas-na-grade">
+      <legend className="agendas-na-grade__titulo">
         Mostrar também na grade
-        {carregando && <span className="agendas__carregando"> buscando…</span>}
+        {carregando && <span className="agendas-na-grade__carregando"> buscando…</span>}
       </legend>
       {blocos.map((b) => (
-        <div className="agendas__grupo" key={b.titulo}>
-          <p className="agendas__grupo-titulo">{b.titulo}</p>
-          <div className="agendas__lista">
+        <div className="agendas-na-grade__grupo" key={b.titulo}>
+          <p className="agendas-na-grade__grupo-titulo">{b.titulo}</p>
+          <div className="agendas-na-grade__lista">
             {b.agendas.map((a) => (
-              <label className="agendas__item" key={a.id}>
+              <label className="agendas-na-grade__item" key={a.id}>
                 <input
                   type="checkbox"
                   checked={ligadas.includes(a.id)}
                   onChange={() => aoAlternar(a.id)}
                 />
-                <span className="agendas__nome">{a.nome}</span>
+                <span className="agendas-na-grade__nome">{a.nome}</span>
               </label>
             ))}
           </div>

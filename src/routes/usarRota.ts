@@ -11,8 +11,3 @@ export function usarRota(): EstadoDaRota {
 export function usarParametros(): Record<string, string> {
   return usarRota().parametros;
 }
-
-/** A parte depois do `?`, para coisas como `/calendario?dia=2026-08-05`. */
-export function usarBusca(): URLSearchParams {
-  return usarRota().busca;
-}

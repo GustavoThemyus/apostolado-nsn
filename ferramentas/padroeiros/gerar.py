@@ -1,7 +1,7 @@
 """
 Estampas dos padroeiros, a partir do original.
 
-A receita estava descrita em public/padroeiros/COMO-GERAR.md e nunca tinha
+A receita estava descrita em ferramentas/padroeiros/COMO-GERAR.md e nunca tinha
 virado código: refazer uma estampa exigia reler a prosa e reconstruir os
 números à mão. Agora os números estão aqui, e a prosa explica por quê.
 

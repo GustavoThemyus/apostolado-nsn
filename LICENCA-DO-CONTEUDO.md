@@ -51,8 +51,8 @@ restaurado, enviada pelo Apostolado, de procedência não documentada.
 **domínio público**, da Wikimedia Commons. Domínio público foi critério na
 escolha, e não acaso: obra sob licença que exige atribuição obrigaria o site a
 carregar o crédito em toda página onde a imagem aparece. A lista está em
-[PROVENIENCIA.md](public/cartoes/PROVENIENCIA.md) e em
-[COMO-GERAR.md](public/padroeiros/COMO-GERAR.md).
+[PROVENIENCIA.md](ferramentas/cartoes/PROVENIENCIA.md) e em
+[COMO-GERAR.md](ferramentas/padroeiros/COMO-GERAR.md).
 
 `public/capas/` é composição feita aqui, no desenho do site, mas traz o brasão
 dentro: vale a ressalva do brasão.

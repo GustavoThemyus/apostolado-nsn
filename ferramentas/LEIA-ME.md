@@ -25,3 +25,15 @@ Para regerar depois de mudar o texto:
 Sem isso o WhatsApp continua servindo a prévia velha por semanas, porque ele
 guarda por URL. `previa.png` fica no lugar, com o conteúdo novo, para as
 prévias já em cache que apontam para lá não ficarem sem imagem.
+
+## COMO-GERAR.md e PROVENIENCIA.md
+
+Cada pasta de estampas tem a sua: `capas/`, `cartoes/`, `folhetos/`,
+`padroeiros/` e `retratos/`, ao lado do `gerar.py` que as produz. Dizem de
+onde veio cada figura, sob que licença, e com que comando se faz outra.
+
+Moraram em `public/`, junto dos `.webp` que descrevem, e é por isso que
+saíram: tudo que está em `public/` é copiado para `dist/` e servido. A nota
+de procedência das figuras ficava pública em
+`ansn.com.br/folhetos/PROVENIENCIA.md`, e nenhuma página do site a pede. Vale
+aqui o mesmo motivo do `previa.html`.

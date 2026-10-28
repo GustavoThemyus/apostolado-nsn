@@ -199,13 +199,13 @@ export default function IndulgenciasCalendario() {
       />
 
       {vinculadas.falharam.length > 0 && (
-        <p className="agendas__aviso">
+        <p className="agendas-na-grade__aviso">
           Não consegui buscar {nomesDas(vinculadas.falharam)}. Pode ser que o
           calendário tenha saído do ar ou deixado de ser público.
         </p>
       )}
       {vinculadas.semDetalhes.length > 0 && (
-        <p className="agendas__aviso">
+        <p className="agendas-na-grade__aviso">
           {nomesDas(vinculadas.semDetalhes)} está partilhado sem os detalhes, e
           o Google devolve todo dia como "Busy". Para aparecer aqui, tem de
           estar público <em>com</em> os detalhes.
@@ -277,9 +277,9 @@ export default function IndulgenciasCalendario() {
                     />
                   ) : null}
                   {agendas.length > 0 && (
-                    <span className="agendas__bandeiras" aria-hidden="true">
+                    <span className="agendas-na-grade__bandeiras" aria-hidden="true">
                       {agendas.map((id) => (
-                        <span className="agendas__ponto" key={id} />
+                        <span className="agendas-na-grade__ponto" key={id} />
                       ))}
                     </span>
                   )}

@@ -1,7 +1,7 @@
 """
 Estampas de seção e de cartão, a partir do original.
 
-A receita estava descrita em public/cartoes/PROVENIENCIA.md e nunca tinha
+A receita estava descrita em ferramentas/cartoes/PROVENIENCIA.md e nunca tinha
 virado código. Os números vivem aqui; o porquê de cada um, lá.
 
 Uso:

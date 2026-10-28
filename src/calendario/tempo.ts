@@ -1,21 +1,10 @@
 import { DIA, emUTC, eixoDoAno, mais } from "./computo";
 import { diaProprio } from "./proprios";
-import type { Cor, Eixo, Tempo } from "./tipos";
+import type { Cor, Tempo } from "./tipos";
 
 const soData = (d: Date) => Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
 const entre = (d: Date, de: Date, ate: Date) => soData(d) >= soData(de) && soData(d) <= soData(ate);
 const semanasEntre = (de: Date, ate: Date) => Math.floor((soData(ate) - soData(de)) / (7 * DIA));
-
-/**
- * O ano litúrgico começa no Advento do ano civil anterior. Devolve o eixo que
- * governa a data, que pode ser o do ano civil ou o do ano seguinte.
- */
-export function eixoQueGoverna(data: Date): Eixo {
-  const ano = data.getUTCFullYear();
-  const desteAno = eixoDoAno(ano);
-  // depois do primeiro domingo do Advento já vale o ano litúrgico seguinte
-  return soData(data) >= soData(desteAno.advento) ? eixoDoAno(ano + 1) : desteAno;
-}
 
 /** Tempo litúrgico e, quando cabe, o número da semana. */
 export function tempoDe(data: Date): { tempo: Tempo; semana?: number } {
