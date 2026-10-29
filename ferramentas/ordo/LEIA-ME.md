@@ -53,6 +53,41 @@ novo, a importação volta a passar sozinha.
 Os links antigos continuam abrindo, mas apontam para o Drive da conta antiga.
 Vale pedir que os PDF também mudem para o Drive do Apostolado.
 
+## A importação de 28/10/2026
+
+O Perez mexeu no Ordo inteiro e pediu uma atualização. Três coisas mudaram de
+forma, e as três quebrariam calado se ninguém olhasse:
+
+**A vírgula antes do título.** 161 dias passaram de "Santa Inês Virgem e
+Mártir" para "Santa Inês, Virgem e Mártir". Só texto, nada a fazer.
+
+**O patrocínio saiu do grau.** Em cinco dias — Santa Maria das Neves, Santa
+Rosa de Lima, Aparecida, São Pedro de Alcântara e Guadalupe — "Padroeira
+principal do país" deixou de vir colado no grau e passou a ter linha própria,
+acima dele. Como a cabeça do dia era a primeira linha, o grau sumia e a cor
+não se confirmava. `cabeca_e_resto()` junta os dois de novo, com vírgula, que
+é a forma que `patrocinioDoGrau` espera do lado do site.
+
+**O título do próprio, com a Missa recuada embaixo.** 39 celebrações passaram
+a dizer de onde sai a Missa:
+
+    Próprio do Brasil
+      Missa Lætabitur; Glória; Orações próprias; Trato; Prefácio Comum…
+
+As duas linhas vêm no mesmo parágrafo. Sem separá-las, a linha da Missa não
+começava em "Missa", `analisarMissa` devolvia nulo e **38 dias perdiam a
+tabela inteira** — sem erro nenhum, só uma tela mais pobre. Quem separa é
+`separarOProprio`, em `src/calendario/ordo.ts`, e o que ele procura é o recuo
+de dois espaços, não a lista dos títulos: títulos novos aparecem a cada ano.
+
+**Os anexos.** Caíram de 95 para 89, e a trava abaixo parou a importação, como
+devia. Olhando um a um, não foi perda: o Perez passou a anexar o próprio à
+festa em si (São Lucas, Cristo Rei, Todos os Santos, a Imaculada) e a tirá-lo
+dos dias que só repetem a Missa de outro — os da Oitava e as férias que dizem
+a Missa do domingo precedente. Gravado com `--sem-anexos`. A exceção é a
+**Publicatio Paschae da Epifania**, que era documento próprio e não cópia de
+nada: essa sumiu do calendário e vale pedir de volta.
+
 ## A armadilha que já custou caro
 
 **O iCalendar dobra linhas longas.** A continuação vem na linha seguinte com um

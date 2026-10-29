@@ -20,9 +20,16 @@ import { ProvedorDeSecoes } from "../components/IndiceDoDocumento";
  */
 export function PaginaDeDocumento({
   conteudo,
+  antes,
   children,
 }: {
   conteudo: Conteudo;
+  /**
+   * Blocos antes das seções, em largura cheia: hoje, a grade do mês na
+   * página das indulgências. Fora do `documento`, que em tela larga é
+   * coluna estreita ao lado do sumário, e lá a grade ficaria espremida.
+   */
+  antes?: ReactNode;
   /** Blocos extras depois das seções, como os botões de agenda. */
   children?: ReactNode;
 }) {
@@ -108,6 +115,8 @@ export function PaginaDeDocumento({
 
         {/* antes do texto: quem chega tem de saber que a seção tem mais */}
         {rota && <AtalhosDaSecao padrao={rota.padrao} />}
+
+        {antes}
 
         {/*
           Em tela larga o sumário sai de cima do texto e vira coluna à

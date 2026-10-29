@@ -16,7 +16,6 @@ export const TIPOS: { tipo: NomeDeTipo; rotulo: string; descricao: string }[] = 
   { tipo: "separador", rotulo: "Fio separador", descricao: "Divide o latim da tradução." },
   { tipo: "bilingue", rotulo: "Oração bilíngue", descricao: "Latim e tradução lado a lado na tela larga." },
   { tipo: "indice", rotulo: "Índice do documento", descricao: "Lista as seções e as partes desta página." },
-  { tipo: "calendarioDasIndulgencias", rotulo: "Calendário das indulgências", descricao: "O quadro do ano inteiro, tirado do calendário das plenárias universais." },
   { tipo: "passo", rotulo: "Passo da Missa", descricao: "Peça numerada, com etiqueta litúrgica." },
 ];
 
@@ -46,7 +45,6 @@ export function blocoVazio(tipo: NomeDeTipo): Bloco {
     case "separador": return { id, tipo };
     case "bilingue": return { id, tipo, latim: [], portugues: [] };
     case "indice": return { id, tipo };
-    case "calendarioDasIndulgencias": return { id, tipo };
     case "passo":
       return { id, tipo, etiqueta: "ordinario", titulo: "", corpo: [] };
   }

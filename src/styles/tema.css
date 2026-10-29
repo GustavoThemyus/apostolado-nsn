@@ -58,6 +58,27 @@
   --lit-rosa: #963a62;
 
 
+  /*
+   * Cada associação na sua cor, nas bolinhas do calendário das indulgências.
+   *
+   * Vinha tudo cinza, de propósito: a casa do dia já leva a cor litúrgica e o
+   * marcador de plenária, e uma terceira escala parecia barulho. O Perez
+   * pediu o contrário, e com razão — ele próprio escolheu as cores, e elas
+   * não são enfeite: são o hábito de quem as usa. "Pra pessoa conseguir
+   * identificar fácil qual é a associação."
+   *
+   * O marrom é o das duas ordens que o vestem, e por isso são dois marrons e
+   * não um: o burel franciscano é mais claro que o hábito do Carmo, e dois
+   * pontos da mesma cor a 5px de distância não distinguiriam nada. O branco
+   * do Cordão pede contorno, que está no base.css: sobre o papel ele some.
+   */
+  --agenda-apostolado: #303a73;
+  --agenda-oracao: #a32220;
+  --agenda-escapulario: #5b3a21;
+  --agenda-franciscana: #9c7034;
+  --agenda-cordao: #fffdf5;
+  --agenda-dominicana: #6e6b7a;
+
   /* --- tipografia --- */
   --titular: "Playfair Display", "EB Garamond", Georgia, serif;
   --serifada: "EB Garamond", Georgia, "Times New Roman", serif;
@@ -156,6 +177,13 @@
     --lit-preto: #9c98ac;
     --lit-rosa: #f0a8c8;
 
+
+    --agenda-apostolado: #8fa3d8;
+    --agenda-oracao: #e08a80;
+    --agenda-escapulario: #a9794f;
+    --agenda-franciscana: #d7ab6a;
+    --agenda-cordao: #fffdf5;
+    --agenda-dominicana: #b4b1bf;
     --brasao-mono: url("/brasao-claro-7c64c1c8.webp");
 
     color-scheme: dark;
@@ -188,6 +216,13 @@
   --lit-roxo: #c0a3e8;
   --lit-preto: #9c98ac;
   --lit-rosa: #f0a8c8;
+
+  --agenda-apostolado: #8fa3d8;
+  --agenda-oracao: #e08a80;
+  --agenda-escapulario: #a9794f;
+  --agenda-franciscana: #d7ab6a;
+  --agenda-cordao: #fffdf5;
+  --agenda-dominicana: #b4b1bf;
   --brasao-mono: url("/brasao-claro-7c64c1c8.webp");
 
   color-scheme: dark;

@@ -9,7 +9,7 @@ tenha ficado sem celebração. Sai != 0 se falhar.
 import json, os, re, sys, datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from importar import ICS, PASTA, CORES, ESCRITA, desdobrar, desescapar, campo
+from importar import ICS, PASTA, CORES, ESCRITA, cabeca_e_resto, desdobrar, campo
 
 with open(ICS, encoding="utf-8") as f:
     bruto = desdobrar(f.read())
@@ -51,15 +51,14 @@ for data, dia in sorted(publicado.items()):
     if titulo[1:].strip() != dia["nome"]:
         problemas.append(f"{data}: nome difere do título do Ordo")
 
-    cabeca = fonte["descricao"].partition("\n")[0]
+    cabeca, resto = cabeca_e_resto(fonte["descricao"])
     if not cabeca.startswith(dia["grau"]):
         problemas.append(f"{data}: grau {dia['grau']!r} não abre a cabeça {cabeca[:50]!r}")
     if ESCRITA[dia["cor"]] not in cabeca.lower():
         problemas.append(f"{data}: a cor escrita não confirma o círculo — {cabeca[:60]!r}")
 
     # todo parágrafo do Ordo chegou, e nenhum foi inventado
-    doOrdo = [p.strip() for p in re.split(r"\n\s*\n", fonte["descricao"].partition("\n")[2])
-              if p.strip()]
+    doOrdo = [p.strip() for p in re.split(r"\n\s*\n", resto) if p.strip()]
     if doOrdo != dia.get("partes", []):
         problemas.append(f"{data}: as partes não batem ({len(doOrdo)} no Ordo, "
                          f"{len(dia.get('partes', []))} publicadas)")

@@ -139,18 +139,14 @@
     {
      "id": "i-024",
      "tipo": "paragrafo",
-     "texto": "Abaixo vai o calendário das plenárias que a Igreja universal concede, uma a uma, com a obra que se deve cumprir em cada dia e a concessão de onde sai. São as que estão presas a uma festa do ano; as que se podem lucrar em qualquer dia estão no [elo:/indulgencias/calendario]calendário interativo[/elo], e as da Arquidiocese da Paraíba no [elo:/indulgencias/arquidiocese]calendário arquidiocesano[/elo]."
-    },
-    {
-     "id": "i-025",
-     "tipo": "calendarioDasIndulgencias"
+     "texto": "O [elo:/indulgencias/calendario]calendário das plenárias universais[/elo] traz as que a Igreja universal concede, uma a uma, com a obra que se deve cumprir em cada dia e a concessão de onde sai; ali estão tanto as presas a uma festa do ano quanto as que se podem lucrar em qualquer dia. As da Arquidiocese da Paraíba estão no [elo:/indulgencias/arquidiocese]calendário arquidiocesano[/elo]."
     },
     {
      "id": "i-026",
      "tipo": "nota",
-     "titulo": "O calendário litúrgico que este quadro segue",
+     "titulo": "O calendário litúrgico que estes dias seguem",
      "paragrafos": [
-      "O Apostolado Nossa Senhora das Neves tem por finalidade a difusão e a preservação da Missa Tridentina, e usa regularmente o calendário tradicional, em especial segundo as rubricas de São Pio X. É esse o calendário representado aqui.",
+      "O Apostolado Nossa Senhora das Neves tem por finalidade a difusão e a preservação da Missa Tridentina, e usa regularmente o calendário tradicional, em especial segundo as rubricas de São Pio X. É esse o calendário da grade acima e do calendário das plenárias.",
       "Daí algumas poucas diferenças de data em relação ao calendário reformado, como as de Cristo Rei e da Cátedra de São Pedro."
      ]
     },

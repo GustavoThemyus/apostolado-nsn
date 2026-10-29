@@ -86,6 +86,19 @@ function BlocoDaCelebracao({
         <p className="ordo__celebracao-posto">{celebracao.posto}</p>
       )}
 
+      {/*
+        De que próprio sai a Missa, quando o Ordo diz.
+
+        Em 39 celebrações de 2026 ele escreve o título acima da linha da Missa
+        e recua a linha embaixo: "Próprio do Brasil", "Próprio da Arquidiocese
+        da Paraíba", "Quatro Têmporas da Quaresma". É resposta à pergunta de
+        onde se tira a Missa do dia, e perdê-la deixaria "Missa Terribilis"
+        sem dizer em que livro ela está.
+      */}
+      {celebracao.proprio && (
+        <p className="ordo__celebracao-proprio">{celebracao.proprio}</p>
+      )}
+
       {naMissa && (
         <div className="desenv">
           <p className="desenv__titulo">{primeira ? "Na Missa deste dia" : "Na Missa"}</p>

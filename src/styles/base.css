@@ -1400,37 +1400,6 @@ button {
   margin-bottom: 0.7rem;
 }
 
-/* ---------------- calendário das indulgências em quadro ---------------- */
-
-/*
- * O mesmo calendário, transportado para a página geral das Indulgências.
- *
- * Usa `.tabela` por dentro, e por isso herda de graça o empilhamento em
- * ficha no celular, com o rótulo da coluna antes de cada célula. O que é
- * próprio daqui é pouco: a fonte da concessão, menor e abaixo da obra, e o §
- * que leva à ressalva no calendário interativo.
- */
-.calendario-compacto {
-  margin-top: 1.25rem;
-}
-
-.calendario-compacto__fonte {
-  display: block;
-  margin-top: 0.35rem;
-  font-size: 0.78rem;
-  font-style: italic;
-  color: var(--tinta-suave);
-}
-
-.calendario-compacto__ressalva {
-  font-weight: 600;
-  color: var(--ouro-tinta);
-  text-decoration: none;
-}
-.calendario-compacto__ressalva:hover {
-  text-decoration: underline;
-}
-
 /* ---------------- folha que sobe do rodapé ---------------- */
 
 .folha__cortina {
@@ -2321,6 +2290,21 @@ button {
 /* "São Pedro Canísio Confessor e Doutor da Igreja, duples – cor branca" */
 .ordo__celebracao-posto {
   margin: 0 0 0.7rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
+/*
+ * "Próprio do Brasil", "Quatro Têmporas da Quaresma": de onde sai a Missa.
+ *
+ * Itálico, como o posto, e não em versalete. A tabela logo abaixo é feita de
+ * rótulos em versalete — GRAU, COR, GLÓRIA —, e esta linha em versalete lia
+ * como mais um deles, só que sem valor ao lado. Ela não é rótulo: é o título
+ * que o Ordo escreve acima da linha da Missa.
+ */
+.ordo__celebracao-proprio {
+  margin: 0 0 0.5rem;
+  font-size: 0.92rem;
   font-style: italic;
   color: var(--tinta-suave);
 }
@@ -3350,6 +3334,23 @@ button {
   font-size: 1.08rem;
   font-weight: 600;
 }
+/*
+ * A data por extenso, acima do nome: "1 de janeiro", "Variável, conforme a
+ * Páscoa".
+ *
+ * Só aparece na lista do ano inteiro. No detalhe do dia a data já está no
+ * alto do cartão, e repetida em cada item viraria eco.
+ */
+.indulgencias-dia__quando {
+  margin: 0 0 0.15rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+}
+
 .indulgencias-dia__fonte {
   margin: 0.35rem 0 0;
   font-family: var(--sem-serifa);
@@ -3364,6 +3365,31 @@ button {
   border-color: var(--ouro);
 }
 .etiqueta--parcial {
+  color: var(--tinta-suave);
+}
+
+/*
+ * A lista do ano inteiro, na página do calendário das indulgências.
+ *
+ * A página era a grade do mês e passou a ser esta lista, por pedido do Perez.
+ * Caixa própria, como "Em qualquer dia" logo abaixo: as duas são listas de
+ * indulgências, e empilhadas sem moldura nenhuma pareciam uma lista só com um
+ * título solto no meio.
+ */
+.ano-de-indulgencias {
+  margin: 1.6rem 0 0;
+  padding: 1.1rem 1.15rem;
+  border: 1px solid var(--fio);
+  background: var(--painel);
+}
+.ano-de-indulgencias__titulo {
+  margin: 0;
+  font-family: var(--titular);
+  font-size: 1.2rem;
+}
+.ano-de-indulgencias__chamada {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
   color: var(--tinta-suave);
 }
 
@@ -4839,7 +4865,8 @@ button {
 }
 .agendas-na-grade__item {
   display: grid;
-  grid-template-columns: auto 1fr;
+  /* caixa, bolinha da cor e nome */
+  grid-template-columns: auto auto 1fr;
   align-items: start;
   gap: 0.5rem;
   font-size: 0.9rem;
@@ -4855,6 +4882,43 @@ button {
 .agendas-na-grade__nome {
   line-height: 1.3;
 }
+/*
+ * A bolinha ao lado do nome: é aqui que a cor da grade se aprende.
+ *
+ * Maior que a da casa do dia, que é miúda por força do espaço. Alinhada pelo
+ * topo da primeira linha, para não descer ao centro quando o nome dobra.
+ */
+.agendas-na-grade__cor {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.3rem;
+  border-radius: 50%;
+  background: var(--tinta-suave);
+}
+
+/*
+ * O calendário do Apostolado não se desliga.
+ *
+ * É o que a página promete: as indulgências que a Igreja universal concede.
+ * Os outros são de associações a que a maior parte de quem lê não pertence, e
+ * esses continuam em caixa de seleção. Sem caixa, e não com uma caixa marcada
+ * e travada: caixa desativada convida ao clique e não responde.
+ */
+.agendas-na-grade__fixa {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.5rem;
+  /* recuo da caixa que esta linha não tem, para a bolinha cair na mesma
+     coluna das outras: 1,05rem da caixa mais os 0,5rem que a separam do que
+     vem depois */
+  margin-left: 1.55rem;
+  font-size: 0.9rem;
+}
+.agendas-na-grade__sempre {
+  font-style: italic;
+  color: var(--tinta-suave);
+}
 
 .agendas-na-grade__aviso {
   margin: 0.7rem 0 0;
@@ -4864,22 +4928,38 @@ button {
 }
 
 /*
- * Na casa do dia: uma marca por agenda que tem algo ali.
+ * Na casa do dia: uma marca por agenda que tem algo ali, na cor dela.
  *
- * Neutra de propósito. A casa já carrega a bolinha da cor litúrgica e o
- * marcador de plenária, e uma terceira escala de cor com seis valores faria
- * a grade dizer mais do que se lê de relance.
+ * Eram todas cinza. O Perez pediu cor por associação — "pra pessoa conseguir
+ * identificar fácil qual é" — e escolheu quais: o marrom do hábito para o
+ * Carmo e para a Franciscana, o cinza para a Dominicana, o branco do cordão
+ * para a Arquiconfraria, o vermelho do Sagrado Coração para o Apostolado da
+ * Oração. As mesmas bolinhas aparecem ao lado do nome no seletor, e é lá que
+ * se aprende qual é qual: na grade, sozinhas, elas seriam charada.
+ *
+ * Cresceram de 0,24 para 0,34rem no mesmo movimento. Cor que não se distingue
+ * não informa, e a 4px dois marrons eram o mesmo marrom.
  */
 .agendas-na-grade__bandeiras {
   display: flex;
-  gap: 0.12rem;
+  gap: 0.14rem;
   margin-top: 0.08rem;
 }
 .agendas-na-grade__ponto {
-  width: 0.24rem;
-  height: 0.24rem;
+  width: 0.34rem;
+  height: 0.34rem;
   border-radius: 50%;
   background: var(--tinta-suave);
+}
+.agendas-na-grade__ponto--indulgencias-apostolado { background: var(--agenda-apostolado); }
+.agendas-na-grade__ponto--apostolado-oracao { background: var(--agenda-oracao); }
+.agendas-na-grade__ponto--escapulario { background: var(--agenda-escapulario); }
+.agendas-na-grade__ponto--franciscana { background: var(--agenda-franciscana); }
+.agendas-na-grade__ponto--dominicana { background: var(--agenda-dominicana); }
+/* o branco do cordão some sobre o papel: só o contorno o faz existir */
+.agendas-na-grade__ponto--cordao {
+  background: var(--agenda-cordao);
+  box-shadow: 0 0 0 1px var(--tinta-suave);
 }
 
 /*

@@ -149,6 +149,16 @@ export interface Celebracao {
   posto?: string;
   /** A linha da Missa, crua. Ausente quando o Ordo diz "Missa como acima". */
   missa?: string;
+  /**
+   * De onde sai a Missa, quando o Ordo se dá ao trabalho de dizer.
+   *
+   * "Próprio do Brasil", "Próprio da Arquidiocese da Paraíba", "Quatro
+   * Têmporas da Quaresma". O Perez pôs esses títulos no Ordo em outubro de
+   * 2026, em linha própria, com a linha da Missa recuada embaixo. São 38 dias
+   * do ano, e sem ler o recuo a linha da Missa deixava de começar em "Missa"
+   * — que é o que `analisarMissa` exige para montar a tabela.
+   */
+  proprio?: string;
   /** Rubricas e o mais que vier, na ordem em que o Ordo as escreve. */
   notas: string[];
   /** As linhas de "Missas permitidas", cruas. */
@@ -195,6 +205,33 @@ const EH_POSTO = /[–-]\s*cor\s+\p{L}+\s*$/u;
 const ehRubrica = (p: string) => p.startsWith("➢");
 
 /**
+ * O título de onde sai a Missa, e a linha da Missa recuada embaixo dele.
+ *
+ * O Ordo escreve, dentro de um parágrafo só:
+ *
+ *     Próprio do Brasil
+ *       Missa Lætabitur; Glória; Orações próprias; Trato; Prefácio Comum…
+ *
+ * O recuo de dois espaços é o que marca a continuação, e é ele que se procura
+ * aqui — não a lista dos títulos. Títulos novos aparecem a cada ano ("Quatro
+ * Têmporas de Setembro" só existe em setembro), e uma lista fechada deixaria
+ * de reconhecê-los calada, que é o pior jeito de errar.
+ *
+ * Rubrica não entra: em 2026-07-02 o parágrafo recuado pende de uma linha que
+ * começa em ➢, e ali o de cima não é título de nada — é a rubrica inteira.
+ */
+function separarOProprio(cru: string): { proprio?: string; linha: string } {
+  const linhas = cru.split("\n");
+  if (linhas.length < 2 || !linhas[1].startsWith("  ")) return { linha: cru };
+  const titulo = linhas[0].trim();
+  if (!titulo || ehRubrica(titulo)) return { linha: cru };
+  return {
+    proprio: titulo,
+    linha: linhas.slice(1).map((l) => l.trim()).join("\n"),
+  };
+}
+
+/**
  * Separa o dia nas celebrações que ele traz.
  *
  * A propriedade que vale mais que o acerto da estrutura: **nenhuma linha se
@@ -217,7 +254,13 @@ export function celebracoesDoOrdo(dia: DiaDoOrdo): Celebracao[] {
     atual = { notas: [], permitidas: [] };
   };
 
-  for (const cru of dia.partes) {
+  for (const bruto of dia.partes) {
+    /*
+     * "Próprio do Brasil" e a linha da Missa recuada embaixo entram como um
+     * parágrafo só. Separados aqui, antes de qualquer teste: de outro modo a
+     * linha não começaria em "Missa", e nem o posto nem a tabela a achariam.
+     */
+    const { proprio, linha: cru } = separarOProprio(bruto);
     const p = cru.trim();
 
     if (!ehRubrica(p) && ABRE_ESCOLHA.test(p)) {
@@ -266,9 +309,11 @@ export function celebracoesDoOrdo(dia: DiaDoOrdo): Celebracao[] {
      */
     if (!ehRubrica(p) && !atual.missa) {
       atual.missa = cru;
+      if (proprio) atual.proprio = proprio;
       continue;
     }
-    atual.notas.push(cru);
+    /* o título não se perde quando o que vinha embaixo dele não era a Missa */
+    atual.notas.push(proprio ? bruto : cru);
   }
 
   fechar();
@@ -443,4 +488,4 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
 
 /** A Missa da capela: a primeira do dia. */
 export const naMissaDoOrdo = (dia: DiaDoOrdo): NaMissa | null =>
-  analisarMissa(dia.partes[0]);
+  analisarMissa(separarOProprio(dia.partes[0] ?? "").linha);

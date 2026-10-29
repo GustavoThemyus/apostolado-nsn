@@ -54,7 +54,6 @@ const AMOSTRAS: Record<NomeDeTipo, Bloco> = {
     portugues: [{ tipo: "paragrafo", texto: "Ide, a Missa está terminada." }],
   },
   indice: { tipo: "indice" },
-  calendarioDasIndulgencias: { tipo: "calendarioDasIndulgencias" },
   passo: {
     tipo: "passo",
     etiqueta: "ordinario",

@@ -214,10 +214,15 @@ async function rodar() {
    * as festas maiores; o resto ainda está por fazer, e por isso o número é de
    * cobertura, não de contagem fechada — se cair, alguma coisa se perdeu na
    * importação.
+   *
+   * Eram 92 dias até a importação de 28/10/2026. O Perez passou a anexar o
+   * próprio à festa em si — São Lucas, Cristo Rei, Todos os Santos — e a
+   * tirá-lo dos dias que apenas repetem a Missa de outro: os da Oitava e as
+   * férias que dizem a Missa do domingo precedente.
    */
   if (de2026) {
     const comAnexo = Object.values(de2026.dias).filter((d) => d.anexos?.length);
-    conferir("92 dias trazem o próprio da Missa", comAnexo.length, 92);
+    conferir("87 dias trazem o próprio da Missa", comAnexo.length, 87);
     conferir("todo anexo tem nome e endereço",
       comAnexo.flatMap((d) => d.anexos!).filter((a) => !a.nome || !a.url).length, 0);
     conferir("todo anexo aponta para o Drive",
@@ -311,12 +316,21 @@ async function rodar() {
       const recolhidas = celebracoes.flatMap((c) => [
         ...(c.rotulo ? [c.rotulo] : []),
         ...(c.posto ? [c.posto] : []),
+        ...(c.proprio ? [c.proprio] : []),
         ...(c.missa ? [c.missa] : []),
         ...c.notas,
         ...c.permitidas,
       ]);
-      const ordenar = (lista: string[]) => [...lista].sort();
-      if (JSON.stringify(ordenar(recolhidas)) !== JSON.stringify(ordenar(dia.partes))) {
+      /*
+       * Linha a linha, e não parágrafo a parágrafo: o título de onde sai a
+       * Missa vem no mesmo parágrafo que ela, com a Missa recuada embaixo, e
+       * o separador os parte em dois campos. Comparado por parágrafo, esse
+       * corte apareceria como perda; comparado por linha, continua valendo o
+       * que importa — nenhuma linha some e nenhuma aparece duas vezes.
+       */
+      const emLinhas = (lista: string[]) =>
+        lista.flatMap((t) => t.split("\n").map((l) => l.trim()).filter(Boolean)).sort();
+      if (JSON.stringify(emLinhas(recolhidas)) !== JSON.stringify(emLinhas(dia.partes))) {
         perdidas.push(`${data}: ${dia.partes.length} linhas viraram ${recolhidas.length}`);
       }
 
@@ -338,6 +352,34 @@ async function rodar() {
         data: new Date("2026-02-26T00:00:00Z"),
         tempo: "quaresma",
       } as DiaDoOrdo).length, 1);
+
+    /*
+     * O título de onde sai a Missa, recuado no mesmo parágrafo que ela.
+     *
+     * É o que quebrou na importação de 28/10/2026: a linha deixou de começar
+     * em "Missa", `analisarMissa` devolveu null e 38 dias perderam a tabela
+     * inteira — sem erro nenhum, só uma tela mais pobre. Daí a contagem.
+     */
+    {
+      const comProprio = Object.entries(de2026.dias).flatMap(([data, bruto]) =>
+        celebracoesDoOrdo({
+          ...bruto, data: new Date(`${data}T00:00:00Z`), tempo: "tempo-comum",
+        } as DiaDoOrdo).filter((c) => c.proprio).map((c) => [data, c] as const));
+      conferir("39 celebrações dizem de que próprio sai a Missa", comProprio.length, 39);
+      conferir("e todas elas continuam abrindo em 'Missa'",
+        comProprio.filter(([, c]) => !c.missa?.startsWith("Missa")).length, 0);
+      conferir("os títulos são os do Ordo",
+        [...new Set(comProprio.map(([, c]) => c.proprio))].sort(),
+        ["Próprio da Arquidiocese da Paraíba", "Próprio do Brasil",
+         "Quatro Têmporas da Quaresma", "Quatro Têmporas de Pentecostes",
+         "Quatro Têmporas de Setembro", "Quatro Têmporas do Advento"]);
+      conferir("a Dedicação de Santa Maria das Neves sai do próprio da Arquidiocese",
+        comProprio.find(([d]) => d === "2026-08-05")?.[1].proprio,
+        "Próprio da Arquidiocese da Paraíba");
+      /* 2 de julho: o recuo pende de uma rubrica, e rubrica não é título */
+      conferir("o parágrafo recuado debaixo de rubrica não vira título",
+        comProprio.some(([d]) => d === "2026-07-02"), false);
+    }
 
     conferir("31 celebrações rotuladas em 2026", comRotulo, 31);
     conferir("em 35 dias o dia tem mais de uma celebração", comSegunda, 35);

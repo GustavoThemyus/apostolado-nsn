@@ -1,4 +1,4 @@
-import { Suspense, lazy, type CSSProperties, type ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import type { Bloco as TipoBloco, Etiqueta } from "../data/tipos";
 import { IndiceDoDocumento } from "./IndiceDoDocumento";
 import { Legenda } from "./Legenda";
@@ -10,20 +10,6 @@ import { Rubrica } from "./Rubrica";
 import { RubricaDaAssembleia } from "./RubricaDaAssembleia";
 import { Tabela } from "./Tabela";
 import { TextoRico } from "./TextoRico";
-
-/*
- * O quadro das indulgências chega só quando é pedido.
- *
- * Ele traz consigo o `indulgencias-dias.json` e o motor de datas, e `Bloco` é
- * o módulo que *toda* página de documento carrega. Importado direto, o guia,
- * a página da Missa e a do Apostolado passaram a baixar 22 KB do calendário
- * que nenhuma delas mostra — medido: o pedaço do `Bloco` saiu de 5,6 para
- * 27,5 KB. Num site feito para dado móvel isso é caro demais por um bloco que
- * aparece numa seção de uma página.
- */
-const CalendarioCompacto = lazy(() =>
-  import("./CalendarioCompacto").then((m) => ({ default: m.CalendarioCompacto })),
-);
 
 function Lista({ ordenada, itens }: { ordenada?: boolean; itens: string[] }) {
   const Etiqueta = ordenada ? "ol" : "ul";
@@ -97,12 +83,6 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
     }
     case "indice":
       return <IndiceDoDocumento />;
-    case "calendarioDasIndulgencias":
-      return (
-        <Suspense fallback={<div className="carregando" aria-hidden="true" />}>
-          <CalendarioCompacto />
-        </Suspense>
-      );
     case "legenda":
       return <Legenda itens={bloco.itens} />;
     case "passo":

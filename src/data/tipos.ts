@@ -61,15 +61,6 @@ export type Bloco = ComId &
   | { tipo: "bilingue"; latim: Bloco[]; portugues: Bloco[] }
   /** O índice completo do documento, derivado das seções. */
   | { tipo: "indice" }
-  /**
-   * O calendário das indulgências em quadro, derivado de
-   * `indulgencias-dias.json`.
-   *
-   * Como o `indice`, não traz conteúdo: aponta para onde ele já mora. Escrito
-   * à mão aqui, o quadro e o calendário interativo diriam coisas diferentes
-   * na primeira correção de uma vírgula.
-   */
-  | { tipo: "calendarioDasIndulgencias" }
   | { tipo: "lista"; ordenada?: boolean; itens: string[] }
   | { tipo: "oracao"; versos: Verso[] }
   | { tipo: "nota"; titulo: string; paragrafos: string[]; alerta?: boolean }

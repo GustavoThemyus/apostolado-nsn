@@ -104,6 +104,26 @@ PENITENCIA = [
 ]
 
 
+def cabeca_e_resto(corpo):
+    """
+    A cabeça do dia e o que vem depois dela.
+
+    A cabeça é a linha do travessão — "<grau> – cor <cor>" —, e quase sempre é
+    a primeira do texto. Em cinco dias de 2026 o Perez pôs o patrocínio
+    ("Padroeira principal do país", "Titular da Igreja Catedral…") em linha
+    própria antes dela, e não colado no grau como nos outros dias.
+
+    Aqui os dois voltam a ser uma linha só, com vírgula. Quem os separa de
+    novo é `patrocinioDoGrau`, do lado do site, e ele espera o patrocínio na
+    frente do grau — que é como o Ordo escrevia antes. Sem isto, a cabeça
+    seria a linha do patrocínio: o grau sumiria e a cor não se confirmaria.
+    """
+    linhas = corpo.split("\n")
+    i = next((n for n, l in enumerate(linhas) if "–" in l), 0)
+    antes = [l.strip() for l in linhas[:i] if l.strip()]
+    return ", ".join([*antes, linhas[i].strip()]), "\n".join(linhas[i + 1:])
+
+
 def ler_penitencia(partes):
     texto = " ".join(partes)
     for padrao, nome in PENITENCIA:
@@ -130,7 +150,7 @@ def ler(dados):
         nome = titulo[1:].strip()
 
         corpo = campo(evento, "DESCRIPTION")
-        cabeca, _, resto = corpo.partition("\n")
+        cabeca, resto = cabeca_e_resto(corpo)
         grau, _, frase = cabeca.partition("–")
         grau, frase = grau.strip().rstrip(","), frase.strip()
 

@@ -8,15 +8,16 @@ import type { Agenda } from "../data/tipos";
  * um local só", e aba troca em vez de somar. Quem é do Escapulário e da
  * Terceira Franciscana liga os dois e vê os dois na mesma grade.
  *
- * Sem cor por agenda. A casa do dia já leva a bolinha da cor litúrgica e o
- * marcador de plenária; uma terceira escala de cor, com seis valores, faria
- * a grade dizer mais do que se lê de relance. Na grade a marca é neutra e
- * conta quantas agendas têm algo no dia; quem diz qual é o detalhe embaixo.
+ * Cada um na sua cor, e a bolinha ao lado do nome é a legenda da grade. A
+ * cor é a do hábito de quem a usa, escolhida pelo Perez: o marrom do Carmo e
+ * o do burel franciscano, o cinza da Dominicana, o branco do cordão, o
+ * vermelho do Sagrado Coração para o Apostolado da Oração. Na grade a
+ * bolinha aparece sozinha na casa do dia, e sem esta lista seria charada.
  *
- * Tudo começa desligado. O calendário próprio do site é o que a página
- * promete; os outros são de associações a que a maior parte de quem lê não
- * pertence, e ligá-los por conta encheria a grade de dias que não são da
- * pessoa.
+ * O calendário do Apostolado fica sempre ligado, sem caixa: é o que a página
+ * promete. Os outros começam desligados, porque são de associações a que a
+ * maior parte de quem lê não pertence, e ligá-los por conta encheria a grade
+ * de dias que não são da pessoa.
  */
 export function SeletorDeAgendas({
   grupos,
@@ -32,8 +33,11 @@ export function SeletorDeAgendas({
    * chamada "Calendário das Indulgências Plenárias Universais" essa caixa
    * sozinha parecia oferecer o que a página já mostra. O rótulo do grupo diz
    * de quem é.
+   *
+   * `sempre` marca o grupo que não se desliga: ele entra como linha, com a
+   * cor e o nome, e sem caixa nenhuma.
    */
-  grupos: { grupo: Agenda["grupo"]; titulo: string }[];
+  grupos: { grupo: Agenda["grupo"]; titulo: string; sempre?: boolean }[];
   ligadas: string[];
   aoAlternar: (id: string) => void;
   carregando: boolean;
@@ -41,6 +45,7 @@ export function SeletorDeAgendas({
   const blocos = grupos
     .map((g) => ({
       titulo: g.titulo,
+      sempre: g.sempre ?? false,
       agendas: site.agendas.filter((a) => a.grupo === g.grupo && a.google),
     }))
     .filter((b) => b.agendas.length > 0);
@@ -56,19 +61,40 @@ export function SeletorDeAgendas({
         <div className="agendas-na-grade__grupo" key={b.titulo}>
           <p className="agendas-na-grade__grupo-titulo">{b.titulo}</p>
           <div className="agendas-na-grade__lista">
-            {b.agendas.map((a) => (
-              <label className="agendas-na-grade__item" key={a.id}>
-                <input
-                  type="checkbox"
-                  checked={ligadas.includes(a.id)}
-                  onChange={() => aoAlternar(a.id)}
-                />
-                <span className="agendas-na-grade__nome">{a.nome}</span>
-              </label>
-            ))}
+            {b.agendas.map((a) =>
+              b.sempre ? (
+                <p className="agendas-na-grade__fixa" key={a.id}>
+                  <Cor agenda={a.id} />
+                  <span className="agendas-na-grade__nome">
+                    {a.nome}
+                    <span className="agendas-na-grade__sempre"> sempre na grade</span>
+                  </span>
+                </p>
+              ) : (
+                <label className="agendas-na-grade__item" key={a.id}>
+                  <input
+                    type="checkbox"
+                    checked={ligadas.includes(a.id)}
+                    onChange={() => aoAlternar(a.id)}
+                  />
+                  <Cor agenda={a.id} />
+                  <span className="agendas-na-grade__nome">{a.nome}</span>
+                </label>
+              ),
+            )}
           </div>
         </div>
       ))}
     </fieldset>
+  );
+}
+
+/** A bolinha da agenda, do tamanho de legenda. A da grade é a mesma cor, miúda. */
+function Cor({ agenda }: { agenda: string }) {
+  return (
+    <span
+      className={`agendas-na-grade__cor agendas-na-grade__ponto--${agenda}`}
+      aria-hidden="true"
+    />
   );
 }
