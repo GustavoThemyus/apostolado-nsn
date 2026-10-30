@@ -1,8 +1,15 @@
 import { porId } from "../data/registro";
-import type { ColecaoDePostagens, Conteudo, Site, TextoDaPagina } from "../data/tipos";
+import type {
+  ColecaoDeFolhetos,
+  ColecaoDePostagens,
+  Conteudo,
+  Site,
+  TextoDaPagina,
+} from "../data/tipos";
 import { usarParametros, usarRota } from "../routes/usarRota";
 import { Botao } from "./Campos";
 import { EditorDeDocumento } from "./EditorDeDocumento";
+import { EditorDeFolhetos } from "./EditorDeFolhetos";
 import { EditorDeInicio, type PaginaInicial } from "./EditorDeInicio";
 import { EditorDePaginas } from "./EditorDePaginas";
 import { EditorDePostagens } from "./EditorDePostagens";
@@ -75,6 +82,8 @@ function Documento({ id, aoVoltar }: { id: string; aoVoltar: () => void }) {
         <EditorDeInicio conteudo={conteudo as PaginaInicial} aoMudar={mudar} />
       ) : registro.forma === "site" ? (
         <EditorDeSite conteudo={conteudo as Site} aoMudar={mudar} />
+      ) : registro.forma === "folhetos" ? (
+        <EditorDeFolhetos conteudo={conteudo as ColecaoDeFolhetos} aoMudar={mudar} />
       ) : registro.forma === "paginas" ? (
         <EditorDePaginas
           conteudo={conteudo as Record<string, TextoDaPagina>}

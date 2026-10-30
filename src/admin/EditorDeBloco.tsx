@@ -1,7 +1,7 @@
 import { NOME_DA_ETIQUETA } from "../data/tipos";
 import type { Bloco, Etiqueta } from "../data/tipos";
 import { Botao, Campo, Linha, ListaDeTextos, Texto } from "./Campos";
-import { ROTULO } from "./tiposDeBloco";
+import { ROTULO, novoId } from "./tiposDeBloco";
 
 interface Props {
   bloco: Bloco;
@@ -12,6 +12,45 @@ interface Props {
 }
 
 const ETIQUETAS: Etiqueta[] = ["ordinario", "proprio", "variavel", "comum"];
+
+/**
+ * As faixas de um bloco bilíngue, emparelhadas, ou null quando não dá.
+ *
+ * O modelo guarda duas listas de blocos, e não uma lista de pares: é isso que
+ * deixa o subgrid casar cada parágrafo do latim com a altura do seu par. Mas
+ * a página só casa se as duas listas tiverem o mesmo tamanho, e por isso
+ * `conteudo.teste.ts` o exige.
+ *
+ * Daí editar em par, e não cada coluna por si. Uma oração salva pelo painel
+ * com três parágrafos de latim para dois de tradução não daria erro nenhum ao
+ * salvar: sairia desencontrada na folha publicada, e o teste só acusaria
+ * depois. Em par, a conta não tem como não fechar.
+ *
+ * Nas 490 faixas que existem hoje — as dos folhetos e as do Enchiridion —
+ * os dois lados são sempre parágrafo. Se alguma trouxer outra coisa, o editor
+ * se recusa a mexer no bloco em vez de achatá-la.
+ */
+function faixasDe(latim: Bloco[], portugues: Bloco[]): { la: string; pt: string }[] | null {
+  if (latim.length !== portugues.length) return null;
+  const textos = (lado: Bloco[]): string[] | null => {
+    const saida: string[] = [];
+    for (const b of lado) {
+      if (b.tipo !== "paragrafo") return null;
+      saida.push(b.texto);
+    }
+    return saida;
+  };
+  const la = textos(latim);
+  const pt = textos(portugues);
+  if (!la || !pt) return null;
+  return la.map((texto, i) => ({ la: texto, pt: pt[i] }));
+}
+
+/** O parágrafo de volta, guardando o id que ele já tinha. */
+const comTexto = (antigo: Bloco | undefined, texto: string): Bloco =>
+  antigo && antigo.tipo === "paragrafo"
+    ? { ...antigo, texto }
+    : { id: novoId("faixa"), tipo: "paragrafo", texto };
 
 export function EditorDeBloco({ bloco, aoMudar, aoRemover, aoMover, children }: Props) {
   const troca = (parte: Partial<Bloco>) => aoMudar({ ...bloco, ...parte } as Bloco);
@@ -92,6 +131,66 @@ export function EditorDeBloco({ bloco, aoMudar, aoRemover, aoMover, children }: 
           </Botao>
         </div>
       )}
+
+      {bloco.tipo === "bilingue" &&
+        (() => {
+          const faixas = faixasDe(bloco.latim, bloco.portugues);
+          if (!faixas) {
+            return (
+              <p className="admin__ajuda admin__ajuda--atencao">
+                Este bloco tem {bloco.latim.length}{" "}
+                {bloco.latim.length === 1 ? "faixa" : "faixas"} de latim para{" "}
+                {bloco.portugues.length} de tradução, ou alguma que não é parágrafo
+                simples. O painel não mexe nele para não desencontrar as duas colunas.
+              </p>
+            );
+          }
+          const escrever = (novas: { la: string; pt: string }[]) =>
+            troca({
+              latim: novas.map((f, i) => comTexto(bloco.latim[i], f.la)),
+              portugues: novas.map((f, i) => comTexto(bloco.portugues[i], f.pt)),
+            });
+          return (
+            <div className="lista-edit">
+              <span className="campo__rotulo">Faixas</span>
+              <span className="campo__dica">
+                Cada faixa é um parágrafo de latim ao lado do seu par em português. Na
+                tela estreita elas voltam a ficar empilhadas, uma embaixo da outra.
+              </span>
+              {faixas.map((faixa, i) => (
+                <div className="verso-edit" key={bloco.latim[i]?.id ?? i}>
+                  <Campo rotulo="Latim">
+                    <Texto
+                      valor={faixa.la}
+                      linhas={4}
+                      aoMudar={(la) =>
+                        escrever(faixas.map((x, k) => (k === i ? { ...x, la } : x)))
+                      }
+                    />
+                  </Campo>
+                  <Campo rotulo="Português">
+                    <Texto
+                      valor={faixa.pt}
+                      linhas={4}
+                      aoMudar={(pt) =>
+                        escrever(faixas.map((x, k) => (k === i ? { ...x, pt } : x)))
+                      }
+                    />
+                  </Campo>
+                  <Botao
+                    aoClicar={() => escrever(faixas.filter((_, k) => k !== i))}
+                    variante="risco"
+                  >
+                    Remover esta faixa
+                  </Botao>
+                </div>
+              ))}
+              <Botao aoClicar={() => escrever([...faixas, { la: "", pt: "" }])}>
+                + faixa
+              </Botao>
+            </div>
+          );
+        })()}
 
       {bloco.tipo === "nota" && (
         <>

@@ -1158,14 +1158,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Oblátis, quǽsumus, Dómine, placáre munéribus: et fámulum tuum [i]N.[/i], quem pastórem Ecclésiæ tuæ præésse voluísti, assídua protectióne gubérna. Per Dóminum. Vere dignum et justum est, ǽquum et salutáre, nos tibi semper et ubíque grátias ágere: Dómine sancte, Pater omnípotens, ætérne Deus, per Christum Dóminum nostrum; quem, pérdito hominum géneri, Salvatórem miséricors et fidélis promisísti, cujus véritas instrúeret ínscios, sánctitas justificáret ímpios, virtus adjuváret infírmos. Dum ergo prope est ut véniat quem missúrus es, et dies affúlget liberatiónis nostræ, in hac promissiónum tuárum fide piis gáudiis exultámus. Et ídeo cum Angelis et Archángelis, cum Thronis et Dominatiónibus cumque omni milítia cœléstis exércitus hymnum glóriæ tuæ cánimus, sine fine dicéntes:",
+       "texto": "Oblátis, quǽsumus, Dómine, placáre munéribus: et fámulum tuum [i]N.[/i], quem pastórem Ecclésiæ tuæ præésse voluísti, assídua protectióne gubérna. Per Dóminum.",
        "id": "proprio-advento-i-29-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Aplacado com as oblações das oferendas, pedimos, Senhor, e vosso servo [i]N.[/i], a quem quisestes ser o pastor da vossa Igreja como pastor, governai com proteção constante. Por Nosso Senhor. Prefácio (galicano) É verdadeiramente digno e justo, racional e salutar, que nós sempre e em toda a parte Vos rendamos graças, Senhor Santo, Pai onipotente, Deus eterno, por Cristo nosso Senhor; Quem, ao gênero humano perdido, misericordiosa e fielmente, prometestes como Salvador, para sua verdade instruir os néscios; sua santidade justificar os ímpios; sua força ajudar os fracos. Enquanto, pois, que está prestes a vir Quem havíeis de enviar e já desponta o dia de nossa libertação, na fé dessas vossas promessas, exultamos em pia alegria. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino de vossa glória, sem fim dizendo:",
+       "texto": "Aplacado com as oblações das oferendas, pedimos, Senhor, e vosso servo [i]N.[/i], a quem quisestes ser o pastor da vossa Igreja como pastor, governai com proteção constante. Por Nosso Senhor.",
        "id": "proprio-advento-i-29-pt-01"
       }
      ],
@@ -1173,7 +1173,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Comunhão (Sl LXXXIV,13)",
+     "texto": "Prefácio (galicano)",
      "id": "proprio-advento-i-30"
     },
     {
@@ -1181,14 +1181,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Dóminus dabit benignitátem: et terra nostra dabit fructum suum.",
+       "texto": "Vere dignum et justum est, ǽquum et salutáre, nos tibi semper et ubíque grátias ágere: Dómine sancte, Pater omnípotens, ætérne Deus, per Christum Dóminum nostrum; quem, pérdito hominum géneri, Salvatórem miséricors et fidélis promisísti, cujus véritas instrúeret ínscios, sánctitas justificáret ímpios, virtus adjuváret infírmos. Dum ergo prope est ut véniat quem missúrus es, et dies affúlget liberatiónis nostræ, in hac promissiónum tuárum fide piis gáudiis exultámus. Et ídeo cum Angelis et Archángelis, cum Thronis et Dominatiónibus cumque omni milítia cœléstis exércitus hymnum glóriæ tuæ cánimus, sine fine dicéntes:",
        "id": "proprio-advento-i-31-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "O Senhor dará a sua benignidade e a nossa terra dará o seu fruto.",
+       "texto": "É verdadeiramente digno e justo, racional e salutar, que nós sempre e em toda a parte Vos rendamos graças, Senhor Santo, Pai onipotente, Deus eterno, por Cristo nosso Senhor; Quem, ao gênero humano perdido, misericordiosa e fielmente, prometestes como Salvador, para sua verdade instruir os néscios; sua santidade justificar os ímpios; sua força ajudar os fracos. Enquanto, pois, que está prestes a vir Quem havíeis de enviar e já desponta o dia de nossa libertação, na fé dessas vossas promessas, exultamos em pia alegria. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino de vossa glória, sem fim dizendo:",
        "id": "proprio-advento-i-31-pt-01"
       }
      ],
@@ -1196,7 +1196,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Pós-Comunhão",
+     "texto": "Comunhão (Sl LXXXIV,13)",
      "id": "proprio-advento-i-32"
     },
     {
@@ -1204,14 +1204,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Suscipiámus, Dómine, misericórdiam tuam in médio templi tui: ut reparatiónis nostræ ventúra sollémnia cóngruis honóribus præcedámus. Per Dóminum nostrum Jesum Christum Fílium tuum, qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. ℟. Amen.",
+       "texto": "Dóminus dabit benignitátem: et terra nostra dabit fructum suum.",
        "id": "proprio-advento-i-33-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Recebamos, Senhor, a vossa misericórdia no meio do vosso templo, a fim de que, para as futuras solenidades da nossa reparação, com honradez apropriada, precedamos. Por nosso Senhor Jesus Cristo, vosso Filho, Deus, que conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. ℟. Amém.",
+       "texto": "O Senhor dará a sua benignidade e a nossa terra dará o seu fruto.",
        "id": "proprio-advento-i-33-pt-01"
       }
      ],
@@ -1219,8 +1219,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "2. Santíssima Virgem Maria",
-     "menor": true,
+     "texto": "Pós-Comunhão",
      "id": "proprio-advento-i-34"
     },
     {
@@ -1228,14 +1227,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut, qui, Angelo nuntiánte, Christi, Fílii tui, incarnatiónem cognóvimus; per passiónem ejus et crucem, ad resurrectiónis glóriam perducámur.",
+       "texto": "Suscipiámus, Dómine, misericórdiam tuam in médio templi tui: ut reparatiónis nostræ ventúra sollémnia cóngruis honóribus præcedámus. Per Dóminum nostrum Jesum Christum Fílium tuum, qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. ℟. Amen.",
        "id": "proprio-advento-i-35-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "A vossa graça, pedimos, Senhor, infundi nas nossas mentes: para que nós que, pela anúncio do Anjo, conhecemos a encarnação de Cristo, vosso Filho, pela sua paixão e cruz, sejamos conduzidos à glória da ressurreição.",
+       "texto": "Recebamos, Senhor, a vossa misericórdia no meio do vosso templo, a fim de que, para as futuras solenidades da nossa reparação, com honradez apropriada, precedamos. Por nosso Senhor Jesus Cristo, vosso Filho, Deus, que conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. ℟. Amém.",
        "id": "proprio-advento-i-35-pt-01"
       }
      ],
@@ -1243,7 +1242,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "3. Contra os inimigos da Igreja",
+     "texto": "2. Santíssima Virgem Maria",
      "menor": true,
      "id": "proprio-advento-i-36"
     },
@@ -1252,14 +1251,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Quǽsumus, Dómine, Deus noster: ut, quos divina tríbuis participatióne gaudére, humánis non sinas subjacére perículis. Per Dóminum.",
+       "texto": "Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut, qui, Angelo nuntiánte, Christi, Fílii tui, incarnatiónem cognóvimus; per passiónem ejus et crucem, ad resurrectiónis glóriam perducámur.",
        "id": "proprio-advento-i-37-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Pedimos, Senhor, nosso Deus, para que aqueles a quem concedeis alegrarem-se com a participação divina, não permitais ficarem sujeitos a perigos humanos. Por Nosso Senhor.",
+       "texto": "A vossa graça, pedimos, Senhor, infundi nas nossas mentes: para que nós que, pela anúncio do Anjo, conhecemos a encarnação de Cristo, vosso Filho, pela sua paixão e cruz, sejamos conduzidos à glória da ressurreição.",
        "id": "proprio-advento-i-37-pt-01"
       }
      ],
@@ -1267,7 +1266,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Ou 3. Pelo Papa",
+     "texto": "3. Contra os inimigos da Igreja",
      "menor": true,
      "id": "proprio-advento-i-38"
     },
@@ -1276,18 +1275,42 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Hæc nos, quǽsumus, Dómine, divíni sacraménti percéptio prótegat: et fámulum tuum [i]N.[/i], quem pastorem Ecclésiæ tuæ præésse voluísti; una cum commísso sibi grege, salvet semper et múniat. Per Dóminum.",
+       "texto": "Quǽsumus, Dómine, Deus noster: ut, quos divina tríbuis participatióne gaudére, humánis non sinas subjacére perículis. Per Dóminum.",
        "id": "proprio-advento-i-39-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Esta recepção do divino sacramento, pedimos, Senhor, proteja-nos e o vosso servo [i]N.[/i], a quem quisestes que presidisse a vossa Igreja como pastor; juntamente com o rebanho a ele confiado, salvai sempre e defendei. Por Nosso Senhor.",
+       "texto": "Pedimos, Senhor, nosso Deus, para que aqueles a quem concedeis alegrarem-se com a participação divina, não permitais ficarem sujeitos a perigos humanos. Por Nosso Senhor.",
        "id": "proprio-advento-i-39-pt-01"
       }
      ],
      "id": "proprio-advento-i-39"
+    },
+    {
+     "tipo": "subtitulo",
+     "texto": "Ou 3. Pelo Papa",
+     "menor": true,
+     "id": "proprio-advento-i-40"
+    },
+    {
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Hæc nos, quǽsumus, Dómine, divíni sacraménti percéptio prótegat: et fámulum tuum [i]N.[/i], quem pastorem Ecclésiæ tuæ præésse voluísti; una cum commísso sibi grege, salvet semper et múniat. Per Dóminum.",
+       "id": "proprio-advento-i-41-la-01"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Esta recepção do divino sacramento, pedimos, Senhor, proteja-nos e o vosso servo [i]N.[/i], a quem quisestes que presidisse a vossa Igreja como pastor; juntamente com o rebanho a ele confiado, salvai sempre e defendei. Por Nosso Senhor.",
+       "id": "proprio-advento-i-41-pt-01"
+      }
+     ],
+     "id": "proprio-advento-i-41"
     }
    ]
   },
@@ -1619,14 +1642,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Oblátis, quǽsumus, Dómine, placáre munéribus: et fámulum tuum [i]N.[/i], quem pastórem Ecclésiæ tuæ præésse voluísti, assídua protectióne gubérna. Per Dóminum. Vere dignum et justum est, ǽquum et salutáre, nos tibi semper et ubíque grátias ágere: Dómine sancte, Pater omnípotens, ætérne Deus, per Christum Dóminum nostrum; quem, pérdito hominum géneri, Salvatórem miséricors et fidélis promisísti, cujus véritas instrúeret ínscios, sánctitas justificáret ímpios, virtus adjuváret infírmos. Dum ergo prope est ut véniat quem missúrus es, et dies affúlget liberatiónis nostræ, in hac promissiónum tuárum fide piis gáudiis exultámus. Et ídeo cum Angelis et Archángelis, cum Thronis et Dominatiónibus cumque omni milítia cœléstis exércitus hymnum glóriæ tuæ cánimus, sine fine dicéntes:",
+       "texto": "Oblátis, quǽsumus, Dómine, placáre munéribus: et fámulum tuum [i]N.[/i], quem pastórem Ecclésiæ tuæ præésse voluísti, assídua protectióne gubérna. Per Dóminum.",
        "id": "proprio-advento-ii-29-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Aplacado com as oblações das oferendas, pedimos, Senhor, e vosso servo [i]N.[/i], a quem quisestes ser o pastor da vossa Igreja como pastor, governai com proteção constante. Por Nosso Senhor. Prefácio (galicano) É verdadeiramente digno e justo, racional e salutar, que nós sempre e em toda a parte Vos rendamos graças, Senhor Santo, Pai onipotente, Deus eterno, por Cristo nosso Senhor; Quem, ao gênero humano perdido, misericordiosa e fielmente, prometestes como Salvador, para sua verdade instruir os néscios; sua santidade justificar os ímpios; sua força ajudar os fracos. Enquanto, pois, que está prestes a vir Quem havíeis de enviar e já desponta o dia de nossa libertação, na fé dessas vossas promessas, exultamos em pia alegria. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino de vossa glória, sem fim dizendo:",
+       "texto": "Aplacado com as oblações das oferendas, pedimos, Senhor, e vosso servo [i]N.[/i], a quem quisestes ser o pastor da vossa Igreja como pastor, governai com proteção constante. Por Nosso Senhor.",
        "id": "proprio-advento-ii-29-pt-01"
       }
      ],
@@ -1634,7 +1657,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Comunhão (Bar V,5; IV,36)",
+     "texto": "Prefácio (galicano)",
      "id": "proprio-advento-ii-30"
     },
     {
@@ -1642,14 +1665,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Jerúsalem, surge et sta in excélso, ei vide jucunditátem, quæ véniet tibi a Deo tuo.",
+       "texto": "Vere dignum et justum est, ǽquum et salutáre, nos tibi semper et ubíque grátias ágere: Dómine sancte, Pater omnípotens, ætérne Deus, per Christum Dóminum nostrum; quem, pérdito hominum géneri, Salvatórem miséricors et fidélis promisísti, cujus véritas instrúeret ínscios, sánctitas justificáret ímpios, virtus adjuváret infírmos. Dum ergo prope est ut véniat quem missúrus es, et dies affúlget liberatiónis nostræ, in hac promissiónum tuárum fide piis gáudiis exultámus. Et ídeo cum Angelis et Archángelis, cum Thronis et Dominatiónibus cumque omni milítia cœléstis exércitus hymnum glóriæ tuæ cánimus, sine fine dicéntes:",
        "id": "proprio-advento-ii-31-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Jerusalém, surge e põe-te no alto, e vê o regozijo que te virá de teu Deus.",
+       "texto": "É verdadeiramente digno e justo, racional e salutar, que nós sempre e em toda a parte Vos rendamos graças, Senhor Santo, Pai onipotente, Deus eterno, por Cristo nosso Senhor; Quem, ao gênero humano perdido, misericordiosa e fielmente, prometestes como Salvador, para sua verdade instruir os néscios; sua santidade justificar os ímpios; sua força ajudar os fracos. Enquanto, pois, que está prestes a vir Quem havíeis de enviar e já desponta o dia de nossa libertação, na fé dessas vossas promessas, exultamos em pia alegria. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino de vossa glória, sem fim dizendo:",
        "id": "proprio-advento-ii-31-pt-01"
       }
      ],
@@ -1657,7 +1680,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Pós-Comunhão",
+     "texto": "Comunhão (Bar V,5; IV,36)",
      "id": "proprio-advento-ii-32"
     },
     {
@@ -1665,14 +1688,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Repléti cibo spirituális alimóniæ, súpplices te, Dómine, deprecámur: ut, hujus participatióne mystérii, dóceas nos terréna despícere et amáre cœléstia. Per Dóminum nostrum Jesum Christum Fílium tuum, qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. ℟. Amen.",
+       "texto": "Jerúsalem, surge et sta in excélso, ei vide jucunditátem, quæ véniet tibi a Deo tuo.",
        "id": "proprio-advento-ii-33-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Repletos com o nutritivo alimento espiritual, suplicantes, Senhor, Vos imploramos que com a participação deste mistério, ensinai-nos a desprezar as coisas terrenas e a amar as celestes.. Por nosso Senhor Jesus Cristo, vosso Filho, Deus, que conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. ℟. Amém.",
+       "texto": "Jerusalém, surge e põe-te no alto, e vê o regozijo que te virá de teu Deus.",
        "id": "proprio-advento-ii-33-pt-01"
       }
      ],
@@ -1680,8 +1703,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "2. Santíssima Virgem Maria",
-     "menor": true,
+     "texto": "Pós-Comunhão",
      "id": "proprio-advento-ii-34"
     },
     {
@@ -1689,14 +1711,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut, qui, Angelo nuntiánte, Christi, Fílii tui, incarnatiónem cognóvimus; per passiónem ejus et crucem, ad resurrectiónis glóriam perducámur.",
+       "texto": "Repléti cibo spirituális alimóniæ, súpplices te, Dómine, deprecámur: ut, hujus participatióne mystérii, dóceas nos terréna despícere et amáre cœléstia. Per Dóminum nostrum Jesum Christum Fílium tuum, qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. ℟. Amen.",
        "id": "proprio-advento-ii-35-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "A vossa graça, pedimos, Senhor, infundi nas nossas mentes: para que nós que, pela anúncio do Anjo, conhecemos a encarnação de Cristo, vosso Filho, pela sua paixão e cruz, sejamos conduzidos à glória da ressurreição.",
+       "texto": "Repletos com o nutritivo alimento espiritual, suplicantes, Senhor, Vos imploramos que com a participação deste mistério, ensinai-nos a desprezar as coisas terrenas e a amar as celestes.. Por nosso Senhor Jesus Cristo, vosso Filho, Deus, que conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. ℟. Amém.",
        "id": "proprio-advento-ii-35-pt-01"
       }
      ],
@@ -1704,7 +1726,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "3. Contra os inimigos da Igreja",
+     "texto": "2. Santíssima Virgem Maria",
      "menor": true,
      "id": "proprio-advento-ii-36"
     },
@@ -1713,14 +1735,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Quǽsumus, Dómine, Deus noster: ut, quos divina tríbuis participatióne gaudére, humánis non sinas subjacére perículis. Per Dóminum.",
+       "texto": "Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut, qui, Angelo nuntiánte, Christi, Fílii tui, incarnatiónem cognóvimus; per passiónem ejus et crucem, ad resurrectiónis glóriam perducámur.",
        "id": "proprio-advento-ii-37-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Pedimos, Senhor, nosso Deus, para que aqueles a quem concedeis alegrarem-se com a participação divina, não permitais ficarem sujeitos a perigos humanos. Por Nosso Senhor.",
+       "texto": "A vossa graça, pedimos, Senhor, infundi nas nossas mentes: para que nós que, pela anúncio do Anjo, conhecemos a encarnação de Cristo, vosso Filho, pela sua paixão e cruz, sejamos conduzidos à glória da ressurreição.",
        "id": "proprio-advento-ii-37-pt-01"
       }
      ],
@@ -1728,7 +1750,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Ou 3. Pelo Papa",
+     "texto": "3. Contra os inimigos da Igreja",
      "menor": true,
      "id": "proprio-advento-ii-38"
     },
@@ -1737,18 +1759,42 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Hæc nos, quǽsumus, Dómine, divíni sacraménti percéptio prótegat: et fámulum tuum [i]N.[/i], quem pastorem Ecclésiæ tuæ præésse voluísti; una cum commísso sibi grege, salvet semper et múniat. Per Dóminum.",
+       "texto": "Quǽsumus, Dómine, Deus noster: ut, quos divina tríbuis participatióne gaudére, humánis non sinas subjacére perículis. Per Dóminum.",
        "id": "proprio-advento-ii-39-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Esta recepção do divino sacramento, pedimos, Senhor, proteja-nos e o vosso servo [i]N.[/i], a quem quisestes que presidisse a vossa Igreja como pastor; juntamente com o rebanho a ele confiado, salvai sempre e defendei. Por Nosso Senhor.",
+       "texto": "Pedimos, Senhor, nosso Deus, para que aqueles a quem concedeis alegrarem-se com a participação divina, não permitais ficarem sujeitos a perigos humanos. Por Nosso Senhor.",
        "id": "proprio-advento-ii-39-pt-01"
       }
      ],
      "id": "proprio-advento-ii-39"
+    },
+    {
+     "tipo": "subtitulo",
+     "texto": "Ou 3. Pelo Papa",
+     "menor": true,
+     "id": "proprio-advento-ii-40"
+    },
+    {
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Hæc nos, quǽsumus, Dómine, divíni sacraménti percéptio prótegat: et fámulum tuum [i]N.[/i], quem pastorem Ecclésiæ tuæ præésse voluísti; una cum commísso sibi grege, salvet semper et múniat. Per Dóminum.",
+       "id": "proprio-advento-ii-41-la-01"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Esta recepção do divino sacramento, pedimos, Senhor, proteja-nos e o vosso servo [i]N.[/i], a quem quisestes que presidisse a vossa Igreja como pastor; juntamente com o rebanho a ele confiado, salvai sempre e defendei. Por Nosso Senhor.",
+       "id": "proprio-advento-ii-41-pt-01"
+      }
+     ],
+     "id": "proprio-advento-ii-41"
     }
    ]
   },
@@ -2636,14 +2682,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Oblátis, quǽsumus, Dómine, placáre munéribus: et fámulum tuum [i]N.[/i], quem pastórem Ecclésiæ tuæ præésse voluísti, assídua protectióne gubérna. Per Dóminum. Vere dignum et justum est, ǽquum et salutáre, nos tibi semper et ubíque grátias ágere: Dómine sancte, Pater omnípotens, ætérne Deus, per Christum Dóminum nostrum; quem, pérdito hominum géneri, Salvatórem miséricors et fidélis promisísti, cujus véritas instrúeret ínscios, sánctitas justificáret ímpios, virtus adjuváret infírmos. Dum ergo prope est ut véniat quem missúrus es, et dies affúlget liberatiónis nostræ, in hac promissiónum tuárum fide piis gáudiis exultámus. Et ídeo cum Angelis et Archángelis, cum Thronis et Dominatiónibus cumque omni milítia cœléstis exércitus hymnum glóriæ tuæ cánimus, sine fine dicéntes:",
+       "texto": "Oblátis, quǽsumus, Dómine, placáre munéribus: et fámulum tuum [i]N.[/i], quem pastórem Ecclésiæ tuæ præésse voluísti, assídua protectióne gubérna. Per Dóminum.",
        "id": "proprio-advento-iii-29-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Aplacado com as oblações das oferendas, pedimos, Senhor, e vosso servo [i]N.[/i], a quem quisestes ser o pastor da vossa Igreja como pastor, governai com proteção constante. Por Nosso Senhor. Prefácio (galicano) É verdadeiramente digno e justo, racional e salutar, que nós sempre e em toda a parte Vos rendamos graças, Senhor Santo, Pai onipotente, Deus eterno, por Cristo nosso Senhor; Quem, ao gênero humano perdido, misericordiosa e fielmente, prometestes como Salvador, para sua verdade instruir os néscios; sua santidade justificar os ímpios; sua força ajudar os fracos. Enquanto, pois, que está prestes a vir Quem havíeis de enviar e já desponta o dia de nossa libertação, na fé dessas vossas promessas, exultamos em pia alegria. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino de vossa glória, sem fim dizendo:",
+       "texto": "Aplacado com as oblações das oferendas, pedimos, Senhor, e vosso servo [i]N.[/i], a quem quisestes ser o pastor da vossa Igreja como pastor, governai com proteção constante. Por Nosso Senhor.",
        "id": "proprio-advento-iii-29-pt-01"
       }
      ],
@@ -2651,7 +2697,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Comunhão (Is XXXV,4)",
+     "texto": "Prefácio (galicano)",
      "id": "proprio-advento-iii-30"
     },
     {
@@ -2659,14 +2705,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Dícite: pusillánimes, confortámini et nolíte timére: ecce, Deus noster véniet et salvábit nos.",
+       "texto": "Vere dignum et justum est, ǽquum et salutáre, nos tibi semper et ubíque grátias ágere: Dómine sancte, Pater omnípotens, ætérne Deus, per Christum Dóminum nostrum; quem, pérdito hominum géneri, Salvatórem miséricors et fidélis promisísti, cujus véritas instrúeret ínscios, sánctitas justificáret ímpios, virtus adjuváret infírmos. Dum ergo prope est ut véniat quem missúrus es, et dies affúlget liberatiónis nostræ, in hac promissiónum tuárum fide piis gáudiis exultámus. Et ídeo cum Angelis et Archángelis, cum Thronis et Dominatiónibus cumque omni milítia cœléstis exércitus hymnum glóriæ tuæ cánimus, sine fine dicéntes:",
        "id": "proprio-advento-iii-31-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Dizei: covardes, confortai-vos e não temais; eis, o nosso Deus virá e salvar-nos-á.",
+       "texto": "É verdadeiramente digno e justo, racional e salutar, que nós sempre e em toda a parte Vos rendamos graças, Senhor Santo, Pai onipotente, Deus eterno, por Cristo nosso Senhor; Quem, ao gênero humano perdido, misericordiosa e fielmente, prometestes como Salvador, para sua verdade instruir os néscios; sua santidade justificar os ímpios; sua força ajudar os fracos. Enquanto, pois, que está prestes a vir Quem havíeis de enviar e já desponta o dia de nossa libertação, na fé dessas vossas promessas, exultamos em pia alegria. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino de vossa glória, sem fim dizendo:",
        "id": "proprio-advento-iii-31-pt-01"
       }
      ],
@@ -2674,7 +2720,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Pós-Comunhão",
+     "texto": "Comunhão (Is XXXV,4)",
      "id": "proprio-advento-iii-32"
     },
     {
@@ -2682,14 +2728,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Implorámus, Dómine, cleméntiam tuam: ut hæc divína subsídia, a vítiis expiátos, ad festa ventúra nos prǽparent. Per Dóminum nostrum Jesum Christum Fílium tuum, qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. ℟. Amen.",
+       "texto": "Dícite: pusillánimes, confortámini et nolíte timére: ecce, Deus noster véniet et salvábit nos.",
        "id": "proprio-advento-iii-33-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Imploramos, Senhor, a vossa clemência a fim de que este subsídio divino, expurgados dos vícios, prepare-nos para as festas futuras. Por nosso Senhor Jesus Cristo, vosso Filho, Deus, que conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. ℟. Amém.",
+       "texto": "Dizei: covardes, confortai-vos e não temais; eis, o nosso Deus virá e salvar-nos-á.",
        "id": "proprio-advento-iii-33-pt-01"
       }
      ],
@@ -2697,8 +2743,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "2. Santíssima Virgem Maria",
-     "menor": true,
+     "texto": "Pós-Comunhão",
      "id": "proprio-advento-iii-34"
     },
     {
@@ -2706,14 +2751,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut, qui, Angelo nuntiánte, Christi, Fílii tui, incarnatiónem cognóvimus; per passiónem ejus et crucem, ad resurrectiónis glóriam perducámur.",
+       "texto": "Implorámus, Dómine, cleméntiam tuam: ut hæc divína subsídia, a vítiis expiátos, ad festa ventúra nos prǽparent. Per Dóminum nostrum Jesum Christum Fílium tuum, qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. ℟. Amen.",
        "id": "proprio-advento-iii-35-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "A vossa graça, pedimos, Senhor, infundi nas nossas mentes: para que nós que, pela anúncio do Anjo, conhecemos a encarnação de Cristo, vosso Filho, pela sua paixão e cruz, sejamos conduzidos à glória da ressurreição.",
+       "texto": "Imploramos, Senhor, a vossa clemência a fim de que este subsídio divino, expurgados dos vícios, prepare-nos para as festas futuras. Por nosso Senhor Jesus Cristo, vosso Filho, Deus, que conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. ℟. Amém.",
        "id": "proprio-advento-iii-35-pt-01"
       }
      ],
@@ -2721,7 +2766,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "3. Contra os inimigos da Igreja",
+     "texto": "2. Santíssima Virgem Maria",
      "menor": true,
      "id": "proprio-advento-iii-36"
     },
@@ -2730,14 +2775,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Quǽsumus, Dómine, Deus noster: ut, quos divina tríbuis participatióne gaudére, humánis non sinas subjacére perículis. Per Dóminum.",
+       "texto": "Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut, qui, Angelo nuntiánte, Christi, Fílii tui, incarnatiónem cognóvimus; per passiónem ejus et crucem, ad resurrectiónis glóriam perducámur.",
        "id": "proprio-advento-iii-37-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Pedimos, Senhor, nosso Deus, para que aqueles a quem concedeis alegrarem-se com a participação divina, não permitais ficarem sujeitos a perigos humanos. Por Nosso Senhor.",
+       "texto": "A vossa graça, pedimos, Senhor, infundi nas nossas mentes: para que nós que, pela anúncio do Anjo, conhecemos a encarnação de Cristo, vosso Filho, pela sua paixão e cruz, sejamos conduzidos à glória da ressurreição.",
        "id": "proprio-advento-iii-37-pt-01"
       }
      ],
@@ -2745,7 +2790,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Ou 3. Pelo Papa",
+     "texto": "3. Contra os inimigos da Igreja",
      "menor": true,
      "id": "proprio-advento-iii-38"
     },
@@ -2754,18 +2799,42 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Hæc nos, quǽsumus, Dómine, divíni sacraménti percéptio prótegat: et fámulum tuum [i]N.[/i], quem pastorem Ecclésiæ tuæ præésse voluísti; una cum commísso sibi grege, salvet semper et múniat. Per Dóminum.",
+       "texto": "Quǽsumus, Dómine, Deus noster: ut, quos divina tríbuis participatióne gaudére, humánis non sinas subjacére perículis. Per Dóminum.",
        "id": "proprio-advento-iii-39-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Esta recepção do divino sacramento, pedimos, Senhor, proteja-nos e o vosso servo [i]N.[/i], a quem quisestes que presidisse a vossa Igreja como pastor; juntamente com o rebanho a ele confiado, salvai sempre e defendei. Por Nosso Senhor.",
+       "texto": "Pedimos, Senhor, nosso Deus, para que aqueles a quem concedeis alegrarem-se com a participação divina, não permitais ficarem sujeitos a perigos humanos. Por Nosso Senhor.",
        "id": "proprio-advento-iii-39-pt-01"
       }
      ],
      "id": "proprio-advento-iii-39"
+    },
+    {
+     "tipo": "subtitulo",
+     "texto": "Ou 3. Pelo Papa",
+     "menor": true,
+     "id": "proprio-advento-iii-40"
+    },
+    {
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Hæc nos, quǽsumus, Dómine, divíni sacraménti percéptio prótegat: et fámulum tuum [i]N.[/i], quem pastorem Ecclésiæ tuæ præésse voluísti; una cum commísso sibi grege, salvet semper et múniat. Per Dóminum.",
+       "id": "proprio-advento-iii-41-la-01"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Esta recepção do divino sacramento, pedimos, Senhor, proteja-nos e o vosso servo [i]N.[/i], a quem quisestes que presidisse a vossa Igreja como pastor; juntamente com o rebanho a ele confiado, salvai sempre e defendei. Por Nosso Senhor.",
+       "id": "proprio-advento-iii-41-pt-01"
+      }
+     ],
+     "id": "proprio-advento-iii-41"
     }
    ]
   },
@@ -3097,14 +3166,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Oblátis, quǽsumus, Dómine, placáre munéribus: et fámulum tuum [i]N.[/i], quem pastórem Ecclésiæ tuæ præésse voluísti, assídua protectióne gubérna. Per Dóminum. Vere dignum et justum est, ǽquum et salutáre, nos tibi semper et ubíque grátias ágere: Dómine sancte, Pater omnípotens, ætérne Deus, per Christum Dóminum nostrum; quem, pérdito hominum géneri, Salvatórem miséricors et fidélis promisísti, cujus véritas instrúeret ínscios, sánctitas justificáret ímpios, virtus adjuváret infírmos. Dum ergo prope est ut véniat quem missúrus es, et dies affúlget liberatiónis nostræ, in hac promissiónum tuárum fide piis gáudiis exultámus. Et ídeo cum Angelis et Archángelis, cum Thronis et Dominatiónibus cumque omni milítia cœléstis exércitus hymnum glóriæ tuæ cánimus, sine fine dicéntes:",
+       "texto": "Oblátis, quǽsumus, Dómine, placáre munéribus: et fámulum tuum [i]N.[/i], quem pastórem Ecclésiæ tuæ præésse voluísti, assídua protectióne gubérna. Per Dóminum.",
        "id": "proprio-advento-iv-29-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Aplacado com as oblações das oferendas, pedimos, Senhor, e vosso servo [i]N.[/i], a quem quisestes ser o pastor da vossa Igreja como pastor, governai com proteção constante. Por Nosso Senhor. Prefácio (galicano) É verdadeiramente digno e justo, racional e salutar, que nós sempre e em toda a parte Vos rendamos graças, Senhor Santo, Pai onipotente, Deus eterno, por Cristo nosso Senhor; Quem, ao gênero humano perdido, misericordiosa e fielmente, prometestes como Salvador, para sua verdade instruir os néscios; sua santidade justificar os ímpios; sua força ajudar os fracos. Enquanto, pois, que está prestes a vir Quem havíeis de enviar e já desponta o dia de nossa libertação, na fé dessas vossas promessas, exultamos em pia alegria. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino de vossa glória, sem fim dizendo:",
+       "texto": "Aplacado com as oblações das oferendas, pedimos, Senhor, e vosso servo [i]N.[/i], a quem quisestes ser o pastor da vossa Igreja como pastor, governai com proteção constante. Por Nosso Senhor.",
        "id": "proprio-advento-iv-29-pt-01"
       }
      ],
@@ -3112,7 +3181,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Comunhão (Is VII,14)",
+     "texto": "Prefácio (galicano)",
      "id": "proprio-advento-iv-30"
     },
     {
@@ -3120,14 +3189,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Ecce, Virgo concípiet et páriet fílium: et vocábitur nomen ejus Emmánuel.",
+       "texto": "Vere dignum et justum est, ǽquum et salutáre, nos tibi semper et ubíque grátias ágere: Dómine sancte, Pater omnípotens, ætérne Deus, per Christum Dóminum nostrum; quem, pérdito hominum géneri, Salvatórem miséricors et fidélis promisísti, cujus véritas instrúeret ínscios, sánctitas justificáret ímpios, virtus adjuváret infírmos. Dum ergo prope est ut véniat quem missúrus es, et dies affúlget liberatiónis nostræ, in hac promissiónum tuárum fide piis gáudiis exultámus. Et ídeo cum Angelis et Archángelis, cum Thronis et Dominatiónibus cumque omni milítia cœléstis exércitus hymnum glóriæ tuæ cánimus, sine fine dicéntes:",
        "id": "proprio-advento-iv-31-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Eis, uma Virgem conceberá e dará à luz um filho; e seu nome será chamado Emanuel.",
+       "texto": "É verdadeiramente digno e justo, racional e salutar, que nós sempre e em toda a parte Vos rendamos graças, Senhor Santo, Pai onipotente, Deus eterno, por Cristo nosso Senhor; Quem, ao gênero humano perdido, misericordiosa e fielmente, prometestes como Salvador, para sua verdade instruir os néscios; sua santidade justificar os ímpios; sua força ajudar os fracos. Enquanto, pois, que está prestes a vir Quem havíeis de enviar e já desponta o dia de nossa libertação, na fé dessas vossas promessas, exultamos em pia alegria. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino de vossa glória, sem fim dizendo:",
        "id": "proprio-advento-iv-31-pt-01"
       }
      ],
@@ -3135,7 +3204,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Pós-Comunhão",
+     "texto": "Comunhão (Is VII,14)",
      "id": "proprio-advento-iv-32"
     },
     {
@@ -3143,14 +3212,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Sumptis munéribus, quǽsumus, Dómine: ut, cum frequentatióne mystérii, crescat nostræ salútis efféctus. Per Dóminum nostrum Jesum Christum Fílium tuum, qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. ℟. Amen.",
+       "texto": "Ecce, Virgo concípiet et páriet fílium: et vocábitur nomen ejus Emmánuel.",
        "id": "proprio-advento-iv-33-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Recebidas as dádivas, pedimos, Senhor, que com a frequentação deste mistério, cresça-nos o efeito da salvação. Por nosso Senhor Jesus Cristo, vosso Filho, Deus, que conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. ℟. Amém.",
+       "texto": "Eis, uma Virgem conceberá e dará à luz um filho; e seu nome será chamado Emanuel.",
        "id": "proprio-advento-iv-33-pt-01"
       }
      ],
@@ -3158,8 +3227,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "2. Santíssima Virgem Maria",
-     "menor": true,
+     "texto": "Pós-Comunhão",
      "id": "proprio-advento-iv-34"
     },
     {
@@ -3167,14 +3235,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut, qui, Angelo nuntiánte, Christi, Fílii tui, incarnatiónem cognóvimus; per passiónem ejus et crucem, ad resurrectiónis glóriam perducámur.",
+       "texto": "Sumptis munéribus, quǽsumus, Dómine: ut, cum frequentatióne mystérii, crescat nostræ salútis efféctus. Per Dóminum nostrum Jesum Christum Fílium tuum, qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. ℟. Amen.",
        "id": "proprio-advento-iv-35-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "A vossa graça, pedimos, Senhor, infundi nas nossas mentes: para que nós que, pela anúncio do Anjo, conhecemos a encarnação de Cristo, vosso Filho, pela sua paixão e cruz, sejamos conduzidos à glória da ressurreição.",
+       "texto": "Recebidas as dádivas, pedimos, Senhor, que com a frequentação deste mistério, cresça-nos o efeito da salvação. Por nosso Senhor Jesus Cristo, vosso Filho, Deus, que conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. ℟. Amém.",
        "id": "proprio-advento-iv-35-pt-01"
       }
      ],
@@ -3182,7 +3250,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "3. Contra os inimigos da Igreja",
+     "texto": "2. Santíssima Virgem Maria",
      "menor": true,
      "id": "proprio-advento-iv-36"
     },
@@ -3191,14 +3259,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Quǽsumus, Dómine, Deus noster: ut, quos divina tríbuis participatióne gaudére, humánis non sinas subjacére perículis. Per Dóminum.",
+       "texto": "Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut, qui, Angelo nuntiánte, Christi, Fílii tui, incarnatiónem cognóvimus; per passiónem ejus et crucem, ad resurrectiónis glóriam perducámur.",
        "id": "proprio-advento-iv-37-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Pedimos, Senhor, nosso Deus, para que aqueles a quem concedeis alegrarem-se com a participação divina, não permitais ficarem sujeitos a perigos humanos. Por Nosso Senhor.",
+       "texto": "A vossa graça, pedimos, Senhor, infundi nas nossas mentes: para que nós que, pela anúncio do Anjo, conhecemos a encarnação de Cristo, vosso Filho, pela sua paixão e cruz, sejamos conduzidos à glória da ressurreição.",
        "id": "proprio-advento-iv-37-pt-01"
       }
      ],
@@ -3206,7 +3274,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Ou 3. Pelo Papa",
+     "texto": "3. Contra os inimigos da Igreja",
      "menor": true,
      "id": "proprio-advento-iv-38"
     },
@@ -3215,18 +3283,42 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Hæc nos, quǽsumus, Dómine, divíni sacraménti percéptio prótegat: et fámulum tuum [i]N.[/i], quem pastorem Ecclésiæ tuæ præésse voluísti; una cum commísso sibi grege, salvet semper et múniat. Per Dóminum.",
+       "texto": "Quǽsumus, Dómine, Deus noster: ut, quos divina tríbuis participatióne gaudére, humánis non sinas subjacére perículis. Per Dóminum.",
        "id": "proprio-advento-iv-39-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Esta recepção do divino sacramento, pedimos, Senhor, proteja-nos e o vosso servo [i]N.[/i], a quem quisestes que presidisse a vossa Igreja como pastor; juntamente com o rebanho a ele confiado, salvai sempre e defendei. Por Nosso Senhor.",
+       "texto": "Pedimos, Senhor, nosso Deus, para que aqueles a quem concedeis alegrarem-se com a participação divina, não permitais ficarem sujeitos a perigos humanos. Por Nosso Senhor.",
        "id": "proprio-advento-iv-39-pt-01"
       }
      ],
      "id": "proprio-advento-iv-39"
+    },
+    {
+     "tipo": "subtitulo",
+     "texto": "Ou 3. Pelo Papa",
+     "menor": true,
+     "id": "proprio-advento-iv-40"
+    },
+    {
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Hæc nos, quǽsumus, Dómine, divíni sacraménti percéptio prótegat: et fámulum tuum [i]N.[/i], quem pastorem Ecclésiæ tuæ præésse voluísti; una cum commísso sibi grege, salvet semper et múniat. Per Dóminum.",
+       "id": "proprio-advento-iv-41-la-01"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Esta recepção do divino sacramento, pedimos, Senhor, proteja-nos e o vosso servo [i]N.[/i], a quem quisestes que presidisse a vossa Igreja como pastor; juntamente com o rebanho a ele confiado, salvai sempre e defendei. Por Nosso Senhor.",
+       "id": "proprio-advento-iv-41-pt-01"
+      }
+     ],
+     "id": "proprio-advento-iv-41"
     }
    ]
   },
@@ -3414,14 +3506,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Da nobis, quǽsumus, omnípotens Deus: ut, sicut adoránda Fílii tui natalítia prævenímus, sic ejus múnera capiámus sempitérna gaudéntes: Qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. Vere dignum et justum est, ǽquum et salutáre, nos tibi semper et ubíque grátias ágere: Dómine sancte, Pater omnípotens, ætérne Deus, per Christum Dóminum nostrum; quem, pérdito hominum géneri, Salvatórem miséricors et fidélis promisísti, cujus véritas instrúeret ínscios, sánctitas justificáret ímpios, virtus adjuváret infírmos. Dum ergo prope est ut véniat quem missúrus es, et dies affúlget liberatiónis nostræ, in hac promissiónum tuárum fide piis gáudiis exultámus. Et ídeo cum Angelis et Archángelis, cum Thronis et Dominatiónibus cumque omni milítia cœléstis exércitus hymnum glóriæ tuæ cánimus, sine fine dicéntes:",
+       "texto": "Da nobis, quǽsumus, omnípotens Deus: ut, sicut adoránda Fílii tui natalítia prævenímus, sic ejus múnera capiámus sempitérna gaudéntes: Qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum.",
        "id": "proprio-vigilia-do-natal-17-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Dai-nos, pedimos, Deus onipotente, que como preparamos o adorável natalício do vosso Filho, assim alcancemos, alegres, suas dádivas sempiternas. Que, Deus, conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos ℟. Amém. Prefácio (galicano) É verdadeiramente digno e justo, racional e salutar, que nós sempre e em toda a parte Vos rendamos graças, Senhor Santo, Pai onipotente, Deus eterno, por Cristo nosso Senhor; Quem, ao gênero humano perdido, misericordiosa e fielmente, prometestes como Salvador, para sua verdade instruir os néscios; sua santidade justificar os ímpios; sua força ajudar os fracos. Enquanto, pois, que está prestes a vir Quem havíeis de enviar e já desponta o dia de nossa libertação, na fé dessas vossas promessas, exultamos em pia alegria. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino de vossa glória, sem fim dizendo:",
+       "texto": "Dai-nos, pedimos, Deus onipotente, que como preparamos o adorável natalício do vosso Filho, assim alcancemos, alegres, suas dádivas sempiternas. Que, Deus, conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos ℟. Amém.",
        "id": "proprio-vigilia-do-natal-17-pt-01"
       }
      ],
@@ -3429,7 +3521,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Comunhão (Is XL,5)",
+     "texto": "Prefácio (galicano)",
      "id": "proprio-vigilia-do-natal-18"
     },
     {
@@ -3437,14 +3529,14 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Revelábitur glória Dómini: et vidébit omnis caro salutáre Dei nostri.",
+       "texto": "Vere dignum et justum est, ǽquum et salutáre, nos tibi semper et ubíque grátias ágere: Dómine sancte, Pater omnípotens, ætérne Deus, per Christum Dóminum nostrum; quem, pérdito hominum géneri, Salvatórem miséricors et fidélis promisísti, cujus véritas instrúeret ínscios, sánctitas justificáret ímpios, virtus adjuváret infírmos. Dum ergo prope est ut véniat quem missúrus es, et dies affúlget liberatiónis nostræ, in hac promissiónum tuárum fide piis gáudiis exultámus. Et ídeo cum Angelis et Archángelis, cum Thronis et Dominatiónibus cumque omni milítia cœléstis exércitus hymnum glóriæ tuæ cánimus, sine fine dicéntes:",
        "id": "proprio-vigilia-do-natal-19-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Revelar-se-á a glória do Senhor e toda carne verá a salvação de nosso Deus.",
+       "texto": "É verdadeiramente digno e justo, racional e salutar, que nós sempre e em toda a parte Vos rendamos graças, Senhor Santo, Pai onipotente, Deus eterno, por Cristo nosso Senhor; Quem, ao gênero humano perdido, misericordiosa e fielmente, prometestes como Salvador, para sua verdade instruir os néscios; sua santidade justificar os ímpios; sua força ajudar os fracos. Enquanto, pois, que está prestes a vir Quem havíeis de enviar e já desponta o dia de nossa libertação, na fé dessas vossas promessas, exultamos em pia alegria. E por isso, com os Anjos e os Arcanjos, com os Tronos e as Dominações e com toda a milícia do exército celeste, cantamos o hino de vossa glória, sem fim dizendo:",
        "id": "proprio-vigilia-do-natal-19-pt-01"
       }
      ],
@@ -3452,7 +3544,7 @@
     },
     {
      "tipo": "subtitulo",
-     "texto": "Pós-Comunhão",
+     "texto": "Comunhão (Is XL,5)",
      "id": "proprio-vigilia-do-natal-20"
     },
     {
@@ -3460,18 +3552,41 @@
      "latim": [
       {
        "tipo": "paragrafo",
-       "texto": "Da nobis, quǽsumus, Dómine: unigéniti Fílii tui recensíta nativitáte respiráre; cuius cœlésti mystério páscimur et potámur. Per eúmdem Dóminum nostrum Jesum Christum Fílium tuum, qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. ℟. Amen.",
+       "texto": "Revelábitur glória Dómini: et vidébit omnis caro salutáre Dei nostri.",
        "id": "proprio-vigilia-do-natal-21-la-01"
       }
      ],
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Dai-nos, pedimos, Senhor, que nossos pensamentos respirem a natividade de vosso Filho unigênito, cujo celeste mistério nos alimenta e sacia. Pelo mesmo nosso Senhor Jesus Cristo, vosso Filho, Deus, que conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. ℟. Amém.",
+       "texto": "Revelar-se-á a glória do Senhor e toda carne verá a salvação de nosso Deus.",
        "id": "proprio-vigilia-do-natal-21-pt-01"
       }
      ],
      "id": "proprio-vigilia-do-natal-21"
+    },
+    {
+     "tipo": "subtitulo",
+     "texto": "Pós-Comunhão",
+     "id": "proprio-vigilia-do-natal-22"
+    },
+    {
+     "tipo": "bilingue",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Da nobis, quǽsumus, Dómine: unigéniti Fílii tui recensíta nativitáte respiráre; cuius cœlésti mystério páscimur et potámur. Per eúmdem Dóminum nostrum Jesum Christum Fílium tuum, qui tecum vivit et regnat in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. ℟. Amen.",
+       "id": "proprio-vigilia-do-natal-23-la-01"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Dai-nos, pedimos, Senhor, que nossos pensamentos respirem a natividade de vosso Filho unigênito, cujo celeste mistério nos alimenta e sacia. Pelo mesmo nosso Senhor Jesus Cristo, vosso Filho, Deus, que conVosco vive e reina na unidade do Espírito Santo, por todos os séculos dos séculos. ℟. Amém.",
+       "id": "proprio-vigilia-do-natal-23-pt-01"
+      }
+     ],
+     "id": "proprio-vigilia-do-natal-23"
     }
    ]
   }

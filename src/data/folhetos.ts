@@ -9,9 +9,9 @@ import type { ColecaoDeFolhetos, Folheto } from "./tipos";
  * mais cedo que lá — um próprio de Missa inteiro é muito texto, e o Perez
  * falou em próprios, cantos de procissão, vésperas e ofícios de Semana Santa.
  *
- * Com os sete próprios do Advento o arquivo passou de 41 KB para 163 KB, e
+ * Com os sete próprios do Advento o arquivo passou de 41 KB para 165 KB, e
  * portanto do limite. Medido o que isso custa: o Vite já separa estes dados
- * num pedaço só deles, de 138 KB — 36 KB comprimidos —, baixado apenas nas
+ * num pedaço só deles, de 140 KB — 36 KB comprimidos —, baixado apenas nas
  * duas páginas de folheto, e o Enchiridion, que está no ar, pesa o dobro.
  * Então não é agora que se quebra.
  *

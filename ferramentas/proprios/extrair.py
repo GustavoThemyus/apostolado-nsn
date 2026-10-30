@@ -119,6 +119,16 @@ def costurar(linhas_):
     return re.sub(r"\[/i\] ?\[i\]", " ", texto).strip()
 
 
+# Onde nenhuma linha de coluna começa.
+#
+# A coluna da esquerda abre em 42 — 51 na Vigília do Natal —, e toda linha de
+# corpo que cruza a divisa nasce ali: são as 948 em que a frase portuguesa
+# chega ao fim da largura e o latim continua do outro lado. O texto centrado
+# que mais à esquerda começa, nos sete PDFs, é o nome da festa da Vigília, em
+# 260. Daqui para a direita, portanto, só há centrado.
+CENTRADO = 200
+
+
 # a maiúscula que o PDF deixou do lado de cá: ver `separarNoMeio`
 INICIAL_SOLTA = re.compile(r"^(.*\s)([A-ZÀ-Ý])$")
 
@@ -185,15 +195,25 @@ def extrair(pdf):
         esquerda = [f for f in linha if f["esq"] < MEIO]
         direita = [f for f in linha if f["esq"] >= MEIO]
 
-        # Título é linha toda em negrito **e** centrada, isto é, que cruza a
-        # divisa das colunas. Só o negrito não bastava: no IV Domingo o
-        # "Laus tibi, Christe." do fim do Evangelho vem em negrito na coluna
-        # do latim, e virava um título solto no meio do próprio. Texto
-        # centrado cruza o meio da página por definição; texto de coluna,
-        # nunca.
+        # Título é linha centrada, isto é, que cruza a divisa das colunas, e
+        # em negrito. Só o negrito não bastava: no IV Domingo o "Laus tibi,
+        # Christe." do fim do Evangelho vem em negrito na coluna do latim, e
+        # virava um título solto no meio do próprio. Texto centrado cruza o
+        # meio da página por definição; texto de coluna, nunca.
+        #
+        # Em negrito, e não toda em negrito: o "Prefácio (galicano)" de cinco
+        # dos sete próprios traz o "Prefácio" em negrito e o "(galicano)"
+        # redondo, e pela regra antiga não era título nenhum — caía no corpo
+        # e emendava o Prefácio inteiro no fim da oração anterior, que é o
+        # que o Perez viu na Vigília do Natal. Numa linha que já é centrada,
+        # basta ela começar em negrito; o que a exigência inteira defendia
+        # eram as linhas de coluna que acabam em "℟. Amen.", e essas nascem
+        # na margem.
         extremos = (min(f["esq"] for f in linha),
                     max(f["esq"] + f["largura"] for f in linha))
-        if all(f["negrito"] for f in linha) and extremos[0] < MEIO < extremos[1]:
+        centrada = extremos[0] < MEIO < extremos[1]
+        if centrada and (all(f["negrito"] for f in linha)
+                         or (extremos[0] >= CENTRADO and linha[0]["negrito"])):
             fechar()
             cabeca = juntar(linha)
             if blocos or ABRE_O_CORPO.match(cabeca):

@@ -4,7 +4,7 @@ import { Botao, Campo, Linha, Texto } from "./Campos";
 import { EditorDeBloco } from "./EditorDeBloco";
 import { mover } from "./mover";
 import { Paleta } from "./Paleta";
-import { novoId } from "./tiposDeBloco";
+import { novoId, type NomeDeTipo } from "./tiposDeBloco";
 
 /**
  * O editor das páginas de texto: título, descrição e as seções.
@@ -147,15 +147,22 @@ function EditorDeSecao({
   );
 }
 
-/** Os blocos de uma seção, ou de dentro de um passo. */
+/** Os blocos de uma seção, de uma folha, ou de dentro de um passo. */
 export function ListaDeBlocos({
   blocos,
   aoMudar,
-  dentroDePasso = false,
+  excluir = [],
 }: {
   blocos: Bloco[];
   aoMudar: (b: Bloco[]) => void;
-  dentroDePasso?: boolean;
+  /**
+   * Tipos que não cabem aqui.
+   *
+   * Passo dentro de passo não existe na página. E o índice e o passo não
+   * cabem num folheto: os dois leem de cima — as seções do documento, a
+   * numeração das peças — e a folha não tem nem uma nem outra.
+   */
+  excluir?: NomeDeTipo[];
 }) {
   const [criando, definirCriando] = useState(false);
 
@@ -174,7 +181,7 @@ export function ListaDeBlocos({
               <span className="campo__rotulo">Corpo do passo</span>
               <ListaDeBlocos
                 blocos={b.corpo}
-                dentroDePasso
+                excluir={["passo"]}
                 aoMudar={(corpo) => aoMudar(blocos.map((x, k) => (k === i ? { ...b, corpo } : x)))}
               />
             </div>
@@ -184,8 +191,7 @@ export function ListaDeBlocos({
 
       {criando ? (
         <Paleta
-          /* passo dentro de passo não existe na página, então não se oferece */
-          excluir={dentroDePasso ? ["passo"] : []}
+          excluir={excluir}
           aoEscolher={(bloco) => {
             aoMudar([...blocos, bloco]);
             definirCriando(false);

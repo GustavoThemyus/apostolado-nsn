@@ -18,4 +18,5 @@ export const TEM_EDITOR: ReadonlySet<Forma> = new Set<Forma>([
   "inicio",
   "site",
   "paginas",
+  "folhetos",
 ]);

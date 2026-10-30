@@ -25,11 +25,11 @@ na página, que o `pdftohtml -xml` entrega junto com o negrito e o itálico.
 
 | no PDF | vira |
 | --- | --- |
-| negrito, cruzando o meio da página | título de seção |
+| começa em negrito, cruzando o meio da página | título de seção |
 | itálico, só na coluna da esquerda | rubrica, ou subtítulo de comemoração |
 | redondo à esquerda / à direita | português / latim do mesmo bloco |
 
-Três armadilhas, que estão comentadas no código porque cada uma custou uma
+Quatro armadilhas, que estão comentadas no código porque cada uma custou uma
 rodada:
 
 - **A linha que termina em hífen** emenda na seguinte sem espaço e **com** o
@@ -42,14 +42,26 @@ rodada:
   divisa e acaba à direita.
 - **O itálico come os espaços de fora.** " Sl." marcado inteiro vira
   "confundidos.[i]Sl.[/i]", colado na palavra anterior.
+- **O título que não está todo em negrito.** O "Prefácio (galicano)" de cinco
+  dos sete próprios traz o "Prefácio" em negrito e o "(galicano)" redondo.
+  Pela regra antiga — linha *toda* em negrito — não era título nenhum: caía
+  no corpo e emendava o Prefácio inteiro no fim da oração anterior, o que o
+  Perez viu na Vigília do Natal. Numa linha que já é centrada basta ela
+  **começar** em negrito, porque o que a exigência inteira defendia eram as
+  linhas de coluna que acabam em "℟. Amen." — e essas nascem na margem.
 
 ## A conferência
 
 `conferir.py` conta as palavras do PDF e as do folheto e compara. É grosseiro
 de propósito — não julga ordem nem pontuação —, mas responde a única pergunta
 que uma transcrição automática precisa responder antes de ir ao ar: **sumiu
-alguma palavra?** As três armadilhas acima apareceram todas por aí, e nenhuma
-delas o olho pegaria num texto litúrgico de mil palavras.
+alguma palavra?** As três primeiras armadilhas acima apareceram todas por aí,
+e nenhuma delas o olho pegaria num texto litúrgico de mil palavras.
+
+A quarta mostra onde a conta não chega. O Prefácio emendado no fim da oração
+anterior tem todas as palavras no lugar: a contagem dava certa antes e dá
+certa depois da correção, e quem viu foi o Perez, lendo. Contar palavras
+responde se alguma sumiu, não se ela está onde devia.
 
 Hoje: 11 397 palavras nos sete próprios, nenhuma perdida.
 

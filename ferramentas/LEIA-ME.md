@@ -51,4 +51,9 @@ As duas pastas que produzem **dados**, e não figuras — cada uma com o seu
   se perdeu no caminho.
 
 Em ambas vale a mesma regra das estampas, e com mais força: **não edite os
-JSON gerados à mão**, nem pelo painel. Corrija a transcrição e rode de novo.
+JSON gerados à mão**. Corrija a transcrição e rode de novo.
+
+O painel agora abre os folhetos, e com eles os próprios: mexer na ordem e nos
+títulos ali é legítimo, mas se perde na remessa seguinte de PDFs. O editor
+avisa isso em cima de todo folheto de próprio. Gralha de texto se conserta na
+lista de erratas do gerador, que é onde a correção vale para sempre.
