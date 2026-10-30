@@ -1,149 +1,102 @@
+import prosa from "../data/indulgencias-calendario.json";
 import { AssinarAgenda } from "../components/AssinarAgenda";
-import { ListaDeBlocos } from "../components/Bloco";
-import { ProvedorDeNotas } from "../components/Notas";
-import { TextoRico } from "../components/TextoRico";
-import { Cabecalho } from "../components/Cabecalho";
-import { Elo } from "../routes/Elo";
-import { Moldura } from "../components/Moldura";
+import { comoConteudo } from "../data/carregar";
 import { indulgencias } from "../data/indulgenciasDias";
+import { PaginaDeDocumento } from "./PaginaDeDocumento";
+import type { Bloco, Conteudo } from "../data/tipos";
 
 /**
- * O calendário das indulgências plenárias universais, por extenso.
+ * O calendário das indulgências plenárias universais, em quadro.
  *
- * Aqui estão todas elas, do primeiro dia do ano ao último, com a obra de cada
- * uma. Era a página da grade do mês, e virou esta quando o Perez pediu a
- * troca: "aí o conteúdo da página seria tudo isso aí no arquivo; aí o
- * calendário que está lá, colocava na página geral das indulgências".
+ * "O calendário corrido das Indulgências tem que ser no mesmo estilo das da
+ * Arquidiocese, em formato de tabela, com introdução, conclusão, explicações,
+ * porque fica melhor organizado tanto no celular como no computador", pediu o
+ * Perez. É a mesma forma do [elo:/indulgencias/arquidiocese]calendário
+ * arquidiocesano: página de documento, com seções numeradas e sumário, e o
+ * quadro de três colunas no meio.
  *
- * A grade responde "o que tem hoje"; esta lista responde "quais são", que é a
- * pergunta de quem quer planejar o ano ou conferir uma data. Uma de cada vez,
- * a grade escondia vinte das vinte e uma.
+ * A grade do mês não está aqui: ela mora na página geral das indulgências, e
+ * responde "o que tem hoje". Esta página responde "quais são", que é a
+ * pergunta de quem quer planejar o ano ou conferir uma data.
  */
+
+/** O texto corrido de um bloco, para a célula do quadro. */
+function comoTexto(blocos: Bloco[]): string {
+  const partes: string[] = [];
+  for (const b of blocos) {
+    if (b.tipo === "paragrafo") partes.push(b.texto);
+    else if (b.tipo === "lista") partes.push(b.itens.map((i) => `• ${i}`).join("\n"));
+    /*
+     * A ressalva vira título em negrito e os parágrafos embaixo dele, e não
+     * caixa dentro da célula. São doze, e a da Cátedra de São Pedro tem
+     * dezoito linhas: encaixotada dentro de uma coluna, ela some de vista por
+     * estreiteza. É o mesmo que o impresso do Perez faz.
+     */
+    else if (b.tipo === "nota") partes.push(`[b]${b.titulo}[/b]\n${b.paragrafos.join("\n\n")}`);
+  }
+  return partes.join("\n\n");
+}
+
+/** A obra e, por último, a concessão de onde ela sai. */
+const obraEFonte = (i: { obra: Bloco[]; fonte?: string }): string =>
+  i.fonte ? `${comoTexto(i.obra)}\n\n[i]${i.fonte}[/i]` : comoTexto(i.obra);
+
+const OBRA = "Obra indulgenciada prescrita";
+
+const quadroDosDias = (): Bloco => ({
+  tipo: "tabela",
+  colunas: ["Data", "Festividade litúrgica", OBRA],
+  linhas: indulgencias.dias.map((i) => [i.quandoPorExtenso, i.titulo, obraEFonte(i)]),
+});
+
+/* sem a coluna da data, que para estas seria a mesma frase vinte e uma vezes */
+const quadroSemDiaFixo = (): Bloco => ({
+  tipo: "tabela",
+  colunas: ["Indulgência", OBRA],
+  linhas: indulgencias.semDiaFixo.map((i) => [i.titulo, obraEFonte(i)]),
+});
+
+/**
+ * O que a prosa não escreve, e por quê.
+ *
+ * As condições e as observações vivem em `indulgencias-dias.json`, ao lado
+ * dos dias que governam, e são as mesmas que a página geral mostra. Escritas
+ * de novo aqui, divergiriam na primeira correção do Perez — e é ele quem as
+ * corrige, uma vírgula por vez. Os dois quadros, pela mesma razão, se derivam
+ * dos dias em vez de serem digitados.
+ */
+const ENXERTOS: Record<string, Bloco[]> = {
+  condicoes: indulgencias.condicoes.blocos,
+  observacoes: indulgencias.observacoes.blocos,
+  "os-dias-do-ano": [quadroDosDias()],
+  "em-qualquer-dia": [quadroSemDiaFixo()],
+};
+
+const conteudo: Conteudo = {
+  ...comoConteudo(prosa),
+  /* as chamadas das condições e das observações apontam para estas */
+  notas: indulgencias.notas,
+  secoes: comoConteudo(prosa).secoes.map((s) => ({
+    ...s,
+    blocos: [...s.blocos, ...(ENXERTOS[s.id] ?? [])],
+  })),
+};
+
 export default function IndulgenciasCalendario() {
   return (
-    <Moldura titulo={indulgencias.titulo}>
-      <Cabecalho titulo={indulgencias.titulo} descricao={indulgencias.descricao} />
-
+    <PaginaDeDocumento conteudo={conteudo}>
       {/*
-        As condições e as observações vêm do JSON, e não daqui.
-
-        São o texto que o Perez escreveu para abrir o calendário, com as
-        citações canônicas de cada item, e ele continua corrigindo-o. Escrito
-        na página, cada vírgula dele exigiria mexer em TSX; no JSON o painel
-        de edição alcança, como alcança o resto do conteúdo do site.
-
-        As duas caixas, e não uma: a primeira é o que se tem de fazer, e é
-        curta de propósito; a segunda é o que costuma ser perguntado depois, e
-        tem nove itens. Juntas, as nove linhas enterravam as quatro.
-      */}
-      {/* o provedor envolve só estas duas caixas, que é onde estão as
-          chamadas: as citações canônicas vivem em balão, como no resto do
-          site, e sem ele virariam números soltos no meio da frase */}
-      <ProvedorDeNotas notas={indulgencias.notas}>
-        <aside className="nota" aria-labelledby="condicoes">
-          <h2 className="nota__titulo" id="condicoes">
-            {indulgencias.condicoes.titulo}
-          </h2>
-          <ListaDeBlocos blocos={indulgencias.condicoes.blocos} />
-        </aside>
-
-        <details className="observacoes">
-          <summary className="observacoes__resumo">
-            {indulgencias.observacoes.titulo}
-            <span className="observacoes__pista"> o que vale para todas elas</span>
-          </summary>
-          <ListaDeBlocos blocos={indulgencias.observacoes.blocos} />
-        </details>
-      </ProvedorDeNotas>
-
-      {/*
-        Na ordem do ano, que é a ordem em que estão no arquivo.
-
-        Não se agrupa por mês: oito das vinte e uma não têm mês — acompanham a
-        Páscoa, ou caem num domingo que varia —, e inventar um cabeçalho de
-        mês para elas seria dizer o que o Enchiridion não diz. A data por
-        extenso de cada uma faz o mesmo trabalho sem a mentira.
-      */}
-      <section className="ano-de-indulgencias" aria-labelledby="no-ano">
-        <h2 className="ano-de-indulgencias__titulo" id="no-ano">
-          Os dias do ano
-        </h2>
-        <p className="ano-de-indulgencias__chamada">
-          Para ver um mês de cada vez, com as festas do dia e os calendários das
-          associações, veja{" "}
-          <Elo para="/indulgencias">o calendário na página das indulgências</Elo>.
-        </p>
-
-        <ul className="indulgencias-dia">
-          {indulgencias.dias.map((i) => (
-            <li key={i.id} id={i.id}>
-              {/* "Variável, conforme a Páscoa / Quinta-feira Santa" vem em
-                  duas linhas no arquivo, e é o TextoRico que as quebra */}
-              <p className="indulgencias-dia__quando">
-                <TextoRico texto={i.quandoPorExtenso} />
-              </p>
-              <p className="indulgencias-dia__titulo">
-                {i.titulo}
-                <span className={`etiqueta etiqueta--${i.especie}`}>
-                  {i.especie === "plenaria" ? "Plenária" : "Parcial"}
-                </span>
-              </p>
-              <ListaDeBlocos blocos={i.obra} />
-              {i.fonte && (
-                <p className="indulgencias-dia__fonte">
-                  <TextoRico texto={i.fonte} />
-                </p>
-              )}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="nota" aria-labelledby="sem-dia">
-        <h2 className="nota__titulo" id="sem-dia">
-          Em qualquer dia
-        </h2>
-        <p>
-          Nem toda indulgência está presa a uma data. Estas valem quando a obra
-          for feita, e por isso ficam fora da lista acima em vez de repetidas em
-          todos os dias do ano.
-        </p>
-        <ul className="indulgencias-dia">
-          {indulgencias.semDiaFixo.map((i) => (
-            <li key={i.id} id={i.id}>
-              <p className="indulgencias-dia__titulo">
-                {i.titulo}
-                <span className={`etiqueta etiqueta--${i.especie}`}>
-                  {i.especie === "plenaria" ? "Plenária" : "Parcial"}
-                </span>
-              </p>
-              <ListaDeBlocos blocos={i.obra} />
-              {i.fonte && (
-                <p className="indulgencias-dia__fonte">
-                  <TextoRico texto={i.fonte} />
-                </p>
-              )}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/*
-        Dois blocos, e não um: o calendário do Apostolado vale para qualquer
-        fiel, e os das confrarias só para quem é de uma delas. Junto, o de cima
-        parecia mais uma associação na lista.
+        Só o calendário do Apostolado. "Tira o link das Indulgências das
+        confrarias e deixa só do meu calendário universal pra linkar com a
+        agenda do celular", pediu o Perez — e com razão: as confrarias não são
+        o assunto desta página, e o bloco delas continua em
+        /indulgencias/ordens, que é a página de que são.
       */}
       <AssinarAgenda
         grupo="indulgencias-apostolado"
         titulo="Levar as indulgências no celular"
         explicacao="O calendário que o Apostolado mantém, com os dias que ele marca."
       />
-
-      <AssinarAgenda
-        grupo="indulgencias"
-        titulo="Calendários das confrarias e ordens terceiras"
-        explicacao="Cada um traz os dias próprios de uma associação. Vincule o da que você pertence, para não perder as datas."
-      />
-    </Moldura>
+    </PaginaDeDocumento>
   );
 }

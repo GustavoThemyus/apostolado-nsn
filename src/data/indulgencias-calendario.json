@@ -1,0 +1,105 @@
+{
+ "titulo": "Calendário das Indulgências Plenárias Universais",
+ "descricao": "Os dias do ano em que a Igreja universal concede indulgência plenária, e a obra que se deve cumprir em cada um.",
+ "secoes": [
+  {
+   "id": "introducao",
+   "titulo": "Introdução",
+   "blocos": [
+    {
+     "tipo": "paragrafo",
+     "id": "intro-001",
+     "texto": "Este calendário reúne as indulgências plenárias que a Igreja concede em dias determinados do ano a [b]todos os fiéis[/b], onde quer que estejam. São as do [elo:/indulgencias/enchiridion]Enchiridion Indulgentiarum[/elo], o texto que recolhe as concessões em vigor, e cada linha do quadro remete à concessão de onde saiu."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "intro-002",
+     "texto": "Universais, e não locais: nenhuma delas depende de visitar uma igreja desta Arquidiocese nem de pertencer a uma associação. As que dependem estão no [elo:/indulgencias/arquidiocese]calendário da Arquidiocese da Paraíba[/elo] e no das [elo:/indulgencias/ordens]ordens terceiras e confrarias[/elo]."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "intro-003",
+     "texto": "Todas as desta página são [b]plenárias[/b]. O que uma indulgência é, quem pode lucrá-la e de onde a Igreja a tira está em [elo:/indulgencias]Indulgências[/elo]; aqui está o calendário."
+    }
+   ]
+  },
+  {
+   "id": "condicoes",
+   "titulo": "Condições ordinárias",
+   "blocos": []
+  },
+  {
+   "id": "observacoes",
+   "titulo": "Observações",
+   "blocos": []
+  },
+  {
+   "id": "como-ler",
+   "titulo": "Como ler o quadro",
+   "blocos": [
+    {
+     "tipo": "paragrafo",
+     "id": "ler-001",
+     "texto": "Três colunas. A [b]data[/b] diz quando; a [b]festividade litúrgica[/b], a que se liga a concessão; a [b]obra indulgenciada prescrita[/b], o que se deve cumprir naquele dia — e é esta que se acrescenta às condições ordinárias, nunca as substitui."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "ler-002",
+     "texto": "Oito das vinte e uma não têm dia fixo: acompanham a Páscoa, ou caem num domingo que varia de ano para ano. A coluna da data diz «Variável, conforme a Páscoa» e nomeia o dia litúrgico, que é a única resposta exata num quadro que não é de um ano só."
+    },
+    {
+     "tipo": "nota",
+     "id": "ler-003",
+     "titulo": "Festa transferida leva a indulgência junto",
+     "paragrafos": [
+      "Quando a festa a que a indulgência se liga é impedida e passa para outro dia, a indulgência passa com ela. É o que manda o cânon 922, e é por isso que o quadro nomeia a festa, e não só a data.",
+      "Para ver em que dia cada uma cai no ano corrente, com as festas de cada mês, use o [elo:/indulgencias]calendário da página das indulgências[/elo]."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "os-dias-do-ano",
+   "titulo": "Os dias do ano",
+   "blocos": [
+    {
+     "tipo": "paragrafo",
+     "id": "dias-001",
+     "texto": "Na ordem do ano. Não se agrupa por mês porque as variáveis não têm mês, e inventar um cabeçalho para elas seria dizer o que o Enchiridion não diz."
+    }
+   ]
+  },
+  {
+   "id": "em-qualquer-dia",
+   "titulo": "Em qualquer dia",
+   "blocos": [
+    {
+     "tipo": "paragrafo",
+     "id": "qualquer-001",
+     "texto": "Nem toda indulgência está presa a uma data. Estas valem quando a obra for feita, em qualquer dia do ano, e por isso vêm em quadro próprio em vez de repetidas em todos os dias do de cima."
+    }
+   ]
+  },
+  {
+   "id": "conclusao",
+   "titulo": "Conclusão",
+   "blocos": [
+    {
+     "tipo": "paragrafo",
+     "id": "fim-001",
+     "texto": "O quadro diz o que se lucra e quando. Falta o que ele não pode dizer: a obra tem de ser cumprida [b]no tempo e no lugar marcados[/b], e as condições ordinárias por inteiro — faltando uma, a indulgência deixa de ser plenária e se converte em parcial."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "fim-002",
+     "texto": "As datas seguem o calendário litúrgico que a capela observa, anterior à reforma de 1955. Nos dias em que ele difere do Missal de 1962 a diferença está anotada na própria linha. Para conferir o dia, veja o [elo:/calendario]calendário litúrgico[/elo]; para celebrar, o Ordo que o Apostolado publica."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "fim-003",
+     "texto": "Nenhuma destas concessões se lucra por distração. Vale ler as condições antes do dia, e não no dia."
+    }
+   ]
+  }
+ ]
+}

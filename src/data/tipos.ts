@@ -145,8 +145,13 @@ export interface Postagem {
    * A que celebração a postagem se liga, para o calendário poder apontá-la.
    * Por nome, quando a postagem acompanha a festa aonde quer que ela vá; por
    * mês e dia, quando está presa à data.
+   *
+   * Mais de um nome quando os dois calendários chamam a festa de modos que
+   * não se contêm: a Titular é "Nossa Senhora das Neves" no motor de 1962 e
+   * "Dedicação de Santa Maria das Neves" no Ordo da capela, e nenhum dos dois
+   * cabe dentro do outro.
    */
-  festa?: { nome: string } | { mes: number; dia: number };
+  festa?: { nome: string | string[] } | { mes: number; dia: number };
   /** Caminho em /public. Sem ela a faixa mostra o brasão. */
   imagem?: string;
   /** As medidas da estampa, como ela está no arquivo. Ver `Folheto.largura`. */

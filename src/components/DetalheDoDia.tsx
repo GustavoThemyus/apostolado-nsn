@@ -1,4 +1,5 @@
 import { Desenvolvimento } from "./Desenvolvimento";
+import { NomeDaFesta } from "./NomeDaFesta";
 import { NOME_DA_PENITENCIA, penitenciaDe } from "../calendario/penitencia";
 import { postagemDoDia } from "../calendario/vinculo";
 import { publicadas } from "../data/postagens";
@@ -44,7 +45,7 @@ export function DetalheDoDia({ dia }: { dia: DiaLiturgico }) {
         {dia.data.getUTCDate()} de {MESES[dia.data.getUTCMonth()]} de{" "}
         {dia.data.getUTCFullYear()}
       </p>
-      <p className="calendario__detalhe-nome">{dia.nome}</p>
+      <NomeDaFesta dia={dia} />
       <dl className="dia__detalhes">
         <div>
           <dt>Tempo</dt>

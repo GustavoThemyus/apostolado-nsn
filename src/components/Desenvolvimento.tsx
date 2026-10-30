@@ -31,11 +31,16 @@ export function Desenvolvimento({ dia }: { dia: DiaLiturgico }) {
   return (
     <div className="desenv">
       <p className="desenv__titulo">Na Missa deste dia</p>
+      {/*
+        Na ordem da Missa, como no quadro do pré-55: as orações são as coletas,
+        e coleta vem antes da Epístola; o canto interlecional fica entre as
+        leituras; e o Credo vem depois do Evangelho, não antes dele.
+      */}
       <dl className="desenv__lista">
         <div><dt>Glória</dt><dd><Sim v={d.gloria} /></dd></div>
-        <div><dt>Credo</dt><dd><Sim v={d.credo} /></dd></div>
         <div><dt>Orações</dt><dd>{d.oracoes}</dd></div>
         <div><dt>Entre as leituras</dt><dd>{d.cantoInterlecional}</dd></div>
+        <div><dt>Credo</dt><dd><Sim v={d.credo} /></dd></div>
         <div><dt>Prefácio</dt><dd>{d.prefacio}</dd></div>
         <div><dt>Último Evangelho</dt><dd>{d.ultimoEvangelho}</dd></div>
       </dl>

@@ -48,7 +48,10 @@
     }
    ],
    "festa": {
-    "nome": "Nossa Senhora das Neves"
+    "nome": [
+     "Nossa Senhora das Neves",
+     "Dedicação de Santa Maria das Neves"
+    ]
    }
   },
   {

@@ -149,7 +149,7 @@ async function rodar() {
     em("2026-01-06")?.resto, ["Missa Ecce advenit"]);
 
   /*
-   * As orações que se acrescentam à do dia, na casa delas.
+   * As orações do tempo, na casa delas.
    *
    * Pedido do Perez. Antes caíam no `resto` e eram lidas como parte do nome
    * da Missa: "Missa Ecce advenit da festa; oração Deus, qui salutis e
@@ -171,16 +171,58 @@ async function rodar() {
     em("2026-01-06")?.oracoes, []);
 
   /*
-   * Nenhuma oração pode ficar presa no `resto`.
+   * Só as que têm nome.
+   *
+   * Segundo pedido do Perez sobre a mesma casa: "eu quero que pegue somente
+   * os trechos que o ordo cita a oração (ex: Concede, A cunctis, Ecclesiæ e
+   * Fidelium) sempre com os nomes, pra não confundir com as orações próprias
+   * dos santos, que tem que estar na parte Missa mesmo".
+   */
+  conferir("Orações próprias não é oração do tempo",
+    em("2026-01-22")?.oracoes, ["oração Deus, qui salutis e oração Ecclesiæ"]);
+  conferir("e volta para o lado do nome da Missa",
+    em("2026-01-22")?.resto.includes("Orações próprias"), true);
+  conferir("oração única também não é do tempo",
+    em("2026-03-29")?.oracoes, []);
+
+  /*
+   * Nenhuma oração com nome pode ficar presa no `resto`.
    *
    * É a conferência que vale mais do que as de cima, porque é a que percorre
    * os 365 dias: o Ordo escreve estas frases de dezenas de maneiras, e uma
    * forma nova não dá erro nenhum — ela só volta a aparecer na casa "Missa",
    * calada, como estava antes deste campo existir.
+   *
+   * A lista é do que sobra ali de propósito, e é fechada: forma nova aparece
+   * como diferença nesta linha em vez de sumir da casa das orações.
    */
-  conferir("nenhuma oração sobra na casa da Missa",
-    dias2026.flatMap((d) => naMissaDoOrdo(d)?.resto ?? [])
-      .filter((r) => /\boraç(ão|ões)\b/i.test(r)), []);
+  conferir("na casa da Missa só sobram as orações sem nome",
+    [...new Set(dias2026.flatMap((d) => naMissaDoOrdo(d)?.resto ?? [])
+      .filter((r) => /\boraç(ão|ões)\b/i.test(r)))].sort(),
+    ["Oração, Epístola e Evangelho próprios",
+     "Orações e Epístola próprias",
+     "Orações e Evangelho próprios",
+     "Orações e Evangelhos próprios",
+     "Orações próprias",
+     "oração única"]);
+
+  /*
+   * O Último Evangelho só quando é item da enumeração.
+   *
+   * Na Quinta-feira Santa o Ordo o cita no meio de uma rubrica sobre o que se
+   * omite, e a busca na linha inteira trazia o parêntese daquela rubrica para
+   * a casa do Último Evangelho — enquanto a rubrica ia para a casa da Missa
+   * cortada em "…sobre o altar ao".
+   */
+  conferir("a rubrica que cita o Último Evangelho não vira o Último Evangelho",
+    em("2026-04-02")?.ultimoEvangelho, undefined);
+  conferir("e ela chega inteira à casa da Missa",
+    em("2026-04-02")?.resto.some((r) => r.endsWith("Santíssimo Sacramento)")), true);
+  conferir("o Último Evangelho condicional dos Ramos também fica na rubrica",
+    em("2026-03-29")?.ultimoEvangelho, undefined);
+  conferir("39 celebrações dizem qual é o Último Evangelho",
+    dias2026.flatMap((d) => celebracoesDoOrdo(d))
+      .filter((c) => analisarMissa(c.missa)?.ultimoEvangelho).length, 39);
 
   /*
    * As comemorações não podem sumir numa reimportação.

@@ -335,13 +335,18 @@ export interface NaMissa {
   entreAsLeituras: string[];
   comemoracoes: string[];
   /**
-   * As orações que se acrescentam à do dia: "A cunctis e ad libitum",
-   * "Deus, qui salutis e Ecclesiæ", "Oração sobre o povo".
+   * As orações do tempo: as que se acrescentam à do dia e o Ordo chama pelo
+   * nome. "A cunctis e ad libitum", "Concede e Ecclesiæ", "Deus, qui salutis".
    *
    * Campo próprio porque o Perez pediu seção própria, e porque antes elas
    * caíam no `resto` e apareciam na casa "Missa" — onde se lia "Missa Ecce
    * advenit da festa; oração Deus, qui salutis e Ecclesiæ" como se fosse
-   * tudo o nome da Missa. Em 2026 são 126 linhas.
+   * tudo o nome da Missa.
+   *
+   * Só as que trazem nome. "Orações próprias" e "Orações e Evangelho
+   * próprios" são as orações da própria festa, e o Perez as quer na casa da
+   * Missa: "pra não confundir com as orações próprias dos santos, que tem que
+   * estar na parte Missa mesmo". Em 2026 são 168 linhas com nome e 34 sem.
    */
   oracoes: string[];
   /**
@@ -380,6 +385,22 @@ const primeiro = (linha: string, padrao: RegExp) => linha.match(padrao)?.[0]?.tr
 const EH_ORACAO = /^(após a )?[Oo]raç(ão|ões)\b/;
 
 /**
+ * O segmento fala de oração, mas não diz o nome de nenhuma.
+ *
+ * "Orações próprias", "Orações e Evangelho próprios", "oração única". São as
+ * orações da própria festa, ou a notícia de que só há uma, e o Perez as quer
+ * na casa da Missa — ali elas dizem de onde sai o texto do dia, ao lado do
+ * nome da Missa, que é a pergunta que respondem.
+ *
+ * O teste é pelo qualificador, e não pela lista dos nomes. É o lado seguro de
+ * errar: nome de oração novo continua caindo em "Orações do tempo", que é
+ * onde ele deve estar, e só um qualificador novo precisaria de uma linha
+ * aqui. Pela lista dos nomes seria o contrário — cada nome novo sumiria da
+ * casa, calado.
+ */
+const ORACAO_SEM_NOME = /(^|\s)(própri[oa]s?|única)\b/i;
+
+/**
  * O Ordo gruda a oração na comemoração: "comemoração de São Telésforo Papa e
  * Mártir e oração Deus, qui salutis". Aqui se corta no " e " que vem antes
  * de "oração" — e só nesse, para "oração Deus, qui salutis e Ecclesiæ" não
@@ -416,7 +437,6 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
   const gloria = achar(linha, "Glória");
   const credo = achar(linha, "Credo");
   const prefacio = primeiro(linha, /Prefácio[^;]*/);
-  const evangelho = primeiro(linha, /Último Evangelho[^;]*/);
   const fecho = primeiro(linha, /(Ite, Missa est|Benedicamus Domino|Requiescant in pace)[^;]*/);
 
   const entreAsLeituras: string[] = [];
@@ -433,6 +453,21 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
     const corte = /^Missa\b[^:]*:/.exec(cru);
     return corte ? [corte[0].slice(0, -1), cru.slice(corte[0].length)] : [cru];
   });
+
+  /*
+   * O Último Evangelho só quando é item da enumeração, isto é, quando abre o
+   * segmento.
+   *
+   * Na Quinta-feira Santa o Ordo o cita no meio de uma rubrica — "omitem-se o
+   * ósculo da paz e o sinal da cruz sobre o altar ao Último Evangelho
+   * (genuflexão às palavras Et Verbum…)" —, e procurar a expressão na linha
+   * inteira trazia para a casa do Último Evangelho o parêntese daquela
+   * rubrica, enquanto a rubrica ia para a casa da Missa cortada no meio.
+   */
+  const evangelho = segmentos
+    .map((s) => s.trim())
+    .find((s) => s.startsWith("Último Evangelho"));
+
   for (const cru of segmentos) {
     const p = cru.trim();
     if (/^(sem\s+)?Trato$/.test(p) || /^Sequência/.test(p) || /Aleluia/.test(p)) {
@@ -441,8 +476,11 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
       // "comemoração de X e oração Y" são duas coisas numa frase só
       const [comemorado, ...oracao] = p.split(CORTE_DA_ORACAO);
       comemoracoes.push(comemorado.trim());
-      for (const o of oracao) oracoes.push(o.trim());
-    } else if (EH_ORACAO.test(p)) oracoes.push(p);
+      for (const o of oracao) {
+        const t = o.trim();
+        (ORACAO_SEM_NOME.test(t) ? resto : oracoes).push(t);
+      }
+    } else if (EH_ORACAO.test(p) && !ORACAO_SEM_NOME.test(p)) oracoes.push(p);
     else {
       /*
        * O que sobra do segmento depois de tirar os itens que já viraram
@@ -454,7 +492,8 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
       const sobra = p
         .replace(/(sem\s+)?(Glória|Credo)(\s*\([^)]*\))?/g, "")
         .replace(/Prefácio[^;]*/g, "")
-        .replace(/Último Evangelho[^;]*/g, "")
+        /* só o que abre o segmento: ver o comentário do `evangelho` acima */
+        .replace(/^Último Evangelho[^;]*/, "")
         .replace(/(Ite, Missa est|Benedicamus Domino|Requiescant in pace)[^;]*/g, "")
         .replace(/\s*[:,]\s*$/, "")
         .trim();

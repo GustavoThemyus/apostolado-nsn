@@ -14,6 +14,7 @@ import brasil from "./calendario-brasil.json";
 import canonica from "./missa-canonica.json";
 import dias from "./indulgencias-dias.json";
 import arquidioceseIndulgencias from "./indulgencias-arquidiocese.json";
+import calendarioDasIndulgencias from "./indulgencias-calendario.json";
 import enchiridion from "./indulgencias-enchiridion.json";
 import guia from "./guia.json";
 import indulgencias from "./indulgencias.json";
@@ -175,6 +176,7 @@ function examinar(nome: string, bruto: unknown) {
 }
 
 examinar("arquidiocese (indulgências)", arquidioceseIndulgencias);
+examinar("calendário das indulgências", calendarioDasIndulgencias);
 examinar("próprio do Brasil", brasil);
 examinar("próprio arquidiocesano", arquidiocese);
 examinar("enchiridion", enchiridion);
@@ -427,6 +429,7 @@ conferir("enchiridion: as 33 concessões têm âncora",
 
   for (const [nome, bruto] of [
     ["arquidiocese (indulgências)", arquidioceseIndulgencias],
+    ["calendário das indulgências", calendarioDasIndulgencias],
     ["próprio do Brasil", brasil],
     ["próprio arquidiocesano", arquidiocese],
     ["enchiridion", enchiridion],

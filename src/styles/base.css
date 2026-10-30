@@ -789,6 +789,13 @@ button {
   border-left: 3px solid var(--ouro);
 }
 
+/* a altura que o dia do Ordo vai ocupar, guardada enquanto o ano não chega:
+   medida num dia comum de 2026, e sem ela os cartões da primeira tela
+   subiam e desciam a cada visita */
+.dia--carregando {
+  min-height: 30rem;
+}
+
 .dia__data {
   font-family: var(--sem-serifa);
   font-size: 0.64rem;
@@ -3334,23 +3341,6 @@ button {
   font-size: 1.08rem;
   font-weight: 600;
 }
-/*
- * A data por extenso, acima do nome: "1 de janeiro", "Variável, conforme a
- * Páscoa".
- *
- * Só aparece na lista do ano inteiro. No detalhe do dia a data já está no
- * alto do cartão, e repetida em cada item viraria eco.
- */
-.indulgencias-dia__quando {
-  margin: 0 0 0.15rem;
-  font-family: var(--sem-serifa);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ouro-tinta);
-}
-
 .indulgencias-dia__fonte {
   margin: 0.35rem 0 0;
   font-family: var(--sem-serifa);
@@ -3365,31 +3355,6 @@ button {
   border-color: var(--ouro);
 }
 .etiqueta--parcial {
-  color: var(--tinta-suave);
-}
-
-/*
- * A lista do ano inteiro, na página do calendário das indulgências.
- *
- * A página era a grade do mês e passou a ser esta lista, por pedido do Perez.
- * Caixa própria, como "Em qualquer dia" logo abaixo: as duas são listas de
- * indulgências, e empilhadas sem moldura nenhuma pareciam uma lista só com um
- * título solto no meio.
- */
-.ano-de-indulgencias {
-  margin: 1.6rem 0 0;
-  padding: 1.1rem 1.15rem;
-  border: 1px solid var(--fio);
-  background: var(--painel);
-}
-.ano-de-indulgencias__titulo {
-  margin: 0;
-  font-family: var(--titular);
-  font-size: 1.2rem;
-}
-.ano-de-indulgencias__chamada {
-  margin: 0.35rem 0 0;
-  font-size: 0.92rem;
   color: var(--tinta-suave);
 }
 
