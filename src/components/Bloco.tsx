@@ -28,8 +28,10 @@ function Lista({ ordenada, itens }: { ordenada?: boolean; itens: string[] }) {
 export function Bloco({ bloco }: { bloco: TipoBloco }) {
   switch (bloco.tipo) {
     case "paragrafo":
+      // a âncora é o que faz "§1, 3.º" cair no §1, 3.º, e não no alto da
+      // concessão; quase todo parágrafo não tem, e aí não há id nenhum
       return (
-        <p className="paragrafo">
+        <p className="paragrafo" id={bloco.ancora}>
           <TextoRico texto={bloco.texto} />
         </p>
       );

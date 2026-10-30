@@ -59,7 +59,8 @@ const ancorasDe = (secoes: Secao[]): Set<string> => {
   for (const secao of secoes) {
     saida.add(secao.id);
     for (const bloco of secao.blocos) {
-      if (bloco.tipo === "subtitulo" && bloco.ancora) saida.add(bloco.ancora);
+      // o subtítulo abre a concessão; o parágrafo é o §1, 3.º dentro dela
+      if ("ancora" in bloco && bloco.ancora) saida.add(bloco.ancora);
     }
   }
   return saida;
@@ -270,6 +271,8 @@ conferir("enchiridion: as 33 concessões têm âncora",
       imagem?: string;
       largura?: number;
       altura?: number;
+      obra?: string;
+      concessao?: string;
       blocos: Bloco[];
     }[];
   };
@@ -295,7 +298,14 @@ conferir("enchiridion: as 33 concessões têm âncora",
   const medidasErradas: string[] = [];
   for (const f of colecao.folhetos) {
     conferirPares(f.id, f.blocos);
-    const corpo = f.blocos.flatMap(textosDoBloco).join("\n");
+    /*
+     * A obra e a concessão entram junto com os blocos.
+     *
+     * A concessão inteira virou elo para o ponto exato dentro do Enchiridion,
+     * e é link que atravessa página: quando a âncora some, nada na tela
+     * avisa, porque o navegador simplesmente não rola.
+     */
+    const corpo = [f.obra ?? "", f.concessao ?? "", ...f.blocos.flatMap(textosDoBloco)].join("\n");
     for (const m of corpo.matchAll(/\[elo:([^\]]+)\]/g)) {
       if (!destinoExiste(m[1], new Set())) quebrados.push(`${f.id} -> ${m[1]}`);
     }

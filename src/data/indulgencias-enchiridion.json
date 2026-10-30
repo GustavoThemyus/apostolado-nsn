@@ -536,171 +536,213 @@
    "blocos": [
     {
      "tipo": "paragrafo",
-     "texto": "[b]1.[/b] Indulgência é a remissão, diante de Deus, da pena temporal devida pelos pecados já perdoados quanto à culpa, que o fiel, devidamente disposto e em certas e determinadas condições, alcança por meio da Igreja, a qual, como dispensadora da redenção, distribui e aplica, com autoridade, o tesouro das satisfações de Cristo e dos Santos.[nota]9[/nota]"
+     "texto": "[b]1.[/b] Indulgência é a remissão, diante de Deus, da pena temporal devida pelos pecados já perdoados quanto à culpa, que o fiel, devidamente disposto e em certas e determinadas condições, alcança por meio da Igreja, a qual, como dispensadora da redenção, distribui e aplica, com autoridade, o tesouro das satisfações de Cristo e dos Santos.[nota]9[/nota]",
+     "ancora": "norma-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]2.[/b] A indulgência é parcial ou plenária, conforme liberta, em parte ou no todo, da pena temporal devida pelos pecados.[nota]10[/nota]"
+     "texto": "[b]2.[/b] A indulgência é parcial ou plenária, conforme liberta, em parte ou no todo, da pena temporal devida pelos pecados.[nota]10[/nota]",
+     "ancora": "norma-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]3.[/b] Qualquer fiel pode lucrar indulgências parciais ou plenárias para si mesmo ou aplicá-las aos defuntos como sufrágio.[nota]11[/nota]"
+     "texto": "[b]3.[/b] Qualquer fiel pode lucrar indulgências parciais ou plenárias para si mesmo ou aplicá-las aos defuntos como sufrágio.[nota]11[/nota]",
+     "ancora": "norma-3"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]4.[/b] O fiel que, ao menos com o coração contrito, faz uma obra enriquecida de indulgência parcial, com o auxílio da Igreja alcança o perdão da pena temporal, em valor correspondente ao que ele próprio já ganha com sua ação.[nota]12[/nota]"
+     "texto": "[b]4.[/b] O fiel que, ao menos com o coração contrito, faz uma obra enriquecida de indulgência parcial, com o auxílio da Igreja alcança o perdão da pena temporal, em valor correspondente ao que ele próprio já ganha com sua ação.[nota]12[/nota]",
+     "ancora": "norma-4"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]5. § 1.[/b] Além da autoridade suprema da Igreja, só podem conceder indulgências aqueles a quem esse poder é reconhecido pelo Direito ou concedido pelo Romano Pontífice."
+     "texto": "[b]5. § 1.[/b] Além da autoridade suprema da Igreja, só podem conceder indulgências aqueles a quem esse poder é reconhecido pelo Direito ou concedido pelo Romano Pontífice.",
+     "ancora": "norma-5-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Nenhuma autoridade inferior ao Romano Pontífice pode conferir a outros o poder de conceder indulgências, a não ser que isso lhe tenha sido expressamente concedido pela Sé Apostólica.[nota]13[/nota]"
+     "texto": "[b]§ 2.[/b] Nenhuma autoridade inferior ao Romano Pontífice pode conferir a outros o poder de conceder indulgências, a não ser que isso lhe tenha sido expressamente concedido pela Sé Apostólica.[nota]13[/nota]",
+     "ancora": "norma-5-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]6.[/b] Na Cúria Romana, só à Sagrada Penitenciaria se confia tudo o que se refere à concessão e uso de indulgências; excetua-se o direito da Congregação para a Doutrina da Fé de examinar o que toca à doutrina dogmática sobre as mesmas indulgências.[nota]14[/nota]"
+     "texto": "[b]6.[/b] Na Cúria Romana, só à Sagrada Penitenciaria se confia tudo o que se refere à concessão e uso de indulgências; excetua-se o direito da Congregação para a Doutrina da Fé de examinar o que toca à doutrina dogmática sobre as mesmas indulgências.[nota]14[/nota]",
+     "ancora": "norma-6"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]7.[/b] Os Bispos eparcas ou diocesanos, e os equiparados a eles pelo Direito, a partir do princípio de seu múnus pastoral, têm os seguintes direitos:"
+     "texto": "[b]7.[/b] Os Bispos eparcas ou diocesanos, e os equiparados a eles pelo Direito, a partir do princípio de seu múnus pastoral, têm os seguintes direitos:",
+     "ancora": "norma-7"
     },
     {
      "tipo": "paragrafo",
-     "texto": "1º: Conceder indulgência parcial, dentro de seu território a todos os fiéis, fora de seu território aos fiéis pertencentes à sua jurisdição."
+     "texto": "1º: Conceder indulgência parcial, dentro de seu território a todos os fiéis, fora de seu território aos fiéis pertencentes à sua jurisdição.",
+     "ancora": "norma-7-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "2º: Dar a bênção papal com indulgência plenária, segundo a fórmula prescrita, cada qual em sua eparquia ou diocese, três vezes ao ano, no fim da missa celebrada com especial esplendor litúrgico, ainda que eles próprios não a celebrem mas apenas assistam, e isso em solenidades ou festas por eles designadas. Essa bênção é dada no final da Missa no lugar da bênção costumeira, conforme a forma do respectivo Cerimonial dos Bispos.[nota]15[/nota]"
+     "texto": "2º: Dar a bênção papal com indulgência plenária, segundo a fórmula prescrita, cada qual em sua eparquia ou diocese, três vezes ao ano, no fim da missa celebrada com especial esplendor litúrgico, ainda que eles próprios não a celebrem mas apenas assistam, e isso em solenidades ou festas por eles designadas. Essa bênção é dada no final da Missa no lugar da bênção costumeira, conforme a forma do respectivo Cerimonial dos Bispos.[nota]15[/nota]",
+     "ancora": "norma-7-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]8.[/b] Os Metropolitas podem conceder a indulgência parcial nas dioceses sufragâneas, como o fazem em seu próprio território.[nota]16[/nota]"
+     "texto": "[b]8.[/b] Os Metropolitas podem conceder a indulgência parcial nas dioceses sufragâneas, como o fazem em seu próprio território.[nota]16[/nota]",
+     "ancora": "norma-8"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]9. § 1.[/b] Os Patriarcas podem conceder em cada um dos lugares do seu patriarcado, mesmo isentos, nas igrejas de seu rito fora dos confins do patriarcado e, em qualquer parte, para os fiéis do seu rito:"
+     "texto": "[b]9. § 1.[/b] Os Patriarcas podem conceder em cada um dos lugares do seu patriarcado, mesmo isentos, nas igrejas de seu rito fora dos confins do patriarcado e, em qualquer parte, para os fiéis do seu rito:",
+     "ancora": "norma-9-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "1°: Conceder a indulgência parcial;"
+     "texto": "1°: Conceder a indulgência parcial;",
+     "ancora": "norma-9-1-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "2º: Dar a bênção papal com indulgência plenária, três vezes ao ano pela lei ordinária, mais vezes, porém, se ocorrer uma circunstância ou razão que postule a concessão de uma indulgência plenária para o bem dos fiéis."
+     "texto": "2º: Dar a bênção papal com indulgência plenária, três vezes ao ano pela lei ordinária, mais vezes, porém, se ocorrer uma circunstância ou razão que postule a concessão de uma indulgência plenária para o bem dos fiéis.",
+     "ancora": "norma-9-1-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] O mesmo vale para os Arcebispos Maiores.[nota]17[/nota]"
+     "texto": "[b]§ 2.[/b] O mesmo vale para os Arcebispos Maiores.[nota]17[/nota]",
+     "ancora": "norma-9-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]10.[/b] Os Cardeais da Santa Igreja Romana gozam do direito de conceder a indulgência parcial em qualquer parte, mas só aos presentes em cada vez.[nota]18[/nota]"
+     "texto": "[b]10.[/b] Os Cardeais da Santa Igreja Romana gozam do direito de conceder a indulgência parcial em qualquer parte, mas só aos presentes em cada vez.[nota]18[/nota]",
+     "ancora": "norma-10"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]11. § 1.[/b] Requer-se licença expressa da Sé Apostólica para imprimir em qualquer língua [i]Indulgências – Orientações litúrgico-pastorais[/i]."
+     "texto": "[b]11. § 1.[/b] Requer-se licença expressa da Sé Apostólica para imprimir em qualquer língua [i]Indulgências – Orientações litúrgico-pastorais[/i].",
+     "ancora": "norma-11-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Todos os outros livros, folhetos e outros escritos, nos quais se contenham concessões de indulgências, não se editem sem a licença do Hierarca ou do Ordinário local.[nota]19[/nota]"
+     "texto": "[b]§ 2.[/b] Todos os outros livros, folhetos e outros escritos, nos quais se contenham concessões de indulgências, não se editem sem a licença do Hierarca ou do Ordinário local.[nota]19[/nota]",
+     "ancora": "norma-11-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]12.[/b] De acordo com a mente do Sumo Pontífice, as concessões de indulgências para todos os fiéis começam a vigorar somente após seus autênticos exemplares terem sido revisados pela Penitenciaria Apostólica.[nota]20[/nota]"
+     "texto": "[b]12.[/b] De acordo com a mente do Sumo Pontífice, as concessões de indulgências para todos os fiéis começam a vigorar somente após seus autênticos exemplares terem sido revisados pela Penitenciaria Apostólica.[nota]20[/nota]",
+     "ancora": "norma-12"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]13.[/b] A indulgência, anexa a alguma celebração litúrgica, entende-se como transferida para o dia em que tal celebração ou sua solenidade externa legitimamente se transfere.[nota]21[/nota]"
+     "texto": "[b]13.[/b] A indulgência, anexa a alguma celebração litúrgica, entende-se como transferida para o dia em que tal celebração ou sua solenidade externa legitimamente se transfere.[nota]21[/nota]",
+     "ancora": "norma-13"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]14.[/b] Para ganhar a indulgência anexa a algum dia, se é exigida visita à igreja ou oratório, esta pode fazer-se desde o meio-dia precedente até a meia-noite do dia determinado.[nota]22[/nota]"
+     "texto": "[b]14.[/b] Para ganhar a indulgência anexa a algum dia, se é exigida visita à igreja ou oratório, esta pode fazer-se desde o meio-dia precedente até a meia-noite do dia determinado.[nota]22[/nota]",
+     "ancora": "norma-14"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]15.[/b] Ganha indulgência parcial o fiel que usa devotamente algum dos seguintes objetos de piedade, bentos segundo o ritual: crucifixo ou cruz, rosário, escapulário, medalha.[nota]23[/nota]"
+     "texto": "[b]15.[/b] Ganha indulgência parcial o fiel que usa devotamente algum dos seguintes objetos de piedade, bentos segundo o ritual: crucifixo ou cruz, rosário, escapulário, medalha.[nota]23[/nota]",
+     "ancora": "norma-15"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]16. § 1.[/b] A indulgência anexa à visita à igreja não cessa, se o edifício se demolir completamente e seja reconstruído dentro de cinquenta anos no mesmo ou quase no mesmo lugar e sob o mesmo título."
+     "texto": "[b]16. § 1.[/b] A indulgência anexa à visita à igreja não cessa, se o edifício se demolir completamente e seja reconstruído dentro de cinquenta anos no mesmo ou quase no mesmo lugar e sob o mesmo título.",
+     "ancora": "norma-16-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] A indulgência anexa ao uso de objeto de piedade só cessa quando o mesmo objeto acabe inteiramente ou seja vendido.[nota]24[/nota]"
+     "texto": "[b]§ 2.[/b] A indulgência anexa ao uso de objeto de piedade só cessa quando o mesmo objeto acabe inteiramente ou seja vendido.[nota]24[/nota]",
+     "ancora": "norma-16-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]17. § 1.[/b] Para que alguém seja capaz de lucrar indulgências, deve ser batizado, não estar excomungado e encontrar-se em estado de graça, pelo menos no fim das obras prescritas."
+     "texto": "[b]17. § 1.[/b] Para que alguém seja capaz de lucrar indulgências, deve ser batizado, não estar excomungado e encontrar-se em estado de graça, pelo menos no fim das obras prescritas.",
+     "ancora": "norma-17-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] O fiel deve também ter intenção, ao menos geral, de ganhar a indulgência e cumprir as ações prescritas, no tempo determinado e no modo devido, segundo o teor da concessão.[nota]25[/nota]"
+     "texto": "[b]§ 2.[/b] O fiel deve também ter intenção, ao menos geral, de ganhar a indulgência e cumprir as ações prescritas, no tempo determinado e no modo devido, segundo o teor da concessão.[nota]25[/nota]",
+     "ancora": "norma-17-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]18. § 1.[/b] A indulgência plenária só se pode ganhar uma vez ao dia; a indulgência parcial, várias vezes."
+     "texto": "[b]18. § 1.[/b] A indulgência plenária só se pode ganhar uma vez ao dia; a indulgência parcial, várias vezes.",
+     "ancora": "norma-18-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Contudo, o fiel [i]in articulo mortis[/i] pode ganhá-la, mesmo que já a tenha conseguido nesse dia.[nota]26[/nota]"
+     "texto": "[b]§ 2.[/b] Contudo, o fiel [i]in articulo mortis[/i] pode ganhá-la, mesmo que já a tenha conseguido nesse dia.[nota]26[/nota]",
+     "ancora": "norma-18-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]19.[/b] A obra prescrita para alcançar a indulgência plenária, anexa à igreja ou oratório, é a visita: neles se recitam a oração dominical e o símbolo aos apóstolos (Pai-nosso e Creio), a não ser caso especial em que se estabeleça outra coisa.[nota]27[/nota]"
+     "texto": "[b]19.[/b] A obra prescrita para alcançar a indulgência plenária, anexa à igreja ou oratório, é a visita: neles se recitam a oração dominical e o símbolo aos apóstolos (Pai-nosso e Creio), a não ser caso especial em que se estabeleça outra coisa.[nota]27[/nota]",
+     "ancora": "norma-19"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]20. § 1.[/b] Para lucrar a indulgência plenária, além da exclusão de todo o afeto a qualquer pecado, mesmo venial, requerem-se a execução da obra enriquecida da indulgência e o cumprimento das três condições seguintes: confissão sacramental, comunhão eucarística e oração nas intenções do Sumo Pontífice."
+     "texto": "[b]20. § 1.[/b] Para lucrar a indulgência plenária, além da exclusão de todo o afeto a qualquer pecado, mesmo venial, requerem-se a execução da obra enriquecida da indulgência e o cumprimento das três condições seguintes: confissão sacramental, comunhão eucarística e oração nas intenções do Sumo Pontífice.",
+     "ancora": "norma-20-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Com uma só confissão podem ganhar-se várias indulgências, mas com uma só comunhão e uma só oração nas intenções do Sumo Pontífice alcança-se uma só indulgência plenária."
+     "texto": "[b]§ 2.[/b] Com uma só confissão podem ganhar-se várias indulgências, mas com uma só comunhão e uma só oração nas intenções do Sumo Pontífice alcança-se uma só indulgência plenária.",
+     "ancora": "norma-20-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 3.[/b] As três condições podem cumprir-se em vários dias, antes ou depois da execução da ação prescrita; convém, contudo, que tal comunhão e tal oração nas intenções do Sumo Pontífice se pratiquem no próprio dia da obra prescrita."
+     "texto": "[b]§ 3.[/b] As três condições podem cumprir-se em vários dias, antes ou depois da execução da ação prescrita; convém, contudo, que tal comunhão e tal oração nas intenções do Sumo Pontífice se pratiquem no próprio dia da obra prescrita.",
+     "ancora": "norma-20-3"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 4.[/b] Se falta a devida disposição ou se a obra prescrita e as três condições não se cumprem, a indulgência será só parcial, salvo o que se prescreve nos nn. 24 e 25 em favor dos \"impedidos\"."
+     "texto": "[b]§ 4.[/b] Se falta a devida disposição ou se a obra prescrita e as três condições não se cumprem, a indulgência será só parcial, salvo o que se prescreve nos nn. 24 e 25 em favor dos \"impedidos\".",
+     "ancora": "norma-20-4"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 5.[/b] A condição de rezar nas intenções do Sumo Pontífice se cumpre ao se recitar nessas intenções um Pai-nosso e uma Ave-Maria, mas podem os fiéis acrescentar outras orações conforme sua piedade e devoção.[nota]28[/nota]"
+     "texto": "[b]§ 5.[/b] A condição de rezar nas intenções do Sumo Pontífice se cumpre ao se recitar nessas intenções um Pai-nosso e uma Ave-Maria, mas podem os fiéis acrescentar outras orações conforme sua piedade e devoção.[nota]28[/nota]",
+     "ancora": "norma-20-5"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]21. § 1.[/b] Com a obra, a cuja execução alguém está obrigado por lei ou preceito, não se podem ganhar indulgências, a não ser que em sua concessão se diga expressamente o contrário."
+     "texto": "[b]21. § 1.[/b] Com a obra, a cuja execução alguém está obrigado por lei ou preceito, não se podem ganhar indulgências, a não ser que em sua concessão se diga expressamente o contrário.",
+     "ancora": "norma-21-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Contudo, quem executa obra anexa à penitência sacramental e é por acaso indulgenciada, pode ao mesmo tempo satisfazer à penitência e ganhar as indulgências."
+     "texto": "[b]§ 2.[/b] Contudo, quem executa obra anexa à penitência sacramental e é por acaso indulgenciada, pode ao mesmo tempo satisfazer à penitência e ganhar as indulgências.",
+     "ancora": "norma-21-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 3.[/b] Igualmente os membros dos Institutos de vida consagrada ou de Sociedades de vida apostólica podem lucrar indulgências pelas preces ou obras piedosas a que são obrigados a oferecer ou executar por força de sua regra ou constituições ou por força de outra prescrição.[nota]29[/nota]"
+     "texto": "[b]§ 3.[/b] Igualmente os membros dos Institutos de vida consagrada ou de Sociedades de vida apostólica podem lucrar indulgências pelas preces ou obras piedosas a que são obrigados a oferecer ou executar por força de sua regra ou constituições ou por força de outra prescrição.[nota]29[/nota]",
+     "ancora": "norma-21-3"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]22.[/b] A indulgência anexa a alguma oração pode ganhar-se em qualquer língua em que esta venha recitada, desde que a tradução seja aprovada pela competente autoridade eclesiástica.[nota]30[/nota]"
+     "texto": "[b]22.[/b] A indulgência anexa a alguma oração pode ganhar-se em qualquer língua em que esta venha recitada, desde que a tradução seja aprovada pela competente autoridade eclesiástica.[nota]30[/nota]",
+     "ancora": "norma-22"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]23.[/b] Para aquisição de indulgências é suficiente rezar a oração alternadamente com outra pessoa ou segui-la mentalmente, enquanto seja recitada por outrem.[nota]31[/nota]"
+     "texto": "[b]23.[/b] Para aquisição de indulgências é suficiente rezar a oração alternadamente com outra pessoa ou segui-la mentalmente, enquanto seja recitada por outrem.[nota]31[/nota]",
+     "ancora": "norma-23"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]24.[/b] Os confessores podem comutar a obra prescrita ou as condições, em favor dos que estão legitimamente impedidos ou impossibilitados de as cumprir por si próprios.[nota]32[/nota]"
+     "texto": "[b]24.[/b] Os confessores podem comutar a obra prescrita ou as condições, em favor dos que estão legitimamente impedidos ou impossibilitados de as cumprir por si próprios.[nota]32[/nota]",
+     "ancora": "norma-24"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]25.[/b] Os ordinários ou hierarcas locais podem além disso conceder aos fiéis que são seus súditos segundo a norma do Direito, e que se encontrem em lugares onde de nenhum modo ou dificilmente possam se confessar e comungar, que também eles possam obter a indulgência plenária sem a atual confissão e comunhão, contanto que estejam de coração contrito e se proponham aproximar-se destes sacramentos logo que possam.[nota]33[/nota]"
+     "texto": "[b]25.[/b] Os ordinários ou hierarcas locais podem além disso conceder aos fiéis que são seus súditos segundo a norma do Direito, e que se encontrem em lugares onde de nenhum modo ou dificilmente possam se confessar e comungar, que também eles possam obter a indulgência plenária sem a atual confissão e comunhão, contanto que estejam de coração contrito e se proponham aproximar-se destes sacramentos logo que possam.[nota]33[/nota]",
+     "ancora": "norma-25"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]26.[/b] Tanto os surdos quanto os mudos podem ganhar as indulgências anexas às orações públicas, se, rezando junto com outros fiéis no mesmo lugar, elevarem a Deus a mente com sentimentos piedosos; e tratando-se de orações em particular, é suficiente que as lembrem com a mente ou as percorram somente com os olhos.[nota]34[/nota]"
+     "texto": "[b]26.[/b] Tanto os surdos quanto os mudos podem ganhar as indulgências anexas às orações públicas, se, rezando junto com outros fiéis no mesmo lugar, elevarem a Deus a mente com sentimentos piedosos; e tratando-se de orações em particular, é suficiente que as lembrem com a mente ou as percorram somente com os olhos.[nota]34[/nota]",
+     "ancora": "norma-26"
     }
    ]
   },
@@ -1136,27 +1178,33 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que:"
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que:",
+     "ancora": "concessao-7-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]1º[/b] Visitar o Santíssimo Sacramento para adorá-lo pelo menos por meia hora;"
+     "texto": "[b]1º[/b] Visitar o Santíssimo Sacramento para adorá-lo pelo menos por meia hora;",
+     "ancora": "concessao-7-1-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]2º[/b] Recitar piedosamente as estrofes do hino [i]Tão Sublime Sacramento[/i] na quinta-feira da Semana Santa, na solene deposição do Santíssimo Sacramento, após a Missa da Ceia do Senhor;"
+     "texto": "[b]2º[/b] Recitar piedosamente as estrofes do hino [i]Tão Sublime Sacramento[/i] na quinta-feira da Semana Santa, na solene deposição do Santíssimo Sacramento, após a Missa da Ceia do Senhor;",
+     "ancora": "concessao-7-1-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]3º[/b] Participar piedosamente na solene procissão eucarística, a qual certamente será de importância maior na solenidade do Corpo e Sangue de Cristo, realizada fora ou no interior de lugares sagrados;"
+     "texto": "[b]3º[/b] Participar piedosamente na solene procissão eucarística, a qual certamente será de importância maior na solenidade do Corpo e Sangue de Cristo, realizada fora ou no interior de lugares sagrados;",
+     "ancora": "concessao-7-1-3"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]4°[/b] Participar religiosamente do solene rito eucarístico que costuma realizar-se no final dos congressos eucarísticos."
+     "texto": "[b]4°[/b] Participar religiosamente do solene rito eucarístico que costuma realizar-se no final dos congressos eucarísticos.",
+     "ancora": "concessao-7-1-4"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que:"
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que:",
+     "ancora": "concessao-7-2"
     },
     {
      "tipo": "paragrafo",
@@ -1236,19 +1284,23 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que:"
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que:",
+     "ancora": "concessao-8-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]1º[/b] Aproximar-se pela primeira vez da sagrada comunhão ou assistir piedosamente a outros que se aproximam pela primeira vez;"
+     "texto": "[b]1º[/b] Aproximar-se pela primeira vez da sagrada comunhão ou assistir piedosamente a outros que se aproximam pela primeira vez;",
+     "ancora": "concessao-8-1-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]2º[/b] Recitar piedosamente a oração [i]Eis-me aqui, ó bom e dulcíssimo Jesus[/i], diante da imagem de Jesus Cristo Crucificado, após a comunhão, em qualquer sexta-feira do tempo da Quaresma ou na sexta-feira da Paixão do Senhor."
+     "texto": "[b]2º[/b] Recitar piedosamente a oração [i]Eis-me aqui, ó bom e dulcíssimo Jesus[/i], diante da imagem de Jesus Cristo Crucificado, após a comunhão, em qualquer sexta-feira do tempo da Quaresma ou na sexta-feira da Paixão do Senhor.",
+     "ancora": "concessao-8-1-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que, com qualquer fórmula legitimamente aprovada, enunciar:"
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que, com qualquer fórmula legitimamente aprovada, enunciar:",
+     "ancora": "concessao-8-2"
     },
     {
      "tipo": "paragrafo",
@@ -1324,11 +1376,13 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que faz os exercícios espirituais ao menos por três dias inteiros."
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que faz os exercícios espirituais ao menos por três dias inteiros.",
+     "ancora": "concessao-10-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que participa do recolhimento mensal."
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que participa do recolhimento mensal.",
+     "ancora": "concessao-10-2"
     },
     {
      "tipo": "subtitulo",
@@ -1341,11 +1395,13 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que participar de alguma das funções na semana pela unidade dos cristãos e estiver presente na conclusão da mesma semana."
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que participar de alguma das funções na semana pela unidade dos cristãos e estiver presente na conclusão da mesma semana.",
+     "ancora": "concessao-11-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que recitar devotamente uma oração – legitimamente aprovada – pela unidade dos cristãos (por exemplo: [i]Ó Deus todo-poderoso e cheio de misericórdia[/i])."
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que recitar devotamente uma oração – legitimamente aprovada – pela unidade dos cristãos (por exemplo: [i]Ó Deus todo-poderoso e cheio de misericórdia[/i]).",
+     "ancora": "concessao-11-2"
     },
     {
      "tipo": "bilingue",
@@ -1369,23 +1425,28 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] O sacerdote que administra os sacramentos ao fiel em perigo de vida não deixe de lhe comunicar a bênção apostólica com a [i]indulgência plenária[/i]."
+     "texto": "[b]§ 1.[/b] O sacerdote que administra os sacramentos ao fiel em perigo de vida não deixe de lhe comunicar a bênção apostólica com a [i]indulgência plenária[/i].",
+     "ancora": "concessao-12-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Se não houver sacerdote, a Igreja, mãe compassiva, concede benignamente a mesma indulgência plenária ao cristão bem disposto para ganhá-la na hora da morte, se durante a vida habitualmente tiver recitado para isso algumas orações. Neste caso a Igreja supre as três condições habitualmente requeridas para se ganhar a indulgência plenária."
+     "texto": "[b]§ 2.[/b] Se não houver sacerdote, a Igreja, mãe compassiva, concede benignamente a mesma indulgência plenária ao cristão bem disposto para ganhá-la na hora da morte, se durante a vida habitualmente tiver recitado para isso algumas orações. Neste caso a Igreja supre as três condições habitualmente requeridas para se ganhar a indulgência plenária.",
+     "ancora": "concessao-12-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 3.[/b] Para alcançar essa indulgência plenária, louvavelmente se faça uso de um crucifixo ou de uma cruz."
+     "texto": "[b]§ 3.[/b] Para alcançar essa indulgência plenária, louvavelmente se faça uso de um crucifixo ou de uma cruz.",
+     "ancora": "concessao-12-3"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 4.[/b] A mesma indulgência plenária em artigo de morte, pode o fiel que no mesmo dia já tenha ganho outra indulgência plenária, ganhá-la."
+     "texto": "[b]§ 4.[/b] A mesma indulgência plenária em artigo de morte, pode o fiel que no mesmo dia já tenha ganho outra indulgência plenária, ganhá-la.",
+     "ancora": "concessao-12-4"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 5.[/b] Os fiéis sejam oportunamente e muitas vezes informados na catequese a respeito dessa salutar disposição da Igreja."
+     "texto": "[b]§ 5.[/b] Os fiéis sejam oportunamente e muitas vezes informados na catequese a respeito dessa salutar disposição da Igreja.",
+     "ancora": "concessao-12-5"
     },
     {
      "tipo": "subtitulo",
@@ -1398,11 +1459,13 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]1º[/b] Na sexta-feira da Paixão e Morte do Senhor, toma parte piedosamente na adoração da Cruz da solene ação litúrgica;"
+     "texto": "[b]1º[/b] Na sexta-feira da Paixão e Morte do Senhor, toma parte piedosamente na adoração da Cruz da solene ação litúrgica;",
+     "ancora": "concessao-13-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]2º[/b] Ou quando ele mesmo praticar o piedoso exercício da Via Sacra ou, unindo-se piedosamente ao Sumo Pontífice através da televisão ou rádio, quando este a reza."
+     "texto": "[b]2º[/b] Ou quando ele mesmo praticar o piedoso exercício da Via Sacra ou, unindo-se piedosamente ao Sumo Pontífice através da televisão ou rádio, quando este a reza.",
+     "ancora": "concessao-13-2"
     },
     {
      "tipo": "paragrafo",
@@ -1432,11 +1495,13 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que, na solenidade dos Santos Apóstolos Pedro e Paulo, usar devotamente um [i]objeto de piedade[/i], conforme definição da norma de nº 15, bento ritualmente pelo Sumo Pontífice ou qualquer bispo, acrescentando a profissão de fé em qualquer fórmula legítima."
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que, na solenidade dos Santos Apóstolos Pedro e Paulo, usar devotamente um [i]objeto de piedade[/i], conforme definição da norma de nº 15, bento ritualmente pelo Sumo Pontífice ou qualquer bispo, acrescentando a profissão de fé em qualquer fórmula legítima.",
+     "ancora": "concessao-14-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que, de algum modo, usar devotamente um [i]objeto de piedade[/i], bento por qualquer sacerdote ou diácono."
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que, de algum modo, usar devotamente um [i]objeto de piedade[/i], bento por qualquer sacerdote ou diácono.",
+     "ancora": "concessao-14-2"
     },
     {
      "tipo": "subtitulo",
@@ -1454,11 +1519,13 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que, no tempo das santas missões, ouvir algumas pregações e participar, além disso, do solene encerramento das mesmas missões."
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que, no tempo das santas missões, ouvir algumas pregações e participar, além disso, do solene encerramento das mesmas missões.",
+     "ancora": "concessao-16-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que assistir atenta e devotamente à sagrada pregação da palavra de Deus."
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que assistir atenta e devotamente à sagrada pregação da palavra de Deus.",
+     "ancora": "concessao-16-2"
     },
     {
      "tipo": "subtitulo",
@@ -1467,15 +1534,18 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que:"
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que:",
+     "ancora": "concessao-17-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]1º[/b] Recitar piedosamente o [i]Rosário de Maria[/i] na igreja ou oratório ou em família, na comunidade religiosa ou associação de fiéis, e em geral quando várias pessoas se reúnem para algum fim honesto;"
+     "texto": "[b]1º[/b] Recitar piedosamente o [i]Rosário de Maria[/i] na igreja ou oratório ou em família, na comunidade religiosa ou associação de fiéis, e em geral quando várias pessoas se reúnem para algum fim honesto;",
+     "ancora": "concessao-17-1-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]2º[/b] Unir-se piedosamente na recitação da mesma oração ao Sumo Pontífice, quando este a reza, inclusive através da televisão ou rádio."
+     "texto": "[b]2º[/b] Unir-se piedosamente na recitação da mesma oração ao Sumo Pontífice, quando este a reza, inclusive através da televisão ou rádio.",
+     "ancora": "concessao-17-1-2"
     },
     {
      "tipo": "paragrafo",
@@ -1503,7 +1573,8 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que:"
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que:",
+     "ancora": "concessao-17-2"
     },
     {
      "tipo": "paragrafo",
@@ -1934,11 +2005,13 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que, no dia da celebração litúrgica de qualquer Santo, recitar em sua honra a oração tomada do Missal ou outra legitimamente aprovada."
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que, no dia da celebração litúrgica de qualquer Santo, recitar em sua honra a oração tomada do Missal ou outra legitimamente aprovada.",
+     "ancora": "concessao-21-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Além disso, para favorecer a veneração e piedade para com os novos Santos ou Beatos, concede-se por uma só vez indulgência plenária ao fiel que visitar as igrejas ou oratórios nos quais se celebrarem solenidades anuais em honra dos mesmos santos, e aí recitar o Pai-nosso e o Creio; concede-se [i]indulgência parcial[/i] àquele que, no mesmo espaço de tempo, realizar piedosamente a visita mencionada."
+     "texto": "[b]§ 2.[/b] Além disso, para favorecer a veneração e piedade para com os novos Santos ou Beatos, concede-se por uma só vez indulgência plenária ao fiel que visitar as igrejas ou oratórios nos quais se celebrarem solenidades anuais em honra dos mesmos santos, e aí recitar o Pai-nosso e o Creio; concede-se [i]indulgência parcial[/i] àquele que, no mesmo espaço de tempo, realizar piedosamente a visita mencionada.",
+     "ancora": "concessao-21-2"
     },
     {
      "tipo": "subtitulo",
@@ -1972,7 +2045,8 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que recitar devotamente o hino [i]Akathistos[/i] ou o ofício [i]Paráclisis[/i] na igreja ou oratório, ou em família, na comunidade religiosa, em uma associação de fiéis e um grupo de fiéis reunidos para um fim honesto. Em outras circunstâncias, a [i]indulgência[/i] será [i]parcial[/i]."
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que recitar devotamente o hino [i]Akathistos[/i] ou o ofício [i]Paráclisis[/i] na igreja ou oratório, ou em família, na comunidade religiosa, em uma associação de fiéis e um grupo de fiéis reunidos para um fim honesto. Em outras circunstâncias, a [i]indulgência[/i] será [i]parcial[/i].",
+     "ancora": "concessao-23-1"
     },
     {
      "tipo": "paragrafo",
@@ -1984,7 +2058,8 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que, de acordo com as circunstâncias e a situação, recitar devotamente alguma das seguintes orações: [i]Oração em ação de graças[/i] (da tradição Armênia); [i]Oração vespertina[/i], [i]Oração pelos defuntos[/i] (da tradição bizantina); [i]Oração do Santuário[/i], [i]Oração \"Lakhu Mara\" ou \"A ti, Senhor\"[/i] (da tradição caldaica); [i]Oração para incensação[/i], [i]Oração em honra à Virgem Maria[/i] (da tradição copta); [i]Oração para o perdão dos pecadores[/i], [i]Oração para alcançar o seguimento de Cristo[/i] (da tradição etíope); [i]Oração pela Igreja[/i], [i]Oração depois de terminada a Liturgia[/i] (da tradição maronita); [i]Intercessões pelos defuntos, da Liturgia de São Tiago[/i] (da tradição sírio-antioquena)."
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que, de acordo com as circunstâncias e a situação, recitar devotamente alguma das seguintes orações: [i]Oração em ação de graças[/i] (da tradição Armênia); [i]Oração vespertina[/i], [i]Oração pelos defuntos[/i] (da tradição bizantina); [i]Oração do Santuário[/i], [i]Oração \"Lakhu Mara\" ou \"A ti, Senhor\"[/i] (da tradição caldaica); [i]Oração para incensação[/i], [i]Oração em honra à Virgem Maria[/i] (da tradição copta); [i]Oração para o perdão dos pecadores[/i], [i]Oração para alcançar o seguimento de Cristo[/i] (da tradição etíope); [i]Oração pela Igreja[/i], [i]Oração depois de terminada a Liturgia[/i] (da tradição maronita); [i]Intercessões pelos defuntos, da Liturgia de São Tiago[/i] (da tradição sírio-antioquena).",
+     "ancora": "concessao-23-2"
     },
     {
      "tipo": "subtitulo",
@@ -2063,19 +2138,23 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que, na igreja ou no oratório, participar devotamente do canto ou recitação solene:"
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que, na igreja ou no oratório, participar devotamente do canto ou recitação solene:",
+     "ancora": "concessao-26-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]1º[/b] Do hino [i]Veni, Creator[/i], ou no primeiro dia do ano para implorar a proteção divina para todo o ano, ou na solenidade de Pentecostes;"
+     "texto": "[b]1º[/b] Do hino [i]Veni, Creator[/i], ou no primeiro dia do ano para implorar a proteção divina para todo o ano, ou na solenidade de Pentecostes;",
+     "ancora": "concessao-26-1-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]2º[/b] Do hino [i]Te Deum[/i], no último dia do ano, para render graças a Deus pelos benefícios concedidos no decurso de todo o ano."
+     "texto": "[b]2º[/b] Do hino [i]Te Deum[/i], no último dia do ano, para render graças a Deus pelos benefícios concedidos no decurso de todo o ano.",
+     "ancora": "concessao-26-1-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que:"
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que:",
+     "ancora": "concessao-26-2"
     },
     {
      "tipo": "paragrafo",
@@ -2260,31 +2339,38 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i]:"
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i]:",
+     "ancora": "concessao-27-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]1º[/b] Ao sacerdote que, em dia marcado, celebra sua primeira missa, diante do povo;"
+     "texto": "[b]1º[/b] Ao sacerdote que, em dia marcado, celebra sua primeira missa, diante do povo;",
+     "ancora": "concessao-27-1-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]2º[/b] Aos fiéis que devotamente a ela assistem."
+     "texto": "[b]2º[/b] Aos fiéis que devotamente a ela assistem.",
+     "ancora": "concessao-27-1-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se igualmente [i]indulgência plenária[/i]:"
+     "texto": "[b]§ 2.[/b] Concede-se igualmente [i]indulgência plenária[/i]:",
+     "ancora": "concessao-27-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]1º[/b] Aos que, celebrando os 25, 50, 60 anos de sua ordenação sacerdotal, renovam diante de Deus o propósito de fidelidade aos deveres de sua vocação;"
+     "texto": "[b]1º[/b] Aos que, celebrando os 25, 50, 60 anos de sua ordenação sacerdotal, renovam diante de Deus o propósito de fidelidade aos deveres de sua vocação;",
+     "ancora": "concessao-27-2-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]2º[/b] Aos bispos que no aniversário de 25, 40 e 50 anos de ordenação episcopal renovam diante de Deus o propósito de fidelidade aos deveres de sua vocação;"
+     "texto": "[b]2º[/b] Aos bispos que no aniversário de 25, 40 e 50 anos de ordenação episcopal renovam diante de Deus o propósito de fidelidade aos deveres de sua vocação;",
+     "ancora": "concessao-27-2-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]3º[/b] Aos fiéis que participam devotamente da celebração da Missa jubilar."
+     "texto": "[b]3º[/b] Aos fiéis que participam devotamente da celebração da Missa jubilar.",
+     "ancora": "concessao-27-2-3"
     },
     {
      "tipo": "subtitulo",
@@ -2293,11 +2379,13 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que, na celebração da Vigília Pascal ou no dia do aniversário de seu batismo, renovar as promessas batismais em alguma fórmula legitimamente aprovada."
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que, na celebração da Vigília Pascal ou no dia do aniversário de seu batismo, renovar as promessas batismais em alguma fórmula legitimamente aprovada.",
+     "ancora": "concessao-28-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que:"
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que:",
+     "ancora": "concessao-28-2"
     },
     {
      "tipo": "paragrafo",
@@ -2322,19 +2410,23 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i], aplicável somente às almas do purgatório, ao fiel que:"
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i], aplicável somente às almas do purgatório, ao fiel que:",
+     "ancora": "concessao-29-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]1º[/b] Visitar devotamente o cemitério, a cada dia, de primeiro a oito de novembro, e aí rezar pelos defuntos, mesmo que só mentalmente;"
+     "texto": "[b]1º[/b] Visitar devotamente o cemitério, a cada dia, de primeiro a oito de novembro, e aí rezar pelos defuntos, mesmo que só mentalmente;",
+     "ancora": "concessao-29-1-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]2º[/b] Visitar piedosamente uma igreja ou oratório e aí recitar o Pai-nosso e o Creio, no dia da comemoração de todos os fiéis defuntos (ou, com o consentimento do Ordinário, no domingo antecedente ou subsequente ao dia da solenidade de todos os santos)."
+     "texto": "[b]2º[/b] Visitar piedosamente uma igreja ou oratório e aí recitar o Pai-nosso e o Creio, no dia da comemoração de todos os fiéis defuntos (ou, com o consentimento do Ordinário, no domingo antecedente ou subsequente ao dia da solenidade de todos os santos).",
+     "ancora": "concessao-29-1-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i], aplicável somente às almas do purgatório, ao fiel que:"
+     "texto": "[b]§ 2.[/b] Concede-se [i]indulgência parcial[/i], aplicável somente às almas do purgatório, ao fiel que:",
+     "ancora": "concessao-29-2"
     },
     {
      "tipo": "paragrafo",
@@ -2370,11 +2462,13 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que, pelo menos por meia hora, com a veneração devida à palavra divina e a modo de leitura espiritual, ler a Sagrada Escritura, de acordo com texto aprovado pela autoridade competente; se a leitura se estender por menos tempo, a [i]indulgência[/i] será [i]parcial[/i]."
+     "texto": "[b]§ 1.[/b] Concede-se [i]indulgência plenária[/i] ao fiel que, pelo menos por meia hora, com a veneração devida à palavra divina e a modo de leitura espiritual, ler a Sagrada Escritura, de acordo com texto aprovado pela autoridade competente; se a leitura se estender por menos tempo, a [i]indulgência[/i] será [i]parcial[/i].",
+     "ancora": "concessao-30-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Se, por causa razoável, alguém não puder ler, concede-se [i]indulgência[/i] – [i]plenária[/i] ou [i]parcial[/i], como acima – se o texto da Sagrada Escritura for lido por uma outra pessoa, ou for reproduzido em vídeo ou áudio."
+     "texto": "[b]§ 2.[/b] Se, por causa razoável, alguém não puder ler, concede-se [i]indulgência[/i] – [i]plenária[/i] ou [i]parcial[/i], como acima – se o texto da Sagrada Escritura for lido por uma outra pessoa, ou for reproduzido em vídeo ou áudio.",
+     "ancora": "concessao-30-2"
     },
     {
      "tipo": "subtitulo",
@@ -2401,15 +2495,18 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 1.[/b] Concede-se indulgência plenária ao fiel que visitar com devoção e aí recitar o [i]Pai-nosso[/i] e o [i]Creio[/i]:"
+     "texto": "[b]§ 1.[/b] Concede-se indulgência plenária ao fiel que visitar com devoção e aí recitar o [i]Pai-nosso[/i] e o [i]Creio[/i]:",
+     "ancora": "concessao-33-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]1º[/b] Uma das quatro Basílicas Patriarcais de Roma, ou em peregrinação com outras pessoas, ou ao menos no correr da visitação demonstrando sentimento de filial obediência para com o Romano Pontífice;"
+     "texto": "[b]1º[/b] Uma das quatro Basílicas Patriarcais de Roma, ou em peregrinação com outras pessoas, ou ao menos no correr da visitação demonstrando sentimento de filial obediência para com o Romano Pontífice;",
+     "ancora": "concessao-33-1-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]2º[/b] Uma basílica menor:"
+     "texto": "[b]2º[/b] Uma basílica menor:",
+     "ancora": "concessao-33-1-2"
     },
     {
      "tipo": "lista",
@@ -2423,7 +2520,8 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]3º[/b] A igreja catedral:"
+     "texto": "[b]3º[/b] A igreja catedral:",
+     "ancora": "concessao-33-1-3"
     },
     {
      "tipo": "lista",
@@ -2438,7 +2536,8 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]4º[/b] Um santuário constituído pela autoridade competente, seja internacional, seja nacional, seja diocesano:"
+     "texto": "[b]4º[/b] Um santuário constituído pela autoridade competente, seja internacional, seja nacional, seja diocesano:",
+     "ancora": "concessao-33-1-4"
     },
     {
      "tipo": "lista",
@@ -2451,7 +2550,8 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]5º[/b] A igreja paroquial:"
+     "texto": "[b]5º[/b] A igreja paroquial:",
+     "ancora": "concessao-33-1-5"
     },
     {
      "tipo": "lista",
@@ -2463,19 +2563,23 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]6º[/b] A igreja ou altar, no mesmo dia de sua dedicação."
+     "texto": "[b]6º[/b] A igreja ou altar, no mesmo dia de sua dedicação.",
+     "ancora": "concessao-33-1-6"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]7°[/b] A igreja ou oratório dos Institutos de vida consagrada ou de Sociedades de vida apostólica, no dia dedicado ao seu fundador."
+     "texto": "[b]7°[/b] A igreja ou oratório dos Institutos de vida consagrada ou de Sociedades de vida apostólica, no dia dedicado ao seu fundador.",
+     "ancora": "concessao-33-1-7"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 2.[/b] Igualmente concede-se [i]indulgência plenária[/i] ao fiel que participar das sagradas funções em alguma Igreja Estacional em seu próprio dia; a indulgência será parcial se devotamente a visitar."
+     "texto": "[b]§ 2.[/b] Igualmente concede-se [i]indulgência plenária[/i] ao fiel que participar das sagradas funções em alguma Igreja Estacional em seu próprio dia; a indulgência será parcial se devotamente a visitar.",
+     "ancora": "concessao-33-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]§ 3.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que devotamente visitar um antigo cemitério dos cristãos ou \"catacumba\"."
+     "texto": "[b]§ 3.[/b] Concede-se [i]indulgência parcial[/i] ao fiel que devotamente visitar um antigo cemitério dos cristãos ou \"catacumba\".",
+     "ancora": "concessao-33-3"
     }
    ]
   },
@@ -2958,27 +3062,33 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 1.[/b] Indulgência é a remissão, diante de Deus, da pena temporal devida pelos pecados já perdoados quanto à culpa, que o fiel, devidamente disposto e em certas e determinadas condições, alcança por meio da Igreja, a qual, como dispensadora da redenção, distribui e aplica, com autoridade, o tesouro das satisfações de Cristo e dos Santos."
+     "texto": "[b]N 1.[/b] Indulgência é a remissão, diante de Deus, da pena temporal devida pelos pecados já perdoados quanto à culpa, que o fiel, devidamente disposto e em certas e determinadas condições, alcança por meio da Igreja, a qual, como dispensadora da redenção, distribui e aplica, com autoridade, o tesouro das satisfações de Cristo e dos Santos.",
+     "ancora": "id-norma-1"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 2.[/b] A indulgência é parcial ou plenária, conforme libera parcial ou totalmente da pena devida pelos pecados."
+     "texto": "[b]N 2.[/b] A indulgência é parcial ou plenária, conforme libera parcial ou totalmente da pena devida pelos pecados.",
+     "ancora": "id-norma-2"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 3.[/b] As indulgências, ou parciais ou plenárias, podem sempre aplicar-se aos defuntos por modo de sufrágio."
+     "texto": "[b]N 3.[/b] As indulgências, ou parciais ou plenárias, podem sempre aplicar-se aos defuntos por modo de sufrágio.",
+     "ancora": "id-norma-3"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 4.[/b] Doravante se indicará a indulgência parcial apenas por estas palavras: \"indulgência parcial\", sem determinação alguma de dias e anos."
+     "texto": "[b]N 4.[/b] Doravante se indicará a indulgência parcial apenas por estas palavras: \"indulgência parcial\", sem determinação alguma de dias e anos.",
+     "ancora": "id-norma-4"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 5.[/b] Ao fiel que, ao menos contrito de coração, realiza uma obra enriquecida duma indulgência parcial, é concedida pela Igreja uma remissão de pena temporal igual à que ele mesmo obtém por sua ação."
+     "texto": "[b]N 5.[/b] Ao fiel que, ao menos contrito de coração, realiza uma obra enriquecida duma indulgência parcial, é concedida pela Igreja uma remissão de pena temporal igual à que ele mesmo obtém por sua ação.",
+     "ancora": "id-norma-5"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 6.[/b] A indulgência plenária só pode ser adquirida uma vez por dia, ressalvada a prescrição da norma 18 para os que se acham \"in articulo mortis\"."
+     "texto": "[b]N 6.[/b] A indulgência plenária só pode ser adquirida uma vez por dia, ressalvada a prescrição da norma 18 para os que se acham \"in articulo mortis\".",
+     "ancora": "id-norma-6"
     },
     {
      "tipo": "paragrafo",
@@ -2986,7 +3096,8 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 7.[/b] Para adquirir a indulgência plenária é preciso fazer uma obra enriquecida de indulgência e preencher as seguintes três condições: confissão sacramental, comunhão eucarística e oração nas intenções do Sumo Pontífice. Requer-se além disso rejeitar todo o apego ao pecado, qualquer que seja, mesmo venial."
+     "texto": "[b]N 7.[/b] Para adquirir a indulgência plenária é preciso fazer uma obra enriquecida de indulgência e preencher as seguintes três condições: confissão sacramental, comunhão eucarística e oração nas intenções do Sumo Pontífice. Requer-se além disso rejeitar todo o apego ao pecado, qualquer que seja, mesmo venial.",
+     "ancora": "id-norma-7"
     },
     {
      "tipo": "paragrafo",
@@ -2994,35 +3105,43 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 8.[/b] As três condições podem ser preenchidas em dias diversos, antes ou após a realização da obra prescrita; mas convém que a comunhão e a oração nas intenções do Soberano Pontífice se façam no mesmo dia em que se faz a obra."
+     "texto": "[b]N 8.[/b] As três condições podem ser preenchidas em dias diversos, antes ou após a realização da obra prescrita; mas convém que a comunhão e a oração nas intenções do Soberano Pontífice se façam no mesmo dia em que se faz a obra.",
+     "ancora": "id-norma-8"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 9.[/b] Com uma só confissão sacramental, podem adquirir-se várias indulgências plenárias, mas para cada indulgência plenária é necessária uma comunhão e as orações nas intenções do Sumo Pontífice."
+     "texto": "[b]N 9.[/b] Com uma só confissão sacramental, podem adquirir-se várias indulgências plenárias, mas para cada indulgência plenária é necessária uma comunhão e as orações nas intenções do Sumo Pontífice.",
+     "ancora": "id-norma-9"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 10.[/b] A condição da oração nas intenções do Sumo Pontífice pode ser plenamente cumprida recitando em suas intenções um Pai-nosso e Ave-Maria; mas é facultado a todos os fiéis recitarem qualquer outra oração conforme sua piedade e devoção para com o Pontífice Romano."
+     "texto": "[b]N 10.[/b] A condição da oração nas intenções do Sumo Pontífice pode ser plenamente cumprida recitando em suas intenções um Pai-nosso e Ave-Maria; mas é facultado a todos os fiéis recitarem qualquer outra oração conforme sua piedade e devoção para com o Pontífice Romano.",
+     "ancora": "id-norma-10"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 11.[/b] Sem prejuízo da faculdade dada aos confessores pelo cân. 935 do CDC de comutarem, para aqueles \"que se acham impedidos\", ou a obra prescrita ou as condições requeridas, podem os ordinários locais conceder aos fiéis sob sua autoridade, conforme as normas do Direito, caso morem esses fiéis em lugares onde lhes é impossível ou ao menos muito difícil confessar-se ou comungar, a possibilidade de ganharem a indulgência plenária sem confissão e comunhão imediata, contanto que tenham o coração contrito e estejam dispostos a se aproximarem desses sacramentos logo que puderem."
+     "texto": "[b]N 11.[/b] Sem prejuízo da faculdade dada aos confessores pelo cân. 935 do CDC de comutarem, para aqueles \"que se acham impedidos\", ou a obra prescrita ou as condições requeridas, podem os ordinários locais conceder aos fiéis sob sua autoridade, conforme as normas do Direito, caso morem esses fiéis em lugares onde lhes é impossível ou ao menos muito difícil confessar-se ou comungar, a possibilidade de ganharem a indulgência plenária sem confissão e comunhão imediata, contanto que tenham o coração contrito e estejam dispostos a se aproximarem desses sacramentos logo que puderem.",
+     "ancora": "id-norma-11"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 12.[/b] Fica abolida a distinção das indulgências em pessoais, reais e locais, para fazer aparecer mais claramente que são as ações dos fiéis as enriquecidas com indulgências, mesmo que às vezes ligadas a um objeto ou a um lugar."
+     "texto": "[b]N 12.[/b] Fica abolida a distinção das indulgências em pessoais, reais e locais, para fazer aparecer mais claramente que são as ações dos fiéis as enriquecidas com indulgências, mesmo que às vezes ligadas a um objeto ou a um lugar.",
+     "ancora": "id-norma-12"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 13.[/b] O [i]Indulgências – Orientações litúrgico-pastorais[/i] será revisto a fim de que não sejam enriquecidas de indulgências senão as principais orações e obras de piedade, de caridade e de penitência."
+     "texto": "[b]N 13.[/b] O [i]Indulgências – Orientações litúrgico-pastorais[/i] será revisto a fim de que não sejam enriquecidas de indulgências senão as principais orações e obras de piedade, de caridade e de penitência.",
+     "ancora": "id-norma-13"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 14.[/b] Os catálogos e compilações de indulgências das ordens, congregações religiosas, sociedades de vida comum sem votos, institutos seculares e associações pias de fiéis, serão revistos assim que possível, para a indulgência plenária poder ser adquirida só em certos dias particulares, marcados pela Santa Sé, sob proposta do superior geral ou, tratando-se de associações pias, do ordinário do lugar."
+     "texto": "[b]N 14.[/b] Os catálogos e compilações de indulgências das ordens, congregações religiosas, sociedades de vida comum sem votos, institutos seculares e associações pias de fiéis, serão revistos assim que possível, para a indulgência plenária poder ser adquirida só em certos dias particulares, marcados pela Santa Sé, sob proposta do superior geral ou, tratando-se de associações pias, do ordinário do lugar.",
+     "ancora": "id-norma-14"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 15.[/b] Em todas as igrejas, oratórios públicos ou semipúblicos – para os que legitimamente usam destes últimos – pode-se ganhar a indulgência de 2 de novembro, que só pode ser aplicada aos defuntos."
+     "texto": "[b]N 15.[/b] Em todas as igrejas, oratórios públicos ou semipúblicos – para os que legitimamente usam destes últimos – pode-se ganhar a indulgência de 2 de novembro, que só pode ser aplicada aos defuntos.",
+     "ancora": "id-norma-15"
     },
     {
      "tipo": "paragrafo",
@@ -3038,11 +3157,13 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 16.[/b] A obra prescrita para ganhar a indulgência plenária ligada a uma igreja ou oratório é a visita piedosa durante a qual se recitará a oração dominical e o símbolo da fé ([i]Pai-nosso[/i] e [i]Creio[/i])."
+     "texto": "[b]N 16.[/b] A obra prescrita para ganhar a indulgência plenária ligada a uma igreja ou oratório é a visita piedosa durante a qual se recitará a oração dominical e o símbolo da fé ([i]Pai-nosso[/i] e [i]Creio[/i]).",
+     "ancora": "id-norma-16"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 17.[/b] Aos fiéis que utilizam religiosamente um objeto de piedade (crucifixo, cruz, terço, escapulário, medalha), validamente abençoado por um padre, concede-se indulgência parcial."
+     "texto": "[b]N 17.[/b] Aos fiéis que utilizam religiosamente um objeto de piedade (crucifixo, cruz, terço, escapulário, medalha), validamente abençoado por um padre, concede-se indulgência parcial.",
+     "ancora": "id-norma-17"
     },
     {
      "tipo": "paragrafo",
@@ -3050,7 +3171,8 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 18.[/b] No caso da impossibilidade de haver um padre para administrar a um fiel em perigo de morte os sacramentos e a bênção apostólica com a indulgência plenária a ela ligada, de que se trata no cân. 468, parágrafo 2, do CDC, concede benignamente nossa piedosa Mãe Igreja a esse fiel bem disposto a indulgência plenária a lucrar em artigo de morte, com a condição de ter ele durante a vida habitualmente recitado algumas orações. Para aquisição dessa indulgência, é louvável empregar um crucifixo ou uma cruz."
+     "texto": "[b]N 18.[/b] No caso da impossibilidade de haver um padre para administrar a um fiel em perigo de morte os sacramentos e a bênção apostólica com a indulgência plenária a ela ligada, de que se trata no cân. 468, parágrafo 2, do CDC, concede benignamente nossa piedosa Mãe Igreja a esse fiel bem disposto a indulgência plenária a lucrar em artigo de morte, com a condição de ter ele durante a vida habitualmente recitado algumas orações. Para aquisição dessa indulgência, é louvável empregar um crucifixo ou uma cruz.",
+     "ancora": "id-norma-18"
     },
     {
      "tipo": "paragrafo",
@@ -3058,11 +3180,13 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 19.[/b] As normas estabelecidas quanto às indulgências plenárias, especialmente a norma 6, são aplicáveis às indulgências plenárias que até então se chamavam [i]toties quoties[/i]."
+     "texto": "[b]N 19.[/b] As normas estabelecidas quanto às indulgências plenárias, especialmente a norma 6, são aplicáveis às indulgências plenárias que até então se chamavam [i]toties quoties[/i].",
+     "ancora": "id-norma-19"
     },
     {
      "tipo": "paragrafo",
-     "texto": "[b]N 20.[/b] Nossa piedosa Mãe Igreja, em sumo grau solícita pelos fiéis defuntos, resolveu conceder-lhes os seus sufrágios na mais ampla medida em cada sacrifício da missa, ab-rogando por outro lado todo privilégio neste domínio."
+     "texto": "[b]N 20.[/b] Nossa piedosa Mãe Igreja, em sumo grau solícita pelos fiéis defuntos, resolveu conceder-lhes os seus sufrágios na mais ampla medida em cada sacrifício da missa, ab-rogando por outro lado todo privilégio neste domínio.",
+     "ancora": "id-norma-20"
     },
     {
      "tipo": "paragrafo",

@@ -61,8 +61,16 @@ export default function Folheto() {
             </p>
           )}
 
+          {/*
+            A concessão inteira é elo, e cai no ponto exato dela dentro do
+            Enchiridion. "Ao invés de linkar o enquiridio nas concessões em
+            cada Indulgência, tu poderia linkar toda a concessão e levar a
+            pessoa pra parte exata da concessão", pediu o Perez.
+          */}
           {folheto.concessao && (
-            <p className="folheto__concessao">{folheto.concessao}</p>
+            <p className="folheto__concessao">
+              <TextoRico texto={folheto.concessao} />
+            </p>
           )}
 
           <ListaDeBlocos blocos={folheto.blocos} />

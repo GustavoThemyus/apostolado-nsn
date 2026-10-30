@@ -123,6 +123,39 @@ function envolver(
   }
 }
 
+/**
+ * O fecho que casa com esta abertura, e não o primeiro que aparecer.
+ *
+ * Sozinha, a busca não-gulosa para no primeiro `[/i]`, e uma marca dentro de
+ * outra igual se parte no meio: "[i]Concessão n.º 14 ... da Constituição
+ * Apostólica [i]Indulgentiarum Doctrina[/i][/i]" saía com o segundo `[/i]`
+ * escrito na tela, em letras, na linha da concessão de São Pedro e São Paulo.
+ * Acontecia porque a fonte já vinha em itálico e o nome do documento também.
+ *
+ * Conta abertura e fecho da mesma marca até zerar. Marcação sem fecho devolve
+ * nulo, e aí vale o que o padrão achou: texto quebrado não derruba a página.
+ */
+function ateOFechoQueCasa(
+  texto: string,
+  marca: string,
+  inicio: number,
+): { conteudo: string; fim: number } | null {
+  const busca = new RegExp(`\\[${marca}(?::[^\\]]*)?\\]|\\[\\/${marca}\\]`, "g");
+  busca.lastIndex = inicio;
+  let profundidade = 1;
+  let achado: RegExpExecArray | null;
+  while ((achado = busca.exec(texto)) !== null) {
+    profundidade += achado[0][1] === "/" ? -1 : 1;
+    if (profundidade === 0) {
+      return {
+        conteudo: texto.slice(inicio, achado.index),
+        fim: achado.index + achado[0].length,
+      };
+    }
+  }
+  return null;
+}
+
 /** Quebra de linha explícita dentro de uma célula ou parágrafo. */
 function comQuebras(trecho: string, prefixo: string): ReactNode[] {
   const linhas = trecho.split("\n");
@@ -152,16 +185,25 @@ export function interpretar(texto: string, prefixo = "t"): ReactNode[] {
     }
     const marca = ocorrencia[1] as Marca;
     const chave = `${prefixo}-${marca}-${ocorrencia.index}`;
+    // `[elo]` e `[elo:]` têm o mesmo grupo vazio, e só a abertura crua diz
+    // qual dos dois é: daí o comprimento sair do parâmetro, e não do achado
+    const abertura =
+      ocorrencia.index +
+      marca.length +
+      (ocorrencia[2] === undefined ? 2 : 3 + ocorrencia[2].length);
+    const casado = ateOFechoQueCasa(texto, marca, abertura);
+    const conteudo = casado ? casado.conteudo : ocorrencia[3];
     partes.push(
       envolver(
         marca,
         ocorrencia[2],
-        marca === "nota" ? null : interpretar(ocorrencia[3], chave),
-        ocorrencia[3],
+        marca === "nota" ? null : interpretar(conteudo, chave),
+        conteudo,
         chave,
       ),
     );
-    ultimoFim = ocorrencia.index + ocorrencia[0].length;
+    ultimoFim = casado ? casado.fim : ocorrencia.index + ocorrencia[0].length;
+    padrao.lastIndex = ultimoFim;
   }
 
   if (ultimoFim < texto.length) {

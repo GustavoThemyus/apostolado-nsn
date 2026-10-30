@@ -44,7 +44,15 @@ export interface ComId {
 
 export type Bloco = ComId &
   (
-  | { tipo: "paragrafo"; texto: string }
+  /**
+   * A âncora leva o leitor ao parágrafo, e não só à seção que o contém.
+   *
+   * O subtítulo já tinha a sua, e ela bastava enquanto se citava "Concessão
+   * n.º 33". Mas se cita "Concessão n.º 33, §1, 3.º, c)", e a concessão 33
+   * tem trinta e tantas linhas: cair no título dela é cair longe. O Perez
+   * pediu o contrário — "levar a pessoa pra parte exata da concessão".
+   */
+  | { tipo: "paragrafo"; texto: string; ancora?: string }
   | { tipo: "rubrica"; texto: string }
     | { tipo: "assembleia"; texto: string }
   | { tipo: "subtitulo"; texto: string; ancora?: string; menor?: boolean }

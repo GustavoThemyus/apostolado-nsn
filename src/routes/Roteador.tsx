@@ -12,7 +12,7 @@ import {
 } from "react";
 import { resolver, type Parametros } from "./casar";
 import { ROTAS, type Rota } from "./rotas";
-import { alvoDaAncora, rolarAteAncora } from "./rolagem";
+import { alvoDaAncora, rolarAteAncora, rolarQuandoAparecer } from "./rolagem";
 
 export interface EstadoDaRota {
   caminho: string;
@@ -199,6 +199,19 @@ function AoTrocarDePagina({
   children: ReactNode;
 }) {
   const primeira = useRef(true);
+
+  /*
+   * A âncora de quem chega de fora, uma vez só na vida da aba.
+   *
+   * Fica em efeito próprio, e não junto do título: aquele depende de
+   * `titulo`, que começa indefinido e muda quando o pedaço da página chega.
+   * A espera era desmontada bem nesse instante, e o salto saía ou errado ou
+   * nenhum, conforme o parágrafo já tivesse entrado na tela ou não.
+   */
+  useEffect(() => {
+    const deFora = window.location.hash;
+    return deFora ? rolarQuandoAparecer(deFora) : undefined;
+  }, []);
 
   useEffect(() => {
     document.title = titulo
