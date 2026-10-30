@@ -138,7 +138,7 @@ export const REGISTRO: DocumentoRegistrado[] = [
     caminho: emDados("indulgencias-calendario.json"),
     forma: "documento",
     rota: "/indulgencias/calendario",
-    ajuda: "A introdução, as explicações e a conclusão em volta do quadro. As condições, as observações e os dias em si estão no documento dos dias.",
+    ajuda: "A apresentação, a nota sobre o calendário litúrgico, as normas gerais e a conclusão em volta dos dois quadros. As condições, as observações e os dias em si estão no documento dos dias.",
   },
   {
     id: "indulgencias-arquidiocese",

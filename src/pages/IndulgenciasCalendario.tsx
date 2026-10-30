@@ -18,6 +18,11 @@ import type { Bloco, Conteudo } from "../data/tipos";
  * A grade do mês não está aqui: ela mora na página geral das indulgências, e
  * responde "o que tem hoje". Esta página responde "quais são", que é a
  * pergunta de quem quer planejar o ano ou conferir uma data.
+ *
+ * A prosa em volta dos quadros é do Perez, do impresso que ele mandou —
+ * "usa o meu texto". A apresentação, a nota sobre o calendário litúrgico, as
+ * normas gerais e a conclusão saem palavra por palavra de lá; aqui só se
+ * acrescentou o que o impresso não tem como ter, que são os elos.
  */
 
 /** O texto corrido de um bloco, para a célula do quadro. */
@@ -66,10 +71,10 @@ const quadroSemDiaFixo = (): Bloco => ({
  * dos dias em vez de serem digitados.
  */
 const ENXERTOS: Record<string, Bloco[]> = {
-  condicoes: indulgencias.condicoes.blocos,
+  normas: indulgencias.condicoes.blocos,
   observacoes: indulgencias.observacoes.blocos,
-  "os-dias-do-ano": [quadroDosDias()],
-  "em-qualquer-dia": [quadroSemDiaFixo()],
+  "calendario-corrido": [quadroDosDias()],
+  "toties-quoties": [quadroSemDiaFixo()],
 };
 
 const conteudo: Conteudo = {

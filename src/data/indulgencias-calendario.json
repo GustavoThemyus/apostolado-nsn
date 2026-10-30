@@ -3,30 +3,72 @@
  "descricao": "Os dias do ano em que a Igreja universal concede indulgência plenária, e a obra que se deve cumprir em cada um.",
  "secoes": [
   {
-   "id": "introducao",
-   "titulo": "Introdução",
+   "id": "apresentacao",
+   "titulo": "Apresentação",
    "blocos": [
     {
      "tipo": "paragrafo",
-     "id": "intro-001",
-     "texto": "Este calendário reúne as indulgências plenárias que a Igreja concede em dias determinados do ano a [b]todos os fiéis[/b], onde quer que estejam. São as do [elo:/indulgencias/enchiridion]Enchiridion Indulgentiarum[/elo], o texto que recolhe as concessões em vigor, e cada linha do quadro remete à concessão de onde saiu."
+     "id": "apr-001",
+     "texto": "Uma vez que Paulo VI, utilizando de sua autoridade apostólica, muniu-se do poder das chaves para reduzir drasticamente a quantidade de Indulgências Plenárias concedidas ao longo do ano, acabou por causar alguma confusão e insegurança aos fiéis menos atentos já que, junto com toda a reforma da disciplina que rege as indulgências, também se estabeleceram novas obras indulgenciadas para poucos dias específicos. Essa situação se intensificou com duas alterações das concessões em um curto período: primeiramente em 1968, logo após a Constituição Apostólica [i]Indulgentiarum Doctrina[/i], as concessões mudam em 1986 e novamente em 1999, que é a versão vigente nos dias de hoje."
     },
     {
      "tipo": "paragrafo",
-     "id": "intro-002",
-     "texto": "Universais, e não locais: nenhuma delas depende de visitar uma igreja desta Arquidiocese nem de pertencer a uma associação. As que dependem estão no [elo:/indulgencias/arquidiocese]calendário da Arquidiocese da Paraíba[/elo] e no das [elo:/indulgencias/ordens]ordens terceiras e confrarias[/elo]."
+     "id": "apr-002",
+     "texto": "Certamente o intento do pontífice no seguimento da reforma visava, pela escassez, inflamar novamente o apreço dos fiéis pelas indulgências, que eram mormente esquecidas ou deixadas de lado devido à abundância incalculável de outrora."
     },
     {
      "tipo": "paragrafo",
-     "id": "intro-003",
-     "texto": "Todas as desta página são [b]plenárias[/b]. O que uma indulgência é, quem pode lucrá-la e de onde a Igreja a tira está em [elo:/indulgencias]Indulgências[/elo]; aqui está o calendário."
+     "id": "apr-003",
+     "texto": "Essa intenção em certo ponto faz sentido, e de fato toda a reforma na disciplina das indulgências convergia para reduzir a quantidade e dificultar o acesso. Fato é que nos tempos hodiernos há uma deficiência generalizada de catequese, fazendo com que muitos católicos não conheçam as verdades de Fé e muito menos o que de fato são as indulgências e sua importância e eficácia para os vivos e para os defuntos; e mesmo quando conhecem, ainda mais raros são os que sabem quais são os dias do ano que a Santa Igreja ternamente dispõe aos fiéis a graça das indulgências. Isto se dá não somente pela falta de formação, quando não se conhece a doutrina e a importância, mas também pela falta de publicidade das concessões no meio eclesiástico, onde até mesmo a maioria dos padres não conhecem em quais dias se pode lucrar indulgências nem as condições para se lucrar em cada caso, e sobretudo pela ausência desse conteúdo em português, visto que a tradução oficial do Enquirídio de Indulgências (livro que contém todas as concessões de indulgências da Igreja universal) somente foi autorizada para a publicação em uma editora, e esta não dispõe de versão online dos textos, sendo necessário adquirir o livro físico, dificultando o acesso dos fiéis a esse bem tão precioso e de direito de todo fiel católico."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "apr-004",
+     "texto": "Por isso, despendemos nossos esforços na publicação do [elo:/indulgencias/enchiridion]Enquirídio de Indulgências[/elo] vigente em nosso site, e nesse mesmo espírito nos empenhamos aqui em apresentar os dias de indulgências, esclarecer as condições para se obter e facilitar a organização, para que não se passe despercebido nenhum dia de indulgência e que se possa cumprir em tempo as condições que são ordinárias. Temos a alegria, portanto, de publicar um calendário corrido contendo todos os dias e todos os detalhes das indulgências que são próprias de alguns dias do ano e das indulgências que se podem lucrar em todos os dias do ano. Além disto, disponibilizamos também um calendário virtual que é atualizado para todos os anos, pode ser consultado na [elo:/indulgencias]página anterior[/elo] e pode também ser adicionado no seu calendário do celular."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "apr-005",
+     "texto": "Vale salientar que aqui não constam todas as indulgências concedidas, somente as que são próprias de alguns dias e as que podem ser lucradas todos os dias; mas ainda há diversas concessões para casos específicos, como primeira comunhão, primeira missa de um sacerdote, sínodo diocesano, consagração de altar, entre muitas outras que podem ser acessadas no [elo:/indulgencias/enchiridion]Enquirídio de Indulgências[/elo]."
     }
    ]
   },
   {
-   "id": "condicoes",
-   "titulo": "Condições ordinárias",
-   "blocos": []
+   "id": "calendario-liturgico",
+   "titulo": "Nota sobre o Calendário Litúrgico",
+   "blocos": [
+    {
+     "tipo": "paragrafo",
+     "id": "lit-001",
+     "texto": "O Apostolado Nossa Senhora das Neves tem por finalidade a difusão e preservação da Missa Tridentina, e seus membros são profundamente ligados a esse rito; portanto utilizamos regularmente o calendário tradicional, especialmente segundo as rubricas de São Pio X, e é esse o calendário representado aqui."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "lit-002",
+     "texto": "Dentre as abundantes riquezas da Igreja, a diversidade de ritos é uma demonstração clara da diversidade de carismas e da Unidade mesmo no que é diverso e próprio. Temos aproximadamente dez ritos latinos ainda existentes e todos eles possuem um calendário próprio, bem como as ordens religiosas que não possuem rito têm calendários próprios, e também há ampla diversidade de calendários entre regiões do mundo."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "lit-003",
+     "texto": "É muito natural para a vida da Igreja essa diversidade de calendários, por mais que hoje em dia o calendário reformado da nova missa tenha tomado lugar da maioria dos outros; mas tanto ele como o tradicional e os demais calendários litúrgicos coexistem harmoniosamente. Em função disto, é possível notar algumas poucas diferenças em algumas datas, como a de Cristo Rei e a Cátedra de São Pedro."
+    }
+   ]
+  },
+  {
+   "id": "normas",
+   "titulo": "Normas gerais para lucrar as Indulgências",
+   "blocos": [
+    {
+     "tipo": "paragrafo",
+     "id": "nor-001",
+     "texto": "A página e seu calendário discorrerão sobre as obras indulgenciadas em dias específicos ao longo do ano, isto é, a oração ou exercício piedoso que se deve realizar em um dia determinado que é indulgenciado pela Igreja. O cumprimento da obra em seu tempo e lugar prescritos é indispensável para a obtenção da Indulgência. Contudo, convém recordar desde já como funciona a disciplina das indulgências na prática e o que se deve fazer para não deixar que essa graça se perca:"
+    },
+    {
+     "tipo": "subtitulo",
+     "id": "nor-002",
+     "texto": "Condições ordinárias para lucrar uma Indulgência Plenária"
+    }
+   ]
   },
   {
    "id": "observacoes",
@@ -34,49 +76,49 @@
    "blocos": []
   },
   {
-   "id": "como-ler",
-   "titulo": "Como ler o quadro",
+   "id": "calendario-corrido",
+   "titulo": "Calendário corrido das Indulgências",
    "blocos": [
     {
      "tipo": "paragrafo",
-     "id": "ler-001",
-     "texto": "Três colunas. A [b]data[/b] diz quando; a [b]festividade litúrgica[/b], a que se liga a concessão; a [b]obra indulgenciada prescrita[/b], o que se deve cumprir naquele dia — e é esta que se acrescenta às condições ordinárias, nunca as substitui."
+     "id": "cor-001",
+     "texto": "Na presente seção, apresentaremos um calendário com todas as Indulgências Plenárias concedidas pela autoridade apostólica e que se encontram vigentes segundo o Enquirídio de Indulgências de 1999, que já tivemos a alegria de [elo:/indulgencias/enchiridion]publicar[/elo] para a instrução e conferência dos fiéis."
     },
     {
      "tipo": "paragrafo",
-     "id": "ler-002",
-     "texto": "Oito das vinte e uma não têm dia fixo: acompanham a Páscoa, ou caem num domingo que varia de ano para ano. A coluna da data diz «Variável, conforme a Páscoa» e nomeia o dia litúrgico, que é a única resposta exata num quadro que não é de um ano só."
+     "id": "cor-002",
+     "texto": "As indulgências aqui dispostas são apenas aquelas que são vinculadas a festas litúrgicas específicas que se celebram ao longo do ano, e às quais a Santa Igreja tão benignamente associou uma obra pia para servir de santificação para a cristandade."
     },
     {
-     "tipo": "nota",
-     "id": "ler-003",
-     "titulo": "Festa transferida leva a indulgência junto",
-     "paragrafos": [
-      "Quando a festa a que a indulgência se liga é impedida e passa para outro dia, a indulgência passa com ela. É o que manda o cânon 922, e é por isso que o quadro nomeia a festa, e não só a data.",
-      "Para ver em que dia cada uma cai no ano corrente, com as festas de cada mês, use o [elo:/indulgencias]calendário da página das indulgências[/elo]."
-     ]
+     "tipo": "paragrafo",
+     "id": "cor-003",
+     "texto": "Portanto, tratam-se todas de Indulgências Plenárias, que para lucrá-las faz-se necessário o cumprimento de todas as condições ordinárias que estão supramencionadas; se faltar alguma das condições, a indulgência se converterá em parcial."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "cor-004",
+     "texto": "Para o melhor proveito de todos, sempre que alguma indulgência exigir a récita ou canto de alguma oração específica, basta clicar no texto explicando qual obra precisa ser realizada que você será direcionado para a transcrição da oração na página «Folhetos», e lá poderá acompanhar o texto na íntegra em Latim e Português e poderá acessar um arquivo para imprimir as orações. Da mesma forma, todas as concessões lhes direcionarão para o seu lugar respectivo no Enquirídio de Indulgências, para que possa ser lida na íntegra."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "cor-005",
+     "texto": "É possível ainda acessar todas as transcrições das Obras Indulgenciadas disponíveis na subseção para isto destinada em [elo:/folhetos]Folhetos[/elo]."
     }
    ]
   },
   {
-   "id": "os-dias-do-ano",
-   "titulo": "Os dias do ano",
+   "id": "toties-quoties",
+   "titulo": "Indulgências toties-quoties",
    "blocos": [
     {
      "tipo": "paragrafo",
-     "id": "dias-001",
-     "texto": "Na ordem do ano. Não se agrupa por mês porque as variáveis não têm mês, e inventar um cabeçalho para elas seria dizer o que o Enchiridion não diz."
-    }
-   ]
-  },
-  {
-   "id": "em-qualquer-dia",
-   "titulo": "Em qualquer dia",
-   "blocos": [
+     "id": "tot-001",
+     "texto": "Indulgências [i]toties-quoties[/i] são as indulgências que não estão anexas a nenhum dia específico nem exigem nenhum evento ocasional para lucrá-las (ex.: uma primeira comunhão, um sínodo diocesano, uma primeira Missa de um padre), mas se pode lucrar todos os dias do ano em que se fizer alguma das obras prescritas abaixo, em conformidade com as condições ordinárias que destacamos acima (confissão, comunhão, orações nas intenções do Papa e o desapego de todo o pecado) e respeitando as normas gerais para a disciplina das Indulgências (ex.: não poder lucrar mais que uma no dia, não poder aplicar por outra pessoa viva); mas que, quantas vezes se fizer as obras indulgenciadas seguindo as suas normas e condições, se pode lucrar indulgências em todos os dias do ano."
+    },
     {
      "tipo": "paragrafo",
-     "id": "qualquer-001",
-     "texto": "Nem toda indulgência está presa a uma data. Estas valem quando a obra for feita, em qualquer dia do ano, e por isso vêm em quadro próprio em vez de repetidas em todos os dias do de cima."
+     "id": "tot-002",
+     "texto": "Os documentos oficiais não levam mais esse nome para essas indulgências porque antigamente se podiam lucrar várias Indulgências Plenárias em um mesmo dia, e quantas vezes se repetia a obra se lucrava uma nova indulgência. Como a reforma da disciplina para se lucrar as indulgências limitou-se a somente uma por dia (exceto [lat]in articulo mortis[/lat]), isto poderia gerar uma confusão nos fiéis; mas essas indulgências ainda existem e funcionam ainda de forma similar, claro, limitando-se a uma Indulgência Plenária por dia."
     }
    ]
   },
@@ -87,17 +129,22 @@
     {
      "tipo": "paragrafo",
      "id": "fim-001",
-     "texto": "O quadro diz o que se lucra e quando. Falta o que ele não pode dizer: a obra tem de ser cumprida [b]no tempo e no lugar marcados[/b], e as condições ordinárias por inteiro — faltando uma, a indulgência deixa de ser plenária e se converte em parcial."
+     "texto": "Diante de um século tão indiferente e afastado de Deus, banhado de tantas iniquidades, promovendo tantas ofensas contra o Senhor e contra a Igreja, todos os fiéis católicos são chamados à abnegação de todo o pecado, à prática das virtudes e da penitência. Esta vocação é intrínseca a todo fiel desde que o prometeram no dia que receberam o Batismo, ainda mais nesses tempos, quando devemos mais do que nunca nos unir ao doce Cordeiro e desagravar as ofensas cometidas incessantemente por essa turba ímpia que não quer o reinado social do Senhor."
     },
     {
      "tipo": "paragrafo",
      "id": "fim-002",
-     "texto": "As datas seguem o calendário litúrgico que a capela observa, anterior à reforma de 1955. Nos dias em que ele difere do Missal de 1962 a diferença está anotada na própria linha. Para conferir o dia, veja o [elo:/calendario]calendário litúrgico[/elo]; para celebrar, o Ordo que o Apostolado publica."
+     "texto": "Para satisfazer esse fim tão salutar, dois são os caminhos aconselhados pela Igreja: a penitência e as indulgências. A mortificação e a abnegação dos prazeres lícitos são armas eficazes para a manutenção da graça e para ajuntar méritos ao tesouro da Igreja, o que contribui para a nossa santificação e para a economia da Graça. A obtenção das indulgências, por sua vez, constitui uma graça superabundante que a Igreja concede aos fiéis para se servirem de seu tesouro espiritual para aplacar as penas temporais, como uma manifestação da misericórdia de Deus em perdoar o mal universal que causamos pelos nossos pecados, servindo também como um exercício de caridade ao aplicar esses méritos em sufrágio dos defuntos, lhes aproximando da visão beatífica."
     },
     {
      "tipo": "paragrafo",
      "id": "fim-003",
-     "texto": "Nenhuma destas concessões se lucra por distração. Vale ler as condições antes do dia, e não no dia."
+     "texto": "Nos esforcemos para aproveitar essas grandes graças que a Santa Madre Igreja, como mãe compassiva, concede aos seus filhos, e sobretudo nesses tempos de tanta iniquidade e apostasia da sociedade e profunda crise doutrinária e pastoral na Igreja. Nos empenhemos em obter com expectativa e alegria tantas indulgências quanto pudermos, para satisfazer esse mal que afligimos contra Deus e pelo benefício das benditas almas que padecem no purgatório."
+    },
+    {
+     "tipo": "paragrafo",
+     "id": "fim-004",
+     "texto": "Esperamos em Deus que, com o conhecimento da importância das indulgências, bem como dos dias específicos que são destinados à sua obtenção, possamos ter a atenção de sempre utilizar deste imensurável bem para promover a santificação pessoal, a promoção do bem em satisfação dos nossos pecados e dos outros e a caridade para com os fiéis defuntos; e que possamos, ao mesmo tempo, ajuntar nossos ínfimos méritos ao tesouro da Igreja pelos grandes frutos da penitência."
     }
    ]
   }
