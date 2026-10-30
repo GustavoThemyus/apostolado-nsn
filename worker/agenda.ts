@@ -78,12 +78,57 @@ function comoData(valor: string): string | null {
 }
 
 function desescapar(valor: string): string {
+  return semEscapes(valor).replace(/\n/g, " ").replace(/\s+/g, " ").trim();
+}
+
+/** O mesmo, guardando as quebras: a descrição tem parágrafos, o título não. */
+function semEscapes(valor: string): string {
   return valor
-    .replace(/\\n/gi, " ")
+    .replace(/\\n/gi, "\n")
     .replace(/\\,/g, ",")
     .replace(/\\;/g, ";")
     .replace(/\\\\/g, "\\")
     .trim();
+}
+
+/*
+ * As obras abrem pelo que se deve fazer; as festas, pelo nome delas.
+ *
+ * Lista fechada, e é o que distingue os dois casos que o comprimento não
+ * separa: "Visitar o Santíssimo Sacramento e fazer adoração por pelo menos
+ * meia hora." tem 74 caracteres, e "São Francisco Xavier, Padroeiro principal
+ * do AO." tem 48 e fecha em ponto. Verbo novo erraria para o lado de mostrar
+ * a obra em negrito, que é feio e não perde nada — nenhum dos dois desfechos
+ * esconde texto.
+ */
+const COMECA_PELA_OBRA =
+  /^(requer|recitar|visitar|fazer|participar|receber|renovar|utilizar|rezar|assistir|acompanhar|tomar parte|aplicável|na igreja)\b/i;
+
+/**
+ * O cabeçalho da descrição, quando o redator escreveu um.
+ *
+ * Nos calendários de indulgência do Apostolado todo evento se chama
+ * "Indulgência Plenária", e o que muda está na descrição: a festa na primeira
+ * linha, a obra depois de uma linha em branco. Lidas como texto corrido, as
+ * duas saíam coladas — "Santa Teresa de Jesus Requer-se o propósito firme…" —,
+ * que foi o que o Perez viu na tela.
+ *
+ * Nem todo evento tem festa: as indulgências que valem em qualquer dia abrem
+ * direto pela obra. Daí os dois testes, e não um só.
+ */
+const ehCabecalho = (p: string): boolean =>
+  p.length <= 100 && !COMECA_PELA_OBRA.test(p);
+
+export function partirDescricao(cru: string): { festa?: string; descricao?: string } {
+  const paragrafos = cru
+    .split(/\n\s*\n/)
+    .map((p) => p.replace(/\s*\n\s*/g, " ").trim())
+    .filter(Boolean);
+  if (paragrafos.length < 2 || !ehCabecalho(paragrafos[0])) {
+    const inteiro = paragrafos.join("\n\n");
+    return inteiro ? { descricao: inteiro } : {};
+  }
+  return { festa: paragrafos[0], descricao: paragrafos.slice(1).join("\n\n") };
 }
 
 /**
@@ -228,12 +273,20 @@ export function lerIcal(texto: string, janela = janelaPadrao()): ItemDeAgenda[] 
         const { titulo: limpo, cor } = separarCor(titulo);
         const datas = repeticao ? expandir(data, repeticao, janela.de, janela.ate) : [data];
         for (const quando of datas) {
-          // a mesma festa pode vir como série e como evento solto
-          const chave = `${quando}\u0000${limpo}`;
+          /*
+           * A mesma festa pode vir como série e como evento solto.
+           *
+           * A descrição entra na chave porque nestes calendários o título não
+           * distingue nada: todo evento se chama "Indulgência Plenária", e
+           * duas festas no mesmo dia viravam uma só, calada.
+           */
+          const chave = `${quando}\u0000${limpo}\u0000${descricao}`;
           if (vistos.has(chave)) continue;
           vistos.add(chave);
+          const { festa, descricao: corpo } = partirDescricao(descricao);
           const item: ItemDeAgenda = { data: quando, titulo: limpo };
-          if (descricao) item.descricao = descricao;
+          if (festa) item.festa = festa;
+          if (corpo) item.descricao = corpo;
           if (cor) item.cor = cor;
           itens.push(item);
         }
@@ -250,7 +303,7 @@ export function lerIcal(texto: string, janela = janelaPadrao()): ItemDeAgenda[] 
 
     if (chave === "DTSTART") data = comoData(valor);
     else if (chave === "SUMMARY") titulo = desescapar(valor);
-    else if (chave === "DESCRIPTION") descricao = desescapar(valor);
+    else if (chave === "DESCRIPTION") descricao = semEscapes(valor);
     else if (chave === "RRULE") repeticao = lerRepeticao(valor);
   }
 

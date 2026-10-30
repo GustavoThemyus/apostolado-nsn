@@ -354,6 +354,15 @@ export interface ItemDeAgenda {
   /** AAAA-MM-DD */
   data: string;
   titulo: string;
+  /**
+   * O cabeçalho da descrição, quando o redator escreveu um.
+   *
+   * Nos calendários de indulgência do Apostolado o título de todo evento é
+   * "Indulgência Plenária", e a festa vem na primeira linha da descrição.
+   * Quem a separa da obra é `partirDescricao`, no Worker.
+   */
+  festa?: string;
+  /** O corpo da descrição, em parágrafos separados por linha em branco. */
   descricao?: string;
   /** Cor litúrgica, quando o título vem marcado com ela. */
   cor?: CorDaAgenda;

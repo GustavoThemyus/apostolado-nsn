@@ -6,7 +6,7 @@
  * lixo em cima do calendário litúrgico em vez de nada.
  */
 
-import { lerIcal, lerRepeticao, semDetalhes, separarCor } from "./agenda";
+import { lerIcal, lerRepeticao, partirDescricao, semDetalhes, separarCor } from "./agenda";
 
 let passaram = 0;
 const falhas: string[] = [];
@@ -249,6 +249,72 @@ conferir(
                      "SUMMARY:Avulso", "END:VEVENT"].join("\r\n")), janela)),
   ["2019-07-04"],
 );
+
+/* --- a festa na primeira linha da descrição -------------------------------
+ *
+ * Nos seis calendários de indulgência do Apostolado todo evento se chama
+ * "Indulgência Plenária", e o que muda vem na descrição: a festa, linha em
+ * branco, a obra. Lidas como texto corrido as duas saíam coladas — "Santa
+ * Teresa de Jesus Requer-se o propósito firme…" —, e foi o que o Perez viu.
+ *
+ * O que estes casos guardam é a fronteira: as indulgências que valem em
+ * qualquer dia abrem direto pela obra, e promovê-la a título poria a obra em
+ * negrito. Os dois exemplos de obra são os do calendário dele, com os
+ * comprimentos reais, porque é o comprimento que quase os confunde.
+ */
+conferir("a festa sai da primeira linha",
+  partirDescricao("Santa Teresa de Jesus\n\nRequer-se o propósito firme."),
+  { festa: "Santa Teresa de Jesus", descricao: "Requer-se o propósito firme." });
+conferir("festa que fecha em ponto continua sendo festa",
+  partirDescricao("São Francisco Xavier, Padroeiro principal do AO.\n\nRequer que se faça.").festa,
+  "São Francisco Xavier, Padroeiro principal do AO.");
+conferir("obra curta não vira título",
+  partirDescricao(
+    "Visitar o Santíssimo Sacramento e fazer adoração por pelo menos meia hora."
+    + "\n\nEsta indulgência se lucra toties-quoties.").festa,
+  undefined);
+conferir("e o texto dela não se perde",
+  partirDescricao(
+    "Visitar o Santíssimo Sacramento e fazer adoração por pelo menos meia hora."
+    + "\n\nEsta indulgência se lucra toties-quoties.").descricao,
+  "Visitar o Santíssimo Sacramento e fazer adoração por pelo menos meia hora."
+  + "\n\nEsta indulgência se lucra toties-quoties.");
+conferir("descrição de um parágrafo só não ganha festa",
+  partirDescricao("Requer-se o propósito firme."),
+  { descricao: "Requer-se o propósito firme." });
+conferir("linha em branco na frente não atrapalha",
+  partirDescricao("\nQuinta sexta-feira da quaresma\n\nRecitar piedosamente.").festa,
+  "Quinta sexta-feira da quaresma");
+conferir("quebra simples dentro do parágrafo vira espaço",
+  partirDescricao("Quinta-feira na Ceia do Senhor\n\nRecitar o Tantum Ergo.\nConcessão N° 7.").descricao,
+  "Recitar o Tantum Ergo. Concessão N° 7.");
+conferir("os parágrafos de depois ficam separados",
+  partirDescricao("Finados\n\n* Só pelos defuntos.*\n\nVisitar um cemitério.").descricao,
+  "* Só pelos defuntos.*\n\nVisitar um cemitério.");
+
+conferir("a festa chega ao item do iCal",
+  lerIcal(ics(["BEGIN:VEVENT", "DTSTART;VALUE=DATE:20261015",
+               "SUMMARY:Indulgência Plenária",
+               "DESCRIPTION:Santa Teresa de Jesus\\n\\nRequer-se o propósito firme.",
+               "END:VEVENT"].join("\r\n"))),
+  [{ data: "2026-10-15", titulo: "Indulgência Plenária",
+     festa: "Santa Teresa de Jesus", descricao: "Requer-se o propósito firme." }]);
+
+/*
+ * Duas festas no mesmo dia, no mesmo calendário.
+ *
+ * O título não distingue nada nestes calendários, e a chave de repetidos era
+ * só data mais título: a segunda sumia calada. Agora a descrição entra na
+ * chave.
+ */
+conferir("duas festas no mesmo dia não viram uma",
+  lerIcal(ics([
+    "BEGIN:VEVENT", "DTSTART;VALUE=DATE:20260805", "SUMMARY:Indulgência Plenária",
+    "DESCRIPTION:Santa Maria das Neves\\n\\nVisitar a igreja.", "END:VEVENT",
+    "BEGIN:VEVENT", "DTSTART;VALUE=DATE:20260805", "SUMMARY:Indulgência Plenária",
+    "DESCRIPTION:São Osvaldo\\n\\nRenovar a promessa.", "END:VEVENT",
+  ].join("\r\n"))).map((i) => i.festa),
+  ["Santa Maria das Neves", "São Osvaldo"]);
 
 const total = passaram + falhas.length;
 console.log(`\nleitura de iCal: ${passaram}/${total}`);

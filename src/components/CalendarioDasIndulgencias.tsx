@@ -50,6 +50,26 @@ const LEMBRANCA = "nsn:indulgencias:agendas";
  */
 const SEMPRE = ["indulgencias-apostolado"];
 
+/**
+ * "Indulgência Plenária" é o nome de todo evento destes calendários.
+ *
+ * O Perez escreve a espécie no título e a festa na primeira linha da
+ * descrição, e assim a lista mostrava a mesma frase repetida em todo item,
+ * com a festa colada na obra embaixo. Reconhecida a frase, ela vira a
+ * etiqueta que as indulgências de cima já usam, e a festa sobe para o lugar
+ * dela.
+ *
+ * Exato, e não "contém plenária": é o que garante que um título de verdade,
+ * no dia em que ele escrever um, continue sendo o título.
+ */
+const ESPECIE_NO_TITULO = /^indulg[êe]ncias?\s+(plen[áa]ria|parcial)s?$/i;
+
+const especieDe = (titulo: string): "plenaria" | "parcial" | undefined => {
+  const achado = ESPECIE_NO_TITULO.exec(titulo.trim());
+  if (!achado) return undefined;
+  return /^plen/i.test(achado[1]) ? "plenaria" : "parcial";
+};
+
 /** "escapulario, cordao" não é frase: o aviso fala o nome que o leitor leu. */
 function nomesDas(ids: string[]): string {
   const nomes = ids.map((id) => site.agendas.find((a) => a.id === id)?.nome ?? id);
@@ -323,15 +343,38 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
                 Dos calendários que você ligou
               </h2>
               <ul className="indulgencias-dia">
-                {vinculadosDoDia.map((i) => (
-                  <li key={`${i.agenda}-${i.titulo}`}>
-                    <p className="indulgencias-dia__titulo">
-                      {i.titulo}
-                      <span className="vinculados__fonte">{i.nome}</span>
-                    </p>
-                    {i.descricao && <p className="paragrafo">{i.descricao}</p>}
-                  </li>
-                ))}
+                {vinculadosDoDia.map((i, n) => {
+                  const especie = especieDe(i.titulo);
+                  /*
+                   * O nome do evento só sai da frente quando ele é a etiqueta
+                   * que todos repetem e há festa para pôr no lugar. Fora
+                   * disso ele continua sendo o título, e a primeira linha da
+                   * descrição volta para o corpo: nada se esconde porque o
+                   * calendário de fora mudou de forma.
+                   */
+                  const comFesta = !!i.festa && !!especie;
+                  const corpo = comFesta
+                    ? i.descricao
+                    : [i.festa, i.descricao].filter(Boolean).join("\n\n");
+                  return (
+                    <li key={`${i.agenda}-${n}`}>
+                      <p className="indulgencias-dia__titulo">
+                        {comFesta ? i.festa : i.titulo}
+                        {especie && (
+                          <span className={`etiqueta etiqueta--${especie}`}>
+                            {especie === "plenaria" ? "Plenária" : "Parcial"}
+                          </span>
+                        )}
+                      </p>
+                      {corpo?.split("\n\n").map((paragrafo) => (
+                        <p className="paragrafo" key={paragrafo}>
+                          {paragrafo}
+                        </p>
+                      ))}
+                      <p className="indulgencias-dia__fonte">{i.nome}</p>
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           )}
