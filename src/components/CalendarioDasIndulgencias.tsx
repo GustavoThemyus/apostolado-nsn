@@ -8,7 +8,9 @@ import { porExtensoCurto } from "./DiaDeHoje";
 import { SeletorDeAgendas } from "./SeletorDeAgendas";
 import { usarAgendas } from "../hooks/usarAgendas";
 import { indulgencias } from "../data/indulgenciasDias";
+import { diasDaArquidiocese } from "../data/arquidioceseDias";
 import { site } from "../data/site";
+import { Elo } from "../routes/Elo";
 import { usarRota } from "../routes/usarRota";
 
 const MESES = [
@@ -51,6 +53,17 @@ const LEMBRANCA = "nsn:indulgencias:agendas";
 const SEMPRE = ["indulgencias-apostolado"];
 
 /**
+ * A Arquidiocese não é agenda do Google: é conta deste site.
+ *
+ * Sai das 75 datas do documento do Perez, pelo mesmo motor das indulgências
+ * de cima, e por isso não passa pelo Worker. O id vive junto dos outros na
+ * lista do que o leitor ligou — é um interruptor como os outros, e guardar
+ * em separado faria duas memórias para a mesma pergunta —, mas sai da lista
+ * antes da busca, que é só para quem tem calendário no Google.
+ */
+const ARQUIDIOCESE = "arquidiocese";
+
+/**
  * "Indulgência Plenária" é o nome de todo evento destes calendários.
  *
  * O Perez escreve a espécie no título e a festa na primeira linha da
@@ -83,7 +96,7 @@ function agendasLembradas(): string[] {
     const lista = cru ? (JSON.parse(cru) as unknown) : null;
     if (!Array.isArray(lista)) return [];
     // o que foi removido do site.json desde a última visita não volta
-    const validos = new Set(site.agendas.map((a) => a.id));
+    const validos = new Set([...site.agendas.map((a) => a.id), ARQUIDIOCESE]);
     return lista.filter(
       (x): x is string => typeof x === "string" && validos.has(x) && !SEMPRE.includes(x),
     );
@@ -145,7 +158,18 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
   /* o que o leitor escolheu; o do Apostolado entra por fora e não se guarda */
   const [escolhidas, definirEscolhidas] = useState<string[]>(agendasLembradas);
   const ligadas = useMemo(() => [...SEMPRE, ...escolhidas], [escolhidas]);
-  const vinculadas = usarAgendas(ligadas);
+  const vinculadas = usarAgendas(
+    useMemo(() => ligadas.filter((id) => id !== ARQUIDIOCESE), [ligadas]),
+  );
+
+  const comArquidiocese = escolhidas.includes(ARQUIDIOCESE);
+  const porDiaArquidiocese = useMemo(
+    () =>
+      comArquidiocese
+        ? indulgenciasDoMes(diasDaArquidiocese, ano, mes)
+        : new Map<string, never[]>(),
+    [comArquidiocese, ano, mes],
+  );
 
   useEffect(() => {
     try {
@@ -163,6 +187,7 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
 
   const doDia = porDia.get(comoIso(escolhido)) ?? [];
   const vinculadosDoDia = vinculadas.porDia.get(comoIso(escolhido)) ?? [];
+  const daArquidiocese = porDiaArquidiocese.get(comoIso(escolhido)) ?? [];
   const diaLiturgico = dias.find((d) => mesmoDia(d.data, escolhido));
 
   return (
@@ -171,6 +196,12 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
         grupos={[
           { grupo: "indulgencias-apostolado", titulo: "Do Apostolado", sempre: true },
           { grupo: "indulgencias", titulo: "Das confrarias e ordens terceiras" },
+        ]}
+        proprios={[
+          {
+            titulo: "Da Arquidiocese",
+            itens: [{ id: ARQUIDIOCESE, nome: "Paróquias, santuários e ordens" }],
+          },
         ]}
         ligadas={ligadas}
         aoAlternar={alternar}
@@ -245,6 +276,10 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
                */
               const deFora = vinculadas.porDia.get(iso) ?? [];
               const agendas = [...new Set(deFora.map((i) => i.agenda))];
+              /* a da Arquidiocese é conta nossa, mas é ponto como os outros:
+                 na casa do dia o que importa é de quem é o dia, e ela tem a
+                 cor dela na mesma lista de cima */
+              if (porDiaArquidiocese.get(iso)?.length) agendas.push(ARQUIDIOCESE);
               if (!ocorrencias?.length && agendas.length === 0) return null;
               return (
                 <>
@@ -296,7 +331,9 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
               <p className="calendario__detalhe-nome">{diaLiturgico.nome}</p>
             )}
 
-            {doDia.length === 0 && vinculadosDoDia.length === 0 ? (
+            {doDia.length === 0 &&
+            vinculadosDoDia.length === 0 &&
+            daArquidiocese.length === 0 ? (
               <p className="dia__observacao">
                 Nenhuma indulgência presa a este dia.
               </p>
@@ -327,6 +364,53 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
               </ul>
             )}
           </div>
+
+          {daArquidiocese.length > 0 && (
+            /*
+             * As da Arquidiocese também em bloco próprio, e pelo motivo
+             * oposto ao das de baixo: estas o site calcula, mas não são de
+             * todo mundo. A de cima se lucra onde o fiel estiver; esta pede
+             * que ele vá àquela igreja, naquele dia. Na mesma lista, o
+             * leitor leria "hoje tem indulgência" e sairia sem saber que
+             * precisava atravessar a cidade.
+             */
+            <section className="vinculados" aria-labelledby="arquidiocese">
+              <h2 className="vinculados__titulo" id="arquidiocese">
+                Nas igrejas da Arquidiocese
+              </h2>
+              <ul className="indulgencias-dia">
+                {daArquidiocese.map(({ entrada, transferidaDe }) => (
+                  <li key={entrada.id}>
+                    <p className="indulgencias-dia__titulo">
+                      {entrada.titulo}
+                      <span className="etiqueta etiqueta--plenaria">Plenária</span>
+                    </p>
+                    {transferidaDe && (
+                      <p className="dia__transferida">
+                        Acompanha a festa, transferida de{" "}
+                        {porExtensoCurto(transferidaDe)}.
+                      </p>
+                    )}
+                    {entrada.instituicao && (
+                      <p className="arquidiocese-dia__instituicao">
+                        {entrada.instituicao}
+                      </p>
+                    )}
+                    <ul className="arquidiocese-dia__igrejas">
+                      {entrada.igrejas.map((igreja) => (
+                        <li key={igreja}>{igreja}</li>
+                      ))}
+                    </ul>
+                    <p className="indulgencias-dia__fonte">
+                      <Elo para={`/indulgencias/arquidiocese#${entrada.secao}`}>
+                        A obra e as condições, no calendário arquidiocesano
+                      </Elo>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {vinculadosDoDia.length > 0 && (
             /*

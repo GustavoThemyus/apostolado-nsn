@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, type ReactNode } from "react";
 import {
   analisarMissa,
   celebracoesDoOrdo,
@@ -15,7 +15,57 @@ import { Seta } from "./Seta";
 import { TabelaDaMissa } from "./TabelaDaMissa";
 import { postagemDoDia } from "../calendario/vinculo";
 import { publicadas } from "../data/postagens";
+import proprios from "../data/proprios-no-ordo.json";
 import { Elo } from "../routes/Elo";
+
+/**
+ * O próprio do dia, quando ele já está transcrito aqui.
+ *
+ * O Ordo anexa a cada dia o PDF do próprio, no Drive do Apostolado, e alguns
+ * desses PDFs já viraram folheto neste site. Quando viraram, o elo leva ao
+ * folheto: lê-se no celular, sem baixar nada e sem dar zoom, que é o ponto
+ * de hospedá-lo. Quando não, continua levando ao PDF, como sempre levou.
+ *
+ * O que liga um ao outro é o id do arquivo no Drive, que é o mesmo dos dois
+ * lados. O índice é gerado junto com os folhetos, e é pequeno de propósito:
+ * importar a coleção aqui traria 138 KB de orações para o calendário mostrar
+ * uma linha.
+ */
+const ID_NO_DRIVE = /\/file\/d\/([^/?#]+)/;
+
+function folhetoDoAnexo(url: string): string | undefined {
+  const achado = ID_NO_DRIVE.exec(url);
+  return achado
+    ? (proprios as Record<string, string>)[achado[1]]
+    : undefined;
+}
+
+function EloDoProprio({
+  anexo,
+  children,
+}: {
+  anexo: { nome: string; url: string };
+  children: ReactNode;
+}) {
+  const folheto = folhetoDoAnexo(anexo.url);
+  if (folheto) {
+    return (
+      <Elo para={`/folhetos/${folheto}`} className="elo-texto">
+        {children}
+      </Elo>
+    );
+  }
+  return (
+    <a
+      className="elo-texto elo-texto--externo"
+      href={anexo.url}
+      target="_blank"
+      rel="noreferrer noopener external"
+    >
+      {children}
+    </a>
+  );
+}
 
 const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
   "agosto", "setembro", "outubro", "novembro", "dezembro"];
@@ -196,27 +246,18 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
       {dia.anexos && dia.anexos.length > 0 && (
         <p className="ordo__proprio">
           {dia.anexos.length === 1 ? (
-            <a
-              className="elo-texto elo-texto--externo"
-              href={dia.anexos[0].url}
-              target="_blank"
-              rel="noreferrer noopener external"
-            >
-              Confira o próprio da Missa
-            </a>
+            <EloDoProprio anexo={dia.anexos[0]}>
+              {folhetoDoAnexo(dia.anexos[0].url)
+                ? "Ler o próprio da Missa"
+                : "Confira o próprio da Missa"}
+            </EloDoProprio>
           ) : (
             <>
               <span className="ordo__proprio-rotulo">Próprio da Missa:</span>
               {dia.anexos.map((a) => (
-                <a
-                  className="elo-texto elo-texto--externo"
-                  href={a.url}
-                  key={a.url}
-                  target="_blank"
-                  rel="noreferrer noopener external"
-                >
+                <EloDoProprio anexo={a} key={a.url}>
                   {a.nome}
-                </a>
+                </EloDoProprio>
               ))}
             </>
           )}

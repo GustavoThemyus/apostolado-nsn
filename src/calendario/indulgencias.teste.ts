@@ -7,6 +7,7 @@
  */
 
 import bruto from "../data/indulgencias-dias.json";
+import { diasDaArquidiocese } from "../data/arquidioceseDias";
 import { indulgenciasDoMes, temPlenaria, type DiaDeIndulgencia } from "./indulgencias";
 
 let passaram = 0;
@@ -218,6 +219,59 @@ conferir("a sexta depois da Páscoa não entra",
   naData(2026, 4, "2026-04-10", "sextas-da-quaresma"), false);
 conferir("a sexta antes da Quaresma não entra",
   naData(2026, 2, "2026-02-13", "sextas-da-quaresma"), false);
+
+// --- dia da semana dentro de um intervalo de datas --------------------------
+/*
+ * A Sagrada Família, titular de duas paróquias da Arquidiocese, cai no
+ * domingo dentro da Oitava da Epifania. O caso que obriga o tipo a existir é
+ * o ano em que 7 de janeiro é domingo: aí ele é o *primeiro* domingo de
+ * janeiro, e a regra "enésimo domingo do mês" poria a festa uma semana
+ * adiante. 2029 é um desses anos.
+ */
+const sagradaFamilia = entrada("sagrada-familia", {
+  tipo: "diaDaSemanaEntre",
+  diaDaSemana: 0,
+  de: { mes: 1, dia: 7 },
+  ate: { mes: 1, dia: 13 },
+});
+conferir("domingo na Oitava da Epifania, 2026", diasCom(sagradaFamilia, 2026, 1),
+  ["2026-01-11"]);
+conferir("domingo na Oitava da Epifania, 2027", diasCom(sagradaFamilia, 2027, 1),
+  ["2027-01-10"]);
+conferir("quando 7 de janeiro é domingo, é ele mesmo",
+  diasCom(sagradaFamilia, 2029, 1), ["2029-01-07"]);
+conferir("um domingo só por ano", diasCom(sagradaFamilia, 2026, 2), []);
+
+const primeiroDomingoDeJunho = entrada("menino-jesus-de-praga", {
+  tipo: "diaDaSemanaEntre",
+  diaDaSemana: 0,
+  de: { mes: 6, dia: 1 },
+  ate: { mes: 6, dia: 7 },
+});
+conferir("primeiro domingo de junho de 2026",
+  diasCom(primeiroDomingoDeJunho, 2026, 6), ["2026-06-07"]);
+conferir("primeiro domingo de junho de 2027",
+  diasCom(primeiroDomingoDeJunho, 2027, 6), ["2027-06-06"]);
+
+// --- as 75 datas da Arquidiocese -------------------------------------------
+/*
+ * Toda entrada tem de cair em algum dia do ano. É a conferência que importa
+ * aqui: uma presa a `festa` cujo nome o motor não escreva do mesmo jeito não
+ * dá erro nenhum — simplesmente nunca aparece, e a igreja fica de fora da
+ * grade sem que nada acuse. Foi o risco real de oito delas, que são as de
+ * data móvel.
+ */
+for (const ano of [2026, 2027]) {
+  const vistas = new Set<string>();
+  for (let mes = 1; mes <= 12; mes++) {
+    for (const ocorrencias of indulgenciasDoMes(diasDaArquidiocese, ano, mes).values()) {
+      for (const o of ocorrencias) vistas.add(o.entrada.id);
+    }
+  }
+  const faltando = diasDaArquidiocese.filter((d) => !vistas.has(d.id)).map((d) => d.id);
+  conferir(`Arquidiocese: toda festa cai em algum dia de ${ano}`, faltando, []);
+  conferir(`Arquidiocese: são 75 festas em ${ano}`, vistas.size, 75);
+}
 
 const total = passaram + falhas.length;
 console.log(`\nindulgências: ${passaram}/${total}`);

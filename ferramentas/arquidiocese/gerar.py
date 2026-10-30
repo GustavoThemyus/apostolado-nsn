@@ -54,10 +54,26 @@ def com_marca(texto, marca):
     return texto + " " + nota(*marca) if marca else texto
 
 
+CITACAO = re.compile(r"^,\s*§(\d+),\s*(\d+)°(,\s*[a-z]\))?(.*)$")
+
+
 def concessao(numero, resto):
-    """A referência a uma concessão vira elo para a âncora dela."""
-    return "[elo:/indulgencias/enchiridion#concessao-%d]Concessão N° %d[/elo]%s" % (
-        numero, numero, resto)
+    """
+    A citação inteira vira elo, e cai no ponto exato dela no Enchiridion.
+
+    "Ao invés de linkar o enquiridio nas concessões, tu poderia linkar toda a
+    concessão e levar a pessoa pra parte exata da concessão", pediu o Perez.
+    Então "Concessão N° 33, §1, 5°, a)" é todo o elo, e a âncora é o caminho
+    da citação: `concessao-33-1-5`. O "do Enchiridion Indulgentiarum." que
+    vem depois fica fora, porque é frase, não referência.
+    """
+    casado = CITACAO.match(resto)
+    if not casado:
+        raise SystemExit("citação que o gerador não sabe ler: %r" % resto)
+    paragrafo, item, letra, cauda = casado.groups()
+    texto = "Concessão N° %d, §%s, %s°%s" % (numero, paragrafo, item, letra or "")
+    return "[elo:/indulgencias/enchiridion#concessao-%d-%s-%s]%s[/elo]%s" % (
+        numero, paragrafo, item, texto, cauda)
 
 
 # -------------------------------------------------------------- localização
@@ -154,6 +170,10 @@ secoes.append({
           "calendários litúrgicos e pela pesquisa paróquia por paróquia em suas "
           "respectivas mídias sociais. Se encontrar qualquer erro, favor entrar em "
           "contato."),
+        p("Todas as datas desta página podem ser vistas na grade do mês, junto com "
+          "as indulgências universais: basta ligar \"Paróquias, santuários e ordens\" "
+          "em [elo:/indulgencias]Indulgências[/elo]. As festas que mudam de dia "
+          "acompanham a mudança, ano a ano."),
     ],
 })
 
@@ -406,3 +426,102 @@ print("seções: %d | linhas de tabela: %d | igrejas: %d | notas: %d" % (
     sum(len(g) for g in (dados.PAROQUIAS, dados.SANTUARIOS, dados.BASILICA, dados.ORDENS)),
     igrejas, len(notas)))
 print("gravado em", os.path.normpath(SAIDA))
+
+# ------------------------------------------------- os dias, para o calendário
+#
+# O mesmo documento, visto por data em vez de por igreja. "Tem como fazer um
+# calendário da mesma forma com as paróquias, santuários e ordens da
+# arquidiocese, pra que também possa ser adicionado no calendário geral pra
+# quem quiser", pediu o Perez.
+#
+# Sai daqui, e não de uma segunda transcrição: a tabela da página e os dias da
+# grade são a mesma remessa dele, e duas listas divergiriam na primeira
+# correção. O que se acrescenta é a regra de data legível por máquina.
+
+MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
+         "agosto", "setembro", "outubro", "novembro", "dezembro"]
+
+# As oito datas móveis do documento, ditas no vocabulário do motor.
+#
+# As que viram `festa` acompanham a transferência, que é o ponto de serem
+# festa e não data: o Sagrado Coração anda com a Páscoa todo ano. As duas que
+# viram `diaDaSemanaEntre` não têm nome próprio no motor de 1962 daqui — o
+# domingo da Sagrada Família ele ainda chama de "Domingo" —, e por isso se
+# dizem pelo intervalo em que a rubrica as coloca.
+MOVEIS = {
+    "Domingo dentro da Oitava da Epifania":
+        {"tipo": "diaDaSemanaEntre", "diaDaSemana": 0,
+         "de": {"mes": 1, "dia": 7}, "ate": {"mes": 1, "dia": 13}},
+    "Domingo de Páscoa": {"tipo": "festa", "nome": "Domingo de Páscoa"},
+    "Domingo de Pentecostes": {"tipo": "festa", "nome": "Domingo de Pentecostes"},
+    "Segunda-feira após Pentecostes":
+        {"tipo": "festa", "nome": "Segunda-feira da Oitava de Pentecostes"},
+    "Domingo após Pentecostes":
+        {"tipo": "festa", "nome": "Domingo da Santíssima Trindade"},
+    "Primeiro Domingo de Junho":
+        {"tipo": "diaDaSemanaEntre", "diaDaSemana": 0,
+         "de": {"mes": 6, "dia": 1}, "ate": {"mes": 6, "dia": 7}},
+    "Sexta após a Oitava de Corpus Christi":
+        {"tipo": "festa", "nome": "Sagrado Coração de Jesus"},
+    "Último Domingo de Outubro":
+        {"tipo": "festa", "nome": "Nosso Senhor Jesus Cristo Rei"},
+}
+
+FIXA = re.compile(r"^(\d{1,2}) de ([A-ZÀ-Ý][a-zà-ÿ]+)$")
+
+
+def quando_de(texto):
+    """A regra de data e a data por extenso, do jeito que o documento a escreve."""
+    casado = FIXA.match(texto.strip())
+    if casado:
+        dia = int(casado.group(1))
+        mes = MESES.index(casado.group(2).lower()) + 1
+        return {"tipo": "fixa", "mes": mes, "dia": dia}, "%d de %s" % (dia, MESES[mes - 1])
+    if texto.strip() in MOVEIS:
+        return MOVEIS[texto.strip()], texto.strip()
+    raise SystemExit("data que o gerador não sabe ler: %r" % texto)
+
+
+def sem_acento(texto):
+    import unicodedata
+    cru = unicodedata.normalize("NFD", texto)
+    return "".join(c for c in cru if unicodedata.category(c) != "Mn")
+
+
+def apelido(texto):
+    limpo = re.sub(r"[^a-z0-9]+", "-", sem_acento(texto).lower()).strip("-")
+    return limpo[:60]
+
+
+dias = []
+usados = set()
+for secao_id, grupo in (("paroquias", dados.PAROQUIAS), ("santuarios", dados.SANTUARIOS),
+                        ("basilica", dados.BASILICA), ("ordens", dados.ORDENS)):
+    for linha in grupo:
+        regra, por_extenso = quando_de(linha["data"])
+        ident = "%s-%s" % (secao_id, apelido(linha["festa"]))
+        while ident in usados:
+            ident += "-2"
+        usados.add(ident)
+        entrada = {
+            "id": ident,
+            "titulo": linha["festa"],
+            "quando": regra,
+            "quandoPorExtenso": por_extenso,
+            "secao": secao_id,
+            "igrejas": [ig["nome"] for ig in linha["igrejas"]],
+        }
+        if linha.get("instituicao"):
+            entrada["instituicao"] = linha["instituicao"]
+        dias.append(entrada)
+
+SAIDA_DIAS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..",
+                          "src", "data", "arquidiocese-dias.json")
+
+with io.open(SAIDA_DIAS, "w", encoding="utf-8") as f:
+    json.dump({"dias": dias}, f, ensure_ascii=False, indent=2)
+    f.write("\n")
+
+moveis = sum(1 for d in dias if d["quando"]["tipo"] != "fixa")
+print("dias: %d (%d de data móvel) | gravado em %s" % (
+    len(dias), moveis, os.path.normpath(SAIDA_DIAS)))

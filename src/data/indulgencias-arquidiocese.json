@@ -67,6 +67,11 @@
           "tipo": "paragrafo",
           "texto": "A listagem de todas as Paróquias e Foranias da Arquidiocese foi obtida diretamente no [elo:http://162.241.101.195/~lumenpastoral/anuario/home]Anuário Digital 2026[/elo] e as festas correspondentes aos Santos Titulares das referidas paróquias foram obtidos pela pesquisa nos calendários litúrgicos e pela pesquisa paróquia por paróquia em suas respectivas mídias sociais. Se encontrar qualquer erro, favor entrar em contato.",
           "id": "introducao-002"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Todas as datas desta página podem ser vistas na grade do mês, junto com as indulgências universais: basta ligar \"Paróquias, santuários e ordens\" em [elo:/indulgencias]Indulgências[/elo]. As festas que mudam de dia acompanham a mudança, ano a ano.",
+          "id": "introducao-003"
         }
       ]
     },

@@ -5093,6 +5093,7 @@ button {
 .agendas-na-grade__ponto--escapulario { background: var(--agenda-escapulario); }
 .agendas-na-grade__ponto--franciscana { background: var(--agenda-franciscana); }
 .agendas-na-grade__ponto--dominicana { background: var(--agenda-dominicana); }
+.agendas-na-grade__ponto--arquidiocese { background: var(--agenda-arquidiocese); }
 /* o branco do cordão some sobre o papel: só o contorno o faz existir */
 .agendas-na-grade__ponto--cordao {
   background: var(--agenda-cordao);
@@ -5119,6 +5120,30 @@ button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--tinta-suave);
+}
+
+/*
+ * As igrejas do dia, na Arquidiocese.
+ *
+ * Lista sem marcador e um pouco menor que o corpo: em 8 de dezembro são onze
+ * paróquias numa casa só, e com bolinha e tamanho de parágrafo o detalhe do
+ * dia virava uma página de nomes.
+ */
+.arquidiocese-dia__igrejas {
+  list-style: none;
+  margin: 0.3rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.92rem;
+  color: var(--tinta-suave);
+}
+
+/* "Fundador da Companhia de Jesus": só as Ordens a têm */
+.arquidiocese-dia__instituicao {
+  margin: 0.2rem 0 0;
+  font-size: 0.92rem;
+  font-style: italic;
 }
 
 /* "Do Apostolado" / "Das confrarias e ordens terceiras" */

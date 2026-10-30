@@ -7,6 +7,22 @@ PDF que o Perez mandou, transcrito em `dados.py`.
 python3 ferramentas/arquidiocese/gerar.py
 ```
 
+São **dois** arquivos de saída, da mesma transcrição:
+
+- `src/data/indulgencias-arquidiocese.json`, o documento: as tabelas por
+  igreja, as notas e os elos.
+- `src/data/arquidiocese-dias.json`, o calendário: as mesmas 75 datas ditas em
+  regra de data, para a grade do mês calcular em que dia caem este ano. "Tem
+  como fazer um calendário da mesma forma com as paróquias, santuários e
+  ordens da arquidiocese", pediu o Perez.
+
+Oito das 75 datas são móveis e estão na tabela `MOVEIS` do gerador. As que
+viram `festa` acompanham a transferência; as duas que viram `diaDaSemanaEntre`
+— a Sagrada Família e o primeiro domingo de junho — não têm nome próprio no
+motor de 1962 do site, e por isso se dizem pelo intervalo. `indulgencias.teste.ts`
+confere que as 75 caem em algum dia de 2026 e de 2027: festa cujo nome o motor
+escreva diferente não daria erro nenhum, apenas sumiria da grade.
+
 **Não edite o JSON direto, nem pelo painel**, enquanto este gerador existir:
 corrija `dados.py` e rode de novo, senão a próxima remessa do Perez apaga o
 conserto. São 129 igrejas e 49 notas; achar à mão o que divergiu não é

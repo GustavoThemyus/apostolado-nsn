@@ -78,6 +78,9 @@
   --agenda-franciscana: #9c7034;
   --agenda-cordao: #fffdf5;
   --agenda-dominicana: #6e6b7a;
+  /* o verde-azulado da Arquidiocese não é hábito de ninguém: é a única
+     família de cor que sobrou longe das seis acima e das cinco litúrgicas */
+  --agenda-arquidiocese: #1f6b6b;
 
   /* --- tipografia --- */
   --titular: "Playfair Display", "EB Garamond", Georgia, serif;
@@ -184,6 +187,7 @@
     --agenda-franciscana: #d7ab6a;
     --agenda-cordao: #fffdf5;
     --agenda-dominicana: #b4b1bf;
+    --agenda-arquidiocese: #7fc4c4;
     --brasao-mono: url("/brasao-claro-7c64c1c8.webp");
 
     color-scheme: dark;
@@ -223,6 +227,7 @@
   --agenda-franciscana: #d7ab6a;
   --agenda-cordao: #fffdf5;
   --agenda-dominicana: #b4b1bf;
+  --agenda-arquidiocese: #7fc4c4;
   --brasao-mono: url("/brasao-claro-7c64c1c8.webp");
 
   color-scheme: dark;

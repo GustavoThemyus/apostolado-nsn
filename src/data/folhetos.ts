@@ -8,6 +8,18 @@ import type { ColecaoDeFolhetos, Folheto } from "./tipos";
  * de ~120 KB crus, quebrar em src/data/folhetos/<id>.json. Aqui o limite chega
  * mais cedo que lá — um próprio de Missa inteiro é muito texto, e o Perez
  * falou em próprios, cantos de procissão, vésperas e ofícios de Semana Santa.
+ *
+ * Com os sete próprios do Advento o arquivo passou de 41 KB para 163 KB, e
+ * portanto do limite. Medido o que isso custa: o Vite já separa estes dados
+ * num pedaço só deles, de 138 KB — 36 KB comprimidos —, baixado apenas nas
+ * duas páginas de folheto, e o Enchiridion, que está no ar, pesa o dobro.
+ * Então não é agora que se quebra.
+ *
+ * É na próxima remessa. O desperdício que a quebra conserta não é o da folha,
+ * é o da lista: `/folhetos` baixa a coleção inteira para mostrar catorze
+ * cartões, e um ano de próprios — sessenta e tantos — faria disso meio mega.
+ * Quando vier o Natal, o molde é `src/data/ordo/indice.ts`, que já carrega o
+ * ano do Ordo sob demanda.
  */
 export const colecao = bruto as unknown as ColecaoDeFolhetos;
 

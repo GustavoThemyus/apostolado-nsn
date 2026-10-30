@@ -21,6 +21,7 @@ import type { Agenda } from "../data/tipos";
  */
 export function SeletorDeAgendas({
   grupos,
+  proprios,
   ligadas,
   aoAlternar,
   carregando,
@@ -38,17 +39,33 @@ export function SeletorDeAgendas({
    * cor e o nome, e sem caixa nenhuma.
    */
   grupos: { grupo: Agenda["grupo"]; titulo: string; sempre?: boolean }[];
+  /**
+   * Os calendários que este site calcula, e que por isso não estão no Google.
+   *
+   * O da Arquidiocese é o primeiro: sai das 75 datas do documento do Perez,
+   * pelo mesmo motor das indulgências de cima. Entra aqui, e não numa caixa
+   * à parte, porque para quem lê a pergunta é uma só — o que mais aparece na
+   * grade —, e de onde vem cada coisa é assunto nosso.
+   */
+  proprios?: { titulo: string; itens: { id: string; nome: string }[] }[];
   ligadas: string[];
   aoAlternar: (id: string) => void;
   carregando: boolean;
 }) {
-  const blocos = grupos
-    .map((g) => ({
+  const blocos = [
+    ...grupos.map((g) => ({
       titulo: g.titulo,
       sempre: g.sempre ?? false,
-      agendas: site.agendas.filter((a) => a.grupo === g.grupo && a.google),
-    }))
-    .filter((b) => b.agendas.length > 0);
+      agendas: site.agendas
+        .filter((a) => a.grupo === g.grupo && a.google)
+        .map((a) => ({ id: a.id, nome: a.nome })),
+    })),
+    ...(proprios ?? []).map((g) => ({
+      titulo: g.titulo,
+      sempre: false,
+      agendas: g.itens,
+    })),
+  ].filter((b) => b.agendas.length > 0);
   if (blocos.length === 0) return null;
 
   return (

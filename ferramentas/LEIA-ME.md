@@ -37,3 +37,18 @@ saíram: tudo que está em `public/` é copiado para `dist/` e servido. A nota
 de procedência das figuras ficava pública em
 `ansn.com.br/folhetos/PROVENIENCIA.md`, e nenhuma página do site a pede. Vale
 aqui o mesmo motivo do `previa.html`.
+
+## arquidiocese/ e proprios/
+
+As duas pastas que produzem **dados**, e não figuras — cada uma com o seu
+`LEIA-ME.md`:
+
+- `arquidiocese/` transcreve o calendário de indulgências da Arquidiocese que
+  o Perez mandou e grava dois arquivos: o documento da página e as 75 datas
+  que a grade do mês calcula.
+- `proprios/` lê os PDFs dos próprios da Missa que o Ordo anexa a cada dia e
+  os grava como folhetos, com a conferência que garante que nenhuma palavra
+  se perdeu no caminho.
+
+Em ambas vale a mesma regra das estampas, e com mais força: **não edite os
+JSON gerados à mão**, nem pelo painel. Corrija a transcrição e rode de novo.

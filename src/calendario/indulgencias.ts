@@ -36,7 +36,24 @@ export type Quando =
    * deixaria de fora justamente as últimas sextas-feiras, que são as que mais
    * importam.
    */
-  | { tipo: "diaDaSemanaNoTempo"; diaDaSemana: number; tempos: Tempo[] };
+  | { tipo: "diaDaSemanaNoTempo"; diaDaSemana: number; tempos: Tempo[] }
+  /**
+   * Um dia da semana dentro de um intervalo de datas fixas: o domingo entre 7
+   * e 13 de janeiro, por exemplo.
+   *
+   * Existe por causa da Sagrada Família, que é titular de duas paróquias da
+   * Arquidiocese. A festa cai no domingo dentro da Oitava da Epifania, e isso
+   * não é nenhum dos outros tipos: não é data fixa, não é o enésimo domingo
+   * do mês — quando 7 de janeiro é domingo, ele é o *primeiro* de janeiro, e
+   * não o segundo —, e `festa` não serve porque o motor de 1962 daqui ainda
+   * não dá nome próprio a esse domingo.
+   */
+  | {
+      tipo: "diaDaSemanaEntre";
+      diaDaSemana: number;
+      de: { mes: number; dia: number };
+      ate: { mes: number; dia: number };
+    };
 
 export interface DiaDeIndulgencia {
   id: string;
@@ -59,10 +76,22 @@ export interface DiaDeIndulgencia {
   obra: Bloco[];
 }
 
-export interface Ocorrencia {
+/**
+ * O mínimo para ter data: um id e a regra de quando cai.
+ *
+ * O motor não precisa saber o que a indulgência concede, e é o que permite
+ * passar por aqui também as festas titulares das igrejas da Arquidiocese, que
+ * não trazem obra nem espécie, sem inventar para elas campos vazios.
+ */
+export interface ComQuando {
+  id: string;
+  quando: Quando;
+}
+
+export interface Ocorrencia<T extends ComQuando = DiaDeIndulgencia> {
   /** AAAA-MM-DD */
   data: string;
-  entrada: DiaDeIndulgencia;
+  entrada: T;
   /** Preenchido quando a festa chegou ao dia por transferência. */
   transferidaDe?: string;
 }
@@ -83,7 +112,7 @@ function mesmaFesta(nomeDoDia: string, procurado: string): boolean {
   return limpar(nomeDoDia) === limpar(procurado);
 }
 
-function casaNoDia(entrada: DiaDeIndulgencia, dia: DiaLiturgico): boolean {
+function casaNoDia(entrada: ComQuando, dia: DiaLiturgico): boolean {
   const q = entrada.quando;
   const mes = dia.data.getUTCMonth() + 1;
   const numero = dia.data.getUTCDate();
@@ -119,16 +148,22 @@ function casaNoDia(entrada: DiaDeIndulgencia, dia: DiaLiturgico): boolean {
 
     case "diaDaSemanaNoTempo":
       return dia.data.getUTCDay() === q.diaDaSemana && q.tempos.includes(dia.tempo);
+
+    case "diaDaSemanaEntre": {
+      if (dia.data.getUTCDay() !== q.diaDaSemana) return false;
+      const atual = mes * 100 + numero;
+      return atual >= q.de.mes * 100 + q.de.dia && atual <= q.ate.mes * 100 + q.ate.dia;
+    }
   }
 }
 
 /** As indulgências de um mês, na ordem dos dias. */
-export function indulgenciasDoMes(
-  entradas: DiaDeIndulgencia[],
+export function indulgenciasDoMes<T extends ComQuando>(
+  entradas: T[],
   ano: number,
   mes: number
-): Map<string, Ocorrencia[]> {
-  const porDia = new Map<string, Ocorrencia[]>();
+): Map<string, Ocorrencia<T>[]> {
+  const porDia = new Map<string, Ocorrencia<T>[]>();
 
   for (const dia of mesLiturgico(ano, mes)) {
     for (const entrada of entradas) {
@@ -152,5 +187,7 @@ export function indulgenciasDoMes(
 }
 
 /** Se há plenária no dia, o marcador da grade muda. */
-export const temPlenaria = (ocorrencias: Ocorrencia[] | undefined): boolean =>
+export const temPlenaria = (
+  ocorrencias: Ocorrencia<DiaDeIndulgencia>[] | undefined,
+): boolean =>
   !!ocorrencias?.some((o) => o.entrada.especie === "plenaria");
