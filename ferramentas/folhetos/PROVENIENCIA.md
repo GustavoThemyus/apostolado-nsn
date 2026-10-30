@@ -33,6 +33,26 @@ PDF traz como imagem ali é a primeira estrofe do *Veni Creator* em notação
 gregoriana; no site ela virou texto, como o resto do hino. O mesmo vale para a
 primeira estrofe do *Tantum Ergo*, na Quinta-feira Santa.
 
+## Os PDFs, no Drive do Apostolado
+
+As sete folhas estão publicadas na pasta **Indulgências** do Drive do
+Apostolado, partilhadas para quem tiver o link:
+
+    https://drive.google.com/drive/folders/15Jb716KgLMlgKpNyyOsaVQ9JtAHJWGtR
+
+O endereço de cada uma está no campo `arquivo` do folheto, em
+`src/data/folhetos.json`, e é o que o site oferece no fim da página para quem
+quiser imprimir. Conferidos os catorze endereços, os sete daqui e os sete dos
+próprios: todos abrem sem login.
+
+Dois nomes de arquivo não batem com o título da folha, e não é erro — a folha
+manda:
+
+- *Indulgência - Domingo de Pentecostes.pdf* é a do **primeiro dia do ano ou
+  Domingo de Pentecostes**; o cabeçalho impresso traz os dois.
+- *Indulgência - Nosso Senhor Jesus Cristo Rei.pdf* é a que a tabela acima
+  chama de *OBRA INDULGENCIADA CRISTO REI*, renomeada no Drive desde então.
+
 ## Como gerar
 
 Ver `COMO-GERAR.md`, ao lado deste arquivo.
