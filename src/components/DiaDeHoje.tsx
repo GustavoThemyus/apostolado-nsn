@@ -6,6 +6,7 @@ import { NOME_DA_PENITENCIA } from "../calendario/penitencia";
 import { usarOrdo } from "../hooks/usarOrdo";
 import { Desenvolvimento } from "./Desenvolvimento";
 import { NomeDaFesta } from "./NomeDaFesta";
+import { NotasDoOrdo } from "./NotasDoOrdo";
 import { semOChapeu, TabelaDaMissa } from "./TabelaDaMissa";
 import { mesmoDia } from "./GradeDoMes";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
@@ -157,10 +158,17 @@ function DoOrdo({ dia }: { dia: DiaDoOrdo }) {
       )}
       {/*
         Só a Missa da capela. O dia pode trazer a do Calendário Universal e a
-        do Brasil, e as rubricas dele, mas aqui é faixa de resumo: o dia
-        inteiro está no calendário, a um toque.
+        do Brasil, mas aqui é faixa de resumo: o dia inteiro está no
+        calendário, a um toque.
       */}
       {naMissa && <TabelaDaMissa naMissa={naMissa} titulo="Na Missa deste dia" />}
+      {/*
+        As rubricas do dia entram, quando há. "No calendário da página inicial
+        eu quero que dê pra ver as notas do dia, quando houver", pediu o Perez.
+        São as da celebração da capela — a Publicatio, o quando ajoelhar, o
+        que se bendiz — e em 2026 aparecem em 211 dos 365 dias.
+      */}
+      <NotasDoOrdo notas={celebracao?.notas ?? []} />
     </>
   );
 }

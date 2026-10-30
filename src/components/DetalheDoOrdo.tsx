@@ -10,6 +10,7 @@ import {
 import { NOME_DA_PENITENCIA } from "../calendario/penitencia";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
 import { NomeDaFesta } from "./NomeDaFesta";
+import { NotasDoOrdo } from "./NotasDoOrdo";
 import { Seta } from "./Seta";
 import { TabelaDaMissa } from "./TabelaDaMissa";
 import { postagemDoDia } from "../calendario/vinculo";
@@ -23,17 +24,6 @@ const NOME_DA_COR: Record<string, string> = {
   branco: "Branco", vermelho: "Vermelho", verde: "Verde",
   roxo: "Roxo", preto: "Preto", rosa: "Rosa",
 };
-
-const ehMarcada = (p: string) => /^[➢❖]/.test(p);
-
-/*
- * O parágrafo que só anuncia a penitência sai da lista: ele já virou a linha
- * em destaque acima e a cruz na grade, e repetido aqui embaixo é a mesma
- * informação pela terceira vez. Conferido: os 53 dias que a trazem dizem
- * exatamente uma destas três frases, e mais nada.
- */
-const SO_PENITENCIA =
-  /^(Dia de (jejum e )?abstinência|Hoje é dispensada a Abstinência de carne)$/i;
 
 /**
  * Uma celebração do dia: a da capela, ou a de outro calendário.
@@ -51,7 +41,6 @@ function BlocoDaCelebracao({
   primeira: boolean;
 }) {
   const naMissa = analisarMissa(celebracao.missa);
-  const notas = celebracao.notas.filter((p) => !SO_PENITENCIA.test(p.trim()));
   const permitidas = celebracao.permitidas.map(soAsPermitidas);
   const rotulo = celebracao.rotulo?.replace(/\s*:\s*$/, "").trim();
 
@@ -97,15 +86,7 @@ function BlocoDaCelebracao({
         </p>
       )}
 
-      {notas.length > 0 && (
-        <ul className="ordo__notas">
-          {notas.map((p) => (
-            <li className={ehMarcada(p) ? "ordo__nota" : "ordo__nota ordo__nota--corrida"} key={p}>
-              {p.replace(/^[➢❖]\s*/, "")}
-            </li>
-          ))}
-        </ul>
-      )}
+      <NotasDoOrdo notas={celebracao.notas} />
     </>
   );
 

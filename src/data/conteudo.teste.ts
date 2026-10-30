@@ -273,6 +273,7 @@ conferir("enchiridion: as 33 concessões têm âncora",
       altura?: number;
       obra?: string;
       concessao?: string;
+      arquivo?: string;
       blocos: Bloco[];
     }[];
   };
@@ -296,8 +297,18 @@ conferir("enchiridion: as 33 concessões têm âncora",
   const quebrados: string[] = [];
   const semImagem: string[] = [];
   const medidasErradas: string[] = [];
+  const arquivosTortos: string[] = [];
   for (const f of colecao.folhetos) {
     conferirPares(f.id, f.blocos);
+    /*
+     * O arquivo no Drive é endereço de fora, e tem de vir inteiro. Escrito
+     * como caminho — "/folhetos/cristo-rei.pdf" — o navegador o lê como
+     * página deste site, e o leitor que clicasse em "baixar" cairia num 404
+     * em vez de no PDF.
+     */
+    if (f.arquivo && !/^https:\/\//.test(f.arquivo)) {
+      arquivosTortos.push(`${f.id} -> ${f.arquivo}`);
+    }
     /*
      * A obra e a concessão entram junto com os blocos.
      *
@@ -335,6 +346,8 @@ conferir("enchiridion: as 33 concessões têm âncora",
     semImagem.length === 0, semImagem.join(", "));
   conferir("folhetos: a estampa declara as medidas que o arquivo tem",
     medidasErradas.length === 0, medidasErradas.join("; "));
+  conferir("folhetos: o arquivo do Drive é endereço inteiro",
+    arquivosTortos.length === 0, arquivosTortos.join(", "));
 
   const ids = colecao.folhetos.map((f) => f.id);
   const repetidos = ids.filter((id, i) => ids.indexOf(id) !== i);

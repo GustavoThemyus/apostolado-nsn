@@ -3,6 +3,7 @@ import { ListaDeBlocos } from "../components/Bloco";
 import { Cabecalho } from "../components/Cabecalho";
 import { Contribuir, type Contribuicao } from "../components/Contribuir";
 import { DiaDeHoje } from "../components/DiaDeHoje";
+import { IndulgenciasDoMes } from "../components/IndulgenciasDoMes";
 import { Moldura } from "../components/Moldura";
 import { Mural, type Aviso } from "../components/Mural";
 import { Padroeiros, type Padroeiro } from "../components/Padroeiros";
@@ -31,6 +32,8 @@ export default function Inicio() {
       <Mural avisos={inicio.avisos} />
 
       <DiaDeHoje />
+
+      <IndulgenciasDoMes />
 
       <UltimasPostagens />
 

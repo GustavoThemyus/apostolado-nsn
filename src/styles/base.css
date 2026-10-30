@@ -507,63 +507,96 @@ button {
 .bilingue {
   display: grid;
   margin: 1.6rem 0;
+  /*
+   * Faixa a faixa, no celular também.
+   *
+   * "Quero que faça um ajuste nos folhetos para que fique visível no celular
+   * as duas colunas simultâneas (latim e português) e eu acho que levando as
+   * bordas mais pro canto dá pra fazer isso", pediu o Perez — e é isso
+   * mesmo: a largura que faltava estava toda em recuo. Com o recuo duplo da
+   * folha desfeito e o vão apertado, cada coluna fica com 147px num aparelho
+   * de 375px, que em corpo 0.84em dá vinte e tantos caracteres por linha.
+   *
+   * Cada parágrafo do latim fica na altura do seu par em português, e a
+   * faixa tem a altura do mais alto dos dois. Quem casa as faixas é o
+   * subgrid: as colunas não têm grade própria, usam a do bloco, e o
+   * --linhas vem do componente, que é quem sabe quantos parágrafos tem o
+   * lado mais longo. Sem isso bastava uma linha a mais de um lado para a
+   * oração sair desencontrada dali para baixo.
+   *
+   * O fio do meio é coluna de um pixel, e não borda da coluna do latim:
+   * como borda ele parava onde o latim parava, e no par em que a tradução é
+   * mais longa sobrava tradução sem fio ao lado.
+   */
+  grid-template-columns: 1fr 1px 1fr;
+  grid-template-rows: repeat(var(--linhas, 1), auto);
+  column-gap: 0.9rem;
+  row-gap: 0.7rem;
+  font-size: 0.84em;
 }
-.bilingue__lado > :first-child {
-  margin-top: 0;
+.bilingue::before {
+  content: "";
+  grid-column: 2;
+  grid-row: 1 / -1;
+  background: var(--fio);
 }
-.bilingue__lado > :last-child {
-  margin-bottom: 0;
+.bilingue__lado {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / -1;
+}
+/* o espaço entre parágrafos é o row-gap da grade, não a margem */
+.bilingue__lado > * {
+  margin-block: 0;
 }
 .bilingue__lado--latim {
-  padding-bottom: 1.2rem;
-  margin-bottom: 1.2rem;
-  border-bottom: 1px solid var(--fio);
+  grid-column: 1;
+}
+.bilingue__lado--traducao {
+  grid-column: 3;
 }
 
 @media (min-width: 56rem) {
-  /*
-   * Faixa a faixa. Cada parágrafo do latim fica na altura do seu par em
-   * português, e a faixa tem a altura do mais alto dos dois. Antes cada
-   * coluna corria sozinha e bastava uma linha a mais de um lado para a
-   * oração inteira sair desencontrada dali para baixo.
-   *
-   * Quem casa as faixas é o subgrid: as colunas não têm grade própria,
-   * usam a do bloco. O --linhas vem do componente, que é quem sabe quantos
-   * parágrafos tem o lado mais longo.
-   *
-   * O fio deixou de ser borda da coluna do latim e virou coluna de um
-   * pixel: como borda ele parava onde o latim parava, e no par em que a
-   * tradução é mais longa sobrava tradução sem fio ao lado.
-   */
+  /* na página larga o vão volta a ser vão, e o corpo volta ao do texto */
   .bilingue {
-    grid-template-columns: 1fr 1px 1fr;
-    grid-template-rows: repeat(var(--linhas, 1), auto);
     column-gap: 2.4rem;
     row-gap: 0.85rem;
+    font-size: 1em;
+  }
+}
+
+/*
+ * Abaixo de 21rem não cabe: num aparelho de 320px cada coluna teria 128px, e
+ * duas colunas de dezesseis caracteres não são duas colunas, são duas tiras.
+ * Ali volta a ser empilhado, com o fio do impresso separando as duas línguas.
+ */
+@media (max-width: 20.99rem) {
+  .bilingue {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    font-size: 1em;
   }
   .bilingue::before {
-    content: "";
-    grid-column: 2;
-    grid-row: 1 / -1;
-    background: var(--fio);
+    content: none;
   }
   .bilingue__lado {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: 1 / -1;
+    display: block;
+    grid-column: 1;
+    grid-row: auto;
   }
-  /* o espaço entre parágrafos agora é o row-gap da grade, não a margem */
   .bilingue__lado > * {
-    margin-block: 0;
+    margin-block: revert;
+  }
+  .bilingue__lado > :first-child {
+    margin-top: 0;
+  }
+  .bilingue__lado > :last-child {
+    margin-bottom: 0;
   }
   .bilingue__lado--latim {
-    grid-column: 1;
-    padding: 0;
-    margin: 0;
-    border-bottom: 0;
-  }
-  .bilingue__lado--traducao {
-    grid-column: 3;
+    padding-bottom: 1.2rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--fio);
   }
 }
 
@@ -912,6 +945,86 @@ button {
   text-decoration: underline;
   text-underline-offset: 4px;
   min-height: var(--alvo-toque);
+}
+
+/* ---------------- indulgências do mês, na página inicial ---------------- */
+
+/*
+ * A caixa não repete a moldura do dia litúrgico de cima: sem o fio dourado à
+ * esquerda e com fundo de página, ela se lê como nota de pé da faixa, e não
+ * como um segundo bloco disputando a mesma atenção na primeira tela.
+ */
+.indulgencias-mes {
+  margin: 1.1rem 0 0;
+  padding: 1rem 1.1rem 0.8rem;
+  border: 1px solid var(--fio);
+}
+
+.indulgencias-mes__titulo {
+  font-family: var(--sem-serifa);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin: 0 0 0.6rem;
+}
+
+.indulgencias-mes__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.indulgencias-mes__lista li + li {
+  border-top: 1px dashed var(--fio);
+}
+
+/*
+ * O item inteiro é o alvo, e não só o nome da festa: num toque de dedo a
+ * data é o que a vista acerta primeiro, e deixá-la fora do link faria metade
+ * da linha não responder.
+ */
+.indulgencias-mes__item {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.5rem 0;
+  min-height: var(--alvo-toque);
+  align-content: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.indulgencias-mes__item:hover .indulgencias-mes__nome,
+.indulgencias-mes__item:focus-visible .indulgencias-mes__nome {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.indulgencias-mes__data {
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+}
+
+.indulgencias-mes__nome {
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+@media (min-width: 46rem) {
+  .indulgencias-mes {
+    padding: 1.1rem 1.5rem 0.9rem;
+  }
+  /* a data vira coluna: as linhas passam a se ler de cima a baixo pelo dia */
+  .indulgencias-mes__item {
+    grid-template-columns: 9.5rem 1fr;
+    gap: 0 1rem;
+    align-items: baseline;
+  }
 }
 
 /* ---------------- desenvolvimento do dia ---------------- */
@@ -1310,7 +1423,16 @@ button {
   gap: 0;
 }
 
-@media (min-width: 64rem) {
+/*
+ * O ponto de quebra é 52rem, e não 64rem, porque 64rem deixava de fora quem
+ * mais reclamou: o Perez via a grade em tela cheia no computador dele. Em
+ * 64rem a coluna precisa de 1024px de viewport, e um portátil com a tela
+ * ampliada em 150% entrega 911px ao CSS — tela grande, viewport de tablet.
+ * Medido em 834px: duas colunas de 371px, a grade inteira à vista e o detalhe
+ * ao lado, sem transbordo. Abaixo disso volta a ser empilhado, que é como se
+ * lê no celular.
+ */
+@media (min-width: 52rem) {
   .calendario__painel {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 0 2.5rem;
@@ -4697,6 +4819,26 @@ button {
 .folheto__folha > :first-child { margin-top: 0; }
 .folheto__folha > :last-child { margin-bottom: 0; }
 
+/*
+ * No celular a folha vai até a borda da coluna, e o respiro de dentro encolhe.
+ *
+ * Era recuo em cima de recuo: a moldura já afasta 18,4px de cada lado e a
+ * folha afastava os mesmos 18,4px de novo, mais 17,6px de respiro interno.
+ * Num aparelho de 375px sobravam 264px de texto, e era por isso que o latim e
+ * a tradução não cabiam lado a lado. Desfeito o recuo duplo e apertado o
+ * respiro, sobram 311px — os 47px que faltavam às duas colunas.
+ *
+ * O tracejado continua a 5px do contorno, com 8,6px até a primeira linha.
+ */
+@media (max-width: 55.99rem) {
+  .folheto {
+    margin-inline: 0;
+  }
+  .folheto__folha {
+    padding: 1.4rem 0.85rem;
+  }
+}
+
 /* "Obra indulgenciada": o gênero da folha, como no alto do impresso */
 .folheto__chapeu {
   margin: 0 0 1.1rem;
@@ -4770,6 +4912,29 @@ button {
 }
 
 /* o gênero, no índice dos folhetos */
+/*
+ * O elo do arquivo fica fora da folha e colado embaixo dela, como legenda:
+ * dentro ele seria lido como parte do impresso, e separado por um respiro
+ * grande pareceria pertencer ao que vem depois, que é o rodapé do site.
+ */
+.folheto__arquivo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.6rem;
+  margin: 0.8rem 0 0;
+  font-size: 0.9rem;
+}
+
+.folheto__arquivo-onde {
+  font-family: var(--sem-serifa);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
 .folhetos__genero {
   margin: 1.8rem var(--respiro-lateral) 0.6rem;
   font-family: var(--sem-serifa);

@@ -84,6 +84,29 @@ export default function Folheto() {
             </section>
           )}
         </div>
+
+        {/*
+          O arquivo no Drive, para quem vai imprimir. "No final de cada
+          Indulgência, tu linka o arquivo no Drive do apostolado pra pessoa
+          poder baixar e imprimir", pediu o Perez.
+
+          Fora da folha, e não dentro: o que está dentro é o impresso, e o
+          impresso não fala de si mesmo. Aqui embaixo é o site falando com
+          quem lê.
+        */}
+        {folheto.arquivo && (
+          <p className="folheto__arquivo">
+            <a
+              className="elo-texto elo-texto--externo"
+              href={folheto.arquivo}
+              target="_blank"
+              rel="noreferrer noopener external"
+            >
+              Baixar o folheto para imprimir
+            </a>
+            <span className="folheto__arquivo-onde">No Drive do Apostolado</span>
+          </p>
+        )}
       </article>
     </Moldura>
   );

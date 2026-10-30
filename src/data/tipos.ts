@@ -247,6 +247,18 @@ export interface Folheto {
    * vez só em `folhetos.json`, na raiz da coleção.
    */
   condicoes?: boolean;
+  /**
+   * O arquivo da folha no Drive do Apostolado, para baixar e imprimir.
+   *
+   * "No final de cada Indulgência, tu linka o arquivo no Drive do apostolado
+   * pra pessoa poder baixar e imprimir", pediu o Perez. O endereço inteiro,
+   * como o Drive o dá: é link para fora, e um caminho relativo aqui viraria
+   * uma página do próprio site que não existe.
+   *
+   * Sem ele o folheto continua inteiro — o que esta página serve é o texto,
+   * e o papel é o extra de quem vai distribuir na porta da capela.
+   */
+  arquivo?: string;
   /** Falso esconde do site inteiro, para preparar com calma. */
   publicado?: boolean;
   /** Texto provisório: mostra o aviso de rascunho. */
