@@ -39,20 +39,6 @@ const MESES = [
 const LEMBRANCA = "nsn:indulgencias:agendas";
 
 /**
- * O calendário que não se desliga.
- *
- * "Eu quero que as indulgências universais esteja sempre ativo", pediu o
- * Perez. É o calendário que o próprio Apostolado mantém, e é o que a grade
- * promete: deixá-lo numa caixa, desmarcado por padrão, era oferecer como
- * opcional o assunto da página.
- *
- * Fica fora do que se guarda no aparelho. Guardado junto, ele voltaria duas
- * vezes na lista das ligadas, e sairia da lista no dia em que alguém tivesse
- * visitado a página antes desta mudança.
- */
-const SEMPRE = ["indulgencias-apostolado"];
-
-/**
  * A Arquidiocese não é agenda do Google: é conta deste site.
  *
  * Sai das 75 datas do documento do Perez, pelo mesmo motor das indulgências
@@ -95,10 +81,15 @@ function agendasLembradas(): string[] {
     const cru = localStorage.getItem(LEMBRANCA);
     const lista = cru ? (JSON.parse(cru) as unknown) : null;
     if (!Array.isArray(lista)) return [];
-    // o que foi removido do site.json desde a última visita não volta
+    /*
+     * O que não está mais na grade não volta: nem o que saiu do site.json
+     * desde a última visita, nem o calendário universal do Apostolado, que
+     * esteve ligado à força enquanto teve bolinha e hoje não tem nenhuma.
+     */
     const validos = new Set([...site.agendas.map((a) => a.id), ARQUIDIOCESE]);
     return lista.filter(
-      (x): x is string => typeof x === "string" && validos.has(x) && !SEMPRE.includes(x),
+      (x): x is string =>
+        typeof x === "string" && validos.has(x) && x !== "indulgencias-apostolado",
     );
   } catch {
     return [];
@@ -155,14 +146,13 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
   const andar = (passo: number) =>
     irPara(new Date(Date.UTC(ano, mes - 1 + passo, 1)));
 
-  /* o que o leitor escolheu; o do Apostolado entra por fora e não se guarda */
-  const [escolhidas, definirEscolhidas] = useState<string[]>(agendasLembradas);
-  const ligadas = useMemo(() => [...SEMPRE, ...escolhidas], [escolhidas]);
+  const [ligadas, definirEscolhidas] = useState<string[]>(agendasLembradas);
   const vinculadas = usarAgendas(
     useMemo(() => ligadas.filter((id) => id !== ARQUIDIOCESE), [ligadas]),
+    ano,
   );
 
-  const comArquidiocese = escolhidas.includes(ARQUIDIOCESE);
+  const comArquidiocese = ligadas.includes(ARQUIDIOCESE);
   const porDiaArquidiocese = useMemo(
     () =>
       comArquidiocese
@@ -173,11 +163,11 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem(LEMBRANCA, JSON.stringify(escolhidas));
+      localStorage.setItem(LEMBRANCA, JSON.stringify(ligadas));
     } catch {
       /* navegador com os dados do site bloqueados: a escolha vale só nesta visita */
     }
-  }, [escolhidas]);
+  }, [ligadas]);
 
   const alternar = useCallback((id: string) => {
     definirEscolhidas((atuais) =>
@@ -193,10 +183,7 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
   return (
     <>
       <SeletorDeAgendas
-        grupos={[
-          { grupo: "indulgencias-apostolado", titulo: "Do Apostolado", sempre: true },
-          { grupo: "indulgencias", titulo: "Das confrarias e ordens terceiras" },
-        ]}
+        grupos={[{ grupo: "indulgencias", titulo: "Das confrarias e ordens terceiras" }]}
         proprios={[
           {
             titulo: "Da Arquidiocese",

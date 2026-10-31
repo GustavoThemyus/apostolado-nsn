@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { dataDaFestaMovel } from "../calendario/moveis";
 import type { ItemDeAgenda } from "../data/tipos";
 
 /**
@@ -63,7 +64,17 @@ function buscar(id: string): Promise<Resposta | null> {
   return pedido;
 }
 
-export function usarAgendas(ligadas: string[]): EstadoDasAgendas {
+const comoIso = (d: Date) => d.toISOString().slice(0, 10);
+
+/**
+ * `ano` é o ano que a grade está mostrando, e serve às festas móveis.
+ *
+ * Elas não vêm do Google com data em que se possa confiar — ver `moveis.ts` —,
+ * e por isso se calculam. Calculam-se para o ano pedido, e não para uma janela
+ * de anos: a grade mostra um mês de cada vez, e um mês tem um ano só. Assim
+ * não há janela que estourar nem segunda régua que divirja da do Worker.
+ */
+export function usarAgendas(ligadas: string[], ano: number): EstadoDasAgendas {
   const [estado, definirEstado] = useState<EstadoDasAgendas>({
     porDia: new Map(),
     carregando: false,
@@ -93,6 +104,12 @@ export function usarAgendas(ligadas: string[]): EstadoDasAgendas {
       const porDia = new Map<string, ItemVinculado[]>();
       const falharam: string[] = [];
       const semDetalhes: string[] = [];
+      /*
+       * A mesma festa móvel digitada em quatro anos vira quatro eventos com a
+       * mesma data calculada. Entra uma vez: a chave é a agenda e a festa, que
+       * é o que distingue um evento de verdade do mesmo evento repetido.
+       */
+      const moveisJaPostas = new Set<string>();
 
       respostas.forEach((r, i) => {
         if (!r) {
@@ -104,9 +121,17 @@ export function usarAgendas(ligadas: string[]): EstadoDasAgendas {
           return;
         }
         for (const item of r.itens) {
-          const lista = porDia.get(item.data) ?? [];
-          lista.push({ ...item, agenda: r.id, nome: r.nome });
-          porDia.set(item.data, lista);
+          const anuncio = item.festa ?? item.titulo;
+          const movel = dataDaFestaMovel(anuncio, ano);
+          if (movel) {
+            const chaveDaFesta = `${r.id}|${anuncio.trim()}`;
+            if (moveisJaPostas.has(chaveDaFesta)) continue;
+            moveisJaPostas.add(chaveDaFesta);
+          }
+          const data = movel ? comoIso(movel) : item.data;
+          const lista = porDia.get(data) ?? [];
+          lista.push({ ...item, data, agenda: r.id, nome: r.nome });
+          porDia.set(data, lista);
         }
       });
 
@@ -116,7 +141,7 @@ export function usarAgendas(ligadas: string[]): EstadoDasAgendas {
     return () => {
       vivo = false;
     };
-  }, [chave]);
+  }, [chave, ano]);
 
   return estado;
 }

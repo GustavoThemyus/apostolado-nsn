@@ -3401,6 +3401,48 @@ button {
   color: var(--ouro);
 }
 
+/*
+ * Os sinais do canto: primeiras quinta e sexta, próprio do Brasil, Têmporas.
+ *
+ * No canto de cima à direita, que é onde a grade das indulgências já põe o
+ * quadradinho da plenária, e por pedido do Perez. A cruz de abstinência fica
+ * onde sempre esteve, embaixo da bolinha da cor: são duas escalas diferentes
+ * e misturá-las num canto só faria o leitor procurar sentido na vizinhança.
+ *
+ * Dois sinais no mesmo dia acontecem, e por isso é uma fila e não uma posição
+ * fixa: em 2026 são três dias, todos de próprio do Brasil caindo numa
+ * primeira quinta ou sexta — 4 de setembro, 1.º de outubro e 5 de novembro.
+ * Três sinais não acontecem: as primeiras do mês são uma ou outra, e Têmpora
+ * nenhuma cai na primeira semana, porque a mais cedo possível é 14 de
+ * fevereiro.
+ */
+.calendario__sinais {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  display: flex;
+  gap: 0.12rem;
+}
+.calendario__sinal {
+  width: 0.46rem;
+  height: 0.46rem;
+  flex: none;
+  overflow: visible;
+}
+.calendario__sinal--primeiraQuinta { color: var(--ouro); }
+.calendario__sinal--primeiraSexta { color: var(--lit-vermelho); }
+.calendario__sinal--brasil { color: var(--lit-verde); }
+.calendario__sinal--temporas { color: var(--tinta-suave); }
+
+/*
+ * Na legenda eles crescem: ali a pergunta é "que forma é esta", e a 7px o
+ * coração e o losango são a mesma mancha.
+ */
+.calendario__legenda .calendario__sinal {
+  width: 0.66rem;
+  height: 0.66rem;
+}
+
 /* a linha que explica a cruz, embaixo da grade */
 .calendario__legenda {
   display: flex;
@@ -5033,29 +5075,6 @@ button {
   background: var(--tinta-suave);
 }
 
-/*
- * O calendário do Apostolado não se desliga.
- *
- * É o que a página promete: as indulgências que a Igreja universal concede.
- * Os outros são de associações a que a maior parte de quem lê não pertence, e
- * esses continuam em caixa de seleção. Sem caixa, e não com uma caixa marcada
- * e travada: caixa desativada convida ao clique e não responde.
- */
-.agendas-na-grade__fixa {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: start;
-  gap: 0.5rem;
-  /* recuo da caixa que esta linha não tem, para a bolinha cair na mesma
-     coluna das outras: 1,05rem da caixa mais os 0,5rem que a separam do que
-     vem depois */
-  margin-left: 1.55rem;
-  font-size: 0.9rem;
-}
-.agendas-na-grade__sempre {
-  font-style: italic;
-  color: var(--tinta-suave);
-}
 
 .agendas-na-grade__aviso {
   margin: 0.7rem 0 0;
@@ -5088,7 +5107,6 @@ button {
   border-radius: 50%;
   background: var(--tinta-suave);
 }
-.agendas-na-grade__ponto--indulgencias-apostolado { background: var(--agenda-apostolado); }
 .agendas-na-grade__ponto--apostolado-oracao { background: var(--agenda-oracao); }
 .agendas-na-grade__ponto--escapulario { background: var(--agenda-escapulario); }
 .agendas-na-grade__ponto--franciscana { background: var(--agenda-franciscana); }

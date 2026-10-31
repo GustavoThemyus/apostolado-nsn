@@ -14,10 +14,12 @@ import type { Agenda } from "../data/tipos";
  * vermelho do Sagrado Coração para o Apostolado da Oração. Na grade a
  * bolinha aparece sozinha na casa do dia, e sem esta lista seria charada.
  *
- * O calendário do Apostolado fica sempre ligado, sem caixa: é o que a página
- * promete. Os outros começam desligados, porque são de associações a que a
- * maior parte de quem lê não pertence, e ligá-los por conta encheria a grade
- * de dias que não são da pessoa.
+ * Todos começam desligados, porque são de associações a que a maior parte de
+ * quem lê não pertence, e ligá-los por conta encheria a grade de dias que não
+ * são da pessoa. O calendário universal do Apostolado esteve aqui, ligado à
+ * força: saiu quando o Perez pediu, porque a grade já calcula o que ele
+ * marcava, e a bolinha azul dizia uma segunda vez o que a marca de plenária
+ * já dizia.
  */
 export function SeletorDeAgendas({
   grupos,
@@ -34,11 +36,8 @@ export function SeletorDeAgendas({
    * chamada "Calendário das Indulgências Plenárias Universais" essa caixa
    * sozinha parecia oferecer o que a página já mostra. O rótulo do grupo diz
    * de quem é.
-   *
-   * `sempre` marca o grupo que não se desliga: ele entra como linha, com a
-   * cor e o nome, e sem caixa nenhuma.
    */
-  grupos: { grupo: Agenda["grupo"]; titulo: string; sempre?: boolean }[];
+  grupos: { grupo: Agenda["grupo"]; titulo: string }[];
   /**
    * Os calendários que este site calcula, e que por isso não estão no Google.
    *
@@ -55,16 +54,11 @@ export function SeletorDeAgendas({
   const blocos = [
     ...grupos.map((g) => ({
       titulo: g.titulo,
-      sempre: g.sempre ?? false,
       agendas: site.agendas
         .filter((a) => a.grupo === g.grupo && a.google)
         .map((a) => ({ id: a.id, nome: a.nome })),
     })),
-    ...(proprios ?? []).map((g) => ({
-      titulo: g.titulo,
-      sempre: false,
-      agendas: g.itens,
-    })),
+    ...(proprios ?? []).map((g) => ({ titulo: g.titulo, agendas: g.itens })),
   ].filter((b) => b.agendas.length > 0);
   if (blocos.length === 0) return null;
 
@@ -78,27 +72,17 @@ export function SeletorDeAgendas({
         <div className="agendas-na-grade__grupo" key={b.titulo}>
           <p className="agendas-na-grade__grupo-titulo">{b.titulo}</p>
           <div className="agendas-na-grade__lista">
-            {b.agendas.map((a) =>
-              b.sempre ? (
-                <p className="agendas-na-grade__fixa" key={a.id}>
-                  <Cor agenda={a.id} />
-                  <span className="agendas-na-grade__nome">
-                    {a.nome}
-                    <span className="agendas-na-grade__sempre"> sempre na grade</span>
-                  </span>
-                </p>
-              ) : (
-                <label className="agendas-na-grade__item" key={a.id}>
-                  <input
-                    type="checkbox"
-                    checked={ligadas.includes(a.id)}
-                    onChange={() => aoAlternar(a.id)}
-                  />
-                  <Cor agenda={a.id} />
-                  <span className="agendas-na-grade__nome">{a.nome}</span>
-                </label>
-              ),
-            )}
+            {b.agendas.map((a) => (
+              <label className="agendas-na-grade__item" key={a.id}>
+                <input
+                  type="checkbox"
+                  checked={ligadas.includes(a.id)}
+                  onChange={() => aoAlternar(a.id)}
+                />
+                <Cor agenda={a.id} />
+                <span className="agendas-na-grade__nome">{a.nome}</span>
+              </label>
+            ))}
           </div>
         </div>
       ))}

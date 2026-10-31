@@ -43,7 +43,15 @@ function cristoRei(ano: number): Date {
   return mais(ultimo, -(ultimo.getUTCDay()));
 }
 
-function tabela(ano: number): [Date, DiaProprio][] {
+/**
+ * Os dias móveis de um ano, com a data em que caem.
+ *
+ * Tudo o que está aqui deriva da Páscoa ou do Advento, e portanto anda de
+ * data todo ano: é essa a propriedade que `moveis.ts` usa para recolocar as
+ * festas das confrarias, e é por isso que o Natal, a Epifania e a Oitava do
+ * Natal ficam de fora desta tabela, em `diaProprio`, onde são data fixa.
+ */
+export function diasMoveis(ano: number): [Date, DiaProprio][] {
   const e = eixoDoAno(ano);
   return [
     [e.septuagesima, { nome: "Domingo da Septuagésima", classe: 2, posto: POSTO.domingoSegunda }],
@@ -107,7 +115,7 @@ function tabela(ano: number): [Date, DiaProprio][] {
 export function diaProprio(data: Date): DiaProprio | undefined {
   const ano = data.getUTCFullYear();
   for (const a of [ano, ano - 1]) {
-    for (const [quando, dia] of tabela(a)) {
+    for (const [quando, dia] of diasMoveis(a)) {
       if (soData(quando) === soData(data)) return dia;
     }
   }

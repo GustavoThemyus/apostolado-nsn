@@ -9,6 +9,7 @@
 import bruto from "../data/indulgencias-dias.json";
 import { diasDaArquidiocese } from "../data/arquidioceseDias";
 import { indulgenciasDoMes, temPlenaria, type DiaDeIndulgencia } from "./indulgencias";
+import { dataDaFestaMovel } from "./moveis";
 
 let passaram = 0;
 const falhas: string[] = [];
@@ -271,6 +272,67 @@ for (const ano of [2026, 2027]) {
   const faltando = diasDaArquidiocese.filter((d) => !vistas.has(d.id)).map((d) => d.id);
   conferir(`Arquidiocese: toda festa cai em algum dia de ${ano}`, faltando, []);
   conferir(`Arquidiocese: são 75 festas em ${ano}`, vistas.size, 75);
+}
+
+// --- as festas móveis das confrarias ---------------------------------------
+/*
+ * O que vem do Google não traz data em que se possa confiar quando a festa é
+ * móvel: o Perez digita um evento por ano, e eles acabam. Aqui se confere que
+ * o motor reconhece pelo nome do evento, como a confraria o escreve, e devolve
+ * o dia certo em anos que ninguém digitou.
+ */
+const emIso = (d: Date | undefined) => (d ? d.toISOString().slice(0, 10) : undefined);
+
+/* Sexta-feira depois da Oitava de Corpus Christi: 68 dias depois da Páscoa. */
+conferir("Sagrado Coração em 2026", emIso(dataDaFestaMovel("Sagrado Coração de Jesus", 2026)), "2026-06-12");
+conferir("Sagrado Coração em 2027", emIso(dataDaFestaMovel("Sagrado Coração de Jesus", 2027)), "2027-06-04");
+/* o ano em que o evento digitado acaba, e que é todo o ponto da mudança */
+conferir("Sagrado Coração em 2031", emIso(dataDaFestaMovel("Sagrado Coração de Jesus", 2031)), "2031-06-20");
+
+/* A Dominicana escreve o nome longo; o motor diz "Domingo de Páscoa". */
+const pascoaDominicana = "Domingo da Ressurreição de Nosso Senhor Jesus Cristo";
+conferir("Páscoa da Dominicana em 2026", emIso(dataDaFestaMovel(pascoaDominicana, 2026)), "2026-04-05");
+conferir("Páscoa da Dominicana em 2031", emIso(dataDaFestaMovel(pascoaDominicana, 2031)), "2031-04-13");
+
+/* Cristo Rei é último domingo de outubro, e o Google até sabe repetir. */
+conferir("Cristo Rei em 2026", emIso(dataDaFestaMovel("Nosso Senhor Jesus Cristo Rei", 2026)), "2026-10-25");
+
+/*
+ * O que não é festa móvel tem de continuar na data que o Perez digitou. Um
+ * falso reconhecimento aqui é pior que nenhum: mudaria de dia uma festa que
+ * estava certa, e ninguém confere a data de São Simão Stock.
+ */
+for (const fixa of [
+  "Nossa Senhora do Monte Carmelo",
+  "Santa Teresa de Jesus",
+  "Santa Teresinha do Menino Jesus",
+  "Santo Elias Profeta, Primeiro Mestre e Nosso Pai",
+  "São João da Cruz",
+  "São Simão Stock",
+  "Todos os Santos da Ordem Carmelita",
+  "Imaculada Conceição da Bem-aventurada Virgem Maria, Padroeira das três Ordens Seráficas",
+  "Santa Bernadette Soubirous",
+  "Santa Rosa de Viterbo",
+  "Santo Antônio de Pádua",
+  "São Benedito José Labre, Patrono principal da Arquiconfraria",
+  "São Francisco de Assis, Fundador das Três Ordens Seráficas",
+  "São Luís, Rei da França",
+  "Beato Luquésio, o primeiro a ser admitido à Ordem Terceira, com sua esposa Buonadonna",
+  "Nosso Pai São Francisco de Assis, Fundador das Três Ordens Seráficas",
+  "Santa Clara de Assis",
+  "Santa Isabel de Hungria, Patrona da Ordem Terceira",
+  "Santa Margarida de Cortona",
+  "Todos os Santos das três Ordens Seráficas",
+  "Anunciação de Nossa Senhora",
+  "Assunção de Nossa Senhora",
+  "Natividade de Nosso Senhor Jesus Cristo",
+  "Nossa Senhora do Rosário",
+  "Nosso Pai São Domingos, Fundador da Ordem Dominicana",
+  "Santa Catarina de Sena",
+  "São Francisco Xavier, Padroeiro principal do AO.",
+  "São Pedro e São Paulo, Apóstolos",
+]) {
+  conferir(`"${fixa}" não é móvel`, emIso(dataDaFestaMovel(fixa, 2026)), undefined);
 }
 
 const total = passaram + falhas.length;

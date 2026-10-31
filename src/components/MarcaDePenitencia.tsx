@@ -1,4 +1,5 @@
 import { NOME_DA_PENITENCIA, type Penitencia } from "../calendario/penitencia";
+import { NOME_DO_SINAL, Sinal, type Sinal as NomeDeSinal } from "./SinaisDoDia";
 
 /**
  * A cruz que marca o dia de abstinência na casa do calendário.
@@ -23,11 +24,16 @@ export function MarcaDePenitencia({ penitencia }: { penitencia?: Penitencia }) {
 /**
  * A linha que explica os sinais da grade, embaixo dela.
  *
- * Mora neste arquivo porque duas das três entradas são as cruzes daqui. A
- * terceira é a bolinha maior das festas de 1ª e 2ª classe, que a grade
- * desenha sozinha e que ninguém adivinharia sem esta linha.
+ * Mora neste arquivo porque as primeiras entradas são as cruzes daqui. Depois
+ * vem a bolinha maior das festas de 1ª e 2ª classe, que a grade desenha
+ * sozinha, e por fim os sinais do canto. Nenhum deles ninguém adivinharia sem
+ * esta linha, e é por isso que ela cresce junto com eles.
+ *
+ * `sinais` é o que aquela grade sabe marcar, e não a lista inteira: o próprio
+ * do Brasil só existe no Ordo, e prometê-lo na legenda do calendário de 1962
+ * mandaria o leitor procurar o que lá não há.
  */
-export function LegendaDaGrade() {
+export function LegendaDaGrade({ sinais = [] }: { sinais?: NomeDeSinal[] }) {
   return (
     <p className="calendario__legenda">
       <span>
@@ -45,6 +51,12 @@ export function LegendaDaGrade() {
         />
         Festa de 1ª ou 2ª classe
       </span>
+      {sinais.map((s) => (
+        <span key={s}>
+          <Sinal sinal={s} />
+          {NOME_DO_SINAL[s]}
+        </span>
+      ))}
     </p>
   );
 }

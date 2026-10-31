@@ -72,7 +72,6 @@
    * pontos da mesma cor a 5px de distância não distinguiriam nada. O branco
    * do Cordão pede contorno, que está no base.css: sobre o papel ele some.
    */
-  --agenda-apostolado: #303a73;
   --agenda-oracao: #a32220;
   --agenda-escapulario: #5b3a21;
   --agenda-franciscana: #9c7034;
@@ -181,7 +180,6 @@
     --lit-rosa: #f0a8c8;
 
 
-    --agenda-apostolado: #8fa3d8;
     --agenda-oracao: #e08a80;
     --agenda-escapulario: #a9794f;
     --agenda-franciscana: #d7ab6a;
@@ -221,7 +219,6 @@
   --lit-preto: #9c98ac;
   --lit-rosa: #f0a8c8;
 
-  --agenda-apostolado: #8fa3d8;
   --agenda-oracao: #e08a80;
   --agenda-escapulario: #a9794f;
   --agenda-franciscana: #d7ab6a;

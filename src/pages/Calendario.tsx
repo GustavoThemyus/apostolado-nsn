@@ -5,6 +5,7 @@ import { penitenciaDe } from "../calendario/penitencia";
 import { DetalheDoDia } from "../components/DetalheDoDia";
 import { LegendaDaGrade, MarcaDePenitencia } from "../components/MarcaDePenitencia";
 import { DetalheDoOrdo } from "../components/DetalheDoOrdo";
+import { SinaisDoDia, sinaisDe1962, sinaisDoOrdo } from "../components/SinaisDoDia";
 import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
 import { AssinarAgenda } from "../components/AssinarAgenda";
 import { Cabecalho } from "../components/Cabecalho";
@@ -217,10 +218,17 @@ export default function Calendario() {
                 hoje={hoje}
                 escolhido={escolhido}
                 aoEscolher={(data) => irPara(data)}
-                marcar={(d) => <MarcaDePenitencia penitencia={d.penitencia} />}
+                marcar={(d) => (
+                  <>
+                    <MarcaDePenitencia penitencia={d.penitencia} />
+                    <SinaisDoDia sinais={sinaisDoOrdo(d)} />
+                  </>
+                )}
                 destacar={ehFestaMaiorDoOrdo}
               />
-              <LegendaDaGrade />
+              <LegendaDaGrade
+                sinais={["primeiraQuinta", "primeiraSexta", "brasil", "temporas"]}
+              />
             </>
           ) : (
             <>
@@ -229,10 +237,15 @@ export default function Calendario() {
                 hoje={hoje}
                 escolhido={escolhido}
                 aoEscolher={(data) => irPara(data)}
-                marcar={(d) => <MarcaDePenitencia penitencia={penitenciaDe(d)} />}
+                marcar={(d) => (
+                  <>
+                    <MarcaDePenitencia penitencia={penitenciaDe(d)} />
+                    <SinaisDoDia sinais={sinaisDe1962(d)} />
+                  </>
+                )}
                 destacar={(d) => d.classe <= 2}
               />
-              <LegendaDaGrade />
+              <LegendaDaGrade sinais={["primeiraQuinta", "primeiraSexta", "temporas"]} />
             </>
           )}
         </div>
