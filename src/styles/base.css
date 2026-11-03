@@ -981,12 +981,23 @@ button {
 }
 
 /*
- * O item inteiro é o alvo, e não só o nome da festa: num toque de dedo a
- * data é o que a vista acerta primeiro, e deixá-la fora do link faria metade
- * da linha não responder.
+ * A data entra no alvo junto com o nome, mas o alvo para onde o texto acaba.
+ *
+ * O item inteiro continua clicável — num toque de dedo a data é o que a vista
+ * acerta primeiro, e deixá-la fora do link faria metade da linha não
+ * responder —, só que `max-content` em vez da largura da caixa. Sendo o elo um
+ * grid de nível de bloco, ele ia até a borda direita do bloco, e o ponteiro
+ * parado em cima do vazio, a dez centímetros da última palavra, acendia o
+ * sublinhado do nome. Aceso longe do que se aponta, o realce deixa de dizer o
+ * que vai ser clicado.
+ *
+ * `max-width` segura o caso contrário: nome comprido em tela estreita, que em
+ * `max-content` empurraria a linha para fora da caixa em vez de quebrar.
  */
 .indulgencias-mes__item {
   display: grid;
+  width: max-content;
+  max-width: 100%;
   gap: 0.1rem;
   padding: 0.5rem 0;
   min-height: var(--alvo-toque);
