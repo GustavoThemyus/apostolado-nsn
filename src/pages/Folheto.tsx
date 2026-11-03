@@ -41,7 +41,17 @@ export default function Folheto() {
       <Cabecalho titulo={folheto.titulo} descricao={folheto.resumo} />
       {folheto.rascunho && <Vazia variante="rascunho" />}
 
-      <article className="folheto">
+      {/*
+        O próprio da Missa tem folha própria: capitulares no início de cada
+        peça, títulos centrados e o fio do impresso. "Fazer umas letras
+        capitulares na primeira letra do intróito, das orações, do evangelho,
+        e colocar os v e r estilizados em vermelho", pediu o Perez.
+
+        Modificador, e não estilo de toda folha, porque é o próprio que imita
+        o missal. A folha de indulgência é outra coisa: um impresso de uma
+        página, com a obra e as condições, e capitular nela seria enfeite.
+      */}
+      <article className={`folheto${folheto.categoria === "proprio" ? " folheto--proprio" : ""}`}>
         <div className="folheto__folha">
           {folheto.chapeu && <p className="folheto__chapeu">{folheto.chapeu}</p>}
 

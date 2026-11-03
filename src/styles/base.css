@@ -5006,6 +5006,113 @@ button {
   }
 }
 
+/* ----------------------------------------------- o próprio da Missa, na folha
+ *
+ * "Gostaria de dar uma melhorada na parte visual dos folhetos dos próprios,
+ * ajustar os títulos (...) fazer umas letras capitulares na primeira letra do
+ * intróito, das orações, do evangelho, e colocar os v e r estilizados em
+ * vermelho, bem como as letras capitulares em vermelho também para dar um
+ * destaque. Deixar bem sofisticado."
+ *
+ * O que se imita é o missal, não o PDF: a folha do site é escura por padrão,
+ * e a segunda tinta é o que faz a página de missal ser o que é. Capitular
+ * vermelha abrindo cada peça, título centrado em versalete, ℣ e ℟ vermelhos.
+ */
+
+/*
+ * O ℣ e o ℟, em toda parte.
+ *
+ * Fora do folheto também: no Enchiridion e no guia eles são o mesmo sinal, e
+ * a segunda tinta é deles por direito. Não ganham negrito — no missal a cor
+ * já é o destaque, e negrito sobre vermelho num corpo pequeno borra.
+ */
+.sinal-de-verso {
+  color: var(--rubrica);
+  font-feature-settings: normal;
+}
+
+/*
+ * A capitular que abre cada peça do próprio.
+ *
+ * Em `::first-letter`, e não numa marca no texto: o texto sai do PDF pelo
+ * gerador, e pedir que ele marque a primeira letra de cada peça seria mais
+ * uma coisa para a próxima remessa quebrar calada. A letra que abre o
+ * parágrafo é a letra que abre o parágrafo, e o navegador sabe qual é.
+ *
+ * Só no primeiro parágrafo de cada lado, que num próprio é o único: a peça
+ * tem um bloco bilíngue por título, e abre uma vez. `:first-child` garante
+ * isso se um dia vier com dois.
+ *
+ * O float é o que faz a letra descer pelas linhas em vez de só crescer. Não
+ * desencontra as colunas: o subgrid dá à faixa a altura do mais alto dos dois
+ * lados, e os dois têm capitular.
+ */
+.folheto--proprio .bilingue__lado > .paragrafo:first-child::first-letter {
+  float: left;
+  margin: 0.08em 0.1em 0 0;
+  font-family: var(--titular);
+  font-size: 2.6em;
+  line-height: 0.82;
+  color: var(--rubrica);
+}
+
+/*
+ * No celular a coluna tem uns 147px. Capitular de três linhas ali come a
+ * largura da coluna inteira, e as duas primeiras linhas sairiam com três
+ * palavras. Desce para pouco mais de duas linhas.
+ */
+@media (max-width: 55.99rem) {
+  .folheto--proprio .bilingue__lado > .paragrafo:first-child::first-letter {
+    font-size: 2.1em;
+  }
+}
+
+/*
+ * O título da peça: Intróito, Oração, Epístola, Evangelho.
+ *
+ * Centrado e em versalete, com o fio de cada lado, que é como o missal
+ * anuncia a peça. Era o subtítulo comum das páginas de texto, alinhado à
+ * esquerda e em corpo grande, e numa folha de duas colunas ele parecia
+ * título de seção de artigo.
+ *
+ * O primeiro não leva a margem de cima: logo acima dele está o chapéu ou a
+ * estampa, que já afastam.
+ */
+.folheto--proprio .subtitulo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 2.2rem 0 0.9rem;
+  font-family: var(--titular);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+.folheto--proprio .subtitulo::before,
+.folheto--proprio .subtitulo::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--fio);
+}
+
+/*
+ * A rubrica dentro do próprio, que é a linha em itálico que o PDF traz entre
+ * as peças: "Faz-se a comemoração segundo o tempo". Centrada, porque na folha
+ * ela é aviso e não parágrafo, e sem o ℞ do bloco de rubrica das páginas de
+ * estudo — aqui a página inteira é texto de Missa, e o sinal repetido vira
+ * ruído.
+ */
+.folheto--proprio .rubrica {
+  text-align: center;
+  margin-inline: auto;
+}
+.folheto--proprio .rubrica::before {
+  content: none;
+}
+
 /* ------------------------------------------------- calendários vinculados
  *
  * O Apostolado mantém seis calendários no Google além do que este site

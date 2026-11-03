@@ -156,13 +156,49 @@ function ateOFechoQueCasa(
   return null;
 }
 
+/**
+ * O ℣ e o ℟, que no missal são vermelhos.
+ *
+ * Vermelhos em todo o site, e não só nos folhetos: são sinal de rubrica onde
+ * quer que apareçam, e o preto neles era o livro impresso sem a segunda tinta.
+ * O ponto vai junto com o sinal, como no missal, e é por isso que o `\.?` está
+ * dentro do grupo; o espaço depois, não.
+ *
+ * Não é marcação: ninguém escreve `[r]℣[/r]`. O caractere já está no texto que
+ * saiu do PDF, e pedir que alguém o marque à mão seria convidar ao esquecimento
+ * em metade das ocorrências.
+ */
+const SINAIS = /([℣℟]\.?)/g;
+
+function comSinais(linha: string, prefixo: string): ReactNode[] {
+  if (!linha.includes("℣") && !linha.includes("℟")) return [linha];
+  /*
+   * Depois do `split` com grupo de captura, todo sinal virou pedaço próprio e
+   * nenhum sobrou nos outros: por isso a primeira letra basta para distinguir,
+   * e não se testa o padrão de novo — `SINAIS` é global, e `test` em padrão
+   * global guarda `lastIndex` e responderia diferente a cada chamada.
+   */
+  return linha
+    .split(SINAIS)
+    .filter((p) => p !== "")
+    .map((parte, i) =>
+      /^[℣℟]/.test(parte) ? (
+        <span className="sinal-de-verso" key={`${prefixo}-s-${i}`}>
+          {parte}
+        </span>
+      ) : (
+        parte
+      ),
+    );
+}
+
 /** Quebra de linha explícita dentro de uma célula ou parágrafo. */
 function comQuebras(trecho: string, prefixo: string): ReactNode[] {
   const linhas = trecho.split("\n");
   const saida: ReactNode[] = [];
   linhas.forEach((linha, indice) => {
     if (indice > 0) saida.push(<br key={`${prefixo}-br-${indice}`} />);
-    if (linha) saida.push(linha);
+    if (linha) saida.push(...comSinais(linha, `${prefixo}-${indice}`));
   });
   return saida;
 }

@@ -245,7 +245,9 @@ export default function Calendario() {
                 )}
                 destacar={(d) => d.classe <= 2}
               />
-              <LegendaDaGrade sinais={["primeiraQuinta", "primeiraSexta", "temporas"]} />
+              <LegendaDaGrade
+                sinais={["primeiraQuinta", "primeiraSexta", "brasil", "temporas"]}
+              />
             </>
           )}
         </div>
@@ -269,7 +271,7 @@ export default function Calendario() {
       <p className="calendario__ressalva">
         {pre55
           ? "Copiado do Ordo publicado pelo Apostolado, dia a dia, sem cálculo nem dedução — inclusive os dias de abstinência. Para celebrar, confira no Ordo."
-          : "Cobre o Temporal, o Santoral de I a IV classe, as Têmporas, as Rogações e a transferência das festas de I classe impedidas, com o próprio da capela. Não trata das oitavas menores nem das Missas votivas. A abstinência segue a disciplina que o Ordo da capela marca — todas as sextas, e jejum nas Cinzas e na Sexta-feira Santa —, mas as dispensas das festas só o Ordo tem. Para celebrar, confira no Ordo."}
+          : "Cobre o Temporal, o Santoral de I a IV classe, as Têmporas, as Rogações e a transferência das festas de I classe impedidas, com o próprio do Brasil e o da capela. Não trata das oitavas menores nem das Missas votivas. A abstinência segue a disciplina que o Ordo da capela marca — todas as sextas, e jejum nas Cinzas e na Sexta-feira Santa —, mas as dispensas das festas só o Ordo tem. Para celebrar, confira no Ordo."}
       </p>
     </Moldura>
   );

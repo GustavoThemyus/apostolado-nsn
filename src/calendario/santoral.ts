@@ -16,6 +16,18 @@ export interface FestaFixa {
    * Evangelistas, dos Doutores da Igreja e a dedicação de igreja.
    */
   credo?: boolean;
+  /**
+   * Comemorações que a própria festa carrega, escritas no calendário que a
+   * concede.
+   *
+   * Diferentes das que a precedência produz: aquelas são o que a festa venceu
+   * no dia, e saem do cálculo. Estas vêm escritas, e existem por causa do
+   * próprio do Brasil, onde a concessão de 1962 diz, por exemplo, "São João
+   * de Brito, 3ª classe, com comemoração de Santo André Corsino". Como a
+   * entrada brasileira substitui a universal do dia, o santo que ela desloca
+   * voltaria a sumir se não estivesse escrito aqui.
+   */
+  comemoracoes?: string[];
 }
 
 /**

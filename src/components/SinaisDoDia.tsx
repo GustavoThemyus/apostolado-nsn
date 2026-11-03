@@ -1,4 +1,5 @@
 import { celebracoesDoOrdo, type DiaDoOrdo } from "../calendario/ordo";
+import { NOMES_DO_BRASIL } from "../calendario/proprioBrasil";
 import type { DiaLiturgico } from "../calendario/tipos";
 
 /**
@@ -18,7 +19,11 @@ import type { DiaLiturgico } from "../calendario/tipos";
  * gradientes, a bolinha é um `border-radius` — e por um motivo prático: a 8px
  * o que decide se o sinal se lê é a forma, e caractere depende da fonte que o
  * aparelho tiver. As quatro formas aqui são de longe distinguíveis umas das
- * outras: um círculo vazado, um coração, um losango e quatro pontos.
+ * outras: um círculo, um coração, um losango e quatro pontos.
+ *
+ * Todos preenchidos, a pedido do Perez: o círculo e o losango nasceram
+ * vazados, e ao lado de um coração cheio e de quatro pontos cheios pareciam
+ * de outra família. "Acho que fica mais padronizado."
  */
 export type Sinal = "primeiraQuinta" | "primeiraSexta" | "brasil" | "temporas";
 
@@ -34,13 +39,13 @@ export const NOME_DO_SINAL: Record<Sinal, string> = {
  *
  * A escolha não é arbitrária, e é o que faz o leitor lembrar sem consultar a
  * legenda duas vezes: a primeira quinta-feira é a da Hora Santa, e o círculo
- * vazado é a hóstia; a primeira sexta é a do Sagrado Coração, e é um coração;
+ * é a hóstia; a primeira sexta é a do Sagrado Coração, e é um coração;
  * o losango é a forma que sobrou, longe das outras três, para o Brasil; as
  * Têmporas são quatro pontos, que é o nome delas — as *quatro* Têmporas.
  */
 function Desenho({ sinal }: { sinal: Sinal }) {
   if (sinal === "primeiraQuinta") {
-    return <circle cx="5" cy="5" r="3.6" fill="none" stroke="currentColor" strokeWidth="1.3" />;
+    return <circle cx="5" cy="5" r="3.7" fill="currentColor" />;
   }
   if (sinal === "primeiraSexta") {
     return (
@@ -52,7 +57,7 @@ function Desenho({ sinal }: { sinal: Sinal }) {
   }
   if (sinal === "brasil") {
     return (
-      <path d="M5 0.8 9.2 5 5 9.2 0.8 5Z" fill="none" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M5 0.6 9.4 5 5 9.4 0.6 5Z" fill="currentColor" />
     );
   }
   return (
@@ -120,10 +125,11 @@ function primeirasDoMes(data: Date): Sinal[] {
  * comemoração. São a quarta, a sexta e o sábado dessa oitava, e nenhum outro
  * dia dela.
  *
- * O próprio do Brasil não entra aqui, e é a única das três coisas que falta:
- * o motor de 1962 conhece o Santoral universal e o Titular da capela, e as
- * festas brasileiras ele não tem. Elas estão no Ordo, escritas pelo Perez, e
- * é lá que o sinal aparece.
+ * O próprio do Brasil sai da lista das catorze festas da concessão de 1962,
+ * pelo nome: é o motor que as situa, e aqui só se pergunta se a celebração do
+ * dia é uma delas. Também pela comemoração, porque três festas brasileiras de
+ * III classe cedem ao domingo e ficam comemoradas — e o dia continua sendo
+ * dia de próprio do Brasil.
  */
 export function sinaisDe1962(dia: DiaLiturgico): Sinal[] {
   const sinais = primeirasDoMes(dia.data);
@@ -137,6 +143,8 @@ export function sinaisDe1962(dia: DiaLiturgico): Sinal[] {
   ) {
     sinais.push("temporas");
   }
+  const doBrasil = (n: string) => NOMES_DO_BRASIL.includes(n);
+  if (doBrasil(dia.nome) || dia.comemoracoes.some(doBrasil)) sinais.push("brasil");
   return sinais;
 }
 

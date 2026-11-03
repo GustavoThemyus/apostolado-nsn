@@ -9,9 +9,10 @@
  * src/calendario sem rodá-las é trabalhar no escuro.
  */
 
-import { eixoDoAno, pascoa } from "./computo";
+import { eixoDoAno, mais, pascoa } from "./computo";
 import { desenvolvimentoDe, ritoProprioDe } from "./desenvolvimento";
 import { diaLiturgico, mesLiturgico } from "./precedencia";
+import { PROPRIO_BRASIL } from "./proprioBrasil";
 import { corDe, tempoDe } from "./tempo";
 
 const dia = (iso: string) => new Date(`${iso}T12:00:00Z`);
@@ -291,6 +292,70 @@ suite("Varredura de anos inteiros", () => {
     }
   }
   conferir(`${dias} dias em 9 anos sem defeito`, quebrados, 0);
+});
+
+// ------------------------------------------------------- próprio do Brasil
+
+/*
+ * As catorze festas da concessão de 12 de dezembro de 1962, na lista que o
+ * Perez mandou. Antes delas Aparecida saía como dia nenhum e Santa Rosa de
+ * Lima como III classe: eram as festas do calendário universal num site
+ * brasileiro.
+ *
+ * O que estas verificações defendem é a camada, não as datas: quem as escreve
+ * é a concessão, e quem erraria é a sobreposição — uma festa brasileira que
+ * não chegue a aparecer, ou que apareça apagando a universal que devia
+ * comemorar.
+ */
+suite("Próprio do Brasil", () => {
+  conferir("são catorze, com a móvel", PROPRIO_BRASIL.length + 1, 14);
+
+  conferir("Aparecida em 12 de outubro",
+    diaLiturgico(dia("2026-10-12")).nome,
+    "Imaculada Conceição de Maria sob o título de Aparecida, Padroeira Principal do Brasil");
+  conferir("e é de I classe", diaLiturgico(dia("2026-10-12")).classe, 1);
+  conferir("Santa Rosa de Lima sobe a I classe", diaLiturgico(dia("2026-08-30")).classe, 1);
+  conferir("Santo Antônio sobe a II classe", diaLiturgico(dia("2026-06-13")).classe, 2);
+
+  /* o santo universal que a festa brasileira desloca tem de ficar comemorado */
+  conferir("São João de Brito vence Santo André Corsino",
+    diaLiturgico(dia("2026-02-04")).nome, "São João de Brito, Mártir");
+  conferir("e o comemora",
+    diaLiturgico(dia("2026-02-04")).comemoracoes.join(""),
+    "Santo André Corsino, Bispo e Confessor");
+
+  /* a Invenção da Santa Cruz saiu do calendário universal em 1960 */
+  conferir("Invenção da Santa Cruz em 3 de maio de 2027",
+    diaLiturgico(dia("2027-05-03")).nome, "Invenção da Santa Cruz");
+  /* e cede ao domingo de II classe, ficando comemorada */
+  conferir("mas cede ao Domingo IV depois da Páscoa em 2026",
+    diaLiturgico(dia("2026-05-03")).comemoracoes.includes("Invenção da Santa Cruz"), true);
+
+  /* Guadalupe é de I classe: impedida pelo Domingo do Advento, transfere-se */
+  conferir("Guadalupe transferida em 2027",
+    iso(diaLiturgico(dia("2027-12-13")).data), "2027-12-13");
+  conferir("e guarda de onde veio",
+    diaLiturgico(dia("2027-12-13")).transferidaDe, "2027-12-12");
+
+  /* a única móvel: quinta-feira depois do Sagrado Coração */
+  for (const ano of [2026, 2027, 2030]) {
+    const quinta = mais(eixoDoAno(ano).corpusChristi, 14);
+    conferir(`Coração Eucarístico em ${ano}`,
+      diaLiturgico(quinta).nome, "Coração Eucarístico de Jesus");
+  }
+  /*
+   * Vence o santo universal de III classe do dia, que fica comemorado, e não
+   * o contrário: sem o desempate ela perdia a quinta-feira em trinta dos
+   * cinquenta anos seguintes.
+   */
+  conferir("e comemora Santo Efrém em 2026",
+    diaLiturgico(dia("2026-06-18")).comemoracoes.includes("Santo Efrém"), true);
+  /*
+   * Mas não apaga o que é maior: em 2028 a quinta-feira calha em São Pedro e
+   * São Paulo, e quem manda no dia é a festa de I classe.
+   */
+  conferir("e cede a São Pedro e São Paulo em 2028",
+    diaLiturgico(dia("2028-06-29")).nome, "São Pedro e São Paulo, apóstolos");
 });
 
 // ------------------------------------------------------------------ saída

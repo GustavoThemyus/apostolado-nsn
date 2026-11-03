@@ -1,6 +1,7 @@
 import { eixoDoAno } from "./computo";
 import { POSTO, livreParaTransferencia } from "./posto";
 import { diaProprio } from "./proprios";
+import { comProprioBrasil } from "./proprioBrasil";
 import { comProprioLocal } from "./proprioLocal";
 import { SANTORAL, type FestaFixa } from "./santoral";
 import { observacoesDe } from "./observacoes";
@@ -93,7 +94,7 @@ function resolverAno(ano: number): Map<string, Ocupante> {
 
   // 2) ocorrência com o Santoral; o que for de I classe e perder entra na fila
   const aTransferir: FestaFixa[] = [];
-  for (const festa of comProprioLocal(SANTORAL)) {
+  for (const festa of comProprioLocal(comProprioBrasil(SANTORAL, ano))) {
     const data = new Date(Date.UTC(ano, festa.mes - 1, festa.dia));
     if (data.getUTCMonth() !== festa.mes - 1) continue; // 29/2 em ano comum
     const k = chave(data);
@@ -109,7 +110,10 @@ function resolverAno(ano: number): Map<string, Ocupante> {
         cor: festa.cor,
         posto,
         origem: "santoral",
-        comemoracoes: atual.classe <= 2 ? [atual.nome, ...atual.comemoracoes] : atual.comemoracoes,
+        comemoracoes: [
+          ...(festa.comemoracoes ?? []),
+          ...(atual.classe <= 2 ? [atual.nome, ...atual.comemoracoes] : atual.comemoracoes),
+        ],
       });
     } else if (festa.classe === 1) {
       aTransferir.push(festa);

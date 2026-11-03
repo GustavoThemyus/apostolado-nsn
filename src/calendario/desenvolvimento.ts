@@ -1,5 +1,6 @@
 import { eixoDoAno } from "./computo";
 import { festasDe } from "./santoral";
+import { comProprioBrasil } from "./proprioBrasil";
 import { comProprioLocal } from "./proprioLocal";
 import { SANTORAL } from "./santoral";
 import type { DiaLiturgico, Tempo } from "./tipos";
@@ -75,7 +76,7 @@ function ehRequiem(dia: DiaLiturgico): boolean {
 function achaFesta(dia: DiaLiturgico) {
   const mes = dia.data.getUTCMonth() + 1;
   const d = dia.data.getUTCDate();
-  const locais = comProprioLocal(SANTORAL).filter((f) => f.mes === mes && f.dia === d);
+  const locais = comProprioLocal(comProprioBrasil(SANTORAL)).filter((f) => f.mes === mes && f.dia === d);
   return locais.find((f) => f.nome === dia.nome) ?? festasDe(mes, d).find((f) => f.nome === dia.nome);
 }
 
