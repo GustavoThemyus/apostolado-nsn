@@ -59,12 +59,20 @@ INDICE = os.path.join(RAIZ, "src", "data", "proprios-no-ordo.json")
 DRIVE = "https://drive.google.com/file/d/%s/view"
 
 # Na ordem do Advento, que é a ordem em que o fiel vai precisar deles.
+#
+# `cabecalho` são as linhas que o impresso põe entre a estampa e o Intróito,
+# transcritas dele e conferidas contra ele por `conferirCabecalho`. Nem toda
+# folha tem data, e o nome impresso nem sempre é o `titulo`: o de Guadalupe
+# traz o padroado inteiro, e o título é curto porque vai para a aba do
+# navegador e para o WhatsApp.
 PROPRIOS = [
     dict(
         id="proprio-advento-i",
         pdf="advento-1.pdf",
         drive="106fV_2yxCCsJnGiM7Wz4KdjqOpNsAuAZ",
         titulo="I Domingo do Advento",
+        cabecalho=dict(nome="I Domingo do Advento",
+                       grau="Semiduples de 1ª classe – roxo"),
         resumo="O próprio da Missa, em latim e em português. Semiduples de 1ª classe, roxo.",
     ),
     dict(
@@ -72,6 +80,8 @@ PROPRIOS = [
         pdf="advento-2.pdf",
         drive="1H9wbaf4Q6raUAfxsZkzs3Nx3_6DIXYPy",
         titulo="II Domingo do Advento",
+        cabecalho=dict(nome="II Domingo do Advento",
+                       grau="Semiduples de 2ª classe – roxo"),
         resumo="O próprio da Missa, em latim e em português. Semiduples de 2ª classe, roxo.",
     ),
     dict(
@@ -79,6 +89,9 @@ PROPRIOS = [
         pdf="imaculada.pdf",
         drive="1X0dSaMVDRHR1a2MzaNmzhMPtTtK0JmnU",
         titulo="Imaculada Conceição da Bem-aventurada Virgem Maria",
+        cabecalho=dict(data="8 de dezembro",
+                       nome="Imaculada Conceição da Bem-aventurada Virgem Maria",
+                       grau="Duples de 1ª classe com Oitava comum – branco"),
         resumo="O próprio da Missa de 8 de dezembro, em latim e em português. "
                "Duples de 1ª classe com Oitava comum, branco.",
     ),
@@ -87,6 +100,9 @@ PROPRIOS = [
         pdf="guadalupe.pdf",
         drive="1ibAEJPRUEvURuBcWYL1KZBEyr-dW0g_V",
         titulo="Nossa Senhora de Guadalupe",
+        cabecalho=dict(data="12 de dezembro",
+                       nome="Nossa Senhora de Guadalupe, Padroeira Principal da América Latina",
+                       grau="Duples de 1ª classe com Oitava comum – branco"),
         resumo="O próprio da Missa de 12 de dezembro, padroeira principal da América "
                "Latina, em latim e em português. Duples de 1ª classe com Oitava comum, branco.",
     ),
@@ -95,6 +111,8 @@ PROPRIOS = [
         pdf="advento-3.pdf",
         drive="1tFvqt723b1iCpNr-pleQuxNbwWKDSVmG",
         titulo="III Domingo do Advento",
+        cabecalho=dict(nome="III Domingo do Advento",
+                       grau="Semiduples de 2ª classe – róseo (ou roxo)"),
         resumo="O próprio da Missa, em latim e em português. Semiduples de 2ª classe, "
                "róseo ou roxo.",
     ),
@@ -103,6 +121,8 @@ PROPRIOS = [
         pdf="advento-4.pdf",
         drive="1nsQzcNloI5dieoT1Sm_gDfXg1DOaHGIs",
         titulo="IV Domingo do Advento",
+        cabecalho=dict(nome="IV Domingo do Advento",
+                       grau="Semiduples de 2ª classe – roxo"),
         resumo="O próprio da Missa, em latim e em português. Semiduples de 2ª classe, roxo.",
     ),
     dict(
@@ -110,6 +130,8 @@ PROPRIOS = [
         pdf="vigilia-natal.pdf",
         drive="1erpfMkC2Ev2xra0bceRyzr8r91_hUWPB",
         titulo="Vigília do Natal do Senhor",
+        cabecalho=dict(nome="Vigília do Natal do Senhor",
+                       grau="Privilegiada de 1ª classe – roxo"),
         resumo="O próprio da Missa de 24 de dezembro, em latim e em português. "
                "Privilegiada de 1ª classe, roxo.",
     ),
@@ -203,16 +225,39 @@ def estampa(caminho, ident):
                 "largura": figura.width, "altura": figura.height}
 
 
+def conferirCabecalho(caminho, cabecalho):
+    """
+    Confere, contra a primeira página, as linhas transcritas do impresso.
+
+    Data, nome e grau não viram bloco: o extrator começa no Intróito, e estas
+    três linhas ficariam de fora se não estivessem na tabela. Transcritas à
+    mão, podem envelhecer caladas — uma remessa nova que mude o grau, ou que
+    acerte "róseo (ou roxo)", passaria batida. Por isso cada linha é
+    procurada no texto da página, com o espaço em branco achatado, porque o
+    `pdftotext` quebra o nome de Guadalupe em duas linhas.
+    """
+    pagina = subprocess.run(["pdftotext", "-f", "1", "-l", "1", "-raw", caminho, "-"],
+                            capture_output=True, check=True).stdout.decode("utf-8")
+    achatado = " ".join(pagina.split())
+    for campo in ("data", "nome", "grau"):
+        linha = cabecalho.get(campo)
+        if linha and " ".join(linha.split()) not in achatado:
+            raise SystemExit("%s: a linha %s do cabeçalho não está na 1ª página: %r"
+                             % (os.path.basename(caminho), campo, linha))
+
+
 def folheto(ficha, pasta, contagem):
     caminho = os.path.join(pasta, ficha["pdf"])
     extrato = extrair(caminho)
     contagem.update(corrigir(extrato["blocos"]))
+    conferirCabecalho(caminho, ficha["cabecalho"])
     return {
         "id": ficha["id"],
         "chapeu": "Próprio da Missa",
         "titulo": ficha["titulo"],
         "resumo": ficha["resumo"],
         "categoria": "proprio",
+        "cabecalho": ficha["cabecalho"],
         **estampa(caminho, ficha["id"]),
         "arquivo": DRIVE % ficha["drive"],
         "blocos": comIds(extrato["blocos"], ficha["id"]),

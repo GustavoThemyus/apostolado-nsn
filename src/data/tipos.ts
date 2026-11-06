@@ -234,6 +234,16 @@ export interface Folheto {
   largura?: number;
   altura?: number;
   /**
+   * O cabeçalho da folha impressa: o que vem entre a estampa e o Intróito.
+   *
+   * É do impresso, e não do site: o próprio em papel abre pela figura e logo
+   * abaixo dela escreve a data, o nome da festa e a linha de grau e cor. As
+   * linhas vêm transcritas do PDF, e não montadas daqui — nem sempre há
+   * data, e o nome impresso pode ser maior que o `titulo`, que é curto
+   * porque vai para a aba do navegador e para o WhatsApp.
+   */
+  cabecalho?: { data?: string; nome: string; grau: string };
+  /**
    * A obra indulgenciada: o que se tem de fazer para lucrar a indulgência.
    *
    * Campo, e não bloco de rubrica. No impresso ela é vermelha e em itálico,

@@ -4914,6 +4914,43 @@ button {
 }
 
 /*
+ * A abertura do próprio: data, nome e grau logo abaixo da estampa.
+ *
+ * Centrada e serifada, como no missal. A estampa encosta nela — daí o
+ * negativo, que desfaz a margem de baixo da figura: no impresso o nome vem
+ * colado na moldura, e um vão de 1.3rem entre os dois os separaria em duas
+ * coisas.
+ */
+.folheto__abertura {
+  margin: -0.7rem 0 1.5rem;
+  text-align: center;
+}
+
+.folheto__data {
+  margin: 0;
+  font-family: var(--serifada);
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+}
+
+.folheto__nome {
+  margin: 0.1rem 0 0.15rem;
+  font-family: var(--titular);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--tinta);
+}
+
+/* A linha de grau e cor, que no impresso é menor que o nome e não é título. */
+.folheto__grau {
+  margin: 0;
+  font-family: var(--serifada);
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+}
+
+/*
  * A obra indulgenciada: o que se tem de fazer.
  *
  * Vermelha e em itálico como no impresso, mas sem o sinal ℞ do bloco de

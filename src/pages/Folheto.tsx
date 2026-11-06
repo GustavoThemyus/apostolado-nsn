@@ -65,6 +65,23 @@ export default function Folheto() {
             />
           )}
 
+          {/*
+            Data, nome e grau, como o impresso os põe logo abaixo da estampa.
+            Repetem o cabeçalho da página de propósito: a folha é a folha, e
+            quem a abre pelo modo missa ou rola até ela precisa saber de que
+            dia é sem subir. O nome é h2 para o sumário do leitor de tela
+            continuar com uma hierarquia só.
+          */}
+          {folheto.cabecalho && (
+            <header className="folheto__abertura">
+              {folheto.cabecalho.data && (
+                <p className="folheto__data">{folheto.cabecalho.data}</p>
+              )}
+              <h2 className="folheto__nome">{folheto.cabecalho.nome}</h2>
+              <p className="folheto__grau">{folheto.cabecalho.grau}</p>
+            </header>
+          )}
+
           {folheto.obra && (
             <p className="folheto__obra">
               <TextoRico texto={folheto.obra} />

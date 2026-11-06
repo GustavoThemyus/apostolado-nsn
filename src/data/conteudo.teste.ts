@@ -269,6 +269,8 @@ conferir("enchiridion: as 33 concessões têm âncora",
     folhetos: {
       id: string;
       titulo: string;
+      categoria?: string;
+      cabecalho?: { data?: string; nome: string; grau: string };
       imagem?: string;
       largura?: number;
       altura?: number;
@@ -349,6 +351,23 @@ conferir("enchiridion: as 33 concessões têm âncora",
     medidasErradas.length === 0, medidasErradas.join("; "));
   conferir("folhetos: o arquivo do Drive é endereço inteiro",
     arquivosTortos.length === 0, arquivosTortos.join(", "));
+
+  /*
+   * O cabeçalho impresso de todo próprio.
+   *
+   * Data, nome e grau são transcritos à mão na tabela do gerador, porque o
+   * extrator começa no Intróito e não os vê. O gerador confere o texto de
+   * cada linha contra a primeira página do PDF; o que ele não confere é que
+   * a linha exista, porque uma ficha nova pode simplesmente não trazê-la.
+   * Sem o grau o fiel não sabe de que cor é a Missa do dia, que é metade do
+   * que a folha serve para dizer.
+   */
+  const semCabecalho = colecao.folhetos
+    .filter((f) => f.categoria === "proprio")
+    .filter((f) => !f.cabecalho?.nome?.trim() || !f.cabecalho?.grau?.trim())
+    .map((f) => f.id);
+  conferir("folhetos: todo próprio traz nome e grau do impresso",
+    semCabecalho.length === 0, semCabecalho.join(", "));
 
   const ids = colecao.folhetos.map((f) => f.id);
   const repetidos = ids.filter((id, i) => ids.indexOf(id) !== i);

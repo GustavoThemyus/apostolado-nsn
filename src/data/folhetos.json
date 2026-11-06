@@ -836,6 +836,10 @@
    "titulo": "I Domingo do Advento",
    "resumo": "O próprio da Missa, em latim e em português. Semiduples de 1ª classe, roxo.",
    "categoria": "proprio",
+   "cabecalho": {
+    "nome": "I Domingo do Advento",
+    "grau": "Semiduples de 1ª classe – roxo"
+   },
    "imagem": "/folhetos/proprio-advento-i-0d9049df.webp",
    "largura": 1000,
    "altura": 607,
@@ -1323,6 +1327,10 @@
    "titulo": "II Domingo do Advento",
    "resumo": "O próprio da Missa, em latim e em português. Semiduples de 2ª classe, roxo.",
    "categoria": "proprio",
+   "cabecalho": {
+    "nome": "II Domingo do Advento",
+    "grau": "Semiduples de 2ª classe – roxo"
+   },
    "imagem": "/folhetos/proprio-advento-ii-f0436beb.webp",
    "largura": 648,
    "altura": 388,
@@ -1810,6 +1818,11 @@
    "titulo": "Imaculada Conceição da Bem-aventurada Virgem Maria",
    "resumo": "O próprio da Missa de 8 de dezembro, em latim e em português. Duples de 1ª classe com Oitava comum, branco.",
    "categoria": "proprio",
+   "cabecalho": {
+    "data": "8 de dezembro",
+    "nome": "Imaculada Conceição da Bem-aventurada Virgem Maria",
+    "grau": "Duples de 1ª classe com Oitava comum – branco"
+   },
    "imagem": "/folhetos/proprio-imaculada-conceicao-3eeb62f0.webp",
    "largura": 574,
    "altura": 1007,
@@ -2091,6 +2104,11 @@
    "titulo": "Nossa Senhora de Guadalupe",
    "resumo": "O próprio da Missa de 12 de dezembro, padroeira principal da América Latina, em latim e em português. Duples de 1ª classe com Oitava comum, branco.",
    "categoria": "proprio",
+   "cabecalho": {
+    "data": "12 de dezembro",
+    "nome": "Nossa Senhora de Guadalupe, Padroeira Principal da América Latina",
+    "grau": "Duples de 1ª classe com Oitava comum – branco"
+   },
    "imagem": "/folhetos/proprio-guadalupe-5ebf5ca9.webp",
    "largura": 739,
    "altura": 923,
@@ -2372,6 +2390,10 @@
    "titulo": "III Domingo do Advento",
    "resumo": "O próprio da Missa, em latim e em português. Semiduples de 2ª classe, róseo ou roxo.",
    "categoria": "proprio",
+   "cabecalho": {
+    "nome": "III Domingo do Advento",
+    "grau": "Semiduples de 2ª classe – róseo (ou roxo)"
+   },
    "imagem": "/folhetos/proprio-advento-iii-941c1d18.webp",
    "largura": 651,
    "altura": 276,
@@ -2859,6 +2881,10 @@
    "titulo": "IV Domingo do Advento",
    "resumo": "O próprio da Missa, em latim e em português. Semiduples de 2ª classe, roxo.",
    "categoria": "proprio",
+   "cabecalho": {
+    "nome": "IV Domingo do Advento",
+    "grau": "Semiduples de 2ª classe – roxo"
+   },
    "imagem": "/folhetos/proprio-advento-iv-e540ebb0.webp",
    "largura": 641,
    "altura": 275,
@@ -3346,6 +3372,10 @@
    "titulo": "Vigília do Natal do Senhor",
    "resumo": "O próprio da Missa de 24 de dezembro, em latim e em português. Privilegiada de 1ª classe, roxo.",
    "categoria": "proprio",
+   "cabecalho": {
+    "nome": "Vigília do Natal do Senhor",
+    "grau": "Privilegiada de 1ª classe – roxo"
+   },
    "imagem": "/folhetos/proprio-vigilia-do-natal-fb47257a.webp",
    "largura": 839,
    "altura": 498,

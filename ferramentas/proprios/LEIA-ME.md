@@ -117,9 +117,15 @@ cor assim. A mais pesada é Guadalupe, com 340 KB.
 
 - **O selo do Apostolado.** É a segunda figura de cada PDF, e fica de fora de
   propósito, pela razão acima.
-- **O cabeçalho.** Nome da festa, data e grau não viram bloco: viram título e
-  resumo do folheto, escritos à mão na tabela `PROPRIOS`, porque cada folha os
-  arruma à sua maneira — o domingo começa pelo nome, a festa começa pela data.
+- **O cabeçalho como bloco.** Data, nome e grau não viram bloco, porque o
+  extrator começa no Intróito. Viram o título e o resumo do folheto e, desde
+  que a estampa veio, também o campo `cabecalho`, que a folha desenha abaixo
+  da figura como o impresso o traz. São transcritos à mão na tabela
+  `PROPRIOS`, porque cada folha os arruma à sua maneira — o domingo começa
+  pelo nome, a festa começa pela data, e o nome impresso de Guadalupe traz o
+  padroado inteiro, que não cabe na aba do navegador. Transcrição à mão
+  envelhece calada, e por isso `conferirCabecalho` procura cada linha no texto
+  da primeira página: se o Perez mudar o grau, o gerador **para**.
 - **Um bloco por seção, por língua.** O impresso traz o Intróito inteiro num
   parágrafo de cada lado, e é assim que ele fica. Quebrar o Evangelho em
   versículos casados linha a linha seria outro trabalho, e `conteudo.teste.ts`
