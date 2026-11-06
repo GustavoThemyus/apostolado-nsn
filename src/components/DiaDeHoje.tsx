@@ -9,6 +9,8 @@ import { NomeDaFesta } from "./NomeDaFesta";
 import { NotasDoOrdo } from "./NotasDoOrdo";
 import { semOChapeu, TabelaDaMissa } from "./TabelaDaMissa";
 import { mesmoDia } from "./GradeDoMes";
+import { comoIso } from "../calendario/dias";
+import { Seta } from "./Seta";
 import { NOME_DO_TEMPO } from "../calendario/tipos";
 
 const NOME_DA_COR: Record<string, string> = {
@@ -100,6 +102,15 @@ export function DiaDeHoje({ data }: { data?: Date }) {
     >
       <p className="dia__data">{porExtenso(hoje)}</p>
       {doOrdo && <DoOrdo dia={doOrdo} />}
+      {/*
+       * O modo missa: o Ordinário inteiro, com o próprio deste dia já
+       * encaixado nos dez lugares que o impresso deixa em branco. Entra-se
+       * nele daqui, e não pelo menu, porque é a faixa que sabe que dia é.
+       */}
+      <Elo para={`/missa/ordinario?dia=${comoIso(hoje)}`} className="dia__modo-missa">
+        Acompanhar a Missa
+        <Seta className="cartao__seta" />
+      </Elo>
       <Elo para="/calendario?uso=pre55" className="dia__link">
         Ver o calendário do ano
       </Elo>
@@ -224,6 +235,15 @@ function De1962({ hoje }: { hoje: Date }) {
         </p>
       ))}
       <Desenvolvimento dia={dia} />
+      {/*
+       * O modo missa: o Ordinário inteiro, com o próprio deste dia já
+       * encaixado nos dez lugares que o impresso deixa em branco. Entra-se
+       * nele daqui, e não pelo menu, porque é a faixa que sabe que dia é.
+       */}
+      <Elo para={`/missa/ordinario?dia=${comoIso(hoje)}`} className="dia__modo-missa">
+        Acompanhar a Missa
+        <Seta className="cartao__seta" />
+      </Elo>
       <Elo para="/calendario" className="dia__link">
         Ver o calendário do ano
       </Elo>

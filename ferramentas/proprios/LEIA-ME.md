@@ -63,7 +63,13 @@ anterior tem todas as palavras no lugar: a contagem dava certa antes e dá
 certa depois da correção, e quem viu foi o Perez, lendo. Contar palavras
 responde se alguma sumiu, não se ela está onde devia.
 
-Hoje: 11 397 palavras nos sete próprios, nenhuma perdida.
+Hoje: 11 398 palavras nos sete próprios, nenhuma perdida.
+
+A conta tirava marcação dos dois lados, e o lado do PDF marcação nenhuma
+tem: o `[seu]` que o tradutor acrescentou na Vigília do Natal tinha a cara
+de um `[i]` e sumia da conta. Era uma palavra, e estava nos dois lados — mas
+a régua que a escondia escondia qualquer outra. Agora a lista de marcas é
+fechada e só o lado do site passa por ela.
 
 ## As erratas
 
@@ -83,10 +89,34 @@ que a conferência continue exata, e para que uma remessa nova que as conserte
 mudou, e aí se relê. Fora desta lista, nada de correção silenciosa de latim —
 o que não estiver aqui vai ao ar exatamente como ele escreveu.
 
+## A estampa
+
+Cada um destes PDFs traz duas figuras e só duas: a estampa, na primeira
+página, e o selo do Apostolado, na última. Vem a estampa, e só ela — o
+brasão já está em toda página do site, e repeti-lo dentro da folha seria
+enfeite.
+
+Quem grava é `ferramentas/folhetos/gerar.py`, chamado pelo caminho porque o
+módulo de lá tem o mesmo nome deste. Assim a folha de próprio e a de
+indulgência saem com a mesma régua: o teto de 1000px, o webp em qualidade 88,
+e o nome com a impressão do conteúdo, de que depende o cache de um ano.
+
+A forma é conferida, e não adivinhada: duas figuras, a primeira na página 1,
+a segunda na última. Se uma remessa nova trouxer outro número de figuras, ou
+a estampa fora da primeira página, o gerador **para**. Gravar a figura errada
+na folha é pior que não gravar nenhuma, e é o tipo de coisa que ninguém
+repara até o Perez abrir a página.
+
+Estas sete pesam mais que as seis de indulgência: de 354 a 585 KB por
+megapixel, contra 114 a 322. Não é o ajuste, é a figura — são gravuras de
+meio-tom, e o pontilhado é ruído para o codificador. Conferido: sem perda
+sai maior (de 105K a 779K), e em cinza sai igual, porque o webp já trata a
+cor assim. A mais pesada é Guadalupe, com 340 KB.
+
 ## O que ficou de fora
 
-- **A estampa.** Estes PDFs não trazem figura como os folhetos de indulgência;
-  se trouxerem, é `ferramentas/folhetos/gerar.py` que a extrai.
+- **O selo do Apostolado.** É a segunda figura de cada PDF, e fica de fora de
+  propósito, pela razão acima.
 - **O cabeçalho.** Nome da festa, data e grau não viram bloco: viram título e
   resumo do folheto, escritos à mão na tabela `PROPRIOS`, porque cada folha os
   arruma à sua maneira — o domingo começa pelo nome, a festa começa pela data.

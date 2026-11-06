@@ -1,0 +1,112 @@
+{
+ "id": "leoninas",
+ "titulo": "Orações no fim da Missa rezada",
+ "blocos": [
+  {
+   "tipo": "subtitulo",
+   "texto": "ORAÇÕES NO FIM DA MISSA REZADA"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Essas orações são obrigatórias quando não há canto na Missa e devem ser recitadas de joelhos. Elas foram introduzidas pelo Papa Leão XIII a fim de que a Igreja conseguisse uma solução para suas demandas com o governo da Itália após a invasão e ocupação dos Estados Pontifícios. Devido à assinatura do Tratado de Latrão (em 1929), o Papa Pio XI pediu que elas fossem ditas pela conversão da Rússia. De joelhos.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Ave Maria, cheia de graça, o Senhor é convosco, bendita sois Vós entre as mulheres e bendito é o fruto do vosso ventre, Jesus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém. [i](três vezes)[/i] Salve Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve. A Vós bradamos, os degredados filhos de Eva, a Vós suspiramos, gemendo e chorando, neste vale de lágrimas. Eia, pois, Advogada nossa, esses vossos olhos misericordiosos a nós volvei. E depois deste desterro, nos mostrai, Jesus, bendito fruto do vosso ventre. Ó clemente, ó piedosa, ó doce Virgem Maria."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Rogai por nós, santa Mãe de Deus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Para que sejamos dignos das promessas de Cristo."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Deus, nosso refúgio e fortaleza, olhai propício para o povo que a Vós clama; e, pela intercessão da gloriosa e imaculada Virgem Maria, Mãe de Deus, e do Bem-aventurado São José, seu Esposo, e dos vossos bem-aventurados Apóstolos São Pedro e São Paulo e de todos os Santos, ouvi misericordioso e benigno as preces que Vos dirigimos para a conversão dos pecadores, para a liberdade e exaltação da Santa Madre Igreja. Pelo mesmo Cristo Senhor nosso."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Amém."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. São Miguel Arcanjo, defendei-nos no combate, cobri-nos com o vosso escudo contra os embustes e ciladas do demônio. Subjugue-o Deus, instantemente o pedimos. E vós, príncipe da milícia celeste, pelo divino poder, precipitai no inferno a Satanás e a todos os espíritos malignos que andam pelo mundo para perder as almas."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Ave, María, grátia plena, Dóminus tecum; benedícta tu in muliéribus et benedíctus fructus ventris tui, Iesus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Sancta María, Mater Dei, ora pro nobis peccatóribus, nunc et in hora mortis nostræ. Amen. [i](três vezes)[/i] Salve, Regína, mater misericórdiæ; vita, dulcédo et spes nostra, salve. Ad te clamámus, éxsules fílii Evæ. Ad te suspirámus, geméntes et flentes in hac lacrimárum valle. Eia ergo, advocáta nostra, illos tuos misericórdes óculos ad nos convérte. Et Iesum, benedíctum fructum ventris tui, nobis post hoc exsílium osténde. O clemens, o pia, o dulcis Virgo María."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Ora pro nobis, sancta Dei Génitrix."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Ut digni efficiámur promissiónibus Christi."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Orémus: Deus, refúgium nostrum et virtus, pópulum ad te clamántem propítius réspice; et intercedénte gloriósa et immauláta Vírgine Dei Genitríce María, cum beáto Ioseph, eius Sponso, ac beátis Apóstolis tuis Petro et Paulo, et ómnibus Sanctis, quas pro conversióne peccatórum, pro libertáte et exaltatióne sancta Matris Ecclésiæ, preces effúndimus, miséricors et benígnus exáudi. Per eúmdem Christum Dóminum nostrum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Amen."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Sancte Míchael Archángele, defénde nos in prœlio, contra nequítiam et insídias diáboli esto præsídium. Imperet illi Deus, súpplices deprecámur: tuque, Princeps milítiæ cæléstis, Sátanam aliósque spíritus malígnos, qui ad perditiónem animárum pervagántur in mundo, divína virtúte, in inférnum detrúde."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]São Pio X pediu se ajuntasse três vezes a seguinte jaculatória:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Sacratíssimo Coração de Jesus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Tende misericórdia de nós."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Cor Iesu sacratíssimum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Miserére nobis."
+    }
+   ]
+  }
+ ]
+}

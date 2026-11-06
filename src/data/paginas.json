@@ -24,6 +24,11 @@
     "titulo": "A situação canônica da Missa",
     "descricao": "A parte jurídica do rito."
   },
+  "/missa/ordinario": {
+    "titulo": "Modo missa",
+    "curto": "Modo missa",
+    "descricao": "O Ordinário da Missa inteiro, com o próprio do dia no lugar, para acompanhar o celebrante."
+  },
   "/calendario": {
     "titulo": "Calendário Romano Tradicional",
     "curto": "Calendário",

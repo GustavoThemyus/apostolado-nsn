@@ -6,6 +6,7 @@ import { usarNumeroDoPasso } from "./NumeracaoDePassos";
 import { Nota } from "./Nota";
 import { Oracao } from "./Oracao";
 import { Passo } from "./Passo";
+import { LugarDoProprio } from "./ProprioDoDia";
 import { Rubrica } from "./Rubrica";
 import { RubricaDaAssembleia } from "./RubricaDaAssembleia";
 import { Tabela } from "./Tabela";
@@ -83,6 +84,10 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
         </div>
       );
     }
+    case "proprio":
+      // o lugar que o impresso deixa em branco: no modo missa ele se enche
+      // com o próprio do dia, e fora dele fica a remissão do papel
+      return <LugarDoProprio nome={bloco.nome} subtitulos={bloco.subtitulos} />;
     case "indice":
       return <IndiceDoDocumento />;
     case "legenda":

@@ -25,6 +25,8 @@ const AMOSTRAS: Record<NomeDeTipo, Bloco> = {
   rubrica: { tipo: "rubrica", texto: "O sacerdote beija o altar." },
   assembleia: { tipo: "assembleia", texto: "Todos se ajoelham." },
   subtitulo: { tipo: "subtitulo", texto: "Um tópico dentro da seção" },
+  // não aparece na paleta, que percorre TIPOS, mas o tipo exige a chave
+  proprio: { tipo: "proprio", nome: "Intróito", subtitulos: ["Intróito"] },
   lista: { tipo: "lista", ordenada: true, itens: ["Primeiro item", "Segundo item"] },
   oracao: {
     tipo: "oracao",

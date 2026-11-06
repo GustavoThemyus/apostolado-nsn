@@ -1,0 +1,34 @@
+{
+ "id": "magisterio",
+ "titulo": "A voz do Magistério",
+ "blocos": [
+  {
+   "tipo": "subtitulo",
+   "texto": "A VOZ DO MAGISTÉRIO"
+  },
+  {
+   "tipo": "paragrafo",
+   "texto": "[i]A regra de oração ([/i]lex orandi[i]) corresponde à regra da fé ([/i]lex credendi[i])[/i]"
+  },
+  {
+   "tipo": "paragrafo",
+   "texto": "«Para tanto, julgamos dever confiar este trabalho a uma comissão de homens eruditos. Estes começaram por cotejar cuidadosamente todos os textos com os antigos de nossa Biblioteca Vaticana e com outros, quer corrigidos, quer sem alteração, que foram requisitados de toda parte. Depois, tendo consultado os escritos dos antigos e de autores aprovados, que nos deixaram documentos relativos à organização destes mesmos ritos, eles restituíram o Missal propriamente dito à norma e ao rito dos Santos Padres."
+  },
+  {
+   "tipo": "paragrafo",
+   "texto": "Este Missal assim revisto e corrigido, Nós, após madura reflexão, mandamos que seja impresso e publicado em Roma, a fim de que todos possam tirar os frutos desta disposição e do trabalho empreendido, de tal sorte que os padres saibam de que preces devem servir-se e quais os ritos, quais as cerimônias, que devem observar doravante na celebração das missas."
+  },
+  {
+   "tipo": "paragrafo",
+   "texto": "E a fim de que todos, e em todos os lugares, adotem e observem as tradições da Santa Igreja Romana, Mãe e Mestra de todas as Igrejas, decretamos e ordenamos que a Missa, no futuro e para sempre, não seja cantada nem rezada de modo diferente do que esta, conforme o Missal publicado por Nós» (Bula [i]Quo primum tempore[/i], do Papa São Pio V em 1570, § 4, 5 e 6)."
+  },
+  {
+   "tipo": "paragrafo",
+   "texto": "«São, pois, dignos de louvor aqueles que, com o fim de tornar mais fácil e frutuosa ao povo cristão a participação no Sacrifício Eucarístico, se esforçam em colocar oportunamente nas mãos do povo o \"Missal romano\" de modo que os fiéis, unidos ao sacerdote, orem com ele, com as suas próprias palavras e com os mesmos sentimentos da Igreja (…)» (Carta Encíclica [i]Mediator Dei[/i], do Papa Pio XII, em 1947, § 95)."
+  },
+  {
+   "tipo": "paragrafo",
+   "texto": "«(…) é lícito celebrar o Sacrifício da Missa de acordo com a edição típica do Missal Romano promulgado pelo Beato João XXIII em 1962 e nunca anulado, como a forma extraordinária da Liturgia da Igreja» (Carta Apostólica sob forma de [i]Motu proprio Summorum Pontificum[/i], do Papa Bento XVI, em 2007, Art 1)."
+  }
+ ]
+}

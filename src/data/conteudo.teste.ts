@@ -26,8 +26,9 @@ import { existsSync, readFileSync } from "node:fs";
 import folhetos from "./folhetos.json";
 import postagens from "./postagens.json";
 import { casar } from "../routes/casar";
+import { SECOES, pecasDoProprio } from "./ordinario";
 import { ESTADO_DA_ROTA, ROTAS } from "../routes/rotas";
-import type { Bloco, Conteudo, Secao } from "./tipos";
+import type { Bloco, Conteudo, Folheto, Secao } from "./tipos";
 
 let passaram = 0;
 const falhas: string[] = [];
@@ -563,6 +564,94 @@ conferir("enchiridion: as 33 concessões têm âncora",
     (t.match(/\[lat\]/g) ?? []).length !== (t.match(/\[\/lat\]/g) ?? []).length);
   conferir("toda marcação de latim no brasão abre e fecha",
     desbalanceados.length === 0, desbalanceados.map((t) => t.slice(0, 40)).join(" | "));
+}
+
+/*
+ * O Ordinário da Missa, que não é escrito à mão: sai de
+ * `ferramentas/ordinario/gerar.py`, lendo o PDF de 52 páginas do Perez.
+ *
+ * A conferência de palavras mora lá, e responde se alguma sumiu. O que se
+ * guarda aqui é outra coisa: se o modo missa **enche** os dez lugares que o
+ * impresso deixa em branco. Um erro de nome num subtítulo não perde palavra
+ * nenhuma, passa por toda a conferência do gerador, e deixa o Intróito em
+ * branco na frente de quem está de pé no banco.
+ */
+{
+  type SecaoCrua = { id: string; titulo: string; blocos: Bloco[] };
+  const secoes: SecaoCrua[] = [];
+  const faltando: string[] = [];
+  for (const s of SECOES) {
+    const caminho = `src/data/ordinario/${s.id}.json`;
+    if (!existsSync(caminho)) {
+      faltando.push(s.id);
+      continue;
+    }
+    secoes.push(JSON.parse(readFileSync(caminho, "utf-8")) as SecaoCrua);
+  }
+  conferir("as treze seções do Ordinário estão gravadas",
+    faltando.length === 0 && secoes.length === 13, faltando.join(", "));
+
+  const vazias = secoes.filter((s) => s.blocos.length === 0);
+  conferir("nenhuma seção do Ordinário saiu vazia", vazias.length === 0,
+    vazias.map((s) => s.id).join(", "));
+
+  /*
+   * Os dois lados de um bilíngue com o mesmo número de parágrafos. É o
+   * subgrid que casa faixa a faixa, e um lado mais curto desalinha o latim
+   * da tradução dali para baixo — a oração seguinte aparece na altura
+   * errada, e nada acusa.
+   */
+  const desencontrados: string[] = [];
+  const casar_ = (id: string, blocos: Bloco[]) => {
+    for (const b of blocos) {
+      if (b.tipo !== "bilingue") continue;
+      if (b.latim.length !== b.portugues.length) {
+        desencontrados.push(`${id}: ${b.latim.length} latim, ${b.portugues.length} português`);
+      }
+      casar_(id, b.latim);
+      casar_(id, b.portugues);
+    }
+  };
+  for (const s of secoes) casar_(s.id, s.blocos);
+  conferir("todo bilíngue do Ordinário tem os dois lados do mesmo tamanho",
+    desencontrados.length === 0, desencontrados.join(" | "));
+
+  const lugares: { nome: string; subtitulos: string[] }[] = [];
+  const andar = (blocos: Bloco[]) => {
+    for (const b of blocos) {
+      if (b.tipo === "proprio") lugares.push({ nome: b.nome, subtitulos: b.subtitulos });
+      else if (b.tipo === "bilingue") {
+        andar(b.latim);
+        andar(b.portugues);
+      } else if (b.tipo === "passo") andar(b.corpo);
+    }
+  };
+  for (const s of secoes) andar(s.blocos);
+
+  const nomes = lugares.map((l) => l.nome).join(" / ");
+  conferir("o Ordinário tem os dez lugares do próprio, na ordem do missal",
+    nomes === "Intróito / Oração / Epístola / Gradual, Aleluia ou Tracto / "
+      + "Evangelho / Ofertório / Secreta / Prefácio / Comunhão / Pós-comunhão",
+    nomes);
+
+  /*
+   * O próprio do I Domingo do Advento, que foi com o que o Perez pediu para
+   * testar o modo missa. Os dez lugares têm de encher: se um ficar em
+   * branco, é porque o subtítulo do folheto e o nome que o gerador procura
+   * deixaram de casar.
+   */
+  const advento = (folhetos as unknown as { folhetos: Folheto[] }).folhetos.find(
+    (f) => f.id === "proprio-advento-i",
+  );
+  conferir("o folheto do I Domingo do Advento está publicado", advento !== undefined);
+
+  if (advento) {
+    const brancos = lugares.filter(
+      (l) => pecasDoProprio(advento, l.subtitulos).length === 0,
+    );
+    conferir("no I Domingo do Advento, os dez lugares do próprio se enchem",
+      brancos.length === 0, brancos.map((l) => l.nome).join(", "));
+  }
 }
 
 const total = passaram + falhas.length;

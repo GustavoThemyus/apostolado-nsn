@@ -1,0 +1,482 @@
+{
+ "id": "canon",
+ "titulo": "Canon da Missa",
+ "blocos": [
+  {
+   "tipo": "subtitulo",
+   "texto": "Canon da Missa"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Agora se inicia o momento soleníssimo da Missa; todo o Cânon constitui uma grande oração sacerdotal, praticamente inalterada desde a época de São Gregório Magno que recebeu a herança de São Pedro. Memento da Igreja, o sacerdote inclinado em sinal de humildade pede a bênção de Deus para as ofertas, pelos méritos de Cristo, e as oferece primeiro pela Igreja. A partir de agora, haverá o completo silêncio, que é análogo à iconóstase oriental e que nos remete ao Mistério deste momento.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "A VÓS, PORTANTO, clementíssimo Pai, por [i]Jesus[/i] Cristo vosso Filho Senhor nosso, suplicante rogamos e pedimos, que aceiteis e abençoeis estes dons, estas oferendas, estes santos sacrifícios ilibados; PRIMEIRAMENTE, oferecemos-Vos pela vossa Igreja santa e católica: dignai-Vos pacificá-la, guardá-la, uni-la e regê-la por todo o orbe da terra: em união com o vosso servo o [i]nosso Papa N.[/i] e nosso Bispo [i]N.[/i], e todos os [Bispos] ortodoxos, e os [fieis] que guardam a fé católica e apostólica."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "TE ÍGITUR, clementíssime Pater, per [i]Iesum[/i] Christum, Fílium tuum, Dóminum nostrum, súpplices rogámus, ac pétimus, uti accépta hábeas et benedícas hæc ✠ dona, hæc ✠ múnera, hæc ✠ sancta sacrifícia illibáta; IN PRIMIS, quæ tibi offérimus pro Ecclésia tua sancta cathólica: quam pacificáre, custodíre, adunáre et régere dignéris toto orbe terrárum: una cum fámulo tuo [i]Papa nostro N.[/i] et Antístite nostro [i]N.[/i] et ómnibus orthodóxis, atque cathólicæ et apostólicæ fídei cultóribus."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Memento dos vivos, especialmente os que estão presentes ao santo sacrifício.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "LEMBRAI-VOS, Senhor, dos vossos servos e servas [i]N.[/i] e [i]N.[/i] e todos os presentes, cuja fé Vos é conhecida e manifesta a devoção e pelos quais Vos oferecemos ou eles Vos oferecem este sacrifício de louvor por si e por todos os seus: pela redenção de suas almas, pela esperança da sua salvação e sua integridade; e a Vós restituem seus votos, eterno Deus, vivo e verdadeiro."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "MEMÉNTO, Dómine, famulórum famularúmque tuárum [i]N.[/i] et [i]N.[/i] et ómnium circumstántium, quorum tibi fides cógnita est et nota devótio, pro quibus tibi offérimus: vel qui tibi ófferunt hoc sacrifícium laudis, pro se suísque ómnibus: pro redemptióne animárum suárum, pro spe salútis et incolumitátis suæ: tibíque reddunt vota sua æterno Deo, vivo et vero."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Memento dos Santos, nos mostra a comunhão entre o céu e a terra. Ele inicia-se diferentemente em algumas solenidades.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "EM COMUNHÃO, e venerando a memória, em primeiro, da gloriosa sempre Virgem [i]Maria[/i], Mãe do Deus e Senhor nosso [i]Jesus[/i] Cristo;"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "COMMUNICÁNTES, et memóriam venerántes, in primis gloriósæ semper Vírginis [i]Maríæ[/i], Genitrícis Dei et Dómini nostri [i]Iesu[/i] Christi:"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]No Natal do Senhor e pela Oitava se diz:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "EM COMUNHÃO, e celebrando o dia sacratíssimo (a noite sacratíssima), em que a intemerata virgindade da Bem-aventurada [i]Maria[/i] deu a este mundo o Salvador; e também venerando primeiramente a memória da mesma gloriosa e sempre Virgem [i]Maria[/i], Mãe do mesmo Deus e Senhor nosso [i]Jesus[/i] Cristo;"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "COMMUNICÁNTES, et diem sacratíssimum (noctem sacratíssimam) celebrántes, quo (qua) beátæ [i]Maríæ[/i] intemeráta virgínitas huic mundo édidit Salvatórem: sed et memóriam venerántes, in primis ejúsdem gloriósæ semper Vírginis [i]Maríæ[/i], Genetrícis ejúsdem Dei et Dómini nostri [i]Iesu[/i] Christi:"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Na Epifania do Senhor se diz:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "EM COMUNHÃO, e celebrando o dia sacratíssimo em que vosso Unigênito, coeterno conVosco na vossa glória, na realidade do nosso corpo de carne apareceu visivelmente; e também venerando a memória primeiramente da gloriosa sempre Virgem [i]Maria[/i], Mãe do mesmo Deus e Senhor nosso [i]Jesus[/i] Cristo;"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "COMMUNICÁNTES, et diem sacratíssimum celebrántes, quo Unigenitus tuus, in tua tecum glória coætérnus, in veritáte carnis nostræ visibíliter corporális appáruit: sed et memóriam venerántes, in primis gloriósæ semper Vírginis [i]Maríæ[/i], Genetrícis ejúsdem Dei et Dómini nostri [i]Iesu[/i] Christi:"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Na Quinta-feira Santa na Ceia do Senhor, se diz:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "EM COMUNHÃO, e celebrando o dia sacratíssimo, em que nosso Senhor [i]Jesus[/i] Cristo por nós é entregue; e também venerando a memória primeiramente da gloriosa sempre Virgem [i]Maria[/i], Mãe do mesmo Deus e Senhor nosso [i]Jesus[/i] Cristo;"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "COMMUNICÁNTES, et diem sacratíssimum celebrántes, quo Dóminus noster [i]Iesus[/i] Christus pro nobis est tráditus: sed et memóriam venerántes, in primis gloriósæ semper Vírginis [i]Maríæ[/i], Genetrícis ejúsdem Dei et Dómini nostri [i]Iesu[/i] Christi:"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Do Sábado Santo até o Sábado[/i] in Albis[i], inclusive, se diz:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "EM COMUNHÃO, e celebrando o dia sacratíssimo (a noite sacratíssima) da Ressurreição de nosso Senhor [i]Jesus[/i] Cristo segundo a carne; e também venerando em primeiro a memória da gloriosa sempre Virgem [i]Maria[/i], Mãe do mesmo Deus e Senhor nosso [i]Jesus[/i] Cristo;"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "COMMUNICÁNTES, et diem sacratíssimum (noctem sacratíssimam) celebrántes Resurrectiónis Dómini nostri [i]Iesu[/i] Christi secúndum carnem: sed et memóriam venerántes, in primis gloriósæ semper Vírginis [i]Maríæ[/i], Genetrícis ejúsdem Dei et Dómini nostri [i]Iesu[/i] Christi:"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Na Ascensão do Senhor, se diz:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "EM COMUNHÃO, e celebrando o dia sacratíssimo, que nosso Senhor, vosso unigênito Filho, unido a Si a fragilidade de nossa substância, colocou-a na direita da vossa glória; e também venerando primeiramente a memória da gloriosa sempre Virgem [i]Maria[/i], Mãe do mesmo Deus e Senhor nosso [i]Jesus[/i] Cristo;"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "COMMUNICÁNTES, et diem sacratíssimum celebrántes, quo Dóminus noster, unigénitus Fílius tuus, unítam sibi fragilitátis nostræ substántiam in glóriæ tuæ déxtera collocávit: sed et memóriam venerántes, in primis gloriósæ semper Vírginis [i]Maríæ[/i], Genetrícis ejuúsdem Dei et Dómini nostri [i]Iesu[/i] Christi:"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Desde a vigília de Pentecostes até o sábado seguinte, inclusive, se diz:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "EM COMUNHÃO, e celebrando o dia sacratíssimo de Pentecostes, em que o Espírito Santo apareceu aos Apóstolos em inúmeras línguas; e também venerando primeiramente a memória da gloriosa sempre Virgem [i]Maria[/i], Mãe do Deus e Senhor nosso [i]Jesus[/i] Cristo;"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "COMMUNICÁNTES, et diem sacratíssimum Pentecóstes celebrántes, quo Spíritus Sanctus Apóstolis innúmeris linguis appáruit: sed et memóriam venerántes, in primis gloriósæ semper Vírginis [i]Maríæ[/i], Genetrícis Dei et Dómini nostri [i]Iesu[/i] Christi:"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Continua o[/i] Communicantes[i]:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "e também do bem-aventurado [i]José[/i], o Esposo da mesma Virgem, dos vossos bem-aventurados Apóstolos e Mártires, Pedro e Paulo, André, Tiago, João, Tomé, Tiago, Filipe, Bartolomeu, Mateus, Simão e Tadeu, Lino, Cleto, Clemente, Xisto, Cornélio, Cipriano, Lourenço, Crisógono, João e Paulo, Cosme e Damião; e todos os vossos Santos, por cujos méritos e preces concedei que sejamos munidos, em tudo, com o auxílio da vossa proteção. Pelo mesmo Cristo, Senhor nosso. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "sed et beati [i]Ioseph[/i], eiusdem Virginis Sponsi, et beatórum Apostolórum ac Mártyrum tuórum, Petri et Pauli, Andréæ, Jacóbi, Joánnis, Thomæ, Jacóbi, Philíppi, Bartholomæi, Matthæi, Simónis, et Thaddæi: Lini, Cleti, Cleméntis, Xysti, Cornélii, Cypriáni, Lauréntii, Chrysógoni, Joánnis et Pauli, Cosmæ et Damiáni: et ómnium Sanctórum tuórum; quorum méritis precibúsque concédas, ut in ómnibus protectiónis tuæ muniámur auxílio. Per eúndem Christum, Dóminum nostrum. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Unido à Igreja celeste, o sacerdote estende as mãos sobre as ofertas, antigo gesto que simboliza transmissão dos pecados do povo à hóstia. Também se inicia diversamente em algumas solenidades.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "ENTÃO ESTA oblação de nossa servidão, mas também de toda a vossa família,"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "HANC ÍGITUR oblatiónem servitútis nostræ, sed et cunctæ famíliæ tuæ,"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Na Quinta-feira Santa na Ceia do Senhor, diz-se:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "ENTÃO ESTA oblação de nossa servidão, mas também de toda a vossa família, que Vos oferecemos neste dia, no qual nosso Senhor [i]Jesus[/i] Cristo entregou aos seus discípulos a celebração dos mistérios de seu Corpo e seu Sangue;"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "HANC ÍGITUR oblatiónem servitútis nostræ, sed et cunctæ famíliæ tuæ, quam tibi offérimus ob diem, in qua Dóminus noster [i]Iesus[/i] Christus trádidit discípulis suis Córporis et Sánguinis sui mystéria celebránda:"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Desde o Sábado Santo até ao Sábado[/i] in Albis[i], inclusive, e desde a Vigília de Pentecostes até ao Sábado seguinte, inclusive, diz-se:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "ENTÃO ESTA oblação de nossa servidão, mas também de toda a vossa família, que Vos oferecemos também por eles, os quais dignastes regenerar da água e do Espírito Santo, tributando-lhes a remissão de todos os pecados, [i]Continua o[/i] Hanc ígitur[i].[/i] pedimos, Senhor, para que aplacado aceiteis: disponde nossos dias em vossa paz, livrai-nos da eterna danação e mandai sermos numerados no rebanho de vossos eleitos. Por Cristo nosso Senhor. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "HANC ÍGITUR oblatiónem servitútis nostræ, sed et cunctæ famíliæ tuæ, quam tibi offérimus pro his quoque, quos regeneráre dignatus es ex aqua et Spíritu Sancto, tríbuens eis remissionem ómnium peccatórum, quǽsumus, Dómine, ut placátus accípias: diésque nostros in tua pace dispónas, atque ab ætérna damnatióne nos éripi, et in electórum tuórum jubeas grege numerári. Per Christum, Dóminum nostrum. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Nesta belíssima oração a Liturgia mostra a relação íntima da Presença Real com o Sacrifício da Missa; única maneira do sacrifício do Altar ser aceito por Deus: ter ele a mesma Vítima do sacrifício do calvário.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "QUE ESTA OBLAÇÃO, em tudo, Deus, pedimos-Vos, seja abençoada, aprovada, ratificada, racional, e dignai-Vos fazê-la aceitável, para que se nos faça o Corpo e o Sangue de vosso diletíssimo Filho, o Senhor nosso [i]Jesus[/i] Cristo."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "QUAM OBLATIÓNEM tu, Deus, in ómnibus, quæsumus, bene✠díctam, adscrí✠ptam, ra✠tam, rationábilem, acceptabilémque fácere dignéris: ut nobis Cor✠pus et San✠guis fiat dilectíssimi Fílii tui, Dómini nostri [i]Iesu[/i] Christi."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Consagração: momento mais solene e importante da Missa, em que se fará presente o Corpo e o Sangue, a Alma e a Divindade de nosso Senhor e Salvador Jesus Cristo. Vai se renovar o Sacrifício da última Ceia, sacrifício que o Senhor instituiu para perpetuar de modo incruento o Sacrifício cruento do Calvário.[/i]"
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Consagração do pão"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "QUE NA VÉSPERA de padecer,"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "QUI PRÍDIE quam paterétur,"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Na Quinta-feira Santa na Ceia do Senhor, diz-se:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "QUE NA VÉSPERA que, por nossa salvação e de todos, padecesse, isto é, hoje, tomou o pão em suas santas e veneráveis mãos e elevou os olhos ao céu a Vós Deus, seu Pai onipotente, deu-Vos graças, abençoou-o, partiu-o e deu-o a seus discípulos, dizendo: Tomai e comei disto todos. ISTO É VERDADEIRAMENTE O MEU CORPO."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Qui prídie, quam pro nostra omniúmque salúte paterétur, hoc est hódie, accépit panem in sanctas ac venerábiles manus suas, et elevátis óculis in cælum ad te Deum, Patrem suum omnipoténtem, tibi grátias agens, benedíxit, ✠ fregit, dedítque discípulis suis, dicens: Accípite, et manducáte ex hoc omnes. HOC EST ENIM CORPUS MEUM."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Consagração do vinho"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "DE MODO SIMILAR, depois de ter ceado, tomando este preclaro cálice em suas santas e veneráveis mãos: outra vez deu-Vos graças, abençoou-o e deu-o a seus discípulos, dizendo: Tomai e bebei dele todos. ESTE É VERDADEIRAMENTE O CÁLICE DO MEU SANGUE, DO NOVO E ETERNO TESTAMENTO – MISTÉRIO DA FÉ – QUE POR VÓS E POR MUITOS SERÁ DERRAMADO EM REMISSÃO DOS PECADOS. Todas as vezes que isto fizerdes, em minha memória o fareis."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "SÍMILI MODO postquam cenátum est, accípiens et hunc præclárum Cálicem in sanctas ac venerábiles manus suas: item tibi grátias agens, benedíxit, ✠ dedítque discípulis suis, dicens: Accípite, et bíbite ex eo omnes. HIC EST ENIM CALIX SÁNGUINIS MEI, NOVI ET ÆTÉRNI TESTAMÉNTI: MYSTÉRIUM FÍDEI: QUI PRO VOBIS ET PRO MULTIS EFFUNDÉTUR IN REMISSIÓNEM PECCATÓRUM. Hæc quotiescúmque fecéritis, in mei memóriam faciétis."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Anamnese, em que se faz memória dos Mistérios da vida do Cristo.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "DONDE TAMBÉM LEMBRANDO-NOS, Senhor, nós, vossos servos, e também o vosso povo santo, da tão Bem-aventurada Paixão do mesmo Cristo vosso Filho Senhor nosso, assim como da sua Ressurreição dos infernos e também da sua gloriosa Ascensão aos céus; oferecemos à vossa resplendente majestade dos vossos dons e dádivas, a vítima pura, a vítima santa, a vítima imaculada, o Pão santo da vida eterna e o Cálice da perpétua salvação."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "UNDE ET MÉMORES, Dómine, nos servi tui, sed et plebs tua sancta, ejúsdem Christi Fílii tui, Dómini nostri, tam beátæ passiónis, nec non et ab ínferis resurrectiónis, sed et in cælos gloriósæ ascensiónis: offérimus præcláræ majestáti tuæ de tuis donis ac datis hóstiam ✠ puram, hóstiam ✠ sanctam, hóstiam ✠ immaculátam, Panem ✠ sanctum vitæ ætérnæ, et Cálicem ✠ salútis perpétuæ."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]O sacerdote lembra os antigos sacrifícios e pede que, como aqueles, este seja aceito por Deus.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "SOBRE ESTAS [oblações] dignai voltar a face propícia e serena, para aceitardes, assim como Vos dignastes aceitar as dádivas do vosso servo o justo Abel; o sacrifício de nosso Patriarca Abraão; e o que Vos apresentou o vosso sumo sacerdote Melquisedeque, sacrifício santo, hóstia imaculada."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "SUPRA QUÆ PROPÍTIO ac seréno vultu respícere dignéris: et accépta habére, sícuti accépta habére dignátus es múnera púeri tui justi Abel, et sacrifícium Patriárchæ nostri Abrahæ: et quod tibi óbtulit summus sacérdos tuus Melchísedech, sanctum sacrifícium, immaculátam hóstiam."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Roga profundamente inclinado pela aceitação e frutos do sacrifício: é o verdadeiro ofertório.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "SUPLICANTES VOS ROGAMOS, Deus onipotente, que mandeis levar estas [oblações], pelas mãos do vosso santo Anjo, ao vosso sublime altar, na presença da vossa divina majestade: para que a todos aqueles que, da participação deste altar, tomarmos do vosso sacrossanto Filho o Corpo e o Sangue, sermos repletos de todas as bênçãos e graças celestes. Pelo mesmo Cristo Senhor nosso. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "SÚPPLICES TE ROGÁMUS, omnípotens Deus: jube hæc perférri per manus sancti Angeli tui in sublíme altáre tuum, in conspéctu divínæ majestátis tuæ: ut, quotquot ex hac altáris participatióne sacrosánctum Fílii tui Cor✠pus, et Sán✠guinem sumpsérimus, omni ✠ benedictióne cælésti et grátia repleámur. Per eúndem Christum, Dóminum nostrum. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Memento dos mortos. Aqui lembramos os nossos falecidos. Rezemos em silêncio, unidos ao sacerdote, pelo refrigério de suas almas e rememoremos suas virtudes.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "LEMBRAI-VOS AINDA, Senhor, dos vossos servos e servas [i]N.[/i] e [i]N.[/i] que nos precederam com o sinal da fé e dormem no sono da paz. A ELES, Senhor, e a todos os que em Cristo repousam, pedimos, dai indulgente o lugar de refrigério, de luz e de paz. Pelo mesmo Cristo Senhor nosso. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "MEMÉNTO ÉTIAM, Dómine, famulórum famularúmque tuárum [i]N.[/i] et [i]N.[/i], qui nos præcessérunt cum signo fídei, et dórmiunt in somno pacis. IPSIS, Dómine, et ómnibus in Christo quiescéntibus locum refrigérii, lucis et pacis ut indúlgeas, deprecámur. Per eúndem Christum, Dóminum nostrum. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Memento dos assistentes. O celebrante interrompe o silêncio do Canon para humildemente confessar-se, juntos com os presentes, pecador e pedir que a assembleia seja contada entre os eleitos.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "TAMBÉM A NÓS pecadores, vossos servos, que esperamos na multidão de vossa misericórdia, dignai dar alguma parte e sociedade com vossos santos Apóstolos e Mártires: com João [Batista], Estevão, Matias, Barnabé, Inácio, Alexandre, Marcelino, Pedro, Felicidade, Perpétua, Águeda, Luzia, Inês, Cecília, Anastácia e todos os vossos Santos: em cujo consórcio, não estimando [nossos] méritos, mas pela largueza de [vosso] favor, admiti-nos, pedimos. Por Cristo Senhor nosso. POR QUEM TODOS ESTES BENS, Senhor, sempre criais, santificais, vivificais, abençoais e dais a nós."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "NOBIS QUOQUE peccatóribus fámulis tuis, de multitúdine miseratiónum tuárum sperántibus, partem áliquam et societátem donáre dignéris, cum tuis sanctis Apóstolis et Martýribus: cum Joánne, Stéphano, Matthía, Bárnaba, Ignátio, Alexándro, Marcellíno, Petro, Felicitáte, Perpétua, Agatha, Lúcia, Agnéte, Cæcília, Anastásia, et ómnibus Sanctis tuis: intra quorum nos consórtium, non æstimátor mériti, sed véniæ, quæsumus, largítor admítte. Per Christum, Dóminum nostrum. PER QUEM HÆC ÓMNIA, Dómine, semper bona creas, sanctí✠ficas, viví✠ficas, bene✠dícis, et præstas nobis."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]A Doxologia final: momento em que o celebrante como que apresenta definitivamente a Deus o sacrifício.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Por Ele e com Ele e n’Ele, é a Vós, Deus Pai onipotente, na unidade do Espírito Santo, toda honra e glória."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Per ip✠sum, et cum ip✠so, et in ip✠so, est tibi Deo Patri ✠ omnipoténti, in unitáte ✠ Spíritus Sancti, omnis honor et glória."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Os fieis, confiantes que Vítima tão imaculada jamais seria rejeitada pela santíssima Trindade dizem o amém mais importante do santo sacrifício:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.Por todos os séculos dos séculos."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟.Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.Per ómnia sǽcula sæculórum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟.Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]O sacrifício já se ofereceu. Deus aceitou-o, deixando-Se apaziguar, e vai- Se-nos dar na Santa Comunhão. Seguem-se as orações preparatórias para a comunhão, iniciadas pela oração dominical. Nela a Santa Igreja pede a Deus que nos dê o pão de cada dia e as disposições de caridade para com Ele e o próximo, indispensáveis para bem comungar. Porque receber a Sagrada Eucaristia é apertar os laços que nos unem com Jesus e com o seu Corpo Místico. Terminado o Canon, todos de pé.[/i]"
+  }
+ ]
+}

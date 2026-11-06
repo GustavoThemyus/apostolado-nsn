@@ -1,0 +1,232 @@
+{
+ "id": "bencao",
+ "titulo": "Exposição e bênção do Santíssimo",
+ "blocos": [
+  {
+   "tipo": "subtitulo",
+   "texto": "EXPOSIÇÃO E BÊNÇÃO DO SANTÍSSIMO SACRAMENTO"
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Oração pelo Papa:"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Oremos pelo nosso Pontífice [i]N.[/i]"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. O Senhor o conserve e o vivifique e o faça feliz na terra e não o abandone nas mãos dos seus inimigos."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Tu és Pedro."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. E sobre esta pedra edificarei a minha Igreja. Oremos. Deus, pastor e guia de todos os fieis, para o vosso servo o Papa [i]N.[/i], a quem quisestes constituir como pastor de vossa Igreja; concedei-lhe, pedimos, por suas palavras e exemplo, edificar àqueles de quem é chefe, para que, com o rebanho que lhe foi confiado, alcance a vida eterna. Por Cristo, Senhor nosso."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Orémus pro Pontífice nostro [i]N.[/i]"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Dóminus consérvet eum, et vivíficet eum, et beátum fáciat eum in terra, et non tradat eum in ánimam inimicórum eius."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Tu es Petrus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Et super hanc petram ædificábo Ecclésiam meam. Orémus. Deus, ómnium fidélium pastor et rector, fámulum tuum [i]N.[/i], quem pastórem Ecclésiæ tuæ præésse voluísti, propítius réspice: da ei, quǽsumus, verbo et exémplo, quibus præest, profícere: ut ad vitam, una cum grege sibi crédito, pervéniat sempitérnam. Per Christum, Dominum nostrum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Oração pelo Arcebispo:"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Oremos também pelo nosso Arcebispo [i]N.[/i]"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Permaneça firme e pastoreie na vossa fortaleza, Senhor, na sublimidade de vosso nome."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Tu és sacerdote eternamente."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Segundo a ordem de Melquisedeque. Oremos. Deus, que velais sobre o vosso povo com indulgência e o conduzis com amor, a nosso Arcebispo [i]N.[/i], a quem confiastes nosso cuidado espiritual, dai o Espírito de Sabedoria, para que ele cumpra fielmente junto de nós os deveres do ministério episcopal e receba na eternidade a recompensa de um fiel dispensador. Por Cristo, Senhor nosso."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Orémus et pro Antístite nostro [i]N.[/i]"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Stet et pascat in fortitúdine tua, Dómine, in sublimitáte nóminis tui."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Tu es sacérdos in ætérnum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Secúndum órdinem Melchísedech. Orémus. Deus qui pópulis tuis indulgéntia cónsulis, et amóre domináris; Antístite nostro [i]N.[/i] cui dedíste regímen disciplínæ, da Spíritum Sapiéntiæ, ut de proféctu sanctórum óvium, fiant gáudia ætérna pastóris. Per Christum, Dominum nostrum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Tantum ergo"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]O celebrante inicia, então, o canto do Tantum ergo.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Pois, a tão grande Sacramento Adoremos curvados [i](Todos se inclinam)[/i] E as antigas prescrições Ao novo rito ceda lugar A fé venha por suplemento Ao defeito dos sentidos."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Tantum ergo Sacraméntum Venerémur cérnui: [i](Todos se inclinam)[/i] Et antíquum documéntum Novo cedat rítui: Præstet fides suppleméntum Sénsuum deféctui."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Agora impõe incenso no turíbulo.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Ao Gerador e ao Gerado Louvor e júbilo, Salvação, honra, virtude e também bênção: Ao Procedente de ambos Seja dado igual louvor. Amém."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Do Céu nos destes do Pão. [i](T.P.[/i] Aleluia[i])[/i]."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Que contém todo o sabor. ([i]T.P.[/i] Aleluia). Oremos. Deus, que a nós, sob este admirável Sacramento, deixastes a memória de vossa Paixão, fazei, pedimos, assim como veneramos o sagrado mistério do vosso Corpo e do vosso Sangue, sintamos continuamente o fruto da vossa Redenção em nós. Que viveis e reinais nos séculos dos séculos."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Genitóri, Genitóque Laus et jubilatio, Salus, honor, virtus quoque Sit et benedictio: Procedenti ab utroque Compar sit laudatio. Amen"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Panem de cælis præstitísti eis. [i](T.P.[/i] Allelúja[i])[/i]."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Omne delectaméntum in se habéntem. ([i]T.P.[/i] Allelúja). Orémus. Deus, qui nobis sub Sacraménto mirábili passiónis tuæ memóriam reliquísti: tríbue, quǽsumus, ita nos Córporis et Sánguinis tui sacra mystéria venerári; ut redemptiónis tuæ fructum in nobis júgiter sentiámus: Qui vivis et regnas in sǽcula sæculórum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Segue-se a bênção do santíssimo Sacramento.[/i]"
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Louvores Divinos"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Bendito seja Deus. Bendito seja seu Santo Nome. Bendito seja Jesus Cristo, verdadeiro Deus e verdadeiro homem. Bendito seja o nome de Jesus. Bendito seja o seu sacratíssimo Coração. Bendito seja seu preciosíssimo Sangue. Bendito seja Jesus Cristo no Santíssimo Sacramento do Altar. Bendito seja o Espírito Santo, Paráclito. Bendita seja a grande Mãe de Deus, Maria Santíssima. Bendita seja a sua santa e imaculada Conceição. Bendita seja a sua gloriosa Assunção. Bendito seja o nome de Maria, Virgem e Mãe. Bendito seja São José, seu castíssimo Esposo. Bendito seja Deus nos seus Anjos e nos seus Santos."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Benedíctus Deus. Benedíctum Nomen Sanctum eius. Benedíctus Iesus Christus, verus Deus et verus homo. Benedíctum Nomen Iesu. Benedíctum Cor eius sacratíssimum. Benedíctus eius pretiosíssimus Sanguis. Benedíctus Iesus in sanctíssimo altáris Sacraménto. Benedíctus Sanctus Spíritus, Paráclitus. Benedícta magna Mater Dei, María sanctíssima. Benedícta sancta eius et immaculáta Concéptio. Benedícta eius gloriosa Assúmptio. Benedíctum nomen Maríæ, Vírginis et Matris. Benedíctus sanctus Ioseph, eius castíssimus Sponsus. Benedíctus Deus in Angelis suis, et in Sanctis suis."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Segue-se imediatamente:[/i]"
+  },
+  {
+   "tipo": "paragrafo",
+   "texto": "Deus e Senhor nosso, protegei a vossa Igreja, dai-lhe santos pastores e dignos ministros. Derramai as vossas bênçãos sobre o nosso Santo Padre, o Papa, sobre o nosso Arcebispo, sobre o nosso pároco e todo o clero, sobre o chefe da nação e do Estado e sobre todas as pessoas constituídas em dignidade para que governem com justiça. Dai ao povo brasileiro paz constante e prosperidade completa. Favorecei com os efeitos contínuos de vossa bondade o Brasil, este arcebispado, a paróquia em que habitamos, cada um de nós em particular e todas as pessoas por quem somos obrigados a rezar ou que se recomendaram as nossas orações. Tende misericórdia das almas dos fiéis que padecem no purgatório. Dai-lhes, Senhor, o descanso e a luz eterna. Amém."
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Reza-se agora as seguintes orações:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Pai nosso, que estais nos céus, santificado seja o vosso nome. Venha a nós o vosso reino; seja feita a vossa vontade, assim na terra como no céu. O Pão nosso de cada dia nos dai hoje. Perdoai-nos as nossas dívidas, assim como perdoamos a nossos devedores. E não nos deixeis cair em tentação. Mas livrai-nos do mal. Ave, Maria, cheia de graça, o Senhor é convosco, bendita sois Vós entre as mulheres e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém. Glória ao Pai e ao Filho e ao Espírito Santo. Assim como era no princípio agora e sempre e por todos os séculos dos séculos. Amém. [i](Três vezes)[/i]"
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Pater noster, qui es in cælis: sanctificétur nomen tuum: Advéniat regnum tuum: fiat volúntas tua, sicut in cælo, et in terra. Panem nostrum cotidiánum da nobis hódie: et dimítte nobis débita nostra, sicut et nos dimíttimus debitóribus nostris. Et ne nos indúcas in tentatiónem. Sed líbera nos a malo. Ave, María, grátia plena, Dóminus tecum; benedícta tu in muliéribus et benedíctus fructus ventris tui, Iesus. Sancta María, Mater Dei, ora pro nobis peccatóribus, nunc et in hora mortis nostræ. Amen. Glória Patri, et Fílio, et Spirítui Sancto. Sicut erat in princípio, et nunc, et semper, et in sǽcula sæculórum. Amen. [i](Três vezes)[/i]"
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Depois repõe o Santíssimo.[/i]"
+  }
+ ]
+}

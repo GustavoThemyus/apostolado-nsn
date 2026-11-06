@@ -1,0 +1,359 @@
+{
+ "id": "pe-altar",
+ "titulo": "Orações ao pé do altar",
+ "blocos": [
+  {
+   "tipo": "subtitulo",
+   "texto": "ORAÇÕES AO PÉ DO ALTAR"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Apelemos humildes e confiantes à misericórdia de Deus, para que, purificados de nossos pecados, possamos participar dignamente dos augustos Mistérios. É pela invocação das três Pessoas Divinas e pelo sinal da Redenção que se inicia a Missa.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Em nome do Pai, ✠ e do Filho, e do Espírito Santo. Amém."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Entrarei no altar de Deus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Do Deus que alegra a minha juventude."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. In nómine Patris, ✠ et Fílii, et Spíritus Sancti. Amen."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Introíbo ad altáre Dei."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Ad Deum, qui lætíficat iuventútem meam."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Sl XLII,1-5 Neste salmo expressamos a alegria de nossa alma ao aproximarmo-nos do altar para nos unir a Deus. Ele é omitido nas Missas de Defuntos e do Tempo da Paixão, por elas terem um caráter mais sóbrio.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Julgai-me, Deus, e separai a minha causa de uma gente não santa; do homem iníquo e enganador livrai-me."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Pois Vós, Deus, sois minha fortaleza; por que me repelistes? E por que ando triste, quando me aflige o inimigo?"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Enviai a vossa luz e a vossa verdade: elas me conduzirão e me levarão ao vosso monte santo e ao vosso tabernáculo."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. E entrarei no altar de Deus, do Deus que alegra minha juventude."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Louvar-Vos-ei com a cítara, Deus, Deus meu; por que estás triste, alma minha, e por que me conturbas?"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Espera em Deus, porque ainda O louvarei: é a salvação da minha face e meu Deus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Glória ao Pai e ao Filho e ao Espírito Santo."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Assim como era no princípio agora e sempre e por todos os séculos dos séculos. Amém."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Entrarei no altar de Deus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Do Deus que alegra a minha juventude."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Iúdica me, Deus, et discerne causam meam de gente non sancta: ab hómine iníquo et dolóso érue me."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Quia tu es, Deus, fortitudo mea: quare me reppulísti, et quare tristis incédo, dum afflígit me inimícus?"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Emítte lucem tuam et veritátem tuam: ipsa me deduxérunt, et adduxérunt in montem sanctum tuum et in tabernácula tua."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Et introíbo ad altáre Dei: ad Deum, qui lætíficat iuventútem meam."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Confitébor tibi in cíthara, Deus, Deus meus: quare tristis es, ánima mea, et quare contúrbas me?"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Spera in Deo, quóniam adhuc confitébor illi: salutáre vultus mei, et Deus meus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Glória Patri, et Fílio, et Spirítui Sancto."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Sicut erat in princípio, et nunc, et semper: et in sǽcula sæculórum. Amen."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Introíbo ad altáre Dei."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Ad Deum, qui lætíficat iuventútem meam."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Humildemente o sacerdote se confessa pecador dianta da Igreja Triunfante e dos ministros e fieis presentes. Por sua vez, confiantes na misericórdia divina e exercendo o sacerdócio genérico, eles suplicam a Deus que perdoe ao celebrante.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Nosso auxílio está ✠ no nome do Senhor."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Que fez o céu e a terra."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Confesso ao Deus onipotente, à Bem-aventurada sempre Virgem [i]Maria[/i], ao Bem-aventurado Miguel Arcanjo, ao Bem-aventurado João Batista, aos santos Apóstolos Pedro e Paulo, a todos os Santos e a vós, irmãos, que muito pequei por pensamentos, palavras e obras: por minha culpa, minha culpa, minha máxima culpa. Por isso, peço à Bem-aventurada sempre Virgem [i]Maria[/i], ao Bem-aventurado Miguel Arcanjo, ao Bem-aventurado João Batista, aos santos Apóstolos Pedro e Paulo, a todos os Santos e a vós, irmãos, para orardes por mim ao Senhor, nosso Deus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Misericórdia de ti tenha o Deus onipotente, perdoe os teus pecados e conduza-te à vida eterna."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Adiutórium nostrum ✠ in nómine Dómini."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Qui fecit cælum et terram."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Confíteor Deo omnipoténti, beátæ [i]Maríæ[/i] semper Vírgini, beáto Michaéli Archángelo, beáto Ioánni Baptístæ, sanctis Apóstolis Petro et Paulo, ómnibus Sanctis, et vobis, fratres: quia peccávi nimis cogitatióne, verbo et opere: mea culpa, mea culpa, mea máxima culpa. Ideo precor beátam [i]Maríam[/i] semper Vírginem, beátum Michaélem Archángelum, beátum Ioánnem Baptístam, sanctos Apóstolos Petrum et Paulum, omnes Sanctos, et vos, fratres, oráre pro me ad Dóminum, Deum nostrum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Misereátur tui omnípotens Deus, et, dimíssis peccátis tuis, perdúcat te ad vitam ætérnam."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Neste momento são os ministros em nome dos fieis (Missas cantadas) ou com os fieis (Missas rezadas) que fazem a confissão de sua condição pecadora e, por fim, o celebrante dá a absolvição geral.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Confesso ao Deus onipotente, à bem-aventurada sempre Virgem [i]Maria[/i], ao Bem-aventurado Miguel Arcanjo, ao Bem-aventurado João Batista, aos santos Apóstolos Pedro e Paulo, a todos os Santos e a ti, padre, que muito pequei por pensamentos, palavras e obras: [i](bate-se três vezes no peito)[/i] por minha culpa, minha culpa, minha máxima culpa. Por isso, peço à Bem-aventurada sempre Virgem [i]Maria[/i], ao Bem-aventurado Miguel Arcanjo, ao Bem-aventurado João Batista, aos santos Apóstolos Pedro e Paulo, a todos os Santos e a ti, padre, para orardes por mim ao Senhor, nosso Deus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Misericórdia de vós tenha o Deus onipotente, perdoe os vossos pecados e conduza-vos à vida eterna."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Amém."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Indulgência, ✠ absolvição e remissão dos nossos pecados, conceda-nos o Senhor onipotente e misericordioso."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Confíteor Deo omnipoténti, beátæ [i]Maríæ[/i] semper Vírgini, beáto Michaéli Archángelo, beáto Ioánni Baptístæ, sanctis Apóstolis Petro et Paulo, ómnibus Sanctis, et tibi, pater: quia peccávi nimis cogitatióne, verbo et opere: [i](bate- se três vezes no peito)[/i] mea culpa, mea culpa, mea máxima culpa. Ideo precor beátam [i]Maríam[/i] semper Vírginem, beátum Michaélem Archángelum, beátum Ioánnem Baptístam, sanctos Apóstolos Petrum et Paulum, omnes Sanctos, et te, pater, oráre pro me ad Dóminum, Deum nostrum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Misereátur vestri omnípotens Deus, et, dimíssis peccátis vestris, perdúcat vos ad vitam ætérnam."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Amen."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Indulgéntiam, ✠ absolutionem et remissiónem peccatórum nostrórum tríbuat nobis omnípotens et miséricors Dóminus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]O sacerdote e os ministros continuam com inclinação de cabeça:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Deus, voltando-Vos, dar-nos-eis a vida."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. E vosso povo se alegrará em Vós."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Mostrai-nos, Senhor, a vossa misericórdia."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. E dai-nos vossa salvação."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Senhor, ouvi minha oração."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. E meu clamor chegue a Vós."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. O Senhor esteja convosco."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. E com o teu espírito."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Deus, tu convérsus vivificábis nos."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Et plebs tua lætábitur in te."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Osténde nobis, Dómine, misericórdiam tuam."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Et salutáre tuum da nobis."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Dómine, exáudi oratiónem meam."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Et clamor meus ad te véniat."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Dóminus vobíscum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Et cum spíritu tuo."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Neste momento o sacerdote sobe ao altar e reza as orações abaixo em voz submissa, pedindo a Deus que afaste dele e dos ministros seus pecados e que os Santos intercedam junto a Ele, de modo que se achem dignos no encargo tremendo. Todos ficam de pé.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Oremos."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Orémus."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Continua a oração em voz submissa.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Afastai de nós, pedimos, Senhor, nossas iniqüidades, para que mereçamos entrar no Santo dos Santos de mente pura. Por Cristo, Senhor nosso. Amém."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Oramos a Vós, Senhor, pelos méritos dos vossos Santos, dos quais as relíquias aqui estão, e de todos [os outros] Santos, para que Vos digneis indulgenciar todos os meus pecados. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Aufer a nobis, quǽsumus, Dómine, iniquitátes nostras: ut ad Sancta sanctórum puris mereámur méntibus introíre. Per Christum, Dóminum nostrum. Amen."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Orámus te, Dómine, per mérita Sanctórum tuórum, [i](oscula o altar)[/i] quorum relíquiæ hic sunt, et ómnium Sanctórum: ut indulgére dignéris ómnia peccáta mea. Amen."
+    }
+   ]
+  }
+ ]
+}

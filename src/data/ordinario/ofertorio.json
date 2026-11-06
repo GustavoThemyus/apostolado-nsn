@@ -1,0 +1,471 @@
+{
+ "id": "ofertorio",
+ "titulo": "Ofertório",
+ "blocos": [
+  {
+   "tipo": "subtitulo",
+   "texto": "SACRIFÍCIO: MISSA DOS FIEIS"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Aqui se inicia o Sacrifício propriamente dito, onde nós nos damos a Deus e Deus se dá a nós. Neste momento, em tempos passados, os catecúmenos eram convidados a se retirarem por ainda não se acharem dignos de participar deste excelso Mistério.[/i]"
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Ofertório"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]O celebrante beija o altar e se volta ao povo:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.O Senhor esteja convosco."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟.E com o teu espírito."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Dóminus vobíscum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Et cum spíritu tuo."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Outrora, o início de uma litania, dela apenas encontramos o convite.[/i]"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Após o toque da sineta, todos se sentam.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.Orémus."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.Oremos."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Antífona do Ofertório"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]A Antífona do Ofertório enuncia a intenção ou tema do sacrifício que será oferecido, realizando a mesma função que o Intróito no início da Missa. Aqui os fiéis também fazem ofertas materiais, como sinal de gratidão e para contribuir com a conservação e manutenção da casa de Deus.[/i]"
+  },
+  {
+   "tipo": "proprio",
+   "nome": "Ofertório",
+   "subtitulos": [
+    "Ofertório"
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Agora se prepara a matéria para o Sacrifício: pão e vinho. As orações são ditas em voz submissa, pois já se aproximam os sagrados Mistérios.[/i]"
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Oblação do pão"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Recebei, santo Pai, Deus onipotente e eterno, esta vítima propiciatória imaculada que eu, indigno servo vosso, ofereço a Vós, meu Deus vivo e verdadeiro, pelos meus inumeráveis pecados, ofensas e negligências; por todos os presentes e também por todos os fiéis cristãos vivos e defuntos: a fim de que, a mim e a eles, aproveite para a salvação na vida eterna. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Suscipe, sancte Pater, omnipotens ætérne Deus, hanc immaculátam hóstiam, quam ego indígnus fámulus tuus óffero tibi Deo meo vivo et vero, pro innumerabílibus peccátis, et offensiónibus, et neglegéntiis meis, et pro ómnibus circumstántibus, sed et pro ómnibus fidélibus christiánis vivis atque defúnctis: ut mihi, et illis profíciat ad salútem in vitam ætérnam. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Infusão do vinho e bênção da água"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Deus, que a dignidade da substância humana maravilhosamente criastes, e ainda mais maravilhosamente a reformastes: dai-nos, pelo mistério desta água e vinho, sermos consortes da divindade dEle, que Se dignou tornar-Se partícipe da nossa humanidade, [i]Jesus[/i] Cristo, vosso Filho Senhor nosso: Que é Deus e conVosco vive e reina na unidade do Espírito Santo por todos os séculos dos séculos. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Deus, qui humánæ substántiæ dignitátem mirabíliter condidísti, et mirabílius reformásti: da nobis per hujus aquæ et vini mystérium, ejus divinitátis esse consórtes, qui humanitátis nostræ fíeri dignátus est párticeps, [i]Iesus[/i] Christus, Fílius tuus, Dóminus noster: Qui tecum vivit et regnat in unitáte Spíritus Sancti Deus: per ómnia sǽcula sæculórum. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Oblação do vinho"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Oferecemos a Vós, Senhor, o cálice salutar, implorando a vossa clemência, para que ele possa ascender à presença da vossa divina majestade com suave odor, pela nossa salvação e de todo o mundo. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Offérimus tibi, Dómine, cálicem salutáris, tuam deprecántes cleméntiam: ut in conspéctu divínæ majestátis tuæ, pro nostra et totíus mundi salute, cum odóre suavitátis ascéndat. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Oração sobre as oblatas"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Em espírito de humildade e em ânimo contrito sejamos recebidos por Vós, Senhor; e assim seja hoje o nosso sacrifício em vossa presença, para que Vos agrade, Senhor Deus."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "In spíritu humilitátis et in ánimo contríto suscipiámur a te, Dómine: et sic fiat sacrifícium nostrum in conspéctu tuo hódie, ut pláceat tibi, Dómine Deus."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Epiclese"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Vinde, santificador onipotente Deus eterno, e abençoai este sacrifício, ao vosso santo nome preparado."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Veni, sanctificátor omnípotens ætérne Deus: et ✠ benedic hoc sacrifícium, tuo sancto nómini præparátum."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Incensação"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]O sacerdote faz a oração abaixo enquanto impõe o incenso.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Pela intercessão do bem-aventurado Arcanjo Miguel, de pé à direita do altar do incenso, e de todos os seus eleitos, este incenso digne-Se o Senhor abençoar e aceitá-lo em odor de suavidade. Por Cristo Senhor nosso. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Per intercessiónem beáti Michaélis Archángeli, stantis a dextris altáris incénsi, et ómnium electórum suórum, incénsum istud dignétur Dóminus bene✠dícere, et in odórem suavitátis accípere. Per Christum, Dóminum nostrum. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Durante a incensação das oblatas, reza:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Este incenso, por Vós abençoado, suba até Vós, Senhor; e desça sobre nós a vossa misericórdia."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Incénsum istud a te benedíctum ascéndat ad te, Dómine: et descéndat super nos misericórdia tua."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Recita os versículos abaixo quanto incensa o altar.[/i]"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Sl CXL,2-4[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Seja direcionada, Senhor, a minha oração, qual incenso em vossa presença; a elevação de minhas mãos seja qual sacrifício vespertino. Ponde, Senhor, um guarda em minha boca e uma porta em volta de meus lábios. De modo que não decline o meu coração em palavras de malícia, como desculpas em queda no pecado."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Dirigátur, Dómine, orátio mea, sicut incénsum, in conspéctu tuo: elevátio mánuum meárum sacrifícium vespertínum. Pone, Dómine, custódiam ori meo, et óstium circumstántiæ lábiis meis: ut non declínet cor meum in verba malítiæ, ad excusándas excusatiónes in peccátis."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Ao devolver o turíbulo, diz:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "O Senhor acenda em nós o fogo de seu amor e as chamas da eterna caridade. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Accéndat in nobis Dóminus ignem sui amóris, et flammam ætérnæ caritátis. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Lavabo"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]O sacerdote purifica os dedos, que simboliza a pureza interior que deve ter, para oferecer o Santo Sacrifício. Nas Missas de Defuntos, se omite o[/i] Gloria Patri[i]. Sl XXV,6-12[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Lavarei entre os inocentes as minhas mãos, e acercar-me-ei do vosso altar, Senhor. Para fazer ouvir a voz do louvor e narrar todas as vossas maravilhas. Senhor, amei a decência da vossa casa, e o lugar em que habita a vossa glória. Não deixeis, Deus, que minha alma se perca com os ímpios, nem minha vida com os homens sanguinários. Eles, cujas mãos estão na iniquidade, e a destra repleta de subornos. Eu, pelo contrário, conduzo-me na inocência; resgatai-me e tende misericórdia de mim. Os meus pés andam na retidão; nas assembleias Vos bendirei, Senhor. Glória ao Pai e ao Filho e ao Espírito Santo. Assim como era no princípio, agora e sempre e pelos séculos dos séculos. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Lavábo inter innocéntes manus meas: et circúmdabo altáre tuum. Dómine: Ut áudiam vocem laudis, et enárrem univérsa mirabília tua. Dómine, diléxi decórem domus tuæ et locum habitatiónis glóriæ tuæ. Ne perdas cum ímpiis, Deus, ánimam meam, et cum viris sánguinum vitam meam: In quorum mánibus iniquitátes sunt: déxtera eórum repléta est munéribus. Ego autem in innocéntia mea ingréssus sum: rédime me et miserére mei. Pes meus stetit in dirécto: in ecclésiis benedícam te, Dómine. Glória Patri, et Fílio, et Spirítui Sancto. Sicut erat in princípio, et nunc, et semper: et in sǽcula sæculórum. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Oferecimento das oblatas"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Recebei, Trindade Santa, esta oblação, que a Vós oferecemos como memória da Paixão, da Ressurreição e da Ascensão de [i]Jesus[/i] Cristo, Senhor nosso; e em honra da Bem-aventurda sempre Virgem [i]Maria[/i], do Bem-aventurado João Batista, dos santos Apóstolos Pedro e Paulo, e destes [santos do altar] e de todos os Santos: a fim de que a eles sirva de honra; a nós, por outro lado, de salvação; e para que se dignem interceder no céu por nós, que damos na terra sua memória. Pelo mesmo Cristo, Senhor nosso. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Súscipe, sancta Trinitas, hanc oblatiónem, quam tibi offérimus ob memóriam passiónis, resurrectiónis, et ascensiónis [i]Iesu[/i] Christi, Dómini nostri: et in honórem beátæ [i]Maríæ[/i] semper Vírginis, et beáti Joannis Baptistæ, et sanctórum Apostolórum Petri et Pauli, et istórum et ómnium Sanctórum: ut illis profíciat ad honórem, nobis autem ad salútem: et illi pro nobis intercédere dignéntur in cœlis, quorum memóriam ágimus in terris. Per eúndem Christum, Dóminum nostrum. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Beija o altar e voltado ao povo diz. Todos de pé.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Orai, irmãos, para que o meu e o vosso sacrifício seja aceito perante Deus Pai onipotente."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Receba o Senhor o sacrifício de tuas mãos para louvor e glória de seu nome, também para a nossa utilidade e de toda a sua santa Igreja."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Oráte, fratres: ut meum ac vestrum sacrifícium acceptábile fiat apud Deum Patrem omnipoténtem."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Suscípiat Dóminus sacrifícium de mánibus tuis ad laudem et glóriam nominis sui, ad utilitátem quoque nostram, totiúsque Ecclésiæ suæ sanctæ."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Após o Orate Frates o sacerdote não olhará novamente para os fiéis até o momento da comunhão. Como Moisés no Monte Sinai, ele entra na \"nuvem sagrada\" e se comunica face a face com o Senhor. Seus olhos e sua mente estão direcionados apenas para o altar.[/i]"
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Oração Secreta"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Esta oração, feita em voz submissa, roga a Deus a aceitação do Sacrifício a ser oferecido, implorando seus frutos de salvação. As secretas são orações que mostram, sobretudo, o caráter propiciatório da Missa.[/i]"
+  },
+  {
+   "tipo": "proprio",
+   "nome": "Secreta",
+   "subtitulos": [
+    "Secreta"
+   ]
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "Prefácio"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]O Prefácio tem esse nome porque antecede ao Cânon da Missa. Cada celebração tem o seu Prefácio próprio, que explicita as verdades veladas. Aprendamos com ele a profundidade e a riqueza da doutrina celeste.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.Por todos os séculos dos séculos."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟.Amém."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.O Senhor esteja convosco."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. E com o teu espírito."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Corações para o alto."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Temos no Senhor."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Graças rendamos ao Senhor, nosso Deus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. É digno e justo."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.Per ómnia sǽcula sæculórum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟.Amen."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.Dóminus vobíscum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟.Et cum spíritu tuo."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.Sursum corda."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟.Habémus ad Dóminum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.Grátias agámus Dómino, Deo nostro."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟.Dignum et iustum est."
+    }
+   ]
+  },
+  {
+   "tipo": "proprio",
+   "nome": "Prefácio",
+   "subtitulos": [
+    "Prefácio"
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]O sacerdote, os ministros e os fieis recitam o[/i] Sanctus[i].[/i]"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Confessando a magnificência divina, a Igreja repete a confissão feita pelos Serafins. Imitando-os, inclinamo-nos à primeira parte deste hino. Todos de joelhos, ao fim do toque da sineta.[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "[i]Santo, Santo, Santo,[/i] [[i]é o[/i]] [i]Senhor, Deus dos Exércitos[/i] [[i]celestes[/i]][i]. Plenos estão o céu e a terra de vossa glória. Hosana nas alturas[/i]. Bendito ✠ o que vem em nome do Senhor. Hosana nas alturas."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "[i]Sanctus, Sanctus, Sanctus Dóminus, Deus Sábaoth. Pleni sunt cæli et terra glória tua. Hosánna in excélsis[/i]. Benedíctus, ✠ qui venit in nómine Dómini. Hosánna in excélsis."
+    }
+   ]
+  }
+ ]
+}

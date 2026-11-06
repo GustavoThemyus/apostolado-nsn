@@ -17,6 +17,7 @@ export const PADROES = [
   "/missa/guia",
   "/missa/partes",
   "/missa/situacao-canonica",
+  "/missa/ordinario",
   "/calendario",
   "/calendario/santos",
   "/calendario/brasil",

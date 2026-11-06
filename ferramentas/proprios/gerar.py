@@ -19,10 +19,31 @@ título, o resumo e a ordem. O resumo guarda a linha de grau e cor que vem no
 alto do impresso ("Semiduples de 1ª classe – roxo"), que de outro modo se
 perderia: ela não é parágrafo do próprio, mas é informação do dia.
 """
-import collections, io, json, os, sys
+import collections, importlib.util, io, json, os, pathlib, subprocess, sys, tempfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from extrair import extrair
+
+
+def _ferramentaDeEstampas():
+    """
+    `ferramentas/folhetos/gerar.py`, carregado pelo caminho.
+
+    Pelo caminho, e não por `import gerar`: o módulo de lá tem o mesmo nome
+    deste, e um `import` simples devolveria este mesmo arquivo. Quem grava a
+    estampa é ele, para que a folha de próprio e a de indulgência saiam com
+    a mesma régua — o teto de 1000px, o webp, e o nome com a impressão do
+    conteúdo, de que depende o cache de um ano.
+    """
+    caminho = os.path.join(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))), "folhetos", "gerar.py")
+    spec = importlib.util.spec_from_file_location("ferramentaDeEstampas", caminho)
+    modulo = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(modulo)
+    return modulo
+
+
+ESTAMPAS = _ferramentaDeEstampas()
 
 RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 SAIDA = os.path.join(RAIZ, "src", "data", "folhetos.json")
@@ -147,8 +168,44 @@ def comIds(blocos, ident):
     return blocos
 
 
+def estampa(caminho, ident):
+    """
+    A figura da primeira página, gravada em `public/folhetos`.
+
+    Cada um dos sete PDFs traz duas figuras e só duas: a estampa, na primeira
+    página, e o selo do Apostolado, na última. O selo fica de fora — o brasão
+    já está em toda página do site, e repeti-lo dentro da folha seria enfeite.
+
+    A forma é conferida, e não adivinhada. Se uma remessa nova trouxer outro
+    número de figuras, ou a estampa fora da primeira página, isto **para**:
+    gravar a figura errada na folha é pior que não gravar nenhuma, e é o tipo
+    de coisa que ninguém repara até o Perez abrir a página.
+    """
+    pdf = pathlib.Path(caminho)
+    figuras = ESTAMPAS.listar(pdf)
+    paginas = int(subprocess.run(["pdfinfo", str(pdf)], capture_output=True,
+                                 check=True).stdout.decode().split("Pages:")[1].split()[0])
+    if len(figuras) != 2:
+        raise SystemExit("%s: %d figuras, e não 2. O PDF mudou; releia antes de gravar."
+                         % (pdf.name, len(figuras)))
+    if figuras[0]["pagina"] != 1:
+        raise SystemExit("%s: a primeira figura está na página %d, e não na 1."
+                         % (pdf.name, figuras[0]["pagina"]))
+    if figuras[1]["pagina"] != paginas:
+        raise SystemExit("%s: a segunda figura está na página %d, e não na última (%d)."
+                         % (pdf.name, figuras[1]["pagina"], paginas))
+
+    with tempfile.TemporaryDirectory() as tmp:
+        bruta = ESTAMPAS.extrair(pdf, 0, pathlib.Path(tmp))
+        destino = ESTAMPAS.gravar(bruta, ident)
+    with ESTAMPAS.Image.open(destino) as figura:
+        return {"imagem": "/folhetos/%s" % destino.name,
+                "largura": figura.width, "altura": figura.height}
+
+
 def folheto(ficha, pasta, contagem):
-    extrato = extrair(os.path.join(pasta, ficha["pdf"]))
+    caminho = os.path.join(pasta, ficha["pdf"])
+    extrato = extrair(caminho)
     contagem.update(corrigir(extrato["blocos"]))
     return {
         "id": ficha["id"],
@@ -156,6 +213,7 @@ def folheto(ficha, pasta, contagem):
         "titulo": ficha["titulo"],
         "resumo": ficha["resumo"],
         "categoria": "proprio",
+        **estampa(caminho, ficha["id"]),
         "arquivo": DRIVE % ficha["drive"],
         "blocos": comIds(extrato["blocos"], ficha["id"]),
     }

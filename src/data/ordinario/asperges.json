@@ -1,0 +1,155 @@
+{
+ "id": "asperges",
+ "titulo": "Aspersão",
+ "blocos": [
+  {
+   "tipo": "subtitulo",
+   "texto": "ASPERSÃO"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Fora do Tempo Pascal[/i]"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Sl L,9[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Aspergi-me, Senhor, com o hissopo e serei purificado; lavar-me-eis e mais branco que a neve ficarei. [i]Sl.[/i] Tende misericórdia de mim, Deus, segundo a vossa imensa misericórdia."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Glória ao Pai e ao Filho e ao Espírito Santo. Assim como era no princípio agora e sempre e por todos os séculos dos séculos. Amém. Aspergi-me."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Asperges me, * Dómine, hyssópo, et mundábor: lavábis me, et super nivem dealbábor. [i]Ps. L,3.[/i] Miserére mei, Deus, secúndum magnam misericórdiam tuam."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Glória Patri, et Fílio, et Spirítui Sancto. Sicut erat in princípio, et nunc, et semper, et in sǽcula sæculórum. Amen. Asperges me."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]No Tempo da Páscoa[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Vi a água jorrando do lado direito do Templo, aleluia; e todos, a quem chegou esta água, foram salvos e dirão: aleluia, aleluia. [i]Sl.[/i] Confessai o Senhor, porque é bom; porque nos séculos está sua misericórdia."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Glória ao Pai e ao Filho e ao Espírito Santo. Assim como era no princípio agora e sempre e por todos os séculos dos séculos. Amém. Vi a água."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣.Mostrai-nos, Senhor, a vossa misericórdia. [i](T.P. Aleluia.)[/i]"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟.E dai-nos vossa salvação. [i](T.P. Aleluia.)[/i]"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Senhor, ouvi minha oração."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. E meu clamor chegue a Vós."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. O Senhor esteja convosco."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. E com o teu espírito. Oremos. Ouvi-nos, Senhor santo, Pai onipotente, Deus eterno: e dignai-Vos enviar do céu o vosso santo Anjo, que guarde, sustente, proteja, visite e defenda todos os habitantes desta morada. Por Cristo, Senhor nosso."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Amém."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Vidi aquam * egrediéntem de templo, a latere dextro, allelúja: et omnes, ad quos pervénit aqua ista, salvi facti sunt, et dicent: allelúja, allelúja. [i]Ps. CXVII,1.[/i] Conftémini Dómino, quóniam bonus: quóniam in sǽculum misericórdia ejus."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Glória Patri, et Fílio, et Spirítui Sancto. Sicut erat in princípio, et nunc, et semper, et in sǽcula sæculórum. Amen. Vidi aquam."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Osténde nobis, Dómine, misericórdiam tuam. [i](T.P. Allelúja.)[/i]"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Et salutáre tuum da nobis. [i](T.P. Allelúja.)[/i]"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Dómine, exáudi orationem meam."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Et clamor meus ad te véniat."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℣. Dóminus vobíscum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Et cum spíritu tuo. Orémus. Exáudi nos, Dómine sancte, Pater omnípotens, ætérne Deus: et míttere dignéris sanctum Angelum tuum de cœlis; qui custódiat, fóveat, prótegat, vísitet atque deféndat omnes habitántes in hoc habitáculo. Per Christum, Dóminum nostrum."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "℟. Amen."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Quando há incenso, ao impor incenso no turíbulo, o celebrante diz:[/i]"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Abençoai, reverendo padre."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Que sejas abençoado por Aquele, em cuja honra serás queimado."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Benedícite, pater reverénde."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Ab illo benedicáris, in cuius honóre cremáberis."
+    }
+   ]
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Todos de pé, para a entrada do sacerdote com os ministros. Nas Missas cantadas todos ficam de pé enquanto o sacerdote com os ministros rezam as orações abaixo e o coral canta o Introito. Nas Missas rezadas, todos se ajoelham ao toque da sineta e se benzem ao mesmo tempo em que o sacerdote e ministros.[/i]"
+  }
+ ]
+}

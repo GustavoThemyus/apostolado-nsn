@@ -15,7 +15,8 @@ import { Seta } from "./Seta";
 import { TabelaDaMissa } from "./TabelaDaMissa";
 import { postagemDoDia } from "../calendario/vinculo";
 import { publicadas } from "../data/postagens";
-import proprios from "../data/proprios-no-ordo.json";
+import { folhetoDoAnexo } from "../calendario/proprioDoDia";
+import { comoIso } from "../calendario/dias";
 import { Elo } from "../routes/Elo";
 
 /**
@@ -26,20 +27,9 @@ import { Elo } from "../routes/Elo";
  * folheto: lê-se no celular, sem baixar nada e sem dar zoom, que é o ponto
  * de hospedá-lo. Quando não, continua levando ao PDF, como sempre levou.
  *
- * O que liga um ao outro é o id do arquivo no Drive, que é o mesmo dos dois
- * lados. O índice é gerado junto com os folhetos, e é pequeno de propósito:
- * importar a coleção aqui traria 138 KB de orações para o calendário mostrar
- * uma linha.
+ * Quem acha o folheto mora em `src/calendario/proprioDoDia.ts`, porque agora
+ * são duas as telas que precisam dele: esta e o modo missa.
  */
-const ID_NO_DRIVE = /\/file\/d\/([^/?#]+)/;
-
-function folhetoDoAnexo(url: string): string | undefined {
-  const achado = ID_NO_DRIVE.exec(url);
-  return achado
-    ? (proprios as Record<string, string>)[achado[1]]
-    : undefined;
-}
-
 function EloDoProprio({
   anexo,
   children,
@@ -263,6 +253,18 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
           )}
         </p>
       )}
+
+      {/*
+       * O modo missa: o Ordinário inteiro, com o próprio deste dia já
+       * encaixado nos dez lugares que o impresso deixa em branco.
+       */}
+      <Elo
+        para={`/missa/ordinario?dia=${comoIso(dia.data)}`}
+        className="dia__modo-missa"
+      >
+        Acompanhar a Missa
+        <Seta className="cartao__seta" />
+      </Elo>
 
       {postagem && (
         <Elo para={`/postagens/${postagem.id}`} className="dia__postagem">

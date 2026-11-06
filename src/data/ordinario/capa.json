@@ -1,0 +1,14 @@
+{
+ "id": "capa",
+ "titulo": "Ordinário da Missa",
+ "blocos": [
+  {
+   "tipo": "subtitulo",
+   "texto": "ORDINÁRIO DA MISSA"
+  },
+  {
+   "tipo": "subtitulo",
+   "texto": "FORMA TRADICIONAL DO RITO ROMANO"
+  }
+ ]
+}

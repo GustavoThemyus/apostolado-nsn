@@ -5295,3 +5295,180 @@ button {
   font-style: italic;
   color: var(--tinta-suave);
 }
+
+/* =========================================================== modo missa
+ *
+ * O Ordinário inteiro para acompanhar o celebrante, com o próprio do dia
+ * encaixado nele. Quem lê isto está de pé num banco, segurando o celular
+ * com uma mão: os alvos são grandes, o texto é maior que o do site e nada
+ * pede precisão de dedo.
+ */
+
+/* O botão que leva até lá, nas duas faixas de calendário. */
+.dia__modo-missa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.1rem;
+  padding: 0.6rem 1rem;
+  min-height: var(--alvo-toque);
+  border: 1px solid var(--fio-aceso);
+  border-radius: 0.3rem;
+  background: var(--fundo-toque);
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+  text-decoration: none;
+}
+
+.dia__modo-missa .cartao__seta {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.dia__modo-missa:hover,
+.dia__modo-missa:focus-visible {
+  background: var(--realce);
+}
+
+.modo-missa__dia {
+  margin: 0 0 0.5rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.82rem;
+  color: var(--tinta-suave);
+}
+
+/*
+ * O aviso de que o próprio deste dia ainda não está transcrito.
+ *
+ * Fica dito, e não escondido: quem abre o modo missa num dia desses precisa
+ * saber que vai ter de virar para o papel nos dez lugares, e é melhor saber
+ * antes do Intróito do que no meio dele.
+ */
+.modo-missa__aviso {
+  margin: 0 0 1rem;
+  padding: 0.65rem 0.8rem;
+  border-left: 3px solid var(--ouro);
+  background: var(--fundo-toque);
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+}
+
+/*
+ * A lista de seções, que rola de lado.
+ *
+ * Treze seções não cabem empilhadas sem empurrar o texto para fora da
+ * primeira tela, e são elas o modo de andar pela Missa: ficam numa faixa
+ * só, rolando na horizontal, com a atual marcada.
+ */
+.modo-missa__secoes {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.modo-missa__secao {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.8rem;
+  min-height: var(--alvo-toque);
+  border: 1px solid var(--fio);
+  border-radius: 1.4rem;
+  background: transparent;
+  font-family: var(--sem-serifa);
+  font-size: 0.78rem;
+  color: var(--tinta-suave);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.modo-missa__secao--atual {
+  border-color: var(--ouro);
+  background: var(--realce);
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+/* O que não se reza acompanhando o celebrante: antes e depois da Missa. */
+.modo-missa__secao--fora {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.modo-missa__titulo {
+  margin: 0 0 1rem;
+  font-family: var(--titular);
+  font-size: 1.5rem;
+  color: var(--tinta);
+}
+
+.modo-missa__passos {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--fio);
+}
+
+.modo-missa__passo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  min-height: var(--alvo-toque);
+  border: 1px solid var(--fio-aceso);
+  border-radius: 0.3rem;
+  background: var(--fundo-toque);
+  font-family: var(--sem-serifa);
+  font-size: 0.78rem;
+  color: var(--ouro-tinta);
+  cursor: pointer;
+  text-align: left;
+}
+
+.modo-missa__seta {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* A mesma seta, virada: a seção anterior fica para trás. */
+.modo-missa__seta--atras {
+  transform: scaleX(-1);
+}
+
+/*
+ * O lugar do próprio dentro do Ordinário.
+ *
+ * O fio dourado à esquerda é o que diz, sem uma palavra a mais, que aquele
+ * trecho é do dia e não do Ordinário: o leitor que acompanhou a Missa uma
+ * vez já sabe onde o texto muda todo domingo.
+ */
+.proprio {
+  margin: 1.4rem 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--ouro);
+}
+
+.proprio__peca + .proprio__peca {
+  margin-top: 1.2rem;
+}
+
+.modo-missa__nome {
+  margin: 0 0 0.2rem;
+  font-family: var(--titular);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--tinta);
+}

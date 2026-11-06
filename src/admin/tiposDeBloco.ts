@@ -19,9 +19,22 @@ export const TIPOS: { tipo: NomeDeTipo; rotulo: string; descricao: string }[] = 
   { tipo: "passo", rotulo: "Passo da Missa", descricao: "Peça numerada, com etiqueta litúrgica." },
 ];
 
-export const ROTULO: Record<NomeDeTipo, string> = Object.fromEntries(
-  TIPOS.map((t) => [t.tipo, t.rotulo])
-) as Record<NomeDeTipo, string>;
+/*
+ * O que existe no conteúdo mas não se cria à mão.
+ *
+ * O lugar do próprio sai do gerador do Ordinário, que lê os dez "Ver a Missa
+ * do dia" do impresso: escrevê-lo num folheto não faria sentido. Mas o
+ * editor precisa saber chamá-lo pelo nome se um dia abrir uma seção que o
+ * tenha, e por isso ele tem rótulo sem ter lugar no menu.
+ */
+const SO_GERADOS: Partial<Record<NomeDeTipo, string>> = {
+  proprio: "Lugar do próprio",
+};
+
+export const ROTULO: Record<NomeDeTipo, string> = {
+  ...SO_GERADOS,
+  ...Object.fromEntries(TIPOS.map((t) => [t.tipo, t.rotulo])),
+} as Record<NomeDeTipo, string>;
 
 let contador = 0;
 export function novoId(prefixo = "novo"): string {
@@ -47,5 +60,8 @@ export function blocoVazio(tipo: NomeDeTipo): Bloco {
     case "indice": return { id, tipo };
     case "passo":
       return { id, tipo, etiqueta: "ordinario", titulo: "", corpo: [] };
+    // fora do menu: quem o escreve é ferramentas/ordinario/gerar.py
+    case "proprio":
+      return { id, tipo, nome: "Intróito", subtitulos: ["Intróito"] };
   }
 }

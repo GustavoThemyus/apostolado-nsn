@@ -67,6 +67,19 @@ export type Bloco = ComId &
    * empilhado: em 390px cada coluna teria dezoito caracteres de largura.
    */
   | { tipo: "bilingue"; latim: Bloco[]; portugues: Bloco[] }
+  /**
+   * O lugar do próprio, dentro do Ordinário da Missa.
+   *
+   * O impresso escreve "Ver a Missa do dia" e segue, porque papel não tem
+   * como fazer diferente. Aqui tem: o modo missa sabe que dia é, e põe no
+   * lugar as peças do folheto de próprio daquele dia — `subtitulos` são os
+   * do folheto de onde elas saem, e são três no Gradual porque o impresso
+   * junta num lugar só o Gradual, o Aleluia e o Tracto.
+   *
+   * Sem folheto para o dia, o bloco volta a ser o que é no impresso: o nome
+   * da peça e o aviso de que ela se busca na Missa do dia.
+   */
+  | { tipo: "proprio"; nome: string; subtitulos: string[] }
   /** O índice completo do documento, derivado das seções. */
   | { tipo: "indice" }
   | { tipo: "lista"; ordenada?: boolean; itens: string[] }

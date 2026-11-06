@@ -24,11 +24,24 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerar import ERRATAS, PROPRIOS, SAIDA
 
 PALAVRA = re.compile(r"[\wÀ-ɏ'’]+")
-MARCACAO = re.compile(r"\[/?[a-z]+(?::[^\]]*)?\]")
+# As marcas do texto rico, uma a uma, e não `[a-z]+`: o impresso põe entre
+# colchetes as palavras que o tradutor acrescentou — "[fieis]", "[vindo]" —,
+# e uma regra larga as apagaria do lado do site, acusando como perdidas
+# palavras que estão nos dois lados.
+MARCACAO = re.compile(r"\[/?(?:b|i|lat|r|nota|elo|botao|mapa)(?::[^\]]*)?\]")
 
 
-def palavras(texto):
-    return collections.Counter(PALAVRA.findall(MARCACAO.sub(" ", texto).lower()))
+def palavras(texto, marcado=True):
+    """
+    As palavras de um texto, em minúsculas.
+
+    `marcado` falso para o que vem do PDF, que marcação nenhuma tem. Tirar a
+    marcação dos dois lados parece zelo e não é: "[fieis]" tem a mesma cara
+    de um "[i]", e do lado do PDF a palavra sumiria da conta inteira.
+    """
+    if marcado:
+        texto = MARCACAO.sub(" ", texto)
+    return collections.Counter(PALAVRA.findall(texto.lower()))
 
 
 def textosDo(bloco):
@@ -65,7 +78,7 @@ def main(pasta):
         noSite = palavras("\n".join(
             [folheto["titulo"], folheto["resumo"]]
             + [t for b in folheto["blocos"] for t in textosDo(b)]))
-        noPdf = palavras(cru)
+        noPdf = palavras(cru, marcado=False)
 
         faltando = noPdf - noSite
         if faltando:
