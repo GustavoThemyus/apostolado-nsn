@@ -64,11 +64,12 @@ const ESTRUTURA: Estrutura[] = [
     pagina: () => import("../pages/MissaSituacaoCanonica"),
   },
   {
-    // Fora do menu de propósito: entra-se nele pelo botão do calendário, que
-    // é quem sabe que dia é hoje e qual próprio vai dentro.
+    // No menu e no cartão da Missa, como as outras. Ficou fora no começo
+    // porque se entrava nele pelo botão do calendário, que sabe que dia é
+    // hoje — mas sem `?dia=` a página já abre no dia de hoje sozinha, e quem
+    // procura o Ordinário o procura aqui, não no calendário.
     padrao: "/missa/ordinario",
     pai: "/missa",
-    foraDoMenu: true,
     pagina: () => import("../pages/ModoMissa"),
   },
 

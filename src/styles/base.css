@@ -5342,6 +5342,28 @@ button {
  */
 
 /* O botão que leva até lá, nas duas faixas de calendário. */
+/*
+ * Os dois caminhos que saem da faixa do dia: a Missa de hoje e o ano inteiro.
+ *
+ * Numa linha só, com folga entre os dois, e quebrando quando não couber. Soltos
+ * como irmãos em linha, cada um com sua margem, eles se encostavam: o botão é
+ * caixa e o elo é texto sublinhado, e o espaço entre palavras não separa uma
+ * coisa da outra. A margem de cima é daqui, e não deles, para a linha subir e
+ * descer inteira.
+ */
+.dia__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 1.6rem;
+  margin-top: 1.35rem;
+}
+
+.dia__acoes .dia__modo-missa,
+.dia__acoes .dia__link {
+  margin-top: 0;
+}
+
 .dia__modo-missa {
   display: inline-flex;
   align-items: center;

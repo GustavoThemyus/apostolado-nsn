@@ -107,13 +107,15 @@ export function DiaDeHoje({ data }: { data?: Date }) {
        * encaixado nos dez lugares que o impresso deixa em branco. Entra-se
        * nele daqui, e não pelo menu, porque é a faixa que sabe que dia é.
        */}
-      <Elo para={`/missa/ordinario?dia=${comoIso(hoje)}`} className="dia__modo-missa">
-        Acompanhar a Missa
-        <Seta className="cartao__seta" />
-      </Elo>
-      <Elo para="/calendario?uso=pre55" className="dia__link">
-        Ver o calendário do ano
-      </Elo>
+      <div className="dia__acoes">
+        <Elo para={`/missa/ordinario?dia=${comoIso(hoje)}`} className="dia__modo-missa">
+          Acompanhar a Missa
+          <Seta className="cartao__seta" />
+        </Elo>
+        <Elo para="/calendario?uso=pre55" className="dia__link">
+          Ver o calendário do ano
+        </Elo>
+      </div>
     </aside>
   );
 }
@@ -240,13 +242,15 @@ function De1962({ hoje }: { hoje: Date }) {
        * encaixado nos dez lugares que o impresso deixa em branco. Entra-se
        * nele daqui, e não pelo menu, porque é a faixa que sabe que dia é.
        */}
-      <Elo para={`/missa/ordinario?dia=${comoIso(hoje)}`} className="dia__modo-missa">
-        Acompanhar a Missa
-        <Seta className="cartao__seta" />
-      </Elo>
-      <Elo para="/calendario" className="dia__link">
-        Ver o calendário do ano
-      </Elo>
+      <div className="dia__acoes">
+        <Elo para={`/missa/ordinario?dia=${comoIso(hoje)}`} className="dia__modo-missa">
+          Acompanhar a Missa
+          <Seta className="cartao__seta" />
+        </Elo>
+        <Elo para="/calendario" className="dia__link">
+          Ver o calendário do ano
+        </Elo>
+      </div>
     </aside>
   );
 }
