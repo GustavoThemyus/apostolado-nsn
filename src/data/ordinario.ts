@@ -56,6 +56,34 @@ const semAReferencia = (texto: string): string =>
   texto.replace(/\s*\(.*$/, "").trim().toLowerCase();
 
 /**
+ * Como a peça se abre na folha, que é o que decide a capitular.
+ *
+ *   introito  capitular maior que as outras
+ *   leitura   Epístola e Evangelho: a fórmula ("Lectio…") só com a inicial
+ *             vermelha, e a capitular no texto que vem depois dela
+ *   cantada   Gradual, Aleluia, Tracto, Ofertório e Comunhão: inicial
+ *             vermelha, sem capitular
+ *   oracao    todo o resto
+ *
+ * Decidido pelo nome do subtítulo, que o gerador já confere contra o PDF.
+ */
+export type TipoDaPeca = "introito" | "leitura" | "cantada" | "oracao";
+
+const TIPOS_DA_PECA: Record<string, TipoDaPeca> = {
+  "intróito": "introito",
+  "epístola": "leitura",
+  "evangelho": "leitura",
+  "gradual": "cantada",
+  "aleluia": "cantada",
+  "tracto": "cantada",
+  "ofertório": "cantada",
+  "comunhão": "cantada",
+};
+
+export const tipoDaPeca = (titulo: string): TipoDaPeca =>
+  TIPOS_DA_PECA[semAReferencia(titulo)] ?? "oracao";
+
+/**
  * As peças de um folheto de próprio que preenchem um lugar do Ordinário.
  *
  * Uma peça vai do subtítulo que a abre até o subtítulo seguinte, e os

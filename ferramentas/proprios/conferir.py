@@ -28,7 +28,7 @@ PALAVRA = re.compile(r"[\wÀ-ɏ'’]+")
 # colchetes as palavras que o tradutor acrescentou — "[fieis]", "[vindo]" —,
 # e uma regra larga as apagaria do lado do site, acusando como perdidas
 # palavras que estão nos dois lados.
-MARCACAO = re.compile(r"\[/?(?:b|i|lat|r|nota|elo|botao|mapa)(?::[^\]]*)?\]")
+MARCACAO = re.compile(r"\[/?(?:b|i|lat|r|tinta|nota|elo|botao|mapa)(?::[^\]]*)?\]")
 
 
 def palavras(texto, marcado=True):

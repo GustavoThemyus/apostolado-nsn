@@ -1,5 +1,5 @@
 import { createContext, useContext, type ReactNode } from "react";
-import { pecasDoProprio } from "../data/ordinario";
+import { pecasDoProprio, tipoDaPeca } from "../data/ordinario";
 import type { Folheto } from "../data/tipos";
 import { ListaDeBlocos } from "./Bloco";
 import { Rubrica } from "./Rubrica";
@@ -58,7 +58,7 @@ export function LugarDoProprio({
   return (
     <section className="proprio" aria-label={nome}>
       {pecas.map((peca) => (
-        <div className="proprio__peca" key={peca.titulo}>
+        <div className={`proprio__peca peca peca--${tipoDaPeca(peca.titulo)}`} key={peca.titulo}>
           <h3 className="subtitulo">
             <TextoRico texto={peca.titulo} />
           </h3>

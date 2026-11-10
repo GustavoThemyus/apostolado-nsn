@@ -4,6 +4,8 @@ import { Moldura } from "../components/Moldura";
 import { TextoRico } from "../components/TextoRico";
 import { Vazia } from "../components/Vazia";
 import { condicoes, porId } from "../data/folhetos";
+import { tipoDaPeca } from "../data/ordinario";
+import type { Bloco } from "../data/tipos";
 import { Elo } from "../routes/Elo";
 import { usarParametros } from "../routes/usarRota";
 
@@ -20,6 +22,26 @@ import { usarParametros } from "../routes/usarRota";
  * faz reconhecer a folha é a moldura, a serifa e a oração em duas colunas —
  * isso ela tem, nos dois temas.
  */
+/**
+ * Os blocos do próprio, agrupados por peça: do subtítulo que a abre até o
+ * seguinte. É o grupo que carrega o tipo da peça, e o tipo é o que o CSS lê
+ * para decidir a capitular. As comemorações ("2. Santíssima Virgem Maria")
+ * abrem grupo próprio e caem em "oracao", que é a capitular de sempre.
+ */
+function agruparPecas(blocos: Bloco[]) {
+  const pecas: { tipo: ReturnType<typeof tipoDaPeca>; blocos: Bloco[] }[] = [];
+  for (const bloco of blocos) {
+    if (bloco.tipo === "subtitulo" || pecas.length === 0) {
+      pecas.push({
+        tipo: bloco.tipo === "subtitulo" ? tipoDaPeca(bloco.texto) : "oracao",
+        blocos: [],
+      });
+    }
+    pecas[pecas.length - 1].blocos.push(bloco);
+  }
+  return pecas;
+}
+
 export default function Folheto() {
   const { id } = usarParametros();
   const folheto = porId(id);
@@ -100,7 +122,15 @@ export default function Folheto() {
             </p>
           )}
 
-          <ListaDeBlocos blocos={folheto.blocos} />
+          {folheto.categoria === "proprio" ? (
+            agruparPecas(folheto.blocos).map((peca, n) => (
+              <div className={`peca peca--${peca.tipo}`} key={n}>
+                <ListaDeBlocos blocos={peca.blocos} />
+              </div>
+            ))
+          ) : (
+            <ListaDeBlocos blocos={folheto.blocos} />
+          )}
 
           {folheto.condicoes && (
             <section className="folheto__condicoes" aria-labelledby="condicoes">

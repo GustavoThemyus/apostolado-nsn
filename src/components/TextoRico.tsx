@@ -5,7 +5,7 @@ import { BalaoDeNota, usarNota, usarNotaEmCurso } from "./Notas";
 const CORES = ["branco", "vermelho", "verde", "roxo", "preto", "rosa"] as const;
 
 type Cor = (typeof CORES)[number];
-type Marca = "lat" | "b" | "i" | "r" | "nota" | "elo" | "botao" | "mapa" | Cor;
+type Marca = "lat" | "b" | "i" | "r" | "tinta" | "nota" | "elo" | "botao" | "mapa" | Cor;
 
 /**
  * Instância nova a cada chamada: a busca é recursiva e lastIndex é estado
@@ -16,7 +16,7 @@ type Marca = "lat" | "b" | "i" | "r" | "nota" | "elo" | "botao" | "mapa" | Cor;
  * explícita poupa o leitor de ter que descobrir isso.
  */
 const marcacao = () =>
-  /\[(lat|botao|b|i|r|nota|elo|mapa|branco|vermelho|verde|roxo|preto|rosa)(?::([^\]]*))?\]([\s\S]*?)\[\/\1\]/g;
+  /\[(lat|botao|b|i|r|tinta|nota|elo|mapa|branco|vermelho|verde|roxo|preto|rosa)(?::([^\]]*))?\]([\s\S]*?)\[\/\1\]/g;
 
 /** A chamada de nota: componente porque precisa de contexto. */
 function Nota({ chave }: { chave: string }) {
@@ -88,6 +88,14 @@ function envolver(
     case "r":
       return (
         <span className="rubrica rubrica--embutida" key={chave}>
+          {conteudo}
+        </span>
+      );
+    case "tinta":
+      // a segunda tinta do missal, em trecho solto: o N. do Papa, a inicial
+      // de "Lectio". Não é a rubrica (sem itálico) nem cor litúrgica (sem negrito)
+      return (
+        <span className="segunda-tinta" key={chave}>
           {conteudo}
         </span>
       );

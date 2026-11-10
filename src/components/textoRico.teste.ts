@@ -65,6 +65,11 @@ conferir("elo com parâmetro vazio não se perde",
 conferir("a nota não interpreta o próprio corpo",
   comoTexto("antes[nota]7[/nota]depois").startsWith("antes"));
 
+// a segunda tinta cobre só o trecho, e aninha com o itálico do "N." do Papa
+conferir("segunda tinta aninha com itálico e some a marca",
+  comoTexto("tuum [tinta][i]N.[/i][/tinta], quem") === "tuum N., quem",
+  comoTexto("tuum [tinta][i]N.[/i][/tinta], quem"));
+
 console.log(`\nmarcação do conteúdo: ${passaram}/${passaram + falhas.length}`);
 if (falhas.length) {
   console.error(falhas.map((f) => `  ✗ ${f}`).join("\n"));

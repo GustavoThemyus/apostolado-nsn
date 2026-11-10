@@ -19,7 +19,7 @@ título, o resumo e a ordem. O resumo guarda a linha de grau e cor que vem no
 alto do impresso ("Semiduples de 1ª classe – roxo"), que de outro modo se
 perderia: ela não é parágrafo do próprio, mas é informação do dia.
 """
-import collections, importlib.util, io, json, os, pathlib, subprocess, sys, tempfile
+import collections, importlib.util, io, json, os, pathlib, re, subprocess, sys, tempfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from extrair import extrair
@@ -159,17 +159,25 @@ ERRATAS = [
 ]
 
 
-def corrigir(blocos):
-    """Aplica as erratas e devolve quantas vezes cada uma pegou."""
+# A segunda tinta em trechos soltos, com a mesma regra das erratas: o texto
+# exato, e quantas vezes ele tem de aparecer. O N. é o do Papa, nas orações
+# do Advento (3 orações x 2 línguas x 4 domingos); o missal o põe em vermelho.
+TINTAS = [
+    ("[i]N.[/i]", "[tinta][i]N.[/i][/tinta]", 24),
+]
+
+
+def substituir(blocos, tabela):
+    """Aplica uma tabela de substituições e devolve quantas vezes cada uma pegou."""
     contagem = collections.Counter()
 
     def nos(bloco):
         for chave in ("texto",):
             if chave in bloco:
-                for errado, certo, _ in ERRATAS:
-                    if errado in bloco[chave]:
-                        contagem[errado] += bloco[chave].count(errado)
-                        bloco[chave] = bloco[chave].replace(errado, certo)
+                for antes, depois, _ in tabela:
+                    if antes in bloco[chave]:
+                        contagem[antes] += bloco[chave].count(antes)
+                        bloco[chave] = bloco[chave].replace(antes, depois)
         for lado in ("latim", "portugues"):
             for dentro in bloco.get(lado, []):
                 nos(dentro)
@@ -177,6 +185,78 @@ def corrigir(blocos):
     for bloco in blocos:
         nos(bloco)
     return contagem
+
+
+def corrigir(blocos):
+    """Aplica as erratas e devolve quantas vezes cada uma pegou."""
+    return substituir(blocos, ERRATAS)
+
+
+# A fórmula que abre a Epístola e o Evangelho, nas duas línguas: "Lectio
+# Epístolæ beati Pauli… Romános." / "Leitura da Epístola… Romanos:". Vai até o
+# primeiro ponto ou dois-pontos, e nenhuma das catorze tem ponto antes disso.
+ABERTURA = re.compile(r"^((?:Leitura|Lectio|Léctio|Seq[uü]ência|Sequéntia)[^.:]*[.:])\s+(\S.*)$", re.S)
+
+
+def partirAberturas(blocos):
+    """
+    Separa a fórmula de abertura do texto, na Epístola e no Evangelho.
+
+    No impresso as duas andam no mesmo parágrafo. A folha precisa delas
+    separadas: a fórmula só se identifica ("Lectio Epístolæ…"), e a capitular
+    é do texto que vem depois ("Fratres", "In illo témpore"). Quem recebe a
+    capitular, e quem recebe só a inicial vermelha, é CSS; aqui só se parte.
+
+    Se alguma não casar, o gerador para: uma fórmula nova pede que alguém a
+    leia, e não que a capitular caia na palavra errada.
+    """
+    feitas = 0
+    for n, bloco in enumerate(blocos):
+        if bloco["tipo"] != "subtitulo" or not re.match(r"(Epístola|Evangelho)\b", bloco["texto"]):
+            continue
+        par = blocos[n + 1]
+        if par["tipo"] != "bilingue":
+            raise SystemExit("%s: depois do subtítulo não vem o bilíngue" % bloco["texto"])
+        for lado in ("portugues", "latim"):
+            if len(par[lado]) != 1 or par[lado][0]["tipo"] != "paragrafo":
+                raise SystemExit("%s (%s): esperado um parágrafo só" % (bloco["texto"], lado))
+            achado = ABERTURA.match(par[lado][0]["texto"])
+            if not achado:
+                raise SystemExit("%s (%s): a abertura não casa: %r"
+                                 % (bloco["texto"], lado, par[lado][0]["texto"][:80]))
+            par[lado] = [{"tipo": "paragrafo", "texto": achado.group(1)},
+                         {"tipo": "paragrafo", "texto": achado.group(2)}]
+        feitas += 1
+    return feitas
+
+
+def numerarSalmo(blocos):
+    """
+    Põe o número do salmo no "Sl." do Intróito português.
+
+    O PDF traz a referência inteira só no latim ("Ps. LXXIX,2"); a tradução
+    diz apenas "Sl.". É o mesmo versículo, e o número vem do lado latino:
+    nada é inventado, só passado de um lado para o outro. Quando o latim diz
+    "ibid.", o salmo é o do próprio título do Intróito ("Sl XXIV,1-3").
+    """
+    feitas = 0
+    for n, bloco in enumerate(blocos):
+        if bloco["tipo"] != "subtitulo" or not bloco["texto"].startswith("Intróito"):
+            continue
+        par = blocos[n + 1]
+        latim = re.findall(r"\[i\]Ps\. ([^\[]*?)\[/i\]", par["latim"][0]["texto"])
+        if len(latim) != 1 or par["portugues"][0]["texto"].count("[i]Sl.[/i]") != 1:
+            raise SystemExit("Intróito: esperada uma referência de salmo de cada lado")
+        ref = latim[0].strip().rstrip(".")
+        if ref.startswith("ibid."):
+            salmo = re.match(r"Intróito \(Sl ([^,)]+)", bloco["texto"])
+            if not salmo:
+                raise SystemExit("Intróito: 'ibid.' sem salmo no título")
+            ref = salmo.group(1) + "," + ref[len("ibid.,"):].strip()
+        par["portugues"][0]["texto"] = par["portugues"][0]["texto"].replace(
+            "[i]Sl.[/i]", "[i]Sl. %s.[/i]" % ref)
+        feitas += 1
+    return feitas
 
 
 def comIds(blocos, ident):
@@ -250,6 +330,9 @@ def folheto(ficha, pasta, contagem):
     caminho = os.path.join(pasta, ficha["pdf"])
     extrato = extrair(caminho)
     contagem.update(corrigir(extrato["blocos"]))
+    contagem.update(substituir(extrato["blocos"], TINTAS))
+    contagem["aberturas"] += partirAberturas(extrato["blocos"])
+    contagem["salmos"] += numerarSalmo(extrato["blocos"])
     conferirCabecalho(caminho, ficha["cabecalho"])
     return {
         "id": ficha["id"],
@@ -279,6 +362,17 @@ def main(pasta):
                 "errata %r: esperadas %d ocorrências, achadas %d. O PDF mudou; "
                 "releia antes de gravar." % (errado, quantas, contagem[errado]))
 
+    for antes, _, quantas in TINTAS:
+        if contagem[antes] != quantas:
+            raise SystemExit(
+                "tinta %r: esperadas %d ocorrências, achadas %d. O PDF mudou; "
+                "releia antes de gravar." % (antes, quantas, contagem[antes]))
+    # duas peças por folha (Epístola e Evangelho) e um Intróito por folha
+    for chave, por_folha in (("aberturas", 2), ("salmos", 1)):
+        if contagem[chave] != por_folha * len(PROPRIOS):
+            raise SystemExit("%s: esperadas %d, feitas %d"
+                             % (chave, por_folha * len(PROPRIOS), contagem[chave]))
+
     # substitui o que já existe, no lugar em que está; o resto entra no fim,
     # na ordem da tabela
     saida = []
@@ -299,7 +393,7 @@ def main(pasta):
 
     blocos = sum(len(x["blocos"]) for x in saida if x["categoria"] == "proprio")
     print("próprios: %d | blocos: %d | folhetos no arquivo: %d | erratas: %d" % (
-        len(PROPRIOS), blocos, len(saida), sum(contagem.values())))
+        len(PROPRIOS), blocos, len(saida), sum(contagem[e] for e, _, _ in ERRATAS)))
     print("gravado em", os.path.normpath(SAIDA),
           "(%d KB)" % (os.path.getsize(SAIDA) // 1024))
 

@@ -5054,6 +5054,18 @@ button {
   }
 }
 
+/*
+ * O próprio na tela larga usa a largura da página. A medida de 52rem foi
+ * feita para a oração das indulgências; o próprio tem as duas colunas, e em
+ * 52rem cada uma ficava com uns 38 caracteres, com a página vazia dos lados.
+ * No celular nada muda: a regra é só daqui para cima.
+ */
+@media (min-width: 56rem) {
+  .folheto--proprio {
+    max-width: 72rem;
+  }
+}
+
 /* ----------------------------------------------- o próprio da Missa, na folha
  *
  * "Gostaria de dar uma melhorada na parte visual dos folhetos dos próprios,
@@ -5113,6 +5125,58 @@ button {
   .folheto--proprio .bilingue__lado > .paragrafo:first-child::first-letter {
     font-size: 2.1em;
   }
+}
+
+/*
+ * Como cada peça se abre. O tipo vem do nome do subtítulo (`tipoDaPeca`), e
+ * o grupo da peça leva `peca--<tipo>`.
+ *
+ * Intróito: a capitular é a maior da folha, porque é a que abre a Missa.
+ */
+.folheto--proprio .peca--introito .bilingue__lado > .paragrafo:first-child::first-letter {
+  font-size: 3.2em;
+}
+@media (max-width: 55.99rem) {
+  .folheto--proprio .peca--introito .bilingue__lado > .paragrafo:first-child::first-letter {
+    font-size: 2.6em;
+  }
+}
+
+/*
+ * Gradual, Aleluia, Tracto, Ofertório e Comunhão: sem capitular. Fica só a
+ * inicial vermelha, no tamanho do texto.
+ *
+ * Na Epístola e no Evangelho a primeira linha é a fórmula ("Lectio Epístolæ…",
+ * "Sequéntia sancti Evangélii…"), que se identifica e não se capitula: a
+ * inicial é vermelha e do tamanho do corpo, e a capitular passa para o
+ * segundo parágrafo, o texto propriamente dito ("Fratres", "In illo témpore").
+ */
+.folheto--proprio .peca--cantada .bilingue__lado > .paragrafo:first-child::first-letter,
+.folheto--proprio .peca--leitura .bilingue__lado > .paragrafo:first-child::first-letter {
+  float: none;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: var(--rubrica);
+}
+.folheto--proprio .peca--leitura .bilingue__lado > .paragrafo:nth-child(2)::first-letter {
+  float: left;
+  margin: 0.08em 0.1em 0 0;
+  font-family: var(--titular);
+  font-size: 2.6em;
+  line-height: 0.82;
+  color: var(--rubrica);
+}
+@media (max-width: 55.99rem) {
+  .folheto--proprio .peca--leitura .bilingue__lado > .paragrafo:nth-child(2)::first-letter {
+    font-size: 2.1em;
+  }
+}
+
+/* A segunda tinta em trecho solto: o N. do Papa, por exemplo. */
+.segunda-tinta {
+  color: var(--rubrica);
 }
 
 /*

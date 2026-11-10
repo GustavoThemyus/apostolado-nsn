@@ -28,7 +28,7 @@ PALAVRA = re.compile(r"[\wÀ-ɏ'’]+")
 # colchetes as palavras que o tradutor acrescentou — "[fieis]", "[vindo]",
 # "[celestes]" —, e uma regra larga as apagava do lado do site, acusando
 # cinco palavras perdidas que estavam lá.
-MARCACAO = re.compile(r"\[/?(?:b|i|lat|r|nota|elo|botao|mapa)(?::[^\]]*)?\]")
+MARCACAO = re.compile(r"\[/?(?:b|i|lat|r|tinta|nota|elo|botao|mapa)(?::[^\]]*)?\]")
 
 # O que está no PDF e não vai para os dados.
 #
