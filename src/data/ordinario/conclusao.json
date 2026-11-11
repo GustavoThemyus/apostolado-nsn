@@ -4,7 +4,9 @@
  "blocos": [
   {
    "tipo": "rubrica",
-   "texto": "[i]Oscula o Altar e volta-se para o povo.[/i]"
+   "texto": "[i]Oscula o Altar e volta-se para o povo.[/i]",
+   "voz": "alta",
+   "postura": "pe"
   },
   {
    "tipo": "bilingue",
@@ -43,11 +45,13 @@
      "tipo": "paragrafo",
      "texto": "℟. Deo gratias."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Se alguma ação litúrgica se segue à Missa, diz-se:[/i]"
+   "texto": "[i]Se alguma ação litúrgica se segue à Missa, diz-se:[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -70,11 +74,13 @@
      "tipo": "paragrafo",
      "texto": "℟. Deo gratias."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Nas Missas dos Defuntos:[/i]"
+   "texto": "[i]Nas Missas dos Defuntos:[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -97,11 +103,14 @@
      "tipo": "paragrafo",
      "texto": "℟. Amen."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O sacerdote, profundamente inclinado, ora a Deus que o sacrifício celebrado sirva de salvação para aqueles por quem foi oferecido. Todos se ajoelham.[/i]"
+   "texto": "[i]O sacerdote, profundamente inclinado, ora a Deus que o sacrifício celebrado sirva de salvação para aqueles por quem foi oferecido. Todos se ajoelham.[/i]",
+   "voz": "baixa",
+   "postura": "joelhos"
   },
   {
    "tipo": "bilingue",
@@ -116,11 +125,13 @@
      "tipo": "paragrafo",
      "texto": "Pláceat tibi, sancta Trínitas, obséquium servitútis meæ: et præsta; ut sacrifícium, quod óculis tuæ maiestátis indígnus óbtuli, tibi sit acceptábile, mihíque et ómnibus, pro quibus illud óbtuli, sit, te miseránte, propitiábile. Per Christum Dóminum nostrum. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Depois oscula o Altar e inclina a cabeça à Cruz e concede a bênção, dizendo:[/i]"
+   "texto": "[i]Depois oscula o Altar e inclina a cabeça à Cruz e concede a bênção, dizendo:[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -143,15 +154,19 @@
      "tipo": "paragrafo",
      "texto": "M. Amen."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "ÚLTIMO EVANGELHO"
+   "texto": "ÚLTIMO EVANGELHO",
+   "voz": "alta",
+   "postura": "pe"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Nas Missas nas quais não se diz[/i] Ite, missa est, [i]não se dá bênção, mas se diz o[/i] Placeat [i]e, osculado o Altar, o celebrante lê, se é para dizer, o prólogo do Evangelho de São João (ou outro trecho dos Evangelhos, de acordo com as rubricas). Depois o Sacerdote no lado do Evangelho diz: Persignamo-nos igualmente: fronte, lábios e peito. Todos ficam de pé.[/i]"
+   "texto": "[i]Nas Missas nas quais não se diz[/i] Ite, missa est, [i]não se dá bênção, mas se diz o[/i] Placeat [i]e, osculado o Altar, o celebrante lê, se é para dizer, o prólogo do Evangelho de São João (ou outro trecho dos Evangelhos, de acordo com as rubricas). Depois o Sacerdote no lado do Evangelho diz: Persignamo-nos igualmente: fronte, lábios e peito. Todos ficam de pé.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -190,11 +205,13 @@
      "tipo": "paragrafo",
      "texto": "℟.Glória tibi, Dómine."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Toda a vida de Cristo foi um sacrifício para aplacar a ira divina. Esse sacrifício iniciou-se desde sua encarnação, por isso a Igreja, na liturgia, sempre adorna os textos que se referem a ela como um sinal de veneração. Ouçamos então o mesmo Evangelho lido no Natal do Senhor. Jo I,1-14[/i]"
+   "texto": "[i]Toda a vida de Cristo foi um sacrifício para aplacar a ira divina. Esse sacrifício iniciou-se desde sua encarnação, por isso a Igreja, na liturgia, sempre adorna os textos que se referem a ela como um sinal de veneração. Ouçamos então o mesmo Evangelho lido no Natal do Senhor. Jo I,1-14[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -217,7 +234,8 @@
      "tipo": "paragrafo",
      "texto": "℟. Deo gratias."
     }
-   ]
+   ],
+   "voz": "alta"
   }
  ]
 }

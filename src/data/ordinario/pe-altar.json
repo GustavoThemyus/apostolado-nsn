@@ -4,11 +4,14 @@
  "blocos": [
   {
    "tipo": "subtitulo",
-   "texto": "ORAÇÕES AO PÉ DO ALTAR"
+   "texto": "ORAÇÕES AO PÉ DO ALTAR",
+   "voz": "alta",
+   "postura": "joelhos"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Apelemos humildes e confiantes à misericórdia de Deus, para que, purificados de nossos pecados, possamos participar dignamente dos augustos Mistérios. É pela invocação das três Pessoas Divinas e pelo sinal da Redenção que se inicia a Missa.[/i]"
+   "texto": "[i]Apelemos humildes e confiantes à misericórdia de Deus, para que, purificados de nossos pecados, possamos participar dignamente dos augustos Mistérios. É pela invocação das três Pessoas Divinas e pelo sinal da Redenção que se inicia a Missa.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -39,11 +42,14 @@
      "tipo": "paragrafo",
      "texto": "M. Ad Deum, qui lætíficat iuventútem meam."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Sl XLII,1-5 Neste salmo expressamos a alegria de nossa alma ao aproximarmo-nos do altar para nos unir a Deus. Ele é omitido nas Missas de Defuntos e do Tempo da Paixão, por elas terem um caráter mais sóbrio.[/i]"
+   "texto": "[i]Sl XLII,1-5 Neste salmo expressamos a alegria de nossa alma ao aproximarmo-nos do altar para nos unir a Deus. Ele é omitido nas Missas de Defuntos e do Tempo da Paixão, por elas terem um caráter mais sóbrio.[/i]",
+   "voz": "alta",
+   "quando": "salmo-42"
   },
   {
    "tipo": "bilingue",
@@ -130,11 +136,14 @@
      "tipo": "paragrafo",
      "texto": "M. Ad Deum, qui lætíficat iuventútem meam."
     }
-   ]
+   ],
+   "voz": "alta",
+   "quando": "salmo-42"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Humildemente o sacerdote se confessa pecador dianta da Igreja Triunfante e dos ministros e fieis presentes. Por sua vez, confiantes na misericórdia divina e exercendo o sacerdócio genérico, eles suplicam a Deus que perdoe ao celebrante.[/i]"
+   "texto": "[i]Humildemente o sacerdote se confessa pecador dianta da Igreja Triunfante e dos ministros e fieis presentes. Por sua vez, confiantes na misericórdia divina e exercendo o sacerdócio genérico, eles suplicam a Deus que perdoe ao celebrante.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -181,11 +190,13 @@
      "tipo": "paragrafo",
      "texto": "S. Amen."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Neste momento são os ministros em nome dos fieis (Missas cantadas) ou com os fieis (Missas rezadas) que fazem a confissão de sua condição pecadora e, por fim, o celebrante dá a absolvição geral.[/i]"
+   "texto": "[i]Neste momento são os ministros em nome dos fieis (Missas cantadas) ou com os fieis (Missas rezadas) que fazem a confissão de sua condição pecadora e, por fim, o celebrante dá a absolvição geral.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -232,11 +243,13 @@
      "tipo": "paragrafo",
      "texto": "M. Amen."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O sacerdote e os ministros continuam com inclinação de cabeça:[/i]"
+   "texto": "[i]O sacerdote e os ministros continuam com inclinação de cabeça:[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -307,11 +320,17 @@
      "tipo": "paragrafo",
      "texto": "M. Et cum spíritu tuo."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Neste momento o sacerdote sobe ao altar e reza as orações abaixo em voz submissa, pedindo a Deus que afaste dele e dos ministros seus pecados e que os Santos intercedam junto a Ele, de modo que se achem dignos no encargo tremendo. Todos ficam de pé.[/i]"
+   "texto": "[i]Neste momento o sacerdote sobe ao altar e reza as orações abaixo em voz submissa, pedindo a Deus que afaste dele e dos ministros seus pecados e que os Santos intercedam junto a Ele, de modo que se achem dignos no encargo tremendo. Todos ficam de pé.[/i]",
+   "voz": "baixa",
+   "postura": {
+    "rezada": "joelhos",
+    "cantada": "pe"
+   }
   },
   {
    "tipo": "bilingue",
@@ -326,11 +345,13 @@
      "tipo": "paragrafo",
      "texto": "S. Orémus."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Continua a oração em voz submissa.[/i]"
+   "texto": "[i]Continua a oração em voz submissa.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -353,7 +374,42 @@
      "tipo": "paragrafo",
      "texto": "S. Orámus te, Dómine, per mérita Sanctórum tuórum, [i](oscula o altar)[/i] quorum relíquiæ hic sunt, et ómnium Sanctórum: ut indulgére dignéris ómnia peccáta mea. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]Quando há incenso, ao impor incenso no turíbulo, o celebrante diz:[/i]",
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incenso-inicial",
+   "postura": "pe"
+  },
+  {
+   "tipo": "bilingue",
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Abençoai, reverendo padre."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Que sejas abençoado por Aquele, em cuja honra serás queimado."
+    }
+   ],
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "M. Benedícite, pater reverénde."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "S. Ab illo benedicáris, in cuius honóre cremáberis."
+    }
+   ],
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incenso-inicial"
   }
  ]
 }

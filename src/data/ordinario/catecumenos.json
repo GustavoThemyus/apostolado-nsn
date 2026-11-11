@@ -4,34 +4,45 @@
  "blocos": [
   {
    "tipo": "subtitulo",
-   "texto": "ANTE-MISSA: MISSA DOS CATECÚMENOS"
+   "texto": "ANTE-MISSA: MISSA DOS CATECÚMENOS",
+   "voz": "alta",
+   "postura": {
+    "rezada": "joelhos",
+    "cantada": "pe"
+   }
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Esta parte da Missa outrora era destinada à assistência dos catecúmenos, nela falamos a Deus pela Igreja, Sua Esposa, e Ele nos responde através das perícopes da Escritura.[/i]"
+   "texto": "[i]Esta parte da Missa outrora era destinada à assistência dos catecúmenos, nela falamos a Deus pela Igreja, Sua Esposa, e Ele nos responde através das perícopes da Escritura.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Antífona do Intróito"
+   "texto": "Antífona do Intróito",
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O Intróito enuncia o tema geral da Missa do dia. Nas Missas cantadas o sacerdote o recita em voz baixa. Nas missas rezadas, às primeiras palavras, todos se benzem, ao mesmo tempo que o celebrante, a não ser nas Missas dos Defuntos.[/i]"
+   "texto": "[i]O Intróito enuncia o tema geral da Missa do dia. Nas Missas cantadas o sacerdote o recita em voz baixa. Nas missas rezadas, às primeiras palavras, todos se benzem, ao mesmo tempo que o celebrante, a não ser nas Missas dos Defuntos.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "proprio",
    "nome": "Intróito",
    "subtitulos": [
     "Intróito"
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Kyrie"
+   "texto": "Kyrie",
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Breve ladainha, é uma tríplice invocação a cada uma das três Pessoas Divinas. Seu intuito é mostrar nossa lamentação e perseverança na súplica pelo perdão divino. Faz-se alternadamente o celebrante e os ministros com os fieis.[/i]"
+   "texto": "[i]Breve ladainha, é uma tríplice invocação a cada uma das três Pessoas Divinas. Seu intuito é mostrar nossa lamentação e perseverança na súplica pelo perdão divino. Faz-se alternadamente o celebrante e os ministros com os fieis.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -110,15 +121,21 @@
      "tipo": "paragrafo",
      "texto": "S. Kýrie, eléison."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Glória"
+   "texto": "Glória",
+   "voz": "alta",
+   "quando": "gloria",
+   "postura": "pe"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Grande Doxologia, hino de louvor à Santíssima Trindade. Este hino angélico se diz nas Missas nas quais as rubricas permitem. O celebrante, sozinho, o introduz; depois os ministros e os fieis seguem a recitação. Às partes destacadas, se faz uma reverência com a cabeça.[/i]"
+   "texto": "[i]Grande Doxologia, hino de louvor à Santíssima Trindade. Este hino angélico se diz nas Missas nas quais as rubricas permitem. O celebrante, sozinho, o introduz; depois os ministros e os fieis seguem a recitação. Às partes destacadas, se faz uma reverência com a cabeça. Todos se benzem ao final.[/i]",
+   "voz": "alta",
+   "quando": "gloria"
   },
   {
    "tipo": "bilingue",
@@ -133,11 +150,14 @@
      "tipo": "paragrafo",
      "texto": "[i]Glória in excélsis Deo.[/i]| Et in terra pax homínibus bonæ voluntátis.| Laudámus te.| Benedícimus te. | [i]Adorámus te.[/i]| Glorificámus te.| [i]Grátias ágimus tibi[/i] propter magnam glóriam tuam.| Dómine Deus, Rex cæléstis, Deus Pater omnípotens.| Dómine Fili unigénite, [i]Iesu[/i] Christe.| Dómine Deus, Agnus Dei, Fílius Patris.| Qui tollis peccáta mundi, miserére nobis.| Qui tollis peccáta mundi, [i]súscipe deprecatiónem[/i] nostram.| Qui sedes ad déxteram Patris, miserére nobis.| Quóniam tu solus Sanctus.| Tu solus Dóminus.| Tu solus Altíssimus, [i]Iesu[/i] Christe.| Cum Sancto Spíritu ✠ in glória Dei Patris.| Amen."
     }
-   ]
+   ],
+   "voz": "alta",
+   "quando": "gloria"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O celebrante beija o altar e se volta ao povo:[/i]"
+   "texto": "[i]O celebrante beija o altar e se volta ao povo:[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -160,45 +180,55 @@
      "tipo": "paragrafo",
      "texto": "℟. Et cum spíritu tuo."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Oração Coleta"
+   "texto": "Oração Coleta",
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O celebrante resume e apresenta a Deus os votos de toda a assembleia, que foram sugeridos no Intróito. As Coletas são orações ricas na doutrina da Igreja e também nos ensinam que não devemos nos apoiar nos nossos méritos, mas nos méritos infinitos de nosso Senhor Jesus Cristo. Algumas vezes, pode haver até mais duas orações (comemorações). Nas Missas de roxo ou preto, todos ficam de joelhos, a menos que seja domingo.[/i]"
+   "texto": "[i]O celebrante resume e apresenta a Deus os votos de toda a assembleia, que foram sugeridos no Intróito. As Coletas são orações ricas na doutrina da Igreja e também nos ensinam que não devemos nos apoiar nos nossos méritos, mas nos méritos infinitos de nosso Senhor Jesus Cristo. Algumas vezes, pode haver até mais duas orações (comemorações). Nas Missas penitenciais de roxo ou de preto, de joelhos, exceto aos domingos.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "proprio",
    "nome": "Oração",
    "subtitulos": [
     "Oração"
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Epístola"
+   "texto": "Epístola",
+   "voz": "alta",
+   "postura": "sentado"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Início da instrução pela Igreja. A Epístola é uma leitura ordinariamente extraída das Cartas dos Apóstolos; daí o seu nome. Algumas são tiradas do Antigo Testamento. As Epístolas do ano litúrgico formam um conjunto doutrinal de alto valor para a vida cristã. Todos se sentam.[/i]"
+   "texto": "[i]Início da instrução pela Igreja. A Epístola é uma leitura ordinariamente extraída das Cartas dos Apóstolos; daí o seu nome. Algumas são tiradas do Antigo Testamento. As Epístolas do ano litúrgico formam um conjunto doutrinal de alto valor para a vida cristã. Todos se sentam, e também para as lições, quando as há.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "proprio",
    "nome": "Epístola",
    "subtitulos": [
     "Epístola"
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Gradual. Aleluia ou Tracto. Sequencia"
+   "texto": "Gradual. Aleluia ou Tracto. Sequencia",
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Cantos, por via de regra, tirados dos salmos e que traduzem os devotos afetos produzidos na alma pela leitura da Epístola ou sugeridos no Intróito. O Gradual remete ao nosso progresso na vida espiritual. O Aleluia, ao júbilo espiritual. O Tracto, que substitui o Aleluia nos tempos penitenciais, aos gemidos da alma que se penitencia. No Tempo Pascal, há somente o Aleluia Pascal, que traduz a alegria transbordante, própria deste tempo. Em certas Missas também segue uma Seqüência, que dulcifica estas solenidades.[/i]"
+   "texto": "[i]Cantos, por via de regra, tirados dos salmos e que traduzem os devotos afetos produzidos na alma pela leitura da Epístola ou sugeridos no Intróito. O Gradual remete ao nosso progresso na vida espiritual. O Aleluia, ao júbilo espiritual. O Tracto, que substitui o Aleluia nos tempos penitenciais, aos gemidos da alma que se penitencia. No Tempo Pascal, há somente o Aleluia Pascal, que traduz a alegria transbordante, própria deste tempo. Em certas Missas também segue uma Seqüência, que dulcifica estas solenidades.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "proprio",
@@ -207,15 +237,18 @@
     "Gradual",
     "Aleluia",
     "Tracto"
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Evangelho"
+   "texto": "Evangelho",
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Ponto culminante desta parte da Missa, a leitura ou o canto do Evangelho se reveste de maior solenidade. O sacerdote, nas Missas Solenes o diácono, se prepara para a leitura do Evangelho com as orações seguintes. O respeito para com ele exige que seja escutado de pé (nas Missas de Defuntos se omite a oração[/i] Iube, Domine[i]):[/i]"
+   "texto": "[i]Ponto culminante desta parte da Missa, a leitura ou o canto do Evangelho se reveste de maior solenidade. O sacerdote, nas Missas Solenes o diácono, se prepara para a leitura do Evangelho com as orações seguintes. O respeito para com ele exige que seja escutado de pé (nas Missas de Defuntos se omite a oração[/i] Iube, Domine[i]):[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -230,11 +263,14 @@
      "tipo": "paragrafo",
      "texto": "Munda cor meum ac labia mea, omnípotens Deus, qui labia Isaíæ Prophétæ cálculo mundásti igníto: ita me tua grata miseratióne dignáre mundáre, ut sanctum Evangélium tuum digne váleam nuntiáre. Per Christum, Dóminum nostrum. Amen. Iube, Dómine, benedícere. Dóminus sit in corde meo et in lábiis meis: ut digne et competénter annúntiem Evangélium suum. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Antes de ouvi-lo, persignamo-nos na fronte para entendê-lo plenamente; nos lábios, para confessá-lo publicamente; e no peito, para amá-lo sinceramente. Todos ficam de pé.[/i]"
+   "texto": "[i]Antes de ouvi-lo, persignamo-nos na fronte para entendê-lo plenamente; nos lábios, para confessá-lo publicamente; e no peito, para amá-lo sinceramente. Todos ficam de pé.[/i]",
+   "voz": "alta",
+   "postura": "pe"
   },
   {
    "tipo": "bilingue",
@@ -273,18 +309,21 @@
      "tipo": "paragrafo",
      "texto": "℟.Glória tibi, Dómine."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "proprio",
    "nome": "Evangelho",
    "subtitulos": [
     "Evangelho"
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Ao fim do Evangelho se diz:[/i]"
+   "texto": "[i]Ao fim do Evangelho se diz:[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -299,11 +338,13 @@
      "tipo": "paragrafo",
      "texto": "M. Laus tibi, Christe."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Terminado o Evangelho o sacerdote beija-o dizendo (omite-se nas Missas de Defuntos):[/i]"
+   "texto": "[i]Terminado o Evangelho o sacerdote beija-o dizendo (omite-se nas Missas de Defuntos):[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -318,23 +359,32 @@
      "tipo": "paragrafo",
      "texto": "Per evangélica dicta deleántur nostra delícta."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Homilia"
+   "texto": "Homilia",
+   "voz": "alta",
+   "postura": "sentado"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O celebrante ou outro ordenado procede com a explicação dos textos lidos ou do tempo litúrgico vigente ou outro tema oportuno. Embora seja a suspensão da Missa, esse é um ponto muito importante desta parte pedagógica do Santo Sacrifício. Todos sentados para a homilia.[/i]"
+   "texto": "[i]O celebrante ou outro ordenado procede com a explicação dos textos lidos ou do tempo litúrgico vigente ou outro tema oportuno. Embora seja a suspensão da Missa, esse é um ponto muito importante desta parte pedagógica do Santo Sacrifício. Todos sentados para a homilia.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Credo"
+   "texto": "Credo",
+   "voz": "alta",
+   "quando": "credo",
+   "postura": "pe"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O Credo confessa a divindade de Cristo e contém as verdades reveladas por Deus, algumas delas fora do alcance de nossa razão. Dispõe-nos o entendimento e o coração para o que vai acontecer no altar. O celebrante, sozinho, o introduz; depois os ministros e os fieis seguem a recitação. Às partes destacadas, se faz uma reverência com a cabeça (nas Missas cantadas e da Encarnação e do Natal se ajoelha com os dois joelhos, quando indicado). Todos de pé.[/i]"
+   "texto": "[i]O Credo confessa a divindade de Cristo e contém as verdades reveladas por Deus, algumas delas fora do alcance de nossa razão. Dispõe-nos o entendimento e o coração para o que vai acontecer no altar. O celebrante, sozinho, o introduz; depois os ministros e os fieis seguem a recitação. Às partes destacadas, se faz uma reverência com a cabeça (ajoelha-se quando indicado). Todos de pé. Todos se benzem ao final.[/i]",
+   "voz": "alta",
+   "quando": "credo"
   },
   {
    "tipo": "bilingue",
@@ -349,7 +399,9 @@
      "tipo": "paragrafo",
      "texto": "[i]Credo in unum Deum.[/i]| Patrem omnipoténtem, factórem cæli et terræ, visibílium ómnium et invisibílium.| Et in unum Dóminum [i]Iesum[/i] Christum, Fílium Dei unigénitum.| Et ex Patre natum ante ómnia sǽcula.| Deum de Deo, lumen de lúmine, Deum verum de Deo vero.| Génitum, non factum, consubstantiálem Patri: per quem ómnia facta sunt.| Qui propter nos hómines et propter nostram salútem descéndit de cælis.| [i](aqui se genuflete)[/i] ET INCARNÁTUS EST DE SPÍRITU SANCTO EX [i]MARÍA[/i] VÍRGINE: ET HOMO FACTUS EST.| Crucifíxus étiam pro nobis: sub Póntio Piláto passus, et sepúltus est.| Et resurréxit tértia die, secúndum Scriptúras.| Et ascéndit in cælum: sedet ad déxteram Patris.| Et íterum ventúrus est cum glória iudicáre vivos et mórtuos: cuius regni non erit finis.| Et in Spíritum Sanctum, Dóminum et vivificántem: qui ex Patre Filióque procédit.| Qui cum Patre et Fílio [i]simul adorátur[/i] et conglorificátur: qui locútus est per Prophétas.| Et unam sanctam cathólicam et apostólicam Ecclésiam.| Confíteor unum baptísma in remissiónem peccatórum.| Et exspécto resurrectiónem mortuórum.| Et vitam ✠ ventúri sǽculi.| Amen."
     }
-   ]
+   ],
+   "voz": "alta",
+   "quando": "credo"
   }
  ]
 }

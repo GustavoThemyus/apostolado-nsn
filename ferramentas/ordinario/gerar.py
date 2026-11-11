@@ -16,6 +16,7 @@ import io, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from extrair import extrair
+from momentos import SECOES_MARCADAS, aplicar
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SAIDA = os.path.join(RAIZ, "src", "data", "ordinario")
@@ -151,8 +152,13 @@ def main(pdf):
     if not os.path.isdir(SAIDA):
         os.makedirs(SAIDA)
 
-    for (id_, titulo, _, _), crus in partes:
-        dentro = [comoBlocoDoSite(b) for b in crus]
+    # Voz, postura e condição de cada momento, e as emendas da revisão do Perez:
+    # tudo em `momentos.py`, aplicado aqui para uma remessa nova sair marcada.
+    sites = {s[0]: [comoBlocoDoSite(b) for b in crus] for s, crus in partes}
+    aplicar({id_: sites[id_] for id_ in SECOES_MARCADAS})
+
+    for (id_, titulo, _, _), _crus in partes:
+        dentro = sites[id_]
         caminho = os.path.join(SAIDA, "%s.json" % id_)
         with io.open(caminho, "w", encoding="utf-8") as f:
             json.dump({"id": id_, "titulo": titulo, "blocos": dentro},

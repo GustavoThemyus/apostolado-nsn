@@ -4,11 +4,16 @@
  "blocos": [
   {
    "tipo": "subtitulo",
-   "texto": "ORAÇÕES NO FIM DA MISSA REZADA"
+   "texto": "ORAÇÕES NO FIM DA MISSA REZADA",
+   "voz": "alta",
+   "grupo": "leoninas",
+   "postura": "joelhos"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Essas orações são obrigatórias quando não há canto na Missa e devem ser recitadas de joelhos. Elas foram introduzidas pelo Papa Leão XIII a fim de que a Igreja conseguisse uma solução para suas demandas com o governo da Itália após a invasão e ocupação dos Estados Pontifícios. Devido à assinatura do Tratado de Latrão (em 1929), o Papa Pio XI pediu que elas fossem ditas pela conversão da Rússia. De joelhos.[/i]"
+   "texto": "[i]Essas orações são obrigatórias quando não há canto na Missa e devem ser recitadas de joelhos. Elas foram introduzidas pelo Papa Leão XIII a fim de que a Igreja conseguisse uma solução para suas demandas com o governo da Itália após a invasão e ocupação dos Estados Pontifícios. Devido à assinatura do Tratado de Latrão (em 1929), o Papa Pio XI pediu que elas fossem ditas pela conversão da Rússia. De joelhos.[/i]",
+   "voz": "alta",
+   "grupo": "leoninas"
   },
   {
    "tipo": "bilingue",
@@ -79,11 +84,15 @@
      "tipo": "paragrafo",
      "texto": "M. Amen."
     }
-   ]
+   ],
+   "voz": "alta",
+   "grupo": "leoninas"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]São Pio X pediu se ajuntasse três vezes a seguinte jaculatória:[/i]"
+   "texto": "[i]São Pio X pediu se ajuntasse três vezes a seguinte jaculatória:[/i]",
+   "voz": "alta",
+   "grupo": "leoninas"
   },
   {
    "tipo": "bilingue",
@@ -106,7 +115,9 @@
      "tipo": "paragrafo",
      "texto": "M. Miserére nobis."
     }
-   ]
+   ],
+   "voz": "alta",
+   "grupo": "leoninas"
   }
  ]
 }

@@ -635,6 +635,43 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("todo bilíngue do Ordinário tem os dois lados do mesmo tamanho",
     desencontrados.length === 0, desencontrados.join(" | "));
 
+  /*
+   * Voz, postura e condição de cada momento, de `momentos.py`, que segue a
+   * revisão do Perez. O que se guarda aqui é que ninguém ficou de fora: um
+   * bloco sem voz nunca aparece no modo "só voz alta" nem no completo
+   * filtrado, e some da Missa sem erro nenhum. A primeira postura de cada
+   * seção tem de existir, porque a tela repete a postura até a próxima e,
+   * sem ponto de partida, o fiel não sabe se está de pé.
+   */
+  const DA_MISSA = ["preparacao", "asperges", "pe-altar", "catecumenos", "ofertorio",
+    "canon", "comunhao", "conclusao", "leoninas", "acao-de-gracas"];
+  const POSTURAS = ["pe", "sentado", "joelhos"];
+  const postura_ok = (p: unknown) =>
+    typeof p === "string"
+      ? POSTURAS.includes(p)
+      : !!p && typeof p === "object"
+        && POSTURAS.includes((p as { rezada: string }).rezada)
+        && POSTURAS.includes((p as { cantada: string }).cantada);
+  const QUANDO = ["asperges", "vidi-aquam", "salmo-42", "gloria", "credo", "incenso"];
+  const sem_voz: string[] = [];
+  const postura_ruim: string[] = [];
+  const quando_ruim: string[] = [];
+  const sem_partida: string[] = [];
+  for (const s of secoes.filter((x) => DA_MISSA.includes(x.id))) {
+    s.blocos.forEach((b, i) => {
+      if (b.voz !== "alta" && b.voz !== "baixa") sem_voz.push(`${s.id}[${i}]`);
+      if (b.postura !== undefined && !postura_ok(b.postura)) postura_ruim.push(`${s.id}[${i}]`);
+      if (b.quando !== undefined && !QUANDO.includes(b.quando)) quando_ruim.push(`${s.id}[${i}]`);
+    });
+    if (s.id !== "asperges" && !s.blocos.some((b) => b.postura !== undefined)) sem_partida.push(s.id);
+  }
+  conferir("todo bloco da Missa tem voz, alta ou baixa", sem_voz.length === 0, sem_voz.slice(0, 8).join(", "));
+  conferir("toda postura é de pé, sentado, de joelhos ou o par rezada/cantada",
+    postura_ruim.length === 0, postura_ruim.join(", "));
+  conferir("toda condição do Ordinário é uma que o calendário sabe decidir",
+    quando_ruim.length === 0, quando_ruim.join(", "));
+  conferir("toda seção da Missa abre com uma postura", sem_partida.length === 0, sem_partida.join(", "));
+
   const lugares: { nome: string; subtitulos: string[] }[] = [];
   const andar = (blocos: Bloco[]) => {
     for (const b of blocos) {

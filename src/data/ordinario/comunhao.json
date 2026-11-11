@@ -4,11 +4,14 @@
  "blocos": [
   {
    "tipo": "subtitulo",
-   "texto": "Oração dominical"
+   "texto": "Oração dominical",
+   "voz": "alta",
+   "postura": "joelhos"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Nas Missas dialogadas, a assembleia diz o Pai-nosso juntamente com o celebrante (cf. Instrução[/i] De musica sacra et sacra liturgia[i], n. 32, de 3 de setembro de 1958).[/i]"
+   "texto": "[i]O sacerdote reza o Pai-nosso, e os fiéis respondem Sed líbera nos a malo. Ficam de joelhos.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -39,11 +42,13 @@
      "tipo": "paragrafo",
      "texto": "S. Amen."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Durante esta oração, o sacerdote fraciona a Hóstia consagrada, gesto ritual que simboliza que o Filho de Deus morreu verdadeiramente, por isso a faz em voz submissa.[/i]"
+   "texto": "[i]Durante esta oração, o sacerdote fraciona a Hóstia consagrada, gesto ritual que simboliza que o Filho de Deus morreu verdadeiramente, por isso a faz em voz submissa.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -58,11 +63,13 @@
      "tipo": "paragrafo",
      "texto": "Líbera nos, quǽsumus, Dómine, ab ómnibus malis, prætéritis, præséntibus et futúris: et intercedénte beáta et gloriósa semper Vírgine Dei Genitríce [i]María[/i], cum beátis Apóstolis tuis Petro et Páulo, atque Andréa, et ómnibus Sanctis, da propítius pacem in diébus nostris: ut, ope misericórdiæ tuæ adiúti, et a peccáto simus semper líberi et ab omni perturbatióne secúri. Per eúndem Dóminum nostrum [i]Iesum[/i] Christum, Fílium tuum. Qui tecum vivit et regnat in unitáte Spíritus Sancti Deus."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Conclui em voz alta:[/i]"
+   "texto": "[i]Conclui em voz alta:[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -101,11 +108,13 @@
      "tipo": "paragrafo",
      "texto": "℟.Et cum spíritu tuo."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Depõe a partícula da Hóstia no cálice, gesto símbolo da Ressureição, pois une o Corpo do Cristo ao seu Sangue. Todos de joelhos.[/i]"
+   "texto": "[i]Depõe a partícula da Hóstia no cálice, gesto símbolo da Ressureição, pois une o Corpo do Cristo ao seu Sangue. Todos de joelhos.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -120,11 +129,13 @@
      "tipo": "paragrafo",
      "texto": "Haec commíxtio, et consecrátio Córporis et Sánguinis Dómini nostri [i]Iesu[/i] Christi, fiat accipiéntibus nobis in vitam ætérnam. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Aqui se bate no peito a cada invocação (a não ser na Missa de Defuntos).[/i]"
+   "texto": "[i]Aqui se bate no peito a cada invocação (a não ser na Missa de Defuntos).[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -139,11 +150,13 @@
      "tipo": "paragrafo",
      "texto": "Agnus Dei, qui tollis peccáta mundi: miserére nobis. Agnus Dei, qui tollis peccáta mundi: miserére nobis. Agnus Dei, qui tollis peccáta mundi: dona nobis pacem."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Nas Missas dos Defuntos não se diz[/i] tende misericórdia de nós[i], mas em seu lugar:[/i] dona eis réquiem (dá-lhes o descanso). [i]E, à terceira, acrescenta-se[/i] sempitérnam (sempiterno)[i]. Na Quinta-feira Santa na Ceia do Senhor, responde-se as três vezes[/i] miserére nobis (tende misericórdia de nós)[i]. O sacerdote suplica pela paz e unidade da Igreja.[/i]"
+   "texto": "[i]Nas Missas dos Defuntos não se diz[/i] tende misericórdia de nós[i], mas em seu lugar:[/i] dona eis réquiem (dá-lhes o descanso). [i]E, à terceira, acrescenta-se[/i] sempitérnam (sempiterno)[i]. Na Quinta-feira Santa na Ceia do Senhor, responde-se as três vezes[/i] miserére nobis (tende misericórdia de nós)[i]. O sacerdote suplica pela paz e unidade da Igreja.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -158,11 +171,13 @@
      "tipo": "paragrafo",
      "texto": "Dómine [i]Iesu[/i] Christe, qui dixísti Apóstolis tuis: «Pacem relínquo vobis, pacem meam do vobis»: ne respícias peccáta mea, sed fidem Ecclésiæ tuæ; eámque secúndum voluntátem tuam pacifícáre et coadunáre dignéris: Qui vivis et regnas Deus per ómnia sǽcula sæculórum. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Nas Missas solenes o sacerdote oscula o altar e deseja a paz ao diácono.[/i]"
+   "texto": "[i]Nas Missas solenes o sacerdote oscula o altar e deseja a paz ao diácono.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -185,11 +200,13 @@
      "tipo": "paragrafo",
      "texto": "℟.Et cum spíritu tuo."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]As duas orações acima são omitidas nas Missas dos Defuntos e na Missa da Quinta-feira na Ceia do Senhor. O sacerdote recita as seguintes orações a fim de se preparar para comunhão. Façamos o mesmo.[/i]"
+   "texto": "[i]As duas orações acima são omitidas nas Missas dos Defuntos e na Missa da Quinta-feira na Ceia do Senhor. O sacerdote recita as seguintes orações a fim de se preparar para comunhão. Façamos o mesmo.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -204,15 +221,18 @@
      "tipo": "paragrafo",
      "texto": "Dómine [i]Iesu[/i] Christe, Fili Dei vivi, qui ex voluntáte Patris, cooperánte Spíritu Sancto, per mortem tuam mundum vivificásti: líbera me per hoc sacrosánctum Corpus et Sánguinem tuum ab ómnibus iniquitátibus meis et univérsis malis: et fac me tuis semper inhærére mandátis, et a te numquam separári permíttas: Qui cum eódem Deo Patre et Spiritu Sancto vivis et regnas Deus in sǽcula sæculórum. Amen. Percéptio Córporis tui, Dómine [i]Iesu[/i] Christe, quod ego indígnus súmere præsúmo, non mihi provéniat in iudícium et condemnatiónem: sed pro tua pietáte prosit mihi ad tutaméntum mentis et córporis, et ad medélam percipiéndam: Qui vivis et regnas cum Deo Patre in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Toma nas mãos a Hóstia consagrada.[/i]"
+   "texto": "[i]Toma nas mãos a Hóstia consagrada.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Sl CXV,13[/i]"
+   "texto": "[i]Sl CXV,13[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -227,11 +247,13 @@
      "tipo": "paragrafo",
      "texto": "Panem cœléstem accipiam, et nomen Dómini invocábo."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Novamente, por três vezes, o celebrante irrompe o sagrado silêncio para confessar sua miséria, repetindo as palavras do centurião. Mt VIII,8[/i]"
+   "texto": "[i]Novamente, por três vezes, o celebrante irrompe o sagrado silêncio para confessar sua miséria, repetindo as palavras do centurião. Mt VIII,8[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -246,11 +268,13 @@
      "tipo": "paragrafo",
      "texto": "Dómine, non sum dignus, ut intres sub tectum meum: sed tantum dic verbo, et sanábitur ánima mea."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Comunhão do puríssimo Corpo de nosso Senhor Jesus Cristo.[/i]"
+   "texto": "[i]Comunhão do puríssimo Corpo de nosso Senhor Jesus Cristo.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -265,15 +289,18 @@
      "tipo": "paragrafo",
      "texto": "Corpus ✠ Dómini nostri [i]Iesu[/i] Christi custódiat ánimam meam in vitam ætérnam. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O sacerdote purifica o corporal e a patena, enquanto diz:[/i]"
+   "texto": "[i]O sacerdote purifica o corporal e a patena, enquanto diz:[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Sl CXV,12-13[/i]"
+   "texto": "[i]Sl CXV,12-13[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -288,15 +315,18 @@
      "tipo": "paragrafo",
      "texto": "Quid retríbuam Dómino pro ómnibus, quæ retríbuit mihi? Cálicem salutáris accípiam, et nomen Dómini invocábo."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Toma nas mãos o cálice com o vinho consagrado.[/i]"
+   "texto": "[i]Toma nas mãos o cálice com o vinho consagrado.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Sl XVII,4[/i]"
+   "texto": "[i]Sl XVII,4[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -311,11 +341,13 @@
      "tipo": "paragrafo",
      "texto": "Laudans invocábo Dóminum, et ab inimícis meis salvus ero."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Comunhão do preciosíssimo Sangue de nosso Senhor Jesus Cristo.[/i]"
+   "texto": "[i]Comunhão do preciosíssimo Sangue de nosso Senhor Jesus Cristo.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -330,11 +362,13 @@
      "tipo": "paragrafo",
      "texto": "Sanguis ✠ Dómini nostri [i]Iesu[/i] Christi custódiat ánimam meam in vitam ætérnam. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Então todos fazem a confissão, como no início da Missa. O ministro inicia as primeiras palavras do Confiteor.[/i]"
+   "texto": "[i]Então todos fazem a confissão, como no início da Missa. O ministro inicia as primeiras palavras do Confiteor.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -349,11 +383,13 @@
      "tipo": "paragrafo",
      "texto": "M. Confíteor Deo omnipoténti, beátæ [i]Maríæ[/i] semper Vírgini, beáto Michaéli Archángelo, beáto Ioánni Baptístæ, sanctis Apóstolis Petro et Paulo, ómnibus Sanctis, et tibi, pater: quia peccávi nimis cogitatióne, verbo et opere: [i](bate- se três vezes no peito)[/i] mea culpa, mea culpa, mea máxima culpa. Ideo precor beátam [i]Maríam[/i] semper Vírginem, beátum Michaélem Archángelum, beátum Ioánnem Baptístam, sanctos Apóstolos Petrum et Paulum, omnes Sanctos, et te, pater, oráre pro me ad Dóminum, Deum nostrum."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O sacerdote se volta ao diácono ou ao acólito:[/i]"
+   "texto": "[i]O sacerdote se volta ao diácono ou ao acólito:[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -392,11 +428,13 @@
      "tipo": "paragrafo",
      "texto": "M. Amen."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Depois, ostenta para a assembleia a Hóstia consagrada para confessar a Fé da Igreja.[/i]"
+   "texto": "[i]Depois, ostenta para a assembleia a Hóstia consagrada para confessar a Fé da Igreja.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -411,15 +449,18 @@
      "tipo": "paragrafo",
      "texto": "S. Ecce Agnus Dei, ecce qui tollit peccáta mundi."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Todos respodem também com as humildes palavras do centurião.[/i]"
+   "texto": "[i]Todos respodem também com as humildes palavras do centurião.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Fala-se por três vezes ao mesmo tempo em que se bate no peito.[/i]"
+   "texto": "[i]Fala-se por três vezes ao mesmo tempo em que se bate no peito.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -434,11 +475,13 @@
      "tipo": "paragrafo",
      "texto": "M. Dómine, non sum dignus, ut íntres sub tectum meum: sed tantum dic verbo, et sanábitur ánima mea."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Comunhão dos ministros e fieis. Jesus «pacifica todas as coisas com o seu sangue». Entretanto a aplicação dessa Redenção se faz através dos Sacramentos da Igreja. Aqueles que estão em estado de pecado mortal não devem aproximar-se da mesa da comunhão. Se não é possível comungar, excitem-se ao menos na própria alma o desejo vivo de abraçar nosso Senhor e de recebe-l’O espiritualmente. A comunhão se dá de joelhos e na boca. O sacerdote diz a cada comungante.[/i]"
+   "texto": "[i]Comunhão dos ministros e fieis. Jesus «pacifica todas as coisas com o seu sangue». Entretanto a aplicação dessa Redenção se faz através dos Sacramentos da Igreja. Aqueles que estão em estado de pecado mortal não devem aproximar-se da mesa da comunhão. Se não é possível comungar, excitem-se ao menos na própria alma o desejo vivo de abraçar nosso Senhor e de recebe-l’O espiritualmente. A comunhão se dá de joelhos e na boca. O sacerdote diz a cada comungante.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -453,11 +496,13 @@
      "tipo": "paragrafo",
      "texto": "Corpus Dómini nostri [i]Iesu[/i] Christi custódiat ánimam tuam in vitam ætérnam. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]À reposição do Santíssimo no Tabernáculo, após a comunhão, convém ajoelhar-se em respeito ao Senhor eucarístico. O sacerdote recita as seguintes orações durante as abluções dos sagrados vasos.[/i]"
+   "texto": "[i]O Santíssimo é reposto no Tabernáculo antes das abluções, e convém ajoelhar-se em respeito ao Senhor eucarístico. O sacerdote recita as seguintes orações durante as abluções dos sagrados vasos. Terminada a ação de graças, os fiéis podem se sentar.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -472,26 +517,33 @@
      "tipo": "paragrafo",
      "texto": "Quod ore súmpsimus, Dómine, pura mente capiámus: et de munere temporáli fiat nobis remédium sempitérnum. Corpus tuum, Dómine, quod sumpsi, et Sanguis, quem potávi, adhǽreat viscéribus meis: et præsta; ut in me non remáneat scélerum mácula, quem pura et sancta refecérunt sacramenta: Qui vivis et regnas in sǽcula sæculórum. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Antífona da Comunhão"
+   "texto": "Antífona da Comunhão",
+   "voz": "alta",
+   "postura": "sentado"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]A Antífona da Comunhão exprime o júbilo da alma dos fieis que participaram do Santo Sacrifício.[/i]"
+   "texto": "[i]A Antífona da Comunhão exprime o júbilo da alma dos fieis que participaram do Santo Sacrifício. Os fiéis ficam sentados; quem quiser pode permanecer de joelhos, em ação de graças.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "proprio",
    "nome": "Comunhão",
    "subtitulos": [
     "Comunhão"
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Beija o Altar e volta-se ao povo.[/i]"
+   "texto": "[i]Beija o Altar e volta-se ao povo.[/i]",
+   "voz": "alta",
+   "postura": "pe"
   },
   {
    "tipo": "bilingue",
@@ -514,22 +566,26 @@
      "tipo": "paragrafo",
      "texto": "℟. Et cum spíritu tuo."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Oração Pós-comunhão"
+   "texto": "Oração Pós-comunhão",
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Nesta oração pedimos os frutos no tempo e na eternidade dos dons recebidos.[/i]"
+   "texto": "[i]Nesta oração pedimos os frutos no tempo e na eternidade dos dons recebidos. Vale a mesma regra da Coleta: nas Missas penitenciais de roxo ou de preto, de joelhos, exceto aos domingos.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "proprio",
    "nome": "Pós-comunhão",
    "subtitulos": [
     "Pós-Comunhão"
-   ]
+   ],
+   "voz": "alta"
   }
  ]
 }

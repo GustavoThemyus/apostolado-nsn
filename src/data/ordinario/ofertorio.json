@@ -4,19 +4,24 @@
  "blocos": [
   {
    "tipo": "subtitulo",
-   "texto": "SACRIFÍCIO: MISSA DOS FIEIS"
+   "texto": "SACRIFÍCIO: MISSA DOS FIEIS",
+   "voz": "alta",
+   "postura": "pe"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Aqui se inicia o Sacrifício propriamente dito, onde nós nos damos a Deus e Deus se dá a nós. Neste momento, em tempos passados, os catecúmenos eram convidados a se retirarem por ainda não se acharem dignos de participar deste excelso Mistério.[/i]"
+   "texto": "[i]Aqui se inicia o Sacrifício propriamente dito, onde nós nos damos a Deus e Deus se dá a nós. Neste momento, em tempos passados, os catecúmenos eram convidados a se retirarem por ainda não se acharem dignos de participar deste excelso Mistério.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Ofertório"
+   "texto": "Ofertório",
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O celebrante beija o altar e se volta ao povo:[/i]"
+   "texto": "[i]O celebrante beija o altar e se volta ao povo:[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -39,15 +44,18 @@
      "tipo": "paragrafo",
      "texto": "℟. Et cum spíritu tuo."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Outrora, o início de uma litania, dela apenas encontramos o convite.[/i]"
+   "texto": "[i]Outrora, o início de uma litania, dela apenas encontramos o convite.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Após o toque da sineta, todos se sentam.[/i]"
+   "texto": "[i]Após o Oremus, todos se sentam.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -62,30 +70,37 @@
      "tipo": "paragrafo",
      "texto": "℣.Oremos."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Antífona do Ofertório"
+   "texto": "Antífona do Ofertório",
+   "voz": "alta",
+   "postura": "sentado"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]A Antífona do Ofertório enuncia a intenção ou tema do sacrifício que será oferecido, realizando a mesma função que o Intróito no início da Missa. Aqui os fiéis também fazem ofertas materiais, como sinal de gratidão e para contribuir com a conservação e manutenção da casa de Deus.[/i]"
+   "texto": "[i]A Antífona do Ofertório enuncia a intenção ou tema do sacrifício que será oferecido, realizando a mesma função que o Intróito no início da Missa. Aqui os fiéis também fazem ofertas materiais, como sinal de gratidão e para contribuir com a conservação e manutenção da casa de Deus.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "proprio",
    "nome": "Ofertório",
    "subtitulos": [
     "Ofertório"
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Agora se prepara a matéria para o Sacrifício: pão e vinho. As orações são ditas em voz submissa, pois já se aproximam os sagrados Mistérios.[/i]"
+   "texto": "[i]Agora se prepara a matéria para o Sacrifício: pão e vinho. As orações são ditas em voz submissa, pois já se aproximam os sagrados Mistérios.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Oblação do pão"
+   "texto": "Oblação do pão",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -100,11 +115,13 @@
      "tipo": "paragrafo",
      "texto": "Suscipe, sancte Pater, omnipotens ætérne Deus, hanc immaculátam hóstiam, quam ego indígnus fámulus tuus óffero tibi Deo meo vivo et vero, pro innumerabílibus peccátis, et offensiónibus, et neglegéntiis meis, et pro ómnibus circumstántibus, sed et pro ómnibus fidélibus christiánis vivis atque defúnctis: ut mihi, et illis profíciat ad salútem in vitam ætérnam. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Infusão do vinho e bênção da água"
+   "texto": "Infusão do vinho e bênção da água",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -119,11 +136,13 @@
      "tipo": "paragrafo",
      "texto": "Deus, qui humánæ substántiæ dignitátem mirabíliter condidísti, et mirabílius reformásti: da nobis per hujus aquæ et vini mystérium, ejus divinitátis esse consórtes, qui humanitátis nostræ fíeri dignátus est párticeps, [i]Iesus[/i] Christus, Fílius tuus, Dóminus noster: Qui tecum vivit et regnat in unitáte Spíritus Sancti Deus: per ómnia sǽcula sæculórum. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Oblação do vinho"
+   "texto": "Oblação do vinho",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -138,11 +157,13 @@
      "tipo": "paragrafo",
      "texto": "Offérimus tibi, Dómine, cálicem salutáris, tuam deprecántes cleméntiam: ut in conspéctu divínæ majestátis tuæ, pro nostra et totíus mundi salute, cum odóre suavitátis ascéndat. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Oração sobre as oblatas"
+   "texto": "Oração sobre as oblatas",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -157,11 +178,13 @@
      "tipo": "paragrafo",
      "texto": "In spíritu humilitátis et in ánimo contríto suscipiámur a te, Dómine: et sic fiat sacrifícium nostrum in conspéctu tuo hódie, ut pláceat tibi, Dómine Deus."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Epiclese"
+   "texto": "Epiclese",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -176,15 +199,29 @@
      "tipo": "paragrafo",
      "texto": "Veni, sanctificátor omnípotens ætérne Deus: et ✠ benedic hoc sacrifícium, tuo sancto nómini præparátum."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Incensação"
+   "texto": "Incensação",
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O sacerdote faz a oração abaixo enquanto impõe o incenso.[/i]"
+   "texto": "[i]Em ambas as Missas os fiéis ficam sentados. Na Missa cantada, levantam-se para serem incensados.[/i]",
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
+  },
+  {
+   "tipo": "rubrica",
+   "texto": "[i]O sacerdote faz a oração abaixo enquanto impõe o incenso.[/i]",
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
   },
   {
    "tipo": "bilingue",
@@ -199,11 +236,17 @@
      "tipo": "paragrafo",
      "texto": "Per intercessiónem beáti Michaélis Archángeli, stantis a dextris altáris incénsi, et ómnium electórum suórum, incénsum istud dignétur Dóminus bene✠dícere, et in odórem suavitátis accípere. Per Christum, Dóminum nostrum. Amen."
     }
-   ]
+   ],
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Durante a incensação das oblatas, reza:[/i]"
+   "texto": "[i]Durante a incensação das oblatas, reza:[/i]",
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
   },
   {
    "tipo": "bilingue",
@@ -218,15 +261,24 @@
      "tipo": "paragrafo",
      "texto": "Incénsum istud a te benedíctum ascéndat ad te, Dómine: et descéndat super nos misericórdia tua."
     }
-   ]
+   ],
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Recita os versículos abaixo quanto incensa o altar.[/i]"
+   "texto": "[i]Recita os versículos abaixo quanto incensa o altar.[/i]",
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Sl CXL,2-4[/i]"
+   "texto": "[i]Sl CXL,2-4[/i]",
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
   },
   {
    "tipo": "bilingue",
@@ -241,11 +293,17 @@
      "tipo": "paragrafo",
      "texto": "Dirigátur, Dómine, orátio mea, sicut incénsum, in conspéctu tuo: elevátio mánuum meárum sacrifícium vespertínum. Pone, Dómine, custódiam ori meo, et óstium circumstántiæ lábiis meis: ut non declínet cor meum in verba malítiæ, ad excusándas excusatiónes in peccátis."
     }
-   ]
+   ],
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Ao devolver o turíbulo, diz:[/i]"
+   "texto": "[i]Ao devolver o turíbulo, diz:[/i]",
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
   },
   {
    "tipo": "bilingue",
@@ -260,15 +318,20 @@
      "tipo": "paragrafo",
      "texto": "Accéndat in nobis Dóminus ignem sui amóris, et flammam ætérnæ caritátis. Amen."
     }
-   ]
+   ],
+   "voz": "baixa",
+   "quando": "incenso",
+   "grupo": "incensacao"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Lavabo"
+   "texto": "Lavabo",
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O sacerdote purifica os dedos, que simboliza a pureza interior que deve ter, para oferecer o Santo Sacrifício. Nas Missas de Defuntos, se omite o[/i] Gloria Patri[i]. Sl XXV,6-12[/i]"
+   "texto": "[i]O sacerdote purifica os dedos, que simboliza a pureza interior que deve ter, para oferecer o Santo Sacrifício. Nas Missas de Defuntos e do Tempo da Paixão, se omite o[/i] Gloria Patri[i]. Sl XXV,6-12[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -283,11 +346,13 @@
      "tipo": "paragrafo",
      "texto": "Lavábo inter innocéntes manus meas: et circúmdabo altáre tuum. Dómine: Ut áudiam vocem laudis, et enárrem univérsa mirabília tua. Dómine, diléxi decórem domus tuæ et locum habitatiónis glóriæ tuæ. Ne perdas cum ímpiis, Deus, ánimam meam, et cum viris sánguinum vitam meam: In quorum mánibus iniquitátes sunt: déxtera eórum repléta est munéribus. Ego autem in innocéntia mea ingréssus sum: rédime me et miserére mei. Pes meus stetit in dirécto: in ecclésiis benedícam te, Dómine. Glória Patri, et Fílio, et Spirítui Sancto. Sicut erat in princípio, et nunc, et semper: et in sǽcula sæculórum. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Oferecimento das oblatas"
+   "texto": "Oferecimento das oblatas",
+   "voz": "baixa"
   },
   {
    "tipo": "bilingue",
@@ -302,11 +367,14 @@
      "tipo": "paragrafo",
      "texto": "Súscipe, sancta Trinitas, hanc oblatiónem, quam tibi offérimus ob memóriam passiónis, resurrectiónis, et ascensiónis [i]Iesu[/i] Christi, Dómini nostri: et in honórem beátæ [i]Maríæ[/i] semper Vírginis, et beáti Joannis Baptistæ, et sanctórum Apostolórum Petri et Pauli, et istórum et ómnium Sanctórum: ut illis profíciat ad honórem, nobis autem ad salútem: et illi pro nobis intercédere dignéntur in cœlis, quorum memóriam ágimus in terris. Per eúndem Christum, Dóminum nostrum. Amen."
     }
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Beija o altar e voltado ao povo diz. Todos de pé.[/i]"
+   "texto": "[i]Beija o altar e voltado ao povo diz. Todos de pé.[/i]",
+   "voz": "alta",
+   "postura": "pe"
   },
   {
    "tipo": "bilingue",
@@ -337,34 +405,41 @@
      "tipo": "paragrafo",
      "texto": "S. Amen."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Após o Orate Frates o sacerdote não olhará novamente para os fiéis até o momento da comunhão. Como Moisés no Monte Sinai, ele entra na \"nuvem sagrada\" e se comunica face a face com o Senhor. Seus olhos e sua mente estão direcionados apenas para o altar.[/i]"
+   "texto": "[i]Após o Orate Frates o sacerdote não olhará novamente para os fiéis até o momento da comunhão. Como Moisés no Monte Sinai, ele entra na \"nuvem sagrada\" e se comunica face a face com o Senhor. Seus olhos e sua mente estão direcionados apenas para o altar.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Oração Secreta"
+   "texto": "Oração Secreta",
+   "voz": "baixa"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Esta oração, feita em voz submissa, roga a Deus a aceitação do Sacrifício a ser oferecido, implorando seus frutos de salvação. As secretas são orações que mostram, sobretudo, o caráter propiciatório da Missa.[/i]"
+   "texto": "[i]Esta oração, feita em voz submissa, roga a Deus a aceitação do Sacrifício a ser oferecido, implorando seus frutos de salvação. As secretas são orações que mostram, sobretudo, o caráter propiciatório da Missa.[/i]",
+   "voz": "baixa"
   },
   {
    "tipo": "proprio",
    "nome": "Secreta",
    "subtitulos": [
     "Secreta"
-   ]
+   ],
+   "voz": "baixa"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Prefácio"
+   "texto": "Prefácio",
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O Prefácio tem esse nome porque antecede ao Cânon da Missa. Cada celebração tem o seu Prefácio próprio, que explicita as verdades veladas. Aprendamos com ele a profundidade e a riqueza da doutrina celeste.[/i]"
+   "texto": "[i]O Prefácio tem esse nome porque antecede ao Cânon da Missa. Cada celebração tem o seu Prefácio próprio, que explicita as verdades veladas. Aprendamos com ele a profundidade e a riqueza da doutrina celeste.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -435,22 +510,26 @@
      "tipo": "paragrafo",
      "texto": "℟.Dignum et iustum est."
     }
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "proprio",
    "nome": "Prefácio",
    "subtitulos": [
     "Prefácio"
-   ]
+   ],
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]O sacerdote, os ministros e os fieis recitam o[/i] Sanctus[i].[/i]"
+   "texto": "[i]O sacerdote, os ministros e os fieis recitam o[/i] Sanctus[i].[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "rubrica",
-   "texto": "[i]Confessando a magnificência divina, a Igreja repete a confissão feita pelos Serafins. Imitando-os, inclinamo-nos à primeira parte deste hino. Todos de joelhos, ao fim do toque da sineta.[/i]"
+   "texto": "[i]Confessando a magnificência divina, a Igreja repete a confissão feita pelos Serafins. Todos ficam de pé durante o Sanctus e se benzem ao Benedictus. Terminado o Sanctus, os fiéis se ajoelham.[/i]",
+   "voz": "alta"
   },
   {
    "tipo": "bilingue",
@@ -465,7 +544,8 @@
      "tipo": "paragrafo",
      "texto": "[i]Sanctus, Sanctus, Sanctus Dóminus, Deus Sábaoth. Pleni sunt cæli et terra glória tua. Hosánna in excélsis[/i]. Benedíctus, ✠ qui venit in nómine Dómini. Hosánna in excélsis."
     }
-   ]
+   ],
+   "voz": "alta"
   }
  ]
 }

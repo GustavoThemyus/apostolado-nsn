@@ -42,7 +42,40 @@ export interface ComId {
   id?: string;
 }
 
+/** A postura do fiel: de pé, sentado ou de joelhos. */
+export type Postura = "pe" | "sentado" | "joelhos";
+
+/**
+ * O que muda de uma Missa para outra, em duas formas: um valor só, quando é
+ * igual nas duas, ou o par, quando a rezada e a cantada divergem.
+ */
+export type PosturaDoMomento = Postura | { rezada: Postura; cantada: Postura };
+
+/**
+ * O que o Ordinário sabe de cada momento da Missa, além do texto.
+ *
+ * Tudo opcional e só no Ordinário: gravado por `ferramentas/ordinario/momentos.py`,
+ * revisto pelo Perez momento a momento. Um bloco sem marca é um bloco que
+ * ninguém classificou, e `conteudo.teste.ts` reprova isso nas seções da Missa.
+ *
+ *   voz      "alta": o fiel ouve ou diz (a voz média do sacerdote conta como
+ *            alta, para quem começa não se perder). "baixa": silêncio ou voz
+ *            submissa, só aparece quando o fiel pede as orações em silêncio.
+ *   postura  onde a postura do fiel MUDA. Vai só no primeiro bloco do momento,
+ *            e a tela a repete até a próxima.
+ *   quando   a condição litúrgica do dia que traz o bloco. Quem a decide é o
+ *            calendário (`src/calendario/naMissaDoDia.ts`), e não esta tabela.
+ *   grupo    blocos que se abrem e se fecham juntos, no padrão do calendário.
+ */
+export interface Marcas {
+  voz?: "alta" | "baixa";
+  postura?: PosturaDoMomento;
+  quando?: "asperges" | "vidi-aquam" | "salmo-42" | "gloria" | "credo" | "incenso";
+  grupo?: string;
+}
+
 export type Bloco = ComId &
+  Marcas &
   (
   /**
    * A âncora leva o leitor ao parágrafo, e não só à seção que o contém.

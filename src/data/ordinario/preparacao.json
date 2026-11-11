@@ -4,19 +4,22 @@
  "blocos": [
   {
    "tipo": "subtitulo",
-   "texto": "ORAÇÃO PREPARATÓRIA PARA A SANTA MISSA"
+   "texto": "ORAÇÃO PREPARATÓRIA PARA A SANTA MISSA",
+   "voz": "baixa",
+   "grupo": "preparacao",
+   "postura": "joelhos"
   },
   {
    "tipo": "subtitulo",
-   "texto": "Oração de Santo Ambrósio"
+   "texto": "Oração de Santo Ambrósio",
+   "voz": "baixa",
+   "grupo": "preparacao"
   },
   {
    "tipo": "paragrafo",
-   "texto": "Senhor Jesus Cristo, eu, pecador, não presumindo dos meus próprios méritos, mas confiando na vossa bondade e misericórdia, temo entretanto e hesito em aproximar-me da mesa do vosso doce convívio. Pois meu corpo e meu coração estão manchados por muitas faltas, e não guardei com cuidado o meu espírito e a minha língua. Por isso, ó bondade divina e temível majestade, na minha miséria recorro a Vós, fonte de misericórdia; corro para junto de Vós a fim de ser curado, refugio-me na vossa proteção, anseio ter como Salvador Aquele que não posso suportar como Juiz. Senhor, eu Vos mostro as minhas chagas e Vos revelo a minha vergonha. Sei que os meus pecados são muitos e grandes, e temo por causa deles, mas espero na vossa infinita misericórdia. Olhai-me, pois, com os vossos olhos misericordiosos, Senhor Jesus Cristo, Rei eterno, Deus e homem, crucificado por causa do homem. Escutai-me, pois espero em Vós; tende piedade de mim, cheio de misérias e pecados, Vós que jamais deixareis de ser para nós fonte de compaixão. Salve, Vítima Salvadora, oferecida no patíbulo da Cruz por mim e por todos os homens. Salve, nobre e precioso Sangue, que brotas das chagas do meu Senhor Jesus Cristo crucificado e lavas os pecados do mundo inteiro. Lembrai-Vos, Senhor, da vossa criatura resgatada por vosso Sangue. Arrependo-me de ter pecado, desejo reparar o que fiz. Livrai-me, ó Pai clementíssimo, de todas as minhas iniqüidades e pecados, para que, inteiramente purificado, mereça participar dos Santos Mistérios. E concedei que o vosso Corpo e o vosso Sangue, que eu, embora indigno, me preparo para receber, sejam perdão para os meus pecados e completa purificação de minhas faltas. Que eles afastem de mim os maus pensamentos e despertem os bons sentimentos; tornem eficazes as obras que Vos agradam, e protejam meu corpo e minha alma contra as ciladas dos meus inimigos. Amém."
-  },
-  {
-   "tipo": "rubrica",
-   "texto": "[i]Nos domingos é costume o rito de aspersão da água benta sobre o povo. Esse rito nos rememora nosso Batismo e afasta de nós o maligno. Todos ficam de pé durante a aspersão e se benzem ao serem aspergidos.[/i]"
+   "texto": "Senhor Jesus Cristo, eu, pecador, não presumindo dos meus próprios méritos, mas confiando na vossa bondade e misericórdia, temo entretanto e hesito em aproximar-me da mesa do vosso doce convívio. Pois meu corpo e meu coração estão manchados por muitas faltas, e não guardei com cuidado o meu espírito e a minha língua. Por isso, ó bondade divina e temível majestade, na minha miséria recorro a Vós, fonte de misericórdia; corro para junto de Vós a fim de ser curado, refugio-me na vossa proteção, anseio ter como Salvador Aquele que não posso suportar como Juiz. Senhor, eu Vos mostro as minhas chagas e Vos revelo a minha vergonha. Sei que os meus pecados são muitos e grandes, e temo por causa deles, mas espero na vossa infinita misericórdia. Olhai-me, pois, com os vossos olhos misericordiosos, Senhor Jesus Cristo, Rei eterno, Deus e homem, crucificado por causa do homem. Escutai-me, pois espero em Vós; tende piedade de mim, cheio de misérias e pecados, Vós que jamais deixareis de ser para nós fonte de compaixão. Salve, Vítima Salvadora, oferecida no patíbulo da Cruz por mim e por todos os homens. Salve, nobre e precioso Sangue, que brotas das chagas do meu Senhor Jesus Cristo crucificado e lavas os pecados do mundo inteiro. Lembrai-Vos, Senhor, da vossa criatura resgatada por vosso Sangue. Arrependo-me de ter pecado, desejo reparar o que fiz. Livrai-me, ó Pai clementíssimo, de todas as minhas iniqüidades e pecados, para que, inteiramente purificado, mereça participar dos Santos Mistérios. E concedei que o vosso Corpo e o vosso Sangue, que eu, embora indigno, me preparo para receber, sejam perdão para os meus pecados e completa purificação de minhas faltas. Que eles afastem de mim os maus pensamentos e despertem os bons sentimentos; tornem eficazes as obras que Vos agradam, e protejam meu corpo e minha alma contra as ciladas dos meus inimigos. Amém.",
+   "voz": "baixa",
+   "grupo": "preparacao"
   }
  ]
 }
