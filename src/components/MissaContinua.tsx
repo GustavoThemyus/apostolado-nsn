@@ -226,6 +226,17 @@ export function MissaContinua({
           {rito.nome}. {rito.nota}
         </p>
       )}
+      {/*
+        O Ordo da capela é o pré-55 e só existe para os anos publicados. Fora
+        deles, Glória e Credo vêm das rubricas gerais de 1962, que não são as
+        da capela: melhor dizer do que deixar parecer a mesma coisa.
+      */}
+      {naDoDia.fonte === "rubricas" && !rito && !esperandoOrdo && (
+        <p className="modo-missa__aviso">
+          Este dia está fora do Ordo publicado pela capela. O Glória e o Credo
+          seguem as rubricas gerais de 1962, que podem diferir do uso da capela.
+        </p>
+      )}
       {comProprio && !folheto && !rito && !esperandoOrdo && (
         <p className="modo-missa__aviso">
           O próprio deste dia ainda não está transcrito aqui. Os lugares da
