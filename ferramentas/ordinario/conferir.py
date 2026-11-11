@@ -21,7 +21,9 @@ Sai com código 1 se divergir, para entrar na conferência automática.
 import collections, io, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from gerar import SAIDA, SECOES
+from gerar import SAIDA, SECOES, comoBlocoDoSite, nomearProprios, repartir
+from extrair import extrair
+from momentos import SECOES_MARCADAS, emendar
 
 PALAVRA = re.compile(r"[\wÀ-ɏ'’]+")
 # As marcas do texto rico, uma a uma, e não `[a-z]+`: o impresso põe entre
@@ -62,12 +64,40 @@ def textosDo(bloco):
         yield bloco["texto"]
 
 
+def contaDeBlocos(secoes):
+    conta = collections.Counter()
+    for blocos in secoes.values():
+        conta += palavras("\n".join(t for b in blocos for t in textosDo(b)))
+    return conta
+
+
+def efeitoDasEmendas(pdf):
+    """
+    As palavras que as EMENDAS de `momentos.py` tiram e põem, sobre o que o
+    extrator entrega.
+
+    A revisão do Perez reescreve rubricas do impresso, e a conferência, que
+    compara com o PDF, acusaria cada reescrita como perda e como sobra. Em vez
+    de afrouxar a conta, ela recebe aqui o que foi emendado: o PDF menos o que
+    saiu, mais o que entrou. O resto continua exato.
+    """
+    blocos = extrair(pdf)
+    nomearProprios(blocos)
+    secoes = {s[0]: [comoBlocoDoSite(b) for b in crus] for s, crus in repartir(blocos)}
+    antes = contaDeBlocos(secoes)
+    emendar({id_: secoes[id_] for id_ in SECOES_MARCADAS})
+    depois = contaDeBlocos(secoes)
+    return antes - depois, depois - antes
+
+
 def main(pdf):
     cru = subprocess.run(["pdftotext", "-raw", pdf, "-"],
                          capture_output=True, check=True).stdout.decode("utf-8")
     for frase in FORA:
         cru = cru.replace(frase, " ")
     noPdf = palavras(cru, marcado=False)
+    sairam, entraram = efeitoDasEmendas(pdf)
+    noPdf = (noPdf - sairam) + entraram
 
     noSite = collections.Counter()
     for id_, _, _, _ in SECOES:

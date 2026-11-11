@@ -11,6 +11,7 @@
 
 import { eixoDoAno, mais, pascoa } from "./computo";
 import { desenvolvimentoDe, ritoProprioDe } from "./desenvolvimento";
+import { condicaoValeNoDia, naMissaDoDia } from "./naMissaDoDia";
 import { diaLiturgico, mesLiturgico } from "./precedencia";
 import { PROPRIO_BRASIL } from "./proprioBrasil";
 import { corDe, tempoDe } from "./tempo";
@@ -356,6 +357,44 @@ suite("Próprio do Brasil", () => {
    */
   conferir("e cede a São Pedro e São Paulo em 2028",
     diaLiturgico(dia("2028-06-29")).nome, "São Pedro e São Paulo, apóstolos");
+});
+
+// ------------------------------------------------- Ordinário no dia
+
+suite("O que o Ordinário mostra em cada dia", () => {
+  const dom1Advento = naMissaDoDia(dia("2026-11-29"));
+  conferir("I Domingo do Advento: sem Glória", dom1Advento.gloria, false);
+  conferir("I Domingo do Advento: com Credo", dom1Advento.credo, true);
+  conferir("I Domingo do Advento: Asperges", dom1Advento.aspersao, "asperges");
+  conferir("I Domingo do Advento: com o salmo 42", dom1Advento.salmo42, true);
+
+  const imaculada = naMissaDoDia(dia("2026-12-08"));
+  conferir("Imaculada, numa terça: com Glória e Credo", imaculada.gloria && imaculada.credo, true);
+  conferir("dia de semana não tem aspersão", imaculada.aspersao, null);
+
+  const pascoa = naMissaDoDia(dia("2026-04-05"));
+  conferir("Páscoa: Vidi aquam", pascoa.aspersao, "vidi-aquam");
+  conferir("Páscoa: com Glória e Credo", pascoa.gloria && pascoa.credo, true);
+  conferir("Pentecostes ainda é Vidi aquam", naMissaDoDia(dia("2026-05-24")).aspersao, "vidi-aquam");
+  conferir("domingo da Santíssima Trindade volta ao Asperges", naMissaDoDia(dia("2026-05-31")).aspersao, "asperges");
+
+  conferir("Ramos, no Tempo da Paixão: sem salmo 42", naMissaDoDia(dia("2026-03-29")).salmo42, false);
+  const finados = naMissaDoDia(dia("2026-11-02"));
+  conferir("Finados: sem Glória, sem Credo e sem salmo 42",
+    !finados.gloria && !finados.credo && !finados.salmo42, true);
+
+  const quintaSanta = naMissaDoDia(dia("2026-04-02"));
+  conferir("Quinta-feira Santa tem rito próprio", Boolean(quintaSanta.ritoProprio), true);
+
+  const naOrdo = { gloria: false, credo: true, entreAsLeituras: [], comemoracoes: [], oracoes: [], resto: [] };
+  conferir("o Ordo, quando há, manda no Glória",
+    naMissaDoDia(dia("2026-12-08"), naOrdo).gloria, false);
+  conferir("o Ordo, quando há, é a fonte declarada",
+    naMissaDoDia(dia("2026-12-08"), naOrdo).fonte, "ordo");
+
+  conferir("bloco sem condição vale sempre", condicaoValeNoDia(undefined, dom1Advento), true);
+  conferir("Glória fora do dia some", condicaoValeNoDia("gloria", dom1Advento), false);
+  conferir("Vidi aquam fora do Pascal some", condicaoValeNoDia("vidi-aquam", dom1Advento), false);
 });
 
 // ------------------------------------------------------------------ saída

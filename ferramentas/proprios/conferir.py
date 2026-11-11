@@ -66,6 +66,9 @@ def main(pasta):
             continue
 
         caminho = os.path.join(pasta, ficha["pdf"])
+        if not os.path.exists(caminho):
+            print("%-30s sem o PDF na pasta, não conferido" % ficha["id"])
+            continue
         cru = subprocess.run(["pdftotext", "-raw", caminho, "-"],
                              capture_output=True, check=True).stdout.decode("utf-8")
         # as gralhas conhecidas saem corrigidas no site; aqui se corrigem
@@ -79,6 +82,13 @@ def main(pasta):
             [folheto["titulo"], folheto["resumo"]]
             + [t for b in folheto["blocos"] for t in textosDo(b)]))
         noPdf = palavras(cru, marcado=False)
+        # o número do salmo que o gerador passa do latim para o "Sl." português
+        # é palavra repetida de propósito: o PDF a traz uma vez, o site duas
+        for b in folheto["blocos"]:
+            if b["tipo"] == "bilingue" and b["portugues"]:
+                ref = re.search(r"\[i\]Sl\. ([^\[]+?)\.?\[/i\]", b["portugues"][0].get("texto", ""))
+                if ref:
+                    noPdf += palavras(ref.group(1), marcado=False)
 
         faltando = noPdf - noSite
         if faltando:

@@ -351,34 +351,49 @@ def main(pasta):
     with io.open(SAIDA, encoding="utf-8") as f:
         colecao = json.load(f)
 
+    # Os PDFs chegam aos poucos: o Perez corrige cada um à mão. Gera os que
+    # estão na pasta, e os outros ficam como estão no arquivo.
+    presentes = [f for f in PROPRIOS if os.path.exists(os.path.join(pasta, f["pdf"]))]
+    if not presentes:
+        raise SystemExit("nenhum dos PDFs da tabela está em %s" % pasta)
+    completo = len(presentes) == len(PROPRIOS)
+    for f in PROPRIOS:
+        if f not in presentes:
+            print("sem o PDF, fica como está: %s (%s)" % (f["id"], f["pdf"]))
+
     novos = {}
     contagem = collections.Counter()
-    for ficha in PROPRIOS:
+    for ficha in presentes:
         novos[ficha["id"]] = folheto(ficha, pasta, contagem)
 
-    for errado, _, quantas in ERRATAS:
-        if contagem[errado] != quantas:
-            raise SystemExit(
-                "errata %r: esperadas %d ocorrências, achadas %d. O PDF mudou; "
-                "releia antes de gravar." % (errado, quantas, contagem[errado]))
+    # As contagens esperadas são do conjunto dos sete. Com a remessa pela metade
+    # elas não valem, e conferir seria acusar a falta dos que ainda não vieram.
+    if completo:
+        for errado, _, quantas in ERRATAS:
+            if contagem[errado] != quantas:
+                raise SystemExit(
+                    "errata %r: esperadas %d ocorrências, achadas %d. O PDF mudou; "
+                    "releia antes de gravar." % (errado, quantas, contagem[errado]))
 
-    for antes, _, quantas in TINTAS:
-        if contagem[antes] != quantas:
-            raise SystemExit(
-                "tinta %r: esperadas %d ocorrências, achadas %d. O PDF mudou; "
-                "releia antes de gravar." % (antes, quantas, contagem[antes]))
+        for antes, _, quantas in TINTAS:
+            if contagem[antes] != quantas:
+                raise SystemExit(
+                    "tinta %r: esperadas %d ocorrências, achadas %d. O PDF mudou; "
+                    "releia antes de gravar." % (antes, quantas, contagem[antes]))
+    else:
+        print("remessa parcial: as contagens de errata e de tinta só se conferem com os sete")
     # duas peças por folha (Epístola e Evangelho) e um Intróito por folha
     for chave, por_folha in (("aberturas", 2), ("salmos", 1)):
-        if contagem[chave] != por_folha * len(PROPRIOS):
+        if contagem[chave] != por_folha * len(presentes):
             raise SystemExit("%s: esperadas %d, feitas %d"
-                             % (chave, por_folha * len(PROPRIOS), contagem[chave]))
+                             % (chave, por_folha * len(presentes), contagem[chave]))
 
     # substitui o que já existe, no lugar em que está; o resto entra no fim,
     # na ordem da tabela
     saida = []
     for f in colecao["folhetos"]:
         saida.append(novos.pop(f["id"]) if f["id"] in novos else f)
-    for ficha in PROPRIOS:
+    for ficha in presentes:
         if ficha["id"] in novos:
             saida.append(novos.pop(ficha["id"]))
     colecao["folhetos"] = saida
@@ -393,7 +408,7 @@ def main(pasta):
 
     blocos = sum(len(x["blocos"]) for x in saida if x["categoria"] == "proprio")
     print("próprios: %d | blocos: %d | folhetos no arquivo: %d | erratas: %d" % (
-        len(PROPRIOS), blocos, len(saida), sum(contagem[e] for e, _, _ in ERRATAS)))
+        len(presentes), blocos, len(saida), sum(contagem[e] for e, _, _ in ERRATAS)))
     print("gravado em", os.path.normpath(SAIDA),
           "(%d KB)" % (os.path.getsize(SAIDA) // 1024))
 
