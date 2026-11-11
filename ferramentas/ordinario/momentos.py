@@ -167,11 +167,13 @@ EMENDAS = [
 #
 # (seção, âncora, marca). Postura é "pe", "sentado", "joelhos", ou o par
 # {rezada, cantada} onde a revisão separa as duas. A voz média do sacerdote
-# na Missa rezada conta como alta, "para deixar o fiel mais ambientado".
+# na Missa rezada conta como alta, "para deixar o fiel mais ambientado". A
+# oração preparatória e a ação de graças são do próprio fiel, e não silêncio do
+# celebrante: contam como alta, para não sumirem do modo "só voz alta".
 RJ = dict(rezada="joelhos", cantada="pe")   # a rezada de joelhos, a cantada de pé
 
 MOMENTOS = [
-    ("preparacao", "subtitulo:ORAÇÃO PREPARATÓRIA", dict(voz="baixa", postura="joelhos", grupo="preparacao")),
+    ("preparacao", "subtitulo:ORAÇÃO PREPARATÓRIA", dict(voz="alta", postura="joelhos", grupo="preparacao")),
 
     ("asperges", "rubrica:Toca a sineta", dict(voz="alta", postura="pe")),
     ("asperges", "subtitulo:ASPERSÃO", dict(voz="alta", grupo="aspersao")),
@@ -224,7 +226,7 @@ MOMENTOS = [
     ("conclusao", "subtitulo:ÚLTIMO EVANGELHO", dict(voz="alta", postura="pe")),
 
     ("leoninas", "subtitulo:ORAÇÕES NO FIM DA MISSA REZADA", dict(voz="alta", postura="joelhos", grupo="leoninas")),
-    ("acao-de-gracas", "subtitulo:ORAÇÕES DE AÇÃO DE GRAÇAS", dict(voz="baixa", postura="joelhos", grupo="acao-de-gracas")),
+    ("acao-de-gracas", "subtitulo:ORAÇÕES DE AÇÃO DE GRAÇAS", dict(voz="alta", postura="joelhos", grupo="acao-de-gracas")),
 ]
 
 SECOES_MARCADAS = ("preparacao", "asperges", "pe-altar", "catecumenos", "ofertorio",

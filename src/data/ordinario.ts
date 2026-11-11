@@ -113,3 +113,14 @@ export function pecasDoProprio(folheto: Folheto, subtitulos: string[]): PecaDoPr
 
   return pecas.filter((p) => p.blocos.length > 0);
 }
+
+/**
+ * Várias seções de uma vez, na ordem pedida.
+ *
+ * É o que a leitura contínua precisa: a página única baixa as seções em
+ * paralelo, cada uma no seu pedaço, e as que já vieram não baixam de novo.
+ * Devolve nulo no lugar de uma seção que não existe, e a tela a pula.
+ */
+export function carregarSecoes(ids: string[]): Promise<(TextoDaSecao | null)[]> {
+  return Promise.all(ids.map((id) => carregarSecao(id)));
+}

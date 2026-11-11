@@ -59,7 +59,7 @@ export default function Folheto() {
   }
 
   return (
-    <Moldura titulo={folheto.titulo}>
+    <Moldura titulo={folheto.titulo} comProgresso>
       <Cabecalho titulo={folheto.titulo} descricao={folheto.resumo} />
       {folheto.rascunho && <Vazia variante="rascunho" />}
 

@@ -5497,6 +5497,9 @@ button {
 }
 
 .modo-missa__secao {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
   flex: 0 0 auto;
   padding: 0.5rem 0.8rem;
   min-height: var(--alvo-toque);
@@ -5530,46 +5533,6 @@ button {
   color: var(--tinta);
 }
 
-.modo-missa__passos {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.6rem;
-  margin-top: 2rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--fio);
-}
-
-.modo-missa__passo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.6rem 0.9rem;
-  min-height: var(--alvo-toque);
-  border: 1px solid var(--fio-aceso);
-  border-radius: 0.3rem;
-  background: var(--fundo-toque);
-  font-family: var(--sem-serifa);
-  font-size: 0.78rem;
-  color: var(--ouro-tinta);
-  cursor: pointer;
-  text-align: left;
-}
-
-.modo-missa__seta {
-  width: 0.9rem;
-  height: 0.9rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* A mesma seta, virada: a seção anterior fica para trás. */
-.modo-missa__seta--atras {
-  transform: scaleX(-1);
-}
-
 /*
  * O lugar do próprio dentro do Ordinário.
  *
@@ -5585,6 +5548,149 @@ button {
 
 .proprio__peca + .proprio__peca {
   margin-top: 1.2rem;
+}
+
+/* "Ordo Missæ", sob o título */
+.modo-missa__subtitulo {
+  margin: -0.1rem 0 0.6rem;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+}
+
+/*
+ * A página única: as partes da Missa uma atrás da outra, sem cortes. O
+ * `scroll-margin-top` é a barra do alto, que cobriria o título da parte para
+ * onde a lista de partes leva.
+ */
+.ordinario__secao {
+  scroll-margin-top: 4.5rem;
+}
+.ordinario__secao + .ordinario__secao {
+  margin-top: 2.4rem;
+}
+
+/*
+ * As duas escolhas do fiel: o que ler, e se quer as rubricas.
+ *
+ * Botões de alternância, e não caixas de seleção, porque a escolha da voz é
+ * entre duas coisas (uma sempre vale) e a das rubricas liga e desliga. Os
+ * dois com a altura de toque: quem está na capela usa o dedão.
+ */
+.leitura {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
+  margin: 0 0 1rem;
+}
+.leitura__vozes {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.leitura__botao {
+  min-height: var(--alvo-toque);
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--fio);
+  border-radius: 1.4rem;
+  background: transparent;
+  font-family: var(--sem-serifa);
+  font-size: 0.78rem;
+  color: var(--tinta-suave);
+  cursor: pointer;
+}
+.leitura__botao[aria-pressed="true"] {
+  border-color: var(--ouro);
+  background: var(--realce);
+  color: var(--tinta);
+  font-weight: 600;
+}
+.leitura__botao--chave[aria-pressed="false"] {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+/*
+ * Sem rubricas: as do próprio do dia também saem ("Faz-se a comemoração
+ * segundo o tempo"), que vêm de dentro do folheto e não passam pelo filtro
+ * do Ordinário. A remissão "Ver a Missa do dia" fica: é um caminho, não uma
+ * explicação.
+ */
+.ordinario--sem-rubricas .proprio:not(.proprio--vazio) .rubrica {
+  display: none;
+}
+
+/*
+ * A postura do fiel, no ponto em que ela muda: a figura e o nome, numa linha
+ * só. Quando a rezada e a cantada divergem, as duas lado a lado.
+ */
+.postura {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  margin: 1.4rem 0 0.5rem;
+}
+.postura__momento {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem 0.3rem 0.5rem;
+  border: 1px solid var(--fio-aceso);
+  border-radius: 1.2rem;
+  background: var(--fundo-toque);
+  font-family: var(--sem-serifa);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+}
+.postura__rotulo {
+  font-weight: 400;
+}
+.postura__figura {
+  flex: none;
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/*
+ * A parte que se abre e se fecha: a oração preparatória, a aspersão, o
+ * incenso, as Leoninas, a ação de graças. `<details>`, como no calendário: a
+ * seta é a do navegador, abre sem script e o leitor de tela anuncia o estado.
+ */
+.opcional {
+  margin: 1.6rem 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--fio);
+}
+.opcional__resumo {
+  cursor: pointer;
+  list-style-position: outside;
+  padding: 0.15rem 0;
+}
+.opcional__resumo::marker {
+  color: var(--ouro);
+}
+.opcional__rotulo {
+  font-family: var(--sem-serifa);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+.opcional__resumo:hover .opcional__rotulo,
+.opcional__resumo:focus-visible .opcional__rotulo {
+  color: var(--ouro-tinta);
+}
+.opcional[open] > .opcional__resumo {
+  margin-bottom: 0.6rem;
 }
 
 .modo-missa__nome {

@@ -108,7 +108,7 @@ export function DiaDeHoje({ data }: { data?: Date }) {
        * nele daqui, e não pelo menu, porque é a faixa que sabe que dia é.
        */}
       <div className="dia__acoes">
-        <Elo para={`/missa/ordinario?dia=${comoIso(hoje)}`} className="dia__modo-missa">
+        <Elo para={`/missa/dia?dia=${comoIso(hoje)}`} className="dia__modo-missa">
           Acompanhar a Missa
           <Seta className="cartao__seta" />
         </Elo>
@@ -243,7 +243,7 @@ function De1962({ hoje }: { hoje: Date }) {
        * nele daqui, e não pelo menu, porque é a faixa que sabe que dia é.
        */}
       <div className="dia__acoes">
-        <Elo para={`/missa/ordinario?dia=${comoIso(hoje)}`} className="dia__modo-missa">
+        <Elo para={`/missa/dia?dia=${comoIso(hoje)}`} className="dia__modo-missa">
           Acompanhar a Missa
           <Seta className="cartao__seta" />
         </Elo>

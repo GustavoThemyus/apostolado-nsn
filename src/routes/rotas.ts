@@ -49,6 +49,19 @@ const ESTRUTURA: Estrutura[] = [
     pagina: () => import("../pages/Missa"),
   },
   {
+    // O Ordinário e a Missa do dia são o mesmo texto lido de dois jeitos: o
+    // primeiro é o rito inteiro, sem o próprio; o segundo é a Missa de hoje,
+    // da oração preparatória à ação de graças, com o próprio no lugar.
+    padrao: "/missa/ordinario",
+    pai: "/missa",
+    pagina: () => import("../pages/Ordinario"),
+  },
+  {
+    padrao: "/missa/dia",
+    pai: "/missa",
+    pagina: () => import("../pages/MissaDoDia"),
+  },
+  {
     padrao: "/missa/guia",
     pai: "/missa",
     pagina: () => import("../pages/GuiaDaMissa"),
@@ -62,15 +75,6 @@ const ESTRUTURA: Estrutura[] = [
     padrao: "/missa/situacao-canonica",
     pai: "/missa",
     pagina: () => import("../pages/MissaSituacaoCanonica"),
-  },
-  {
-    // No menu e no cartão da Missa, como as outras. Ficou fora no começo
-    // porque se entrava nele pelo botão do calendário, que sabe que dia é
-    // hoje — mas sem `?dia=` a página já abre no dia de hoje sozinha, e quem
-    // procura o Ordinário o procura aqui, não no calendário.
-    padrao: "/missa/ordinario",
-    pai: "/missa",
-    pagina: () => import("../pages/ModoMissa"),
   },
 
   // ----------------------------------------------------------- Calendário

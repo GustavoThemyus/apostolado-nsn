@@ -144,6 +144,42 @@ este é outro impresso, com outras armadilhas.
 - **O título centrado sem espaços.** Chega em fragmentos — "ORDINÁRIO", "DA",
   "MISSA" —, nenhum deles com espaço: colados davam "ORDINÁRIODAMISSA".
 
+## Os momentos: voz, postura e condição
+
+O PDF não classifica nada: escreve "em voz submissa" e "todos de pé" dentro de
+rubricas, e às vezes escreve errado. Quem classificou cada momento foi o Perez,
+na "Revisão dos momentos da Missa" (nov/2026), e o que ele disse está em
+`momentos.py`, em duas tabelas que o gerador aplica antes de gravar:
+
+- **EMENDAS** reescrevem a rubrica do impresso onde a revisão a contradisse e
+  mudam blocos de lugar (a entrada do sacerdote passa a vir antes do Asperges;
+  o Benedícite, para depois das orações ao pé do altar). Cada emenda acha o
+  bloco pelo começo do texto e **para** se não o achar.
+- **MOMENTOS** marcam os blocos com `voz` ("alta" ou "baixa"), `postura` (de
+  pé, sentado, de joelhos, ou o par rezada/cantada onde a revisão os separa),
+  `quando` (a condição do dia) e `grupo` (o que se abre e se fecha junto). Cada
+  marca vale até a seguinte na mesma seção.
+
+`python3 ferramentas/ordinario/momentos.py` aplica as duas sobre os JSON já
+gravados, sem o PDF, e é idempotente. `conferir.py` conhece as emendas: soma ao
+PDF o que elas põem e tira o que elas tiram, e o resto continua exato.
+
+A voz média do sacerdote na Missa rezada conta como **alta**, para o iniciante
+não se perder. A oração preparatória e a ação de graças são do próprio fiel, e
+também contam como alta.
+
+### Como a tela usa
+
+`src/data/ordinarioNaTela.ts` filtra o mesmo texto, sem copiá-lo: tira o que o
+dia não tem (`src/calendario/naMissaDoDia.ts`), o que o fiel não pediu (as
+orações em silêncio, as rubricas) e os títulos que ficam sem nada embaixo. A
+postura vem marcada onde MUDA, e a tela a mostra no primeiro bloco visível
+depois da mudança.
+
+**Para acrescentar uma explicação nova** ao Ordinário, escreva-a como bloco
+`nota` ou `assembleia` (e uma `inserir` em `EMENDAS`, para sobreviver à
+regeneração): o botão "Rubricas e explicações" já a esconde.
+
 ## A conferência
 
 `conferir.py` conta as palavras do PDF e as das treze seções e compara. É

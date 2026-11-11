@@ -25,9 +25,14 @@
     "descricao": "A parte jurídica do rito."
   },
   "/missa/ordinario": {
-    "titulo": "Modo missa",
-    "curto": "Modo missa",
-    "descricao": "O Ordinário da Missa inteiro, com o próprio do dia no lugar, para acompanhar o celebrante."
+    "titulo": "Ordinário da Missa",
+    "curto": "Ordinário",
+    "descricao": "O Ordo Missæ numa página só, para ler ou acompanhar: só o que se diz em voz alta, ou tudo, com a postura do fiel em cada momento."
+  },
+  "/missa/dia": {
+    "titulo": "Missa do dia",
+    "curto": "Missa do dia",
+    "descricao": "Da oração preparatória à ação de graças, com o próprio e as partes que a celebração de hoje pede."
   },
   "/calendario": {
     "titulo": "Calendário Romano Tradicional",

@@ -13,16 +13,22 @@ import { TextoRico } from "./TextoRico";
  * de mão em mão obrigaria `ListaDeBlocos` e `Bloco` a carregarem um dado que
  * só interessa ao Ordinário.
  */
-const FolhetoDoDia = createContext<Folheto | undefined>(undefined);
+const FolhetoDoDia = createContext<{ folheto?: Folheto; dia?: string }>({});
 
+/**
+ * `folheto` é o próprio do dia, quando está transcrito. `dia` (ISO) só serve
+ * ao Ordinário sem próprio, que remete à Missa do dia daquela data.
+ */
 export function ComOProprioDoDia({
   folheto,
+  dia,
   children,
 }: {
   folheto?: Folheto;
+  dia?: string;
   children: ReactNode;
 }) {
-  return <FolhetoDoDia.Provider value={folheto}>{children}</FolhetoDoDia.Provider>;
+  return <FolhetoDoDia.Provider value={{ folheto, dia }}>{children}</FolhetoDoDia.Provider>;
 }
 
 /**
@@ -43,14 +49,20 @@ export function LugarDoProprio({
   nome: string;
   subtitulos: string[];
 }) {
-  const folheto = useContext(FolhetoDoDia);
+  const { folheto, dia } = useContext(FolhetoDoDia);
   const pecas = folheto ? pecasDoProprio(folheto, subtitulos) : [];
 
   if (pecas.length === 0) {
     return (
       <section className="proprio proprio--vazio" aria-label={nome}>
         <h3 className="subtitulo">{nome}</h3>
-        <Rubrica texto="Ver a Missa do dia." />
+        <Rubrica
+          texto={
+            dia
+              ? `[elo:/missa/dia?dia=${dia}]Ver a Missa do dia[/elo].`
+              : "Ver a Missa do dia."
+          }
+        />
       </section>
     );
   }

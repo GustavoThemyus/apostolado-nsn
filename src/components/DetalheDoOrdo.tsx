@@ -259,7 +259,7 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
        * encaixado nos dez lugares que o impresso deixa em branco.
        */}
       <Elo
-        para={`/missa/ordinario?dia=${comoIso(dia.data)}`}
+        para={`/missa/dia?dia=${comoIso(dia.data)}`}
         className="dia__modo-missa"
       >
         Acompanhar a Missa
