@@ -72,7 +72,8 @@ PROPRIOS = [
         drive="106fV_2yxCCsJnGiM7Wz4KdjqOpNsAuAZ",
         titulo="I Domingo do Advento",
         cabecalho=dict(nome="I Domingo do Advento",
-                       grau="Semiduples de 1ª classe – roxo"),
+                       grau="Semiduples de 1ª classe – roxo",
+                       estacao="Estação em Santa Maria Maior"),
         resumo="O próprio da Missa, em latim e em português. Semiduples de 1ª classe, roxo.",
     ),
     dict(
@@ -81,7 +82,8 @@ PROPRIOS = [
         drive="1H9wbaf4Q6raUAfxsZkzs3Nx3_6DIXYPy",
         titulo="II Domingo do Advento",
         cabecalho=dict(nome="II Domingo do Advento",
-                       grau="Semiduples de 2ª classe – roxo"),
+                       grau="Semiduples de 2ª classe – roxo",
+                       estacao="Estação em Santa Cruz de Jerusalém"),
         resumo="O próprio da Missa, em latim e em português. Semiduples de 2ª classe, roxo.",
     ),
     dict(
@@ -244,6 +246,11 @@ def numerarSalmo(blocos):
         if bloco["tipo"] != "subtitulo" or not bloco["texto"].startswith("Intróito"):
             continue
         par = blocos[n + 1]
+        # nos PDFs revistos a tradução já traz a referência ("Sl. Ibid.,4."), e
+        # o que o Perez escreveu vale: não se mexe
+        if re.search(r"\[i\]Sl\. ?\S", par["portugues"][0]["texto"]):
+            feitas += 1
+            continue
         latim = re.findall(r"\[i\]Ps\. ([^\[]*?)\[/i\]", par["latim"][0]["texto"])
         if len(latim) != 1 or par["portugues"][0]["texto"].count("[i]Sl.[/i]") != 1:
             raise SystemExit("Intróito: esperada uma referência de salmo de cada lado")
@@ -319,7 +326,7 @@ def conferirCabecalho(caminho, cabecalho):
     pagina = subprocess.run(["pdftotext", "-f", "1", "-l", "1", "-raw", caminho, "-"],
                             capture_output=True, check=True).stdout.decode("utf-8")
     achatado = " ".join(pagina.split())
-    for campo in ("data", "nome", "grau"):
+    for campo in ("data", "nome", "grau", "estacao"):
         linha = cabecalho.get(campo)
         if linha and " ".join(linha.split()) not in achatado:
             raise SystemExit("%s: a linha %s do cabeçalho não está na 1ª página: %r"

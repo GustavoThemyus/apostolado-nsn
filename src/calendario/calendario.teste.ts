@@ -392,6 +392,16 @@ suite("O que o Ordinário mostra em cada dia", () => {
   conferir("o Ordo, quando há, é a fonte declarada",
     naMissaDoDia(dia("2026-12-08"), naOrdo).fonte, "ordo");
 
+  conferir("Advento: Benedicámus Dómino, e não Ite", dom1Advento.fecho, "benedicamus");
+  conferir("Imaculada: Ite, Missa est", imaculada.fecho, "ite");
+  conferir("Finados: Requiéscant in pace", finados.fecho, "requiescant");
+  conferir("Quinta-feira Santa não tem despedida de Missa comum", quintaSanta.fecho, null);
+  conferir("o Ordo manda na despedida",
+    naMissaDoDia(dia("2026-12-08"), { ...naOrdo, gloria: true, fecho: "Benedicamus Domino" }).fecho, "benedicamus");
+  conferir("só o Ite vale no dia do Ite",
+    condicaoValeNoDia("ite", imaculada) && !condicaoValeNoDia("benedicamus", imaculada)
+      && !condicaoValeNoDia("requiescant", imaculada), true);
+
   conferir("bloco sem condição vale sempre", condicaoValeNoDia(undefined, dom1Advento), true);
   conferir("Glória fora do dia some", condicaoValeNoDia("gloria", dom1Advento), false);
   conferir("Vidi aquam fora do Pascal some", condicaoValeNoDia("vidi-aquam", dom1Advento), false);

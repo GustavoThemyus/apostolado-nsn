@@ -28,21 +28,21 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.O Senhor esteja convosco."
+     "texto": "O Senhor esteja convosco."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.E com o teu espírito."
+     "texto": "[b]℟. E com o teu espírito.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "℣. Dóminus vobíscum."
+     "texto": "Dóminus vobíscum."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Et cum spíritu tuo."
+     "texto": "[b]℟. Et cum spíritu tuo.[/b]"
     }
    ],
    "voz": "alta"
@@ -62,13 +62,13 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.Orémus."
+     "texto": "Orémus."
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.Oremos."
+     "texto": "Oremos."
     }
    ],
    "voz": "alta"
@@ -381,29 +381,29 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "S. Orai, irmãos, para que o meu e o vosso sacrifício seja aceito perante Deus Pai onipotente."
+     "texto": "Orai, irmãos, para que o meu e o vosso sacrifício seja aceito perante Deus Pai onipotente."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Receba o Senhor o sacrifício de tuas mãos para louvor e glória de seu nome, também para a nossa utilidade e de toda a sua santa Igreja."
+     "texto": "[b]℟. Receba o Senhor o sacrifício de tuas mãos para louvor e glória de seu nome, também para a nossa utilidade e de toda a sua santa Igreja.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "S. Amém."
+     "texto": "Amém."
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "S. Oráte, fratres: ut meum ac vestrum sacrifícium acceptábile fiat apud Deum Patrem omnipoténtem."
+     "texto": "Oráte, fratres: ut meum ac vestrum sacrifícium acceptábile fiat apud Deum Patrem omnipoténtem."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Suscípiat Dóminus sacrifícium de mánibus tuis ad laudem et glóriam nominis sui, ad utilitátem quoque nostram, totiúsque Ecclésiæ suæ sanctæ."
+     "texto": "[b]℟. Suscípiat Dóminus sacrifícium de mánibus tuis ad laudem et glóriam nominis sui, ad utilitátem quoque nostram, totiúsque Ecclésiæ suæ sanctæ.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "S. Amen."
+     "texto": "Amen."
     }
    ],
    "voz": "alta"
@@ -446,69 +446,69 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.Por todos os séculos dos séculos."
+     "texto": "Por todos os séculos dos séculos."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Amém."
+     "texto": "[b]℟. Amém.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℣.O Senhor esteja convosco."
+     "texto": "O Senhor esteja convosco."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. E com o teu espírito."
+     "texto": "[b]℟. E com o teu espírito.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℣. Corações para o alto."
+     "texto": "Corações para o alto."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Temos no Senhor."
+     "texto": "[b]℟. Temos no Senhor.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℣. Graças rendamos ao Senhor, nosso Deus."
+     "texto": "Graças rendamos ao Senhor, nosso Deus."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. É digno e justo."
+     "texto": "[b]℟. É digno e justo.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.Per ómnia sǽcula sæculórum."
+     "texto": "Per ómnia sǽcula sæculórum."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Amen."
+     "texto": "[b]℟. Amen.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℣.Dóminus vobíscum."
+     "texto": "Dóminus vobíscum."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Et cum spíritu tuo."
+     "texto": "[b]℟. Et cum spíritu tuo.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℣.Sursum corda."
+     "texto": "Sursum corda."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Habémus ad Dóminum."
+     "texto": "[b]℟. Habémus ad Dóminum.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℣.Grátias agámus Dómino, Deo nostro."
+     "texto": "Grátias agámus Dómino, Deo nostro."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Dignum et iustum est."
+     "texto": "[b]℟. Dignum et iustum est.[/b]"
     }
    ],
    "voz": "alta"

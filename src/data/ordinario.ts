@@ -124,3 +124,83 @@ export function pecasDoProprio(folheto: Folheto, subtitulos: string[]): PecaDoPr
 export function carregarSecoes(ids: string[]): Promise<(TextoDaSecao | null)[]> {
   return Promise.all(ids.map((id) => carregarSecao(id)));
 }
+
+/*
+ * O Evangelho do dia dentro do Ordinário.
+ *
+ * O impresso escreve "Sequéntia (Inítium) sancti Evangélii secúndum N." e
+ * remete ao próprio, porque o evangelista e o "sequência" ou "início" mudam
+ * todo domingo. O folheto de próprio já traz a fórmula certa na primeira
+ * linha do Evangelho, e o texto propriamente dito vem depois dela, a partir
+ * do "In illo témpore". Então a fórmula do dia entra no lugar do "N." do
+ * Ordinário, e o Evangelho do próprio passa a abrir pelo "In illo témpore".
+ */
+const FORMULA = /^((?:Sequéntia|Sequência|Seqüência|Inítium|Início)[^.:]*[.:])(?:\s+([\s\S]*))?$/;
+const FORMULA_NO_ORDINARIO_LATIM = /Sequéntia \(Inítium\) sancti Evangélii secúndum[\s\S]*$/;
+const FORMULA_NO_ORDINARIO_PT = /Seqüência \(Início\) do Santo Evangelho segundo[\s\S]*$/;
+
+export interface AberturaDoEvangelho {
+  latim: string;
+  portugues: string;
+}
+
+type Bilingue = Extract<Bloco, { tipo: "bilingue" }>;
+
+const primeiroBilingue = (blocos: Bloco[]): Bilingue | undefined =>
+  blocos.find((b): b is Bilingue => b.tipo === "bilingue");
+
+/** A fórmula do Evangelho do dia, nas duas línguas, tirada do próprio. */
+export function aberturaDoEvangelho(folheto: Folheto): AberturaDoEvangelho | undefined {
+  const par = primeiroBilingue(pecasDoProprio(folheto, ["Evangelho"])[0]?.blocos ?? []);
+  const latim = par?.latim[0]?.tipo === "paragrafo" ? FORMULA.exec(par.latim[0].texto) : null;
+  const pt = par?.portugues[0]?.tipo === "paragrafo" ? FORMULA.exec(par.portugues[0].texto) : null;
+  if (!latim || !pt) return undefined;
+  // a tradução às vezes fecha a fórmula com dois-pontos, e na linha do Ordinário é ponto
+  return { latim: latim[1], portugues: pt[1].replace(/:$/, ".") };
+}
+
+/**
+ * O Evangelho do próprio sem a fórmula de abertura, que já foi para o
+ * Ordinário. Aceita os dois jeitos de o folheto trazê-la: num parágrafo à
+ * parte, ou no mesmo parágrafo do texto.
+ */
+export function semAberturaDoEvangelho(blocos: Bloco[]): Bloco[] {
+  const par = primeiroBilingue(blocos);
+  if (!par) return blocos;
+  const lado = (ps: Bloco[]): Bloco[] | null => {
+    const p = ps[0];
+    const f = p?.tipo === "paragrafo" ? FORMULA.exec(p.texto) : null;
+    if (!f) return null;
+    return f[2] ? [{ ...p, texto: f[2] } as Bloco, ...ps.slice(1)] : ps.slice(1);
+  };
+  const latim = lado(par.latim);
+  const portugues = lado(par.portugues);
+  if (!latim || !portugues) return blocos;
+  return blocos.map((b) => (b === par ? { ...par, latim, portugues } : b));
+}
+
+/**
+ * Põe a fórmula do dia na linha "Sequéntia (Inítium) … N." do Ordinário.
+ * Devolve também se achou a linha: sem achá-la, o Evangelho do próprio fica
+ * com a sua fórmula, e ela não some de lugar nenhum.
+ */
+export function comEvangelhoDoDia(
+  blocos: Bloco[],
+  abertura: AberturaDoEvangelho,
+): { blocos: Bloco[]; substituiu: boolean } {
+  let substituiu = false;
+  const novos = blocos.map((b) => {
+    if (b.tipo !== "bilingue" || !b.latim.some((p) => p.tipo === "paragrafo" && FORMULA_NO_ORDINARIO_LATIM.test(p.texto))) {
+      return b;
+    }
+    const troca = (ps: Bloco[], achar: RegExp, por: string): Bloco[] =>
+      ps.map((p) => (p.tipo === "paragrafo" && achar.test(p.texto) ? { ...p, texto: p.texto.replace(achar, por) } : p));
+    substituiu = true;
+    return {
+      ...b,
+      latim: troca(b.latim, FORMULA_NO_ORDINARIO_LATIM, abertura.latim),
+      portugues: troca(b.portugues, FORMULA_NO_ORDINARIO_PT, abertura.portugues),
+    };
+  });
+  return { blocos: novos, substituiu };
+}

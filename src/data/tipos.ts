@@ -70,7 +70,9 @@ export type PosturaDoMomento = Postura | { rezada: Postura; cantada: Postura };
 export interface Marcas {
   voz?: "alta" | "baixa";
   postura?: PosturaDoMomento;
-  quando?: "asperges" | "vidi-aquam" | "salmo-42" | "gloria" | "credo" | "incenso";
+  quando?:
+    | "asperges" | "vidi-aquam" | "salmo-42" | "gloria" | "credo" | "incenso"
+    | "ite" | "benedicamus" | "requiescant";
   grupo?: string;
 }
 
@@ -275,7 +277,7 @@ export interface Folheto {
    * data, e o nome impresso pode ser maior que o `titulo`, que é curto
    * porque vai para a aba do navegador e para o WhatsApp.
    */
-  cabecalho?: { data?: string; nome: string; grau: string };
+  cabecalho?: { data?: string; nome: string; grau: string; estacao?: string };
   /**
    * A obra indulgenciada: o que se tem de fazer para lucrar a indulgência.
    *

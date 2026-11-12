@@ -16,7 +16,7 @@ import io, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from extrair import extrair
-from momentos import SECOES_MARCADAS, aplicar
+from momentos import SECOES_ROTULADAS, aplicar
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SAIDA = os.path.join(RAIZ, "src", "data", "ordinario")
@@ -155,7 +155,7 @@ def main(pdf):
     # Voz, postura e condição de cada momento, e as emendas da revisão do Perez:
     # tudo em `momentos.py`, aplicado aqui para uma remessa nova sair marcada.
     sites = {s[0]: [comoBlocoDoSite(b) for b in crus] for s, crus in partes}
-    aplicar({id_: sites[id_] for id_ in SECOES_MARCADAS})
+    aplicar({id_: sites[id_] for id_ in SECOES_ROTULADAS})
 
     for (id_, titulo, _, _), _crus in partes:
         dentro = sites[id_]

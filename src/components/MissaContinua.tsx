@@ -4,7 +4,13 @@ import { naMissaDoOrdo, temOrdo } from "../calendario/ordo";
 import { naMissaDoDia, type NaMissaDoDia } from "../calendario/naMissaDoDia";
 import { folhetoDoDia } from "../calendario/proprioDoDia";
 import { porId } from "../data/folhetos";
-import { SECOES, carregarSecoes, type TextoDaSecao } from "../data/ordinario";
+import {
+  SECOES,
+  aberturaDoEvangelho,
+  carregarSecoes,
+  comEvangelhoDoDia,
+  type TextoDaSecao,
+} from "../data/ordinario";
 import { montarSecoes, type ItemNaTela, type OpcoesDeLeitura } from "../data/ordinarioNaTela";
 import { usarOrdo } from "../hooks/usarOrdo";
 import { Elo } from "../routes/Elo";
@@ -189,9 +195,24 @@ export function MissaContinua({
   }, [ids]);
 
   const [opcoes, mudar] = usarOpcoes();
+
+  // O Evangelho do dia entra na linha "Sequéntia (Inítium) … N." do Ordinário
+  const comEvangelho = useMemo(() => {
+    const abertura = folheto ? aberturaDoEvangelho(folheto) : undefined;
+    if (!carregadas || !abertura) return { secoes: carregadas, mesclado: false };
+    let mesclado = false;
+    const secoes = carregadas.map((s) => {
+      if (s.id !== "catecumenos") return s;
+      const r = comEvangelhoDoDia(s.blocos, abertura);
+      mesclado = r.substituiu;
+      return { ...s, blocos: r.blocos };
+    });
+    return { secoes, mesclado };
+  }, [carregadas, folheto]);
+
   const secoes = useMemo(
-    () => (carregadas ? montarSecoes(carregadas, naDoDia, opcoes) : []),
-    [carregadas, naDoDia, opcoes],
+    () => (comEvangelho.secoes ? montarSecoes(comEvangelho.secoes, naDoDia, opcoes) : []),
+    [comEvangelho, naDoDia, opcoes],
   );
   const comTexto = secoes.filter((s) => s.itens.length > 0);
   const abreComTitulo = (id: string) =>
@@ -264,7 +285,7 @@ export function MissaContinua({
           </nav>
 
           <article className={"folheto folheto--proprio" + (opcoes.rubricas ? "" : " ordinario--sem-rubricas")}>
-            <ComOProprioDoDia folheto={folheto} dia={iso}>
+            <ComOProprioDoDia folheto={folheto} dia={iso} evangelhoNoOrdinario={comEvangelho.mesclado}>
               {!carregadas || esperandoOrdo ? (
                 <p className="modo-missa__aviso">Carregando…</p>
               ) : (

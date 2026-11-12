@@ -4942,6 +4942,15 @@ button {
   color: var(--tinta);
 }
 
+/* "Estação em Santa Maria Maior": a igreja de Roma da Missa do dia, sob o grau. */
+.folheto__estacao {
+  margin: 0.1rem 0 0;
+  font-family: var(--serifada);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
 /* A linha de grau e cor, que no impresso é menor que o nome e não é título. */
 .folheto__grau {
   margin: 0;
@@ -5170,6 +5179,26 @@ button {
 }
 @media (max-width: 55.99rem) {
   .folheto--proprio .peca--leitura .bilingue__lado > .paragrafo:nth-child(2)::first-letter {
+    font-size: 2.1em;
+  }
+}
+
+/*
+ * O Evangelho dentro do Ordinário: a fórmula ("Sequéntia sancti Evangélii…")
+ * já está na linha do Ordinário, e o próprio abre direto pelo "In illo
+ * témpore". É esse primeiro parágrafo que leva a capitular, no lugar do
+ * segundo.
+ */
+.folheto--proprio .peca--abertura-fora .bilingue__lado > .paragrafo:first-child::first-letter {
+  float: left;
+  margin: 0.08em 0.1em 0 0;
+  font-family: var(--titular);
+  font-size: 2.6em;
+  line-height: 0.82;
+  color: var(--rubrica);
+}
+@media (max-width: 55.99rem) {
+  .folheto--proprio .peca--abertura-fora .bilingue__lado > .paragrafo:first-child::first-letter {
     font-size: 2.1em;
   }
 }

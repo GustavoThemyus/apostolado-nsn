@@ -101,6 +101,9 @@ export default function Folheto() {
               )}
               <h2 className="folheto__nome">{folheto.cabecalho.nome}</h2>
               <p className="folheto__grau">{folheto.cabecalho.grau}</p>
+              {folheto.cabecalho.estacao && (
+                <p className="folheto__estacao">{folheto.cabecalho.estacao}</p>
+              )}
             </header>
           )}
 

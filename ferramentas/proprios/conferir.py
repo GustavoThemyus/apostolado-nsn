@@ -53,6 +53,39 @@ def textosDo(bloco):
         yield bloco["texto"]
 
 
+def casarQuebras(faltando, sobrando):
+    """
+    Uma palavra que o PDF quebra entre duas páginas e o site tem inteira.
+
+    O `pdftotext -raw` entrega uma coluna de cada vez, e a quebra no meio de
+    uma página emenda por vizinhança (ver `main`). A que cai no fim da coluna
+    de uma página e continua na seguinte não: no meio delas vem a outra
+    coluna. Para essas vale o contrário: cada palavra que sobra no site e que
+    se parte em duas — uma delas faltando — é uma quebra de linha, e a metade
+    que faltava sai da conta. O que resta em `faltando` é palavra que sumiu.
+
+    A outra metade pode ser palavra comum ("de|vemos"), que não aparece em
+    `faltando` por ter ficado equilibrada, e por isso basta que uma das duas
+    esteja lá.
+    """
+    for inteira in list(sobrando):
+        achou = True
+        while achou and sobrando[inteira] > 0:
+            achou = False
+            for k in range(1, len(inteira)):
+                x, y = inteira[:k], inteira[k:]
+                metades = [m for m in (x, y) if faltando.get(m)]
+                if not metades:
+                    continue
+                for metade in metades:
+                    faltando[metade] -= 1
+                    if faltando[metade] <= 0:
+                        del faltando[metade]
+                sobrando[inteira] -= 1
+                achou = True
+                break
+
+
 def main(pasta):
     with io.open(SAIDA, encoding="utf-8") as f:
         porId = {x["id"]: x for x in json.load(f)["folhetos"]}
@@ -71,6 +104,8 @@ def main(pasta):
             continue
         cru = subprocess.run(["pdftotext", "-raw", caminho, "-"],
                              capture_output=True, check=True).stdout.decode("utf-8")
+        # o número da página, que o extrator também descarta
+        cru = re.sub(r"(?m)^\s*\d{1,2}\s*$", "", cru)
         # as gralhas conhecidas saem corrigidas no site; aqui se corrigem
         # também no PDF, senão a conferência acusaria a correção como perda
         for errado, certo, _ in ERRATAS:
@@ -79,18 +114,25 @@ def main(pasta):
         # o cabeçalho do PDF (nome da festa, data, grau e cor) não vira bloco:
         # vira título e resumo do folheto, e por isso entra na conta por eles
         noSite = palavras("\n".join(
-            [folheto["titulo"], folheto["resumo"]]
+            [folheto["titulo"], folheto["resumo"], *folheto.get("cabecalho", {}).values()]
             + [t for b in folheto["blocos"] for t in textosDo(b)]))
+        # A quebra de linha em hífen no meio de uma coluna emenda com a linha
+        # seguinte. Emenda sem hífen quando o site tem a palavra inteira ("sé-" e
+        # "culos" são "séculos"), e com ele quando não tem ("ver-" e "se"). É o
+        # site que desempata: se o extrator manteve um hífen que não devia, esta
+        # conta não vê — quem vê é a lista de hífens mantidos que o gerador
+        # imprime, para ser lida.
+        doSite = set(noSite)
+        cru = re.sub(
+            r"(\w+)-\n(\w+)",
+            lambda m: (m.group(1) + m.group(2)
+                       if (m.group(1) + m.group(2)).lower() in doSite
+                       else m.group(1) + "-" + m.group(2)),
+            cru)
         noPdf = palavras(cru, marcado=False)
-        # o número do salmo que o gerador passa do latim para o "Sl." português
-        # é palavra repetida de propósito: o PDF a traz uma vez, o site duas
-        for b in folheto["blocos"]:
-            if b["tipo"] == "bilingue" and b["portugues"]:
-                ref = re.search(r"\[i\]Sl\. ([^\[]+?)\.?\[/i\]", b["portugues"][0].get("texto", ""))
-                if ref:
-                    noPdf += palavras(ref.group(1), marcado=False)
 
         faltando = noPdf - noSite
+        casarQuebras(faltando, noSite - noPdf)
         if faltando:
             print("%-30s FALTANDO %s" % (ficha["id"], dict(sorted(faltando.items()))))
             problemas += 1

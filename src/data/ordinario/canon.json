@@ -506,21 +506,21 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.Por todos os séculos dos séculos."
+     "texto": "Por todos os séculos dos séculos."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Amém."
+     "texto": "[b]℟. Amém.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.Per ómnia sǽcula sæculórum."
+     "texto": "Per ómnia sǽcula sæculórum."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Amen."
+     "texto": "[b]℟. Amen.[/b]"
     }
    ],
    "voz": "alta"

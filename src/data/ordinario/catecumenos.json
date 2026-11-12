@@ -49,77 +49,77 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "S. Senhor, piedade."
+     "texto": "Senhor, piedade."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Senhor, piedade."
+     "texto": "[b]℟. Senhor, piedade.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "S. Senhor, piedade."
+     "texto": "Senhor, piedade."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Cristo, piedade."
+     "texto": "[b]℟. Cristo, piedade.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "S. Cristo, piedade."
+     "texto": "Cristo, piedade."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Cristo, piedade."
+     "texto": "[b]℟. Cristo, piedade.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "S. Senhor, piedade."
+     "texto": "Senhor, piedade."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Senhor, piedade."
+     "texto": "[b]℟. Senhor, piedade.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "S. Senhor, piedade."
+     "texto": "Senhor, piedade."
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "S. Kýrie, eléison."
+     "texto": "Kýrie, eléison."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Kýrie, eléison."
+     "texto": "[b]℟. Kýrie, eléison.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "S. Kýrie, eléison."
+     "texto": "Kýrie, eléison."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Christe, eléison."
+     "texto": "[b]℟. Christe, eléison.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "S. Christe, eléison."
+     "texto": "Christe, eléison."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Christe, eléison."
+     "texto": "[b]℟. Christe, eléison.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "S. Kýrie, eléison."
+     "texto": "Kýrie, eléison."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Kýrie, eléison."
+     "texto": "[b]℟. Kýrie, eléison.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "S. Kýrie, eléison."
+     "texto": "Kýrie, eléison."
     }
    ],
    "voz": "alta"
@@ -164,21 +164,21 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.O Senhor esteja convosco."
+     "texto": "O Senhor esteja convosco."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.E com o teu espírito."
+     "texto": "[b]℟. E com o teu espírito.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "℣. Dóminus vobíscum."
+     "texto": "Dóminus vobíscum."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Et cum spíritu tuo."
+     "texto": "[b]℟. Et cum spíritu tuo.[/b]"
     }
    ],
    "voz": "alta"
@@ -277,37 +277,37 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.O Senhor esteja convosco."
+     "texto": "O Senhor esteja convosco."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.E com o teu espírito."
+     "texto": "[b]℟. E com o teu espírito.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℣.Seqüência (Início) do Santo Evangelho segundo [i]N.[/i]"
+     "texto": "Seqüência (Início) do Santo Evangelho segundo [i]N.[/i]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Glória a Vós, Senhor."
+     "texto": "[b]℟. Glória a Vós, Senhor.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "℣. Dóminus vobíscum."
+     "texto": "Dóminus vobíscum."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Et cum spíritu tuo."
+     "texto": "[b]℟. Et cum spíritu tuo.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℣.Sequéntia (Inítium) sancti Evangélii secúndum [i]N.[/i]"
+     "texto": "Sequéntia (Inítium) sancti Evangélii secúndum [i]N.[/i]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Glória tibi, Dómine."
+     "texto": "[b]℟. Glória tibi, Dómine.[/b]"
     }
    ],
    "voz": "alta"
@@ -330,13 +330,13 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "M. Louvor a Vós, Cristo."
+     "texto": "[b]℟. Louvor a Vós, Cristo.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "M. Laus tibi, Christe."
+     "texto": "[b]℟. Laus tibi, Christe.[/b]"
     }
    ],
    "voz": "alta"

@@ -13,98 +13,111 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.O Deus esteja convosco."
+     "texto": "O Deus esteja convosco."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. E com o teu espírito."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℣. Ide, estais enviados."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℟. Graças a Deus."
+     "texto": "[b]℟. E com o teu espírito.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "℣. Dóminus vobíscum."
+     "texto": "Dóminus vobíscum."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Et cum spíritu tuo."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℣. Ite, missa est."
-    },
-    {
-     "tipo": "paragrafo",
-     "texto": "℟. Deo gratias."
+     "texto": "[b]℟. Et cum spíritu tuo.[/b]"
     }
    ],
    "voz": "alta"
   },
   {
+   "tipo": "bilingue",
+   "latim": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Ite, missa est."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "[b]℟. Deo gratias.[/b]"
+    }
+   ],
+   "portugues": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Ide, estais enviados."
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "[b]℟. Graças a Deus.[/b]"
+    }
+   ],
+   "voz": "alta",
+   "quando": "ite"
+  },
+  {
    "tipo": "rubrica",
-   "texto": "[i]Se alguma ação litúrgica se segue à Missa, diz-se:[/i]",
-   "voz": "alta"
+   "texto": "[i]Nas Missas em que não se diz o[/i] Ite, missa est[i] (sem Glória, ou quando se segue alguma ação litúrgica), diz-se:[/i]",
+   "voz": "alta",
+   "quando": "benedicamus"
   },
   {
    "tipo": "bilingue",
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "℣. Bendigamos ao Senhor."
+     "texto": "Bendigamos ao Senhor."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Graças a Deus."
+     "texto": "[b]℟. Graças a Deus.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "℣. Benedicámus Dómino."
+     "texto": "Benedicámus Dómino."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Deo gratias."
+     "texto": "[b]℟. Deo gratias.[/b]"
     }
    ],
-   "voz": "alta"
+   "voz": "alta",
+   "quando": "benedicamus"
   },
   {
    "tipo": "rubrica",
    "texto": "[i]Nas Missas dos Defuntos:[/i]",
-   "voz": "alta"
+   "voz": "alta",
+   "quando": "requiescant"
   },
   {
    "tipo": "bilingue",
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "℣. Descanssem em paz."
+     "texto": "Descanssem em paz."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Amen."
+     "texto": "[b]℟. Amen.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "℣. Requiéscant in pace."
+     "texto": "Requiéscant in pace."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Amen."
+     "texto": "[b]℟. Amen.[/b]"
     }
    ],
-   "voz": "alta"
+   "voz": "alta",
+   "quando": "requiescant"
   },
   {
    "tipo": "rubrica",
@@ -138,21 +151,21 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "S. Abençoe-vos o Deus onipotente, Pai e Filho ✠ e Espírito Santo."
+     "texto": "Abençoe-vos o Deus onipotente, Pai e Filho ✠ e Espírito Santo."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Amém."
+     "texto": "[b]℟. Amém.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "S. Benedícat vos omnípotens Deus, Pater, et Fílius, ✠ et Spíritus Sanctus."
+     "texto": "Benedícat vos omnípotens Deus, Pater, et Fílius, ✠ et Spíritus Sanctus."
     },
     {
      "tipo": "paragrafo",
-     "texto": "M. Amen."
+     "texto": "[b]℟. Amen.[/b]"
     }
    ],
    "voz": "alta"
@@ -173,37 +186,37 @@
    "portugues": [
     {
      "tipo": "paragrafo",
-     "texto": "℣.O Senhor esteja convosco."
+     "texto": "O Senhor esteja convosco."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.E com o teu espírito."
+     "texto": "[b]℟. E com o teu espírito.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℣.Início do Santo Evangelho segundo João."
+     "texto": "Início do Santo Evangelho segundo João."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Glória a Vós, Senhor."
+     "texto": "[b]℟. Glória a Vós, Senhor.[/b]"
     }
    ],
    "latim": [
     {
      "tipo": "paragrafo",
-     "texto": "℣. Dóminus vobíscum."
+     "texto": "Dóminus vobíscum."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Et cum spíritu tuo."
+     "texto": "[b]℟. Et cum spíritu tuo.[/b]"
     },
     {
      "tipo": "paragrafo",
-     "texto": "℣.Inítium sancti Evangélii secúndum Ioánnem."
+     "texto": "Inítium sancti Evangélii secúndum Ioánnem."
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟.Glória tibi, Dómine."
+     "texto": "[b]℟. Glória tibi, Dómine.[/b]"
     }
    ],
    "voz": "alta"
@@ -222,7 +235,7 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Graças a Deus."
+     "texto": "[b]℟. Graças a Deus.[/b]"
     }
    ],
    "latim": [
@@ -232,7 +245,7 @@
     },
     {
      "tipo": "paragrafo",
-     "texto": "℟. Deo gratias."
+     "texto": "[b]℟. Deo gratias.[/b]"
     }
    ],
    "voz": "alta"

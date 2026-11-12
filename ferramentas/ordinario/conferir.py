@@ -23,7 +23,7 @@ import collections, io, json, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerar import SAIDA, SECOES, comoBlocoDoSite, nomearProprios, repartir
 from extrair import extrair
-from momentos import SECOES_MARCADAS, emendar
+from momentos import SECOES_ROTULADAS, emendar
 
 PALAVRA = re.compile(r"[\wÀ-ɏ'’]+")
 # As marcas do texto rico, uma a uma, e não `[a-z]+`: o impresso põe entre
@@ -85,7 +85,7 @@ def efeitoDasEmendas(pdf):
     nomearProprios(blocos)
     secoes = {s[0]: [comoBlocoDoSite(b) for b in crus] for s, crus in repartir(blocos)}
     antes = contaDeBlocos(secoes)
-    emendar({id_: secoes[id_] for id_ in SECOES_MARCADAS})
+    emendar({id_: secoes[id_] for id_ in SECOES_ROTULADAS})
     depois = contaDeBlocos(secoes)
     return antes - depois, depois - antes
 

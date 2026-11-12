@@ -88,33 +88,92 @@ def juntar(fs):
     inteiro colava a abreviatura na palavra anterior, "confundidos.Sl.".
     """
     partes = []
+    fim = None
     for f in fs:
         t = re.sub(r"\s+", " ", f["texto"])
+        # Dois fragmentos a 3px ou mais um do outro têm um espaço entre eles, que
+        # o PDF não escreveu: "Deo" e "grátias." do "℟.Deo grátias." vêm cada um
+        # no seu, e coladas saíam "Deográtias". Menos de 3px é a mesma palavra
+        # ("Ecclési" e o "æ", que vem de outra fonte).
+        if (partes and fim is not None and f["esq"] - fim >= 3
+                and not partes[-1][-1:].isspace() and not t[:1].isspace()
+                and not re.match(r"[.,;:!?)»\]]", t)):
+            partes.append(" ")
+        fim = f["esq"] + f["largura"]
         if f["italico"] and t.strip():
             t = "%s[i]%s[/i]%s" % (
                 " " if t[:1] == " " else "", t.strip(), " " if t[-1:] == " " else "")
         partes.append(t)
-    return re.sub(r"\s+", " ", "".join(partes)).strip()
+    # fragmentos em itálico colados, sem espaço entre eles, são uma palavra só: o
+    # "æ" de "Ecclési|æ" vem de outra fonte, e é fragmento à parte
+    texto = re.sub(r"\s+", " ", "".join(partes).replace("[/i][i]", "")).strip()
+    # o espaço que o PDF deixou no fim de um fragmento, antes do ponto que vem
+    # em outro: "grátias" + "." saía "grátias ."
+    return re.sub(r"\s+(?=(?:\[i\])?[.,;)»])", "", texto)
 
 
-def costurar(linhas_):
+# O que se cola a um verbo com hífen, em português: "aproxima-se", "Mostrai-nos",
+# "salvar-nos-á", "Louvar-Vos-ei". Na segunda palavra de uma quebra de linha,
+# qualquer destes é hífen de verdade; qualquer outra coisa é sílaba.
+CLITICOS = {"me", "te", "se", "lhe", "lhes", "nos", "vos", "o", "a", "os", "as",
+            "no", "na", "nas", "ei", "á", "ás", "ão", "emos", "eis"}
+# "dizê-lo", "levá-la": só depois de vogal acentuada. Sem acento, "discípu-los" e
+# "mu-la" são sílabas.
+CLITICOS_DE_ACENTO = {"lo", "la", "los", "las"}
+
+# O que ficou com hífen, para quem gera conferir de olho: é a parte do trabalho
+# que nenhuma contagem de palavras pega.
+HIFENS_MANTIDOS = []
+
+
+def hifenDeVerdade(proxima, lingua, anterior=""):
+    """
+    O hífen no fim da linha é do texto, ou é separação silábica do Word?
+
+    Até os primeiros PDFs o Word não hifenizava, e toda quebra em hífen era
+    hífen de verdade. Os PDFs revistos pelo Perez são hifenizados, e "sé-" /
+    "culos" não leva hífen nenhum. Em latim nunca há hífen de verdade. Em
+    português há quando o que vem depois é um pronome ou terminação ligada ao
+    verbo; a lista é fechada e curta, e erra para o lado de tirar o hífen só
+    quando a palavra seguinte não é nenhuma delas.
+    """
+    if lingua == "la":
+        return False
+    palavra = re.match(r"[A-Za-zÀ-ÿ]+", re.sub(r"^\[/?i\]", "", proxima))
+    if not palavra:
+        return False
+    segunda = palavra.group(0).lower()
+    antes = re.search(r"[A-Za-zÀ-ÿ]+-$", re.sub(r"\[/?i\]", "", anterior))
+    radical = antes.group(0)[:-1] if antes else ""
+    # fragmento de uma ou duas letras antes do hífen é sílaba: "po-vos", "Fi-lho"
+    if len(radical) < 3:
+        return False
+    if segunda in CLITICOS_DE_ACENTO:
+        return radical[-1] in "áéíóúâêôàã"
+    return segunda in CLITICOS
+
+
+def costurar(linhas_, lingua="pt"):
     """
     As linhas de uma coluna viram um parágrafo.
 
-    Linha que termina em hífen emenda na seguinte sem espaço, e **com** o
-    hífen: conferidos os sete próprios, todas as sete quebras assim são
-    hífen de verdade — "aproxima-se", "Mostrai-nos", "salvar-nos-á",
-    "bem-aventurados" —, nenhuma é separação silábica. O Word não hifeniza
-    sozinho, e é por isso que não há nenhuma.
+    Linha que termina em hífen emenda na seguinte sem espaço. O hífen fica ou
+    sai conforme `hifenDeVerdade`: nos PDFs revistos o Word hifeniza sozinho,
+    e a maior parte das quebras é separação silábica.
     """
     texto = ""
     for linha in linhas_:
         if not texto:
             texto = linha
         elif texto.endswith("-"):
-            texto += linha
+            if hifenDeVerdade(linha, lingua, texto):
+                HIFENS_MANTIDOS.append(re.sub(r"\[/?i\]", "", texto.split()[-1] + linha.split()[0]))
+                texto += linha
+            else:
+                texto = texto[:-1] + linha
         else:
-            texto += " " + linha
+            # o ponto que cai sozinho no começo da linha seguinte cola na palavra
+            texto += ("" if re.match(r"(?:\[i\])?[.,;)»]", linha) else " ") + linha
     # o itálico que se fecha e reabre na emenda de duas linhas vira um só
     return re.sub(r"\[/i\] ?\[i\]", " ", texto).strip()
 
@@ -174,7 +233,7 @@ def extrair(pdf):
 
     def fechar():
         if rubrica:
-            juntas = costurar(rubrica)
+            juntas = costurar(rubrica, "pt")
             tipo = ("subtitulo" if re.match(r"^\[i\](Ou )?\d+\.", juntas) else "rubrica")
             limpo = re.sub(r"^\[i\]|\[/i\]$", "", juntas)
             blocos.append({"tipo": tipo, "texto": limpo}
@@ -184,13 +243,17 @@ def extrair(pdf):
         if pt or la:
             blocos.append({
                 "tipo": "bilingue",
-                "latim": [{"tipo": "paragrafo", "texto": costurar(la)}],
-                "portugues": [{"tipo": "paragrafo", "texto": costurar(pt)}],
+                "latim": [{"tipo": "paragrafo", "texto": costurar(la, "la")}],
+                "portugues": [{"tipo": "paragrafo", "texto": costurar(pt, "pt")}],
             })
             pt.clear()
             la.clear()
 
     for linha in linhas(pdf):
+        # o número da página, sozinho no pé: não é texto do próprio, e se ficasse
+        # cortaria no meio a oração que atravessa a página
+        if len(linha) == 1 and re.fullmatch(r"\d{1,2}", linha[0]["texto"].strip()):
+            continue
         linha = separarNoMeio(linha)
         esquerda = [f for f in linha if f["esq"] < MEIO]
         direita = [f for f in linha if f["esq"] >= MEIO]
@@ -228,8 +291,14 @@ def extrair(pdf):
             cabecalho.append(juntar(linha))
             continue
 
-        if not direita and esquerda and all(f["italico"] for f in esquerda):
-            texto = juntar(esquerda)
+        # A rubrica de largura inteira ("Após a Coleta, fazem-se as Orações
+        # segundo o tempo…") nos PDFs revistos: tudo em itálico, a linha toda,
+        # de uma margem à outra. A segunda linha dela vem em dois fragmentos,
+        # um de cada lado da divisa, e iria uma metade para cada coluna.
+        larga = bool(direita and esquerda and all(f["italico"] for f in linha)
+                     and extremos[1] - extremos[0] > 600)
+        if larga or (not direita and esquerda and all(f["italico"] for f in esquerda)):
+            texto = juntar(linha if larga else esquerda)
             # "2. Santíssima Virgem Maria" abre comemoração nova: não é
             # continuação da rubrica que manda fazê-la
             if pt or la or (rubrica and re.match(r"^\[i\](Ou )?\d+\.", texto)):

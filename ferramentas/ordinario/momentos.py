@@ -32,11 +32,18 @@ def plano(texto):
     return " ".join(MARCACAO.sub("", texto).split())
 
 
+# Quem fala, no começo do parágrafo: ℣ e S. são do sacerdote, ℟ e M. são da
+# resposta. Na tela eles saem (ver `rotular`), e por isso não entram na busca:
+# a âncora é a mesma antes e depois, e as emendas continuam idempotentes.
+ROTULO = re.compile(r"^(?:℣\.?|℟\.?|S\.|M\.)\s*")
+
+
 def achatado(bloco):
     """O que o bloco diz, numa linha só, para procurar o começo dele."""
     if bloco["tipo"] == "bilingue":
-        partes = [p.get("texto", "") for lado in ("latim", "portugues") for p in bloco[lado]]
-        return plano(" | ".join(partes))
+        partes = [ROTULO.sub("", plano(p.get("texto", ""))) for lado in ("latim", "portugues")
+                  for p in bloco[lado]]
+        return " | ".join(partes)
     if bloco["tipo"] == "proprio":
         return plano(bloco["nome"])
     return plano(bloco.get("texto", ""))
@@ -80,6 +87,7 @@ def rubrica(texto):
 # ("mover", origem, âncora, destino, depois-de)    muda o bloco de lugar
 #                                                  (depois-de vazio: no começo)
 # ("inserir", seção, depois-de, bloco)             acrescenta um bloco novo
+# ("dividir", seção, âncora, n, já-dividido)       parte o bilíngue depois de n parágrafos
 #
 # As frases novas são as da revisão do Perez, na ordem em que ele as deu.
 EMENDAS = [
@@ -105,7 +113,7 @@ EMENDAS = [
 
     # "O Benedícite é depois das orações ao pé do altar. O PDF tá errado."
     ("mover", "asperges", "rubrica:Quando há incenso, ao impor incenso", "pe-altar", "fim"),
-    ("mover", "asperges", "bilingue:M. Benedícite, pater reverénde", "pe-altar", "fim"),
+    ("mover", "asperges", "bilingue:Benedícite, pater reverénde", "pe-altar", "fim"),
 
     ("trocar", "catecumenos", "rubrica:O celebrante resume e apresenta a Deus",
      "Nas Missas de roxo ou preto, todos ficam de joelhos, a menos que seja domingo.",
@@ -157,6 +165,15 @@ EMENDAS = [
      "participaram do Santo Sacrifício.",
      "participaram do Santo Sacrifício. Os fiéis ficam sentados; quem quiser pode "
      "permanecer de joelhos, em ação de graças."),
+    # Ite, Missa est, Benedicámus ou Requiéscant: um só, e o calendário diz qual.
+    # O diálogo e o Ite vinham num bloco só, e a divisão é o que deixa o Ite
+    # sair sozinho nos dias em que não se diz.
+    ("dividir", "conclusao", "bilingue:Dóminus vobíscum. | Et cum spíritu tuo. | Ite, missa est", 2,
+     "bilingue:Ite, missa est"),
+    ("reescrever", "conclusao", "rubrica:Se alguma ação litúrgica se segue à Missa",
+     "[i]Nas Missas em que não se diz o[/i] Ite, missa est[i] (sem Glória, ou quando se "
+     "segue alguma ação litúrgica), diz-se:[/i]"),
+
     ("trocar", "comunhao", "rubrica:Nesta oração pedimos os frutos",
      "dos dons recebidos.",
      "dos dons recebidos. Vale a mesma regra da Coleta: nas Missas penitenciais de "
@@ -221,6 +238,9 @@ MOMENTOS = [
     ("comunhao", "rubrica:Beija o Altar e volta-se ao povo", dict(voz="alta", postura="pe")),
 
     ("conclusao", "rubrica:Oscula o Altar e volta-se para o povo", dict(voz="alta", postura="pe")),
+    ("conclusao", "bilingue:Ite, missa est", dict(voz="alta", quando="ite")),
+    ("conclusao", "rubrica:Nas Missas em que não se diz", dict(voz="alta", quando="benedicamus")),
+    ("conclusao", "rubrica:Nas Missas dos Defuntos", dict(voz="alta", quando="requiescant")),
     ("conclusao", "rubrica:O sacerdote, profundamente inclinado", dict(voz="baixa", postura="joelhos")),
     ("conclusao", "rubrica:Depois oscula o Altar", dict(voz="alta")),
     ("conclusao", "subtitulo:ÚLTIMO EVANGELHO", dict(voz="alta", postura="pe")),
@@ -231,6 +251,9 @@ MOMENTOS = [
 
 SECOES_MARCADAS = ("preparacao", "asperges", "pe-altar", "catecumenos", "ofertorio",
                    "canon", "comunhao", "conclusao", "leoninas", "acao-de-gracas")
+# A bênção do Santíssimo não tem voz nem postura marcadas (é fora da Missa), mas
+# tem ℣ e ℟ como o resto, e sai rotulada do mesmo jeito.
+SECOES_ROTULADAS = SECOES_MARCADAS + ("bencao",)
 
 
 def emendar(secoes):
@@ -263,6 +286,15 @@ def emendar(secoes):
                 secoes[destino].append(bloco)
             else:
                 secoes[destino].insert(achar(secoes[destino], depois, destino) + 1, bloco)
+        elif op == "dividir":
+            _, s, ancora, n, ja = e
+            if existe(secoes[s], ja):
+                continue
+            i = achar(secoes[s], ancora, s)
+            b = secoes[s][i]
+            resto = {"tipo": "bilingue", "latim": b["latim"][n:], "portugues": b["portugues"][n:]}
+            b["latim"], b["portugues"] = b["latim"][:n], b["portugues"][:n]
+            secoes[s].insert(i + 1, resto)
         elif op == "inserir":
             _, s, depois, bloco = e
             if any(achatado(b) == achatado(bloco) for b in secoes[s]):
@@ -270,6 +302,31 @@ def emendar(secoes):
             secoes[s].insert(achar(secoes[s], depois, s) + 1, bloco)
         else:
             raise SystemExit("emenda desconhecida: %r" % (op,))
+    rotular(secoes)
+
+
+def rotular(secoes):
+    """
+    Tira do parágrafo quem fala, e põe a resposta em negrito.
+
+    No impresso o ℣ e o S. marcam o sacerdote e o ℟ e o M. a resposta, porque
+    papel não tem outro jeito de dizer quem é quem. No site a resposta vem em
+    negrito e o resto é do sacerdote: "Dóminus vobíscum" é dele, "**℟. Et cum
+    spíritu tuo**" é de quem responde. O M. do ministro vira ℟., como pediu o
+    Perez, e o ℟ já escrito fica, só em negrito.
+    """
+    for s in SECOES_ROTULADAS:
+        for b in secoes[s]:
+            if b["tipo"] != "bilingue":
+                continue
+            for lado in ("latim", "portugues"):
+                for p in b[lado]:
+                    m = ROTULO.match(p["texto"])
+                    if not m:
+                        continue
+                    resto = p["texto"][m.end():]
+                    quem = m.group(0).strip()
+                    p["texto"] = ("[b]℟. %s[/b]" % resto) if quem[0] in "℟M" else resto
 
 
 def marcar(secoes):
@@ -305,7 +362,7 @@ def aplicar(secoes):
 
 def main():
     secoes = {}
-    for s in SECOES_MARCADAS:
+    for s in SECOES_ROTULADAS:
         with io.open(os.path.join(PASTA, "%s.json" % s), encoding="utf-8") as f:
             secoes[s] = json.load(f)
     blocos = {s: d["blocos"] for s, d in secoes.items()}

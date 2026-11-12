@@ -26,7 +26,13 @@ import { existsSync, readFileSync } from "node:fs";
 import folhetos from "./folhetos.json";
 import postagens from "./postagens.json";
 import { casar } from "../routes/casar";
-import { SECOES, pecasDoProprio } from "./ordinario";
+import {
+  SECOES,
+  aberturaDoEvangelho,
+  comEvangelhoDoDia,
+  pecasDoProprio,
+  semAberturaDoEvangelho,
+} from "./ordinario";
 import { ESTADO_DA_ROTA, ROTAS } from "../routes/rotas";
 import type { Bloco, Conteudo, Folheto, Secao } from "./tipos";
 
@@ -652,7 +658,8 @@ conferir("enchiridion: as 33 concessões têm âncora",
       : !!p && typeof p === "object"
         && POSTURAS.includes((p as { rezada: string }).rezada)
         && POSTURAS.includes((p as { cantada: string }).cantada);
-  const QUANDO = ["asperges", "vidi-aquam", "salmo-42", "gloria", "credo", "incenso"];
+  const QUANDO = ["asperges", "vidi-aquam", "salmo-42", "gloria", "credo", "incenso",
+    "ite", "benedicamus", "requiescant"];
   const sem_voz: string[] = [];
   const postura_ruim: string[] = [];
   const quando_ruim: string[] = [];
@@ -671,6 +678,63 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("toda condição do Ordinário é uma que o calendário sabe decidir",
     quando_ruim.length === 0, quando_ruim.join(", "));
   conferir("toda seção da Missa abre com uma postura", sem_partida.length === 0, sem_partida.join(", "));
+
+  /*
+   * Quem fala: o ℣ e o S. saem, o M. vira ℟., e toda resposta vem em negrito
+   * (pedido do Perez para o site). O que se guarda é que nenhum rótulo do
+   * impresso sobrou: um S. esquecido num parágrafo diria que ali fala alguém
+   * que a tela já não identifica.
+   */
+  const rotulo_sobrando: string[] = [];
+  const resposta_sem_negrito: string[] = [];
+  for (const s of secoes) {
+    for (const b of s.blocos) {
+      if (b.tipo !== "bilingue") continue;
+      for (const p of [...b.latim, ...b.portugues]) {
+        if (p.tipo !== "paragrafo") continue;
+        if (/^(℣|S\.|M\.)/.test(p.texto)) rotulo_sobrando.push(`${s.id}: ${p.texto.slice(0, 30)}`);
+        if (p.texto.startsWith("℟")) resposta_sem_negrito.push(`${s.id}: ${p.texto.slice(0, 30)}`);
+      }
+    }
+  }
+  conferir("nenhum ℣, S. ou M. sobra no começo de parágrafo do Ordinário",
+    rotulo_sobrando.length === 0, rotulo_sobrando.slice(0, 5).join(" | "));
+  conferir("toda resposta ℟ do Ordinário vem em negrito",
+    resposta_sem_negrito.length === 0, resposta_sem_negrito.slice(0, 5).join(" | "));
+
+  /*
+   * O Evangelho do dia no lugar do "N." do Ordinário. Com o I Domingo do
+   * Advento, que é Lucas e é "Sequéntia": a fórmula do próprio entra na
+   * linha do Ordinário, e o Evangelho do próprio passa a abrir pelo "In illo
+   * témpore". Sem achar a linha, nada é trocado, e a fórmula não some.
+   */
+  {
+    const advento = (folhetos as unknown as { folhetos: Folheto[] }).folhetos
+      .find((f) => f.id === "proprio-advento-i")!;
+    const abertura = aberturaDoEvangelho(advento);
+    conferir("a fórmula do Evangelho do dia sai do próprio",
+      abertura?.latim.startsWith("Sequéntia sancti Evangélii secundum Lucam") === true
+        && abertura?.portugues.endsWith("Lucas.") === true,
+      JSON.stringify(abertura));
+
+    const catecumenos = secoes.find((s) => s.id === "catecumenos")!;
+    const trocado = comEvangelhoDoDia(catecumenos.blocos, abertura!);
+    const linha = trocado.blocos
+      .flatMap((b) => (b.tipo === "bilingue" ? b.latim : []))
+      .find((p) => p.tipo === "paragrafo" && p.texto.includes("secundum Lucam"));
+    conferir("a fórmula do dia entra no lugar do N. no Ordinário",
+      trocado.substituiu && linha !== undefined);
+
+    const evangelho = pecasDoProprio(advento, ["Evangelho"])[0].blocos;
+    const aberto = semAberturaDoEvangelho(evangelho).find((b) => b.tipo === "bilingue");
+    const primeira = aberto && aberto.tipo === "bilingue" ? aberto.latim[0] : undefined;
+    conferir("o Evangelho do próprio abre pelo In illo témpore",
+      primeira?.tipo === "paragrafo" && primeira.texto.startsWith("In illo témpore"),
+      primeira?.tipo === "paragrafo" ? primeira.texto.slice(0, 30) : "");
+
+    const outra = comEvangelhoDoDia([{ tipo: "paragrafo", texto: "nada" }], abertura!);
+    conferir("sem a linha do Ordinário, nada é trocado", !outra.substituiu);
+  }
 
   const lugares: { nome: string; subtitulos: string[] }[] = [];
   const andar = (blocos: Bloco[]) => {
