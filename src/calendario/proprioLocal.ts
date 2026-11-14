@@ -12,7 +12,7 @@ export const PROPRIO_LOCAL: FestaFixa[] = [
   {
     mes: 8,
     dia: 5,
-    nome: "Nossa Senhora das Neves, Titular da capela",
+    nome: "Nossa Senhora das Neves, Titular do Apostolado",
     classe: 1,
     cor: "branco",
   },

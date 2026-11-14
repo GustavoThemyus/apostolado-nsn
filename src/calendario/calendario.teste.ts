@@ -101,7 +101,7 @@ suite("Precedência", () => {
     ["2026-04-03", "Sexta-feira Santa", "preto"],
     ["2026-05-24", "Domingo de Pentecostes", "vermelho"],
     ["2026-09-06", "Domingo XV depois de Pentecostes", "verde"],
-    ["2026-08-05", "Nossa Senhora das Neves, Titular da capela", "branco"],
+    ["2026-08-05", "Nossa Senhora das Neves, Titular do Apostolado", "branco"],
     ["2026-10-25", "Nosso Senhor Jesus Cristo Rei", "branco"],
     ["2027-10-31", "Nosso Senhor Jesus Cristo Rei", "branco"],
   ];

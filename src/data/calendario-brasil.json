@@ -15,14 +15,14 @@
         {
           "tipo": "paragrafo",
           "id": "o-que-e-002",
-          "texto": "No [elo:/calendario]calendário[/elo], nos dias em que o Brasil se separa do calendário universal, o Ordo mostra as duas celebrações. Primeiro a que se reza aqui, e embaixo, sob o título [i]No Calendário Universal[/i], a do resto da Igreja."
+          "texto": "No [elo:/calendario]calendário[/elo], nos dias em que o Brasil se separa do calendário universal, o Ordo mostra as duas celebrações. Primeiro a do calendário brasileiro, e embaixo, sob o título [i]No Calendário Universal[/i], a do resto da Igreja."
         }
       ]
     },
     {
       "id": "festas",
       "titulo": "As festas próprias",
-      "resumo": "Como o Ordo da capela as traz.",
+      "resumo": "Como o Ordo as traz.",
       "blocos": [
         {
           "tipo": "lista",

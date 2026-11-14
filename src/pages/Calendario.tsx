@@ -104,7 +104,7 @@ export default function Calendario() {
     <Moldura titulo="Calendário Romano Tradicional">
       <Cabecalho
         titulo="Calendário Romano Tradicional"
-        descricao="Dois calendários na mesma grade: o do Missal de 1962, calculado para qualquer ano, e o Ordo de São Pio X que a capela segue, anterior à reforma de 1955."
+        descricao="Dois calendários na mesma grade: o do Missal de 1962, calculado para qualquer ano, e o Ordo de São Pio X, anterior à reforma de 1955."
       />
 
       {/* antes do texto: quem chega tem de saber que a seção tem mais */}
@@ -118,7 +118,7 @@ export default function Calendario() {
           A grade mostra um dos dois, e o botão no alto troca. O{" "}
           <strong>Missal de 1962</strong> é calculado aqui, para qualquer ano. O{" "}
           <strong>Ordo de São Pio X</strong>, anterior à reforma de 1955, é o
-          que a capela segue: não é calculado, é copiado do Ordo que o
+          que o Apostolado acompanha: não é calculado, é copiado do Ordo que o
           Apostolado publica, com o grau, a Missa, as comemorações e as
           rubricas de cada dia.
         </p>
@@ -247,15 +247,15 @@ export default function Calendario() {
         grupo="ordo"
         titulo="Levar o Ordo no celular"
         ancora="ordo-no-celular"
-        explicacao="Para acompanhar dia a dia o que se reza na capela, no próprio aparelho."
+        explicacao="Para acompanhar dia a dia o calendário do Ordo, no próprio aparelho."
       />
 
       <CartoesDeSecao padrao="/calendario" />
 
       <p className="calendario__ressalva">
         {pre55
-          ? "Copiado do Ordo publicado pelo Apostolado, dia a dia, sem cálculo nem dedução — inclusive os dias de abstinência. Para celebrar, confira no Ordo."
-          : "Cobre o Temporal, o Santoral de I a IV classe, as Têmporas, as Rogações e a transferência das festas de I classe impedidas, com o próprio do Brasil e o da capela. Não trata das oitavas menores nem das Missas votivas. A abstinência segue a disciplina que o Ordo da capela marca — todas as sextas, e jejum nas Cinzas e na Sexta-feira Santa —, mas as dispensas das festas só o Ordo tem. Para celebrar, confira no Ordo."}
+          ? "Copiado do Ordo publicado pelo Apostolado, dia a dia, sem cálculo nem dedução — inclusive os dias de abstinência. Na dúvida, confira no Ordo."
+          : "Cobre o Temporal, o Santoral de I a IV classe, as Têmporas, as Rogações e a transferência das festas de I classe impedidas, com o próprio do Brasil e o do Apostolado. Não trata das oitavas menores nem das Missas votivas. A abstinência segue a disciplina que o Ordo marca — todas as sextas, e jejum nas Cinzas e na Sexta-feira Santa —, mas as dispensas das festas só o Ordo tem. Na dúvida, confira no Ordo."}
       </p>
     </Moldura>
   );

@@ -35,7 +35,7 @@
   {
    "id": "nossa-senhora-das-neves",
    "titulo": "Nossa Senhora das Neves",
-   "resumo": "A titular da capela e a dedicação de Santa Maria Maior.",
+   "resumo": "A titular do Apostolado e a dedicação de Santa Maria Maior.",
    "data": "2026-08-05",
    "categoria": "santo",
    "imagem": "/padroeiros/neves-d5e531fa.webp",
@@ -44,7 +44,7 @@
     {
      "id": "p-neves-1",
      "tipo": "paragrafo",
-     "texto": "Este texto ainda será escrito. A festa é em 5 de agosto, dedicação da basílica de Santa Maria Maior, e é a titular desta capela."
+     "texto": "Este texto ainda será escrito. A festa é em 5 de agosto, dedicação da basílica de Santa Maria Maior, e é a titular do Apostolado."
     }
    ],
    "festa": {
@@ -57,7 +57,7 @@
   {
    "id": "santo-antonio",
    "titulo": "Santo Antônio",
-   "resumo": "Padroeiro da capela, doutor da Igreja.",
+   "resumo": "Padroeiro do Apostolado, doutor da Igreja.",
    "data": "2026-06-13",
    "categoria": "santo",
    "imagem": "/padroeiros/antonio-d0b8e602.webp",
@@ -76,7 +76,7 @@
   {
    "id": "santa-filomena",
    "titulo": "Santa Filomena",
-   "resumo": "Padroeira da capela, virgem e mártir.",
+   "resumo": "Padroeira do Apostolado, virgem e mártir.",
    "data": "2026-08-11",
    "categoria": "santo",
    "imagem": "/padroeiros/filomena-3d5ac43c.webp",

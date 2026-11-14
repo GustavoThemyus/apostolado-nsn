@@ -254,8 +254,8 @@ export function MissaContinua({
       */}
       {naDoDia.fonte === "rubricas" && !rito && !esperandoOrdo && (
         <p className="modo-missa__aviso">
-          Este dia está fora do Ordo publicado pela capela. O Glória e o Credo
-          seguem as rubricas gerais de 1962, que podem diferir do uso da capela.
+          Este dia está fora do Ordo publicado pelo Apostolado. O Glória e o Credo
+          seguem as rubricas gerais de 1962, que podem diferir do Ordo.
         </p>
       )}
       {comProprio && !folheto && !rito && !esperandoOrdo && (

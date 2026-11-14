@@ -227,7 +227,7 @@ def principal():
         doAno = {d: v for d, v in sorted(dias.items()) if d.startswith(ano)}
         saida = {
             "fonte": "Ordo Litúrgico diário de São Pio X",
-            "descricao": ("O Ordo que a capela segue, anterior à reforma de 1955. "
+            "descricao": ("O Ordo de São Pio X, anterior à reforma de 1955. "
                           "Copiado do calendário publicado pelo Apostolado, não calculado."),
             "ano": int(ano),
             "dias": doAno,
