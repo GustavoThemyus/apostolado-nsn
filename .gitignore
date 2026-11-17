@@ -20,3 +20,6 @@ __pycache__/
 
 # o .ics baixado pelo importador do Ordo; o que vale é src/data/ordo/
 ferramentas/ordo/ordo.ics
+
+# variáveis locais; o modelo versionado é o .env.example
+.env
