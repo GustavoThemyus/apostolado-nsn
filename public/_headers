@@ -29,6 +29,9 @@
 # a URL, então o cache pode ser eterno sem prender ninguém na versão antiga.
 /padroeiros/*
   Cache-Control: public, max-age=31536000, immutable
+# a fonte do site, com a impressão do conteúdo no nome
+/fontes/*
+  Cache-Control: public, max-age=31536000, immutable
 # os retratos da lateral, pelo mesmo motivo
 /retratos/*
   Cache-Control: public, max-age=31536000, immutable

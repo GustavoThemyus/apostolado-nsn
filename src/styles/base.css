@@ -47,16 +47,16 @@ body.sem-rolagem {
 }
 
 /*
- * O EB Garamond traz uma forma localizada para o latim que troca todo u por v
- * — a ortografia epigráfica clássica, ANGELVS DOMINI NVNTIAVIT. O navegador a
- * aplica sozinho por causa do lang="la", e o leitor via "Angelvs Domini
- * nvntiavit" onde o texto diz "Angelus Domini nuntiavit". Não é erro de
- * transcrição: é a fonte escrevendo por conta própria.
+ * A EB Garamond troca todo u por v em texto marcado como latim, a ortografia
+ * das inscrições: o leitor via "Angelvs" onde o texto diz "Angelus". Quem
+ * resolve é a fonte servida pelo site, sem essa troca (ver
+ * ferramentas/fontes). A linha abaixo fica de reserva, para o caso de a fonte
+ * de reserva do aparelho trazer a mesma forma. O Safari do iPhone não a
+ * respeita, e por isso ela sozinha não bastava.
  *
  * O lang fica, que é o que impede o leitor de tela de ler latim com fonética
- * portuguesa. O que se desliga é a forma. As outras duas não são enfeite: o
- * font-feature-settings substitui a lista inteira, então tirar "liga" e
- * "onum" daqui apagaria as ligaduras e os algarismos antigos no latim.
+ * portuguesa. As outras duas não são enfeite: o font-feature-settings
+ * substitui a lista inteira.
  */
 [lang="la"] {
   font-feature-settings: "liga" 1, "onum" 1, "locl" 0;

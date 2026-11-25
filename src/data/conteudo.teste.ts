@@ -21,7 +21,7 @@ import indulgencias from "./indulgencias.json";
 import missa from "./missa.json";
 import ordens from "./indulgencias-ordens.json";
 import partes from "./missa-partes.json";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import folhetos from "./folhetos.json";
 import postagens from "./postagens.json";
 import { casar } from "../routes/casar";
@@ -770,6 +770,44 @@ conferir("enchiridion: as 33 concessões têm âncora",
     conferir("no I Domingo do Advento, os dez lugares do próprio se enchem",
       brancos.length === 0, brancos.map((l) => l.nome).join(", "));
   }
+}
+
+/*
+ * O latim com u é u. "Totvs" apareceu no iPhone: o texto estava certo e a
+ * fonte é que trocava. Aqui se guardam as duas pontas: nenhum latim escrito
+ * com v no lugar de u, e o site sem voltar à fonte que faz a troca.
+ */
+{
+  const latim: string[] = [];
+  const andar = (o: unknown, dentro: boolean) => {
+    if (typeof o === "string") {
+      if (dentro) latim.push(o);
+      else for (const m of o.matchAll(/\[lat\]([\s\S]*?)\[\/lat\]/g)) latim.push(m[1]);
+    } else if (o && typeof o === "object") {
+      for (const [chave, v] of Object.entries(o)) {
+        if (chave !== "id") andar(v, dentro || (chave === "latim"));
+      }
+    }
+  };
+  for (const pasta of ["src/data", "src/data/ordinario"]) {
+    for (const nome of readdirSync(pasta)) {
+      if (nome.endsWith(".json")) andar(JSON.parse(readFileSync(`${pasta}/${nome}`, "utf-8")), false);
+    }
+  }
+  // em latim o v só vem antes de vogal; antes de consoante ou no fim é um u.
+  // O ponto fica de fora por causa das abreviaturas ("Adv.")
+  const suspeitas = latim
+    .flatMap((s) => s.replace(/\[[^\]]*\]/g, "").match(/\p{L}*\p{Ll}v(?![aeiouyáéíóúýǽæœ.])\p{L}*/gu) ?? []);
+  conferir("nenhum latim com v no lugar de u",
+    latim.length > 100 && suspeitas.length === 0,
+    `${latim.length} trechos; ${suspeitas.slice(0, 8).join(", ")}`);
+
+  const tema = readFileSync("src/styles/tema.css", "utf-8");
+  const fontes = [...tema.matchAll(/url\("(\/fontes\/[^"]+)"\)/g)].map((m) => m[1]);
+  conferir("a fonte sem a troca de u por v está no lugar",
+    fontes.length === 2 && fontes.every((f) => existsSync(`public${f}`))
+      && !readFileSync("index.html", "utf-8").includes("EB+Garamond"),
+    fontes.join(", "));
 }
 
 const total = passaram + falhas.length;

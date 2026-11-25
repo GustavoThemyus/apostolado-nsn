@@ -3,6 +3,23 @@
  * Cores amostradas do brasão (campo azul, borda e fita douradas, lírio branco)
  * e do impresso em papel damasco.
  */
+/* fontes: início (ferramentas/fontes/gerar.py) */
+@font-face {
+  font-family: "Garamond do Site";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fontes/garamond-fa260a27.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Garamond do Site";
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fontes/garamond-italico-416d1cfe.woff2") format("woff2");
+}
+/* fontes: fim */
+
 :root {
   /* --- cores da marca, iguais nos dois temas --- */
   --marca-azul-profundo: #202049;
@@ -82,8 +99,8 @@
   --agenda-arquidiocese: #1f6b6b;
 
   /* --- tipografia --- */
-  --titular: "Playfair Display", "EB Garamond", Georgia, serif;
-  --serifada: "EB Garamond", Georgia, "Times New Roman", serif;
+  --titular: "Playfair Display", "Garamond do Site", Georgia, serif;
+  --serifada: "Garamond do Site", Georgia, "Times New Roman", serif;
   --sem-serifa: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* --- medidas --- */
