@@ -70,6 +70,7 @@ PROPRIOS = [
         id="proprio-advento-i",
         pdf="advento-1.pdf",
         drive="1KfjXhKd9HzUDQpJai-4vj1mMaDwWuRlk",
+        no_ordo="106fV_2yxCCsJnGiM7Wz4KdjqOpNsAuAZ",
         titulo="I Domingo do Advento",
         cabecalho=dict(nome="I Domingo do Advento",
                        grau="Semiduples de 1ª classe – roxo",
@@ -80,6 +81,7 @@ PROPRIOS = [
         id="proprio-advento-ii",
         pdf="advento-2.pdf",
         drive="1eUpQdrnq6v0vYE1NexX-mB4PKRHeWo3S",
+        no_ordo="1H9wbaf4Q6raUAfxsZkzs3Nx3_6DIXYPy",
         titulo="II Domingo do Advento",
         cabecalho=dict(nome="II Domingo do Advento",
                        grau="Semiduples de 2ª classe – roxo",
@@ -90,6 +92,7 @@ PROPRIOS = [
         id="proprio-imaculada-conceicao",
         pdf="imaculada.pdf",
         drive="1BxKk9W07CglcpdjVxrNSvtdDwXTXgfl3",
+        no_ordo="1X0dSaMVDRHR1a2MzaNmzhMPtTtK0JmnU",
         titulo="Imaculada Conceição da Bem-aventurada Virgem Maria",
         cabecalho=dict(data="8 de Dezembro",
                        nome="Imaculada Conceição da Bem-aventurada Virgem Maria",
@@ -101,6 +104,7 @@ PROPRIOS = [
         id="proprio-guadalupe",
         pdf="guadalupe.pdf",
         drive="1N-ef3DlJq-K5Di_sd8jr-CZZi8ovHa5_",
+        no_ordo="1ibAEJPRUEvURuBcWYL1KZBEyr-dW0g_V",
         titulo="Nossa Senhora de Guadalupe",
         cabecalho=dict(data="12 de Dezembro",
                        nome="Bem-aventurada Virgem Maria de Guadalupe",
@@ -366,6 +370,21 @@ def folheto(ficha, pasta, contagem):
     }
 
 
+def indice():
+    """
+    `drive` é o PDF revisto, que o folheto oferece para baixar. `no_ordo` é o
+    anterior, que o calendário de 2026 ainda anexa ao dia. Os dois têm de levar
+    ao folheto: com só o novo, o próprio sumia do modo missa e o calendário
+    abria o PDF antigo.
+    """
+    saida = {}
+    for ficha in PROPRIOS:
+        for chave in ("drive", "no_ordo"):
+            if chave in ficha:
+                saida[ficha[chave]] = ficha["id"]
+    return saida
+
+
 def main(pasta):
     with io.open(SAIDA, encoding="utf-8") as f:
         colecao = json.load(f)
@@ -422,7 +441,7 @@ def main(pasta):
         f.write("\n")
 
     with io.open(INDICE, "w", encoding="utf-8") as f:
-        json.dump({x["drive"]: x["id"] for x in PROPRIOS}, f, ensure_ascii=False, indent=1)
+        json.dump(indice(), f, ensure_ascii=False, indent=1)
         f.write("\n")
 
     blocos = sum(len(x["blocos"]) for x in saida if x["categoria"] == "proprio")

@@ -25,6 +25,7 @@ import {
   naMissaDoOrdo,
   temOrdo,
 } from "./ordo";
+import { folhetoDoDia } from "./proprioDoDia";
 import type { Cor } from "./tipos";
 
 let passaram = 0;
@@ -315,6 +316,19 @@ async function rodar() {
    * tirá-lo dos dias que apenas repetem a Missa de outro: os da Oitava e as
    * férias que dizem a Missa do domingo precedente.
    */
+  /*
+   * Cada próprio transcrito tem de ser achado pelo anexo do dia. Trocar o PDF
+   * no gerador sem guardar o que o Ordo anexa tira o próprio do modo missa.
+   */
+  if (de2026) {
+    const dias = ["11-29", "12-06", "12-08", "12-12", "12-13", "12-20", "12-24"];
+    conferir("os próprios do Advento são achados pelo anexo do dia",
+      dias.map((d) => folhetoDoDia(de2026.dias[`2026-${d}`]?.anexos)),
+      ["proprio-advento-i", "proprio-advento-ii", "proprio-imaculada-conceicao",
+        "proprio-guadalupe", "proprio-advento-iii", "proprio-advento-iv",
+        "proprio-vigilia-do-natal"]);
+  }
+
   if (de2026) {
     const comAnexo = Object.values(de2026.dias).filter((d) => d.anexos?.length);
     conferir("87 dias trazem o próprio da Missa", comAnexo.length, 87);
