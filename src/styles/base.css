@@ -2496,7 +2496,8 @@ button {
  */
 .ordo__celebracao-resumo {
   cursor: pointer;
-  list-style-position: outside;
+  /* a seta entra na linha: o título e o que se abre começam onde ela começa */
+  list-style-position: inside;
   padding: 0.15rem 0;
 }
 .ordo__celebracao-resumo::marker {
@@ -5875,7 +5876,8 @@ button {
 }
 .opcional__resumo {
   cursor: pointer;
-  list-style-position: outside;
+  /* a seta entra na linha: o título e o que se abre começam onde ela começa */
+  list-style-position: inside;
   padding: 0.15rem 0;
 }
 .opcional__resumo::marker {
