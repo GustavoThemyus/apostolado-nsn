@@ -80,7 +80,7 @@ export function DiaDeHoje({ data }: { data?: Date }) {
    * no ano com Ordo nunca se mostra o dia de 1962 para depois substituí-lo
    * por outro — o que apareceria como a festa de hoje mudando de nome.
    */
-  const comOrdo = temOrdo(ano);
+  const comOrdo = temOrdo(ano, hoje.getUTCMonth() + 1, hoje.getUTCDate());
   const ordo = usarOrdo(ano, hoje.getUTCMonth() + 1, comOrdo);
   const doOrdo = useMemo(
     () => ordo.dias.find((d) => mesmoDia(d.data, hoje)),

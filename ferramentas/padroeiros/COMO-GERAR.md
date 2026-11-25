@@ -8,6 +8,12 @@ o nome muda junto.
 Ao substituir uma estampa, atualizar o caminho em `src/data/inicio.json`, em
 `src/data/postagens.json` e, para a Padroeira, em `src/data/site.json` (a lateral).
 
+## Antônio inteiro, 27/11/2026
+
+O Perez mandou a imagem do santinho (727x1114) e pediu que coubesse inteira:
+o Antônio passou a ser gerado com `inteira`, sem corte nenhum. A âncora 1,0
+citada abaixo é história: cortava o alto do arco.
+
 ## Como gerar
 
 ```

@@ -3,6 +3,7 @@ import { Fragment, type ReactNode } from "react";
 import {
   analisarMissa,
   celebracoesDoOrdo,
+  DA_IGREJA_UNIVERSAL,
   patrocinioDoGrau,
   soAsPermitidas,
   type Celebracao,
@@ -172,7 +173,7 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
   const celebracoes = celebracoesDoOrdo(dia);
   /* a do Calendário Universal não se recolhe: passa-se para o lado */
   const universal = celebracoes.findIndex(
-    (c, i) => i > 0 && c.rotulo?.startsWith("No Calendário Universal"),
+    (c, i) => i > 0 && DA_IGREJA_UNIVERSAL.test(c.rotulo ?? ""),
   );
   const { patrocinio, grau } = patrocinioDoGrau(dia.grau);
   /*
@@ -232,7 +233,7 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
           paineis={[
             { rotulo: "Aqui", corpo: <BlocoDaCelebracao celebracao={celebracoes[0]} primeira /> },
             {
-              rotulo: "No Calendário Universal",
+              rotulo: celebracoes[universal].rotulo!.replace(/\s*:\s*$/, "").trim(),
               corpo: <BlocoDaCelebracao celebracao={celebracoes[universal]} primeira />,
             },
           ]}

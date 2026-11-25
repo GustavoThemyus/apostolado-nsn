@@ -1,4 +1,4 @@
-import { ANOS, ARQUIVOS } from "../data/ordo/indice";
+import { ANOS, ARQUIVOS, ATE } from "../data/ordo/indice";
 import type { Penitencia } from "./penitencia";
 import { tempoDe } from "./tempo";
 import type { Cor, Tempo } from "./tipos";
@@ -49,7 +49,18 @@ export interface ArquivoDoOrdo {
  */
 export const ANOS_COM_ORDO: number[] = [...ANOS].sort((a, b) => a - b);
 
-export const temOrdo = (ano: number) => ANOS_COM_ORDO.includes(ano);
+/**
+ * Há Ordo para este dia? Um ano pode estar publicado só até certo mês, e dali
+ * em diante vale o mesmo que ano sem Ordo, e não uma página vazia.
+ */
+export const temOrdo = (ano: number, mes = 1, dia = 1) =>
+  ANOS_COM_ORDO.includes(ano) && chave(ano, mes, dia) <= ATE[ano];
+
+/** "31 de março de 2027": até onde o Ordo publicado chega, por extenso. */
+export const ultimoDiaDoOrdo = (): string =>
+  new Intl.DateTimeFormat("pt-BR", { dateStyle: "long", timeZone: "UTC" }).format(
+    new Date(`${ATE[ANOS_COM_ORDO[ANOS_COM_ORDO.length - 1]]}T00:00:00Z`),
+  );
 
 const carregados = new Map<number, ArquivoDoOrdo>();
 
@@ -184,7 +195,8 @@ export interface Celebracao {
 const ABRE_ESCOLHA = /^Pode-se celebrar, à escolha:?$/i;
 
 /*
- * Os três rótulos que o Ordo usa, e só eles, em linha que não diga mais nada.
+ * Os rótulos que o Ordo usa, e só eles, em linha que não diga mais nada. Em
+ * 2027 o do Calendário Universal passou a ser "Na Igreja universal".
  *
  * Estrito de propósito. Há uma linha que começa com "No Brasil" e continua
  * por uma frase inteira — "No Brasil pode-se dizer, com rito festivo, a Missa
@@ -193,7 +205,18 @@ const ABRE_ESCOLHA = /^Pode-se celebrar, à escolha:?$/i;
  * abaixo.
  */
 const EH_ROTULO =
-  /^(No Calendário Universal|No Brasil|Na Igreja Catedral[^:]*?)\s*:?\s*$/;
+  /^(No Calendário Universal|Na Igreja universal|No Brasil|Na Igreja Catedral[^:]*?)\s*:?\s*$/;
+
+/** O rótulo que anuncia o calendário do resto da Igreja, nas duas escritas. */
+export const DA_IGREJA_UNIVERSAL = /^(No Calendário Universal|Na Igreja universal)/;
+
+/** Rótulo e posto no mesmo parágrafo, sem recuo, valem como duas linhas. */
+function soltarRotulo(parte: string): string[] {
+  const [primeira, ...resto] = parte.split("\n");
+  return resto.length && !resto[0].startsWith("  ") && EH_ROTULO.test(primeira.trim())
+    ? [primeira, resto.join("\n")]
+    : [parte];
+}
 
 /*
  * O posto: a linha que diz o grau e a cor daquela celebração, e que termina
@@ -254,7 +277,7 @@ export function celebracoesDoOrdo(dia: DiaDoOrdo): Celebracao[] {
     atual = { notas: [], permitidas: [] };
   };
 
-  for (const bruto of dia.partes) {
+  for (const bruto of dia.partes.flatMap(soltarRotulo)) {
     /*
      * "Próprio do Brasil" e a linha da Missa recuada embaixo entram como um
      * parágrafo só. Separados aqui, antes de qualquer teste: de outro modo a

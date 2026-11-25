@@ -10,7 +10,7 @@
  * ferramentas/ordo/conferir.py, junto de quem faz a importação.
  */
 
-import { ANOS, ARQUIVOS } from "../data/ordo/indice";
+import { ANOS, ARQUIVOS, ATE } from "../data/ordo/indice";
 import { penitenciaDe } from "./penitencia";
 import { diaLiturgico } from "./precedencia";
 import {
@@ -51,8 +51,11 @@ async function rodar() {
     }
 
     conferir(`${ano}: o arquivo diz de que ano é`, arquivo.ano, ano);
-    conferir(`${ano}: o ano não tem buracos`,
-      Object.keys(arquivo.dias).length, bissexto(ano) ? 366 : 365);
+    // o ano pode estar em preparação: vai até o último dia publicado, inteiro
+    const ate = ATE[ano];
+    const esperados = (Date.parse(ate) - Date.UTC(ano, 0, 1)) / 86_400_000 + 1;
+    conferir(`${ano}: não há buracos até ${ate}`,
+      Object.keys(arquivo.dias).length, esperados);
 
     const semNome: string[] = [];
     const semGrau: string[] = [];
@@ -75,8 +78,14 @@ async function rodar() {
     conferir(`${ano}: o tempo vem calculado`, typeof janeiro[0].tempo, "string");
     conferir(`${ano}: a data vem em UTC, sem hora`,
       janeiro[0].data.toISOString(), `${ano}-01-01T00:00:00.000Z`);
-    const dezembro = mesDoOrdo(arquivo, ano, 12);
-    conferir(`${ano}: dezembro tem 31 dias`, dezembro.length, 31);
+    const completo = ate === `${ano}-12-31`;
+    if (completo) {
+      conferir(`${ano}: dezembro tem 31 dias`, mesDoOrdo(arquivo, ano, 12).length, 31);
+    } else {
+      const [mes, dia] = [Number(ate.slice(5, 7)), Number(ate.slice(8))];
+      conferir(`${ano}: o último dia publicado tem Ordo`, temOrdo(ano, mes, dia), true);
+      conferir(`${ano}: o dia seguinte não tem`, temOrdo(ano, mes, dia + 1), false);
+    }
     conferir(`${ano}: fevereiro tem o que o ano manda`,
       mesDoOrdo(arquivo, ano, 2).length, bissexto(ano) ? 29 : 28);
   }

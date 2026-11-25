@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { mesLiturgico } from "../calendario/precedencia";
-import { ANOS_COM_ORDO, ehFestaMaiorDoOrdo } from "../calendario/ordo";
+import { ehFestaMaiorDoOrdo, temOrdo, ultimoDiaDoOrdo } from "../calendario/ordo";
 import { penitenciaDe } from "../calendario/penitencia";
 import { DetalheDoDia } from "../components/DetalheDoDia";
 import { LegendaDaGrade, MarcaDePenitencia } from "../components/MarcaDePenitencia";
@@ -66,7 +66,7 @@ export default function Calendario() {
   const pedido: Uso = naUrl === "pre55" ? "pre55" : naUrl === "1962" ? "1962" : lembrado;
   // num ano sem Ordo, e sem ninguém ter pedido, vale o calculado: a página não
   // abre vazia
-  const uso: Uso = !naUrl && !ANOS_COM_ORDO.includes(ano) ? "1962" : pedido;
+  const uso: Uso = !naUrl && !temOrdo(ano, mes) ? "1962" : pedido;
   const pre55 = uso === "pre55";
 
   const de1962 = useMemo(() => mesLiturgico(ano, mes), [ano, mes]);
@@ -114,7 +114,6 @@ export default function Calendario() {
     irPara(escolhido, novo);
   };
 
-  const anos = ANOS_COM_ORDO.join(", ");
 
   return (
     <Moldura titulo="Calendário Romano Tradicional">
@@ -183,8 +182,8 @@ export default function Calendario() {
         <div className="calendario__coluna-grade">
           {ordo.semOrdo ? (
             <p className="calendario__sem-ordo">
-              O Ordo de {ano} ainda não está publicado. Por enquanto há{" "}
-              {ANOS_COM_ORDO.length > 1 ? "os anos" : "o ano"} {anos}, ou veja este mês{" "}
+              O Ordo de {MESES[mes - 1]} de {ano} não está publicado. Ele vai até{" "}
+              {ultimoDiaDoOrdo()}. Veja este mês{" "}
               <button type="button" className="elo-em-texto" onClick={() => trocar("1962")}>
                 pelo calendário calculado
               </button>

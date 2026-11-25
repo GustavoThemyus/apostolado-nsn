@@ -7,7 +7,10 @@ números à mão. Agora os números estão aqui, e a prosa explica por quê.
 
 Uso:
 
-    python3 ferramentas/padroeiros/gerar.py <imagem> <nome> [ancora]
+    python3 ferramentas/padroeiros/gerar.py <imagem> <nome> [ancora|inteira]
+
+Com `inteira` nada se corta: a estampa cabe toda no quadro 3:4, e o que sobra
+dos lados fica transparente.
 
 `ancora` é de 0 a 1 e diz de onde vem o corte 3:4 na dimensão que sobra —
 0 é topo (ou esquerda), 1 é a base. Sem ela, 0,5.
@@ -54,11 +57,25 @@ def cortar(figura: Image.Image, ancora: float) -> Image.Image:
     return figura.crop((0, y, figura.width, y + alta))
 
 
-def gerar(origem: pathlib.Path, nome: str, ancora: float) -> pathlib.Path:
+def encaixar(figura: Image.Image) -> Image.Image:
+    """A estampa toda dentro do quadro, centrada, sobre fundo transparente."""
+    escala = min(LARGURA / figura.width, ALTURA / figura.height)
+    menor = figura.resize(
+        (round(figura.width * escala), round(figura.height * escala)), Image.LANCZOS)
+    menor = menor.filter(ImageFilter.UnsharpMask(**NITIDEZ)).convert("RGBA")
+    quadro = Image.new("RGBA", (LARGURA, ALTURA), (0, 0, 0, 0))
+    quadro.paste(menor, ((LARGURA - menor.width) // 2, (ALTURA - menor.height) // 2))
+    return quadro
+
+
+def gerar(origem: pathlib.Path, nome: str, ancora: float | None) -> pathlib.Path:
     figura = Image.open(origem).convert("RGB")
-    figura = cortar(figura, ancora)
-    figura = figura.resize((LARGURA, ALTURA), Image.LANCZOS)
-    figura = figura.filter(ImageFilter.UnsharpMask(**NITIDEZ))
+    if ancora is None:
+        figura = encaixar(figura)
+    else:
+        figura = cortar(figura, ancora)
+        figura = figura.resize((LARGURA, ALTURA), Image.LANCZOS)
+        figura = figura.filter(ImageFilter.UnsharpMask(**NITIDEZ))
 
     DESTINO.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp:
@@ -77,7 +94,8 @@ def principal() -> None:
     origem = pathlib.Path(sys.argv[1])
     if not origem.exists():
         raise SystemExit(f"não achei {origem}")
-    ancora = float(sys.argv[3].replace(",", ".")) if len(sys.argv) > 3 else 0.5
+    pedido = sys.argv[3] if len(sys.argv) > 3 else "0,5"
+    ancora = None if pedido == "inteira" else float(pedido.replace(",", "."))
 
     destino = gerar(origem, sys.argv[2], ancora)
     print(f"{destino.relative_to(RAIZ)}  {destino.stat().st_size // 1024} KB")

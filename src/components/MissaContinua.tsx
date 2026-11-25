@@ -152,7 +152,11 @@ export function MissaContinua({
   const iso = comoIso(dia);
 
   const ano = dia.getUTCFullYear();
-  const ordo = usarOrdo(ano, dia.getUTCMonth() + 1, temOrdo(ano));
+  const ordo = usarOrdo(
+    ano,
+    dia.getUTCMonth() + 1,
+    temOrdo(ano, dia.getUTCMonth() + 1, dia.getUTCDate()),
+  );
   const doOrdo = ordo.dias.find((d) => mesmoDia(d.data, dia));
   const folheto = comProprio ? porId(folhetoDoDia(doOrdo?.anexos)) : undefined;
   const naDoDia = useMemo(

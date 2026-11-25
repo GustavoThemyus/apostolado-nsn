@@ -27,6 +27,8 @@ for evento in re.findall(r"BEGIN:VEVENT(.*?)END:VEVENT", bruto, re.S):
 # --- o que foi publicado ----------------------------------------------------
 publicado = {}
 anos = sorted(a for a in os.listdir(PASTA) if a.endswith(".json"))
+# só os anos que esta agenda traz: cada uma se confere com o que é dela
+anos = [a for a in anos if any(d.startswith(a[:4]) for d in origem)]
 for arquivo in anos:
     with open(os.path.join(PASTA, arquivo), encoding="utf-8") as f:
         publicado.update(json.load(f)["dias"])
@@ -84,7 +86,8 @@ if naOrigem < noIcs:
 for arquivo in anos:
     ano = int(arquivo.removesuffix(".json"))
     dia = datetime.date(ano, 1, 1)
-    while dia.year == ano:
+    # o ano em preparação vai até onde o calendário vai, sem buraco no meio
+    while dia.year == ano and dia.isoformat() <= max(origem):
         if dia.isoformat() not in publicado:
             problemas.append(f"{dia.isoformat()}: dia sem celebração no Ordo")
         dia += datetime.timedelta(days=1)

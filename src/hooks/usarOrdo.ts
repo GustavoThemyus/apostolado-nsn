@@ -17,7 +17,7 @@ export function usarOrdo(ano: number, mes: number, ligado: boolean): EstadoDoOrd
   const [carregando, definirCarregando] = useState(false);
 
   useEffect(() => {
-    if (!ligado || !temOrdo(ano)) {
+    if (!ligado || !temOrdo(ano, mes)) {
       definirDias([]);
       return;
     }
@@ -33,5 +33,5 @@ export function usarOrdo(ano: number, mes: number, ligado: boolean): EstadoDoOrd
     };
   }, [ano, mes, ligado]);
 
-  return { dias, carregando, semOrdo: ligado && !temOrdo(ano) };
+  return { dias, carregando, semOrdo: ligado && !temOrdo(ano, mes) };
 }

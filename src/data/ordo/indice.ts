@@ -1,7 +1,13 @@
 // Gerado por ferramentas/ordo/importar.py. Não edite à mão.
 
 /** Os anos que a capela já publicou. */
-export const ANOS: number[] = [2026];
+export const ANOS: number[] = [2026, 2027];
+
+/** O último dia publicado de cada ano: um ano pode vir pela metade. */
+export const ATE: Record<number, string> = {
+  2026: "2026-12-31",
+  2027: "2027-03-31",
+};
 
 /**
  * Um arquivo por ano, carregado só quando o leitor pede o pré-55.
@@ -12,4 +18,5 @@ export const ANOS: number[] = [2026];
  */
 export const ARQUIVOS: Record<number, () => Promise<{ default: unknown }>> = {
   2026: () => import("./2026.json"),
+  2027: () => import("./2027.json"),
 };

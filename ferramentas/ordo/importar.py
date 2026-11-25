@@ -19,7 +19,11 @@ import json, os, re, sys, urllib.request
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(os.path.dirname(AQUI))
-ICS = os.path.join(AQUI, "ordo.ics")
+# Uma agenda por ano: "ordo" é a de 2026; as outras se pedem pelo id do
+# site.json, como em `--agenda=ordo-2027`.
+AGENDA = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--agenda=")), "ordo")
+
+ICS = os.path.join(AQUI, f"{AGENDA}.ics")
 # Um arquivo por ano, e não um só: são 27 KB comprimidos por ano, e a página
 # só baixa o ano que o leitor está vendo — e só se ele pedir o pré-55.
 PASTA = os.path.join(RAIZ, "src", "data", "ordo")
@@ -40,9 +44,9 @@ def id_do_ordo():
     """O id do calendário mora no site.json, que é onde ele já era usado."""
     with open(os.path.join(RAIZ, "src", "data", "site.json"), encoding="utf-8") as f:
         for agenda in json.load(f)["agendas"]:
-            if agenda["id"] == "ordo":
+            if agenda["id"] == AGENDA:
                 return agenda["google"]
-    raise SystemExit("não achei a agenda 'ordo' em src/data/site.json")
+    raise SystemExit(f"não achei a agenda {AGENDA!r} em src/data/site.json")
 
 
 def baixar():
@@ -238,10 +242,10 @@ def principal():
             f.write("\n")
         print(f"  {ano}: {len(doAno)} dias, de {min(doAno)} a {max(doAno)}")
 
-    escrever_indice(anos)
+    escrever_indice()
 
 
-def escrever_indice(anos):
+def escrever_indice():
     """
     O índice dos anos, gerado junto.
 
@@ -250,11 +254,24 @@ def escrever_indice(anos):
     essa extensão: o teste quebraria por causa de uma comodidade de build.
     Um módulo gerado é ESM comum e serve aos dois.
     """
+    # todos os anos já gravados, e não só os desta importação: trazer 2027
+    # não pode tirar 2026 do índice
+    anos, ate = [], {}
+    for nome in sorted(os.listdir(PASTA)):
+        if re.fullmatch(r"\d{4}\.json", nome):
+            with open(os.path.join(PASTA, nome), encoding="utf-8") as f:
+                anos.append(nome[:4])
+                ate[nome[:4]] = max(json.load(f)["dias"])
     linhas = [
         "// Gerado por ferramentas/ordo/importar.py. Não edite à mão.",
         "",
         "/** Os anos que a capela já publicou. */",
         f"export const ANOS: number[] = [{', '.join(anos)}];",
+        "",
+        "/** O último dia publicado de cada ano: um ano pode vir pela metade. */",
+        "export const ATE: Record<number, string> = {",
+        *[f'  {ano}: "{ate[ano]}",' for ano in anos],
+        "};",
         "",
         "/**",
         " * Um arquivo por ano, carregado só quando o leitor pede o pré-55.",

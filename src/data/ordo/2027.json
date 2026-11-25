@@ -1,0 +1,1015 @@
+{
+ "fonte": "Ordo Litúrgico diário de São Pio X",
+ "descricao": "O Ordo de São Pio X, anterior à reforma de 1955. Copiado do calendário publicado pelo Apostolado, não calculado.",
+ "ano": 2027,
+ "dias": {
+  "2027-01-01": {
+   "nome": "Circuncisão do Senhor e Oitava da Natividade",
+   "cor": "branco",
+   "grau": "Duples de 2ª classe",
+   "guarda": true,
+   "partes": [
+    "Missa Puer natus; Glória; Credo; Prefácio e Communicantes do Natal; Ite Missa est",
+    "➢ Evangelho estritamente próprio",
+    "➢ Hoje diz-se a Missa do dia com os mesmos privilégios da Missa votiva do Sacratíssimo Coração de Jesus",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-02": {
+   "nome": "Dia Oitavo de Santo Estêvão Protomártir",
+   "cor": "vermelho",
+   "grau": "Simples",
+   "partes": [
+    "Missa Sederunt principes da festa; Coleta própria; Glória; oração Deus, qui salutis e Ecclesiæ; Prefácio do Natal; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; votiva privada; nupcial"
+   ]
+  },
+  "2027-01-03": {
+   "nome": "Santíssimo Nome de Jesus",
+   "cor": "branco",
+   "grau": "Duples de 2ª classe",
+   "partes": [
+    "Missa In nomine Jesu; Glória; comemoração (nas Missas privadas) do dia Oitavo de São João Apóstolo e Evangelista; Credo; Prefácio do Natal; Ite Missa est",
+    "➢ Evangelho estritamente próprio",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-04": {
+   "nome": "Dia Oitavo dos Santos Inocentes Mártires",
+   "cor": "vermelho",
+   "grau": "Simples",
+   "partes": [
+    "Missa Ex ore infantium da festa; Glória; oração Deus, qui salutis e Ecclesiæ; Gradual; Aleluia; Prefácio do Natal; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-01-05": {
+   "nome": "Vigília da Epifania do Senhor",
+   "cor": "branco",
+   "grau": "Vigília privilegiada de 2ª classe, semiduples",
+   "partes": [
+    "Missa Dum medium; Glória; comemoração de São Telésforo Papa e Mártir e oração Deus, qui salutis; Credo; Prefácio do Natal; Ite Missa est",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Hoje, na hora conveniente, o ordinário local (ou seu delegado) faz na igreja a solene bênção da água da Epifania, que será distribuída aos fiéis para ser utilizada na bênção das casas durante a Oitava da Epifania",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-06": {
+   "nome": "EPIFANIA DO SENHOR",
+   "cor": "branco",
+   "grau": "Duples de 1ª classe com Oitava privilegiada, de 2ª ordem",
+   "partes": [
+    "Missa Ecce advenit; Glória; Credo; Prefácio e Communicantes da Epifania; Ite Missa est",
+    "➢ No Evangelho, às palavras et procidentes adoraverunt eum, todos devem ajoelhar-se",
+    "➢ Pode-se fazer o anúncio das festas móveis antes da homilia: o diácono mais digno com pluvial (ou cantor na sua falta) canta do ambão ou mesmo do púlpito",
+    "➢ Hoje se abençoa o giz, que será distribuído aos fiéis para marcar as portas de suas casas; também se abençoa ouro, incenso e mirra",
+    "➢ Durante toda a Oitava da Epifania se abençoa as casas dos fiéis (com aspersão e incenso)",
+    "➢ Missas permitidas: nenhuma"
+   ]
+  },
+  "2027-01-07": {
+   "nome": "Dia segundo da Oitava da Epifania",
+   "cor": "branco",
+   "grau": "Oitava privilegiada de 2ª ordem, semiduples",
+   "partes": [
+    "Missa Ecce advenit da festa; Glória; oração Deus, qui salutis e Ecclesiæ; Credo; Prefácio e Communicantes da Epifania; Ite Missa est",
+    "➢ Hoje diz-se a Missa do dia com os mesmos privilégios da Missa votiva de Nosso Senhor Jesus Cristo Sumo e Eterno Sacerdote",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-08": {
+   "nome": "Dia terceiro da Oitava da Epifania",
+   "cor": "branco",
+   "grau": "Oitava privilegiada de 2ª ordem, semiduples",
+   "partes": [
+    "Missa Ecce advenit da festa; Glória; oração Deus, qui salutis e Ecclesiæ; Credo; Prefácio e Communicantes da Epifania; Ite Missa est",
+    "➢ Missas permitidas: exequial; votiva solene",
+    "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia"
+  },
+  "2027-01-09": {
+   "nome": "Dia quarto da Oitava da Epifania",
+   "cor": "branco",
+   "grau": "Oitava privilegiada de 2ª ordem, semiduples",
+   "partes": [
+    "Missa Ecce advenit da festa; Glória; oração Deus, qui salutis e Ecclesiæ; Credo; Prefácio e Communicantes da Epifania; Ite Missa est",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-10": {
+   "nome": "Sagrada Família de Jesus, Maria e José (Domingo dentro da Oitava da Epifania [I depois da Epifania])",
+   "cor": "branco",
+   "grau": "Duples maior",
+   "partes": [
+    "Missa Exsultat gaudio; Glória; comemoração do Domingo dentro da Oitava da Epifania e da Oitava da Epifania; Credo; Prefácio e \nCommunicantes da Epifania; Ite Missa est; Último Evangelho do prólogo de São João",
+    "➢ Evangelho estritamente próprio",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-11": {
+   "nome": "Dia sexto da Oitava da Epifania",
+   "cor": "branco",
+   "grau": "Oitava privilegiada de 2ª ordem, semiduples",
+   "partes": [
+    "Domingo dentro da Oitava da Epifania retomado – cor branca",
+    "Missa In excelso throno; Glória (por causa do Tempo); comemoração da Oitava da Epifania e de Santo Higino Papa e Mártir; Credo (por causa \nda Oitava); Prefácio e Communicantes da Epifania; Ite Missa est",
+    "➢ Pode-se celebrar o Dia sexto da Oitava da Epifania – cor branca",
+    "Missa da festa, Glória, comem. do domingo e de S. Higino, Pref. e Commun. da Epifania; Ite",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-12": {
+   "nome": "Dia sétimo da Oitava da Epifania",
+   "cor": "branco",
+   "grau": "Oitava privilegiada de 2ª ordem, semiduples",
+   "partes": [
+    "Missa Ecce advenit da festa; Glória; oração Deus, qui salutis e Ecclesiæ; Credo; Prefácio e Communicantes da Epifania; Ite Missa est",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-13": {
+   "nome": "Dia Oitavo da Epifania",
+   "cor": "branco",
+   "grau": "Oitava privilegiada de 2ª ordem, duples maior",
+   "partes": [
+    "Missa Ecce advenit da Oitava; Glória; Credo; Prefácio e Communicantes da Epifania; Ite Missa est",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-14": {
+   "nome": "Santo Hilário Bispo, Confessor e Doutor da Igreja",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa In medio; Glória; comemoração de São Félix Presbítero e Mártir; Credo; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-01-15": {
+   "nome": "São Paulo primeiro Eremita Confessor",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa própria Justus ut palma; Glória; comemoração de São Mauro Abade; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
+    "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia"
+  },
+  "2027-01-16": {
+   "nome": "São Marcelino I Papa e Mártir",
+   "cor": "vermelho",
+   "grau": "Semiduples",
+   "partes": [
+    "Missa Si diligis me; Glória; Coleta própria; oração Deus, qui salutis e Ecclesiæ; Prefácio dos Apóstolos; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial"
+   ]
+  },
+  "2027-01-17": {
+   "nome": "II Domingo depois da Epifania",
+   "cor": "verde",
+   "grau": "Menor, semiduples",
+   "partes": [
+    "Missa Omnis terra; Glória; comemoração de Santo Antão Abade; Credo; Prefácio da Santíssima Trindade; Ite Missa est",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-18": {
+   "nome": "Cátedra de São Pedro Apóstolo em Roma",
+   "cor": "branco",
+   "grau": "Duples maior",
+   "partes": [
+    "Missa própria Statuit ei Dominus; Glória; comemoração de São Paulo e de Santa Prisca Virgem e Mártir; Credo; Prefácio dos Apóstolos; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-01-19": {
+   "nome": "Santos Mário, Marta, Audíface e Ábaco Mártires",
+   "cor": "vermelho",
+   "grau": "Simples",
+   "partes": [
+    "Missa própria Justi epulentur; Glória; comemoração de São Canuto Rei [da Dinamarca] Mártir e oração Deus, qui salutis; Prefácio Comum; Ite Missa est",
+    "➢ Pode-se celebrar, com rito festivo, a Missa de São Canuto Rei [da Dinamarca] Mártir – cor vermelha",
+    "Missa In virtute tua, Glória, or. próprias, comem. dos Ss. Mário, Marta, Audíface e Ábaco e or. Deus, qui salutis, Pref. Comum, Ite",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial"
+   ]
+  },
+  "2027-01-20": {
+   "nome": "Santos Fabiano Papa e Sebastião Mártires",
+   "cor": "vermelho",
+   "grau": "Duples",
+   "partes": [
+    "Missa própria Intret in conspectu tuo; Glória; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-01-21": {
+   "nome": "Santa Inês Virgem e Mártir",
+   "cor": "vermelho",
+   "grau": "Duples",
+   "partes": [
+    "Missa própria Me exspectaverunt; Glória; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-01-22": {
+   "nome": "Santos Vicente e Anastácio Mártires",
+   "cor": "vermelho",
+   "grau": "Semiduples",
+   "partes": [
+    "Missa Intret in conspectu tuo; Glória; Orações próprias; oração Deus, qui salutis e oração Ecclesiæ; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial",
+    "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia"
+  },
+  "2027-01-23": {
+   "nome": "III Domingo depois da Epifania",
+   "cor": "verde",
+   "grau": "Menor, antecipado, semiduples",
+   "partes": [
+    "Missa Adorate Deum; Glória; comemoração de São Raimundo de Peñafort Confessor e de Santa Emerenciana Virgem e Mártir; Credo; Prefácio da Santíssima Trindade; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dia e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-01-24": {
+   "nome": "Domingo da Septuagésima",
+   "cor": "roxo",
+   "grau": "Maior, semiduples de 2ª classe",
+   "partes": [
+    "Missa Circumdederunt me; comemoração de São Timóteo Bispo e Mártir; Credo; Prefácio da Santíssima Trindade; Benedicamus Domino",
+    "➢ Inicia-se o tempo de cumprimento do preceito pascal, em virtude de especial concessão do Santo Padre o Papa Pio XII até a festa dos Santos Apóstolos Pedro e Paulo (Faculdade decenal n. 10 de 26 de março de 1949)",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-01-25": {
+   "nome": "Conversão de São Paulo Apóstolo",
+   "cor": "branco",
+   "grau": "Duples maior",
+   "partes": [
+    "Missa própria Scio cui credidi; Glória; comemoração de São Pedro Apóstolo; Trato; Credo; Prefácio dos Apóstolos; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-01-26": {
+   "nome": "São Policarpo Bispo e Mártir",
+   "cor": "vermelho",
+   "grau": "Duples",
+   "partes": [
+    "Missa própria Sacerdotes Dei; Glória; Trato; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-01-27": {
+   "nome": "São João Crisóstomo Bispo, Confessor e Doutor da Igreja",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa própria In medio; Glória; Trato; Credo; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-01-28": {
+   "nome": "São Pedro Nolasco Confessor",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa Justus ut palma; Glória; Orações próprias; comemoração de Santa Inês Virgem e Mártir; Trato; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-01-29": {
+   "nome": "São Francisco de Sales Bispo, Confessor e Doutor da Igreja",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa In medio; Glória; Coleta própria; Trato; Credo; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
+    "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia"
+  },
+  "2027-01-30": {
+   "nome": "Santa Martinha Virgem e Mártir",
+   "cor": "vermelho",
+   "grau": "Semiduples",
+   "partes": [
+    "Missa Loquebar; Glória; oração Deus, qui salutis e Ecclesiæ; Trato; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial"
+   ]
+  },
+  "2027-01-31": {
+   "nome": "Domingo da Sexagésima",
+   "cor": "roxo",
+   "grau": "Maior, semiduples de 2ª classe",
+   "partes": [
+    "Missa Exsurge; comemoração de São João Bosco Confessor; Credo; Prefácio da Santíssima Trindade; Benedicamus Domino",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-02-01": {
+   "nome": "Santo Inácio Bispo e Mártir",
+   "cor": "vermelho",
+   "grau": "Duples",
+   "partes": [
+    "Missa própria Mihi autem; Glória; Trato; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-02-02": {
+   "nome": "Purificação da Bem-aventurada Virgem Maria",
+   "cor": "branco",
+   "grau": "Duples de 2ª classe",
+   "cores": "cores roxa (para a bênção) e branca (para Missa)",
+   "partes": [
+    "Missa própria Suscepimus Deus; Glória; Trato; Credo; Prefácio do Natal; Ite Missa est",
+    "➢ Evangelho estritamente próprio",
+    "➢ Antes da Missa, pela manhã, bênção e distribuição das velas",
+    "➢ Em seguida, faz-se a procissão com as velas acesas",
+    "➢ O altar não é adornado com flores ou outros ornamentos e o órgão permanece em silêncio até a conclusão da procissão",
+    "➢ Todos sustentam as velas acesas no Evangelho (o celebrante também nas Missas solenes) e desde o Sanctus até a conclusão da comunhão",
+    "➢ Hoje é proibida qualquer Missa votiva em honra a Cristo Senhor, mesmo solene",
+    "➢ Hoje é proibida qualquer Missa votiva solene nas igrejas onde há apenas uma Missa e houver a bênção das velas",
+    "➢ Nas igrejas menores, as celebrações observam o Memoriale Rituum do Papa Bento XIII",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-02-03": {
+   "nome": "São Brás Bispo e Mártir",
+   "cor": "vermelho",
+   "grau": "Simples",
+   "partes": [
+    "Missa Sacerdotes Dei; Glória; oração A cunctis e ad libitum; Trato; Prefácio Comum; Ite Missa est",
+    "➢ Hoje, na hora conveniente, faz-se a bênção das velas e da garganta; também se abençoa pão, vinho, água e frutos a serem usados contra \ndoenças da garganta",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene; votiva privada; nupcial"
+   ]
+  },
+  "2027-02-04": {
+   "nome": "Santo André Corsini Bispo e Confessor",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa Statuit ei Dominus; Glória; Coleta própria; Trato; Prefácio Comum; Ite Missa est",
+    "➢ Hoje pode-se celebrar, onde se promove a devoção, uma única Missa votiva solene de Nosso Senhor Jesus Cristo Sumo e Eterno Sacerdote – cor branca",
+    "Missa Juravit; Glória; oração única; Trato; Credo; Pref. da Cruz; Ite",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-02-05": {
+   "nome": "Santa Águeda Virgem e Mártir",
+   "cor": "vermelho",
+   "grau": "Duples",
+   "partes": [
+    "Missa própria Gaudeamus omnes; Glória; Trato; Prefácio Comum; Ite Missa est",
+    "➢ Hoje pode-se celebrar, onde se promove a devoção, uma única Missa votiva solene do Sacratíssimo Coração de Jesus – cor branca",
+    "Missa Cogitationes; Glória; oração única; Trato; Credo; Pref. do Coração de Jesus; Ite",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial",
+    "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia"
+  },
+  "2027-02-06": {
+   "nome": "São Tito Bispo e Confessor",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa Statuit ei Dominus; Glória; Coleta e Evangelho próprios; comemoração de Santa Doroteia Virgem e Mártir; Trato; Prefácio \nComum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-02-07": {
+   "nome": "Domingo da Quinquagésima",
+   "cor": "roxo",
+   "grau": "Maior, semiduples de 2ª classe",
+   "partes": [
+    "Missa Esto mihi; comemoração de São Romualdo Abade; Credo; Prefácio da Santíssima Trindade; Benedicamus Domino",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-02-08": {
+   "nome": "São João da Mata Confessor",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa Os justi; Glória; Coleta própria; Trato; Prefácio Comum; Ite Missa est",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dia e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-02-09": {
+   "nome": "São Cirilo Bispo de Alexandria Confessor e Doutor da Igreja",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa In medio; Glória; Orações próprias; comemoração de Santa Apolônia Virgem e Mártir; Trato; Credo; Prefácio Comum; Ite Missa \nest",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene; nupcial"
+   ]
+  },
+  "2027-02-10": {
+   "nome": "QUARTA-FEIRA DE CINZAS",
+   "cor": "roxo",
+   "grau": "Féria maior privilegiada de 1ª ordem,, simples",
+   "partes": [
+    "Missa Misereris omnium; comemoração de Santa Escolástica Virgem; Prefácio da Quaresma (tom ferial); Oração sobre o povo; Benedicamus Domino",
+    "➢ Antes da Missa principal, bênção e distribuição das cinzas",
+    "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
+    "➢ Nas igrejas menores, as celebrações observam o Memoriale Rituum do Papa Bento XIII",
+    "➢ A partir de hoje cessam-se todas as Oitavas particulares até o Domingo in Albis",
+    "➢ Missas permitidas: exequial apenas",
+    "Dia de jejum e abstinência"
+   ],
+   "penitencia": "jejum-e-abstinencia"
+  },
+  "2027-02-11": {
+   "nome": "Aparição da Bem-aventurada Virgem Maria Imaculada (em Lourdes)",
+   "cor": "branco",
+   "grau": "Duples maior",
+   "partes": [
+    "Missa própria Vidi civitatem; Glória; comemoração da Quinta-feira depois das Cinzas; Trato; Credo; Prefácio de Nossa Senhora (Et te in Conceptione immaculata); Ite Missa est; Último Evangelho da féria",
+    "➢ Evangelho estritamente próprio",
+    "➢ Pode-se celebrar a Quinta-feira depois das Cinzas – cor roxa",
+    "Missa Dum clamarem, comem. da Aparição da BVM, Pref. da Quaresma, Or. sobre o povo, Benedicamus, Últ. Evan. da festa",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-02-12": {
+   "nome": "Santos Sete Fundadores dos Servitas Confessores",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa própria Justi decantaverunt; Glória; comemoração da Sexta-feira depois das Cinzas; Trato; Prefácio Comum; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar a Sexta-feira depois das Cinzas – cor roxa",
+    "Missa Audivit Dominus, comem. dos Ss. Sete Fundadores, ajoelha-se durante o Trato a partir do Adjuva nos, Pref. da Quaresma, Or. sobre o povo, Benedicamus",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene",
+    "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia"
+  },
+  "2027-02-13": {
+   "nome": "São João de Brito Mártir",
+   "cor": "vermelho",
+   "grau": "Duples maior",
+   "partes": [
+    "Missa Lætabitur; Glória; Orações próprias; comemoração do Sábado depois das Cinzas; Trato; Prefácio da Quaresma; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar o Sábado depois das Cinzas – cor roxa",
+    "Missa Audivit Dominus, comem. de S. João de Brito, Pref. da Quaresma, Or. sobre o povo, Benedicamus",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene",
+    "Na Igreja universal:\nSábado depois das Cinzas, féria maior de 2ª ordem, simples – cor roxa",
+    "Missa Audivit Dominus; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene"
+   ]
+  },
+  "2027-02-14": {
+   "nome": "I Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Maior, semiduples de 1ª classe",
+   "partes": [
+    "Missa Invocabit me; comemoração de São Valentim Presbítero e Mártir e oração A cunctis; Credo; Prefácio da Quaresma; Benedicamus Domino",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-02-15": {
+   "nome": "Segunda-feira depois do I Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Sicut oculi servorum, comemoração dos Santos Faustino e Jovita Mártires e oração A cunctis; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene"
+   ]
+  },
+  "2027-02-16": {
+   "nome": "Terça-feira depois do I Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Domine refugium; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-02-17": {
+   "nome": "Quarta-feira das Quatro Têmporas da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Reminiscere; após a Oração Devotionem populi oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-02-18": {
+   "nome": "Quinta-feira depois do I Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Confessio et pulchritudo; comemoração de São Simeão Bispo e Mártir e oração A cunctis; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-02-19": {
+   "nome": "Sexta-feira das Quatro Têmporas da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa De necessitatibus; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene",
+    "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia"
+  },
+  "2027-02-20": {
+   "nome": "Sábado das Quatro Têmporas da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Intret oratio mea; após a Oração Deus, qui tribus oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-02-21": {
+   "nome": "II Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Maior, semiduples de 1ª classe",
+   "partes": [
+    "Missa Reminiscere; oração A cunctis e Omnipotens; Credo; Prefácio da Quaresma; Benedicamus Domino",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-02-22": {
+   "nome": "Cátedra de São Pedro Apóstolo em Antioquia",
+   "cor": "branco",
+   "grau": "Duples maior",
+   "partes": [
+    "Missa Statuit ei Dominus; Glória; comemoração de São Paulo Apóstolo e da Segunda-feira depois do II Domingo da Quaresma; Trato; Credo; Prefácio dos Apóstolos; Ite Missa est; Último Evangelho da féria",
+    "➢ Evangelho estritamente próprio",
+    "➢ Pode-se celebrar a Segunda-feira depois do II Domingo da Quaresma – cor roxa",
+    "Missa Redime me Domine, comem. da Cátedra de S. Pedro e de S. Paulo, ajoelha-se durante o Trato a partir do Adjuva nos, Pref. da Quaresma, Or. sobre o povo, Benedicamus, Últ. Evan. da festa",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-02-23": {
+   "nome": "São Pedro Damião Bispo, Confessor e Doutor da Igreja",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa In medio; Glória; Coleta própria; comemoração da Terça-feira depois do II Domingo da Quaresma e da Vigília de São Matias Apóstolo; Trato; Credo; Prefácio da Quaresma; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar a Terça-feira depois do II Domingo da Quaresma – cor roxa",
+    "Missa Tibi dixit, comem. de S. Pedro Damião e da Vigília, Pref. da Quaresma, Or. sobre o povo, Benedicamus, Últ. Evan. da Vigília",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Pode-se celebrar a Vigília de São Matias Apóstolo – cor roxa",
+    "Missa Ego autem, comem. de S. Pedro Damião e da féria, Pref. da Quaresma, Benedicamus, Últ. Evan. da féria",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-02-24": {
+   "nome": "São Matias Apóstolo",
+   "cor": "vermelho",
+   "grau": "Duples de 2ª classe",
+   "partes": [
+    "Missa própria Mihi autem; Glória; comemoração da Quarta-feira depois do II Domingo da Quaresma; Trato; Credo; Prefácio dos Apóstolos; Ite Missa est; Último Evangelho da féria",
+    "➢ Evangelho estritamente próprio",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  },
+  "2027-02-25": {
+   "nome": "Quinta-feira depois do II Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Deus in adjutorium; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene"
+   ]
+  },
+  "2027-02-26": {
+   "nome": "Sexta-feira depois do II Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Ego autem; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene",
+    "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia"
+  },
+  "2027-02-27": {
+   "nome": "São Gabriel de Nossa Senhora das Dores Confessor",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa própria Oculus Dei; Glória; comemoração do Sábado depois do II Domingo da Quaresma; Trato; Prefácio da Quaresma; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar o Sábado depois do II Domingo da Quaresma – cor roxa",
+    "Missa Lex Domini, comem. de S. Gabriel de Nossa Senhora, Pref. da Quaresma, Or. sobre o povo, Benedicamus",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-02-28": {
+   "nome": "III Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Maior, semiduples de 1ª classe",
+   "partes": [
+    "Missa Oculi mei; oração A cunctis e Omnipotens; Credo; Prefácio da Quaresma; Benedicamus Domino",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-03-01": {
+   "nome": "Segunda-feira depois do III Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa In Deo laudabo; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene"
+   ]
+  },
+  "2027-03-02": {
+   "nome": "Terça-feira depois do III Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Ego clamavi; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-03": {
+   "nome": "Quarta-feira depois do III Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Ego autem; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-04": {
+   "nome": "São Casimiro Confessor",
+   "cor": "branco",
+   "grau": "Semiduples",
+   "partes": [
+    "Missa Os justi; Glória; Coleta própria; comemoração da Quinta-feira depois do III Domingo da Quaresma e de São Lúcio I Papa e Mártir; Trato; Prefácio da Quaresma; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar a Quinta-feira depois do III Domingo da Quaresma – cor roxa",
+    "Missa Salus populi, comem. de S. Casimiro e de S. Lúcio I, Pref. da Quaresma, Or. sobre o povo, Benedicamus",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Hoje pode-se celebrar, onde se promove a devoção, uma única Missa votiva solene de Nosso Senhor Jesus Cristo Sumo e Eterno Sacerdote – cor branca",
+    "Missa Juravit; Glória; comem. da féria; Trato; Credo; Pref. da Cruz; Ite; Últ. Evan. da féria",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-05": {
+   "nome": "Sexta-feira depois do III Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Fac mecum Domine; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Hoje pode-se celebrar, onde se promove a devoção, uma única Missa votiva solene do Sacratíssimo Coração de Jesus – cor branca",
+    "Missa Cogitationes; Glória; comem. da féria; Trato; Credo; Pref. do Coração de Jesus; Ite; Últ. Evan. da féria",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-06": {
+   "nome": "Santas Perpétua e Felicidade Mártires",
+   "cor": "vermelho",
+   "grau": "Duples",
+   "partes": [
+    "Missa Me exspectaverunt; Glória; comemoração do Sábado depois do III Domingo da Quaresma; Trato; Prefácio da Quaresma; Pós-comunhão própria; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar o Sábado depois do III Domingo da Quaresma – cor roxa",
+    "Missa Verba mea, comem. das Ss. Perpétua e Felicidade, Pref. da Quaresma, Or. sobre o povo, Benedicamus",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-07": {
+   "nome": "IV Domingo da Quaresma",
+   "cor": "rosa",
+   "grau": "Maior, semiduples de 1ª classe",
+   "cores": "cor rósea (ou na falta roxa)",
+   "partes": [
+    "Missa Lætare Jerusalem; comemoração de São Tomás de Aquino Confessor e Doutor da Igreja; Credo; Prefácio da Quaresma; Benedicamus Domino",
+    "➢ É permitido usar o órgão e ornar o altar com flores ou relicários",
+    "➢ Na Missa solene, os ministros sagrados revestem-se de dalmática e tunicela, em lugar das casulas plicadas",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-03-08": {
+   "nome": "São João de Deus Confessor",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa Os justi; comemoração da Segunda-feira depois do IV Domingo da Quaresma; Trato; Prefácio da Quaresma; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar a Segunda-feira depois do IV Domingo da Quaresma – cor roxa",
+    "Missa Deus in nomine tuo, comem. de S. João de Deus, ajoelha-se durante o Trato a partir do Adjuva nos, Pref. da Quaresma, Or. sobre o povo, Benedicamus",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Hoje é o aniversário da nomeação de Sua Excelência Reverendíssima Dom Manoel Delson como Arcebispo da Arquidiocese da Paraíba",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-09": {
+   "nome": "Santa Francisca Romana Viúva",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa Cognovi Domine; Glória; Coleta própria; comemoração da Terça-feira depois do IV Domingo da Quaresma; Trato; Prefácio da Quaresma; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar a Terça-feira depois do IV Domingo da Quaresma – cor roxa",
+    "Missa Exaudi Deus, comem. de S. Francisca, Pref. da Quaresma, Or. sobre o povo; Benedicamus",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-10": {
+   "nome": "Santos Quarenta Mártires [de Sebaste]",
+   "cor": "vermelho",
+   "grau": "Semiduples",
+   "partes": [
+    "Missa própria Clamaverunt justi; Glória; comemoração da Quarta-feira depois do IV Domingo da Quaresma e oração A cunctis; Trato; Prefácio da Quaresma; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar a Quarta-feira depois do IV Domingo da Quaresma – cor roxa",
+    "Missa Cum sanctificatus, comem. dos Ss. Quarenta Mártires e or. A cunctis, ajoelha-se durante o Trato a partir do Adjuva nos, Pref. da Quaresma, Or. sobre o povo, Benedicamus",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene"
+   ]
+  },
+  "2027-03-11": {
+   "nome": "Quinta-feira depois do IV Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Lætetur cor; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-12": {
+   "nome": "São Gregório I [Magno] Papa, Confessor e Doutor da Igreja",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa Si diligis me; Glória; Orações próprias; comemoração da Sexta-feira depois do IV Domingo da Quaresma; Trato; Credo; Prefácio dos Apóstolos; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar a Sexta-feira depois do IV Domingo da Quaresma – cor roxa",
+    "Missa Meditatio cordis mei, comem. de S. Gregório, ajoelha-se durante o Trato a partir do Adjuva nos, Pref. da Quaresma, Or. sobre o povo, Benedicamus",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene",
+    "Dia de abstinência"
+   ],
+   "penitencia": "abstinencia"
+  },
+  "2027-03-13": {
+   "nome": "Sábado depois do IV Domingo da Quaresma",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Sitientes; oração A cunctis e Omnipotens; Prefácio da Quaresma; Oração sobre o povo; Benedicamus Domino",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-14": {
+   "nome": "Domingo da Paixão",
+   "cor": "roxo",
+   "grau": "Maior, semiduples de 1ª classe",
+   "partes": [
+    "Missa Judica me Deus; oração Ecclesiæ; Credo; Prefácio da Santa Cruz; Benedicamus Domino",
+    "➢ Omitem-se o Sl 42 (Judica me, Deus) e o Gloria Patri no Asperges, no Introito e Lavabo",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-03-15": {
+   "nome": "Segunda-feira depois do Domingo da Paixão",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Miserere mihi; oração Ecclesiæ; Prefácio da Santa Cruz; Oração sobre o povo; Benedicamus Domino",
+    "➢ Omitem-se o Sl 42 (Judica me, Deus) e o Gloria Patri no Introito e Lavabo",
+    "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; quotidiana; votiva solene"
+   ]
+  },
+  "2027-03-16": {
+   "nome": "Terça-feira depois do Domingo da Paixão",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Exspecta Dominum; oração Ecclesiæ; Prefácio da Santa Cruz; Oração sobre o povo; Benedicamus Domino",
+    "➢ Omitem-se o Sl 42 (Judica me, Deus) e o Gloria Patri no Introito e Lavabo",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-17": {
+   "nome": "São Patrício Bispo e Confessor",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa Statuit ei Dominus; Glória; Coleta própria; comemoração da Quarta-feira depois do Domingo da Paixão; Trato; Prefácio da Santa Cruz; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar a Quarta-feira depois do Domingo da Paixão – cor roxa",
+    "Missa Liberator meus, comem. de S. Patrício, ajoelha-se durante o Trato a partir do Adjuva nos, Pref. da Cruz, Or. sobre o povo; Benedicamus",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-18": {
+   "nome": "São Cirilo Bispo de Jerusalém, Confessor e Doutor da Igreja",
+   "cor": "branco",
+   "grau": "Duples",
+   "partes": [
+    "Missa própria In medio; Glória; comemoração da Quinta-feira depois do Domingo da Paixão; Trato; Credo; Prefácio da Santa Cruz; Ite Missa est; Último Evangelho da féria",
+    "➢ Pode-se celebrar a Quinta-feira depois do Domingo da Paixão – cor roxa",
+    "Missa Omnia quæ fecisti, comem. de S. Cirilo, Pref. da Cruz, Or. sobre o povo, Benedicamus",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-19": {
+   "nome": "SÃO JOSÉ, ESPOSO DA BEM-AVENTURADA VIRGEM MARIA, \nCONFESSOR",
+   "cor": "branco",
+   "grau": "Duples de 1ª classe",
+   "partes": [
+    "Missa própria Justus ut palma; Glória; comemoração (nas Missas privadas) das Sete dores da Bem-aventurada Virgem Maria e da Sexta-feira depois do Domingo da Paixão; Trato; Credo; Prefácio de São José (Et te in Festivitate); Ite Missa est; Último Evangelho da féria",
+    "➢ Missas permitidas: nenhuma"
+   ]
+  },
+  "2027-03-20": {
+   "nome": "Sábado depois do Domingo da Paixão",
+   "cor": "roxo",
+   "grau": "Féria maior de 2ª ordem, simples",
+   "partes": [
+    "Missa Miserere mihi; oração Ecclesiæ; Prefácio da Santa Cruz; Oração sobre o povo; Benedicamus Domino",
+    "➢ Omitem-se o Sl 42 (Judica me, Deus) e o Gloria Patri no Introito e Lavabo",
+    "➢ Missas permitidas: exequial; 3º, 7º, 30º dias e de aniversário; votiva solene"
+   ]
+  },
+  "2027-03-21": {
+   "nome": "Domingo de Ramos",
+   "cor": "roxo",
+   "grau": "Maior, semiduples de 1ª classe (começa a Semana Santa)",
+   "partes": [
+    "Missa Domine ne longe; oração única; Paixão; Credo; Prefácio da Santa Cruz; Benedicamus Domino; se não houver bênção dos ramos, Último Evangelho da Bênção dos Ramos",
+    "➢ Antes da Missa, pela manhã, após a aspersão (como de costume), bênção e distribuição dos ramos seguidas da procissão",
+    "➢ Na procissão, a Cruz vai coberta com pano roxo",
+    "➢ Omitem-se o Sl 42 (Judica me, Deus) e o Gloria Patri no Asperges, no Introito e Lavabo",
+    "➢ Na Epístola, às palavras ut in nomine Jesu até infernorum todos devem ajoelhar-se",
+    "➢ Na Paixão não se diz Munda cor meum, não se pede a bênção, não são levados os ciriais nem incenso. Não se diz Dominus vobiscum, nem se responde Gloria tibi, Domine; igualmente ao se dizer Passio Domini nostri, não faz o sinal da cruz sobre o livro nem sobre si mesmo",
+    "➢ Antes do Altera autem die, diz-se Munda cor meum, pede-se a bênção, leva-se o incenso sem, entretanto, os ciriais, o livro é incensado. Não se diz Dominus vobiscum, não faz o sinal da cruz sobre o livro nem sobre si mesmo. O que segue é cantado no tom do Evangelho; ao final, o celebrante beija o livro e é incensado",
+    "➢ Nas Missas privadas, bem como na Missa cantada simples, a Paixão é lida no lado do Evangelho. Nas Missas solenes, entretanto, até Munda cor meum, é lida no lado da Epístola",
+    "➢ Quando o sacerdote celebra duas Missas, pode ler apenas uma vez a Paixão. Na Missa em que a primeira parte da Paixão é omitida, diz-se no meio do altar o Munda cor meum e o Jube, depois, no Missal, Dominus vobiscum e Sequentia Sancti Evangelii…, e continua-se com Altera autem die. No final, beija-se o livro",
+    "➢ Todos permanecem com ramos nas mãos durante a leitura da Paixão e do Evangelho",
+    "➢ Nas igrejas menores, as celebrações observam o Memoriale Rituum do Papa Bento XIII",
+    "➢ Este ano omite-se na Missa São Bento Abade",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-03-22": {
+   "nome": "Segunda-feira da Semana Santa",
+   "cor": "roxo",
+   "grau": "Féria maior privilegiada de 1ª ordem, simples",
+   "partes": [
+    "Missa Judica Domine; oração Ecclesiæ; Prefácio da Santa Cruz; Oração sobre o povo; Benedicamus Domino",
+    "➢ Omitem-se o Sl 42 (Judica me, Deus) e o Gloria Patri no Introito e Lavabo",
+    "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-03-23": {
+   "nome": "Terça-feira da Semana Santa",
+   "cor": "roxo",
+   "grau": "Féria maior privilegiada de 1ª ordem, simples",
+   "partes": [
+    "Missa Nos autem gloriari; oração Ecclesiæ; Paixão; Prefácio da Santa Cruz; Oração sobre o povo; Benedicamus Domino",
+    "➢ Omitem-se o Sl 42 (Judica me, Deus) e o Gloria Patri no Introito e Lavabo",
+    "➢ Na Paixão não se diz Munda cor meum, não se pede a bênção, não são levados os ciriais nem incenso. Não se diz Dominus vobiscum, nem se responde Gloria tibi, Domine; igualmente ao se dizer Passio Domini nostri, não faz o sinal da cruz sobre o livro nem sobre si mesmo",
+    "➢ Antes do Et cum jam sero, diz-se Munda cor meum, pede-se a bênção, leva-se o incenso sem, entretanto, os ciriais, o livro é incensado. Não se diz Dominus vobiscum, não faz o sinal da cruz sobre o livro nem sobre si mesmo. O que segue é cantado no tom do Evangelho; ao final, o celebrante beija o livro e é incensado",
+    "➢ Nas Missas privadas, bem como na Missa cantada simples, a Paixão é lida no lado do Evangelho. Nas Missas solenes, entretanto, até Munda cor meum, é lida no lado da Epístola",
+    "➢ Quando o sacerdote celebra duas Missas, pode ler apenas uma vez a Paixão. Na Missa em que a primeira parte da Paixão é omitida, diz-se no meio do altar o Munda cor meum e o Jube, depois, no Missal, Dominus vobiscum e Sequentia Sancti Evangelii…, e continua-se com Et cum jam sero. No final, beija-se o livro",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-03-24": {
+   "nome": "Quarta-feira da Semana Santa",
+   "cor": "roxo",
+   "grau": "Féria maior privilegiada de 1ª ordem, simples",
+   "partes": [
+    "Missa In nomine Jesu; comemoração de São Gabriel Arcanjo; Paixão; Prefácio da Santa Cruz; Oração sobre o povo; Benedicamus Domino; Último Evangelho da festa",
+    "➢ Omitem-se o Sl 42 (Judica me, Deus) e o Gloria Patri no Introito e Lavabo",
+    "➢ Ajoelha-se durante o Trato a partir do Adjuva nos",
+    "➢ Na Paixão não se diz Munda cor meum, não se pede a bênção, não são levados os ciriais nem incenso. Não se diz Dominus vobiscum, nem se responde Gloria tibi, Domine; igualmente ao se dizer Passio Domini nostri, não faz o sinal da cruz sobre o livro nem sobre si mesmo",
+    "➢ Antes do Et ecce, vir nomine Joseph, diz-se Munda cor meum, pede-se a bênção, leva-se o incenso sem, entretanto, os ciriais, o livro é incensado. Não se diz Dominus vobiscum, não faz o sinal da cruz sobre o livro nem sobre si mesmo. O que segue é cantado no tom do Evangelho; ao final, o celebrante beija o livro e é incensado",
+    "➢ Nas Missas privadas, bem como na Missa cantada simples, a Paixão é lida no lado do Evangelho. Nas Missas solenes, entretanto, até o Munda cor meum, é lida no lado da Epístola",
+    "➢ Quando o sacerdote celebra duas Missas, pode ler apenas uma vez a Paixão. Na Missa em que a primeira parte da Paixão é omitida, diz-se no meio do altar o Munda cor meum e o Jube, depois, no Missal, Dominus vobiscum e Sequentia Sancti Evangelii…, e continua-se com Et ecce, vir nomine Joseph. No final, beija-se o livro",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-03-25": {
+   "nome": "QUINTA-FEIRA SANTA NA CEIA DO SENHOR",
+   "cor": "branco",
+   "grau": "Féria maior privilegiada de 1ª ordem, duples de 1ª classe",
+   "cores": "cores branca (para Missa) e roxa (para a desnudação)",
+   "partes": [
+    "Missa Nos autem gloriari; Glória (durante o qual se toca o carrilhão e os sinos); Credo; Prefácio da Santa Cruz; Communicantes, Hanc igitur e Qui pridie próprios; omitem-se o ósculo da paz e o sinal da cruz sobre o altar ao Último Evangelho (genuflexão às palavras Et Verbum é voltada para o Santíssimo Sacramento); Ite Missa est",
+    "➢ Omitem-se o Sl 42 (Judica me, Deus) e o Gloria Patri no Introito e Lavabo",
+    "➢ O Mandatum (Lava-pés) é feito fora da Missa, preferencialmente após a desnudação (pode-se fazer à tarde) num lugar afastado do altar do sepulcro ou na sacristia ou nalguma sala contígua à igreja",
+    "➢ A Cruz do altar deve estar coberta com um pano branco (apenas durante a Missa)",
+    "➢ Hoje consagram-se duas hóstias: uma para ser consumida na mesma Missa e a outra para a Missa dos pré-santificados, portanto, as cerimônias da Missa após a comunhão passam a ser das Missas com o Santíssimo solenemente exposto",
+    "➢ Após o Glória não se toca o carrilhão nem os demais sinos da igreja, mas a matraca até o Glória do Sábado Santo",
+    "➢ Após a Missa há a solene procissão do Santíssimo até o altar do sepulcro, onde será adorado continuamente; durante a procissão, a cruz deve estar velada com pano roxo e o cálice coberto com um pano branco e amarrado já no altar. Ao altar do sepulcro, faz-se genuflexão dupla",
+    "➢ Após a Missa retira-se a água benta dos recipientes da igreja",
+    "➢ Após a procissão, se em coro, faz-se as Vésperas. Depois procede-se à desnudação dos altares, que se faz juntamente com os ministros, deixando somente a Cruz (com o véu roxo) e os seis castiçais do altar-mor (se não se recitar as Completas, apagam-se as velas). Ao altar desnudado, faz-se inclinação profunda",
+    "➢ Se em coro, faz-se as Completas. Depois apagam-se as velas",
+    "➢ Nas igrejas menores, as celebrações observam o Memoriale Rituum do Papa Bento XIII",
+    "➢ Este ano transfere-se a Anunciação da Bem-aventurada Virgem Maria para o dia 5 de abril",
+    "➢ Missas permitidas: nenhuma"
+   ]
+  },
+  "2027-03-26": {
+   "nome": "SEXTA-FEIRA SANTA IN PARASCEVE",
+   "cor": "preto",
+   "grau": "Féria maior privilegiada de 1ª ordem, duples de 1ª classe",
+   "partes": [
+    "Rito: (I) Leituras; (II) Orações Solenes; (III) Adoração da Cruz; e (IV) Missa dos pré-santificados",
+    "➢ Hoje omitem-se os ósculos e após a exposição da Cruz também as saudações",
+    "➢ O altar deve estar com a Cruz velada com pano roxo ou preto, com os seis castiçais e sem toalha (a qual é posta durante a prostração)",
+    "➢ A Cruz de procissão deve ser velada com pano roxo",
+    "➢ Antes do Post hæc autem rogavit, diz-se Munda cor meum, mas não se pede a bênção, nem se leva o incenso ou os ciriais. Não se diz Dominus vobiscum, não faz o sinal da cruz sobre o livro nem sobre si mesmo. Ao final, o celebrante não beija o livro",
+    "➢ Após o sacerdote colocar a Cruz no local para ser adorada pelos fiéis, descobrem-se também os outros crucifixos, inclusive a Cruz processional, mas não as imagens dos Santos",
+    "➢ A partir da adoração da Cruz, acendem-se as velas do Altar e todos, in actu functionis, devem fazer genuflexão para o Crucifixo do altar-mor até a Nona do dia seguinte",
+    "➢ Nas igrejas menores, as celebrações observam o Memoriale Rituum do Papa Bento XIII",
+    "➢ Missas permitidas: nenhuma",
+    "Dia de jejum e abstinência"
+   ],
+   "penitencia": "jejum-e-abstinencia"
+  },
+  "2027-03-27": {
+   "nome": "SÁBADO SANTO",
+   "cor": "branco",
+   "grau": "Féria maior privilegiada de 1ª ordem, duples de 1ª classe",
+   "cores": "cores roxa (desde o início da celebração) e branca (para a Missa)",
+   "partes": [
+    "Rito: (I) Bênção do fogo; (II) Canto do Precônio Pascal e acendimento do Círio; (III) Profecias; (IV) Bênção da pia batismal; (V) Ladainha de Todos os Santos; (VI) Missa (com entonação do Glória e do Aleluia)",
+    "MISSA: Salmo 42; sem Introito; Glória (durante o qual se toca o carrilhão e os sinos); sem Credo; sem Offertorium; diz-se o Gloria Patri do Lavabo; Prefácio Pascal (in hac potissimum nocte); Communicantes e Hanc igitur próprios; omitem-se o ósculo da paz e o Agnus Dei; Vésperas (no lugar do Communio); Ite Missa est e Deo gratias com duplo Alleluia",
+    "➢ Antes da Missa, o altar se encontra com a Cruz descoberta e castiçais apagados (sem flores e outros ornamentos)",
+    "➢ O altar é ornado com flores, relicários, tapetes e as velas dos castiçais são acesas quando o celebrante se retira para a sacristia enquanto a Ladainha de Todos os Santos é cantada",
+    "➢ Durante o canto do Gloria in excelsis se descobrem as imagens dos Santos",
+    "➢ Durante o Evangelho não se usam os ciriais, mas só incenso",
+    "➢ Durante as Vésperas, incensa-se o altar no canto do Magnificat",
+    "➢ Após a Missa torna-se a encher os recipientes da igreja com a água lustral",
+    "➢ Nas igrejas menores, as celebrações observam o Memoriale Rituum do Papa Bento XIII",
+    "➢ Este ano suprime-se São João Damasceno Confessor e Doutor da Igreja",
+    "➢ Missas permitidas: nenhuma"
+   ]
+  },
+  "2027-03-28": {
+   "nome": "DOMINGO DA RESSURREIÇÃO",
+   "cor": "branco",
+   "grau": "Maior, duples de 1ª classe, com Oitava privilegiada de 1ª ordem",
+   "partes": [
+    "Missa Resurrexi; Glória; Sequência; Credo; Prefácio Pascal (in hac potissimum die); Communicantes e Hanc igitur próprios; Ite Missa est e Deo gratias com duplo Alleluia",
+    "➢ Na aspersão de hoje usa-se a água lustral",
+    "➢ Hoje o ritual prescreve diversas bênçãos muito tradicionais: do cordeiro, dos ovos, do pão, dos novos frutos, de qualquer comida e do óleo",
+    "➢ Este ano suprime-se São João Capistrano Confessor",
+    "➢ Missas permitidas: nenhuma"
+   ]
+  },
+  "2027-03-29": {
+   "nome": "SEGUNDA-FEIRA DE PÁSCOA",
+   "cor": "branco",
+   "grau": "Oitava privilegiada de 1ª ordem, duples de 1ª classe",
+   "partes": [
+    "Missa Introduxit vos Dominus; Glória; Sequência; Credo; Prefácio Pascal (in hac potissimum die); Communicantes e Hanc igitur próprios; Ite Missa est e Deo gratias com duplo Alleluia",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-03-30": {
+   "nome": "TERÇA-FEIRA DE PÁSCOA",
+   "cor": "branco",
+   "grau": "Oitava privilegiada de 1ª ordem, duples de 1ª classe",
+   "partes": [
+    "Missa Aqua sapientiæ; Glória; Sequência; Credo; Prefácio Pascal (in hac potissimum die); Communicantes e Hanc igitur próprios; Ite Missa est e Deo gratias com duplo Alleluia",
+    "➢ Missas permitidas: exequial apenas"
+   ]
+  },
+  "2027-03-31": {
+   "nome": "Quarta-feira dentro da Oitava da Páscoa",
+   "cor": "branco",
+   "grau": "Oitava privilegiada de 1ª ordem, semiduples",
+   "partes": [
+    "Missa Venite benedicti; Glória; oração Ecclesiæ; Sequência; Credo; Prefácio Pascal (in hac potissimum die); Communicantes e Hanc igitur próprios; Ite Missa est e Deo gratias com duplo Alleluia",
+    "➢ Evangelho deve ser comemorado na ocorrência",
+    "➢ Missas permitidas: exequial; votiva solene"
+   ]
+  }
+ }
+}
