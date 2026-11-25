@@ -57,7 +57,12 @@ export function semOChapeu(texto: string): string {
  * Fica em arquivo próprio porque serve duas telas: o detalhe do dia no
  * calendário e a faixa de hoje na página inicial.
  */
-export function TabelaDaMissa({ naMissa, titulo }: { naMissa: NaMissa; titulo: string }) {
+export function TabelaDaMissa({ naMissa, titulo, quaresma }: {
+  naMissa: NaMissa;
+  titulo: string;
+  /** Só na Quaresma a casa da Oração sobre o povo aparece, com sim ou não. */
+  quaresma: boolean;
+}) {
   return (
     <div className="desenv">
       <p className="desenv__titulo">{titulo}</p>
@@ -117,6 +122,12 @@ export function TabelaDaMissa({ naMissa, titulo }: { naMissa: NaMissa; titulo: s
                 <span className="desenv__porque"> e Communicantes próprio</span>
               )}
             </dd>
+          </div>
+        )}
+        {(quaresma || naMissa.oracaoSobreOPovo) && (
+          <div>
+            <dt>Oração sobre o povo</dt>
+            <dd><Sim v={naMissa.oracaoSobreOPovo} /></dd>
           </div>
         )}
         {naMissa.fecho && (

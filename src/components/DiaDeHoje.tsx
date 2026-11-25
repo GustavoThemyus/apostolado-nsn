@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Elo } from "../routes/Elo";
 import { diaLiturgico } from "../calendario/precedencia";
-import { analisarMissa, celebracoesDoOrdo, patrocinioDoGrau, temOrdo, type DiaDoOrdo } from "../calendario/ordo";
+import { analisarMissa, celebracoesDoOrdo, patrocinioDoGrau, naQuaresma, temOrdo, type DiaDoOrdo } from "../calendario/ordo";
 import { NOME_DA_PENITENCIA } from "../calendario/penitencia";
 import { usarOrdo } from "../hooks/usarOrdo";
 import { Desenvolvimento } from "./Desenvolvimento";
@@ -180,7 +180,11 @@ function DoOrdo({ dia }: { dia: DiaDoOrdo }) {
         do Brasil, mas aqui é faixa de resumo: o dia inteiro está no
         calendário, a um toque.
       */}
-      {naMissa && <TabelaDaMissa naMissa={naMissa} titulo="Na Missa deste dia" />}
+      {naMissa && <TabelaDaMissa
+          naMissa={naMissa}
+          titulo="Na Missa deste dia"
+          quaresma={naQuaresma(dia.tempo)}
+        />}
       {/*
         As rubricas do dia entram, quando há. "No calendário da página inicial
         eu quero que dê pra ver as notas do dia, quando houver", pediu o Perez.

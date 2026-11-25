@@ -91,6 +91,12 @@ async function rodar() {
       conferir(`${ano}: toda tabela reconhece a despedida e o Prefácio`,
         missas.map(([, c]) => analisarMissa(c.missa))
           .filter((n) => n && (!n.fecho || !n.prefacio)).length, 0);
+      conferir(`${ano}: a Oração sobre o povo não entra nas orações do tempo`,
+        missas.map(([, c]) => analisarMissa(c.missa))
+          .filter((n) => n?.oracoes.some((o) => /sobre o povo/i.test(o))).length, 0);
+      const quartaDeCinzas = todos.find((d) => d.nome === "Quarta-feira de Cinzas");
+      conferir(`${ano}: nas Cinzas há Oração sobre o povo`,
+        quartaDeCinzas && naMissaDoOrdo(quartaDeCinzas)?.oracaoSobreOPovo, true);
       conferir(`${ano}: toda Missa extra tem nome, rito e cor`,
         todos.flatMap((d) => d.outras ?? [])
           .filter((o) => !o.nome || !o.rito || !CORES.includes(o.cor)).length, 0);

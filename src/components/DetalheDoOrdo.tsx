@@ -6,6 +6,7 @@ import {
   DA_IGREJA_UNIVERSAL,
   patrocinioDoGrau,
   soAsPermitidas,
+  naQuaresma,
   type Celebracao,
   type DiaDoOrdo,
 } from "../calendario/ordo";
@@ -111,9 +112,11 @@ function Ficha({ grau, rito, cor, tempo }: Pick<DiaDoOrdo, "grau" | "rito" | "co
 function BlocoDaCelebracao({
   celebracao,
   primeira,
+  quaresma,
 }: {
   celebracao: Celebracao;
   primeira: boolean;
+  quaresma: boolean;
 }) {
   const naMissa = analisarMissa(celebracao.missa);
   const permitidas = celebracao.permitidas.map(soAsPermitidas);
@@ -155,6 +158,7 @@ function BlocoDaCelebracao({
       {naMissa && (
         <TabelaDaMissa
           naMissa={naMissa}
+          quaresma={quaresma}
           titulo={primeira && !celebracao.ficha ? "Na Missa deste dia" : "Na Missa"}
         />
       )}
@@ -262,10 +266,10 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
       {universal > 0 && (
         <Deslize
           paineis={[
-            { rotulo: "Aqui", corpo: <BlocoDaCelebracao celebracao={celebracoes[0]} primeira /> },
+            { rotulo: "Aqui", corpo: <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} celebracao={celebracoes[0]} primeira /> },
             {
               rotulo: celebracoes[universal].rotulo!.replace(/\s*:\s*$/, "").trim(),
-              corpo: <BlocoDaCelebracao celebracao={celebracoes[universal]} primeira />,
+              corpo: <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} celebracao={celebracoes[universal]} primeira />,
             },
           ]}
         />
@@ -279,7 +283,7 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
               {c.ficha ? "É possível também celebrar:" : "Pode-se celebrar, à escolha:"}
             </p>
           )}
-          <BlocoDaCelebracao celebracao={c} primeira={i === 0} />
+          <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} celebracao={c} primeira={i === 0} />
         </Fragment>
       ))}
 

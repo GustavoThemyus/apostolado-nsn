@@ -415,6 +415,8 @@ export interface NaMissa {
   gloriaPorque?: string;
   credoPorque?: string;
   prefacio?: string;
+  /** Dita depois da Pós-comunhão, nas Missas feriais da Quaresma. */
+  oracaoSobreOPovo: boolean;
   /** O Ordo diz "Prefácio e Communicantes do Natal": o Communicantes é próprio. */
   communicantes?: boolean;
   fecho?: string;
@@ -525,6 +527,7 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
   const gloria = achar(linha, "Glória");
   const credo = achar(linha, "Credo");
   const prefacio = primeiro(linha, /Prefácio[^;]*/);
+  const sobreOPovo = achar(linha, "Oração sobre o povo");
   const fecho = primeiro(linha, /(Ite,? Missa est|Benedicamus Domino|Requiescant in pace)[^;]*/);
 
   const entreAsLeituras: string[] = [];
@@ -562,6 +565,8 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
 
   for (const cru of segmentos) {
     const p = cru.trim();
+    /* tem casa própria, e não é das orações do tempo */
+    if (/^(sem\s+)?Oração sobre o povo/.test(p)) continue;
     if (/^(sem\s+)?(Trato|Gradual)\b/.test(p) || /^Sequência/.test(p) || /Aleluia/.test(p)) {
       entreAsLeituras.push(p);
     } else if (/comemoração/i.test(p)) {
@@ -608,6 +613,7 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
     credoPorque: credo.porque,
     prefacio: prefacio?.replace(/^Prefácio( e Communicantes)?\s*/, ""),
     communicantes: composto || undefined,
+    oracaoSobreOPovo: sobreOPovo.tem,
     fecho,
     ultimoEvangelho: evangelho?.replace(/^Último Evangelho\s*/, ""),
     entreAsLeituras,
@@ -616,6 +622,10 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
     resto,
   };
 }
+
+/** A Quaresma inteira, com o Tempo da Paixão. */
+export const naQuaresma = (tempo: Tempo): boolean =>
+  tempo === "quaresma" || tempo === "paixao";
 
 /** A Missa da capela: a primeira do dia. */
 export const naMissaDoOrdo = (dia: DiaDoOrdo): NaMissa | null =>
