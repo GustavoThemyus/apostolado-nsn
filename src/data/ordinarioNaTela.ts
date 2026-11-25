@@ -18,9 +18,6 @@ function grupoVale(grupo: string | undefined, dia: NaMissaDoDia): boolean {
   return true;
 }
 
-const chaveDaPostura = (p: PosturaDoMomento): string =>
-  typeof p === "string" ? p : p.rezada === p.cantada ? p.rezada : `${p.rezada}|${p.cantada}`;
-
 /**
  * O Ordinário como a tela o mostra neste dia e com estas opções.
  *
@@ -28,18 +25,16 @@ const chaveDaPostura = (p: PosturaDoMomento): string =>
  * (Glória no Advento, Credo nos dias de semana, aspersão fora do domingo) e
  * os títulos que ficariam sem nada embaixo.
  *
- * A postura merece um parágrafo. Ela vem marcada no bloco em que MUDA, e a
- * tela a mostra no primeiro bloco visível depois da mudança: se o bloco que
- * a trazia era um título sem corpo, a postura vai no próximo. Só conta quem existe no dia: o joelho da aspersão não vale num
- * dia sem aspersão. E dentro de um grupo fechado não se grava o que foi
- * mostrado, porque o fiel pode não ter visto.
+ * A postura merece um parágrafo. Ela vem marcada no bloco em que MUDA, e
+ * daqui sai em cada bloco a que vale nele, para a tela poder cercar o trecho
+ * inteiro. Só conta quem existe no dia: o joelho da aspersão não vale num dia
+ * sem aspersão.
  */
 export function montarSecoes(
   secoes: { id: string; blocos: Bloco[] }[],
   dia: NaMissaDoDia,
 ): SecaoNaTela[] {
   let atual: PosturaDoMomento | undefined;
-  let mostrada: string | undefined;
 
   return secoes.map(({ id, blocos }) => {
     const visiveis: { bloco: Bloco; antes?: PosturaDoMomento }[] = [];
@@ -59,7 +54,7 @@ export function montarSecoes(
     );
 
     const itens: ItemNaTela[] = [];
-    let grupo: { id: string; itens: ItemNaTela[]; local?: string } | null = null;
+    let grupo: { id: string; itens: ItemNaTela[] } | null = null;
 
     for (const { bloco, antes } of comCorpo) {
       const g = bloco.grupo;
@@ -67,18 +62,9 @@ export function montarSecoes(
         itens.push({ tipo: "grupo", id: grupo.id, itens: grupo.itens });
         grupo = null;
       }
-      if (g && !grupo) grupo = { id: g, itens: [], local: mostrada };
+      if (g && !grupo) grupo = { id: g, itens: [] };
 
-      let postura: PosturaDoMomento | undefined;
-      if (antes) {
-        const vista = grupo ? grupo.local : mostrada;
-        if (chaveDaPostura(antes) !== vista) {
-          postura = antes;
-          if (grupo) grupo.local = chaveDaPostura(antes);
-          else mostrada = chaveDaPostura(antes);
-        }
-      }
-      (grupo ? grupo.itens : itens).push({ tipo: "bloco", bloco, postura });
+      (grupo ? grupo.itens : itens).push({ tipo: "bloco", bloco, postura: antes });
     }
     if (grupo) itens.push({ tipo: "grupo", id: grupo.id, itens: grupo.itens });
 

@@ -1,3 +1,4 @@
+import type { PosturaDoMomento } from "../data/tipos";
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { comoIso, diaDaBusca, hojeUTC } from "../calendario/dias";
 import { naMissaDoOrdo, temOrdo } from "../calendario/ordo";
@@ -50,14 +51,57 @@ const TITULO_NA_PAGINA = (id: string, dia: NaMissaDoDia): string | undefined =>
       : "Entrada do sacerdote"
     : SECOES.find((s) => s.id === id)?.titulo;
 
+type BlocoNaTela = Extract<ItemNaTela, { tipo: "bloco" }>;
+
+/**
+ * Os itens em trechos de uma só postura.
+ *
+ * Um subtítulo fica fora do trecho, e o encerra: assim o aviso de postura vem
+ * depois do título da parte, junto do texto a que se refere, e nunca solto
+ * entre uma parte e outra.
+ */
+function emTrechos(itens: ItemNaTela[]): (ItemNaTela | { tipo: "trecho"; blocos: BlocoNaTela[] })[] {
+  const saida: (ItemNaTela | { tipo: "trecho"; blocos: BlocoNaTela[] })[] = [];
+  for (const item of itens) {
+    if (item.tipo !== "bloco" || !item.postura || item.bloco.tipo === "subtitulo") {
+      saida.push(item);
+      continue;
+    }
+    const ultimo = saida[saida.length - 1];
+    if (
+      ultimo?.tipo === "trecho" &&
+      JSON.stringify(ultimo.blocos[0].postura) === JSON.stringify(item.postura)
+    ) {
+      ultimo.blocos.push(item);
+    } else {
+      saida.push({ tipo: "trecho", blocos: [item] });
+    }
+  }
+  return saida;
+}
+
+/** A classe do filete: a postura, ou "mista" quando rezada e cantada divergem. */
+const filete = (p: PosturaDoMomento): string =>
+  typeof p === "string" ? p : p.rezada === p.cantada ? p.rezada : "mista";
+
 function Itens({ itens, dia }: { itens: ItemNaTela[]; dia: NaMissaDoDia }) {
   return (
     <>
-      {itens.map((item, i) => {
+      {emTrechos(itens).map((item, i) => {
+        if (item.tipo === "trecho") {
+          const postura = item.blocos[0].postura!;
+          return (
+            <div className={`trecho trecho--${filete(postura)}`} key={i}>
+              <PosturaDoFiel postura={postura} />
+              {item.blocos.map((b, n) => (
+                <Bloco bloco={b.bloco} key={n} />
+              ))}
+            </div>
+          );
+        }
         if (item.tipo === "bloco") {
           return (
             <Fragment key={i}>
-              {item.postura && <PosturaDoFiel postura={item.postura} />}
               <Bloco bloco={item.bloco} />
             </Fragment>
           );
