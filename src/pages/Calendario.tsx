@@ -221,18 +221,25 @@ export default function Calendario() {
             </>
           )}
 
-          {/* nos cantos de baixo, discretos: trocar de calendário e assinar */}
+          {/*
+            Nos cantos de baixo, discretos: trocar de calendário e assinar. O
+            botão diz qual está à vista, pelo nome das rubricas e sem os anos,
+            que o Perez não quer estampados; sem nome nenhum, quem tocava não
+            via o que tinha mudado.
+          */}
           <div className="calendario__cantos">
             <button
               type="button"
               className="calendario__trocar"
-              aria-label="Alternar entre os dois calendários"
-              title="Alternar entre os dois calendários"
+              title={`Trocar para as rubricas de ${pre55 ? "São João XXIII" : "São Pio X"}`}
               onClick={() => trocar(pre55 ? "1962" : "pre55")}
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4 8h14l-4-4M20 16H6l4 4" fill="none" stroke="currentColor" strokeWidth="1.8" />
               </svg>
+              <span aria-live="polite">
+                Rubricas de {pre55 ? "São Pio X" : "São João XXIII"}
+              </span>
             </button>
             <BotaoDeAssinar />
           </div>
