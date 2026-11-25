@@ -13,7 +13,7 @@ import {
   semLausDoOrdinario,
   type TextoDaSecao,
 } from "../data/ordinario";
-import { montarSecoes, type ItemNaTela } from "../data/ordinarioNaTela";
+import { montarSecoes, type ItemNaTela, type OpcoesDeLeitura } from "../data/ordinarioNaTela";
 import { usarOrdo } from "../hooks/usarOrdo";
 import { Elo } from "../routes/Elo";
 import { usarRota } from "../routes/usarRota";
@@ -50,6 +50,36 @@ const TITULO_NA_PAGINA = (id: string, dia: NaMissaDoDia): string | undefined =>
       ? "Entrada do sacerdote e aspersão"
       : "Entrada do sacerdote"
     : SECOES.find((s) => s.id === id)?.titulo;
+
+const CHAVE = "ordinario:leitura";
+const TUDO: OpcoesDeLeitura = { vozes: "todas", rubricas: true };
+const PADRAO: OpcoesDeLeitura = { vozes: "altas", rubricas: true };
+
+/** A escolha do fiel fica no aparelho dele: é conveniência, não dado da página. */
+function usarOpcoes(): [OpcoesDeLeitura, (o: Partial<OpcoesDeLeitura>) => void] {
+  const [opcoes, definir] = useState<OpcoesDeLeitura>(() => {
+    try {
+      const guardado = JSON.parse(localStorage.getItem(CHAVE) ?? "null");
+      if (guardado && (guardado.vozes === "altas" || guardado.vozes === "todas")) {
+        return { vozes: guardado.vozes, rubricas: guardado.rubricas !== false };
+      }
+    } catch {
+      /* sem armazenamento: vale o padrão */
+    }
+    return PADRAO;
+  });
+  const mudar = (parte: Partial<OpcoesDeLeitura>) =>
+    definir((atual) => {
+      const novo = { ...atual, ...parte };
+      try {
+        localStorage.setItem(CHAVE, JSON.stringify(novo));
+      } catch {
+        /* idem */
+      }
+      return novo;
+    });
+  return [opcoes, mudar];
+}
 
 type BlocoNaTela = Extract<ItemNaTela, { tipo: "bloco" }>;
 
@@ -123,13 +153,53 @@ function Itens({ itens, dia }: { itens: ItemNaTela[]; dia: NaMissaDoDia }) {
   );
 }
 
+function Controles({
+  opcoes,
+  mudar,
+}: {
+  opcoes: OpcoesDeLeitura;
+  mudar: (o: Partial<OpcoesDeLeitura>) => void;
+}) {
+  return (
+    <div className="leitura" role="group" aria-label="Como ler a Missa">
+      <div className="leitura__vozes" role="group" aria-label="O que ler">
+        <button
+          type="button"
+          className="leitura__botao"
+          aria-pressed={opcoes.vozes === "altas"}
+          onClick={() => mudar({ vozes: "altas" })}
+        >
+          Só o que se diz em voz alta
+        </button>
+        <button
+          type="button"
+          className="leitura__botao"
+          aria-pressed={opcoes.vozes === "todas"}
+          onClick={() => mudar({ vozes: "todas" })}
+        >
+          Tudo, com o silêncio
+        </button>
+      </div>
+      <button
+        type="button"
+        className="leitura__botao leitura__botao--chave"
+        aria-pressed={opcoes.rubricas}
+        onClick={() => mudar({ rubricas: !opcoes.rubricas })}
+      >
+        Rubricas e explicações
+      </button>
+    </div>
+  );
+}
+
 /**
  * A Missa numa leitura só, do começo ao fim.
  *
  * Serve à página do Ordinário e à da Missa do dia: o texto é o mesmo e o que
  * muda é o recorte (`ids`) e se o próprio do dia entra nos dez lugares que o
- * impresso deixa em branco. As orações em silêncio e as rubricas aparecem
- * sempre, a pedido do Perez.
+ * impresso deixa em branco. Na Missa do dia o fiel pode ficar só com a voz
+ * alta ou esconder as rubricas; no Ordinário tudo aparece sempre, e é assim
+ * que o Perez quer cada um.
  *
  * Quem decide o que a Missa de hoje tem é o calendário (`naMissaDoDia`); aqui
  * só se mostra. O Ordo publicado, quando cobre o ano, manda no Glória e no
@@ -189,9 +259,13 @@ export function MissaContinua({
     return { secoes, mesclado };
   }, [carregadas, folheto]);
 
+  const [escolhidas, mudar] = usarOpcoes();
+  // a escolha vale na Missa do dia; o Ordinário é sempre o texto inteiro
+  const opcoes = comProprio ? escolhidas : TUDO;
+
   const secoes = useMemo(
-    () => (comEvangelho.secoes ? montarSecoes(comEvangelho.secoes, naDoDia) : []),
-    [comEvangelho, naDoDia],
+    () => (comEvangelho.secoes ? montarSecoes(comEvangelho.secoes, naDoDia, opcoes) : []),
+    [comEvangelho, naDoDia, opcoes],
   );
   const comTexto = secoes.filter((s) => s.itens.length > 0);
   const abreComTitulo = (id: string) =>
@@ -246,6 +320,8 @@ export function MissaContinua({
 
       {!(comProprio && rito) && (
         <>
+          {comProprio && <Controles opcoes={opcoes} mudar={mudar} />}
+
           <nav className="modo-missa__secoes" aria-label="Partes da Missa">
             {comTexto.map((s) => (
               <a
@@ -261,7 +337,7 @@ export function MissaContinua({
             ))}
           </nav>
 
-          <article className="folheto folheto--proprio">
+          <article className={"folheto folheto--proprio" + (opcoes.rubricas ? "" : " ordinario--sem-rubricas")}>
             <ComOProprioDoDia folheto={folheto} dia={iso} evangelhoNoOrdinario={comEvangelho.mesclado}>
               {!carregadas || esperandoOrdo ? (
                 <p className="modo-missa__aviso">Carregando…</p>

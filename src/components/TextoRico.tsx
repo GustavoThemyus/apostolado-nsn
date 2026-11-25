@@ -165,7 +165,7 @@ function ateOFechoQueCasa(
 }
 
 /**
- * O ℣ e o ℟, que no missal são vermelhos.
+ * O ℣, o ℟ e a cruz ✠, que no missal são vermelhos.
  *
  * Vermelhos em todo o site, e não só nos folhetos: são sinal de rubrica onde
  * quer que apareçam, e o preto neles era o livro impresso sem a segunda tinta.
@@ -176,10 +176,10 @@ function ateOFechoQueCasa(
  * saiu do PDF, e pedir que alguém o marque à mão seria convidar ao esquecimento
  * em metade das ocorrências.
  */
-const SINAIS = /([℣℟]\.?)/g;
+const SINAIS = /([℣℟]\.?|✠)/g;
 
 function comSinais(linha: string, prefixo: string): ReactNode[] {
-  if (!linha.includes("℣") && !linha.includes("℟")) return [linha];
+  if (!/[℣℟✠]/.test(linha)) return [linha];
   /*
    * Depois do `split` com grupo de captura, todo sinal virou pedaço próprio e
    * nenhum sobrou nos outros: por isso a primeira letra basta para distinguir,
@@ -190,7 +190,7 @@ function comSinais(linha: string, prefixo: string): ReactNode[] {
     .split(SINAIS)
     .filter((p) => p !== "")
     .map((parte, i) =>
-      /^[℣℟]/.test(parte) ? (
+      /^[℣℟✠]/.test(parte) ? (
         <span className="sinal-de-verso" key={`${prefixo}-s-${i}`}>
           {parte}
         </span>

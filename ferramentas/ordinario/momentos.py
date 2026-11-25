@@ -347,19 +347,19 @@ def pausar(secoes):
     Põe um travessão em cada pausa das respostas do povo.
 
     Pedido do Perez em novembro de 2026: quem reza junto respira no mesmo
-    lugar. A pausa segue a pontuação, e é proposta para ele revisar. Só mexe
-    no que é resposta (℟), e não põe um segundo travessão onde já há um.
+    lugar. Só no latim, que é o que se reza em voz comum. A pausa segue a
+    pontuação, só mexe no que é resposta (℟), e não põe um segundo travessão
+    onde já há um.
     """
     for s in SECOES_MARCADAS:
         for b in secoes[s]:
             if b["tipo"] != "bilingue":
                 continue
-            for lado in ("latim", "portugues"):
-                for p in b[lado]:
-                    if p["texto"].startswith("[b]℟. "):
-                        resto = p["texto"][len("[b]℟. "):]
-                        povo, *resto_dele = DO_SACERDOTE.split(resto, maxsplit=1)
-                        p["texto"] = "[b]℟. " + PAUSA.sub(r"\1 — ", povo) + "".join(resto_dele)
+            for p in b["latim"]:
+                if p["texto"].startswith("[b]℟. "):
+                    resto = p["texto"][len("[b]℟. "):]
+                    povo, *resto_dele = DO_SACERDOTE.split(resto, maxsplit=1)
+                    p["texto"] = "[b]℟. " + PAUSA.sub(r"\1 — ", povo) + "".join(resto_dele)
 
 
 def marcar(secoes):
