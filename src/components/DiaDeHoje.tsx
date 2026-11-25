@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Elo } from "../routes/Elo";
 import { diaLiturgico } from "../calendario/precedencia";
-import { analisarMissa, celebracoesDoOrdo, patrocinioDoGrau, naQuaresma, temOrdo, type DiaDoOrdo } from "../calendario/ordo";
+import { analisarMissa, celebracoesDoOrdo, patrocinioDoGrau, naQuaresma, soONomeDaMissa, temOrdo, type DiaDoOrdo } from "../calendario/ordo";
 import { NOME_DA_PENITENCIA } from "../calendario/penitencia";
 import { usarOrdo } from "../hooks/usarOrdo";
 import { Desenvolvimento } from "./Desenvolvimento";
@@ -184,6 +184,7 @@ function DoOrdo({ dia }: { dia: DiaDoOrdo }) {
           naMissa={naMissa}
           titulo="Na Missa deste dia"
           quaresma={naQuaresma(dia.tempo)}
+          soONome={soONomeDaMissa(dia.data)}
         />}
       {/*
         As rubricas do dia entram, quando há. "No calendário da página inicial

@@ -627,6 +627,9 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
 export const naQuaresma = (tempo: Tempo): boolean =>
   tempo === "quaresma" || tempo === "paixao";
 
+/** De 2027 em diante a tabela mostra o nome da Missa sem repetir "Missa". */
+export const soONomeDaMissa = (data: Date): boolean => data.getUTCFullYear() >= 2027;
+
 /** A Missa da capela: a primeira do dia. */
 export const naMissaDoOrdo = (dia: DiaDoOrdo): NaMissa | null =>
   analisarMissa(separarOProprio(dia.partes[0] ?? "").linha);

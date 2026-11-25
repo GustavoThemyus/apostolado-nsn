@@ -35,6 +35,21 @@ export function Linha({ agenda }: { agenda: Agenda }) {
   );
 }
 
+/** O convite de uma agenda só, no fim do texto de que ela trata. */
+export function AssinarEsta({ id }: { id: string }) {
+  const agenda = site.agendas.find((a) => a.id === id && a.google);
+  if (!agenda) return null;
+
+  return (
+    <aside className="agendas" aria-label={`Calendário: ${agenda.nome}`}>
+      <p className="agendas__titulo">Leve este calendário no celular</p>
+      <ul className="agendas__lista">
+        <Linha agenda={agenda} />
+      </ul>
+    </aside>
+  );
+}
+
 export function AssinarAgenda({
   grupo,
   titulo,

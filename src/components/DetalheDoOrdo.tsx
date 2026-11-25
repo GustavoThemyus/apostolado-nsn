@@ -7,6 +7,7 @@ import {
   patrocinioDoGrau,
   soAsPermitidas,
   naQuaresma,
+  soONomeDaMissa,
   type Celebracao,
   type DiaDoOrdo,
 } from "../calendario/ordo";
@@ -113,10 +114,12 @@ function BlocoDaCelebracao({
   celebracao,
   primeira,
   quaresma,
+  soONome,
 }: {
   celebracao: Celebracao;
   primeira: boolean;
   quaresma: boolean;
+  soONome: boolean;
 }) {
   const naMissa = analisarMissa(celebracao.missa);
   const permitidas = celebracao.permitidas.map(soAsPermitidas);
@@ -148,7 +151,7 @@ function BlocoDaCelebracao({
           {/* recolhida, o nome já é o resumo; passada para o lado, não é */}
           {primeira && <p className="ordo__celebracao-posto">{celebracao.ficha.nome}</p>}
           {celebracao.ficha.subtitulo && (
-            <p className="ordo__celebracao-proprio">{celebracao.ficha.subtitulo}</p>
+            <p className="ordo__patrocinio">{celebracao.ficha.subtitulo}</p>
           )}
           <Ficha {...celebracao.ficha} />
           {celebracao.ficha.cores && <p className="ordo__cores">{celebracao.ficha.cores}.</p>}
@@ -159,6 +162,7 @@ function BlocoDaCelebracao({
         <TabelaDaMissa
           naMissa={naMissa}
           quaresma={quaresma}
+          soONome={soONome}
           titulo={primeira && !celebracao.ficha ? "Na Missa deste dia" : "Na Missa"}
         />
       )}
@@ -266,10 +270,10 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
       {universal > 0 && (
         <Deslize
           paineis={[
-            { rotulo: "Aqui", corpo: <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} celebracao={celebracoes[0]} primeira /> },
+            { rotulo: "Aqui", corpo: <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} soONome={soONomeDaMissa(dia.data)} celebracao={celebracoes[0]} primeira /> },
             {
               rotulo: celebracoes[universal].rotulo!.replace(/\s*:\s*$/, "").trim(),
-              corpo: <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} celebracao={celebracoes[universal]} primeira />,
+              corpo: <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} soONome={soONomeDaMissa(dia.data)} celebracao={celebracoes[universal]} primeira />,
             },
           ]}
         />
@@ -283,7 +287,7 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
               {c.ficha ? "É possível também celebrar:" : "Pode-se celebrar, à escolha:"}
             </p>
           )}
-          <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} celebracao={c} primeira={i === 0} />
+          <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} soONome={soONomeDaMissa(dia.data)} celebracao={c} primeira={i === 0} />
         </Fragment>
       ))}
 

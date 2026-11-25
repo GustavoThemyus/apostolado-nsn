@@ -87,7 +87,7 @@ export type Bloco = ComId &
    * tem trinta e tantas linhas: cair no título dela é cair longe. O Perez
    * pediu o contrário — "levar a pessoa pra parte exata da concessão".
    */
-  | { tipo: "paragrafo"; texto: string; ancora?: string }
+  | { tipo: "paragrafo"; texto: string; ancora?: string; destaque?: boolean }
   | { tipo: "rubrica"; texto: string }
     | { tipo: "assembleia"; texto: string }
   | { tipo: "subtitulo"; texto: string; ancora?: string; menor?: boolean }
@@ -121,7 +121,14 @@ export type Bloco = ComId &
   | { tipo: "oracao"; versos: Verso[] }
   | { tipo: "nota"; titulo: string; paragrafos: string[]; alerta?: boolean }
   /* `ancoras` dá um id a cada linha, na ordem, para um elo cair nela */
-  | { tipo: "tabela"; colunas: string[]; linhas: string[][]; ancoras?: string[] }
+  | {
+      tipo: "tabela";
+      colunas: string[];
+      linhas: string[][];
+      ancoras?: string[];
+      /** Quadro que compara colunas: no celular se lê uma coluna de cada vez. */
+      porColuna?: boolean;
+    }
   | { tipo: "legenda"; itens: ItemDeLegenda[] }
     | {
         tipo: "passo";

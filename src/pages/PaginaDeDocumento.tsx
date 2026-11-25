@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { Fragment, useCallback, useMemo, useState } from "react";
 import { Cabecalho } from "../components/Cabecalho";
 import { AtalhosDaSecao, CartoesDeSecao } from "../components/CartoesDeSecao";
 import { ProvedorDeNumeracao } from "../components/NumeracaoDePassos";
@@ -21,6 +21,7 @@ import { ProvedorDeSecoes } from "../components/IndiceDoDocumento";
 export function PaginaDeDocumento({
   conteudo,
   antes,
+  depoisDaSecao,
   children,
 }: {
   conteudo: Conteudo;
@@ -30,6 +31,8 @@ export function PaginaDeDocumento({
    * coluna estreita ao lado do sumário, e lá a grade ficaria espremida.
    */
   antes?: ReactNode;
+  /** O que fecha uma seção em particular. Declarar fora do componente. */
+  depoisDaSecao?: (id: string) => ReactNode;
   /** Blocos extras depois das seções, como os botões de agenda. */
   children?: ReactNode;
 }) {
@@ -73,9 +76,14 @@ export function PaginaDeDocumento({
     let contador = 0;
     return secoesReais.map((secao) => {
       const numero = secao.foraDoIndice ? undefined : (contador += 1);
-      return <Secao secao={secao} numero={numero} key={secao.id} />;
+      return (
+        <Fragment key={secao.id}>
+          <Secao secao={secao} numero={numero} />
+          {depoisDaSecao?.(secao.id)}
+        </Fragment>
+      );
     });
-  }, [secoesReais]);
+  }, [secoesReais, depoisDaSecao]);
 
   return (
     <ProvedorDeNotas notas={conteudo.notas}>

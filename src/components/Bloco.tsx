@@ -47,7 +47,10 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
       // a âncora é o que faz "§1, 3.º" cair no §1, 3.º, e não no alto da
       // concessão; quase todo parágrafo não tem, e aí não há id nenhum
       return (
-        <p className="paragrafo" id={bloco.ancora}>
+        <p
+          className={bloco.destaque ? "paragrafo paragrafo--destaque" : "paragrafo"}
+          id={bloco.ancora}
+        >
           <TextoRico texto={bloco.texto} />
         </p>
       );
@@ -77,7 +80,14 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
     case "nota":
       return <Nota titulo={bloco.titulo} paragrafos={bloco.paragrafos} alerta={bloco.alerta} />;
     case "tabela":
-      return <Tabela colunas={bloco.colunas} linhas={bloco.linhas} ancoras={bloco.ancoras} />;
+      return (
+        <Tabela
+          colunas={bloco.colunas}
+          linhas={bloco.linhas}
+          ancoras={bloco.ancoras}
+          porColuna={bloco.porColuna}
+        />
+      );
     case "separador":
       return <hr className="separador" />;
     case "bilingue": {

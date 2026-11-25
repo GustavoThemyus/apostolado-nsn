@@ -23,13 +23,19 @@
         },
         {
           "tipo": "paragrafo",
-          "texto": "(Destaque) \"Os catálogos e compilações de indulgências das ordens, congregações religiosas, sociedades de vida comum sem votos, institutos seculares e associações pias de fiéis, serão revistos assim que possível, para a indulgência plenária poder ser adquirida só em certos dias particulares, marcados pela Santa Sé, sob proposta do superior geral ou, tratando-se de associações pias, do ordinário do lugar.\" Indulgentiarum Doctrina, n. 14. Desse modo, a partir da publicação da Constituição Apostólica, todas as associações religiosas deveriam solicitar a revisão de suas indulgências a fim de se confomarem com a nova disciplina. Isto fez com que as associações que não pediram a readequação de suas indulgências caíssem em um limbo jurídico de incerteza se as antigas indulgências continuam ou não valendo, por isso é necessário sempre atentar-se se as indulgências particulares estão ou não vigentes, isto é, se são posteriores à Indulgentiarum Doctrina de 1967.",
+          "texto": "\"Os catálogos e compilações de indulgências das ordens, congregações religiosas, sociedades de vida comum sem votos, institutos seculares e associações pias de fiéis, serão revistos assim que possível, para a indulgência plenária poder ser adquirida só em certos dias particulares, marcados pela Santa Sé, sob proposta do superior geral ou, tratando-se de associações pias, do ordinário do lugar.\" Indulgentiarum Doctrina, n. 14.",
+          "destaque": true,
           "id": "introducao-004"
         },
         {
           "tipo": "paragrafo",
-          "texto": "Outro detalhe é que a publicação das novas indulgências era comunicada pela Penitenciaria Apostólica apenas ao superior geral da associação, que fez o pedido, e geralmente circulava internamente, mas estas concessões não eram publicadas nas Atas da Sé Apostólica ou em qualquer outro meio oficial, deixando muito difícil fazer o catálogo das Indulgências próprias vigentes, portanto, dispomos de poucas, entretanto, se algum dos leitores tiver o catálogo de indulgências de alguma associação, Ordem ou Confraria concedidas após 1967 que não inserimos aqui, por favor nos envie pelo e-mail de contato que teremos a alegria de incluir nessa lista.",
+          "texto": "Desse modo, a partir da publicação da Constituição Apostólica, todas as associações religiosas deveriam solicitar a revisão de suas indulgências a fim de se confomarem com a nova disciplina. Isto fez com que as associações que não pediram a readequação de suas indulgências caíssem em um limbo jurídico de incerteza se as antigas indulgências continuam ou não valendo, por isso é necessário sempre atentar-se se as indulgências particulares estão ou não vigentes, isto é, se são posteriores à Indulgentiarum Doctrina de 1967.",
           "id": "introducao-005"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Outro detalhe é que a publicação das novas indulgências era comunicada pela Penitenciaria Apostólica apenas ao superior geral da associação, que fez o pedido, e geralmente circulava internamente, mas estas concessões não eram publicadas nas Atas da Sé Apostólica ou em qualquer outro meio oficial, deixando muito difícil fazer o catálogo das Indulgências próprias vigentes, portanto, dispomos de poucas, entretanto, se algum dos leitores tiver o catálogo de indulgências de alguma associação, Ordem ou Confraria concedidas após 1967 que não inserimos aqui, por favor nos envie pelo e-mail de contato que teremos a alegria de incluir nessa lista.",
+          "id": "introducao-006"
         }
       ]
     },
@@ -95,6 +101,7 @@
               "O encargo é o seguimento de uma regra, rezar diariamente orações específicas, a reunião"
             ]
           ],
+          "porColuna": true,
           "id": "observacoes-006"
         },
         {

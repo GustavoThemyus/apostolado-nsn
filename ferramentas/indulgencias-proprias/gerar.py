@@ -162,6 +162,29 @@ def palavras(texto):
     return collections.Counter(re.findall(r"\w+", texto.lower()))
 
 
+def destacar(secoes):
+    """
+    "(Destaque)" é recado do Perez a quem monta a página: a citação que vem
+    depois dele sai em destaque, e o que segue a referência é outro parágrafo.
+    """
+    achados = 0
+    for s in secoes:
+        for i, b in reversed(list(enumerate(s["blocos"]))):
+            if b["tipo"] != "paragrafo" or not b["texto"].startswith("(Destaque) "):
+                continue
+            m = re.fullmatch(r'\(Destaque\) (".+?" Indulgentiarum Doctrina, n\. \d+\.) (.+)',
+                             b["texto"])
+            if not m:
+                raise SystemExit("destaque sem a forma esperada: %r" % b["texto"][:80])
+            s["blocos"][i:i + 1] = [
+                {"tipo": "paragrafo", "texto": m.group(1), "destaque": True},
+                {"tipo": "paragrafo", "texto": m.group(2)},
+            ]
+            achados += 1
+    if achados != 1:
+        raise SystemExit("esperava um destaque, achei %d" % achados)
+
+
 def main(pdf):
     secoes = montar(pdf)
 
@@ -194,6 +217,14 @@ def main(pdf):
         if len(achados) != 1:
             raise SystemExit("troca não encontrada: %r" % antes)
         achados[0]["texto"] = achados[0]["texto"].replace(antes, depois)
+
+    destacar(secoes)
+    # o quadro dos três tipos de associação compara colunas: no celular ele se
+    # lê um tipo de cada vez
+    for s in secoes:
+        for b in s["blocos"]:
+            if b["tipo"] == "tabela" and len(b["colunas"]) == 3:
+                b["porColuna"] = True
 
     for s in secoes:
         for n, b in enumerate(s["blocos"], 1):

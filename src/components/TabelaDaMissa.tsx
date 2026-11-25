@@ -57,11 +57,21 @@ export function semOChapeu(texto: string): string {
  * Fica em arquivo próprio porque serve duas telas: o detalhe do dia no
  * calendário e a faixa de hoje na página inicial.
  */
-export function TabelaDaMissa({ naMissa, titulo, quaresma }: {
+/*
+ * A casa já se chama Missa. De 2027 em diante o Perez pediu o nome sem a
+ * palavra repetida na frente.
+ */
+const semMissa = (texto: string): string => {
+  const nome = texto.replace(/^Missa\s+/, "");
+  return nome[0].toUpperCase() + nome.slice(1);
+};
+
+export function TabelaDaMissa({ naMissa, titulo, quaresma, soONome }: {
   naMissa: NaMissa;
   titulo: string;
   /** Só na Quaresma a casa da Oração sobre o povo aparece, com sim ou não. */
   quaresma: boolean;
+  soONome: boolean;
 }) {
   return (
     <div className="desenv">
@@ -75,7 +85,9 @@ export function TabelaDaMissa({ naMissa, titulo, quaresma }: {
         {naMissa.resto.length > 0 && (
           <div>
             <dt>Missa</dt>
-            <dd>{naMissa.resto.join("; ")}</dd>
+            <dd>
+              {(soONome ? naMissa.resto.map(semMissa) : naMissa.resto).join("; ")}
+            </dd>
           </div>
         )}
         <div>

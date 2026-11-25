@@ -1251,11 +1251,25 @@ button {
  * as rubricas, que são notas de execução — e no impresso elas vêm marcadas
  * com um ➢, que aqui vira o recuo e o filete.
  */
-.ordo__cores,
-.ordo__guarda {
+.ordo__cores {
   margin: 0.5rem 0 0;
   font-size: 0.92em;
   color: var(--tinta-suave);
+}
+/* o preceito e o próprio de onde sai a Missa saltam à vista: são selos */
+.ordo__guarda,
+.ordo__celebracao-proprio {
+  display: table;
+  margin: 0.7rem 0;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--ouro);
+  border-radius: 0.3rem;
+  font-family: var(--sem-serifa);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
 }
 .ordo__missa {
   margin: 0.8rem 0 0;
@@ -1304,17 +1318,18 @@ button {
 .ordo__nota {
   position: relative;
   margin: 0 0 0.55rem;
-  padding-left: 1rem;
-  font-size: 0.95em;
-  color: var(--tinta-suave);
+  padding-left: 1.2rem;
+  font-size: 0.97em;
+  color: var(--tinta);
 }
+/* a setinha dourada: triângulo desenhado, que nenhum aparelho troca por figura */
 .ordo__nota::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.62em;
-  width: 0.4rem;
-  border-top: 1px solid var(--fio-aceso);
+  left: 0.1rem;
+  top: 0.52em;
+  border-block: 0.32rem solid transparent;
+  border-left: 0.5rem solid var(--ouro);
 }
 /* parágrafo que no Ordo vinha sem marca: é continuação, não nota */
 .ordo__nota--corrida {
@@ -2428,6 +2443,33 @@ button {
   vertical-align: top;
 }
 
+.paragrafo--destaque {
+  margin-block: 1.3rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--ouro);
+  background: var(--painel);
+  font-style: italic;
+}
+
+/* no celular o quadro comparativo mostra os blocos, um por coluna */
+.tabela--por-coluna table {
+  display: none;
+}
+.tabela__coluna + .tabela__coluna {
+  margin-top: 1.4rem;
+}
+.tabela__coluna-nome {
+  margin: 0 0 0.4rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--ouro);
+  font-family: var(--sem-serifa);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ouro-tinta);
+}
+
 /* No celular a tabela vira uma pilha de fichas. */
 .tabela thead {
   display: none;
@@ -2560,12 +2602,6 @@ button {
  * como mais um deles, só que sem valor ao lado. Ela não é rótulo: é o título
  * que o Ordo escreve acima da linha da Missa.
  */
-.ordo__celebracao-proprio {
-  margin: 0 0 0.5rem;
-  font-size: 0.92rem;
-  font-style: italic;
-  color: var(--tinta-suave);
-}
 
 .ordo__patrocinio {
   margin: -0.35rem 0 1.1rem;
@@ -2796,6 +2832,12 @@ button {
   .tabela table {
     min-width: 32rem;
   }
+  .tabela--por-coluna table {
+    display: table;
+  }
+  .tabela__coluna {
+    display: none;
+  }
   .tabela thead {
     display: table-header-group;
   }
@@ -2829,6 +2871,12 @@ button {
   .tabela td:first-child {
     white-space: nowrap;
     padding-right: 1.4rem;
+  }
+  /* na comparação a primeira coluna é um lado como os outros */
+  .tabela--por-coluna td:first-child {
+    white-space: normal;
+    font-weight: 400;
+    color: var(--tinta);
   }
 
   .sumario--embutido .sumario__painel {
