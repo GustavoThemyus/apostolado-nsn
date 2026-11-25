@@ -24,6 +24,14 @@ RAIZ = os.path.dirname(os.path.dirname(AQUI))
 AGENDA = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--agenda=")), "ordo")
 
 ICS = os.path.join(AQUI, f"{AGENDA}.ics")
+
+# De 2027 em diante o Perez mantém duas agendas: a do público, que é a do
+# botão de assinar e mora no site.json, e a "base para o site", enxuta e
+# regular, que é a única que se importa.
+BASE = {
+    "ordo-2027": "69b23a6c838c00407047267174ead1681f293ee619475fb22f3ee5736862b7ec"
+                 "@group.calendar.google.com",
+}
 # Um arquivo por ano, e não um só: são 27 KB comprimidos por ano, e a página
 # só baixa o ano que o leitor está vendo — e só se ele pedir o pré-55.
 PASTA = os.path.join(RAIZ, "src", "data", "ordo")
@@ -41,7 +49,9 @@ ESCRITA = {"branco": "branc", "vermelho": "vermelh", "verde": "verde",
 
 
 def id_do_ordo():
-    """O id do calendário mora no site.json, que é onde ele já era usado."""
+    """A agenda base, quando há; senão, a que o site.json oferece."""
+    if AGENDA in BASE:
+        return BASE[AGENDA]
     with open(os.path.join(RAIZ, "src", "data", "site.json"), encoding="utf-8") as f:
         for agenda in json.load(f)["agendas"]:
             if agenda["id"] == AGENDA:
@@ -136,6 +146,102 @@ def ler_penitencia(partes):
     return None
 
 
+# --- o formato de 2027: um campo por linha, uma Missa por bloco ------------
+
+# As duas frases que abrem outra Missa no mesmo dia, em linha própria.
+SEPARADOR = re.compile(r"^[ \t]*(É possível também celebrar|Na Igreja universal):[ \t]*$", re.M)
+CAMPOS = {"Subtítulo": "subtitulo", "Grau": "grau", "Rito": "rito", "Cor": "cor"}
+# a linha que só anuncia a penitência: é do dia, e não de uma das Missas
+SO_PENITENCIA = re.compile(r"^(Dia de (jejum e )?abstinência|Hoje é dispensada a Abstinência de carne)$", re.I)
+
+
+def eh_formato_novo(corpo):
+    return re.search(r"^Cor: ", corpo, re.M) is not None
+
+
+def paragrafos(linhas):
+    """
+    Separa por linha em branco e antes de cada ➢. Dentro do parágrafo a quebra
+    é só do editor do Google — chegou a partir "Último / Evangelho" ao meio —,
+    e por isso vira espaço.
+    """
+    blocos, atual = [], []
+    for linha in [*linhas, ""]:
+        limpa = linha.strip()
+        if atual and (not limpa or limpa.startswith("➢")):
+            blocos.append(" ".join(atual))
+            atual = []
+        if limpa:
+            atual.append(limpa)
+    return [re.sub(r"\s+", " ", b) for b in blocos]
+
+
+def ler_missa(linhas, onde, problemas):
+    """A cabeça (Subtítulo, Grau, Rito, Cor) e o que vem depois dela."""
+    missa, i = {}, 0
+    while i < len(linhas):
+        linha = linhas[i].strip()
+        if not linha:
+            if "cor" in missa:
+                break
+        elif (m := re.match(r"(Subtítulo|Grau|Rito|Cor):\s*(.+)$", linha)):
+            missa[CAMPOS[m.group(1)]] = m.group(2).strip()
+        elif linha.lower() == "dia santo de guarda":
+            missa["guarda"] = True
+        elif linha.endswith(":"):
+            # "Próprio do Brasil:", "Quatro Têmporas da Quaresma:"
+            missa["proprio"] = linha.rstrip(":").strip()
+        else:
+            problemas.append(f"{onde}: linha desconhecida na cabeça: {linha!r}")
+        i += 1
+
+    if "rito" not in missa or "cor" not in missa:
+        problemas.append(f"{onde}: falta Rito ou Cor")
+        return None
+    escrita = missa["cor"]
+    achada = next((c for c, raiz in ESCRITA.items()
+                   if escrita.lower().startswith((raiz, c))), None)
+    if achada is None:
+        problemas.append(f"{onde}: cor desconhecida: {escrita!r}")
+        return None
+    missa["cor"] = achada
+    # só entra escrita quando diz mais do que o nome da cor
+    if not re.fullmatch(r"\w+", escrita):
+        missa["cores"] = escrita
+
+    missa["partes"] = [p for p in paragrafos(linhas[i:]) if not SO_PENITENCIA.match(p)]
+    return missa
+
+
+def ler_dia_novo(nome, corpo, data, problemas):
+    pedacos = SEPARADOR.split(corpo)
+    dia = ler_missa(pedacos[0].split("\n"), data, problemas)
+    if dia is None:
+        return None
+    dia = {"nome": nome, **dia}
+    outras = []
+    for abertura, texto in zip(pedacos[1::2], pedacos[2::2]):
+        linhas = texto.strip("\n").split("\n")
+        while linhas and not linhas[0].strip():
+            linhas.pop(0)
+        titulo = linhas.pop(0).strip() if linhas else ""
+        missa = ler_missa(linhas, f"{data} ({titulo})", problemas)
+        if missa is None:
+            continue
+        if missa.pop("guarda", False):
+            dia["guarda"] = True
+        quem = ({"rotulo": abertura} if abertura == "Na Igreja universal"
+                else {"alternativa": True})
+        outras.append({**quem, "nome": titulo, **missa})
+    if outras:
+        dia["outras"] = outras
+    penitencia = ler_penitencia(
+        [p for p in paragrafos(corpo.split("\n")) if SO_PENITENCIA.match(p)])
+    if penitencia:
+        dia["penitencia"] = penitencia
+    return dia
+
+
 def ler(dados):
     dias, problemas = {}, []
     for evento in re.findall(r"BEGIN:VEVENT(.*?)END:VEVENT", desdobrar(dados), re.S):
@@ -147,13 +253,22 @@ def ler(dados):
         d = quando.group(1)
         data = f"{d[:4]}-{d[4:6]}-{d[6:]}"
 
+        corpo = campo(evento, "DESCRIPTION").replace("\r", "")
+        if eh_formato_novo(corpo):
+            dia = ler_dia_novo(titulo.strip(), corpo, data, problemas)
+            if dia:
+                anexos = ler_anexos(evento)
+                if anexos:
+                    dia["anexos"] = anexos
+                dias[data] = dia
+            continue
+
         cor = CORES.get(titulo[0])
         if cor is None:
             problemas.append(f"{data}: círculo de cor desconhecido em {titulo[:40]!r}")
             continue
         nome = titulo[1:].strip()
 
-        corpo = campo(evento, "DESCRIPTION")
         cabeca, resto = cabeca_e_resto(corpo)
         grau, _, frase = cabeca.partition("–")
         grau, frase = grau.strip().rstrip(","), frase.strip()

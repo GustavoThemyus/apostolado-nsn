@@ -1480,6 +1480,8 @@ button {
  */
 .calendario__painel {
   display: grid;
+  /* sem o mínimo zero, os painéis que se passam para o lado alargam a página */
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
 }
 

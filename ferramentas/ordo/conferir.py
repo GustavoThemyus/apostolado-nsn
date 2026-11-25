@@ -9,7 +9,8 @@ tenha ficado sem celebração. Sai != 0 se falhar.
 import json, os, re, sys, datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from importar import ICS, PASTA, CORES, ESCRITA, cabeca_e_resto, desdobrar, campo
+from importar import (ICS, PASTA, CORES, ESCRITA, SEPARADOR, cabeca_e_resto, desdobrar,
+                      campo, eh_formato_novo)
 
 with open(ICS, encoding="utf-8") as f:
     bruto = desdobrar(f.read())
@@ -42,11 +43,55 @@ if sobrando:
 if faltando:
     problemas.append(f"dias do Ordo que não foram publicados: {sorted(faltando)[:5]}")
 
+def conferir_formato_novo(data, dia, titulo, corpo):
+    """
+    Tira do texto do Ordo tudo o que foi publicado. O que sobrar só pode ser
+    rótulo de campo, separador de Missa ou o anúncio da penitência.
+    """
+    def juntar(t):
+        return re.sub(r"\s+", " ", t).strip()
+
+    if titulo.strip() != dia["nome"]:
+        problemas.append(f"{data}: nome difere do título do Ordo")
+    missas = [dia, *dia.get("outras", [])]
+    abertas = len(SEPARADOR.findall(corpo))
+    if abertas != len(missas) - 1:
+        problemas.append(f"{data}: o Ordo abre {abertas} Missas extras, "
+                         f"publicadas {len(missas) - 1}")
+    sobra = juntar(SEPARADOR.sub("", corpo))
+    publicadas = []
+    for i, m in enumerate(missas):
+        publicadas += m.get("partes", [])
+        publicadas += [f"{r}: {m[c]}" for r, c in (("Subtítulo", "subtitulo"),
+                       ("Grau", "grau"), ("Rito", "rito")) if c in m]
+        publicadas.append(f"Cor: {m.get('cores', m['cor'])}")
+        if "proprio" in m:
+            publicadas.append(f"{m['proprio']}:")
+        if i:
+            publicadas.append(m["nome"])
+    # os maiores primeiro, para um trecho curto não comer o meio de um longo
+    for trecho in sorted(map(juntar, publicadas), key=len, reverse=True):
+        achado = re.search(re.escape(trecho), sobra, re.I)
+        if not achado:
+            problemas.append(f"{data}: não está no Ordo: {trecho[:50]!r}")
+            continue
+        sobra = sobra[:achado.start()] + " " + sobra[achado.end():]
+    sobra = re.sub(r"Dia santo de guarda|Dia de (jejum e )?abstinência|"
+                   r"Hoje é dispensada a Abstinência de carne", "", sobra, flags=re.I)
+    if sobra.strip():
+        problemas.append(f"{data}: ficou de fora: {juntar(sobra)[:80]!r}")
+
+
 for data, dia in sorted(publicado.items()):
     fonte = origem.get(data)
     if not fonte:
         continue
     titulo = fonte["titulo"]
+    corpo = fonte["descricao"].replace("\r", "")
+
+    if eh_formato_novo(corpo):
+        conferir_formato_novo(data, dia, titulo, corpo)
+        continue
 
     if CORES.get(titulo[0]) != dia["cor"]:
         problemas.append(f"{data}: cor {dia['cor']!r} não é a do círculo {titulo[0]!r}")

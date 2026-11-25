@@ -63,14 +63,38 @@ async function rodar() {
     const foraDoAno: string[] = [];
     for (const [data, dia] of Object.entries(arquivo.dias)) {
       if (!dia.nome?.trim()) semNome.push(data);
-      if (!dia.grau?.trim()) semGrau.push(data);
+      if (!(dia.rito ?? dia.grau)?.trim()) semGrau.push(data);
       if (!CORES.includes(dia.cor)) corEstranha.push(`${data}=${dia.cor}`);
       if (!data.startsWith(`${ano}-`)) foraDoAno.push(data);
     }
     conferir(`${ano}: todo dia tem celebração`, semNome, []);
-    conferir(`${ano}: todo dia tem grau`, semGrau, []);
+    conferir(`${ano}: todo dia tem rito`, semGrau, []);
     conferir(`${ano}: as cores são as seis litúrgicas`, corEstranha, []);
     conferir(`${ano}: nenhum dia de outro ano no arquivo`, foraDoAno, []);
+
+    /* de 2027 em diante cada Missa vem separada, e todas com a tabela */
+    if (ano >= 2027) {
+      const todos = Array.from({ length: Number(ate.slice(5, 7)) }, (_, i) =>
+        mesDoOrdo(arquivo, ano, i + 1)).flat();
+      const linhas = (l: string[]) => [...l].sort();
+      const perdeu = todos.filter((d) =>
+        JSON.stringify(linhas(celebracoesDoOrdo(d).flatMap((c) =>
+          [...(c.missa ? [c.missa] : []), ...c.notas, ...c.permitidas]))) !==
+        JSON.stringify(linhas([...d.partes, ...(d.outras ?? []).flatMap((o) => o.partes)])));
+      conferir(`${ano}: nenhuma linha se perde nem se repete`, perdeu.length, 0);
+
+      const missas = todos.flatMap((d) => celebracoesDoOrdo(d)
+        .map((c) => [d.data.toISOString().slice(0, 10), c] as const));
+      conferir(`${ano}: só a Sexta-feira e o Sábado Santo ficam sem tabela`,
+        missas.filter(([, c]) => !analisarMissa(c.missa))
+          .map(([d]) => d.slice(5)).filter((d) => !["03-26", "03-27"].includes(d)), []);
+      conferir(`${ano}: toda tabela reconhece a despedida e o Prefácio`,
+        missas.map(([, c]) => analisarMissa(c.missa))
+          .filter((n) => n && (!n.fecho || !n.prefacio)).length, 0);
+      conferir(`${ano}: toda Missa extra tem nome, rito e cor`,
+        todos.flatMap((d) => d.outras ?? [])
+          .filter((o) => !o.nome || !o.rito || !CORES.includes(o.cor)).length, 0);
+    }
 
     // o mês volta com a quantidade certa de dias e com o tempo calculado
     const janeiro = mesDoOrdo(arquivo, ano, 1);

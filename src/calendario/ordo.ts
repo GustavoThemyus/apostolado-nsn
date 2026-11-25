@@ -21,8 +21,18 @@ export interface DiaDoOrdo {
   tempo: Tempo;
   nome: string;
   cor: Cor;
-  /** Grau nas palavras do Ordo: "Duples maior", "Oitava privilegiada de 2ª ordem". */
-  grau: string;
+  /**
+   * O rito nas palavras do Ordo: "Duples maior", "Semiduples". Até 2026 a frase
+   * vinha junto com o grau ("Féria maior de 2ª ordem, simples") e fica toda aqui.
+   */
+  rito: string;
+  /** De 2027 em diante o Ordo separa o grau: "Féria maior de 2ª ordem". */
+  grau?: string;
+  subtitulo?: string;
+  /** "Próprio do Brasil", "Quatro Têmporas da Quaresma". */
+  proprio?: string;
+  /** As outras Missas do dia, já separadas. Só no formato de 2027 em diante. */
+  outras?: OutraMissa[];
   /** Só quando a cor não é uma palavra só: dois paramentos, ou o róseo. */
   cores?: string;
   guarda?: boolean;
@@ -34,11 +44,28 @@ export interface DiaDoOrdo {
   partes: string[];
 }
 
+export interface OutraMissa {
+  /** "Na Igreja universal". Sem rótulo, é uma das que se pode celebrar. */
+  rotulo?: string;
+  alternativa?: boolean;
+  nome: string;
+  subtitulo?: string;
+  proprio?: string;
+  grau?: string;
+  rito: string;
+  cor: Cor;
+  cores?: string;
+  partes: string[];
+}
+
+/** O dia como o arquivo o guarda: o de 2026 só tem `grau`, com o rito dentro. */
+type DiaGravado = Omit<DiaDoOrdo, "data" | "tempo" | "rito"> & { rito?: string };
+
 export interface ArquivoDoOrdo {
   fonte: string;
   descricao: string;
   ano: number;
-  dias: Record<string, Omit<DiaDoOrdo, "data" | "tempo">>;
+  dias: Record<string, DiaGravado>;
 }
 
 /*
@@ -87,7 +114,14 @@ export function mesDoOrdo(arquivo: ArquivoDoOrdo, ano: number, mes: number): Dia
     const registro = arquivo.dias[chave(ano, mes, d)];
     if (!registro) continue;
     const data = new Date(Date.UTC(ano, mes - 1, d));
-    dias.push({ ...registro, data, tempo: tempoDe(data).tempo, partes: registro.partes ?? [] });
+    const { rito, grau, ...resto } = registro;
+    dias.push({
+      ...resto,
+      ...(rito ? { rito, grau } : { rito: grau ?? "" }),
+      data,
+      tempo: tempoDe(data).tempo,
+      partes: registro.partes ?? [],
+    });
   }
   return dias;
 }
@@ -137,7 +171,7 @@ export function patrocinioDoGrau(grau: string): { patrocinio?: string; grau: str
  * expressão inteira entra na busca.
  */
 export const ehFestaMaiorDoOrdo = (dia: DiaDoOrdo): boolean =>
-  /[12]\s*[ªa]\s*classe/i.test(dia.grau);
+  /[12]\s*[ªa]\s*classe/i.test(`${dia.grau ?? ""} ${dia.rito}`);
 
 /**
  * Uma celebração dentro do dia.
@@ -156,6 +190,8 @@ export const ehFestaMaiorDoOrdo = (dia: DiaDoOrdo): boolean =>
 export interface Celebracao {
   /** "No Calendário Universal", "No Brasil", "Na Igreja Catedral…". */
   rotulo?: string;
+  /** Nome, grau, rito e cor da Missa, quando o Ordo os dá em campos (2027). */
+  ficha?: Omit<OutraMissa, "rotulo" | "alternativa" | "proprio" | "partes">;
   /** "Féria menor, simples – cor roxa": o posto do dia naquele calendário. */
   posto?: string;
   /** A linha da Missa, crua. Ausente quando o Ordo diz "Missa como acima". */
@@ -264,6 +300,8 @@ function separarOProprio(cru: string): { proprio?: string; linha: string } {
  * crua, porque o que some ninguém vê sumir.
  */
 export function celebracoesDoOrdo(dia: DiaDoOrdo): Celebracao[] {
+  if (dia.outras || dia.proprio) return celebracoesSeparadas(dia);
+
   const saida: Celebracao[] = [];
   let atual: Celebracao = { notas: [], permitidas: [] };
   /* uma vez aberta, vale até um rótulo começar outro calendário */
@@ -341,6 +379,33 @@ export function celebracoesDoOrdo(dia: DiaDoOrdo): Celebracao[] {
 
   fechar();
   return saida;
+}
+
+/**
+ * O formato de 2027 já chega separado: cada Missa com a sua cabeça. Só resta
+ * dizer, dentro de cada uma, o que é a linha da Missa, o que é permitida e o
+ * que é nota.
+ */
+function celebracoesSeparadas(dia: DiaDoOrdo): Celebracao[] {
+  const ler = (partes: string[]) => {
+    const c: Celebracao = { notas: [], permitidas: [] };
+    for (const p of partes) {
+      if (ehMissasPermitidas(p)) c.permitidas.push(p);
+      else if (!ehRubrica(p) && !c.missa) c.missa = p;
+      else c.notas.push(p);
+    }
+    return c;
+  };
+  return [
+    { ...ler(dia.partes), proprio: dia.proprio },
+    ...(dia.outras ?? []).map(({ rotulo, alternativa, proprio, partes, ...ficha }) => ({
+      ...ler(partes),
+      rotulo,
+      alternativa,
+      proprio,
+      ficha,
+    })),
+  ];
 }
 
 export interface NaMissa {
@@ -460,7 +525,7 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
   const gloria = achar(linha, "Glória");
   const credo = achar(linha, "Credo");
   const prefacio = primeiro(linha, /Prefácio[^;]*/);
-  const fecho = primeiro(linha, /(Ite, Missa est|Benedicamus Domino|Requiescant in pace)[^;]*/);
+  const fecho = primeiro(linha, /(Ite,? Missa est|Benedicamus Domino|Requiescant in pace)[^;]*/);
 
   const entreAsLeituras: string[] = [];
   const comemoracoes: string[] = [];
@@ -472,7 +537,11 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
    * domingo precedente: comemoração de São Sabas". Sem separar ali, o nome da
    * Missa ia embora junto com o item, e a linha ficava vazia.
    */
-  const segmentos = linha.split(";").flatMap((cru) => {
+  /* em 2027 houve vírgula antes da despedida, e dois pontos antes do Credo */
+  const pontuada = linha
+    .replace(/,\s*(?=Benedicamus Domino)/g, "; ")
+    .replace(/:\s*(?=Credo\b)/g, "; ");
+  const segmentos = pontuada.split(";").flatMap((cru) => {
     const corte = /^Missa\b[^:]*:/.exec(cru);
     return corte ? [corte[0].slice(0, -1), cru.slice(corte[0].length)] : [cru];
   });
@@ -493,9 +562,9 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
 
   for (const cru of segmentos) {
     const p = cru.trim();
-    if (/^(sem\s+)?Trato$/.test(p) || /^Sequência/.test(p) || /Aleluia/.test(p)) {
+    if (/^(sem\s+)?(Trato|Gradual)\b/.test(p) || /^Sequência/.test(p) || /Aleluia/.test(p)) {
       entreAsLeituras.push(p);
-    } else if (p.includes("comemoração")) {
+    } else if (/comemoração/i.test(p)) {
       // "comemoração de X e oração Y" são duas coisas numa frase só
       const [comemorado, ...oracao] = p.split(CORTE_DA_ORACAO);
       comemoracoes.push(comemorado.trim());
@@ -517,7 +586,7 @@ export function analisarMissa(linha: string | undefined): NaMissa | null {
         .replace(/Prefácio[^;]*/g, "")
         /* só o que abre o segmento: ver o comentário do `evangelho` acima */
         .replace(/^Último Evangelho[^;]*/, "")
-        .replace(/(Ite, Missa est|Benedicamus Domino|Requiescant in pace)[^;]*/g, "")
+        .replace(/(Ite,? Missa est|Benedicamus Domino|Requiescant in pace)[^;]*/g, "")
         .replace(/\s*[:,]\s*$/, "")
         .trim();
       if (sobra) resto.push(sobra);

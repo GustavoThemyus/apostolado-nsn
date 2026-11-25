@@ -124,7 +124,7 @@ export function DiaDeHoje({ data }: { data?: Date }) {
 function DoOrdo({ dia }: { dia: DiaDoOrdo }) {
   const celebracao = celebracoesDoOrdo(dia)[0];
   const naMissa = analisarMissa(celebracao?.missa);
-  const { patrocinio, grau } = patrocinioDoGrau(dia.grau);
+  const { patrocinio, grau: rito } = patrocinioDoGrau(dia.rito);
   const paraVinculo = {
     nome: dia.nome,
     data: dia.data,
@@ -152,9 +152,15 @@ function DoOrdo({ dia }: { dia: DiaDoOrdo }) {
             </span>
           </dd>
         </div>
+        {dia.grau && (
+          <div>
+            <dt>Grau</dt>
+            <dd>{dia.grau}</dd>
+          </div>
+        )}
         <div>
           <dt>Rito</dt>
-          <dd>{grau}</dd>
+          <dd>{rito}</dd>
         </div>
       </dl>
       {dia.guarda && <p className="ordo__guarda">Dia santo de guarda.</p>}

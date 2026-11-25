@@ -75,6 +75,39 @@ const NOME_DA_COR: Record<string, string> = {
  * "Na Igreja Catedral da Arquidiocese da Paraíba" — ou, quando o Ordo as
  * anuncia só pelo posto, como a Missa das Rogações, o próprio posto.
  */
+/** Grau, rito e cor: o mesmo quadro para o dia e para cada Missa extra. */
+function Ficha({ grau, rito, cor, tempo }: Pick<DiaDoOrdo, "grau" | "rito" | "cor"> & {
+  tempo?: DiaDoOrdo["tempo"];
+}) {
+  return (
+    <dl className="dia__detalhes">
+      {tempo && (
+        <div>
+          <dt>Tempo</dt>
+          <dd>{NOME_DO_TEMPO[tempo]}</dd>
+        </div>
+      )}
+      <div>
+        <dt>Cor</dt>
+        <dd>
+          <span className={`dia__amostra dia__amostra--${cor}`} aria-hidden="true" />
+          <span className={`cor cor--${cor}`}>{NOME_DA_COR[cor]}</span>
+        </dd>
+      </div>
+      {grau && (
+        <div>
+          <dt>Grau</dt>
+          <dd>{grau}</dd>
+        </div>
+      )}
+      <div>
+        <dt>Rito</dt>
+        <dd>{rito}</dd>
+      </div>
+    </dl>
+  );
+}
+
 function BlocoDaCelebracao({
   celebracao,
   primeira,
@@ -106,10 +139,23 @@ function BlocoDaCelebracao({
         <p className="ordo__celebracao-proprio">{celebracao.proprio}</p>
       )}
 
+      {/* a Missa extra com a mesma cabeça que o dia tem lá em cima */}
+      {celebracao.ficha && (
+        <>
+          {/* recolhida, o nome já é o resumo; passada para o lado, não é */}
+          {primeira && <p className="ordo__celebracao-posto">{celebracao.ficha.nome}</p>}
+          {celebracao.ficha.subtitulo && (
+            <p className="ordo__celebracao-proprio">{celebracao.ficha.subtitulo}</p>
+          )}
+          <Ficha {...celebracao.ficha} />
+          {celebracao.ficha.cores && <p className="ordo__cores">{celebracao.ficha.cores}.</p>}
+        </>
+      )}
+
       {naMissa && (
         <TabelaDaMissa
           naMissa={naMissa}
-          titulo={primeira ? "Na Missa deste dia" : "Na Missa"}
+          titulo={primeira && !celebracao.ficha ? "Na Missa deste dia" : "Na Missa"}
         />
       )}
 
@@ -147,7 +193,7 @@ function BlocoDaCelebracao({
   return (
     <details className="ordo__celebracao ordo__celebracao--outra">
       <summary className="ordo__celebracao-resumo">
-        <span className="ordo__celebracao-rotulo">{rotulo ?? celebracao.posto ?? "Outra Missa"}</span>
+        <span className="ordo__celebracao-rotulo">{rotulo ?? celebracao.ficha?.nome ?? celebracao.posto ?? "Outra Missa"}</span>
       </summary>
       {corpo}
     </details>
@@ -175,7 +221,7 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
   const universal = celebracoes.findIndex(
     (c, i) => i > 0 && DA_IGREJA_UNIVERSAL.test(c.rotulo ?? ""),
   );
-  const { patrocinio, grau } = patrocinioDoGrau(dia.grau);
+  const { patrocinio, grau: rito } = patrocinioDoGrau(dia.rito);
   /*
    * A postagem acompanha a festa, e não a casa do calendário.
    *
@@ -202,23 +248,8 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
         são coisas de natureza diferente, e o Ordo as escreve numa frase só.
       */}
       {patrocinio && <p className="ordo__patrocinio">{patrocinio}</p>}
-      <dl className="dia__detalhes">
-        <div>
-          <dt>Tempo</dt>
-          <dd>{NOME_DO_TEMPO[dia.tempo]}</dd>
-        </div>
-        <div>
-          <dt>Cor</dt>
-          <dd>
-            <span className={`dia__amostra dia__amostra--${dia.cor}`} aria-hidden="true" />
-            <span className={`cor cor--${dia.cor}`}>{NOME_DA_COR[dia.cor]}</span>
-          </dd>
-        </div>
-        <div>
-          <dt>Rito</dt>
-          <dd>{grau}</dd>
-        </div>
-      </dl>
+      {dia.subtitulo && <p className="ordo__patrocinio">{dia.subtitulo}</p>}
+      <Ficha tempo={dia.tempo} cor={dia.cor} grau={dia.grau} rito={rito} />
 
       {dia.cores && <p className="ordo__cores">{dia.cores[0].toUpperCase() + dia.cores.slice(1)}.</p>}
       {dia.guarda && <p className="ordo__guarda">Dia santo de guarda.</p>}
@@ -244,7 +275,9 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
         <Fragment key={i}>
           {/* o aviso entra uma vez, antes da primeira das alternativas */}
           {c.alternativa && !celebracoes[i - 1]?.alternativa && (
-            <p className="ordo__escolha">Pode-se celebrar, à escolha:</p>
+            <p className="ordo__escolha">
+              {c.ficha ? "É possível também celebrar:" : "Pode-se celebrar, à escolha:"}
+            </p>
           )}
           <BlocoDaCelebracao celebracao={c} primeira={i === 0} />
         </Fragment>
