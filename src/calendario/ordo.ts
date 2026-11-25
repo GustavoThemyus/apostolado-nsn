@@ -246,6 +246,27 @@ const EH_ROTULO =
 /** O rótulo que anuncia o calendário do resto da Igreja, nas duas escritas. */
 export const DA_IGREJA_UNIVERSAL = /^(No Calendário Universal|Na Igreja universal)/;
 
+/**
+ * As Missas do dia repartidas entre os dois painéis: as daqui e as da Igreja
+ * universal. Do rótulo universal em diante, o que não traz rótulo próprio ainda
+ * é de lá, inclusive o que se pode celebrar à escolha; o resto é daqui.
+ */
+export function ladosDoDia(celebracoes: Celebracao[]): {
+  daqui: Celebracao[];
+  universal: Celebracao[];
+} {
+  const abre = celebracoes.findIndex(
+    (c, i) => i > 0 && DA_IGREJA_UNIVERSAL.test(c.rotulo ?? ""),
+  );
+  if (abre < 0) return { daqui: celebracoes, universal: [] };
+  let fim = abre + 1;
+  while (fim < celebracoes.length && !celebracoes[fim].rotulo) fim += 1;
+  return {
+    daqui: [...celebracoes.slice(0, abre), ...celebracoes.slice(fim)],
+    universal: celebracoes.slice(abre, fim),
+  };
+}
+
 /** Rótulo e posto no mesmo parágrafo, sem recuo, valem como duas linhas. */
 function soltarRotulo(parte: string): string[] {
   const [primeira, ...resto] = parte.split("\n");

@@ -3,7 +3,7 @@ import { Fragment, type ReactNode } from "react";
 import {
   analisarMissa,
   celebracoesDoOrdo,
-  DA_IGREJA_UNIVERSAL,
+  ladosDoDia,
   patrocinioDoGrau,
   soAsPermitidas,
   naQuaresma,
@@ -225,10 +225,8 @@ function BlocoDaCelebracao({
  */
 export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
   const celebracoes = celebracoesDoOrdo(dia);
-  /* a do Calendário Universal não se recolhe: passa-se para o lado */
-  const universal = celebracoes.findIndex(
-    (c, i) => i > 0 && DA_IGREJA_UNIVERSAL.test(c.rotulo ?? ""),
-  );
+  /* a da Igreja universal não se recolhe: passa-se para o lado */
+  const { daqui, universal } = ladosDoDia(celebracoes);
   const { patrocinio, grau: rito } = patrocinioDoGrau(dia.rito);
   /*
    * A postagem acompanha a festa, e não a casa do calendário.
@@ -243,6 +241,25 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
     comemoracoes: analisarMissa(celebracoes[0]?.missa)?.comemoracoes,
   };
   const postagem = postagemDoDia(publicadas(), paraVinculo);
+
+  /* a primeira de cada lado vem aberta; as outras, recolhidas */
+  const emLista = (missas: Celebracao[]) =>
+    missas.map((c, i) => (
+      <Fragment key={i}>
+        {/* o aviso entra uma vez, antes da primeira das alternativas */}
+        {c.alternativa && !missas[i - 1]?.alternativa && (
+          <p className="ordo__escolha">
+            {c.ficha ? "É possível também celebrar:" : "Pode-se celebrar, à escolha:"}
+          </p>
+        )}
+        <BlocoDaCelebracao
+          celebracao={c}
+          primeira={i === 0}
+          quaresma={naQuaresma(dia.tempo)}
+          soONome={soONomeDaMissa(dia.data)}
+        />
+      </Fragment>
+    ));
 
   return (
     <div className="calendario__detalhe">
@@ -267,29 +284,20 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
         </p>
       )}
 
-      {universal > 0 && (
+      {universal.length > 0 ? (
         <Deslize
+          key={comoIso(dia.data)}
           paineis={[
-            { rotulo: "Aqui", corpo: <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} soONome={soONomeDaMissa(dia.data)} celebracao={celebracoes[0]} primeira /> },
+            { rotulo: "No Brasil", corpo: emLista(daqui) },
             {
-              rotulo: celebracoes[universal].rotulo!.replace(/\s*:\s*$/, "").trim(),
-              corpo: <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} soONome={soONomeDaMissa(dia.data)} celebracao={celebracoes[universal]} primeira />,
+              rotulo: universal[0].rotulo!.replace(/\s*:\s*$/, "").trim(),
+              corpo: emLista(universal),
             },
           ]}
         />
+      ) : (
+        emLista(daqui)
       )}
-
-      {celebracoes.map((c, i) => universal > 0 && (i === 0 || i === universal) ? null : (
-        <Fragment key={i}>
-          {/* o aviso entra uma vez, antes da primeira das alternativas */}
-          {c.alternativa && !celebracoes[i - 1]?.alternativa && (
-            <p className="ordo__escolha">
-              {c.ficha ? "É possível também celebrar:" : "Pode-se celebrar, à escolha:"}
-            </p>
-          )}
-          <BlocoDaCelebracao quaresma={naQuaresma(dia.tempo)} soONome={soONomeDaMissa(dia.data)} celebracao={c} primeira={i === 0} />
-        </Fragment>
-      ))}
 
       {/* o próprio é do dia, e não de uma das celebrações dele */}
       {dia.anexos && dia.anexos.length > 0 && (

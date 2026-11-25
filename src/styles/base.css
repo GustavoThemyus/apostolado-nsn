@@ -1191,9 +1191,37 @@ button {
 /* painéis lado a lado: a Missa daqui e a do Calendário Universal */
 .deslize__abas {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 0.4rem;
-  margin-bottom: 0.5rem;
+  margin: 1rem 0 0.7rem;
+}
+/* a seta no canto direito: há outra Missa para o lado */
+.deslize__adiante {
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid var(--ouro);
+  border-radius: 50%;
+  background: none;
+  color: var(--ouro);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.deslize__adiante span {
+  display: inline-block;
+  animation: deslize-adiante 1.4s ease-in-out infinite;
+}
+@keyframes deslize-adiante {
+  50% {
+    transform: translateX(0.25rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .deslize__adiante span {
+    animation: none;
+  }
 }
 .deslize__aba {
   min-height: 2.4rem;
@@ -1213,7 +1241,9 @@ button {
 }
 .deslize__trilho {
   display: flex;
+  align-items: flex-start;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }

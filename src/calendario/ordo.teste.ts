@@ -18,6 +18,7 @@ import {
   analisarMissa,
   carregarOrdo,
   celebracoesDoOrdo,
+  ladosDoDia,
   type DiaDoOrdo,
   ehFestaMaiorDoOrdo,
   mesDoOrdo,
@@ -42,6 +43,19 @@ async function rodar() {
     ANOS_COM_ORDO, Object.keys(ARQUIVOS).map(Number).sort((a, b) => a - b));
   conferir("há ao menos um ano publicado", ANOS.length > 0, true);
   conferir("ano sem Ordo é reconhecido como tal", temOrdo(1900), false);
+
+  {
+    /* vai haver dia com Missa à escolha dos dois lados */
+    const c = (nome: string, mais: object = {}) =>
+      ({ missa: nome, notas: [], permitidas: [], ...mais });
+    const { daqui, universal } = ladosDoDia([
+      c("a"), c("b", { alternativa: true }),
+      c("c", { rotulo: "Na Igreja universal" }), c("d", { alternativa: true }),
+    ]);
+    conferir("as daqui ficam no primeiro painel", daqui.map((x) => x.missa), ["a", "b"]);
+    conferir("as da Igreja universal ficam no segundo",
+      universal.map((x) => x.missa), ["c", "d"]);
+  }
 
   for (const ano of ANOS_COM_ORDO) {
     const arquivo = await carregarOrdo(ano);
