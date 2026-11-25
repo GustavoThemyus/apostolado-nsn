@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { mesLiturgico } from "../calendario/precedencia";
 import { ANOS_COM_ORDO, ehFestaMaiorDoOrdo } from "../calendario/ordo";
 import { penitenciaDe } from "../calendario/penitencia";
@@ -95,7 +95,16 @@ export default function Calendario() {
   const andar = (passo: number) =>
     irPara(new Date(Date.UTC(ano, mes - 1 + passo, 1)));
 
+  /* o nome das rubricas só aparece por instantes, depois de uma troca */
+  const [aviso, definirAviso] = useState("");
+  useEffect(() => {
+    if (!aviso) return;
+    const fim = window.setTimeout(() => definirAviso(""), 3500);
+    return () => window.clearTimeout(fim);
+  }, [aviso]);
+
   const trocar = (novo: Uso) => {
+    definirAviso(`Rubricas de ${novo === "pre55" ? "São Pio X" : "São João XXIII"}`);
     definirLembrado(novo);
     try {
       localStorage.setItem(LEMBRANCA, novo);
@@ -222,25 +231,30 @@ export default function Calendario() {
           )}
 
           {/*
-            Nos cantos de baixo, discretos: trocar de calendário e assinar. O
-            botão diz qual está à vista, pelo nome das rubricas e sem os anos,
-            que o Perez não quer estampados; sem nome nenhum, quem tocava não
-            via o que tinha mudado.
+            Nos cantos de baixo, discretos: trocar de calendário e assinar. Nada
+            fica estampado, a pedido do Perez: tocado, o ícone diz por instantes
+            quais rubricas entraram, e fica aceso enquanto o segundo calendário
+            estiver à vista.
           */}
           <div className="calendario__cantos">
-            <button
-              type="button"
-              className="calendario__trocar"
-              title={`Trocar para as rubricas de ${pre55 ? "São João XXIII" : "São Pio X"}`}
-              onClick={() => trocar(pre55 ? "1962" : "pre55")}
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 8h14l-4-4M20 16H6l4 4" fill="none" stroke="currentColor" strokeWidth="1.8" />
-              </svg>
-              <span aria-live="polite">
-                Rubricas de {pre55 ? "São Pio X" : "São João XXIII"}
+            <div className="calendario__troca">
+              <button
+                type="button"
+                className="calendario__trocar"
+                aria-label="Trocar de calendário"
+                title="Trocar de calendário"
+                aria-pressed={!pre55}
+                onClick={() => trocar(pre55 ? "1962" : "pre55")}
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 8h14l-4-4M20 16H6l4 4" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                </svg>
+              </button>
+              {/* sempre no documento: o leitor de tela só anuncia o que muda dentro */}
+              <span className="calendario__aviso" role="status">
+                {aviso}
               </span>
-            </button>
+            </div>
             <BotaoDeAssinar />
           </div>
         </div>

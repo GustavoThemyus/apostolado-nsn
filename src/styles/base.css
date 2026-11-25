@@ -1126,20 +1126,12 @@ button {
   align-items: flex-end;
   margin-top: 0.6rem;
 }
-.calendario__trocar {
-  display: inline-flex;
+.calendario__troca {
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  min-height: var(--alvo-toque);
-  padding: 0 0.9rem;
-  border: 1px solid var(--fio);
-  border-radius: 2rem;
-  background: none;
-  color: var(--tinta-suave);
-  font: inherit;
-  font-size: 0.88rem;
-  cursor: pointer;
+  gap: 0.6rem;
 }
+.calendario__trocar,
 .assinar__mais {
   display: grid;
   place-items: center;
@@ -1152,9 +1144,17 @@ button {
   cursor: pointer;
 }
 .calendario__trocar svg {
-  flex: none;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+.calendario__cantos .calendario__trocar[aria-pressed="true"] {
+  border-color: var(--ouro);
+  background: var(--realce);
+  color: var(--tinta);
+}
+.calendario__aviso {
+  color: var(--tinta-suave);
+  font-size: 0.88rem;
 }
 .assinar {
   position: relative;
