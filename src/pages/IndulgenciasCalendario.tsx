@@ -25,19 +25,36 @@ import type { Bloco, Conteudo } from "../data/tipos";
  * acrescentou o que o impresso não tem como ter, que são os elos.
  */
 
+/**
+ * As ressalvas que ficam à vista no quadro. As outras viram chamada de nota,
+ * como no documento original: quem quiser, abre. "A menção do Rosário e da
+ * oitava das almas do purgatório convém", disse o Perez; o resto "deixa pra
+ * quem tiver curiosidade".
+ */
+const A_VISTA = new Set(["s-rosario-nota", "d-oitava-dos-defuntos-nota"]);
+
+/** As ressalvas recolhidas, numeradas depois das notas que o documento já tem. */
+const recolhidas: Record<string, string> = {};
+
+function chamada(texto: string): string {
+  const base = Object.keys(indulgencias.notas ?? {}).length;
+  const achada = Object.keys(recolhidas).find((k) => recolhidas[k] === texto);
+  const chave = achada ?? String(base + Object.keys(recolhidas).length + 1);
+  recolhidas[chave] = texto;
+  return `[nota]${chave}[/nota]`;
+}
+
 /** O texto corrido de um bloco, para a célula do quadro. */
 function comoTexto(blocos: Bloco[]): string {
   const partes: string[] = [];
   for (const b of blocos) {
     if (b.tipo === "paragrafo") partes.push(b.texto);
     else if (b.tipo === "lista") partes.push(b.itens.map((i) => `• ${i}`).join("\n"));
-    /*
-     * A ressalva vira título em negrito e os parágrafos embaixo dele, e não
-     * caixa dentro da célula. São doze, e a da Cátedra de São Pedro tem
-     * dezoito linhas: encaixotada dentro de uma coluna, ela some de vista por
-     * estreiteza. É o mesmo que o impresso do Perez faz.
-     */
-    else if (b.tipo === "nota") partes.push(`[b]${b.titulo}[/b]\n${b.paragrafos.join("\n\n")}`);
+    else if (b.tipo === "nota") {
+      const texto = `[b]${b.titulo}[/b]\n${b.paragrafos.join("\n\n")}`;
+      if (A_VISTA.has(b.id ?? "") || partes.length === 0) partes.push(texto);
+      else partes[partes.length - 1] += chamada(texto);
+    }
   }
   return partes.join("\n\n");
 }
@@ -77,14 +94,17 @@ const ENXERTOS: Record<string, Bloco[]> = {
   "toties-quoties": [quadroSemDiaFixo()],
 };
 
+/* os quadros primeiro: é ao montá-los que as ressalvas viram notas */
+const secoes = comoConteudo(prosa).secoes.map((s) => ({
+  ...s,
+  blocos: [...s.blocos, ...(ENXERTOS[s.id] ?? [])],
+}));
+
 const conteudo: Conteudo = {
   ...comoConteudo(prosa),
   /* as chamadas das condições e das observações apontam para estas */
-  notas: indulgencias.notas,
-  secoes: comoConteudo(prosa).secoes.map((s) => ({
-    ...s,
-    blocos: [...s.blocos, ...(ENXERTOS[s.id] ?? [])],
-  })),
+  notas: { ...indulgencias.notas, ...recolhidas },
+  secoes,
 };
 
 export default function IndulgenciasCalendario() {

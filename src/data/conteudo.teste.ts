@@ -21,7 +21,6 @@ import indulgencias from "./indulgencias.json";
 import missa from "./missa.json";
 import ordens from "./indulgencias-ordens.json";
 import partes from "./missa-partes.json";
-import raccolta from "./indulgencias-raccolta.json";
 import { existsSync, readFileSync } from "node:fs";
 import folhetos from "./folhetos.json";
 import postagens from "./postagens.json";
@@ -534,7 +533,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
     ["/calendario/arquidiocese", arquidiocese as unknown as Conteudo],
     ["/indulgencias", indulgencias as unknown as Conteudo],
     ["/indulgencias/arquidiocese", arquidioceseIndulgencias as unknown as Conteudo],
-    ["/indulgencias/raccolta", raccolta as unknown as Conteudo],
     ["/indulgencias/enchiridion", enchiridion as unknown as Conteudo],
     ["/indulgencias/ordens", ordens as unknown as Conteudo],
     ["/apostolado", apostolado as unknown as Conteudo],
@@ -713,7 +711,7 @@ conferir("enchiridion: as 33 concessões têm âncora",
       .find((f) => f.id === "proprio-advento-i")!;
     const abertura = aberturaDoEvangelho(advento);
     conferir("a fórmula do Evangelho do dia sai do próprio",
-      abertura?.latim.startsWith("Sequéntia sancti Evangélii secundum Lucam") === true
+      /^Sequéntia sancti Evangélii sec[uú]ndum Lucam/.test(abertura?.latim ?? "")
         && abertura?.portugues.endsWith("Lucas.") === true,
       JSON.stringify(abertura));
 
@@ -721,7 +719,7 @@ conferir("enchiridion: as 33 concessões têm âncora",
     const trocado = comEvangelhoDoDia(catecumenos.blocos, abertura!);
     const linha = trocado.blocos
       .flatMap((b) => (b.tipo === "bilingue" ? b.latim : []))
-      .find((p) => p.tipo === "paragrafo" && p.texto.includes("secundum Lucam"));
+      .find((p) => p.tipo === "paragrafo" && /sec[uú]ndum Lucam/.test(p.texto));
     conferir("a fórmula do dia entra no lugar do N. no Ordinário",
       trocado.substituiu && linha !== undefined);
 

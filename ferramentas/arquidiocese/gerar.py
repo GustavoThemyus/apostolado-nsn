@@ -118,9 +118,33 @@ def celula_das_igrejas(linha):
     return "\n\n".join(partes)
 
 
+def sem_acento(texto):
+    import unicodedata
+    cru = unicodedata.normalize("NFD", texto)
+    return "".join(c for c in cru if unicodedata.category(c) != "Mn")
+
+
+def apelido(texto):
+    limpo = re.sub(r"[^a-z0-9]+", "-", sem_acento(texto).lower()).strip("-")
+    return limpo[:60]
+
+
+# Um nome por linha, o mesmo no quadro e no calendário: é a âncora que leva o
+# nome da igreja, na grade do mês, à linha dela com o endereço e o mapa.
+IDENTS = {}
+for _secao, _grupo in (("paroquias", dados.PAROQUIAS), ("santuarios", dados.SANTUARIOS),
+                       ("basilica", dados.BASILICA), ("ordens", dados.ORDENS)):
+    for _linha in _grupo:
+        _ident = "%s-%s" % (_secao, apelido(_linha["festa"]))
+        while _ident in IDENTS.values():
+            _ident += "-2"
+        IDENTS[id(_linha)] = _ident
+
+
 def tabela(grupo, coluna_igreja, coluna_festa="Festa Patronal"):
     return {
         "tipo": "tabela",
+        "ancoras": [IDENTS[id(l)] for l in grupo],
         "colunas": ["Data", coluna_festa, coluna_igreja],
         "linhas": [
             [l["data"], com_marca(l["festa"], l.get("marca")), celula_das_igrejas(l)]
@@ -178,28 +202,6 @@ secoes.append({
 })
 
 secoes.append({
-    "id": "legenda",
-    "titulo": "Legenda",
-    "foraDoIndice": True,
-    "blocos": [
-        p("As marcas do documento acompanham a festa ou a igreja a que se referem. "
-          "Toque numa delas para ler a observação do autor."),
-        {
-            "tipo": "tabela",
-            "colunas": ["Marca", "O que quer dizer"],
-            "linhas": [
-                ["§", "Nota"],
-                ["~", "Data diferente no calendário novo"],
-                ["^", "Falta de consenso"],
-                ["^", "Festas propriamente particulares, usar-se-á a data que a paróquia comemora"],
-                ["*", "Festas do calendário novo"],
-                ["*", "Santos que foram canonizados posteriormente"],
-            ],
-        },
-    ],
-})
-
-secoes.append({
     "id": "observacoes",
     "titulo": "Observações",
     "foraDoIndice": True,
@@ -227,7 +229,7 @@ secoes.append({
             "Para ganhar a indulgência anexa a algum dia, quando se exige a visita à "
             "igreja ou oratório, esta pode fazer-se [b]desde o meio-dia precedente até "
             "a meia-noite do dia determinado.[/b]"
-            + nota("§", "CIC 1917, cân. 923; EI 1999, n. 14."),
+            + nota("§", "EI 1999, n. 14."),
 
             "A indulgência anexa à visita à igreja ainda pode ser lucrada mesmo se o "
             "edifício se demolir completamente e seja reconstruído dentro de cinquenta "
@@ -482,27 +484,12 @@ def quando_de(texto):
     raise SystemExit("data que o gerador não sabe ler: %r" % texto)
 
 
-def sem_acento(texto):
-    import unicodedata
-    cru = unicodedata.normalize("NFD", texto)
-    return "".join(c for c in cru if unicodedata.category(c) != "Mn")
-
-
-def apelido(texto):
-    limpo = re.sub(r"[^a-z0-9]+", "-", sem_acento(texto).lower()).strip("-")
-    return limpo[:60]
-
-
 dias = []
-usados = set()
 for secao_id, grupo in (("paroquias", dados.PAROQUIAS), ("santuarios", dados.SANTUARIOS),
                         ("basilica", dados.BASILICA), ("ordens", dados.ORDENS)):
     for linha in grupo:
         regra, por_extenso = quando_de(linha["data"])
-        ident = "%s-%s" % (secao_id, apelido(linha["festa"]))
-        while ident in usados:
-            ident += "-2"
-        usados.add(ident)
+        ident = IDENTS[id(linha)]
         entrada = {
             "id": ident,
             "titulo": linha["festa"],

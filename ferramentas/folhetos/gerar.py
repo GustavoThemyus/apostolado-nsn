@@ -44,7 +44,7 @@ def listar(pdf: pathlib.Path) -> list[dict]:
         if len(campos) < 4:
             continue
         imagens.append(
-            {"pagina": int(campos[0]), "num": int(campos[1]),
+            {"pagina": int(campos[0]), "num": int(campos[1]), "tipo": campos[2],
              "largura": int(campos[3]), "altura": int(campos[4])}
         )
     return imagens

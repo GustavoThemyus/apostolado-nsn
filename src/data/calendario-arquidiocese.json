@@ -1,6 +1,7 @@
 {
   "titulo": "O próprio arquidiocesano",
   "descricao": "O que a Arquidiocese da Paraíba guarda de seu, e o que a Igreja Catedral guarda do dela.",
+  "emPreparacao": true,
   "secoes": [
     {
       "id": "o-que-e",

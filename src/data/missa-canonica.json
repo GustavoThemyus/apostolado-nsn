@@ -4,13 +4,351 @@
   "emPreparacao": true,
   "secoes": [
     {
-      "id": "em-preparacao",
-      "titulo": "Em preparação",
+      "id": "quo-primum",
+      "titulo": "Bula Quo primum tempore",
+      "resumo": "São Pio V, 14 de julho de 1570.",
       "blocos": [
         {
-          "id": "prep-001",
-          "tipo": "paragrafo",
-          "texto": "Este texto ainda será escrito."
+          "id": "qp-000",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-000-la",
+              "tipo": "paragrafo",
+              "texto": "PIUS EPISCOPUS\nServus Servorum Dei\nAd Perpetuam Rei Memoriam"
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-000-pt",
+              "tipo": "paragrafo",
+              "texto": "PIO, BISPO\nServo dos Servos de Deus\nPara perpétua memória"
+            }
+          ]
+        },
+        {
+          "id": "qp-001",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-001-la",
+              "tipo": "paragrafo",
+              "texto": "1 - Quo Primum Tempore ad Apostolatus apicem assumpti fuimus, ad ea libenter animum, viresque nostras intendimus, et cogitationes omnes direximus, quæ ad Ecclesiasticum purum retinendum cultum pertinerent, eaque parare, et Deo ipso adjuvante, omni adhibito studio efficere contendimus."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-001-pt",
+              "tipo": "paragrafo",
+              "texto": "1 - Desde que fomos elevados ao ápice da Hierarquia Apostólica, de bom grado aplicamos nosso zelo e nossas forças e dirigimos todos os nossos pensamentos no sentido de conservar em sua pureza tudo o que diz respeito ao culto da Igreja; o que nos esforçamos por preparar e, com a ajuda de Deus, realizar com todo o cuidado possível."
+            }
+          ]
+        },
+        {
+          "id": "qp-002",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-002-la",
+              "tipo": "paragrafo",
+              "texto": "2 - Cumque inter alia sacri Tridentini Concilii decreta, Nobis statuendum esset de sacris libris, Catechismo, Missali et Breviario edendis atque emendandis: edito jam, Deo ipso annuente, ad populi eruditionem Catechismo, et ad debitas Deo persolvendas laudes Breviario castigato, omnino, ut Breviario Missale responderet, ut congruum est et conveniens (cum unum in Ecclesia Dei psallendi modum, unum Missæ celebrandæ ritum esse maxime deceat), necesse jam videbatur, ut, quod reliquum in hac parte esset, de ipso nempe Missali edendo, quam primum cogitaremus."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-002-pt",
+              "tipo": "paragrafo",
+              "texto": "2 - Ora, entre outros decretos do Santo Concílio de Trento, cabia-nos estabelecer a edição e a correção dos livros sagrados: Catecismo, Missal e Breviário. Com a graça de Deus, já foi publicado o Catecismo, destinado à instrução do povo, e corrigido o Breviário, para que se tributem a Deus os devidos louvores. Outrossim, para que ao Breviário correspondesse o Missal, como é justo e conveniente (já que é soberanamente oportuno que, na Igreja de Deus, haja uma só maneira de salmodiar e um só rito para celebrar a Missa), parecia-nos necessário providenciar, o mais cedo possível, o restante desta tarefa, ou seja, a edição do Missal."
+            }
+          ]
+        },
+        {
+          "id": "qp-003",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-003-la",
+              "tipo": "paragrafo",
+              "texto": "3 - Quare eruditis delectis viris onus hoc demandandum duximus: qui quidem, diligenter collatis omnibus cum vetustis Nostræ Vaticanæ Bibliothecæ, aliisque undique conquisitis, emendatis atque incorruptis codicibus; necnon veterum consultis ac probatorum auctorum scriptis, qui de sacro eorumdem rituum instituto monumenta Nobis reliquerunt, ad pristinam Missale ipsum sanctorum Patrum normam ac ritum restituerunt."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-003-pt",
+              "tipo": "paragrafo",
+              "texto": "3 - Para tanto, julgamos dever confiar este trabalho a homens eruditos escolhidos para esse fim. Estes começaram por cotejar cuidadosamente todos os textos com os antigos códices de nossa Biblioteca Vaticana e com outros, corrigidos e incorruptos, requisitados de toda parte. Depois, tendo consultado os escritos dos antigos e de autores aprovados, que nos deixaram documentos relativos à instituição destes mesmos ritos, eles restituíram o Missal propriamente dito à primitiva norma e ao rito dos Santos Padres."
+            }
+          ]
+        },
+        {
+          "id": "qp-004",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-004-la",
+              "tipo": "paragrafo",
+              "texto": "4 - Quod recognitum jam et castigatum, matura adhibita consideratione, ut ex hoc instituto, cœptoque labore, fructus omnes percipiant, Romæ quam primum imprimi, atque impressum edi mandavimus: nempe ut sacerdotes intelligant, quibus precibus uti, quos ritus, quasve cæremonias in Missarum celebratione retinere posthac debeant."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-004-pt",
+              "tipo": "paragrafo",
+              "texto": "4 - Este Missal assim revisto e corrigido, Nós, após madura reflexão, mandamos que seja quanto antes impresso e publicado em Roma, a fim de que todos possam colher os frutos desta disposição e do trabalho empreendido, de tal sorte que os padres saibam de que preces devem servir-se e quais os ritos e quais as cerimônias que devem observar doravante na celebração das Missas."
+            }
+          ]
+        },
+        {
+          "id": "qp-005",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-005-la",
+              "tipo": "paragrafo",
+              "texto": "5 - Ut autem a sacrosancta Romana Ecclesia, ceterarum ecclesiarum matre et magistra, tradita ubique amplectantur omnes et observent, ne in posterum perpetuis futuris temporibus in omnibus Christiani orbis Provinciarum Patriarchalibus, Cathedralibus, Collegiatis et Parochialibus, sæcularibus, et quorumvis Ordinum, monasteriorum, tam virorum, quam mulierum, etiam militiarum regularibus, ac sine cura Ecclesiis vel Capellis, in quibus Missa conventualis alta voce cum Choro, aut demissa, celebrari juxta Romanæ Ecclesiæ ritum consuevit vel debet, alias quam juxta Missalis a nobis editi formulam decantetur, aut recitetur, etiamsi eædem Ecclesiæ quovis modo exemptæ, Apostolicæ Sedis indulto, consuetudine, privilegio, etiam juramento, confirmatione Apostolica, vel aliis quibusvis facultatibus munitæ sint; nisi ab ipsa prima institutione a Sede Apostolica adprobata, vel consuetudine, quæ, vel ipsa institutio super ducentos annos Missarum celebrandarum in eisdem Ecclesiis assidue observata sit: a quibus, ut præfatam celebrandi constitutionem vel consuetudinem nequaquam auferimus; sic si Missale hoc, quod nunc in lucem edi curavimus, iisdem magis placeret, de Episcopi, vel Prælati, Capitulique universi consensu, ut quibusvis non obstantibus, juxta illud Missas celebrare possint, permittimus; ex aliis vero omnibus Ecclesiis præfatis eorumdem Missalium usum tollendo, illaque penitus et omnino rejiciendo, ac huic Missali nostro nuper edito, nihil unquam addendum, detrahendum, aut immutandum esse decernendo, sub indignationis nostræ pœna, hac nostra perpetuo valitura constitutione statuimus et ordinamus."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-005-pt",
+              "tipo": "paragrafo",
+              "texto": "5 - E, a fim de que todos, e em todos os lugares, adotem e observem as tradições da sacrossanta Igreja Romana, Mãe e Mestra de todas as Igrejas, decretamos e ordenamos que a Missa, no futuro e para sempre, não seja cantada nem rezada de modo diferente da fórmula do Missal publicado por Nós, em todas as Igrejas das Províncias do orbe cristão: nas Igrejas Patriarcais, Catedrais, Colegiadas e Paroquiais, quer seculares, quer regulares, de qualquer Ordem ou Mosteiro que seja, de homens ou de mulheres, inclusive os das Ordens Militares, e igualmente nas Igrejas ou Capelas sem encargo de almas nas quais a Missa conventual deve, segundo o direito ou por costume, ser celebrada em voz alta com coro, ou em voz baixa, segundo o rito da Igreja Romana, ainda quando estas mesmas Igrejas, de qualquer modo isentas, estejam munidas de um indulto da Sé Apostólica, de costume, de um privilégio, até de um juramento, de uma confirmação apostólica ou de quaisquer outras espécies de faculdades, a não ser que, ou por uma instituição aprovada desde a origem pela Sé Apostólica, ou então em virtude de um costume, a celebração destas Missas nessas mesmas Igrejas tenha um uso ininterrupto superior a duzentos anos. A estas Igrejas Nós, de maneira nenhuma, suprimimos nem a referida instituição, nem seu costume de celebrar a Missa; mas, se este Missal que acabamos de editar lhes agradar mais, com o consentimento do Bispo ou do Prelado, junto com o de todo o Capítulo, concedemos-lhes a permissão, não obstante quaisquer disposições em contrário, de poder celebrar a Missa segundo este Missal. Quanto a todas as outras sobreditas Igrejas, por Nossa presente Constituição, que será válida para sempre, Nós decretamos e ordenamos, sob pena de nossa indignação, que o uso de seus missais próprios seja suprimido e sejam eles radical e totalmente rejeitados; e, quanto ao Nosso presente Missal recentemente publicado, nada jamais lhe deverá ser acrescentado, nem suprimido, nem modificado."
+            }
+          ]
+        },
+        {
+          "id": "qp-006",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-006-la",
+              "tipo": "paragrafo",
+              "texto": "6 - Mandantes ac districte omnibus et singulis Ecclesiarum prædictarum Patriarchis, Administratoribus, aliisque personis quacumque Ecclesiastica dignitate fulgentibus, etiamsi Sanctæ Romanæ Ecclesiæ Cardinales, aut cujusvis alterius gradus et præeminentiæ fuerint, illis in virtute sanctæ obedientiæ præcipientes, ut ceteris omnibus rationibus et ritibus ex aliis Missalibus quantumvis vetustis hactenus observari consuetis, in posterum penitus omissis, ac plane rejectis, Missam juxta ritum, modum, ac normam, quæ per Missale hoc a Nobis nunc traditur, decantent ac legant; neque in Missæ celebratione alias cæremonias, vel preces, quam quæ hoc Missali continentur, addere vel recitare præsumant."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-006-pt",
+              "tipo": "paragrafo",
+              "texto": "6 - Ordenamos a todos e a cada um dos Patriarcas, Administradores das referidas Igrejas, bem como a todas as outras pessoas revestidas de alguma dignidade eclesiástica, mesmo Cardeais da Santa Igreja Romana, ou dotadas de qualquer outro grau ou preeminência, e, em virtude da santa obediência, rigorosamente prescrevemos que todas as outras práticas e todos os outros ritos, sem exceção, de outros missais, por mais antigos que sejam, observados por costume até o presente, sejam por eles absolutamente abandonados para o futuro e totalmente rejeitados; cantem ou rezem a Missa segundo o rito, o modo e a norma por Nós indicados no presente Missal, e, na celebração da Missa, não tenham a audácia de acrescentar outras cerimônias nem de recitar outras orações senão as que estão contidas neste Missal."
+            }
+          ]
+        },
+        {
+          "id": "qp-007",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-007-la",
+              "tipo": "paragrafo",
+              "texto": "7 - Atque ut hoc ipsum Missale in Missa decantanda, aut recitanda in quibusvis Ecclesiis absque ullo conscientiæ scrupulo, aut aliquarum pœnarum, sententiarum et censurarum incursu, posthac omnino sequantur, eoque libere et licite uti possint et valeant, auctoritate Apostolica, tenore præsentium, etiam perpetuo concedimus et indulgemus."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-007-pt",
+              "tipo": "paragrafo",
+              "texto": "7 - Além disso, em virtude de Nossa Autoridade Apostólica, pelo teor da presente Bula, concedemos e damos o indulto seguinte: que, doravante, para cantar ou rezar a Missa em qualquer Igreja, se possa, sem restrição, seguir este Missal com permissão e poder de usá-lo livre e licitamente, sem nenhum escrúpulo de consciência e sem que se possa incorrer em nenhuma pena, sentença ou censura, e isto para sempre."
+            }
+          ]
+        },
+        {
+          "id": "qp-008",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-008-la",
+              "tipo": "paragrafo",
+              "texto": "8 - Neve Præsules, Administratores, Canonici, Capellani et alii quocumque nomine nuncupati Presbyteri sæculares, aut cujusvis Ordinis regulares, ad Missam aliter quam a nobis statutum est, celebrandam teneantur: neque ad Missale hoc immutandum a quolibet cogi et compelli, præsentesve litteræ ullo unquam tempore revocari, aut moderari possint, sed firmæ semper et validæ in suo exsistant robore, similiter statuimus et declaramus."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-008-pt",
+              "tipo": "paragrafo",
+              "texto": "8 - Da mesma forma decretamos e declaramos que os Prelados, Administradores, Cônegos, Capelães e todos os outros Padres seculares, designados com qualquer denominação, ou Regulares, de qualquer Ordem, não sejam obrigados a celebrar a Missa de outro modo que o por Nós ordenado; nem possam ser coagidos e forçados, por quem quer que seja, a modificar o presente Missal, e a presente Bula não poderá jamais, em tempo algum, ser revogada nem modificada, mas permanecerá sempre firme e válida, em toda a sua força."
+            }
+          ]
+        },
+        {
+          "id": "qp-009",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-009-la",
+              "tipo": "paragrafo",
+              "texto": "9 - Non obstantibus præmissis, ac constitutionibus, et ordinationibus Apostolicis, ac in Provincialibus et Synodalibus Conciliis editis generalibus, vel specialibus constitutionibus, et ordinationibus, nec non Ecclesiarum prædictarum usu, longissima et immemorabili præscriptione, non tamen supra ducentos annos, roborato, statutis et consuetudinibus contrariis quibuscumque."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-009-pt",
+              "tipo": "paragrafo",
+              "texto": "9 - Não obstante todas as disposições anteriores, bem como Constituições e Ordenações Apostólicas, ou Constituições e Ordenações, tanto gerais como especiais, publicadas em Concílios Provinciais e Sinodais; não obstante também o uso das Igrejas acima enumeradas, ainda que autorizado por uma prescrição bastante longa e imemorial, mas que não remonte a mais de duzentos anos, nem quaisquer estatutos e costumes contrários."
+            }
+          ]
+        },
+        {
+          "id": "qp-010",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-010-la",
+              "tipo": "paragrafo",
+              "texto": "10 - Volumus autem et eadem auctoritate decernimus, ut post hujus nostræ constitutionis, ac Missalis editionem, qui in Romana adsunt Curia Presbyteri post mensem; qui vero intra montes, post tres; et qui ultra montes incolunt, post sex menses, aut cum primum illis Missale hoc venale propositum fuerit, juxta illud Missam decantare, vel legere teneantur."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-010-pt",
+              "tipo": "paragrafo",
+              "texto": "10 - Queremos e, pela mesma autoridade, decretamos que, depois da publicação de Nossa presente Constituição e deste Missal, todos os padres sejam obrigados a cantar ou rezar a Missa de acordo com ele: os que estão na Cúria Romana, após um mês; os que habitam aquém dos Alpes, após três meses; e os que habitam além dos Alpes, após seis meses, ou assim que este Missal lhes seja posto à venda."
+            }
+          ]
+        },
+        {
+          "id": "qp-011",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-011-la",
+              "tipo": "paragrafo",
+              "texto": "11 - Quod ut ubique terrarum incorruptum, ac mendis et erroribus purgatum præservetur, omnibus in nostro et Sanctæ Ecclesiæ Romanæ Dominio mediate, vel immediate subjecto commorantibus impressoribus, sub amissionis librorum, ac centum ducatorum auri Cameræ Apostolicæ ipso facto applicandorum: aliis vero in quacumque orbis parte consistentibus, sub excommunicationis latæ sententiæ, et aliis arbitrii nostri pœnis, ne sine nostra vel speciali ad id Apostolici Commissarii in eisdem partibus a nobis constituendi, licentia, ac nisi per eumdem Commissarium eidem impressori Missalis exemplum, ex quo aliorum imprimendorum ab ipso impressore erit accipienda norma, cum Missali in Urbe secundum magnam impressionem impresso collatum fuisse, et concordare, nec in ullo penitus discrepare prius plena fides facta fuerit, imprimere, vel proponere, vel recipere ullo modo audeant, vel præsumant, auctoritate Apostolica et tenore præsentium similiter inhibemus."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-011-pt",
+              "tipo": "paragrafo",
+              "texto": "11 - E, para que em todos os lugares da Terra este Missal seja conservado sem corrupção e isento de incorreções e erros, por Nossa Autoridade Apostólica e em virtude da presente Bula, proibimos igualmente a todos os impressores domiciliados nos lugares submetidos, direta ou indiretamente, à Nossa autoridade e à da Santa Igreja Romana, sob pena de confisco dos livros e de uma multa de cem ducados de ouro, pagáveis ipso facto à Câmara Apostólica, bem como aos outros domiciliados em qualquer outra parte do mundo sob pena de excomunhão latæ sententiæ e de outras penas a Nosso alvitre, que se arroguem, por temerária audácia, o direito de imprimir, oferecer ou aceitar este Missal, de qualquer maneira, sem Nossa permissão, ou sem uma licença especial de um Comissário Apostólico por Nós constituído, para estes casos, nos países interessados, e sem que antes este Comissário ateste plenamente que confrontou com o Missal impresso em Roma, segundo a impressão típica, um exemplar do Missal destinado ao mesmo impressor, que lhe sirva de modelo para imprimir os outros, e que este concorda com aquele e dele não difere absolutamente em nada."
+            }
+          ]
+        },
+        {
+          "id": "qp-012",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-012-la",
+              "tipo": "paragrafo",
+              "texto": "12 - Verum, quia difficile esset præsentes litteras ad quæque Christiani orbis loca deferri, ac primo quoque tempore in omnium notitiam perferri, illas ad Basilicæ Principis Apostolorum, ac Cancellariæ Apostolicæ, et in acie Campi Floræ de more publicari et affigi, ac earumdem litterarum exemplis etiam impressis, ac manu alicujus publici tabellionis subscriptis, nec non sigillo personæ in dignitate Ecclesiastica constitutæ munitis, eamdem prorsus indubitatam fidem ubique gentium et locorum, haberi præcipimus, quæ præsentibus haberetur, si ostenderentur vel exhiberentur."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-012-pt",
+              "tipo": "paragrafo",
+              "texto": "12 - E, como seria difícil transmitir a presente Bula a todos os lugares do mundo cristão e levá-la imediatamente ao conhecimento de todos, ordenamos que, segundo o costume, ela seja publicada e afixada às portas da Basílica do Príncipe dos Apóstolos e da Chancelaria Apostólica, bem como no Campo de Flora. Ordenamos igualmente que aos exemplares mesmo impressos desta Bula, subscritos pela mão de um tabelião público e munidos, outrossim, do selo de uma pessoa constituída em dignidade eclesiástica, seja dada, no mundo inteiro, a mesma fé inquebrantável que se daria à presente, caso fosse mostrada ou exibida."
+            }
+          ]
+        },
+        {
+          "id": "qp-013",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-013-la",
+              "tipo": "paragrafo",
+              "texto": "13 - Nulli ergo omnino hominum liceat hanc paginam nostræ permissionis, statuti, ordinationis, mandati, præcepti, concessionis, indulti, declarationis, voluntatis, decreti et inhibitionis infringere, vel ei ausu temerario contraire."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-013-pt",
+              "tipo": "paragrafo",
+              "texto": "13 - Assim, portanto, que a ninguém absolutamente seja permitido infringir ou, por temerária audácia, opor-se à presente disposição de nossa permissão, estatuto, ordenação, mandato, preceito, concessão, indulto, declaração, vontade, decreto e proibição."
+            }
+          ]
+        },
+        {
+          "id": "qp-014",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-014-la",
+              "tipo": "paragrafo",
+              "texto": "Si quis autem hoc attentare præsumpserit, indignationem omnipotentis Dei, ac beatorum Petri et Pauli Apostolorum ejus se noverit incursurum."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-014-pt",
+              "tipo": "paragrafo",
+              "texto": "Se alguém, contudo, tiver a audácia de atentar contra estas disposições, saiba que incorrerá na indignação de Deus Todo-Poderoso e de seus bem-aventurados Apóstolos Pedro e Paulo."
+            }
+          ]
+        },
+        {
+          "id": "qp-015",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-015-la",
+              "tipo": "paragrafo",
+              "texto": "Datum Romæ apud S. Petrum, anno Incarnationis Dominicæ millesimo quingentesimo septuagesimo, pridie Idus Julii, Pontificatus nostri anno quinto."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-015-pt",
+              "tipo": "paragrafo",
+              "texto": "Dado em Roma, junto a São Pedro, no ano da Encarnação do Senhor de mil quinhentos e setenta, no dia 14 de julho, quinto ano de Nosso Pontificado."
+            }
+          ]
+        },
+        {
+          "id": "qp-016",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-016-la",
+              "tipo": "paragrafo",
+              "texto": "H. Cumin — Cæsar Glorierius"
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-016-pt",
+              "tipo": "paragrafo",
+              "texto": "H. Cumin — Cæsar Glorierius"
+            }
+          ]
+        },
+        {
+          "id": "qp-017",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-017-la",
+              "tipo": "paragrafo",
+              "texto": "Anno a Nativitate Domini 1570, Indict. 13, die vero 19 mensis Julii, Pontificatus sanctissimi in Christo Patris et D. N. Pii divina providentia Papæ V anno ejus quinto, retroscriptæ litteræ publicatæ et affixæ fuerunt ad valvas Basilicæ Principis Apostolorum, ac Cancellariæ Apostolicæ, et in acie Campi Floræ, ut moris est, per nos Joannem Andream Rogerium et Philibertum Cappuis Cursores."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-017-pt",
+              "tipo": "paragrafo",
+              "texto": "No ano do Nascimento do Senhor de 1570, 13ª indicção, no dia 19 de julho, quinto ano do Pontificado de nosso Santíssimo Padre em Cristo e Nosso Senhor Pio V, Papa pela divina providência, as cartas acima escritas foram publicadas e afixadas às portas da Basílica do Príncipe dos Apóstolos e da Chancelaria Apostólica, e igualmente à extremidade do Campo de Flora, como de costume, por nós, João André Rogério e Filiberto Cappuis, mensageiros."
+            }
+          ]
+        },
+        {
+          "id": "qp-018",
+          "tipo": "bilingue",
+          "latim": [
+            {
+              "id": "qp-018-la",
+              "tipo": "paragrafo",
+              "texto": "Scipio de Octavianis, Magister Cursorum."
+            }
+          ],
+          "portugues": [
+            {
+              "id": "qp-018-pt",
+              "tipo": "paragrafo",
+              "texto": "Cipião de Otaviani, Mestre dos Mensageiros."
+            }
+          ]
         }
       ]
     }

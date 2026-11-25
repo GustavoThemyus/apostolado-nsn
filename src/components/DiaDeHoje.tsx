@@ -153,7 +153,7 @@ function DoOrdo({ dia }: { dia: DiaDoOrdo }) {
           </dd>
         </div>
         <div>
-          <dt>Grau</dt>
+          <dt>Rito</dt>
           <dd>{grau}</dd>
         </div>
       </dl>

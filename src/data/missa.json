@@ -1,6 +1,6 @@
 {
   "titulo": "A Missa Tridentina",
-  "descricao": "O rito romano na forma do Missal de São Pio V, edição típica de 1962.",
+  "descricao": "O rito romano na forma do Missal de São Pio V.",
   "secoes": [
     {
       "id": "abertura",
@@ -9,7 +9,7 @@
         {
           "id": "m-001",
           "tipo": "paragrafo",
-          "texto": "A Missa que se celebra neste apostolado é a do [lat]Missale Romanum[/lat] na edição típica de 1962, com as rubricas do [lat]Codex Rubricarum[/lat] de 1960. É o mesmo rito que São Pio V fixou em 1570 e que se rezou em Roma, com poucas mudanças, por quatro séculos."
+          "texto": "A Missa Tridentina é a do rito romano na forma do [lat]Missale Romanum[/lat] que São Pio V fixou em 1570 e que se rezou em Roma, com poucas mudanças, por quatro séculos."
         },
         {
           "id": "m-002",

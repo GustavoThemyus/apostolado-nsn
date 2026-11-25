@@ -99,7 +99,9 @@ export function PaginaDeDocumento({
           descricao={conteudo.descricao}
         />
 
-        {conteudo.emPreparacao && <Vazia />}
+        {conteudo.emPreparacao && (
+          <Vazia o_que="Esta seção ainda está sendo preparada e vai receber acréscimos." />
+        )}
         {conteudo.rascunho && <Vazia variante="rascunho" />}
 
         {/*

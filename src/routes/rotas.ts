@@ -114,11 +114,6 @@ const ESTRUTURA: Estrutura[] = [
     pagina: () => import("../pages/IndulgenciasArquidiocese"),
   },
   {
-    padrao: "/indulgencias/raccolta",
-    pai: "/indulgencias",
-    pagina: () => import("../pages/IndulgenciasRaccolta"),
-  },
-  {
     padrao: "/indulgencias/enchiridion",
     pai: "/indulgencias",
     pagina: () => import("../pages/IndulgenciasEnchiridion"),
@@ -144,6 +139,16 @@ const ESTRUTURA: Estrutura[] = [
   {
     padrao: "/folhetos",
     pagina: () => import("../pages/Folhetos"),
+  },
+  {
+    padrao: "/folhetos/proprios",
+    pai: "/folhetos",
+    pagina: () => import("../pages/FolhetosProprios"),
+  },
+  {
+    padrao: "/folhetos/indulgencias",
+    pai: "/folhetos",
+    pagina: () => import("../pages/FolhetosIndulgencias"),
   },
   {
     padrao: "/folhetos/:id",
@@ -229,9 +234,10 @@ export const filhasDe = (padrao: string): Rota[] =>
 export type EstadoDaRota = "preparacao" | "rascunho";
 
 export const ESTADO_DA_ROTA: Record<string, EstadoDaRota> = {
+  "/missa/partes": "preparacao",
   "/missa/situacao-canonica": "preparacao",
-  "/indulgencias/raccolta": "rascunho",
-  "/indulgencias/ordens": "rascunho",
+  "/calendario/brasil": "preparacao",
+  "/calendario/arquidiocese": "preparacao",
   "/apostolado": "preparacao",
 };
 

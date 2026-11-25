@@ -11,7 +11,7 @@ import type { Agenda } from "../data/tipos";
  * Só funciona com calendário público: convite por e-mail é compartilhamento
  * privado e não serve para visitante anônimo.
  */
-function Linha({ agenda }: { agenda: Agenda }) {
+export function Linha({ agenda }: { agenda: Agenda }) {
   const id = encodeURIComponent(agenda.google);
   const noGoogle = `https://calendar.google.com/calendar/render?cid=${id}`;
   const noAparelho = `webcal://calendar.google.com/calendar/ical/${id}/public/basic.ics`;

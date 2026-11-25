@@ -21,6 +21,17 @@ A escolha de *A entrega das chaves* não é decorativa: a seção das indulgênc
 diz, com o cânon 911, que "o fundamento é o poder das chaves". A pintura é o
 próprio texto.
 
+## Trocas de 25/11/2026
+
+Para a inauguração o Perez mandou uma fotografia por seção, na pasta do Drive
+do Apostolado, e elas substituem as pinturas de **Missa, Calendário,
+Indulgências e Postagens** e dão a primeira imagem a **Folhetos**. Âncora 0,5
+em todas. Não são domínio público. Os arquivos de Folhetos e Postagens trazem
+nos metadados o crédito de **Barbara Andolfi**; os outros três não trazem nome.
+Falta confirmar com o Perez a cessão e se querem crédito visível.
+
+A tabela acima e a das seis estampas ficam como registro do que havia antes.
+
 ## Como gerar
 
 ```

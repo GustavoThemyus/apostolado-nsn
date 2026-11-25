@@ -43,19 +43,19 @@ export default function Inicio() {
       >
         <Cartao
           para="/missa/guia"
-          imagem="/cartoes/missa-4c2b9f3f.webp"
+          imagem="/cartoes/missa-a8c77d07.webp"
           titulo="Guia prático da Missa"
           texto="Cada peça da Missa em ordem: o que é dito, quem diz e o que muda conforme o dia."
         />
         <Cartao
           para="/calendario"
-          imagem="/cartoes/calendario-8b43148b.webp"
+          imagem="/cartoes/calendario-b3347fea.webp"
           titulo="Calendário litúrgico"
           texto="O calendário tradicional, dia a dia."
         />
         <Cartao
           para="/indulgencias"
-          imagem="/cartoes/indulgencias-931d7d10.webp"
+          imagem="/cartoes/indulgencias-ca88ff12.webp"
           titulo="Indulgências"
           texto="O que são, como se obtêm e em que dias."
         />

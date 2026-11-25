@@ -28,7 +28,22 @@ function Lista({ ordenada, itens }: { ordenada?: boolean; itens: string[] }) {
 /** Escolhe o componente certo para cada bloco do conteúdo. */
 export function Bloco({ bloco }: { bloco: TipoBloco }) {
   switch (bloco.tipo) {
-    case "paragrafo":
+    case "paragrafo": {
+      // a resposta do povo leva o ℟ recuado à margem, e a letra que abre é a
+      // da resposta: sem separar, a capitular caía no próprio ℟
+      const resposta = /^\[b\]℟\.\s*([\s\S]*)$/.exec(bloco.texto);
+      if (resposta) {
+        return (
+          <p className="paragrafo paragrafo--resposta" id={bloco.ancora}>
+            <span className="resposta__sinal">
+              <TextoRico texto="[b]℟.[/b]" />
+            </span>{" "}
+            <span className="resposta__texto">
+              <TextoRico texto={`[b]${resposta[1]}`} />
+            </span>
+          </p>
+        );
+      }
       // a âncora é o que faz "§1, 3.º" cair no §1, 3.º, e não no alto da
       // concessão; quase todo parágrafo não tem, e aí não há id nenhum
       return (
@@ -36,6 +51,7 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
           <TextoRico texto={bloco.texto} />
         </p>
       );
+    }
     case "rubrica":
       return <Rubrica texto={bloco.texto} />;
     case "assembleia":
@@ -61,7 +77,7 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
     case "nota":
       return <Nota titulo={bloco.titulo} paragrafos={bloco.paragrafos} alerta={bloco.alerta} />;
     case "tabela":
-      return <Tabela colunas={bloco.colunas} linhas={bloco.linhas} />;
+      return <Tabela colunas={bloco.colunas} linhas={bloco.linhas} ancoras={bloco.ancoras} />;
     case "separador":
       return <hr className="separador" />;
     case "bilingue": {

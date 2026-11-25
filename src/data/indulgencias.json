@@ -1,226 +1,269 @@
 {
- "titulo": "Indulgências",
- "descricao": "O que são, como se obtêm e de onde vêm, segundo o Código de 1917.",
- "secoes": [
-  {
-   "id": "o-que-e",
-   "numero": 1,
-   "titulo": "O que é uma indulgência",
-   "resumo": "Código de Direito Canônico de 1917, cânones 911 a 930.",
-   "blocos": [
+  "titulo": "Indulgências",
+  "descricao": "O que são, como se obtêm e de onde vêm, segundo a Indulgentiarum doctrina e as normas do Enchiridion.",
+  "secoes": [
     {
-     "id": "i-001",
-     "tipo": "paragrafo",
-     "texto": "O cânon 911 define e manda estimar: indulgência é a [b]remissão diante de Deus da pena temporal devida pelos pecados quanto à culpa já perdoados[/b], que a autoridade eclesiástica concede do tesouro da Igreja: [lat]pro vivis per modum absolutionis, pro defunctis per modum suffragii[/lat]."
+      "id": "introducao",
+      "titulo": "O que são as indulgências e sua importância",
+      "blocos": [
+        {
+          "id": "i-intro-001",
+          "tipo": "paragrafo",
+          "texto": "Devido à queda da natureza humana com o pecado original, a humanidade conheceu o estado de exclusão da vida da graça e estava sentada sob a sombra da morte eterna. Quando o Senhor Se compadeceu de nós, encarnando-Se no seio da Virgem Maria e assumindo a nossa natureza, comprou a nossa salvação no patíbulo da Cruz, lavando nossas culpas em Seu Sangue Preciosíssimo e abrindo-nos, assim, as portas do Céu."
+        },
+        {
+          "id": "i-intro-002",
+          "tipo": "paragrafo",
+          "texto": "A inclinação ao pecado, porém, está impregnada em nossa natureza e é um fardo que carregamos e temos o dever de combater, de modo a ficarmos sempre alerta, orando e vigiando, como nos adverte a Escritura: \"Vigiai e orai, para que não entreis em tentação. O espírito, na verdade, está pronto, mas a carne é fraca\" (Mt 26,41). Contudo, sempre tornamos a pecar contra Deus."
+        },
+        {
+          "id": "i-intro-003",
+          "tipo": "paragrafo",
+          "texto": "Podemos definir o pecado como um ato contrário à lei eterna, praticado com plena consciência e vontade deliberada, rompendo, assim, a ordem estabelecida pelo Criador. Por meio do pecado, sobretudo em matéria grave, o homem se afasta de Deus, seu fim último, e perde a graça santificante, tornando-se escravo do demônio e merecedor da condenação eterna."
+        },
+        {
+          "id": "i-intro-004",
+          "tipo": "paragrafo",
+          "texto": "O pecado é um ato único, porém atinge duas partes: o pecador, que ofende, e Deus, que é ofendido. Isso produz, por sua vez, um duplo efeito: a culpa e a pena."
+        },
+        {
+          "id": "i-intro-005",
+          "tipo": "paragrafo",
+          "texto": "A culpa é a mancha do pecado que priva o indivíduo da graça e da amizade de Deus, sendo uma consequência pessoal e subjetiva (é preciso cometer deliberadamente o pecado para ser culpado, isto é, conhecer a matéria pecaminosa, querer praticá-la e fazê-lo de forma deliberada). Livramo-nos da culpa pelos canais ordinários da graça de Deus: os sacramentos (principalmente o Batismo e a Confissão), lavando nossas culpas no Sangue do Cordeiro e ficando mais brancos que a neve."
+        },
+        {
+          "id": "i-intro-006",
+          "tipo": "paragrafo",
+          "texto": "A pena é uma consequência secundária da culpa; é a degradação causada pelo pecado que permanece mesmo após a absolvição da culpa, manifestando constantemente o mal causado, seja pelas más disposições residuais, seja pela necessidade de reparação universal do mal praticado. Com efeito, Deus, em Seu Ser, sustenta docemente toda a criação; quando praticamos um ato contrário à lei eterna, constituímos não só um mal pessoal, pela perda da graça, mas ofendemos o Bem por excelência que, ainda assim, nos sustenta a existência, culminando em um mal universal que precisa ser reparado."
+        },
+        {
+          "id": "i-intro-007",
+          "tipo": "paragrafo",
+          "texto": "Esse mal universal é causado pelo pecado e é residual. Imagine que nosso superior legítimo nos proibiu de cravar um prego em uma parede e, deliberadamente, desobedecemos e cometemos esse pecado: o prego (a culpa) pode ser retirado da parede mais tarde (perdão da culpa), mas o buraco na parede, que é residual, permanece. Assim é a relação da culpa com a pena temporal: a culpa sai na Confissão, mas a pena fica (no Batismo saem ambas, deixando o neófito com a inocência batismal), e é justamente essa pena, juntamente com os pecados veniais, que pagaremos no fogo do Purgatório até reparar essa injustiça."
+        },
+        {
+          "id": "i-intro-008",
+          "tipo": "paragrafo",
+          "texto": "Portanto, para nos livrarmos da pena, é preciso primeiro nos livrarmos da culpa. Ninguém pode se libertar da pena se ainda é réu do crime. Os meios para corrigir essa desordem são dois: a penitência, acompanhada dos exercícios espirituais, e as Indulgências."
+        },
+        {
+          "id": "i-intro-009",
+          "tipo": "paragrafo",
+          "texto": "As Indulgências são as graças que a Igreja dispensa para operar essa satisfação por meio de seu Tesouro, utilizando os méritos infinitos de Nosso Senhor, bem como os de Nossa Senhora e os de todos os santos, para apagar, pelos sofrimentos, mortificações e penitências destes, a nossa pena temporal, devolvendo-nos (se for Plenária) a inocência batismal."
+        }
+      ],
+      "numero": 1
     },
     {
-     "id": "i-002",
-     "tipo": "nota",
-     "titulo": "A distinção que resolve quase toda confusão",
-     "paragrafos": [
-      "Indulgência não perdoa pecado. O pecado é perdoado na confissão, e é da [b]culpa[/b] que a absolvição trata. O que resta depois disso é a [b]pena temporal[/b]: a dívida de satisfação que continua mesmo com a culpa remitida. É sobre ela, e só sobre ela, que a indulgência age.",
-      "Por isso o cânon fala em pecados «quanto à culpa já perdoados». Quem está em pecado grave não ganha indulgência nenhuma: não há o que remitir enquanto a culpa está de pé."
-     ]
+      "id": "o-que-e",
+      "numero": 2,
+      "titulo": "O que é uma indulgência",
+      "resumo": "Indulgentiarum doctrina e normas do Enchiridion Indulgentiarum.",
+      "blocos": [
+        {
+          "id": "i-001",
+          "tipo": "paragrafo",
+          "texto": "A norma 1 do Enchiridion define: indulgência é a [b]remissão, diante de Deus, da pena temporal devida pelos pecados já perdoados quanto à culpa[/b], que o fiel, devidamente disposto e em certas e determinadas condições, alcança por meio da Igreja, a qual, como dispensadora da redenção, distribui e aplica, com autoridade, o tesouro das satisfações de Cristo e dos Santos."
+        },
+        {
+          "id": "i-002",
+          "tipo": "nota",
+          "titulo": "A distinção que resolve quase toda confusão",
+          "paragrafos": [
+            "Indulgência não perdoa pecado. O pecado é perdoado na confissão, e é da [b]culpa[/b] que a absolvição trata. O que resta depois disso é a [b]pena temporal[/b]: a dívida de satisfação que continua mesmo com a culpa remitida. É sobre ela, e só sobre ela, que a indulgência age.",
+            "Por isso a norma fala em pecados «já perdoados quanto à culpa». Quem está em pecado grave não ganha indulgência nenhuma: não há o que remitir enquanto a culpa está de pé."
+          ]
+        },
+        {
+          "id": "i-003",
+          "tipo": "subtitulo",
+          "texto": "Plenária e parcial"
+        },
+        {
+          "id": "i-004",
+          "tipo": "paragrafo",
+          "texto": "A [b]plenária[/b] remite toda a pena temporal restante; a [b]parcial[/b], uma porção dela."
+        },
+        {
+          "id": "i-005",
+          "tipo": "paragrafo",
+          "texto": "As parciais vinham medidas em «dias» e «anos»: cem dias, sete anos, e assim por diante. [b]Isso nunca significou tempo de purgatório.[/b] A medida é de equivalência: vale o que valeria a antiga penitência canônica pública daquela duração. Quanto isso remite diante de Deus, a Igreja não diz; o número mede somente o trabalho. A [lat]Indulgentiarum doctrina[/lat] (N 4) aboliu essa medida: hoje se diz apenas «indulgência parcial»."
+        },
+        {
+          "id": "i-006",
+          "tipo": "paragrafo",
+          "texto": "A norma 20, § 4, traz uma misericórdia que costuma passar despercebida: quem não consegue ganhar a plenária inteira [b]ganha-a em parte[/b], na medida da disposição que tem. Nenhum esforço se perde por faltar a disposição perfeita."
+        }
+      ]
     },
     {
-     "id": "i-003",
-     "tipo": "subtitulo",
-     "texto": "Plenária e parcial"
+      "id": "como-obter",
+      "numero": 3,
+      "titulo": "Como se obtém",
+      "blocos": [
+        {
+          "id": "i-010",
+          "tipo": "paragrafo",
+          "texto": "A norma 17 separa duas coisas: estar [b]capaz[/b] de ganhar e [b]de fato[/b] ganhar."
+        },
+        {
+          "id": "i-011",
+          "tipo": "legenda",
+          "itens": [
+            {
+              "chave": "Batizado",
+              "etiqueta": "ordinario",
+              "texto": "Sem o batismo não há sujeito capaz."
+            },
+            {
+              "chave": "Não excomungado",
+              "etiqueta": "ordinario",
+              "texto": "A excomunhão exclui dos bens comuns da Igreja."
+            },
+            {
+              "chave": "Em graça",
+              "etiqueta": "proprio",
+              "texto": "Ao menos [b]ao terminar[/b] as obras prescritas. A norma 17, § 1, diz «pelo menos no fim das obras prescritas»: dá para começar a obra e confessar-se antes de concluí-la."
+            },
+            {
+              "chave": "Súdito",
+              "etiqueta": "ordinario",
+              "texto": "Sujeito a quem concede. Indulgência de bispo alcança os seus."
+            }
+          ]
+        },
+        {
+          "id": "i-012",
+          "tipo": "paragrafo",
+          "texto": "Cumpridos esses quatro, ainda são precisas duas coisas para ganhar de fato: [b]intenção[/b], que basta ser geral, e [b]cumprir a obra[/b] no tempo marcado e do modo devido."
+        },
+        {
+          "id": "i-013",
+          "tipo": "nota",
+          "titulo": "A intenção geral basta",
+          "paragrafos": [
+            "Não é preciso lembrar de cada indulgência. Uma intenção habitual, feita de manhã, ou renovada de tempos em tempos, de ganhar todas as que puder, cobre o dia inteiro. A norma 17, § 2, pede intenção «ao menos geral»."
+          ]
+        },
+        {
+          "id": "i-014",
+          "tipo": "subtitulo",
+          "texto": "As condições da plenária"
+        },
+        {
+          "id": "i-015",
+          "tipo": "paragrafo",
+          "texto": "Além da obra própria de cada concessão, a plenária pede confissão sacramental, comunhão e oração pelas intenções do Sumo Pontífice. A tradição acrescenta o que é decisivo e não se mede: [b]o desapego de todo pecado, mesmo venial[/b]. Faltando isso, a plenária se torna parcial, pela norma 20, § 4."
+        },
+        {
+          "id": "i-016",
+          "tipo": "rubrica",
+          "texto": "Norma 14: quando a obra é visitar uma igreja em dia determinado, a visita vale [b]do meio-dia da véspera até a meia-noite do próprio dia[/b]. É uma folga de trinta e seis horas, não de vinte e quatro."
+        },
+        {
+          "id": "i-017",
+          "tipo": "subtitulo",
+          "texto": "Pelos vivos, não se pode; pelos mortos, sim"
+        },
+        {
+          "id": "i-018",
+          "tipo": "paragrafo",
+          "texto": "A norma 3 vai em duas direções. [b]Ninguém pode aplicar a outro vivo[/b] a indulgência que ganha, nem ao filho, nem ao amigo. Mas [b]às almas do purgatório[/b] todas as indulgências são aplicáveis, por modo de sufrágio."
+        },
+        {
+          "id": "i-019",
+          "tipo": "paragrafo",
+          "texto": "A diferença está no modo: aos defuntos a indulgência se aplica [b]por modo de sufrágio[/b] ([lat]Indulgentiarum doctrina[/lat], N 3), porque sobre eles a Igreja não tem jurisdição, pede a Deus, e é Deus quem aplica."
+        }
+      ]
     },
     {
-     "id": "i-004",
-     "tipo": "paragrafo",
-     "texto": "A [b]plenária[/b] remite toda a pena temporal restante; a [b]parcial[/b], uma porção dela."
+      "id": "quando",
+      "numero": 4,
+      "titulo": "Os dias em que se obtém",
+      "resumo": "O calendário das plenárias universais, segundo o Enchiridion de 1999.",
+      "blocos": [
+        {
+          "id": "i-020",
+          "tipo": "paragrafo",
+          "texto": "Vale separar duas coisas que costumam ser confundidas. As [b]normas[/b] estabelecem quem concede, quem pode ganhar e sob que condições. [b]Quais[/b] são as indulgências, e a que obras estão presas, vem das concessões do [elo:/indulgencias/enchiridion]Enchiridion Indulgentiarum[/elo] de 1999."
+        },
+        {
+          "id": "i-024",
+          "tipo": "paragrafo",
+          "texto": "O [elo:/indulgencias/calendario]calendário das plenárias universais[/elo] traz as que a Igreja universal concede, uma a uma, com a obra que se deve cumprir em cada dia e a concessão de onde sai; ali estão tanto as presas a uma festa do ano quanto as que se podem lucrar em qualquer dia. As da Arquidiocese da Paraíba estão no [elo:/indulgencias/arquidiocese]calendário arquidiocesano[/elo]."
+        },
+        {
+          "id": "i-026",
+          "tipo": "nota",
+          "titulo": "O calendário litúrgico que estes dias seguem",
+          "paragrafos": [
+            "O Apostolado Nossa Senhora das Neves tem por finalidade a difusão e a preservação da Missa Tridentina, e usa regularmente o calendário tradicional, em especial segundo as rubricas de São Pio X. É esse o calendário da grade acima e do calendário das plenárias.",
+            "Daí algumas poucas diferenças de data em relação ao calendário reformado, como as de Cristo Rei e da Cátedra de São Pedro."
+          ]
+        },
+        {
+          "id": "i-022",
+          "tipo": "rubrica",
+          "texto": "Cânon 921: quando a plenária é concedida «para as festas do Senhor ou de Nossa Senhora», entende-se apenas as do [b]calendário universal[/b]. Para as dos Apóstolos, só a festa natalícia."
+        },
+        {
+          "id": "i-023",
+          "tipo": "nota",
+          "titulo": "Festa transferida leva a indulgência junto",
+          "paragrafos": [
+            "A norma 13 resolve o caso que o calendário deste guia calcula: quando a festa é legitimamente transferida, [b]a indulgência a ela ligada transfere-se com ela[/b], como a norma estabelece.",
+            "Assim, se a Imaculada Conceição cai em domingo do Advento e vai para o dia 9, a indulgência acompanha o dia 9."
+          ]
+        }
+      ]
     },
     {
-     "id": "i-005",
-     "tipo": "paragrafo",
-     "texto": "As parciais vinham medidas em «dias» e «anos»: cem dias, sete anos, e assim por diante. [b]Isso nunca significou tempo de purgatório.[/b] A medida é de equivalência: vale o que valeria a antiga penitência canônica pública daquela duração. Quanto isso remite diante de Deus, a Igreja não diz; o número mede somente o trabalho."
-    },
-    {
-     "id": "i-006",
-     "tipo": "paragrafo",
-     "texto": "O cânon 926 traz uma misericórdia que costuma passar despercebida: quem não consegue ganhar a plenária inteira [b]ganha-a em parte[/b], na medida da disposição que tem. Nenhum esforço se perde por faltar a disposição perfeita."
+      "id": "origem",
+      "numero": 5,
+      "titulo": "Origem e razões",
+      "blocos": [
+        {
+          "id": "i-030",
+          "tipo": "subtitulo",
+          "texto": "De onde vem o que se distribui"
+        },
+        {
+          "id": "i-031",
+          "tipo": "paragrafo",
+          "texto": "A norma 1 fala no tesouro das satisfações de Cristo e dos Santos, o tesouro da Igreja: a satisfação infinita de Cristo, à qual se somam os méritos superabundantes de Nossa Senhora e dos santos. Não é um fundo que se esgote, e não é da Igreja no sentido de propriedade, ela o dispensa, não o possui."
+        },
+        {
+          "id": "i-032",
+          "tipo": "paragrafo",
+          "texto": "A norma 5, § 1, diz a quem toca dispensá-lo: além da autoridade suprema da Igreja, só aqueles a quem esse poder é reconhecido pelo Direito ou concedido pelo Romano Pontífice. O fundamento é o poder das chaves: [i]o que ligares na terra será ligado no céu[/i]."
+        },
+        {
+          "id": "i-033",
+          "tipo": "subtitulo",
+          "texto": "A prática antiga por trás da medida"
+        },
+        {
+          "id": "i-034",
+          "tipo": "paragrafo",
+          "texto": "Nos primeiros séculos, o pecado grave confessado trazia penitência pública de duração longa, às vezes de anos. Quem a cumpria satisfazia; quem obtinha remissão de parte dela, por intercessão dos mártires ou por decisão do bispo, recebia o que veio a se chamar indulgência. Daí a medida em dias e anos ter sobrevivido depois que a penitência pública desapareceu: ela nomeia [b]a penitência antiga a que a obra equivale[/b]."
+        },
+        {
+          "id": "i-035",
+          "tipo": "subtitulo",
+          "texto": "O que é de fé"
+        },
+        {
+          "id": "i-036",
+          "tipo": "paragrafo",
+          "texto": "O Concílio de Trento, na sessão XXV, declarou que o uso das indulgências é [b]salutaríssimo[/b] ao povo cristão e lançou anátema contra quem negue à Igreja o poder de concedê-las. Que a Igreja tem esse poder e que o seu uso é salutar é, portanto, matéria de fé."
+        },
+        {
+          "id": "i-037",
+          "tipo": "paragrafo",
+          "texto": "O mesmo concílio, no entanto, mandou cortar os abusos que haviam desacreditado a prática, e proibiu qualquer ganho pecuniário ligado a elas. A doutrina é firme; o que Trento reformou foi o modo de administrá-la."
+        }
+      ]
     }
-   ]
-  },
-  {
-   "id": "como-obter",
-   "numero": 2,
-   "titulo": "Como se obtém",
-   "blocos": [
-    {
-     "id": "i-010",
-     "tipo": "paragrafo",
-     "texto": "O cânon 925 separa duas coisas: estar [b]capaz[/b] de ganhar e [b]de fato[/b] ganhar."
-    },
-    {
-     "id": "i-011",
-     "tipo": "legenda",
-     "itens": [
-      {
-       "chave": "Batizado",
-       "etiqueta": "ordinario",
-       "texto": "Sem o batismo não há sujeito capaz."
-      },
-      {
-       "chave": "Não excomungado",
-       "etiqueta": "ordinario",
-       "texto": "A excomunhão exclui dos bens comuns da Igreja."
-      },
-      {
-       "chave": "Em graça",
-       "etiqueta": "proprio",
-       "texto": "Ao menos [b]ao terminar[/b] as obras prescritas. O cânon diz [lat]in statu gratiae saltem in fine operum[/lat]: dá para começar a obra e confessar-se antes de concluí-la."
-      },
-      {
-       "chave": "Súdito",
-       "etiqueta": "ordinario",
-       "texto": "Sujeito a quem concede. Indulgência de bispo alcança os seus."
-      }
-     ]
-    },
-    {
-     "id": "i-012",
-     "tipo": "paragrafo",
-     "texto": "Cumpridos esses quatro, ainda são precisas duas coisas para ganhar de fato: [b]intenção[/b], que basta ser geral, e [b]cumprir a obra[/b] no tempo marcado e do modo devido."
-    },
-    {
-     "id": "i-013",
-     "tipo": "nota",
-     "titulo": "A intenção geral basta",
-     "paragrafos": [
-      "Não é preciso lembrar de cada indulgência. Uma intenção habitual, feita de manhã, ou renovada de tempos em tempos, de ganhar todas as que puder, cobre o dia inteiro. O cânon pede intenção [lat]saltem generalem[/lat]."
-     ]
-    },
-    {
-     "id": "i-014",
-     "tipo": "subtitulo",
-     "texto": "As condições da plenária"
-    },
-    {
-     "id": "i-015",
-     "tipo": "paragrafo",
-     "texto": "Além da obra própria de cada concessão, a plenária pede confissão sacramental, comunhão e oração pelas intenções do Sumo Pontífice. A tradição acrescenta o que é decisivo e não se mede: [b]o desapego de todo pecado, mesmo venial[/b]. Faltando isso, a plenária se torna parcial, pelo cânon 926."
-    },
-    {
-     "id": "i-016",
-     "tipo": "rubrica",
-     "texto": "Cânon 923: quando a obra é visitar uma igreja em dia determinado, a visita vale [b]do meio-dia da véspera até a meia-noite do próprio dia[/b]. É uma folga de trinta e seis horas, não de vinte e quatro."
-    },
-    {
-     "id": "i-017",
-     "tipo": "subtitulo",
-     "texto": "Pelos vivos, não se pode; pelos mortos, sim"
-    },
-    {
-     "id": "i-018",
-     "tipo": "paragrafo",
-     "texto": "O cânon 930 é taxativo em duas direções. [b]Ninguém pode aplicar a outro vivo[/b] a indulgência que ganha, nem ao filho, nem ao amigo. Mas [b]às almas do purgatório[/b] todas as indulgências concedidas pelo Romano Pontífice são aplicáveis, salvo declaração em contrário."
-    },
-    {
-     "id": "i-019",
-     "tipo": "paragrafo",
-     "texto": "A diferença está no cânon 911: pelos vivos, [lat]per modum absolutionis[/lat], ato de jurisdição sobre quem está sujeito à Igreja; pelos defuntos, [lat]per modum suffragii[/lat], porque sobre eles a Igreja não tem jurisdição, pede a Deus, e é Deus quem aplica."
-    }
-   ]
-  },
-  {
-   "id": "quando",
-   "numero": 3,
-   "titulo": "Os dias em que se obtém",
-   "resumo": "O calendário das plenárias universais, segundo o Enchiridion de 1999.",
-   "blocos": [
-    {
-     "id": "i-020",
-     "tipo": "paragrafo",
-     "texto": "Vale separar duas coisas que costumam ser confundidas. O [b]Código[/b] estabelece quem concede, quem pode ganhar e sob que condições. [b]Quais[/b] são as indulgências, e a que obras estão presas, vem das coleções: a [elo:/indulgencias/raccolta]Raccolta[/elo] para a disciplina anterior a 1968, e o [elo:/indulgencias/enchiridion]Enchiridion Indulgentiarum[/elo] de 1999 para a que está em vigor."
-    },
-    {
-     "id": "i-024",
-     "tipo": "paragrafo",
-     "texto": "O [elo:/indulgencias/calendario]calendário das plenárias universais[/elo] traz as que a Igreja universal concede, uma a uma, com a obra que se deve cumprir em cada dia e a concessão de onde sai; ali estão tanto as presas a uma festa do ano quanto as que se podem lucrar em qualquer dia. As da Arquidiocese da Paraíba estão no [elo:/indulgencias/arquidiocese]calendário arquidiocesano[/elo]."
-    },
-    {
-     "id": "i-026",
-     "tipo": "nota",
-     "titulo": "O calendário litúrgico que estes dias seguem",
-     "paragrafos": [
-      "O Apostolado Nossa Senhora das Neves tem por finalidade a difusão e a preservação da Missa Tridentina, e usa regularmente o calendário tradicional, em especial segundo as rubricas de São Pio X. É esse o calendário da grade acima e do calendário das plenárias.",
-      "Daí algumas poucas diferenças de data em relação ao calendário reformado, como as de Cristo Rei e da Cátedra de São Pedro."
-     ]
-    },
-    {
-     "id": "i-022",
-     "tipo": "rubrica",
-     "texto": "Cânon 921: quando a plenária é concedida «para as festas do Senhor ou de Nossa Senhora», entende-se apenas as do [b]calendário universal[/b]. Para as dos Apóstolos, só a festa natalícia."
-    },
-    {
-     "id": "i-023",
-     "tipo": "nota",
-     "titulo": "Festa transferida leva a indulgência junto",
-     "paragrafos": [
-      "O cânon 922 resolve o caso que o calendário deste guia calcula: quando a festa é legitimamente transferida, [b]a indulgência a ela ligada transfere-se com ela[/b], sob as condições que o cânon estabelece.",
-      "Assim, se a Imaculada Conceição cai em domingo do Advento e vai para o dia 9, a indulgência acompanha o dia 9."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "origem",
-   "numero": 4,
-   "titulo": "Origem e razões",
-   "blocos": [
-    {
-     "id": "i-030",
-     "tipo": "subtitulo",
-     "texto": "De onde vem o que se distribui"
-    },
-    {
-     "id": "i-031",
-     "tipo": "paragrafo",
-     "texto": "O cânon 911 fala em [lat]thesauro Ecclesiae[/lat], o tesouro da Igreja: a satisfação infinita de Cristo, à qual se somam os méritos superabundantes de Nossa Senhora e dos santos. Não é um fundo que se esgote, e não é da Igreja no sentido de propriedade, ela o dispensa, não o possui."
-    },
-    {
-     "id": "i-032",
-     "tipo": "paragrafo",
-     "texto": "O cânon 912 diz a quem toca dispensá-lo: ao Romano Pontífice, «a quem foi confiada por Cristo Senhor a dispensação de todo o tesouro espiritual da Igreja», e apenas àqueles a quem o direito expressamente o concede. O fundamento é o poder das chaves: [i]o que ligares na terra será ligado no céu[/i]."
-    },
-    {
-     "id": "i-033",
-     "tipo": "subtitulo",
-     "texto": "A prática antiga por trás da medida"
-    },
-    {
-     "id": "i-034",
-     "tipo": "paragrafo",
-     "texto": "Nos primeiros séculos, o pecado grave confessado trazia penitência pública de duração longa, às vezes de anos. Quem a cumpria satisfazia; quem obtinha remissão de parte dela, por intercessão dos mártires ou por decisão do bispo, recebia o que veio a se chamar indulgência. Daí a medida em dias e anos ter sobrevivido depois que a penitência pública desapareceu: ela nomeia [b]a penitência antiga a que a obra equivale[/b]."
-    },
-    {
-     "id": "i-035",
-     "tipo": "subtitulo",
-     "texto": "O que é de fé"
-    },
-    {
-     "id": "i-036",
-     "tipo": "paragrafo",
-     "texto": "O Concílio de Trento, na sessão XXV, declarou que o uso das indulgências é [b]salutaríssimo[/b] ao povo cristão e lançou anátema contra quem negue à Igreja o poder de concedê-las. Que a Igreja tem esse poder e que o seu uso é salutar é, portanto, matéria de fé."
-    },
-    {
-     "id": "i-037",
-     "tipo": "paragrafo",
-     "texto": "O mesmo concílio, no entanto, mandou cortar os abusos que haviam desacreditado a prática, e proibiu qualquer ganho pecuniário ligado a elas. A doutrina é firme; o que Trento reformou foi o modo de administrá-la."
-    },
-    {
-     "id": "i-038",
-     "tipo": "nota",
-     "alerta": true,
-     "titulo": "Sobre a disciplina em vigor",
-     "paragrafos": [
-      "O que está descrito aqui é a disciplina do Código de 1917, que é a que corresponde ao rito deste guia. Ela foi alterada em 1967 pela constituição [lat]Indulgentiarum doctrina[/lat], que suprimiu a medida em dias e anos e reorganizou as concessões."
-     ]
-    }
-   ]
-  }
- ]
+  ]
 }

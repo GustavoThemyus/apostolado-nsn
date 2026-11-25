@@ -10,7 +10,7 @@
     "curto": "Missa",
     "descricao": "O rito romano na forma do Missal de São Pio V.",
     "chamada": "Apostolado Nossa Senhora das Neves - Rito Romano na forma do Missal de São Pio V",
-    "imagem": "/cartoes/missa-4c2b9f3f.webp"
+    "imagem": "/cartoes/missa-a8c77d07.webp"
   },
   "/missa/guia": {
     "titulo": "Guia prático da Missa",
@@ -37,8 +37,8 @@
   "/calendario": {
     "titulo": "Calendário Romano Tradicional",
     "curto": "Calendário",
-    "descricao": "O calendário de 1962, calculado para qualquer ano.",
-    "imagem": "/cartoes/calendario-8b43148b.webp"
+    "descricao": "O calendário litúrgico tradicional, dia a dia.",
+    "imagem": "/cartoes/calendario-b3347fea.webp"
   },
   "/calendario/santos": {
     "titulo": "As festas do calendário",
@@ -55,8 +55,8 @@
   "/indulgencias": {
     "titulo": "Indulgências",
     "curto": "Indulgências",
-    "descricao": "O que são, como se obtêm e de onde vêm, segundo o Código de 1917.",
-    "imagem": "/cartoes/indulgencias-931d7d10.webp"
+    "descricao": "O que são, como se obtêm e de onde vêm, segundo as normas do Enchiridion.",
+    "imagem": "/cartoes/indulgencias-ca88ff12.webp"
   },
   "/indulgencias/calendario": {
     "titulo": "Calendário das Indulgências Plenárias Universais",
@@ -67,10 +67,6 @@
     "titulo": "Calendário de Indulgências Arquidiocesano",
     "curto": "Calendário arquidiocesano",
     "descricao": "As igrejas da Arquidiocese da Paraíba e o dia em que cada uma dá indulgência plenária a quem a visita."
-  },
-  "/indulgencias/raccolta": {
-    "titulo": "Raccolta",
-    "descricao": "A coleção de orações e obras indulgenciadas anterior a 1968."
   },
   "/indulgencias/enchiridion": {
     "titulo": "Enchiridion Indulgentiarum",
@@ -93,7 +89,18 @@
   "/folhetos": {
     "titulo": "Folhetos",
     "curto": "Folhetos",
-    "descricao": "Os impressos que o Apostolado distribui, servidos como página: abrem no celular sem baixar PDF e sem dar zoom."
+    "descricao": "Os impressos que o Apostolado distribui, servidos como página: abrem no celular sem baixar PDF e sem dar zoom.",
+    "imagem": "/cartoes/folhetos-8ae5e55e.webp"
+  },
+  "/folhetos/proprios": {
+    "titulo": "Próprios da Missa",
+    "curto": "Próprios",
+    "descricao": "As orações e leituras de cada domingo e festa, em latim e em português."
+  },
+  "/folhetos/indulgencias": {
+    "titulo": "Obras indulgenciadas",
+    "curto": "Indulgências",
+    "descricao": "As orações e obras com indulgência, prontas para os dias em que se lucram."
   },
   "/folhetos/:id": {
     "titulo": "Folheto"
@@ -102,7 +109,7 @@
     "titulo": "Postagens",
     "curto": "Postagens",
     "descricao": "Vidas de santos e escritos sobre a liturgia.",
-    "imagem": "/cartoes/postagens-3455e1c2.webp"
+    "imagem": "/cartoes/postagens-76600428.webp"
   },
   "/postagens/:id": {
     "titulo": "Postagem"

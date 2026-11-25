@@ -179,6 +179,24 @@ export function semAberturaDoEvangelho(blocos: Bloco[]): Bloco[] {
   return blocos.map((b) => (b === par ? { ...par, latim, portugues } : b));
 }
 
+const LAUS = /Laus\s+tibi,?\s+Christe/i;
+
+/**
+ * Tira do Ordinário o "Laus tibi, Christe" quando o Evangelho do próprio já o
+ * traz no fim, como nas remessas revistas do Perez: sem isto a resposta
+ * aparecia duas vezes. Sai também a rubrica que a anunciava. Num próprio sem a
+ * resposta, o Ordinário fica como é.
+ */
+export function semLausDoOrdinario(blocos: Bloco[], folheto: Folheto): Bloco[] {
+  if (!LAUS.test(JSON.stringify(pecasDoProprio(folheto, ["Evangelho"])))) return blocos;
+  const eLaus = (b: Bloco | undefined) =>
+    b?.tipo === "bilingue" && b.latim.length === 1 &&
+    b.latim[0].tipo === "paragrafo" && LAUS.test(b.latim[0].texto);
+  return blocos.filter(
+    (b, i) => !eLaus(b) && !(b.tipo === "rubrica" && eLaus(blocos[i + 1])),
+  );
+}
+
 /**
  * Põe a fórmula do dia na linha "Sequéntia (Inítium) … N." do Ordinário.
  * Devolve também se achou a linha: sem achá-la, o Evangelho do próprio fica

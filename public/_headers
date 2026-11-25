@@ -6,6 +6,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
+  X-Robots-Tag: noindex, nofollow
 
 # Levam hash no nome, então podem ser guardados para sempre.
 /assets/*

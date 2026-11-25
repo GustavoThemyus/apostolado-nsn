@@ -1,3 +1,4 @@
+import { ARQUIDIOCESE, LEMBRANCA, agendasLembradas } from "../data/agendasLigadas";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { indulgenciasDoMes, temPlenaria } from "../calendario/indulgencias";
 import { mesLiturgico } from "../calendario/precedencia";
@@ -36,18 +37,7 @@ const MESES = [
  * dela toda vez que voltar, e não quer que o link que mandou para um amigo
  * leve junto a confraria a que ele não pertence.
  */
-const LEMBRANCA = "nsn:indulgencias:agendas";
 
-/**
- * A Arquidiocese não é agenda do Google: é conta deste site.
- *
- * Sai das 75 datas do documento do Perez, pelo mesmo motor das indulgências
- * de cima, e por isso não passa pelo Worker. O id vive junto dos outros na
- * lista do que o leitor ligou — é um interruptor como os outros, e guardar
- * em separado faria duas memórias para a mesma pergunta —, mas sai da lista
- * antes da busca, que é só para quem tem calendário no Google.
- */
-const ARQUIDIOCESE = "arquidiocese";
 
 /**
  * "Indulgência Plenária" é o nome de todo evento destes calendários.
@@ -76,24 +66,25 @@ function nomesDas(ids: string[]): string {
   return `${nomes.slice(0, -1).join(", ")} e ${nomes[nomes.length - 1]}`;
 }
 
-function agendasLembradas(): string[] {
-  try {
-    const cru = localStorage.getItem(LEMBRANCA);
-    const lista = cru ? (JSON.parse(cru) as unknown) : null;
-    if (!Array.isArray(lista)) return [];
-    /*
-     * O que não está mais na grade não volta: nem o que saiu do site.json
-     * desde a última visita, nem o calendário universal do Apostolado, que
-     * esteve ligado à força enquanto teve bolinha e hoje não tem nenhuma.
-     */
-    const validos = new Set([...site.agendas.map((a) => a.id), ARQUIDIOCESE]);
-    return lista.filter(
-      (x): x is string =>
-        typeof x === "string" && validos.has(x) && x !== "indulgencias-apostolado",
-    );
-  } catch {
-    return [];
+/** A obra é a mesma em paróquia, santuário, basílica e casa religiosa. */
+const OBRA_NA_IGREJA =
+  "Obra indulgenciada: visitar a igreja e rezar um Pai-Nosso e um Credo.";
+
+/**
+ * Paróquias e santuários juntos, separados só pela festa titular, como pediu o
+ * Perez: o documento os traz em quadros diferentes, e na grade a mesma festa
+ * saía repetida.
+ */
+function porFesta<T extends { entrada: { titulo: string }; transferidaDe?: string }>(
+  ocorrencias: T[],
+) {
+  const grupos = new Map<string, { titulo: string; transferidaDe?: string; entradas: T["entrada"][] }>();
+  for (const { entrada, transferidaDe } of ocorrencias) {
+    const g = grupos.get(entrada.titulo) ?? { titulo: entrada.titulo, transferidaDe, entradas: [] };
+    g.entradas.push(entrada);
+    grupos.set(entrada.titulo, g);
   }
+  return [...grupos.values()];
 }
 
 const hojeUTC = () => {
@@ -366,10 +357,10 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
                 Nas igrejas da Arquidiocese
               </h2>
               <ul className="indulgencias-dia">
-                {daArquidiocese.map(({ entrada, transferidaDe }) => (
-                  <li key={entrada.id}>
+                {porFesta(daArquidiocese).map(({ titulo, transferidaDe, entradas }) => (
+                  <li key={titulo}>
                     <p className="indulgencias-dia__titulo">
-                      {entrada.titulo}
+                      {titulo}
                       <span className="etiqueta etiqueta--plenaria">Plenária</span>
                     </p>
                     {transferidaDe && (
@@ -378,21 +369,27 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
                         {porExtensoCurto(transferidaDe)}.
                       </p>
                     )}
-                    {entrada.instituicao && (
-                      <p className="arquidiocese-dia__instituicao">
-                        {entrada.instituicao}
-                      </p>
-                    )}
+                    <p>{OBRA_NA_IGREJA}</p>
                     <ul className="arquidiocese-dia__igrejas">
-                      {entrada.igrejas.map((igreja) => (
-                        <li key={igreja}>{igreja}</li>
-                      ))}
+                      {entradas.flatMap((entrada) =>
+                        entrada.igrejas.map((igreja) => (
+                          <li key={`${entrada.id}-${igreja}`}>
+                            <Elo
+                              para={`/indulgencias/arquidiocese#${entrada.id}`}
+                              className="elo-texto"
+                            >
+                              {igreja}
+                            </Elo>
+                            {entrada.instituicao && (
+                              <span className="arquidiocese-dia__instituicao">
+                                {" "}
+                                {entrada.instituicao}
+                              </span>
+                            )}
+                          </li>
+                        )),
+                      )}
                     </ul>
-                    <p className="indulgencias-dia__fonte">
-                      <Elo para={`/indulgencias/arquidiocese#${entrada.secao}`}>
-                        A obra e as condições, no calendário arquidiocesano
-                      </Elo>
-                    </p>
                   </li>
                 ))}
               </ul>

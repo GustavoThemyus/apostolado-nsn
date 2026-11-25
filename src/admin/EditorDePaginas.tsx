@@ -12,8 +12,8 @@ import { Campo, Linha, Texto } from "./Campos";
  * viver junto da tabela de rotas.
  *
  * As páginas aparecem agrupadas por seção, como no site, porque é assim que
- * quem edita as procura: ninguém pensa "quero mudar /indulgencias/raccolta",
- * pensa "quero mudar a Raccolta, que fica nas Indulgências".
+ * quem edita as procura: ninguém pensa "quero mudar /indulgencias/enchiridion",
+ * pensa "quero mudar o Enchiridion, que fica nas Indulgências".
  */
 type Textos = Record<string, TextoDaPagina>;
 

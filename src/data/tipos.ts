@@ -120,7 +120,8 @@ export type Bloco = ComId &
   | { tipo: "lista"; ordenada?: boolean; itens: string[] }
   | { tipo: "oracao"; versos: Verso[] }
   | { tipo: "nota"; titulo: string; paragrafos: string[]; alerta?: boolean }
-  | { tipo: "tabela"; colunas: string[]; linhas: string[][] }
+  /* `ancoras` dá um id a cada linha, na ordem, para um elo cair nela */
+  | { tipo: "tabela"; colunas: string[]; linhas: string[][]; ancoras?: string[] }
   | { tipo: "legenda"; itens: ItemDeLegenda[] }
     | {
         tipo: "passo";

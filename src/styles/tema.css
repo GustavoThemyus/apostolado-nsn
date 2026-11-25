@@ -231,6 +231,17 @@
 }
 
 /*
+ * Em tela larga a medida abre: com 70 caracteres o texto ocupava menos da
+ * metade da tela, e o Perez pediu que a ocupasse melhor. 92 ainda se lê sem
+ * perder a linha de volta.
+ */
+@media (min-width: 75rem) {
+  :root {
+    --medida-leitura: 92ch;
+  }
+}
+
+/*
  * Celular deitado: a prosa vai até a borda.
  *
  * Perez: "o texto não vai até o final quando o telefone está em modo

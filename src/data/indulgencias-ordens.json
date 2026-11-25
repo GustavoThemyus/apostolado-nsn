@@ -1,64 +1,534 @@
 {
   "titulo": "Indulgências próprias",
   "descricao": "As concedidas a ordens, confrarias e associações de fiéis.",
-  "rascunho": true,
   "secoes": [
     {
-      "id": "o-que-sao",
-      "titulo": "O que são indulgências próprias",
+      "id": "introducao",
+      "titulo": "Introdução",
       "blocos": [
         {
-          "id": "or-001",
           "tipo": "paragrafo",
-          "texto": "Além das indulgências concedidas a toda a Igreja, há as que a Santa Sé concedeu a associações determinadas: ordens terceiras, confrarias, arquiconfrarias e pias uniões. Elas valem para quem está [b]validamente inscrito[/b], e só para esses."
+          "texto": "As associações de fiéis sempre foram da mais alta estima para a Santa Igreja, pois em qualquer de suas expressões consistem em uma agremiação de fiéis que se reúnem em torno da fomentação de alguma devoção, promoção do culto público, atingir a perfeição cristã, consagrar-se totalmente a Deus, conservar determinadas práticas de piedade, entre tantos outros fins salutares que movem o espírito das Ordens e congregações religiosas de homens e mulheres, Ordens terceiras, Confrarias e Arquiconfrarias, Pias uniões, etc.",
+          "id": "introducao-001"
         },
         {
-          "id": "or-002",
-          "tipo": "rubrica",
-          "texto": "Inscrição não é devoção. Rezar o Rosário não faz de alguém membro da Confraria do Rosário; a inscrição se faz no livro próprio, pelo sacerdote com faculdade para isso. Sem ela, a indulgência própria não se ganha."
+          "tipo": "paragrafo",
+          "texto": "Para fomentar ainda mais essas associações que tanto colaboram com a salvação das almas, a Igreja cumula desde muitos séculos esses piedosos Institutos com inumeráveis indulgências, enriquecendo com essa graça diversas práticas piedosas e devoções que são próprias dessas associações pias.",
+          "id": "introducao-002"
         },
         {
-          "id": "or-003",
           "tipo": "paragrafo",
-          "texto": "Muitos fiéis do Apostolado pertencem a alguma delas, e boa parte das concessões é pouco divulgada. Daí reuni-las aqui."
+          "texto": "Entretanto, em meio às diversas mudanças na disciplina das indulgências que se seguiram em 1967, a Igreja foi direcionada no objetivo de espaçar as Indulgências Plenárias concedidas para fomentar nos fiéis um maior apreço por elas por meio da escassez. Para realizar este intento, além das supressões nas concessões universais, como estão publicadas no [elo:/indulgencias/calendario]Calendário de indulgências[/elo] e no [elo:/indulgencias/enchiridion]Enchiridion Indulgentiarum[/elo], também foi ordenada a revisão das Indulgências concedidas às mais diversas Ordens, Confrarias e associações, como consta na Indulgentiarum Doctrina:",
+          "id": "introducao-003"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "(Destaque) \"Os catálogos e compilações de indulgências das ordens, congregações religiosas, sociedades de vida comum sem votos, institutos seculares e associações pias de fiéis, serão revistos assim que possível, para a indulgência plenária poder ser adquirida só em certos dias particulares, marcados pela Santa Sé, sob proposta do superior geral ou, tratando-se de associações pias, do ordinário do lugar.\" Indulgentiarum Doctrina, n. 14. Desse modo, a partir da publicação da Constituição Apostólica, todas as associações religiosas deveriam solicitar a revisão de suas indulgências a fim de se confomarem com a nova disciplina. Isto fez com que as associações que não pediram a readequação de suas indulgências caíssem em um limbo jurídico de incerteza se as antigas indulgências continuam ou não valendo, por isso é necessário sempre atentar-se se as indulgências particulares estão ou não vigentes, isto é, se são posteriores à Indulgentiarum Doctrina de 1967.",
+          "id": "introducao-004"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Outro detalhe é que a publicação das novas indulgências era comunicada pela Penitenciaria Apostólica apenas ao superior geral da associação, que fez o pedido, e geralmente circulava internamente, mas estas concessões não eram publicadas nas Atas da Sé Apostólica ou em qualquer outro meio oficial, deixando muito difícil fazer o catálogo das Indulgências próprias vigentes, portanto, dispomos de poucas, entretanto, se algum dos leitores tiver o catálogo de indulgências de alguma associação, Ordem ou Confraria concedidas após 1967 que não inserimos aqui, por favor nos envie pelo e-mail de contato que teremos a alegria de incluir nessa lista.",
+          "id": "introducao-005"
         }
       ]
     },
     {
-      "id": "quais",
-      "titulo": "As associações representadas no Apostolado",
+      "id": "observacoes",
+      "titulo": "Observações",
       "blocos": [
         {
-          "id": "or-010",
+          "tipo": "paragrafo",
+          "texto": "Para ser apto a lucrar qualquer uma das indulgências destinadas às associações pias, é necessário fazer parte delas, seja por inscrição no livro ou meramente pelo rito de admissão. Não basta somente utilizar o sacramental que representa a associação (Ex: escapulário do Carmo, fita do apostolado, cordão de São Francisco, etc), pois a indulgência é sempre anexa à associação e não ao sacramental em si.",
+          "id": "observacoes-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A depender da associação, o meio de ingresso muda sendo necessária a admissão por qualquer padre ou um padre específico, se é necessária a inscrição ou não e essas coisas devem ser analisadas caso a caso, portanto dispomos na introdução de cada associação algumas instruções de como cada uma opera.",
+          "id": "observacoes-002"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Algumas associações, além de ligá-lo à associação e a seus membros, comunicam também bens espirituais e participação no tesouro espiritual de algumas Ordens, fazendo do associado participante nas graças de todas as Missas, jejuns, ofícios, vigílias, mortificações, todo tipo de obra meritória, o que cumula o fiel de graças diante de Deus. Tradicionalmente estas pias associações dividem-se em pias uniões, confrarias e ordens terceiras, cada uma com um nível diferente de filiação e de compromisso.",
+          "id": "observacoes-003"
+        },
+        {
           "tipo": "lista",
           "itens": [
-            "[b]Apostolado da Oração[/b];",
-            "[b]Confraria do Escapulário do Carmo[/b];",
-            "[b]Arquiconfraria do Cordão de São Francisco[/b];",
-            "[b]Ordem Terceira Franciscana[/b];",
-            "[b]Ordem Terceira Dominicana[/b]."
-          ]
+            "Pias uniões: Têm por fim a divulgação de uma devoção específica, Não possuem vínculos com qualquer ordem ou diocese, mas são instituições aprovadas pela Santa Sé e basta que o bispo diocesano consinta em sua instauração. Os membros recebem um distintivo e uma prática piedosa e se reúnem geralmente uma vez por mês.",
+            "Confrarias: As confrarias se destinam à promoção do culto público e promovem uma devoção específica. Possuem um vínculo direto com uma ordem religiosa e/ou com uma diocese específica onde foi erigida a confraria original. Precisam, além do consentimento do ordinário, do consentimento e da transmissão do poder da ordem ou do local originário da respectiva confraria. Os associados recebem uma insígnia na admissão e o vínculo espiritual com a confraria e seus confrades, além de uma oração associada à devoção da confraria.",
+            "Ordens Terceiras: Seu fim é acolher os leigos e padres seculares, mediante a direção direta de uma ordem religiosa, e conduzi-los à perfeição cristã no seu estado de vida. São destinadas aos fiéis que almejam a perfeição, mas que não possuem vocação para o estado de perfeição. É caracterizada pelo seguimento de uma Regra de vida, pela estrutura organizada de uma ordem, pelas cerimônias litúrgicas próprias e pelo chamado de apostolado. Os membros dessa ordem não são religiosos, nem professam votos, mas prometem seguir a regra. É como um meio-termo entre a vida secular e a vida religiosa."
+          ],
+          "id": "observacoes-004"
         },
         {
-          "id": "or-011",
           "tipo": "paragrafo",
-          "texto": "Abaixo, o calendário de cada uma, para vincular ao celular. As listas escritas das concessões entram nesta página conforme forem reunidas."
+          "texto": "De forma mais prática e objetiva:",
+          "id": "observacoes-005"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Pias uniões",
+            "Confrarias",
+            "Ordens terceiras"
+          ],
+          "linhas": [
+            [
+              "Dedicam-se a uma devoção específica",
+              "Vinculam-se a uma devoção específica",
+              "Seu fim é a perfeição da vida cristã"
+            ],
+            [
+              "Não é vinculado a qualquer ordem",
+              "É vinculado a alguma ordem ou diocese",
+              "É vinculado às três ordens"
+            ],
+            [
+              "Não há vínculo espiritual",
+              "Há comunhão de graças entre os confrades",
+              "Há comunhão de graças com todos os santos e membros das três ordens"
+            ],
+            [
+              "O encargo é uma curta oração e a reunião",
+              "O encargo é de uma oração relacionada com a devoção, as reuniões e as procissões",
+              "O encargo é o seguimento de uma regra, rezar diariamente orações específicas, a reunião"
+            ]
+          ],
+          "id": "observacoes-006"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Para concluir, como já citamos e advertimos nos outros calendários de Indulgências no presente site, utilizamos por padrão o calendário tradicional, portanto pode conter alguma diferença nas datas em comparação com o calendário reformado.",
+          "id": "observacoes-007"
         }
       ]
     },
     {
-      "id": "advertencia",
-      "titulo": "Antes de usar",
+      "id": "apostolado-da-oracao",
+      "titulo": "Apostolado da Oração",
       "blocos": [
         {
-          "id": "or-020",
-          "tipo": "nota",
-          "alerta": true,
-          "titulo": "Listas em reunião",
-          "paragrafos": [
-            "Esta página é um rascunho. As concessões de cada associação ainda serão reunidas e conferidas com os respectivos indultos.",
-            "Em caso de dúvida sobre uma concessão ou sobre a própria inscrição, pergunte ao diretor da associação."
-          ]
+          "tipo": "paragrafo",
+          "texto": "O Apostolado da Oração é uma pia união fundada em 1844 na cidade de Vals pelo bispo diocesano de Le Puy e em 1849 recebe também aprovação pontifícia e começa a espalhar-se pelas dioceses do mundo. Tem por finalidade fazer o oferecimento diário em desagravo às ofensas cometidas contra o Sagrado Coração de Jesus, as orações nas intenções do Sumo Pontífice e a própria propagação da devoção ao Sagrado Coração e das promessas de Nosso Senhor à Santa Margarida Maria Alacoque.",
+          "id": "apostolado-da-oracao-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O AO possui uma ligação por fundação com a Companhia de Jesus (Jesuítas), mas o ingresso na pia união não garante a comunicação de bens espirituais com a instituição religiosa.",
+          "id": "apostolado-da-oracao-002"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Por regra geral, para lucrar as Indulgências do AO é preciso ter recebido a fita do sacerdote responsável pelo AO na paróquia ou diocese e ser inscrito no livro de registros da associação (onde essa prática ainda é conservada).",
+          "id": "apostolado-da-oracao-003"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A associação é regida internamente por seus Estatutos e pelas dioceses e paróquias que a acolhem, podendo variar nos costumes de lugar para lugar. Em muitos lugares, por exemplo, não se faz mais a inscrição no livro, o que dispensa esta obrigação. É possível lucrar uma Indulgência Plenária uma única vez nas seguintes ocasiões:",
+          "id": "apostolado-da-oracao-004"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "No dia da Inscrição no Apostolado da Oração, quando se recebe a fita;",
+            "No dia da Consagração ao Sagrado Coração de Jesus."
+          ],
+          "id": "apostolado-da-oracao-005"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Além dessas, todos os anos se podem lucrar seis Indulgências Plenárias nos seguintes dias:",
+          "id": "apostolado-da-oracao-006"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Data",
+            "Festividade litúrgica"
+          ],
+          "linhas": [
+            [
+              "Data variável conforme a Páscoa – Sexta-feira depois da Oitava de Corpus Christi",
+              "Sacratíssimo Coração de Jesus"
+            ],
+            [
+              "29 de Junho",
+              "São Pedro e São Paulo, Apóstolos"
+            ],
+            [
+              "Último Domingo de Outubro",
+              "Nosso Senhor Jesus Cristo Rei"
+            ],
+            [
+              "3 de Dezembro",
+              "São Francisco Xavier, Confessor: Patrono principal do Apostolado da Oração"
+            ],
+            [
+              "8 de Dezembro",
+              "Imaculada Conceição da Bem-aventurada Virgem Maria"
+            ],
+            [
+              "Sem data determinada, variando de lugar para lugar",
+              "Dia da renovação anual da consagração ao Sagrado Coração de Jesus"
+            ]
+          ],
+          "id": "apostolado-da-oracao-007"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nota: Para todos os casos, cumpre-se fazendo ou renovando, mesmo em particular, a promessa de guardar fielmente os Estatutos do Apostolado da Oração, além de cumprir as condições ordinárias.",
+          "id": "apostolado-da-oracao-008"
+        }
+      ]
+    },
+    {
+      "id": "confraria-do-escapulario-do-carmo",
+      "titulo": "Confraria do Escapulário do Carmo",
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A Confraria do Escapulário do Carmo é uma confraria fundada por volta do século XIII, após a entrega do escapulário a São Simão Stock, a devoção rapidamente se espalhou e tão logo se constituiu uma confraria, contudo não se pode estabelecer uma data para sua criação. Tem por finalidade a confraria a difusão deste tão valoroso sacramental e das virtudes e carisma carmelita, Ordem em cujos bens espirituais os confrades do escapulário gozam de participação, conforme é atestado pelo rito de imposição do escapulário.",
+          "id": "confraria-do-escapulario-do-carmo-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Por regra geral, para lucrar as Indulgências do Escapulário é preciso ter recebido o sacramental de qualquer sacerdote e segundo o rito de bênção e imposição disposto no Ritual Romano.",
+          "id": "confraria-do-escapulario-do-carmo-002"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Originalmente este rito de admissão era reservado aos superiores da Ordem Carmelita, contudo após um Rescrito de Paulo VI em 1964, esta faculdade foi estendida a todos os sacerdotes do mundo, comunicando as mesmas graças e vinculando à confraria.",
+          "id": "confraria-do-escapulario-do-carmo-003"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É possível lucrar uma Indulgência Plenária uma única vez na seguinte ocasião:",
+          "id": "confraria-do-escapulario-do-carmo-004"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "No dia da Imposição do Escapulário."
+          ],
+          "id": "confraria-do-escapulario-do-carmo-005"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Além dessa, todos os anos se podem lucrar sete Indulgências Plenárias nos seguintes dias:",
+          "id": "confraria-do-escapulario-do-carmo-006"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Data",
+            "Festividade litúrgica"
+          ],
+          "linhas": [
+            [
+              "16 de Maio",
+              "São Simão Stock, Confessor"
+            ],
+            [
+              "16 de Julho",
+              "Solene Comemoração de Nossa Senhora do Monte Carmelo"
+            ],
+            [
+              "20 de Julho",
+              "N. P. Santo Elias, Profeta: Primeiro Mestre e Pai da Ordem Carmelita"
+            ],
+            [
+              "3 de Outubro",
+              "Santa Teresa do Menino Jesus, Virgem"
+            ],
+            [
+              "15 de Outubro",
+              "Santa Teresa de Jesus, Virgem"
+            ],
+            [
+              "14 de Novembro",
+              "Todos os Santos da Ordem Carmelita"
+            ],
+            [
+              "24 de Novembro",
+              "São João da Cruz, Confessor e Doutor da Igreja"
+            ]
+          ],
+          "id": "confraria-do-escapulario-do-carmo-007"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nota: Para todos os casos, cumpre-se fazendo ou renovando, mesmo em particular, a promessa de guardar fielmente os compromissos da Confraria do Escapulário, além de cumprir as condições ordinárias.",
+          "id": "confraria-do-escapulario-do-carmo-008"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Além disso, também é possível lucrar Indulgências Parciais todas as vezes que se oscular o escapulário.",
+          "id": "confraria-do-escapulario-do-carmo-009"
+        }
+      ]
+    },
+    {
+      "id": "arquiconfraria-do-cordao-de-sao-francisco",
+      "titulo": "Arquiconfraria do Cordão de São Francisco",
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A Arquiconfraria do Cordão de São Francisco é uma confraria fundada em 1585 na Arquibasílica Patriarcal de São Francisco em Assis pelo Papa Sisto V, confiando sua administração aos Frades Menores Conventuais. Tem por finalidade a Arquiconfraria a difusão deste tão valoroso sacramental e das virtudes e carisma franciscano, Ordem em cujos bens espirituais os cordígeros gozam de participação, conforme é atestado pelo rito de imposição do cordão franciscano.",
+          "id": "arquiconfraria-do-cordao-de-sao-francisco-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Por regra geral, para lucrar as Indulgências da Arquiconfraria do Cordão é preciso ter recebido o sacramental de qualquer sacerdote e segundo o rito de bênção e imposição disposto no Ritual Romano ou no rito próprio da Ordem.",
+          "id": "arquiconfraria-do-cordao-de-sao-francisco-002"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Originalmente este rito de admissão era reservado aos superiores da Ordem Franciscana, contudo após a Instrução Inter Œcumenici de 1964, esta faculdade foi estendida a todos os sacerdotes do mundo, utilizando a fórmula do Ritual, comunicando as mesmas graças e vinculando à confraria. Os religiosos franciscanos ainda podem servir-se de uma cerimônia própria.",
+          "id": "arquiconfraria-do-cordao-de-sao-francisco-003"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É possível lucrar uma Indulgência Plenária uma única vez na seguinte ocasião:",
+          "id": "arquiconfraria-do-cordao-de-sao-francisco-004"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "No dia do recebimento do Cordão."
+          ],
+          "id": "arquiconfraria-do-cordao-de-sao-francisco-005"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Além dessa, todos os anos se podem lucrar sete Indulgências Plenárias nos seguintes dias:",
+          "id": "arquiconfraria-do-cordao-de-sao-francisco-006"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Data",
+            "Festividade litúrgica"
+          ],
+          "linhas": [
+            [
+              "18 de Fevereiro",
+              "Santa Maria Bernarda Soubirous, Virgem, Cordígera Franciscana"
+            ],
+            [
+              "16 de Abril",
+              "São Benedito José Labre, Confessor, Cordígero Franciscano: Padroeiro principal da Arquiconfraria do Cordão"
+            ],
+            [
+              "13 de Junho",
+              "Santo Antônio de Pádua, Confessor e Doutor da Igreja"
+            ],
+            [
+              "25 de Agosto",
+              "São Luís IX, Rei da França, Confessor"
+            ],
+            [
+              "4 de Setembro",
+              "Santa Rosa de Viterbo, Virgem"
+            ],
+            [
+              "4 de Outubro",
+              "N. P. São Francisco, Confessor: Fundador das três Ordens Seráficas"
+            ],
+            [
+              "8 de Dezembro",
+              "Imaculada Conceição da Bem-aventurada Virgem Maria: Patrona da Ordem Seráfica"
+            ]
+          ],
+          "id": "arquiconfraria-do-cordao-de-sao-francisco-007"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nota: Para todos os casos, cumpre-se fazendo ou renovando, mesmo em particular, a promessa de guardar fielmente os compromissos da Arquiconfraria do Cordão de São Francisco, além de cumprir as condições ordinárias.",
+          "id": "arquiconfraria-do-cordao-de-sao-francisco-008"
+        }
+      ]
+    },
+    {
+      "id": "ordem-terceira-franciscana",
+      "titulo": "Ordem Terceira Franciscana",
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A Ordem Terceira da Penitência de São Francisco foi fundada pelo próprio santo por volta de 1221, a fim de promover a restauração de uma sociedade decadente por meio da santificação dos irmãos seculares que eram regidos pela Ordem primeira e pelo carisma franciscano, tendo sua Regra devidamente aprovada por Nicolau IV em 1289. Tem por finalidade a Ordem Terceira a prática da perfeição de vida cristã, ajudando na santificação dos irmãos e praticando obras de apostolado para ganhar almas para Deus.",
+          "id": "ordem-terceira-franciscana-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Para lucrar as Indulgências da Ordem Terceira Franciscana é preciso ter sido devidamente admitido ao hábito da Ordem e o ter recebido de um superior franciscano de algum dos três ramos, segundo o rito de vestição prescrito como cerimônia própria da Ordem em seu próprio Ritual.",
+          "id": "ordem-terceira-franciscana-002"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Inscrição do nome no livro de registros de alguma Fraternidade é a forma mais segura e conveniente para assegurar a validade da admissão, contudo, há algumas exceções que dispensam a necessidade de inscrição.",
+          "id": "ordem-terceira-franciscana-003"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É possível lucrar uma Indulgência Plenária uma única vez nas seguintes ocasiões:",
+          "id": "ordem-terceira-franciscana-004"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "No dia da Vestição do Hábito;",
+            "No dia da Profissão"
+          ],
+          "id": "ordem-terceira-franciscana-005"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Além dessas, todos os anos se podem lucrar nove Indulgências Plenárias nos seguintes dias:",
+          "id": "ordem-terceira-franciscana-006"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Data",
+            "Festividade litúrgica"
+          ],
+          "linhas": [
+            [
+              "22 de Fevereiro",
+              "Santa Margarida de Cortona, Penitente"
+            ],
+            [
+              "28 de Abril",
+              "Bem-aventurado Luquésio, Confessor: O primeiro a ser admitido à Ordem Terceira"
+            ],
+            [
+              "12 de Agosto",
+              "Santa Clara de Assis, Virgem: Institutriz de todas as Clarissas"
+            ],
+            [
+              "25 de Agosto",
+              "São Luís IX, Rei da França, Confessor: Patrono principal da Ordem Terceira"
+            ],
+            [
+              "4 de Outubro",
+              "N. P. São Francisco, Confessor: Fundador das três Ordens Seráficas"
+            ],
+            [
+              "19 de Novembro",
+              "Santa Isabel da Hungria, Viúva: Patrona principal da Ordem Terceira"
+            ],
+            [
+              "29 de Novembro",
+              "Todos os Santos das três Ordens Seráficas"
+            ],
+            [
+              "8 de Dezembro",
+              "Imaculada Conceição da Bem-aventurada Virgem Maria: Patrona da Ordem Seráfica"
+            ],
+            [
+              "Sem data determinada, variando de lugar para lugar",
+              "Na conclusão da oficial Visitação anual."
+            ]
+          ],
+          "id": "ordem-terceira-franciscana-007"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nota: Para todos os casos, cumpre-se fazendo ou renovando, mesmo em particular, a promessa de guardar fielmente as Constituições da Ordem Terceira de São Francisco, além de cumprir as condições ordinárias.",
+          "id": "ordem-terceira-franciscana-008"
+        }
+      ]
+    },
+    {
+      "id": "ordem-terceira-dominicana",
+      "titulo": "Ordem Terceira Dominicana",
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A Ordem Terceira da Penitência de São Domingos teve sua Regra devidamente aprovada por Honório IV em 1286, seguindo os ensinamentos e conselhos de São Domingos e tomou a assistência dos frades pregadores, assumindo seu carisma de penitência, estudo e colaboração na catequese. Tem por finalidade a Ordem Terceira a prática da perfeição de vida cristã, ajudando na santificação dos irmãos e praticando obras de apostolado para ganhar almas para Deus.",
+          "id": "ordem-terceira-dominicana-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Para lucrar as Indulgências da Ordem Terceira Dominicana é preciso ter sido devidamente admitido ao hábito da Ordem e o ter recebido de um superior dominicano, segundo o rito de vestição prescrito como cerimônia própria da Ordem.",
+          "id": "ordem-terceira-dominicana-002"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É possível lucrar uma Indulgência Plenária uma única vez nas seguintes ocasiões:",
+          "id": "ordem-terceira-dominicana-003"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "No dia da Vestição do Hábito;",
+            "No dia da Profissão"
+          ],
+          "id": "ordem-terceira-dominicana-004"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Além dessas, todos os anos se podem lucrar sete Indulgências Plenárias nos seguintes dias:",
+          "id": "ordem-terceira-dominicana-005"
+        },
+        {
+          "tipo": "tabela",
+          "colunas": [
+            "Data",
+            "Festividade litúrgica"
+          ],
+          "linhas": [
+            [
+              "25 de Março",
+              "Anunciação da Bem-aventurada Virgem Maria"
+            ],
+            [
+              "Data variável conforme a Páscoa – Domingo de Páscoa",
+              "Domingo da Ressurreição"
+            ],
+            [
+              "30 de Abril",
+              "Santa Catarina de Sena, Virgem"
+            ],
+            [
+              "4 de Agosto",
+              "N. P. São Domingos, Confessor: Fundador da Ordem Dominicana"
+            ],
+            [
+              "15 de Agosto",
+              "Assunção da Bem-aventurada Virgem Maria"
+            ],
+            [
+              "7 de Outubro",
+              "Sacratíssimo Rosário da Bem-aventurada Virgem Maria"
+            ],
+            [
+              "25 de Dezembro",
+              "Natividade do Senhor"
+            ]
+          ],
+          "id": "ordem-terceira-dominicana-006"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Nota: Para todos os casos, cumpre-se fazendo ou renovando, mesmo em particular, a promessa de guardar fielmente os Estatutos da Ordem Terceira de São Domingos, além de cumprir as condições ordinárias.",
+          "id": "ordem-terceira-dominicana-007"
+        }
+      ]
+    },
+    {
+      "id": "conclusao",
+      "titulo": "Conclusão",
+      "blocos": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Esperamos em Deus que a disponibilização desse material ajude os fiéis a conhecerem as diversas associações e possam interessar-se em fazer parte de alguma dessas associações tão queridas pela Santa Igreja e assim intensificar a prática das virtudes, que tanto é incentivada por essas pias associações e que possam encontrar na convivência com os confrades e nas práticas de piedade em comum um novo ânimo pelo apostolado, até querer levar o amor ao Senhor a toda a sociedade.",
+          "id": "conclusao-001"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "É também uma ótima forma de poder acumular mais indulgências plenárias durante o ano, não somente para utilizar pelo bem próprio, mas que oportunidade ímpar de exercitar a caridade e aplicar essas insondáveis graças em sufrágio das benditas almas do purgatório. Que esse apreço pelas indulgências e, sobretudo essa caridade para com os defuntos nos façam crescer na prática do amor de Deus e nos alcancem a vida eterna.",
+          "id": "conclusao-002"
         }
       ]
     }

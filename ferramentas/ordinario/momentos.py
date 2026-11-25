@@ -27,9 +27,13 @@ PASTA = os.path.join(RAIZ, "src", "data", "ordinario")
 MARCACAO = re.compile(r"\[/?[a-z]+(?::[^\]]*)?\]")
 
 
+PAUSA_POSTA = re.compile(r"([,;:.]) — ")
+
+
 def plano(texto):
     """O texto sem marcação e com o espaço achatado, que é como se compara."""
-    return " ".join(MARCACAO.sub("", texto).split())
+    # o travessão de pausa (ver `pausar`) não conta: a âncora é a do impresso
+    return " ".join(PAUSA_POSTA.sub(r"\1 ", MARCACAO.sub("", texto)).split())
 
 
 # Quem fala, no começo do parágrafo: ℣ e S. são do sacerdote, ℟ e M. são da
@@ -329,6 +333,35 @@ def rotular(secoes):
                     p["texto"] = ("[b]℟. %s[/b]" % resto) if quem[0] in "℟M" else resto
 
 
+# pontuação interna de uma resposta: o ponto de respirar, quando vem texto depois
+# o ponto de "T.P." é abreviatura, e não pausa
+PAUSA = re.compile(r"((?<!T\.P)(?<!T)[,;:.](?:\[/\w+\])*) +(?!—)(?=[^\s—])")
+
+# o que vem depois do "Orémus" é oração do sacerdote que o impresso deixa no
+# mesmo parágrafo da resposta: ali não se marca pausa do povo
+DO_SACERDOTE = re.compile(r"(?=Orémus|Orêmus|Oremos|Oremus)")
+
+
+def pausar(secoes):
+    """
+    Põe um travessão em cada pausa das respostas do povo.
+
+    Pedido do Perez em novembro de 2026: quem reza junto respira no mesmo
+    lugar. A pausa segue a pontuação, e é proposta para ele revisar. Só mexe
+    no que é resposta (℟), e não põe um segundo travessão onde já há um.
+    """
+    for s in SECOES_MARCADAS:
+        for b in secoes[s]:
+            if b["tipo"] != "bilingue":
+                continue
+            for lado in ("latim", "portugues"):
+                for p in b[lado]:
+                    if p["texto"].startswith("[b]℟. "):
+                        resto = p["texto"][len("[b]℟. "):]
+                        povo, *resto_dele = DO_SACERDOTE.split(resto, maxsplit=1)
+                        p["texto"] = "[b]℟. " + PAUSA.sub(r"\1 — ", povo) + "".join(resto_dele)
+
+
 def marcar(secoes):
     """Aplica os MOMENTOS: cada marca vale até a seguinte da mesma seção."""
     por_secao = {}
@@ -357,6 +390,7 @@ def marcar(secoes):
 
 def aplicar(secoes):
     emendar(secoes)
+    pausar(secoes)
     marcar(secoes)
 
 

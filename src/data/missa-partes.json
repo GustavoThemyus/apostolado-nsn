@@ -1,6 +1,7 @@
 {
   "titulo": "Da Missa e suas partes",
   "descricao": "Cada parte da Missa Tridentina explicada e comentada: o que é, de onde veio, o que significa e que rubricas a regem.",
+  "emPreparacao": true,
   "secoes": [
     {
       "id": "apresentacao",

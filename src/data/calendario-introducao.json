@@ -1,0 +1,40 @@
+{
+  "titulo": "Introdução sobre o uso do calendário Tradicional",
+  "blocos": [
+    {
+      "id": "cal-intro-001",
+      "tipo": "paragrafo",
+      "texto": "A Santa Madre Igreja, para cumprir seu papel no plano salvífico, estende seus braços para acolher em seu seio todas as almas, de uma ponta a outra do orbe terrestre, recebendo de todas as partes fiéis das mais diversas regiões, histórias e culturas. Essa riqueza reflete-se, certamente, na abundante variedade de ritos que se espalharam por diferentes localidades, santificando os povos e comunicando-lhes a Verdade Revelada e a eterna salvação. Com o passar dos séculos, foi se estabelecendo aos poucos uma uniformidade dos ritos (como se vê nos ritos latinos, muito parecidos entre si), mas essas raízes históricas se mantêm muito vivas em seus calendários particulares."
+    },
+    {
+      "id": "cal-intro-002",
+      "tipo": "paragrafo",
+      "texto": "Diversos são os calendários litúrgicos aprovados pela Santa Igreja a fim de contemplar, nas mais variadas localidades, as suas devoções particulares e a sua história, seja na forma de celebrar os padroeiros, seja na comemoração do aniversário da consagração de alguma igreja, ou mesmo na devoção especial a um santo que ali viveu."
+    },
+    {
+      "id": "cal-intro-003",
+      "tipo": "paragrafo",
+      "texto": "Os calendários são atribuídos a ritos, países, dioceses, regiões, ordens religiosas, rubricas etc. De maneira geral, todos se conformam nos ciclos litúrgicos, nas maiores e mais antigas festividades e na estrutura do santoral e do temporal, variando principalmente na adição de festas de santos particulares ou na simplificação e não inclusão de festas mais recentes."
+    },
+    {
+      "id": "cal-intro-004",
+      "tipo": "paragrafo",
+      "texto": "No nosso caso concreto, o Apostolado Nossa Senhora das Neves é constituído por um grupo de fiéis ligados ao Rito Romano Tradicional, que é diferente do atual Rito Romano Moderno, promulgado após o Concílio Vaticano II e presente em todas as dioceses latinas, o qual, por sua vez, utiliza um calendário distinto."
+    },
+    {
+      "id": "cal-intro-005",
+      "tipo": "paragrafo",
+      "texto": "O calendário tradicional é o mesmo usado pela Igreja Universal antes do Concílio Vaticano II. No contexto da formulação dos novos ritos, em 1969, foi constituído também esse novo calendário, que difere do anterior nas datas de algumas festas litúrgicas e na inclusão de novas celebrações que não têm lugar no calendário tradicional, além da exclusão de algumas festas que havia antes."
+    },
+    {
+      "id": "cal-intro-006",
+      "tipo": "paragrafo",
+      "texto": "De forma particular, o nosso Apostolado possui grande apreço e devoção às rubricas de São Pio X, anteriores às promulgadas em 1962, as quais, por sua vez, infelizmente introduziram diversos cortes em elementos muito tradicionais que se celebravam em toda a Igreja Latina. Portanto, apresentamos aqui o calendário litúrgico de 1954, com suas tradicionais Oitavas e Vigílias, e também deixamos disponível o calendário de 1962 para a consulta dos que o preferem. Essa distinção acarretará ainda algumas poucas divergências entre os dois calendários."
+    },
+    {
+      "id": "cal-intro-007",
+      "tipo": "paragrafo",
+      "texto": "De fato, esses dois corpos de rubricas, bem como seus calendários, coexistem harmoniosamente, uma vez que a promulgação das rubricas de 1962 não ab-rogou as rubricas anteriores, de São Pio X, da mesma forma que a promulgação da nova Missa não ab-rogou a Missa Tridentina, tal qual foi codificada por São Pio V."
+    }
+  ]
+}

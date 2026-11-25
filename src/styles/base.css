@@ -1116,65 +1116,100 @@ button {
 .sinal--sim { color: var(--lit-verde); }
 .sinal--nao { color: var(--tinta-suave); }
 
-/* ---------------- calendário do ano ---------------- */
-
 /*
- * O seletor dos dois calendários, no canto de cima da grade.
- *
- * São duas coisas do mesmo tipo, e por isso um par de botões encostados e não
- * um interruptor: interruptor diz "ligado/desligado", e aqui nenhum dos dois
- * é a ausência do outro. Alinha à direita, que é onde o Perez pediu, e no
- * celular ocupa a linha inteira, com as duas metades iguais.
+ * Os dois botões sob a grade: à esquerda a troca de calendário, sem nomes, a
+ * pedido do Perez; à direita o "+" de levar o calendário no celular.
  */
-.calendario__uso {
+.calendario__cantos {
   display: flex;
-  justify-content: stretch;
-  gap: 0;
-  margin: 0 0 0.6rem;
-  border: 1px solid var(--fio);
-  border-radius: 0.4rem;
-  overflow: hidden;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 0.6rem;
 }
-.uso__opcao {
-  flex: 1;
+.calendario__trocar,
+.assinar__mais {
+  display: grid;
+  place-items: center;
+  width: var(--alvo-toque);
+  height: var(--alvo-toque);
+  border: 1px solid var(--fio);
+  border-radius: 50%;
+  background: none;
+  color: var(--tinta-suave);
+  cursor: pointer;
+}
+.calendario__trocar svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+.assinar {
+  position: relative;
+}
+.calendario__cantos .assinar__mais {
+  border-color: var(--ouro);
+  color: var(--ouro);
+  font-size: 1.7rem;
+  line-height: 1;
+}
+.calendario__trocar:hover,
+.assinar__mais:hover {
+  background: var(--fundo-toque);
+}
+.calendario__trocar:focus-visible,
+.assinar__mais:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: 2px;
+}
+.assinar__opcoes {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.5rem);
+  z-index: 5;
+  width: min(20rem, 85vw);
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+  list-style: none;
+  background: var(--fundo-toque);
+  border: 1px solid var(--fio);
+  border-radius: 0.6rem;
+}
+
+/* painéis lado a lado: a Missa daqui e a do Calendário Universal */
+.deslize__abas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+.deslize__aba {
   min-height: 2.4rem;
-  padding: 0 0.9rem;
-  border: 0;
+  padding: 0 0.8rem;
+  border: 1px solid var(--fio);
+  border-radius: 2rem;
   background: none;
   color: var(--tinta-suave);
   font: inherit;
   font-size: 0.92rem;
-  font-family: var(--sem-serifa);
-  letter-spacing: 0.02em;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
 }
-.uso__opcao + .uso__opcao {
-  border-left: 1px solid var(--fio);
-}
-.uso__opcao:hover {
-  background: var(--fundo-toque);
-  color: var(--tinta);
-}
-.uso__opcao--ativa,
-.uso__opcao--ativa:hover {
+.deslize__aba[aria-pressed="true"] {
   background: var(--realce);
   color: var(--tinta);
   font-weight: 600;
 }
-.uso__opcao:focus-visible {
-  outline: 2px solid var(--ouro);
-  outline-offset: -3px;
+.deslize__trilho {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 }
-@media (min-width: 46rem) {
-  .calendario__uso {
-    /* no PC não precisa da faixa inteira: encosta no canto direito */
-    margin-left: auto;
-    width: max-content;
-  }
-  .uso__opcao {
-    flex: 0 0 auto;
-  }
+.deslize__trilho::-webkit-scrollbar {
+  display: none;
+}
+.deslize__painel {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
 }
 
 /* o ano que a capela ainda não publicou: ausência, não falha */
@@ -1913,6 +1948,72 @@ button {
 
 /* a página atual é a faixa cheia: é para isto que o fundo largo serve */
 .menu__secao[aria-current="page"] {
+  background: var(--realce);
+}
+
+/*
+ * A seção com subpáginas divide a linha: o nome leva à seção, a seta abre a
+ * lista embaixo.
+ */
+.menu__item--com-filhas {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+.menu__item--com-filhas > .menu__secao {
+  margin-right: 0;
+  padding-right: 0.5rem;
+}
+.menu__abrir {
+  display: grid;
+  place-items: center;
+  min-width: var(--alvo-toque);
+  margin-right: calc(-1 * var(--folha-lateral));
+  padding: 0 var(--folha-lateral) 0 0.5rem;
+  border: 0;
+  border-top: 1px solid var(--fio);
+  background: none;
+  color: var(--ouro);
+  cursor: pointer;
+}
+.menu__abrir svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: transform 0.15s ease;
+}
+.menu__abrir[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+.menu__abrir:hover {
+  background: var(--fundo-toque);
+}
+.menu__abrir:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: -2px;
+}
+.menu__filhas {
+  grid-column: 1 / -1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu__filhas[hidden] {
+  display: none;
+}
+.menu__filha {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: var(--alvo-toque);
+  margin-inline: calc(-1 * var(--folha-lateral));
+  padding: 0.5rem var(--folha-lateral) 0.5rem calc(var(--folha-lateral) + 1rem);
+  color: var(--tinta);
+  text-decoration: none;
+}
+.menu__filha:hover {
+  background: var(--fundo-toque);
+}
+.menu__filha[aria-current="page"] {
   background: var(--realce);
 }
 
@@ -5101,6 +5202,30 @@ button {
 }
 
 /*
+ * A resposta do povo no Ordinário: o ℟ sai para a margem e o texto alinha
+ * depois dele.
+ */
+.paragrafo--resposta {
+  position: relative;
+  padding-left: 1.7em;
+}
+.resposta__sinal {
+  position: absolute;
+  left: 0;
+}
+.resposta__texto {
+  display: block;
+}
+.folheto--proprio .bilingue__lado > .paragrafo--resposta:first-child .resposta__texto::first-letter {
+  float: left;
+  margin: 0.08em 0.1em 0 0;
+  font-family: var(--titular);
+  font-size: 2.1em;
+  line-height: 0.82;
+  color: var(--rubrica);
+}
+
+/*
  * A capitular que abre cada peça do próprio.
  *
  * Em `::first-letter`, e não numa marca no texto: o texto sai do PDF pelo
@@ -5116,7 +5241,7 @@ button {
  * desencontra as colunas: o subgrid dá à faixa a altura do mais alto dos dois
  * lados, e os dois têm capitular.
  */
-.folheto--proprio .bilingue__lado > .paragrafo:first-child::first-letter {
+.folheto--proprio .bilingue__lado > .paragrafo:not(.paragrafo--resposta):first-child::first-letter {
   float: left;
   margin: 0.08em 0.1em 0 0;
   font-family: var(--titular);
@@ -5131,7 +5256,7 @@ button {
  * palavras. Desce para pouco mais de duas linhas.
  */
 @media (max-width: 55.99rem) {
-  .folheto--proprio .bilingue__lado > .paragrafo:first-child::first-letter {
+  .folheto--proprio .bilingue__lado > .paragrafo:not(.paragrafo--resposta):first-child::first-letter {
     font-size: 2.1em;
   }
 }
@@ -5729,4 +5854,9 @@ button {
   font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--tinta);
+}
+
+/* a linha que um elo procura não fica escondida sob o alto da página */
+.tabela tr[id] {
+  scroll-margin-top: 5rem;
 }

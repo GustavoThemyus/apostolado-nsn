@@ -1,3 +1,4 @@
+import { Deslize } from "./Deslize";
 import { Fragment, type ReactNode } from "react";
 import {
   analisarMissa,
@@ -169,6 +170,10 @@ function BlocoDaCelebracao({
  */
 export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
   const celebracoes = celebracoesDoOrdo(dia);
+  /* a do Calendário Universal não se recolhe: passa-se para o lado */
+  const universal = celebracoes.findIndex(
+    (c, i) => i > 0 && c.rotulo?.startsWith("No Calendário Universal"),
+  );
   const { patrocinio, grau } = patrocinioDoGrau(dia.grau);
   /*
    * A postagem acompanha a festa, e não a casa do calendário.
@@ -209,7 +214,7 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
           </dd>
         </div>
         <div>
-          <dt>Grau</dt>
+          <dt>Rito</dt>
           <dd>{grau}</dd>
         </div>
       </dl>
@@ -222,7 +227,19 @@ export function DetalheDoOrdo({ dia }: { dia: DiaDoOrdo }) {
         </p>
       )}
 
-      {celebracoes.map((c, i) => (
+      {universal > 0 && (
+        <Deslize
+          paineis={[
+            { rotulo: "Aqui", corpo: <BlocoDaCelebracao celebracao={celebracoes[0]} primeira /> },
+            {
+              rotulo: "No Calendário Universal",
+              corpo: <BlocoDaCelebracao celebracao={celebracoes[universal]} primeira />,
+            },
+          ]}
+        />
+      )}
+
+      {celebracoes.map((c, i) => universal > 0 && (i === 0 || i === universal) ? null : (
         <Fragment key={i}>
           {/* o aviso entra uma vez, antes da primeira das alternativas */}
           {c.alternativa && !celebracoes[i - 1]?.alternativa && (

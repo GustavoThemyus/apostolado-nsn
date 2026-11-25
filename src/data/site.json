@@ -11,9 +11,16 @@
     {
       "id": "ordo",
       "grupo": "ordo",
-      "nome": "Ordo Litúrgico diário de São Pio X",
+      "nome": "Ordo de 2026",
       "descricao": "O Ordo de São Pio X, anterior à reforma de 1955.",
       "google": "2f72d6d6256cb18ea6ebe417018de1a59f8477fef4881205a92534b5a0941570@group.calendar.google.com"
+    },
+    {
+      "id": "ordo-2027",
+      "grupo": "ordo",
+      "nome": "Ordo de 2027",
+      "descricao": "Em preparação: por ora vai até março.",
+      "google": "7130254b948a09b6f40180003327c7eb1027b44994a63971677177dabe501381@group.calendar.google.com"
     },
     {
       "id": "indulgencias-apostolado",

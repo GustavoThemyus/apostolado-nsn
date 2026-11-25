@@ -1,4 +1,7 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { ARQUIDIOCESE, agendasLembradas } from "../data/agendasLigadas";
+import { diasDaArquidiocese } from "../data/arquidioceseDias";
+import { usarAgendas } from "../hooks/usarAgendas";
 import { indulgenciasDoMes, type Ocorrencia } from "../calendario/indulgencias";
 import { indulgencias } from "../data/indulgenciasDias";
 import { Elo } from "../routes/Elo";
@@ -41,13 +44,11 @@ const diaSeguinte = (iso: string): string => {
  * quatro linhas: "1 de novembro", "2 de novembro", que tem Finados por cima e
  * por isso não entra na faixa, "3 a 8 de novembro" e "9 de novembro".
  */
-function emFaixas(porDia: Map<string, Ocorrencia[]>): Faixa[] {
+function emFaixas(porDia: Map<string, string[]>): Faixa[] {
   const faixas: Faixa[] = [];
 
   for (const data of [...porDia.keys()].sort()) {
-    const titulos = [
-      ...new Set((porDia.get(data) ?? []).map((o) => o.entrada.titulo)),
-    ];
+    const titulos = [...new Set(porDia.get(data) ?? [])];
     const ultima = faixas[faixas.length - 1];
     if (
       ultima &&
@@ -91,10 +92,32 @@ export function IndulgenciasDoMes({ data }: { data?: Date }) {
   }, [data]);
 
   const mes = hoje.getUTCMonth() + 1;
-  const faixas = useMemo(
-    () => emFaixas(indulgenciasDoMes(indulgencias.dias, hoje.getUTCFullYear(), mes)),
-    [hoje, mes],
+  const ano = hoje.getUTCFullYear();
+  /* o que o leitor ligou em Indulgências aparece aqui também */
+  const [ligadas] = useState(agendasLembradas);
+  const vinculadas = usarAgendas(
+    useMemo(() => ligadas.filter((id) => id !== ARQUIDIOCESE), [ligadas]),
+    ano,
   );
+
+  const faixas = useMemo(() => {
+    const porDia = new Map<string, string[]>();
+    const por = (data: string, titulo: string) =>
+      porDia.set(data, [...(porDia.get(data) ?? []), titulo]);
+    const somar = (lista: Map<string, Ocorrencia[]>, sufixo = "") =>
+      lista.forEach((os, data) => os.forEach((o) => por(data, o.entrada.titulo + sufixo)));
+
+    somar(indulgenciasDoMes(indulgencias.dias, ano, mes));
+    if (ligadas.includes(ARQUIDIOCESE)) {
+      somar(indulgenciasDoMes(diasDaArquidiocese, ano, mes) as unknown as Map<string, Ocorrencia[]>, " (Arquidiocese)");
+    }
+    const doMes = `${ano}-${String(mes).padStart(2, "0")}-`;
+    vinculadas.porDia.forEach((itens, data) => {
+      if (!data.startsWith(doMes)) return;
+      itens.forEach((i) => por(data, `${i.festa ?? i.titulo} (${i.nome})`));
+    });
+    return emFaixas(porDia);
+  }, [ano, mes, ligadas, vinculadas.porDia]);
 
   /*
    * Mês sem nenhuma, a caixa não aparece. Acontece: conferidos 2026 e 2027,

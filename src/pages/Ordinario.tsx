@@ -5,11 +5,12 @@ import { MissaContinua } from "../components/MissaContinua";
  * momento. As partes que o dia não tem (Glória no Advento, Credo nos dias de
  * semana, aspersão fora do domingo) não aparecem.
  *
- * Fora a capa, que é o título da página.
+ * Fora a capa, que é o título da página, e, a pedido do Perez, a voz do
+ * magistério e a bênção do Santíssimo.
  */
 const IDS = [
-  "magisterio", "preparacao", "asperges", "pe-altar", "catecumenos", "ofertorio",
-  "canon", "comunhao", "conclusao", "leoninas", "acao-de-gracas", "bencao",
+  "preparacao", "asperges", "pe-altar", "catecumenos", "ofertorio",
+  "canon", "comunhao", "conclusao", "leoninas", "acao-de-gracas",
 ];
 
 export default function Ordinario() {

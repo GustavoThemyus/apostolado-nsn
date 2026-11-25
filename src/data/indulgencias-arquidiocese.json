@@ -3,7 +3,7 @@
   "descricao": "Os dias em que se pode lucrar indulgência plenária visitando uma igreja da Arquidiocese da Paraíba: paróquias, santuários, a Basílica e as casas religiosas.",
   "notas": {
     "§1": "ID, n. 16; EI 1999, n. 19.",
-    "§2": "CIC 1917, cân. 923; EI 1999, n. 14.",
+    "§2": "EI 1999, n. 14.",
     "§3": "EI 1999, n. 16, §1.",
     "§4": "EI 1999, n. 20.",
     "§5": "EI 1999, n. 20.",
@@ -72,52 +72,6 @@
           "tipo": "paragrafo",
           "texto": "Todas as datas desta página podem ser vistas na grade do mês, junto com as indulgências universais: basta ligar \"Paróquias, santuários e ordens\" em [elo:/indulgencias]Indulgências[/elo]. As festas que mudam de dia acompanham a mudança, ano a ano.",
           "id": "introducao-003"
-        }
-      ]
-    },
-    {
-      "id": "legenda",
-      "titulo": "Legenda",
-      "foraDoIndice": true,
-      "blocos": [
-        {
-          "tipo": "paragrafo",
-          "texto": "As marcas do documento acompanham a festa ou a igreja a que se referem. Toque numa delas para ler a observação do autor.",
-          "id": "legenda-001"
-        },
-        {
-          "tipo": "tabela",
-          "colunas": [
-            "Marca",
-            "O que quer dizer"
-          ],
-          "linhas": [
-            [
-              "§",
-              "Nota"
-            ],
-            [
-              "~",
-              "Data diferente no calendário novo"
-            ],
-            [
-              "^",
-              "Falta de consenso"
-            ],
-            [
-              "^",
-              "Festas propriamente particulares, usar-se-á a data que a paróquia comemora"
-            ],
-            [
-              "*",
-              "Festas do calendário novo"
-            ],
-            [
-              "*",
-              "Santos que foram canonizados posteriormente"
-            ]
-          ],
-          "id": "legenda-002"
         }
       ]
     },
@@ -202,6 +156,62 @@
         },
         {
           "tipo": "tabela",
+          "ancoras": [
+            "paroquias-sagrada-familia-de-jesus-maria-e-jose",
+            "paroquias-maria-virgem-mae-dos-pobres",
+            "paroquias-sao-sebastiao",
+            "paroquias-sagrado-coracao-de-jesus-menino",
+            "paroquias-nossa-senhora-da-penha",
+            "paroquias-nossa-senhora-de-lourdes",
+            "paroquias-sao-jose-esposo-de-nossa-senhora",
+            "paroquias-jesus-ressuscitado",
+            "paroquias-sao-jose-operario",
+            "paroquias-nossa-senhora-mae-dos-homens",
+            "paroquias-nossa-senhora-de-fatima",
+            "paroquias-sao-felix-de-cantalice",
+            "paroquias-santa-julia",
+            "paroquias-santa-rita-de-cassia",
+            "paroquias-nossa-senhora-auxiliadora",
+            "paroquias-divino-espirito-santo",
+            "paroquias-maria-mae-da-igreja",
+            "paroquias-santissima-trindade",
+            "paroquias-menino-jesus-de-praga",
+            "paroquias-santo-antonio-de-padua",
+            "paroquias-sao-joao-batista",
+            "paroquias-nossa-senhora-do-perpetuo-socorro",
+            "paroquias-sao-pedro-e-sao-paulo",
+            "paroquias-sagrado-coracao-de-jesus",
+            "paroquias-nossa-senhora-do-carmo",
+            "paroquias-santa-ana-mae-de-nossa-senhora",
+            "paroquias-santo-inacio-de-loyola",
+            "paroquias-nossa-senhora-dos-anjos",
+            "paroquias-nossa-senhora-das-neves",
+            "paroquias-santa-clara",
+            "paroquias-assuncao-de-nossa-senhora",
+            "paroquias-sao-joaquim-pai-de-nossa-senhora",
+            "paroquias-nossa-senhora-de-nazare",
+            "paroquias-nossa-senhora-do-livramento",
+            "paroquias-nossa-senhora-das-dores",
+            "paroquias-maria-mae-do-redentor",
+            "paroquias-nossa-senhora-da-soledade",
+            "paroquias-sao-miguel-arcanjo",
+            "paroquias-santa-teresinha-do-menino-jesus",
+            "paroquias-sao-francisco-de-assis",
+            "paroquias-nossa-senhora-do-rosario",
+            "paroquias-maternidade-de-nossa-senhora",
+            "paroquias-nossa-senhora-aparecida",
+            "paroquias-nossa-senhora-do-pilar",
+            "paroquias-nossa-senhora-de-nazare-2",
+            "paroquias-santa-edwiges",
+            "paroquias-nossa-senhora-mae-rainha",
+            "paroquias-sao-rafael-arcanjo",
+            "paroquias-sao-judas-tadeu",
+            "paroquias-cristo-rei",
+            "paroquias-nossa-senhora-da-medalha-milagrosa",
+            "paroquias-nossa-senhora-da-conceicao",
+            "paroquias-nossa-senhora-de-guadalupe",
+            "paroquias-senhor-bom-jesus"
+          ],
           "colunas": [
             "Data",
             "Festa Patronal",
@@ -516,6 +526,15 @@
         },
         {
           "tipo": "tabela",
+          "ancoras": [
+            "santuarios-nossa-senhora-mae-dos-homens",
+            "santuarios-santa-rita-de-cassia",
+            "santuarios-nossa-senhora-da-penha",
+            "santuarios-nossa-senhora-mae-rainha",
+            "santuarios-sao-judas-tadeu",
+            "santuarios-nossa-senhora-da-guia",
+            "santuarios-nossa-senhora-da-conceicao"
+          ],
           "colunas": [
             "Data",
             "Titular",
@@ -598,6 +617,9 @@
         },
         {
           "tipo": "tabela",
+          "ancoras": [
+            "basilica-nossa-senhora-das-neves"
+          ],
           "colunas": [
             "Data",
             "Titular",
@@ -645,6 +667,21 @@
         },
         {
           "tipo": "tabela",
+          "ancoras": [
+            "ordens-beata-alice-le-clerc",
+            "ordens-sao-joao-bosco",
+            "ordens-sao-luis-scrosoppi",
+            "ordens-beata-savina-petrilli",
+            "ordens-santa-paula-frassinetti",
+            "ordens-santo-inacio-de-loyola",
+            "ordens-santo-agostinho",
+            "ordens-sao-zygmunt-szczesny-felinski",
+            "ordens-sao-francisco-de-assis",
+            "ordens-sao-daniel-comboni",
+            "ordens-santa-teresa-d-avila",
+            "ordens-beata-maria-barbara-da-santissima-trindade",
+            "ordens-sao-pedro-fourier"
+          ],
           "colunas": [
             "Data",
             "Festa Litúrgica / Santo Fundador",

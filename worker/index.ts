@@ -28,6 +28,21 @@ const json = (corpo: unknown, status = 200) =>
 const CASA = "ansn.com.br";
 
 /**
+ * Fora dos buscadores: por ora só chega ao site quem recebe o link.
+ *
+ * Pedido do Perez em novembro de 2026, enquanto a situação do Apostolado na
+ * diocese não se resolve. Não há `robots.txt` bloqueando de propósito: o
+ * buscador precisa conseguir ler a página para ver o `noindex` e tirá-la.
+ * Para voltar às buscas, apagar isto, a linha do `public/_headers` e a meta
+ * do `index.html`.
+ */
+function foraDasBuscas(resposta: Response): Response {
+  const copia = new Response(resposta.body, resposta);
+  copia.headers.set("X-Robots-Tag", "noindex, nofollow");
+  return copia;
+}
+
+/**
  * Serve um arquivo, ou a página do site com o status certo.
  *
  * O armazém de ativos responde primeiro: se o caminho é um arquivo de
@@ -68,7 +83,9 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-    if (!url.pathname.startsWith("/api/")) return await servirPagina(pedido, url, env);
+    if (!url.pathname.startsWith("/api/")) {
+      return foraDasBuscas(await servirPagina(pedido, url, env));
+    }
 
     /*
      * As agendas vêm antes da autenticação de propósito: são calendários

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { mesLiturgico } from "../calendario/precedencia";
 import { ANOS_COM_ORDO, ehFestaMaiorDoOrdo } from "../calendario/ordo";
 import { penitenciaDe } from "../calendario/penitencia";
@@ -7,7 +7,10 @@ import { LegendaDaGrade, MarcaDePenitencia } from "../components/MarcaDePenitenc
 import { DetalheDoOrdo } from "../components/DetalheDoOrdo";
 import { SinaisDoDia, sinaisDe1962, sinaisDoOrdo } from "../components/SinaisDoDia";
 import { GradeDoMes, mesmoDia } from "../components/GradeDoMes";
-import { AssinarAgenda } from "../components/AssinarAgenda";
+import { BotaoDeAssinar } from "../components/BotaoDeAssinar";
+import { Bloco } from "../components/Bloco";
+import introducao from "../data/calendario-introducao.json";
+import type { Bloco as TipoBloco } from "../data/tipos";
 import { Cabecalho } from "../components/Cabecalho";
 import { AtalhosDaSecao, CartoesDeSecao } from "../components/CartoesDeSecao";
 import { usarOrdo } from "../hooks/usarOrdo";
@@ -38,14 +41,16 @@ const MESES = [
  * aparelho de quem lê, e por isso `localStorage` — que num navegador com os
  * dados do site bloqueados lança em vez de devolver vazio, daí o try.
  */
-const LEMBRANCA = "nsn:calendario:uso";
+/* chave nova: a antiga guardava o de 1962 para todo mundo, que era o padrão */
+const LEMBRANCA = "nsn:calendario:escolha";
 type Uso = "1962" | "pre55";
 
+/** O que o leitor escolheu da última vez; sem escolha, o Ordo anterior a 1955. */
 function usoLembrado(): Uso {
   try {
-    return localStorage.getItem(LEMBRANCA) === "pre55" ? "pre55" : "1962";
+    return localStorage.getItem(LEMBRANCA) === "1962" ? "1962" : "pre55";
   } catch {
-    return "1962";
+    return "pre55";
   }
 }
 
@@ -56,19 +61,13 @@ export default function Calendario() {
 
   const naUrl = busca.get("uso");
   const [lembrado, definirLembrado] = useState<Uso>(usoLembrado);
-  const uso: Uso = naUrl === "pre55" ? "pre55" : naUrl === "1962" ? "1962" : lembrado;
-  const pre55 = uso === "pre55";
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(LEMBRANCA, uso);
-    } catch {
-      /* navegador com os dados do site bloqueados: a escolha vale só nesta visita */
-    }
-  }, [uso]);
-
   const ano = escolhido.getUTCFullYear();
   const mes = escolhido.getUTCMonth() + 1;
+  const pedido: Uso = naUrl === "pre55" ? "pre55" : naUrl === "1962" ? "1962" : lembrado;
+  // num ano sem Ordo, e sem ninguém ter pedido, vale o calculado: a página não
+  // abre vazia
+  const uso: Uso = !naUrl && !ANOS_COM_ORDO.includes(ano) ? "1962" : pedido;
+  const pre55 = uso === "pre55";
 
   const de1962 = useMemo(() => mesLiturgico(ano, mes), [ano, mes]);
   const ordo = usarOrdo(ano, mes, pre55);
@@ -84,10 +83,13 @@ export default function Calendario() {
     [de1962, escolhido],
   );
 
+  /* a escolha só vai para o endereço quando difere da que abriria sozinha */
   const irPara = useCallback(
-    (data: Date, comQue: Uso = uso) =>
-      navegar(`/calendario?dia=${comoIso(data)}${comQue === "pre55" ? "&uso=pre55" : ""}`),
-    [navegar, uso],
+    (data: Date, comQue?: Uso) => {
+      const qual = comQue ?? (naUrl === "1962" || naUrl === "pre55" ? naUrl : undefined);
+      navegar(`/calendario?dia=${comoIso(data)}${qual ? `&uso=${qual}` : ""}`);
+    },
+    [navegar, naUrl],
   );
 
   const andar = (passo: number) =>
@@ -95,6 +97,11 @@ export default function Calendario() {
 
   const trocar = (novo: Uso) => {
     definirLembrado(novo);
+    try {
+      localStorage.setItem(LEMBRANCA, novo);
+    } catch {
+      /* navegador com os dados do site bloqueados: a escolha vale só nesta visita */
+    }
     irPara(escolhido, novo);
   };
 
@@ -104,43 +111,23 @@ export default function Calendario() {
     <Moldura titulo="Calendário Romano Tradicional">
       <Cabecalho
         titulo="Calendário Romano Tradicional"
-        descricao="Dois calendários na mesma grade: o do Missal de 1962, calculado para qualquer ano, e o Ordo de São Pio X, anterior à reforma de 1955."
+        descricao="O calendário litúrgico tradicional, dia a dia."
       />
 
       {/* antes do texto: quem chega tem de saber que a seção tem mais */}
       <AtalhosDaSecao padrao="/calendario" />
 
-      <aside className="nota" aria-labelledby="qual-calendario">
-        <h2 className="nota__titulo" id="qual-calendario">
-          Qual calendário é este
-        </h2>
-        <p>
-          A grade mostra um dos dois, e o botão no alto troca. O{" "}
-          <strong>Missal de 1962</strong> é calculado aqui, para qualquer ano. O{" "}
-          <strong>Ordo de São Pio X</strong>, anterior à reforma de 1955, é o
-          que o Apostolado acompanha: não é calculado, é copiado do Ordo que o
-          Apostolado publica, com o grau, a Missa, as comemorações e as
-          rubricas de cada dia.
-        </p>
-        <p>
-          Em boa parte dos dias os dois coincidem; nas oitavas, nas vigílias e
-          na Semana Santa, não. Em 2026 eles diferem em 135 dos 365 dias.
-        </p>
-      </aside>
-
-      <div className="calendario__uso" role="group" aria-label="Qual calendário mostrar">
-        {([["1962", "1962"], ["pre55", "Pré-55"]] as const).map(([qual, rotulo]) => (
-          <button
-            type="button"
-            key={qual}
-            className={`uso__opcao${uso === qual ? " uso__opcao--ativa" : ""}`}
-            aria-pressed={uso === qual}
-            onClick={() => trocar(qual)}
-          >
-            {rotulo}
-          </button>
-        ))}
-      </div>
+      {/* o título fica à vista; o texto abre num toque */}
+      <details className="opcional">
+        <summary className="opcional__resumo">
+          <span className="opcional__rotulo">{introducao.titulo}</span>
+        </summary>
+        <div className="opcional__corpo">
+          {(introducao.blocos as TipoBloco[]).map((b, i) => (
+            <Bloco bloco={b} key={i} />
+          ))}
+        </div>
+      </details>
 
       <div className="calendario__barra">
         <button
@@ -187,11 +174,10 @@ export default function Calendario() {
         <div className="calendario__coluna-grade">
           {ordo.semOrdo ? (
             <p className="calendario__sem-ordo">
-              O Apostolado ainda não publicou o Ordo de {ano}. Publicado, ele entra
-              aqui. Por enquanto há {ANOS_COM_ORDO.length > 1 ? "os anos" : "o ano"}{" "}
-              {anos} — ou veja este mês{" "}
+              O Ordo de {ano} ainda não está publicado. Por enquanto há{" "}
+              {ANOS_COM_ORDO.length > 1 ? "os anos" : "o ano"} {anos}, ou veja este mês{" "}
               <button type="button" className="elo-em-texto" onClick={() => trocar("1962")}>
-                pelo calendário de 1962
+                pelo calendário calculado
               </button>
               .
             </p>
@@ -234,6 +220,22 @@ export default function Calendario() {
               />
             </>
           )}
+
+          {/* nos cantos de baixo, discretos: trocar de calendário e assinar */}
+          <div className="calendario__cantos">
+            <button
+              type="button"
+              className="calendario__trocar"
+              aria-label="Alternar entre os dois calendários"
+              title="Alternar entre os dois calendários"
+              onClick={() => trocar(pre55 ? "1962" : "pre55")}
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 8h14l-4-4M20 16H6l4 4" fill="none" stroke="currentColor" strokeWidth="1.8" />
+              </svg>
+            </button>
+            <BotaoDeAssinar />
+          </div>
         </div>
 
         <div className="calendario__coluna-detalhe">
@@ -243,12 +245,14 @@ export default function Calendario() {
         </div>
       </div>
 
-      <AssinarAgenda
-        grupo="ordo"
-        titulo="Levar o Ordo no celular"
-        ancora="ordo-no-celular"
-        explicacao="Para acompanhar dia a dia o calendário do Ordo, no próprio aparelho."
-      />
+      <section className="agendas" id="ordo-no-celular">
+        <h2 className="agendas__titulo">O calendário no celular</h2>
+        <ol className="lista">
+          <li>Toque no <strong>+</strong>, no canto de baixo do calendário.</li>
+          <li>Escolha o ano e <strong>Google Agenda</strong>, ou <strong>Outro aplicativo</strong> no iPhone e no Outlook.</li>
+          <li>Confirme a inclusão. O calendário passa a se atualizar sozinho.</li>
+        </ol>
+      </section>
 
       <CartoesDeSecao padrao="/calendario" />
 

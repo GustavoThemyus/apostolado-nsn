@@ -69,7 +69,7 @@ PROPRIOS = [
     dict(
         id="proprio-advento-i",
         pdf="advento-1.pdf",
-        drive="106fV_2yxCCsJnGiM7Wz4KdjqOpNsAuAZ",
+        drive="1KfjXhKd9HzUDQpJai-4vj1mMaDwWuRlk",
         titulo="I Domingo do Advento",
         cabecalho=dict(nome="I Domingo do Advento",
                        grau="Semiduples de 1ª classe – roxo",
@@ -79,7 +79,7 @@ PROPRIOS = [
     dict(
         id="proprio-advento-ii",
         pdf="advento-2.pdf",
-        drive="1H9wbaf4Q6raUAfxsZkzs3Nx3_6DIXYPy",
+        drive="1eUpQdrnq6v0vYE1NexX-mB4PKRHeWo3S",
         titulo="II Domingo do Advento",
         cabecalho=dict(nome="II Domingo do Advento",
                        grau="Semiduples de 2ª classe – roxo",
@@ -89,9 +89,9 @@ PROPRIOS = [
     dict(
         id="proprio-imaculada-conceicao",
         pdf="imaculada.pdf",
-        drive="1X0dSaMVDRHR1a2MzaNmzhMPtTtK0JmnU",
+        drive="1BxKk9W07CglcpdjVxrNSvtdDwXTXgfl3",
         titulo="Imaculada Conceição da Bem-aventurada Virgem Maria",
-        cabecalho=dict(data="8 de dezembro",
+        cabecalho=dict(data="8 de Dezembro",
                        nome="Imaculada Conceição da Bem-aventurada Virgem Maria",
                        grau="Duples de 1ª classe com Oitava comum – branco"),
         resumo="O próprio da Missa de 8 de dezembro, em latim e em português. "
@@ -100,11 +100,12 @@ PROPRIOS = [
     dict(
         id="proprio-guadalupe",
         pdf="guadalupe.pdf",
-        drive="1ibAEJPRUEvURuBcWYL1KZBEyr-dW0g_V",
+        drive="1N-ef3DlJq-K5Di_sd8jr-CZZi8ovHa5_",
         titulo="Nossa Senhora de Guadalupe",
-        cabecalho=dict(data="12 de dezembro",
-                       nome="Nossa Senhora de Guadalupe, Padroeira Principal da América Latina",
-                       grau="Duples de 1ª classe com Oitava comum – branco"),
+        cabecalho=dict(data="12 de Dezembro",
+                       nome="Bem-aventurada Virgem Maria de Guadalupe",
+                       grau="Duples de 1ª classe com Oitava comum – branco",
+                       estacao="Padroeira principal da América Latina"),
         resumo="O próprio da Missa de 12 de dezembro, padroeira principal da América "
                "Latina, em latim e em português. Duples de 1ª classe com Oitava comum, branco.",
     ),
@@ -291,7 +292,9 @@ def estampa(caminho, ident):
     de coisa que ninguém repara até o Perez abrir a página.
     """
     pdf = pathlib.Path(caminho)
-    figuras = ESTAMPAS.listar(pdf)
+    # "smask" é a transparência de uma figura, e não outra figura
+    todas = ESTAMPAS.listar(pdf)
+    figuras = [f for f in todas if f["tipo"] != "smask"]
     paginas = int(subprocess.run(["pdfinfo", str(pdf)], capture_output=True,
                                  check=True).stdout.decode().split("Pages:")[1].split()[0])
     if len(figuras) != 2:
@@ -306,6 +309,15 @@ def estampa(caminho, ident):
 
     with tempfile.TemporaryDirectory() as tmp:
         bruta = ESTAMPAS.extrair(pdf, 0, pathlib.Path(tmp))
+        if len(todas) > 1 and todas[1]["tipo"] == "smask":
+            # a estampa recortada vai sobre branco, como no papel: sem a
+            # máscara o fundo transparente sairia preto
+            figura = ESTAMPAS.Image.open(bruta).convert("RGBA")
+            figura.putalpha(ESTAMPAS.Image.open(
+                ESTAMPAS.extrair(pdf, 1, pathlib.Path(tmp))).convert("L"))
+            papel = ESTAMPAS.Image.new("RGBA", figura.size, "white")
+            bruta = pathlib.Path(tmp) / "sobre-branco.png"
+            ESTAMPAS.Image.alpha_composite(papel, figura).save(bruta)
         destino = ESTAMPAS.gravar(bruta, ident)
     with ESTAMPAS.Image.open(destino) as figura:
         return {"imagem": "/folhetos/%s" % destino.name,

@@ -149,14 +149,6 @@ export const REGISTRO: DocumentoRegistrado[] = [
     ajuda: "As igrejas da Arquidiocese e o dia de indulgência de cada uma. Gerado por ferramentas/arquidiocese: correção aqui tem de voltar para lá.",
   },
   {
-    id: "indulgencias-raccolta",
-    titulo: "Raccolta",
-    caminho: emDados("indulgencias-raccolta.json"),
-    forma: "documento",
-    rota: "/indulgencias/raccolta",
-    ajuda: "A coleção anterior a 1968, que corresponde ao Código de 1917.",
-  },
-  {
     id: "indulgencias-enchiridion",
     titulo: "Enchiridion Indulgentiarum",
     caminho: emDados("indulgencias-enchiridion.json"),
@@ -170,7 +162,7 @@ export const REGISTRO: DocumentoRegistrado[] = [
     caminho: emDados("indulgencias-ordens.json"),
     forma: "documento",
     rota: "/indulgencias/ordens",
-    ajuda: "As de ordens, confrarias e associações.",
+    ajuda: "As de ordens, confrarias e associações. Gerado por ferramentas/indulgencias-proprias: correção aqui tem de voltar para lá.",
   },
   {
     id: "apostolado",

@@ -4,7 +4,15 @@ import { TextoRico } from "./TextoRico";
  * Em telas estreitas cada linha vira uma ficha empilhada, com o nome da
  * coluna vindo de data-coluna. A partir de 46rem volta a ser tabela.
  */
-export function Tabela({ colunas, linhas }: { colunas: string[]; linhas: string[][] }) {
+export function Tabela({
+  colunas,
+  linhas,
+  ancoras,
+}: {
+  colunas: string[];
+  linhas: string[][];
+  ancoras?: string[];
+}) {
   return (
     <div className="tabela">
       <table>
@@ -19,7 +27,7 @@ export function Tabela({ colunas, linhas }: { colunas: string[]; linhas: string[
         </thead>
         <tbody>
           {linhas.map((linha, indiceLinha) => (
-            <tr key={indiceLinha}>
+            <tr key={indiceLinha} id={ancoras?.[indiceLinha]}>
               {linha.map((celula, indiceCelula) => (
                 <td key={indiceCelula} data-coluna={colunas[indiceCelula]}>
                   <TextoRico texto={celula} />

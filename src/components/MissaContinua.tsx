@@ -9,9 +9,10 @@ import {
   aberturaDoEvangelho,
   carregarSecoes,
   comEvangelhoDoDia,
+  semLausDoOrdinario,
   type TextoDaSecao,
 } from "../data/ordinario";
-import { montarSecoes, type ItemNaTela, type OpcoesDeLeitura } from "../data/ordinarioNaTela";
+import { montarSecoes, type ItemNaTela } from "../data/ordinarioNaTela";
 import { usarOrdo } from "../hooks/usarOrdo";
 import { Elo } from "../routes/Elo";
 import { usarRota } from "../routes/usarRota";
@@ -49,35 +50,6 @@ const TITULO_NA_PAGINA = (id: string, dia: NaMissaDoDia): string | undefined =>
       : "Entrada do sacerdote"
     : SECOES.find((s) => s.id === id)?.titulo;
 
-const CHAVE = "ordinario:leitura";
-const PADRAO: OpcoesDeLeitura = { vozes: "altas", rubricas: true };
-
-/** A escolha do fiel fica no aparelho dele: é conveniência, não dado da página. */
-function usarOpcoes(): [OpcoesDeLeitura, (o: Partial<OpcoesDeLeitura>) => void] {
-  const [opcoes, definir] = useState<OpcoesDeLeitura>(() => {
-    try {
-      const guardado = JSON.parse(localStorage.getItem(CHAVE) ?? "null");
-      if (guardado && (guardado.vozes === "altas" || guardado.vozes === "todas")) {
-        return { vozes: guardado.vozes, rubricas: guardado.rubricas !== false };
-      }
-    } catch {
-      /* sem armazenamento: vale o padrão */
-    }
-    return PADRAO;
-  });
-  const mudar = (parte: Partial<OpcoesDeLeitura>) =>
-    definir((atual) => {
-      const novo = { ...atual, ...parte };
-      try {
-        localStorage.setItem(CHAVE, JSON.stringify(novo));
-      } catch {
-        /* idem */
-      }
-      return novo;
-    });
-  return [opcoes, mudar];
-}
-
 function Itens({ itens, dia }: { itens: ItemNaTela[]; dia: NaMissaDoDia }) {
   return (
     <>
@@ -107,52 +79,13 @@ function Itens({ itens, dia }: { itens: ItemNaTela[]; dia: NaMissaDoDia }) {
   );
 }
 
-function Controles({
-  opcoes,
-  mudar,
-}: {
-  opcoes: OpcoesDeLeitura;
-  mudar: (o: Partial<OpcoesDeLeitura>) => void;
-}) {
-  return (
-    <div className="leitura" role="group" aria-label="Como ler a Missa">
-      <div className="leitura__vozes" role="group" aria-label="O que ler">
-        <button
-          type="button"
-          className="leitura__botao"
-          aria-pressed={opcoes.vozes === "altas"}
-          onClick={() => mudar({ vozes: "altas" })}
-        >
-          Só o que se diz em voz alta
-        </button>
-        <button
-          type="button"
-          className="leitura__botao"
-          aria-pressed={opcoes.vozes === "todas"}
-          onClick={() => mudar({ vozes: "todas" })}
-        >
-          Tudo, com o silêncio
-        </button>
-      </div>
-      <button
-        type="button"
-        className="leitura__botao leitura__botao--chave"
-        aria-pressed={opcoes.rubricas}
-        onClick={() => mudar({ rubricas: !opcoes.rubricas })}
-      >
-        Rubricas e explicações
-      </button>
-    </div>
-  );
-}
-
 /**
  * A Missa numa leitura só, do começo ao fim.
  *
  * Serve à página do Ordinário e à da Missa do dia: o texto é o mesmo e o que
  * muda é o recorte (`ids`) e se o próprio do dia entra nos dez lugares que o
- * impresso deixa em branco. As escolhas do fiel (voz alta ou tudo, com ou sem
- * rubricas) filtram esse mesmo texto, e não escolhem entre cópias dele.
+ * impresso deixa em branco. As orações em silêncio e as rubricas aparecem
+ * sempre, a pedido do Perez.
  *
  * Quem decide o que a Missa de hoje tem é o calendário (`naMissaDoDia`); aqui
  * só se mostra. O Ordo publicado, quando cobre o ano, manda no Glória e no
@@ -194,8 +127,6 @@ export function MissaContinua({
     };
   }, [ids]);
 
-  const [opcoes, mudar] = usarOpcoes();
-
   // O Evangelho do dia entra na linha "Sequéntia (Inítium) … N." do Ordinário
   const comEvangelho = useMemo(() => {
     const abertura = folheto ? aberturaDoEvangelho(folheto) : undefined;
@@ -205,14 +136,14 @@ export function MissaContinua({
       if (s.id !== "catecumenos") return s;
       const r = comEvangelhoDoDia(s.blocos, abertura);
       mesclado = r.substituiu;
-      return { ...s, blocos: r.blocos };
+      return { ...s, blocos: folheto ? semLausDoOrdinario(r.blocos, folheto) : r.blocos };
     });
     return { secoes, mesclado };
   }, [carregadas, folheto]);
 
   const secoes = useMemo(
-    () => (comEvangelho.secoes ? montarSecoes(comEvangelho.secoes, naDoDia, opcoes) : []),
-    [comEvangelho, naDoDia, opcoes],
+    () => (comEvangelho.secoes ? montarSecoes(comEvangelho.secoes, naDoDia) : []),
+    [comEvangelho, naDoDia],
   );
   const comTexto = secoes.filter((s) => s.itens.length > 0);
   const abreComTitulo = (id: string) =>
@@ -248,14 +179,14 @@ export function MissaContinua({
         </p>
       )}
       {/*
-        O Ordo da capela é o pré-55 e só existe para os anos publicados. Fora
-        deles, Glória e Credo vêm das rubricas gerais de 1962, que não são as
-        da capela: melhor dizer do que deixar parecer a mesma coisa.
+        O Ordo é o anterior a 1955 e só existe para os anos publicados. Fora
+        deles, Glória e Credo vêm de outras rubricas: melhor dizer do que
+        deixar parecer a mesma coisa.
       */}
       {naDoDia.fonte === "rubricas" && !rito && !esperandoOrdo && (
         <p className="modo-missa__aviso">
           Este dia está fora do Ordo publicado pelo Apostolado. O Glória e o Credo
-          seguem as rubricas gerais de 1962, que podem diferir do Ordo.
+          são calculados pelas rubricas gerais e podem diferir do Ordo.
         </p>
       )}
       {comProprio && !folheto && !rito && !esperandoOrdo && (
@@ -267,8 +198,6 @@ export function MissaContinua({
 
       {!(comProprio && rito) && (
         <>
-          <Controles opcoes={opcoes} mudar={mudar} />
-
           <nav className="modo-missa__secoes" aria-label="Partes da Missa">
             {comTexto.map((s) => (
               <a
@@ -284,7 +213,7 @@ export function MissaContinua({
             ))}
           </nav>
 
-          <article className={"folheto folheto--proprio" + (opcoes.rubricas ? "" : " ordinario--sem-rubricas")}>
+          <article className="folheto folheto--proprio">
             <ComOProprioDoDia folheto={folheto} dia={iso} evangelhoNoOrdinario={comEvangelho.mesclado}>
               {!carregadas || esperandoOrdo ? (
                 <p className="modo-missa__aviso">Carregando…</p>

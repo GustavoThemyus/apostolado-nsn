@@ -1,6 +1,7 @@
 {
   "titulo": "O próprio do Brasil",
   "descricao": "As festas que o Brasil guarda além do calendário universal, e as que aqui se guardam com grau mais alto.",
+  "emPreparacao": true,
   "secoes": [
     {
       "id": "o-que-e",
