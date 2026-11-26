@@ -1,17 +1,17 @@
-/* fontes: início (ferramentas/fontes/gerar.py) */
+/* fontes: início (tools/fonts/gerar.py) */
 @font-face {
   font-family: "Garamond do Site";
   font-style: normal;
   font-weight: 400 600;
   font-display: swap;
-  src: url("/fontes/garamond-fa260a27.woff2") format("woff2");
+  src: url("/fonts/garamond-fa260a27.woff2") format("woff2");
 }
 @font-face {
   font-family: "Garamond do Site";
   font-style: italic;
   font-weight: 400 600;
   font-display: swap;
-  src: url("/fontes/garamond-italico-416d1cfe.woff2") format("woff2");
+  src: url("/fonts/garamond-italico-416d1cfe.woff2") format("woff2");
 }
 /* fontes: fim */
 

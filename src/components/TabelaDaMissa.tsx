@@ -1,4 +1,4 @@
-import type { NaMissa } from "../calendario/ordo";
+import type { NaMissa } from "../calendar/ordo";
 
 function Sim({ v, porque }: { v: boolean; porque?: string }) {
   return (

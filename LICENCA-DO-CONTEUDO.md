@@ -1,7 +1,7 @@
 # Licença do conteúdo
 
 O [LICENSE](LICENSE) na raiz é MIT e cobre **o código-fonte** deste
-repositório: `src/`, `worker/`, `ferramentas/`, a folha de estilo e os
+repositório: `src/`, `worker/`, `tools/`, a folha de estilo e os
 arquivos de configuração.
 
 **Não cobre o conteúdo publicado nem as imagens.** Boa parte deles não é nossa
@@ -38,7 +38,7 @@ código tem de trocá-lo pelo seu.
 `public/retratos/`. A fotografia oficial do Papa Leão XIV e a fotografia do
 Arcebispo Metropolitano da Paraíba são de terceiros, e a procedência delas não
 está documentada aqui. O recorte e a vinheta feitos por
-`ferramentas/retratos/gerar.py` não criam direito novo sobre elas.
+`tools/retratos/gerar.py` não criam direito novo sobre elas.
 
 ### O ícone de Nossa Senhora das Neves
 
@@ -51,15 +51,15 @@ restaurado, enviada pelo Apostolado, de procedência não documentada.
 **domínio público**, da Wikimedia Commons. Domínio público foi critério na
 escolha, e não acaso: obra sob licença que exige atribuição obrigaria o site a
 carregar o crédito em toda página onde a imagem aparece. A lista está em
-[PROVENIENCIA.md](ferramentas/cartoes/PROVENIENCIA.md) e em
-[COMO-GERAR.md](ferramentas/padroeiros/COMO-GERAR.md).
+[PROVENIENCIA.md](tools/cartoes/PROVENIENCIA.md) e em
+[COMO-GERAR.md](tools/padroeiros/COMO-GERAR.md).
 
 `public/capas/` é composição feita aqui, no desenho do site, mas traz o brasão
 dentro: vale a ressalva do brasão.
 
 ## Para quem quiser reaproveitar o código
 
-O motor do calendário de 1962 (`src/calendario/`), o roteador escrito à mão
+O motor do calendário de 1962 (`src/calendar/`), o roteador escrito à mão
 (`src/routes/`), os componentes, o painel de edição e as ferramentas de
 importação estão sob o MIT e servem a outro site sem pedir nada a ninguém.
 

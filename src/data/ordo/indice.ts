@@ -1,4 +1,4 @@
-// Gerado por ferramentas/ordo/importar.py. Não edite à mão.
+// Gerado por tools/ordo/importar.py. Não edite à mão.
 
 export const ANOS: number[] = [2026, 2027];
 

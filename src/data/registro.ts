@@ -119,7 +119,7 @@ export const REGISTRO: DocumentoRegistrado[] = [
     caminho: emDados("indulgencias-arquidiocese.json"),
     forma: "documento",
     rota: "/indulgencias/arquidiocese",
-    ajuda: "As igrejas da Arquidiocese e o dia de indulgência de cada uma. Gerado por ferramentas/arquidiocese: correção aqui tem de voltar para lá.",
+    ajuda: "As igrejas da Arquidiocese e o dia de indulgência de cada uma. Gerado por tools/arquidiocese: correção aqui tem de voltar para lá.",
   },
   {
     id: "indulgencias-enchiridion",
@@ -135,7 +135,7 @@ export const REGISTRO: DocumentoRegistrado[] = [
     caminho: emDados("indulgencias-ordens.json"),
     forma: "documento",
     rota: "/indulgencias/ordens",
-    ajuda: "As de ordens, confrarias e associações. Gerado por ferramentas/indulgencias-proprias: correção aqui tem de voltar para lá.",
+    ajuda: "As de ordens, confrarias e associações. Gerado por tools/indulgencias-proprias: correção aqui tem de voltar para lá.",
   },
   {
     id: "apostolado",
@@ -151,7 +151,7 @@ export const REGISTRO: DocumentoRegistrado[] = [
     caminho: emDados("folhetos.json"),
     forma: "folhetos",
     rota: "/folhetos",
-    ajuda: "Os impressos do Apostolado servidos como página. As condições ordinárias ficam na raiz do arquivo e valem para toda obra indulgenciada. Os próprios da Missa saem dos PDFs do Ordo, por ferramentas/proprios: correção de texto neles tem de voltar para lá.",
+    ajuda: "Os impressos do Apostolado servidos como página. As condições ordinárias ficam na raiz do arquivo e valem para toda obra indulgenciada. Os próprios da Missa saem dos PDFs do Ordo, por tools/proprios: correção de texto neles tem de voltar para lá.",
   },
   {
     id: "postagens",

@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { ARQUIDIOCESE, agendasLembradas } from "../data/agendasLigadas";
 import { diasDaArquidiocese } from "../data/arquidioceseDias";
 import { usarAgendas } from "../hooks/usarAgendas";
-import { indulgenciasDoMes, type Ocorrencia } from "../calendario/indulgencias";
+import { indulgenciasDoMes, type Ocorrencia } from "../calendar/indulgencias";
 import { indulgencias } from "../data/indulgenciasDias";
 import { Elo } from "../routes/Elo";
 import { porExtensoCurto } from "./DiaDeHoje";

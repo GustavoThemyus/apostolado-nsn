@@ -1,13 +1,13 @@
 import { Desenvolvimento } from "./Desenvolvimento";
 import { NomeDaFesta } from "./NomeDaFesta";
-import { NOME_DA_PENITENCIA, penitenciaDe } from "../calendario/penitencia";
-import { postagemDoDia } from "../calendario/vinculo";
+import { NOME_DA_PENITENCIA, penitenciaDe } from "../calendar/penitencia";
+import { postagemDoDia } from "../calendar/vinculo";
 import { publicadas } from "../data/postagens";
 import { Elo } from "../routes/Elo";
 import { Seta } from "./Seta";
 import { porExtensoCurto } from "./DiaDeHoje";
-import { NOME_DO_TEMPO } from "../calendario/tipos";
-import type { DiaLiturgico } from "../calendario/tipos";
+import { NOME_DO_TEMPO } from "../calendar/tipos";
+import type { DiaLiturgico } from "../calendar/tipos";
 
 const MESES = [
   "janeiro",

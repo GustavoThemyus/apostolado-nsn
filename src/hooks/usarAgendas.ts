@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { dataDaFestaMovel } from "../calendario/moveis";
+import { dataDaFestaMovel } from "../calendar/moveis";
 import type { ItemDeAgenda } from "../data/tipos";
 
 export interface ItemVinculado extends ItemDeAgenda {

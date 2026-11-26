@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { mesLiturgico } from "../calendario/precedencia";
-import { ehFestaMaiorDoOrdo, temOrdo, ultimoDiaDoOrdo } from "../calendario/ordo";
-import { penitenciaDe } from "../calendario/penitencia";
+import { mesLiturgico } from "../calendar/precedencia";
+import { ehFestaMaiorDoOrdo, temOrdo, ultimoDiaDoOrdo } from "../calendar/ordo";
+import { penitenciaDe } from "../calendar/penitencia";
 import { DetalheDoDia } from "../components/DetalheDoDia";
 import { LegendaDaGrade, MarcaDePenitencia } from "../components/MarcaDePenitencia";
 import { DetalheDoOrdo } from "../components/DetalheDoOrdo";
@@ -16,7 +16,7 @@ import { AtalhosDaSecao, CartoesDeSecao } from "../components/CartoesDeSecao";
 import { usarOrdo } from "../hooks/usarOrdo";
 import { Moldura } from "../components/Moldura";
 import { usarRota } from "../routes/usarRota";
-import { comoIso, diaDaBusca, hojeUTC } from "../calendario/dias";
+import { comoIso, diaDaBusca, hojeUTC } from "../calendar/dias";
 
 const MESES = [
   "janeiro",

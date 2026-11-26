@@ -1,7 +1,7 @@
 import { ARQUIDIOCESE, LEMBRANCA, agendasLembradas } from "../data/agendasLigadas";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { indulgenciasDoMes, temPlenaria } from "../calendario/indulgencias";
-import { mesLiturgico } from "../calendario/precedencia";
+import { indulgenciasDoMes, temPlenaria } from "../calendar/indulgencias";
+import { mesLiturgico } from "../calendar/precedencia";
 import { ListaDeBlocos } from "./Bloco";
 import { TextoRico } from "./TextoRico";
 import { GradeDoMes, mesmoDia } from "./GradeDoMes";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { carregarOrdo, mesDoOrdo, temOrdo, type DiaDoOrdo } from "../calendario/ordo";
+import { carregarOrdo, mesDoOrdo, temOrdo, type DiaDoOrdo } from "../calendar/ordo";
 
 export interface EstadoDoOrdo {
   dias: DiaDoOrdo[];

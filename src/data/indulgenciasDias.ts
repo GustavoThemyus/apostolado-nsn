@@ -1,5 +1,5 @@
 import bruto from "./indulgencias-dias.json";
-import type { DiaDeIndulgencia, Especie } from "../calendario/indulgencias";
+import type { DiaDeIndulgencia, Especie } from "../calendar/indulgencias";
 import type { Bloco } from "./tipos";
 
 export interface Colecao {

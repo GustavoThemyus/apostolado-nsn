@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { Cor } from "../calendario/tipos";
+import type { Cor } from "../calendar/tipos";
 
 export interface DiaNaGrade {
   data: Date;

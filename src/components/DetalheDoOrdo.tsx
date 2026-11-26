@@ -10,17 +10,17 @@ import {
   soONomeDaMissa,
   type Celebracao,
   type DiaDoOrdo,
-} from "../calendario/ordo";
-import { NOME_DA_PENITENCIA } from "../calendario/penitencia";
-import { NOME_DO_TEMPO } from "../calendario/tipos";
+} from "../calendar/ordo";
+import { NOME_DA_PENITENCIA } from "../calendar/penitencia";
+import { NOME_DO_TEMPO } from "../calendar/tipos";
 import { NomeDaFesta } from "./NomeDaFesta";
 import { NotasDoOrdo } from "./NotasDoOrdo";
 import { Seta } from "./Seta";
 import { TabelaDaMissa } from "./TabelaDaMissa";
-import { postagemDoDia } from "../calendario/vinculo";
+import { postagemDoDia } from "../calendar/vinculo";
 import { publicadas } from "../data/postagens";
-import { folhetoDoAnexo } from "../calendario/proprioDoDia";
-import { comoIso } from "../calendario/dias";
+import { folhetoDoAnexo } from "../calendar/proprioDoDia";
+import { comoIso } from "../calendar/dias";
 import { Elo } from "../routes/Elo";
 
 function EloDoProprio({

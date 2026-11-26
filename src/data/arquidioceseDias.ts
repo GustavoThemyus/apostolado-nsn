@@ -1,5 +1,5 @@
 import bruto from "./arquidiocese-dias.json";
-import type { Quando } from "../calendario/indulgencias";
+import type { Quando } from "../calendar/indulgencias";
 
 export interface DiaDaArquidiocese {
   id: string;

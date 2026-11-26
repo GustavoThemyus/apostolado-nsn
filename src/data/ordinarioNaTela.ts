@@ -1,5 +1,5 @@
-import type { NaMissaDoDia } from "../calendario/naMissaDoDia";
-import { condicaoValeNoDia } from "../calendario/naMissaDoDia";
+import type { NaMissaDoDia } from "../calendar/naMissaDoDia";
+import { condicaoValeNoDia } from "../calendar/naMissaDoDia";
 import type { Bloco, PosturaDoMomento } from "./tipos";
 
 export interface OpcoesDeLeitura {

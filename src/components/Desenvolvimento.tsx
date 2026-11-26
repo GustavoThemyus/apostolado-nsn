@@ -1,5 +1,5 @@
-import { desenvolvimentoDe, ritoProprioDe } from "../calendario/desenvolvimento";
-import type { DiaLiturgico } from "../calendario/tipos";
+import { desenvolvimentoDe, ritoProprioDe } from "../calendar/desenvolvimento";
+import type { DiaLiturgico } from "../calendar/tipos";
 
 const Sim = ({ v }: { v: boolean }) => (
   <span className={v ? "sinal sinal--sim" : "sinal sinal--nao"}>{v ? "sim" : "não"}</span>

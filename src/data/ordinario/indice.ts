@@ -1,4 +1,4 @@
-// Gerado por ferramentas/ordinario/gerar.py. Não edite à mão.
+// Gerado por tools/ordinario/gerar.py. Não edite à mão.
 
 export interface SecaoDoOrdinario {
   id: string;

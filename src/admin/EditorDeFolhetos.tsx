@@ -195,7 +195,7 @@ function EditorDeFolheto({
       {folheto.categoria === "proprio" && (
         <p className="admin__ajuda admin__ajuda--atencao">
           Este próprio não foi digitado: sai do PDF que o Ordo anexa ao dia,
-          pela ferramenta que mora em ferramentas/proprios. Pode mexer à
+          pela ferramenta que mora em tools/proprios. Pode mexer à
           vontade na ordem e nos títulos — mas saiba que uma remessa nova de
           PDFs apaga o que estiver mudado aqui, sem avisar. Gralha de texto,
           então, é melhor corrigir no PDF ou na lista de erratas do gerador:
@@ -284,7 +284,7 @@ function EditorDeFolheto({
       </Campo>
       <Campo
         rotulo="Estampa"
-        dica="Caminho de um arquivo em /public/folhetos, como /folhetos/cristo-rei-8d2a1f04.webp. Sai de ferramentas/folhetos."
+        dica="Caminho de um arquivo em /public/folhetos, como /folhetos/cristo-rei-8d2a1f04.webp. Sai de tools/folhetos."
       >
         <Linha valor={folheto.imagem ?? ""} aoMudar={(imagem) => troca({ imagem })} />
       </Campo>

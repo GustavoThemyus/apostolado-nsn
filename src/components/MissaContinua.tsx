@@ -1,9 +1,9 @@
 import type { PosturaDoMomento } from "../data/tipos";
 import { Fragment, useEffect, useMemo, useState } from "react";
-import { comoIso, diaDaBusca, hojeUTC } from "../calendario/dias";
-import { naMissaDoOrdo, temOrdo } from "../calendario/ordo";
-import { naMissaDoDia, type NaMissaDoDia } from "../calendario/naMissaDoDia";
-import { folhetoDoDia } from "../calendario/proprioDoDia";
+import { comoIso, diaDaBusca, hojeUTC } from "../calendar/dias";
+import { naMissaDoOrdo, temOrdo } from "../calendar/ordo";
+import { naMissaDoDia, type NaMissaDoDia } from "../calendar/naMissaDoDia";
+import { folhetoDoDia } from "../calendar/proprioDoDia";
 import { porId } from "../data/folhetos";
 import {
   SECOES,

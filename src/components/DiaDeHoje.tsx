@@ -1,17 +1,17 @@
 import { useMemo } from "react";
 import { Elo } from "../routes/Elo";
-import { diaLiturgico } from "../calendario/precedencia";
-import { analisarMissa, celebracoesDoOrdo, patrocinioDoGrau, naQuaresma, soONomeDaMissa, temOrdo, type DiaDoOrdo } from "../calendario/ordo";
-import { NOME_DA_PENITENCIA } from "../calendario/penitencia";
+import { diaLiturgico } from "../calendar/precedencia";
+import { analisarMissa, celebracoesDoOrdo, patrocinioDoGrau, naQuaresma, soONomeDaMissa, temOrdo, type DiaDoOrdo } from "../calendar/ordo";
+import { NOME_DA_PENITENCIA } from "../calendar/penitencia";
 import { usarOrdo } from "../hooks/usarOrdo";
 import { Desenvolvimento } from "./Desenvolvimento";
 import { NomeDaFesta } from "./NomeDaFesta";
 import { NotasDoOrdo } from "./NotasDoOrdo";
 import { semOChapeu, TabelaDaMissa } from "./TabelaDaMissa";
 import { mesmoDia } from "./GradeDoMes";
-import { comoIso } from "../calendario/dias";
+import { comoIso } from "../calendar/dias";
 import { Seta } from "./Seta";
-import { NOME_DO_TEMPO } from "../calendario/tipos";
+import { NOME_DO_TEMPO } from "../calendar/tipos";
 
 const NOME_DA_COR: Record<string, string> = {
   branco: "Branco",

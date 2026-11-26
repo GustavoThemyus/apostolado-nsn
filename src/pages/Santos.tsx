@@ -4,7 +4,7 @@ import { Vazia } from "../components/Vazia";
 import { publicadas } from "../data/postagens";
 import { Elo } from "../routes/Elo";
 import { Seta } from "../components/Seta";
-import { diaHabitualDaFesta } from "../calendario/vinculo";
+import { diaHabitualDaFesta } from "../calendar/vinculo";
 
 const MESES = [
   "janeiro",

@@ -1,4 +1,4 @@
-import { NOME_DA_PENITENCIA, type Penitencia } from "../calendario/penitencia";
+import { NOME_DA_PENITENCIA, type Penitencia } from "../calendar/penitencia";
 import { NOME_DO_SINAL, Sinal, type Sinal as NomeDeSinal } from "./SinaisDoDia";
 
 export function MarcaDePenitencia({ penitencia }: { penitencia?: Penitencia }) {

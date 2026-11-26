@@ -1,6 +1,6 @@
-import { celebracoesDoOrdo, type DiaDoOrdo } from "../calendario/ordo";
-import { NOMES_DO_BRASIL } from "../calendario/proprioBrasil";
-import type { DiaLiturgico } from "../calendario/tipos";
+import { celebracoesDoOrdo, type DiaDoOrdo } from "../calendar/ordo";
+import { NOMES_DO_BRASIL } from "../calendar/proprioBrasil";
+import type { DiaLiturgico } from "../calendar/tipos";
 
 export type Sinal = "primeiraQuinta" | "primeiraSexta" | "brasil" | "temporas";
 

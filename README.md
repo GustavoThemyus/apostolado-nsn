@@ -101,7 +101,7 @@ A versão está presa em 4.85.0 porque a 4.86 em diante exige Node 22. O
 
 ### O endereço antigo
 
-`redirecionador/` é um Worker de nove linhas, publicado numa conta separada,
+`redirect/` é um Worker de nove linhas, publicado numa conta separada,
 que manda `apostolado-nsn.gustavothemyus.workers.dev` para `ansn.com.br`
 preservando caminho e busca. **Não apague esse Worker:** o endereço antigo está
 impresso na página 2 do PDF do calendário arquidiocesano que o Apostolado
@@ -178,7 +178,7 @@ localizada que a fonte traz. `base.css` desliga isso com
 como data URI e aplicado por `mask-image`. Só aparece no cabeçalho e no sumário
 flutuante, nunca atrás do texto corrido.
 
-O brasão vem em três artes, geradas por `ferramentas/brasao/gerar.py`:
+O brasão vem em três artes, geradas por `tools/brasao/gerar.py`:
 
 | Arquivo | Onde |
 | --- | --- |
@@ -198,17 +198,17 @@ erro nenhum para denunciar.
 src/
   pages/         uma por rota; quase todas são cinco linhas sobre PaginaDeDocumento
   components/    peças de interface, uma por arquivo
-  calendario/    o motor de 1962, o Ordo, as indulgências e as suítes
+  calendar/      o motor de 1962, o Ordo, as indulgências e as suítes
   routes/        roteador escrito à mão: tabela, casamento, Elo, Roteador
   admin/         o painel de edição
   data/          o conteúdo, em JSON, separado da apresentação
   hooks/         tema, seção ativa e progresso de leitura
   styles/        tokens em tema.css, layout em base.css, damasco.svg
 worker/          o Worker: API do painel, Access, GitHub, agendas
-ferramentas/     importadores e geradores (Ordo, Enchiridion, brasão, retratos)
-redirecionador/  o Worker do endereço antigo
+tools/           importadores e geradores (Ordo, Enchiridion, brasão, retratos)
+redirect/        o Worker do endereço antigo
 public/          imagens e _headers
-legado/          o HTML único que deu origem ao projeto
+legacy/          o HTML único que deu origem ao projeto
 ```
 
 O roteador é escrito à mão de propósito: não há loaders, revalidação nem dados
@@ -250,10 +250,10 @@ uma lista de `blocos`; o número da seção **não se guarda**, é derivado da
 posição, porque valor derivado que se guarda volta a divergir a cada mudança.
 
 Dois documentos não se editam à mão: `src/data/ordo/` vem de
-`ferramentas/ordo/` e `indulgencias-arquidiocese.json` vem de
-`ferramentas/arquidiocese/`. Os dois têm LEIA-ME explicando por quê.
+`tools/ordo/` e `indulgencias-arquidiocese.json` vem de
+`tools/arquidiocese/`. Os dois têm LEIA-ME explicando por quê.
 
-`src/data/conteudo.teste.ts` confere o que quebra calado: chamada de nota sem
+`src/data/conteudo.test.ts` confere o que quebra calado: chamada de nota sem
 nota, elo sem destino, nota que se cita dentro de si mesma, e a etiqueta "em
 preparação" da rota contra o que cada página diz de si.
 

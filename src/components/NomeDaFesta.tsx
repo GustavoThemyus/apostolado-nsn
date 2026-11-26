@@ -1,4 +1,4 @@
-import { postagemDaFesta, type DiaParaVinculo } from "../calendario/vinculo";
+import { postagemDaFesta, type DiaParaVinculo } from "../calendar/vinculo";
 import { publicadas } from "../data/postagens";
 import { Elo } from "../routes/Elo";
 
