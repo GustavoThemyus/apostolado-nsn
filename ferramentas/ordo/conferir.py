@@ -10,7 +10,7 @@ import json, os, re, sys, datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from importar import (ICS, PASTA, CORES, ESCRITA, SEPARADOR, cabeca_e_resto, desdobrar,
-                      campo, eh_formato_novo)
+                      campo, eh_formato_novo, eh_lembrete)
 
 with open(ICS, encoding="utf-8") as f:
     bruto = desdobrar(f.read())
@@ -19,7 +19,7 @@ with open(ICS, encoding="utf-8") as f:
 origem = {}
 for evento in re.findall(r"BEGIN:VEVENT(.*?)END:VEVENT", bruto, re.S):
     d = re.search(r"DTSTART[^:]*:(\d{8})", evento)
-    if not d:
+    if not d or eh_lembrete(evento):
         continue
     data = f"{d.group(1)[:4]}-{d.group(1)[4:6]}-{d.group(1)[6:]}"
     origem[data] = {"titulo": campo(evento, "SUMMARY"),

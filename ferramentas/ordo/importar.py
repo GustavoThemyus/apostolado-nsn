@@ -242,9 +242,22 @@ def ler_dia_novo(nome, corpo, data, problemas):
     return dia
 
 
+def eh_lembrete(evento):
+    """
+    Anotação posta na mesma agenda, e que não é dia do Ordo: não tem texto, nem
+    anexo, nem o círculo de cor. Não vai para o site. As três coisas juntas,
+    para um dia do Ordo que perca uma delas continuar parando a importação.
+    """
+    titulo = campo(evento, "SUMMARY")
+    return bool(titulo) and not (titulo[0] in CORES or campo(evento, "DESCRIPTION")
+                                 or "\nATTACH" in evento)
+
+
 def ler(dados):
     dias, problemas = {}, []
     for evento in re.findall(r"BEGIN:VEVENT(.*?)END:VEVENT", desdobrar(dados), re.S):
+        if eh_lembrete(evento):
+            continue
         quando = re.search(r"DTSTART[^:]*:(\d{8})", evento)
         titulo = campo(evento, "SUMMARY")
         if not (quando and titulo):
