@@ -15,12 +15,6 @@ interface Brasao {
 
 const brasao = bruto as Brasao;
 
-/**
- * O brasão do Apostolado, explicado elemento por elemento.
- *
- * Os dois textos de fora — a abertura e o fecho — são fixos, como o Perez
- * pediu; os quatro de dentro abrem sob demanda, a partir do próprio brasão.
- */
 export default function ApostoladoBrasao() {
   return (
     <Moldura titulo={brasao.titulo}>

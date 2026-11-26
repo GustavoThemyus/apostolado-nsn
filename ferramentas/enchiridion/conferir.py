@@ -1,16 +1,17 @@
-"""Confere a transcrição contra o .docx. Roda depois de cada conversão."""
 import json, io, re, unicodedata, sys
 ps = json.load(io.open("paragrafos.json", encoding="utf-8"))
 d = json.load(io.open("enchiridion.json", encoding="utf-8"))
 SUPS = "⁰¹²³⁴⁵⁶⁷⁸⁹"
 
+
 def limpo(t):
-    t = re.sub(r"\[nota\][^\[]*\[/nota\]", "", t)      # chamada inteira
+    t = re.sub(r"\[nota\][^\[]*\[/nota\]", "", t)
     t = re.sub(r"\[/?(?:i|b|lat|r|elo)(?::[^\]]*)?\]", "", t)
     t = t.replace("\xa0", " ")
     t = "".join(c for c in t if c not in SUPS)
     t = re.sub(r"\s+", " ", unicodedata.normalize("NFC", t)).strip(" .*:")
-    return re.sub(r"^-\s*", "", t)   # o hífen manual virou item de lista
+    return re.sub(r"^-\s*", "", t)
+
 
 def textos(b):
     for k in ("texto", "titulo"):
@@ -21,7 +22,6 @@ def textos(b):
     for l in b.get("linhas", []):
         for c in l: yield c
     for c in b.get("colunas", []): yield c
-    # o bloco bilíngue guarda os dois lados como blocos dentro dele
     for k in ("latim", "portugues", "corpo"):
         for filho in b.get(k, []):
             yield from textos(filho)
@@ -33,13 +33,9 @@ for s in d["secoes"]:
 partes += [limpo(v) for v in d["notas"].values()]
 saco, grande = set(partes), " ¦ ".join(partes)
 
-# omissões deliberadas, cada uma com o motivo
 TITULOS = {68, 80, 98, 100, 121, 191, 203, 282, 300, 722, 772, 773, 798, 799, 815, 816, 952}
 SUBTITULOS = {192, 283, 723, 729, 953, 1017, 1018, 1025, 1044, 820, 828, 836, 841, 861, 869}
 INSTRUCOES = {4, 5, 6, 7, 8, 11}
-# o único parágrafo que o conversor parte em dois de propósito: o ℣ e o ℟ do
-# "O sacrum convivium", que do lado português couberam na mesma linha e do
-# lado latino são duas. Aqui se exige que as duas metades tenham chegado.
 VERSICULO_PARTIDO = {364}
 SUMARIO = set(range(13, 68))
 ROMANOS = {204, 222, 242, 260}
@@ -52,8 +48,9 @@ for i, p in enumerate(ps):
     if c in saco or c in grande: continue
     ausentes.append((i, c))
 
+
 def rotular(i, c):
-    if i in INSTRUCOES: return "recado do Perez, atendido em vez de publicado"
+    if i in INSTRUCOES: return "recado de quem enviou o texto, atendido em vez de publicado"
     if i in VERSICULO_PARTIDO:
         metades = [limpo(x) for x in re.split(r"(?=℟)", c) if x.strip()]
         if len(metades) == 2 and all(m in saco for m in metades):
@@ -71,7 +68,6 @@ for i, c in ausentes:
     r = rotular(i, c)
     if r is None: restos.append((i, c))
 
-# --- o índice analítico, conferido entrada por entrada ---------------------
 import unicodedata as _u
 def _ch(t):
     t = _u.normalize("NFD", t.lower())

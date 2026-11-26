@@ -1,23 +1,12 @@
 import type { CSSProperties } from "react";
 import { site } from "../data/site";
 
-/**
- * Os retratos na lateral das páginas: o Soberano Pontífice, o Arcebispo
- * Metropolitano e a Padroeira. Pedido do Perez, só para o computador.
- *
- * Fica fora da página inicial, que já tem os padroeiros no corpo, e some
- * abaixo de 90rem: é ali que a coluna de texto começaria a ser espremida para
- * dar lugar a ela, e as orações lado a lado do Enchiridion deixariam de caber.
- * Quem decide isso é o CSS, e não este componente — sem piscar na primeira
- * pintura.
- */
 export function Lateral() {
   const retratos = (site.lateral ?? []).filter((r) => r.imagem);
   if (retratos.length === 0) return null;
 
   return (
     <aside className="lateral" aria-label="Retratos">
-      {/* quantos são decide a altura de cada um: todos têm de caber na janela */}
       <div
         className="lateral__pilha"
         style={{ "--retratos": Math.max(retratos.length, 3) } as CSSProperties}

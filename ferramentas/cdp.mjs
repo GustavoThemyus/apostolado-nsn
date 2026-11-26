@@ -1,26 +1,3 @@
-/**
- * Cliente mínimo do DevTools Protocol, para medir o site num navegador de
- * verdade.
- *
- * Existe porque o Node 20 não traz `WebSocket` global e porque este projeto
- * não aceita dependência sem motivo: um puppeteer inteiro para ler a posição
- * de um elemento não se paga.
- *
- * Uso, com o `vite preview` e um Chrome de depuração no ar:
- *
- *   npx vite preview --port 4173 --strictPort &
- *   google-chrome --headless=new --remote-debugging-port=9222 about:blank &
- *   node ferramentas/meu-teste.mjs
- *
- * E no teste:
- *
- *   import { abrir } from "./cdp.mjs";
- *   const { chamar, ver, tela } = await abrir();
- *
- * Uma lição que este arquivo já cobrou caro: para saber por que um estilo não
- * pega, `getComputedStyle` mente. Quem responde é `CSS.getMatchedStylesForNode`
- * e, em último caso, ler os pixels da captura.
- */
 import net from "node:net";
 import crypto from "node:crypto";
 import fs from "node:fs";
@@ -102,7 +79,6 @@ export function conectar(url) {
             msg.error ? p.falhar(new Error(JSON.stringify(msg.error))) : p.ok(msg.result);
           }
         } catch {
-          /* quadro que não é JSON não interessa aqui */
         }
       }
     });
@@ -120,7 +96,6 @@ export function conectar(url) {
   });
 }
 
-/** Conecta na primeira aba e devolve os atalhos que todo teste daqui usa. */
 export async function abrir(porta = 9222) {
   const abas = await (await fetch(`http://127.0.0.1:${porta}/json/list`)).json();
   const aba = abas.find((a) => a.type === "page");
@@ -130,7 +105,6 @@ export async function abrir(porta = 9222) {
   await chamar("DOM.enable");
   await chamar("CSS.enable");
 
-  /** Roda a expressão na página e devolve o JSON que ela produzir. */
   const ver = async (expressao) =>
     JSON.parse(
       (await chamar("Runtime.evaluate", { expression: expressao, returnByValue: true }))

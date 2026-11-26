@@ -22,7 +22,6 @@ const NOME_DA_COR: Record<string, string> = {
   rosa: "Rosa",
 };
 
-/** "2026-12-08" -> "8 de dezembro". */
 export function porExtensoCurto(iso: string): string {
   const [, m, d] = iso.split("-").map(Number);
   const MESES = [
@@ -52,18 +51,6 @@ function porExtenso(data: Date): string {
   }).format(data);
 }
 
-/**
- * Faixa com o dia litúrgico de hoje, no Ordo que a capela segue.
- *
- * "O calendário da página inicial eu quero que seja o pré 55", pediu o Perez,
- * e tem razão: quem chega ao site quer saber o que se reza *na capela* hoje,
- * não o que o Missal de 1962 mandaria. O de 1962 continua a um toque daqui,
- * no calendário do ano, com o botão que troca os dois.
- *
- * O Ordo só cobre os anos que o Apostolado publicou. Fora deles esta faixa
- * volta ao cálculo de 1962 — que é dedução, e não a palavra do Ordo, mas é
- * melhor que uma caixa vazia na primeira tela do site.
- */
 export function DiaDeHoje({ data }: { data?: Date }) {
   const hoje = useMemo(() => {
     if (data) return data;
@@ -74,12 +61,6 @@ export function DiaDeHoje({ data }: { data?: Date }) {
   }, [data]);
 
   const ano = hoje.getUTCFullYear();
-  /*
-   * `temOrdo` responde sem baixar nada, e é o que evita a troca de conteúdo
-   * na cara do leitor: no ano sem Ordo a faixa de 1962 aparece já pronta, e
-   * no ano com Ordo nunca se mostra o dia de 1962 para depois substituí-lo
-   * por outro — o que apareceria como a festa de hoje mudando de nome.
-   */
   const comOrdo = temOrdo(ano, hoje.getUTCMonth() + 1, hoje.getUTCDate());
   const ordo = usarOrdo(ano, hoje.getUTCMonth() + 1, comOrdo);
   const doOrdo = useMemo(
@@ -91,22 +72,12 @@ export function DiaDeHoje({ data }: { data?: Date }) {
 
   return (
     <aside
-      /*
-       * Enquanto o Ordo do ano não chega, a faixa guarda a altura que vai
-       * ocupar. Sem isso o que vem abaixo dela — os avisos, os cartões —
-       * subia e descia na primeira tela do site, a cada visita.
-       */
       className={`dia${doOrdo ? "" : " dia--carregando"}`}
       aria-label="Dia litúrgico de hoje"
       aria-busy={doOrdo ? undefined : true}
     >
       <p className="dia__data">{porExtenso(hoje)}</p>
       {doOrdo && <DoOrdo dia={doOrdo} />}
-      {/*
-       * O modo missa: o Ordinário inteiro, com o próprio deste dia já
-       * encaixado nos dez lugares que o impresso deixa em branco. Entra-se
-       * nele daqui, e não pelo menu, porque é a faixa que sabe que dia é.
-       */}
       <div className="dia__acoes">
         <Elo para={`/missa/dia?dia=${comoIso(hoje)}`} className="dia__modo-missa">
           Acompanhar a Missa
@@ -120,7 +91,6 @@ export function DiaDeHoje({ data }: { data?: Date }) {
   );
 }
 
-/** O dia como o Ordo da capela o traz: nada deduzido, tudo copiado. */
 function DoOrdo({ dia }: { dia: DiaDoOrdo }) {
   const celebracao = celebracoesDoOrdo(dia)[0];
   const naMissa = analisarMissa(celebracao?.missa);
@@ -175,33 +145,17 @@ function DoOrdo({ dia }: { dia: DiaDoOrdo }) {
           {naMissa.comemoracoes.map(semOChapeu).join("; ")}
         </p>
       )}
-      {/*
-        Só a Missa da capela. O dia pode trazer a do Calendário Universal e a
-        do Brasil, mas aqui é faixa de resumo: o dia inteiro está no
-        calendário, a um toque.
-      */}
       {naMissa && <TabelaDaMissa
           naMissa={naMissa}
           titulo="Na Missa deste dia"
           quaresma={naQuaresma(dia.tempo)}
           soONome={soONomeDaMissa(dia.data)}
         />}
-      {/*
-        As rubricas do dia entram, quando há. "No calendário da página inicial
-        eu quero que dê pra ver as notas do dia, quando houver", pediu o Perez.
-        São as da celebração da capela — a Publicatio, o quando ajoelhar, o
-        que se bendiz — e em 2026 aparecem em 211 dos 365 dias.
-      */}
       <NotasDoOrdo notas={celebracao?.notas ?? []} />
     </>
   );
 }
 
-/**
- * O dia deduzido das rubricas de 1962, para os anos sem Ordo publicado.
- *
- * Cobre o Temporal e o Santoral; é o mesmo motor da página do calendário.
- */
 function De1962({ hoje }: { hoje: Date }) {
   const dia = diaLiturgico(hoje);
 
@@ -248,11 +202,6 @@ function De1962({ hoje }: { hoje: Date }) {
         </p>
       ))}
       <Desenvolvimento dia={dia} />
-      {/*
-       * O modo missa: o Ordinário inteiro, com o próprio deste dia já
-       * encaixado nos dez lugares que o impresso deixa em branco. Entra-se
-       * nele daqui, e não pelo menu, porque é a faixa que sabe que dia é.
-       */}
       <div className="dia__acoes">
         <Elo para={`/missa/dia?dia=${comoIso(hoje)}`} className="dia__modo-missa">
           Acompanhar a Missa

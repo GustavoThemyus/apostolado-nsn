@@ -1,11 +1,3 @@
-"""
-Confere `src/data/ordo/<ano>.json` contra o `.ics` de onde saiu.
-
-Não basta o importador ter rodado sem erro: ele pode ter lido certo e escrito
-de menos. Aqui se exige que cada dia do Ordo tenha chegado inteiro, que o
-círculo de cor concorde com a cor escrita por extenso, e que nenhum dia do ano
-tenha ficado sem celebração. Sai != 0 se falhar.
-"""
 import json, os, re, sys, datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -15,7 +7,6 @@ from importar import (ICS, PASTA, CORES, ESCRITA, SEPARADOR, cabeca_e_resto, des
 with open(ICS, encoding="utf-8") as f:
     bruto = desdobrar(f.read())
 
-# --- o que está no .ics -----------------------------------------------------
 origem = {}
 for evento in re.findall(r"BEGIN:VEVENT(.*?)END:VEVENT", bruto, re.S):
     d = re.search(r"DTSTART[^:]*:(\d{8})", evento)
@@ -25,10 +16,8 @@ for evento in re.findall(r"BEGIN:VEVENT(.*?)END:VEVENT", bruto, re.S):
     origem[data] = {"titulo": campo(evento, "SUMMARY"),
                     "descricao": campo(evento, "DESCRIPTION")}
 
-# --- o que foi publicado ----------------------------------------------------
 publicado = {}
 anos = sorted(a for a in os.listdir(PASTA) if a.endswith(".json"))
-# só os anos que esta agenda traz: cada uma se confere com o que é dela
 anos = [a for a in anos if any(d.startswith(a[:4]) for d in origem)]
 for arquivo in anos:
     with open(os.path.join(PASTA, arquivo), encoding="utf-8") as f:
@@ -43,11 +32,8 @@ if sobrando:
 if faltando:
     problemas.append(f"dias do Ordo que não foram publicados: {sorted(faltando)[:5]}")
 
+
 def conferir_formato_novo(data, dia, titulo, corpo):
-    """
-    Tira do texto do Ordo tudo o que foi publicado. O que sobrar só pode ser
-    rótulo de campo, separador de Missa ou o anúncio da penitência.
-    """
     def juntar(t):
         return re.sub(r"\s+", " ", t).strip()
 
@@ -69,7 +55,6 @@ def conferir_formato_novo(data, dia, titulo, corpo):
             publicadas.append(f"{m['proprio']}:")
         if i:
             publicadas.append(m["nome"])
-    # os maiores primeiro, para um trecho curto não comer o meio de um longo
     for trecho in sorted(map(juntar, publicadas), key=len, reverse=True):
         achado = re.search(re.escape(trecho), sobra, re.I)
         if not achado:
@@ -80,7 +65,6 @@ def conferir_formato_novo(data, dia, titulo, corpo):
                    r"Hoje é dispensada a Abstinência de carne", "", sobra, flags=re.I)
     if sobra.strip():
         problemas.append(f"{data}: ficou de fora: {juntar(sobra)[:80]!r}")
-
 
 for data, dia in sorted(publicado.items()):
     fonte = origem.get(data)
@@ -104,22 +88,11 @@ for data, dia in sorted(publicado.items()):
     if ESCRITA[dia["cor"]] not in cabeca.lower():
         problemas.append(f"{data}: a cor escrita não confirma o círculo — {cabeca[:60]!r}")
 
-    # todo parágrafo do Ordo chegou, e nenhum foi inventado
     doOrdo = [p.strip() for p in re.split(r"\n\s*\n", resto) if p.strip()]
     if doOrdo != dia.get("partes", []):
         problemas.append(f"{data}: as partes não batem ({len(doOrdo)} no Ordo, "
                          f"{len(dia.get('partes', []))} publicadas)")
 
-# --- os PDF do próprio da Missa não podem sumir -----------------------------
-#
-# Em 28/09/2026 o Perez passou os calendários para o e-mail do Apostolado. O
-# texto dos 365 dias veio igualzinho, e os 92 anexos não vieram: mover eventos
-# no Google não leva os anexos junto, e o .ics novo saiu sem uma linha ATTACH.
-# Uma importação distraída teria apagado do site os links de "Confira o próprio
-# da Missa", que é coisa que ele mesmo pediu.
-#
-# Daí esta conferência olhar para trás: se o Ordo novo traz menos anexos do que
-# o já publicado, ela para. Quem decide o que fazer é gente, não o script.
 noIcs = sum(len(d.get("anexos") or []) for d in publicado.values())
 naOrigem = len(re.findall(r"\r?\nATTACH", bruto))
 if naOrigem < noIcs:
@@ -127,11 +100,9 @@ if naOrigem < noIcs:
         f"o Ordo publicado tem {noIcs} anexos e o .ics traz {naOrigem}: "
         "reanexar os PDF no calendário novo, ou manter o JSON como está")
 
-# --- nenhum buraco no ano ---------------------------------------------------
 for arquivo in anos:
     ano = int(arquivo.removesuffix(".json"))
     dia = datetime.date(ano, 1, 1)
-    # o ano em preparação vai até onde o calendário vai, sem buraco no meio
     while dia.year == ano and dia.isoformat() <= max(origem):
         if dia.isoformat() not in publicado:
             problemas.append(f"{dia.isoformat()}: dia sem celebração no Ordo")

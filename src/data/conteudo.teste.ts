@@ -1,12 +1,3 @@
-/**
- * Integridade dos documentos de conteúdo. Roda junto com `npm test`.
- *
- * Guarda três coisas que quebram calado: chamada de nota sem nota, link de
- * âncora sem destino e nota que se cita dentro de si mesma. As três nascem de
- * edição pelo painel, e a terceira já derrubou o navegador uma vez, por
- * recursão, antes desta suíte existir.
- */
-
 import apostolado from "./apostolado.json";
 import brasao from "./brasao.json";
 import arquidiocese from "./calendario-arquidiocese.json";
@@ -65,7 +56,6 @@ const ancorasDe = (secoes: Secao[]): Set<string> => {
   for (const secao of secoes) {
     saida.add(secao.id);
     for (const bloco of secao.blocos) {
-      // o subtítulo abre a concessão; o parágrafo é o §1, 3.º dentro dela
       if ("ancora" in bloco && bloco.ancora) saida.add(bloco.ancora);
     }
   }
@@ -74,45 +64,11 @@ const ancorasDe = (secoes: Secao[]): Set<string> => {
 
 const CAMINHOS_DE_ROTA = new Set(ROTAS.map((r) => r.padrao));
 
-/*
- * O destino de um elo pode cair num padrão com curinga.
- *
- * "/folhetos/cristo-rei" não está na lista de rotas — quem está é
- * "/folhetos/:id". Comparar só por igualdade reprovava todo link para um
- * folheto ou uma postagem, que são justamente os destinos que mais se
- * escrevem à mão. Aqui o caminho passa pelo mesmo `casar` do Roteador, e é a
- * conferência de id logo abaixo que diz se o folheto existe de fato.
- */
 const ehRotaConhecida = (caminho: string): boolean =>
   CAMINHOS_DE_ROTA.has(caminho) || ROTAS.some((r) => casar(r.padrao, caminho) !== null);
 
-/**
- * A estampa existe mesmo em /public?
- *
- * Caminho errado numa imagem não dá erro nenhum: o navegador mostra o alt
- * vazio e a folha fica sem a figura, que é a parte que o Perez mais quer ver
- * publicada. O nome leva a impressão do conteúdo, então um arquivo
- * regenerado troca de nome e deixa o JSON apontando para o antigo.
- *
- * Caminho relativo à raiz: a suíte é empacotada em CJS e rodada de lá pelo
- * `npm test`, onde `import.meta.url` não existe.
- */
 const existeEmPublico = (caminho: string): boolean => existsSync(`public${caminho}`);
 
-/**
- * As medidas reais de um WebP, lidas do cabeçalho.
- *
- * O folheto declara `largura` e `altura` ao lado de `imagem`, e é delas que o
- * navegador tira a proporção antes de a figura chegar. Declaradas erradas,
- * nada falha: a folha abre com um buraco de proporção errada e o texto salta
- * quando a imagem carrega. Como o nome do arquivo leva a impressão do
- * conteúdo, trocar a figura troca o nome — e é fácil copiar o caminho novo
- * esquecendo as duas linhas de baixo. Aqui as três são conferidas juntas.
- *
- * Só o VP8 com perdas, que é o que `ferramentas/folhetos/gerar.py` grava.
- * Outro formato devolve `null` e a conferência o deixa passar, em vez de
- * reprovar um arquivo que o teste é que não sabe ler.
- */
 function medidasDoWebp(caminho: string): { largura: number; altura: number } | null {
   const dados = readFileSync(`public${caminho}`);
   if (dados.length < 30) return null;
@@ -125,14 +81,6 @@ function medidasDoWebp(caminho: string): { largura: number; altura: number } | n
   };
 }
 
-/**
- * Três destinos, e os três se quebram calados.
- *
- * Âncora desta página, caminho de outra página do site e endereço externo. O
- * caminho é conferido contra a tabela de rotas, e a âncora dele contra o
- * documento de destino quando temos como saber — hoje, o Enchiridion, que é
- * para onde o calendário arquidiocesano aponta as 33 concessões.
- */
 function destinoExiste(destino: string, ancoras: Set<string>): boolean {
   if (/^(https?:|mailto:)/.test(destino)) return true;
   if (!destino.startsWith("/")) return ancoras.has(destino);
@@ -191,18 +139,11 @@ examinar("guia", guia);
 examinar("indulgências", indulgencias);
 examinar("missa", missa);
 
-// o enchiridion é o caso extremo: vale afirmar o que ele tem de ter
 const ench = enchiridion as unknown as Conteudo;
 conferir("enchiridion: 123 notas mais o asterisco", Object.keys(ench.notas ?? {}).length === 124);
 conferir("enchiridion: as 33 concessões têm âncora",
   [...Array(33)].every((_, i) => ancorasDe(ench.secoes).has(`concessao-${i + 1}`)));
 
-/*
- * Os dias de indulgência apontam para a concessão exata do Enchiridion, e é um
- * link que atravessa página: nada na tela avisa quando ele apodrece, porque o
- * navegador simplesmente não rola. Aqui ele é conferido contra as âncoras que
- * o Enchiridion de fato tem.
- */
 {
   const ancoras = ancorasDe(ench.secoes);
   const registro = dias as unknown as {
@@ -226,12 +167,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("dias de indulgência: todo elo cai numa âncora do Enchiridion",
     quebrados.length === 0, quebrados.join(", "));
 
-  /*
-   * As condições e as observações citam cânones por chamada de nota, e a
-   * chamada sem nota vira um número solto grudado na frase — "oito dias
-   * antes ou depois.1" — sem nada que o explique. São vinte e tantas
-   * citações; conferi-las a olho é o que não se faz duas vezes.
-   */
   const prefacio = dias as unknown as {
     condicoes: { blocos: Bloco[] };
     observacoes: { blocos: Bloco[] };
@@ -258,16 +193,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("dias de indulgência: ids sem repetição", repetidos.length === 0, repetidos.join(", "));
 }
 
-/*
- * Os folhetos.
- *
- * O invariante que é só deles: no bloco bilíngue, as duas colunas casam faixa
- * a faixa pelo subgrid, e quem decide quantas faixas são é o lado mais
- * comprido. Um parágrafo a mais de um lado não quebra nada à vista — ele
- * desencontra a oração dali para baixo, e o leitor passa a rezar o latim de
- * uma estrofe ao lado da tradução de outra. Em 390px, onde as colunas vêm
- * empilhadas, nem isso aparece: o erro só se revela no computador.
- */
 {
   const colecao = folhetos as unknown as {
     condicoes: { titulo: string; blocos: Bloco[] };
@@ -308,22 +233,9 @@ conferir("enchiridion: as 33 concessões têm âncora",
   const arquivosTortos: string[] = [];
   for (const f of colecao.folhetos) {
     conferirPares(f.id, f.blocos);
-    /*
-     * O arquivo no Drive é endereço de fora, e tem de vir inteiro. Escrito
-     * como caminho — "/folhetos/cristo-rei.pdf" — o navegador o lê como
-     * página deste site, e o leitor que clicasse em "baixar" cairia num 404
-     * em vez de no PDF.
-     */
     if (f.arquivo && !/^https:\/\//.test(f.arquivo)) {
       arquivosTortos.push(`${f.id} -> ${f.arquivo}`);
     }
-    /*
-     * A obra e a concessão entram junto com os blocos.
-     *
-     * A concessão inteira virou elo para o ponto exato dentro do Enchiridion,
-     * e é link que atravessa página: quando a âncora some, nada na tela
-     * avisa, porque o navegador simplesmente não rola.
-     */
     const corpo = [f.obra ?? "", f.concessao ?? "", ...f.blocos.flatMap(textosDoBloco)].join("\n");
     for (const m of corpo.matchAll(/\[elo:([^\]]+)\]/g)) {
       if (!destinoExiste(m[1], new Set())) quebrados.push(`${f.id} -> ${m[1]}`);
@@ -357,16 +269,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("folhetos: o arquivo do Drive é endereço inteiro",
     arquivosTortos.length === 0, arquivosTortos.join(", "));
 
-  /*
-   * O cabeçalho impresso de todo próprio.
-   *
-   * Data, nome e grau são transcritos à mão na tabela do gerador, porque o
-   * extrator começa no Intróito e não os vê. O gerador confere o texto de
-   * cada linha contra a primeira página do PDF; o que ele não confere é que
-   * a linha exista, porque uma ficha nova pode simplesmente não trazê-la.
-   * Sem o grau o fiel não sabe de que cor é a Missa do dia, que é metade do
-   * que a folha serve para dizer.
-   */
   const semCabecalho = colecao.folhetos
     .filter((f) => f.categoria === "proprio")
     .filter((f) => !f.cabecalho?.nome?.trim() || !f.cabecalho?.grau?.trim())
@@ -381,16 +283,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
     colecao.condicoes.blocos.length > 0);
 }
 
-/*
- * As postagens.
- *
- * Mesmas três armadilhas dos folhetos, e por isso mesmas conferências: elo
- * que não leva a lugar nenhum, estampa que não existe, medida que não é a do
- * arquivo. A quarta é delas: a vida de santo cita encíclicas, e a chamada de
- * nota sem nota vira um número solto na frase, sem nada que o explique — o
- * leitor vê a afirmação e não vê a fonte, que é exatamente o contrário do
- * que a nota existe para fazer.
- */
 {
   const colecao = postagens as unknown as {
     postagens: {
@@ -447,17 +339,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("postagens: endereços sem repetição", repetidos.length === 0, repetidos.join(", "));
 }
 
-/*
- * O elo que aponta para um folheto ou uma postagem aponta para um id, e o id
- * não está na tabela de rotas: `/folhetos/:id` casa com qualquer coisa. Então
- * `/folhetos/credo` passa por rota boa e abre a página de "não encontrado".
- *
- * Isso importa agora porque o calendário das indulgências manda o leitor ao
- * folheto da oração — foi o que o Perez pediu: "basta clicar no texto
- * explicando qual obra precisa ser realizada que você será direcionado para
- * a transcrição da oração". Sete entradas do calendário fazem esse salto, e
- * nenhuma delas avisa quando ele cai no vazio.
- */
 {
   const fol = folhetos as unknown as { folhetos: { id: string; publicado?: boolean }[] };
   const pos = postagens as unknown as { postagens: { id: string; publicado?: boolean }[] };
@@ -516,13 +397,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
     mortos.length === 0, mortos.join(", "));
 }
 
-/*
- * A etiqueta "Em preparação" / "Rascunho" que o menu e os cartões mostram sai
- * de uma lista à mão em rotas.ts, porque a tabela de rotas não pode importar
- * os JSON sem trazer todos para o pacote inicial. Lista à mão apodrece: esta
- * já dizia "em preparação" de um documento de catorze seções publicadas.
- * Aqui ela é conferida contra o que cada página diz de si.
- */
 {
   const paginas: [string, Conteudo][] = [
     ["/missa", missa as unknown as Conteudo],
@@ -556,13 +430,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
     semPagina.length === 0, semPagina.join(", "));
 }
 
-/*
- * A página do brasão. Não é um `Conteudo` de seções, e por isso tem conferência
- * própria: os quatro elementos, cada um com o seu texto, e os números sobre a
- * imagem na mesma ordem das caixas à direita. Essa ordem não é gosto: é ela
- * que impede as linhas de se cruzarem, porque cada linha sai do número e vai
- * para a caixa de mesma posição.
- */
 {
   const partes = brasao.partes;
   const ids = partes.map((p) => p.id).join(",");
@@ -589,16 +456,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
     desbalanceados.length === 0, desbalanceados.map((t) => t.slice(0, 40)).join(" | "));
 }
 
-/*
- * O Ordinário da Missa, que não é escrito à mão: sai de
- * `ferramentas/ordinario/gerar.py`, lendo o PDF de 52 páginas do Perez.
- *
- * A conferência de palavras mora lá, e responde se alguma sumiu. O que se
- * guarda aqui é outra coisa: se o modo missa **enche** os dez lugares que o
- * impresso deixa em branco. Um erro de nome num subtítulo não perde palavra
- * nenhuma, passa por toda a conferência do gerador, e deixa o Intróito em
- * branco na frente de quem está de pé no banco.
- */
 {
   type SecaoCrua = { id: string; titulo: string; blocos: Bloco[] };
   const secoes: SecaoCrua[] = [];
@@ -618,12 +475,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("nenhuma seção do Ordinário saiu vazia", vazias.length === 0,
     vazias.map((s) => s.id).join(", "));
 
-  /*
-   * Os dois lados de um bilíngue com o mesmo número de parágrafos. É o
-   * subgrid que casa faixa a faixa, e um lado mais curto desalinha o latim
-   * da tradução dali para baixo — a oração seguinte aparece na altura
-   * errada, e nada acusa.
-   */
   const desencontrados: string[] = [];
   const casar_ = (id: string, blocos: Bloco[]) => {
     for (const b of blocos) {
@@ -639,14 +490,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("todo bilíngue do Ordinário tem os dois lados do mesmo tamanho",
     desencontrados.length === 0, desencontrados.join(" | "));
 
-  /*
-   * Voz, postura e condição de cada momento, de `momentos.py`, que segue a
-   * revisão do Perez. O que se guarda aqui é que ninguém ficou de fora: um
-   * bloco sem voz nunca aparece no modo "só voz alta" nem no completo
-   * filtrado, e some da Missa sem erro nenhum. A primeira postura de cada
-   * seção tem de existir, porque a tela repete a postura até a próxima e,
-   * sem ponto de partida, o fiel não sabe se está de pé.
-   */
   const DA_MISSA = ["preparacao", "asperges", "pe-altar", "catecumenos", "ofertorio",
     "canon", "comunhao", "conclusao", "leoninas", "acao-de-gracas"];
   const POSTURAS = ["pe", "sentado", "joelhos"];
@@ -677,12 +520,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
     quando_ruim.length === 0, quando_ruim.join(", "));
   conferir("toda seção da Missa abre com uma postura", sem_partida.length === 0, sem_partida.join(", "));
 
-  /*
-   * Quem fala: o ℣ e o S. saem, o M. vira ℟., e toda resposta vem em negrito
-   * (pedido do Perez para o site). O que se guarda é que nenhum rótulo do
-   * impresso sobrou: um S. esquecido num parágrafo diria que ali fala alguém
-   * que a tela já não identifica.
-   */
   const rotulo_sobrando: string[] = [];
   const resposta_sem_negrito: string[] = [];
   for (const s of secoes) {
@@ -700,12 +537,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
   conferir("toda resposta ℟ do Ordinário vem em negrito",
     resposta_sem_negrito.length === 0, resposta_sem_negrito.slice(0, 5).join(" | "));
 
-  /*
-   * O Evangelho do dia no lugar do "N." do Ordinário. Com o I Domingo do
-   * Advento, que é Lucas e é "Sequéntia": a fórmula do próprio entra na
-   * linha do Ordinário, e o Evangelho do próprio passa a abrir pelo "In illo
-   * témpore". Sem achar a linha, nada é trocado, e a fórmula não some.
-   */
   {
     const advento = (folhetos as unknown as { folhetos: Folheto[] }).folhetos
       .find((f) => f.id === "proprio-advento-i")!;
@@ -752,12 +583,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
       + "Evangelho / Ofertório / Secreta / Prefácio / Comunhão / Pós-comunhão",
     nomes);
 
-  /*
-   * O próprio do I Domingo do Advento, que foi com o que o Perez pediu para
-   * testar o modo missa. Os dez lugares têm de encher: se um ficar em
-   * branco, é porque o subtítulo do folheto e o nome que o gerador procura
-   * deixaram de casar.
-   */
   const advento = (folhetos as unknown as { folhetos: Folheto[] }).folhetos.find(
     (f) => f.id === "proprio-advento-i",
   );
@@ -772,11 +597,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
   }
 }
 
-/*
- * O latim com u é u. "Totvs" apareceu no iPhone: o texto estava certo e a
- * fonte é que trocava. Aqui se guardam as duas pontas: nenhum latim escrito
- * com v no lugar de u, e o site sem voltar à fonte que faz a troca.
- */
 {
   const latim: string[] = [];
   const andar = (o: unknown, dentro: boolean) => {
@@ -794,8 +614,6 @@ conferir("enchiridion: as 33 concessões têm âncora",
       if (nome.endsWith(".json")) andar(JSON.parse(readFileSync(`${pasta}/${nome}`, "utf-8")), false);
     }
   }
-  // em latim o v só vem antes de vogal; antes de consoante ou no fim é um u.
-  // O ponto fica de fora por causa das abreviaturas ("Adv.")
   const suspeitas = latim
     .flatMap((s) => s.replace(/\[[^\]]*\]/g, "").match(/\p{L}*\p{Ll}v(?![aeiouyáéíóúýǽæœ.])\p{L}*/gu) ?? []);
   conferir("nenhum latim com v no lugar de u",

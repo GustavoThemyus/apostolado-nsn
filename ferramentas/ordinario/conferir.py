@@ -1,23 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Confere o Ordinário já gravado contra o PDF de onde saiu.
-
-    python3 ferramentas/ordinario/conferir.py <pdf>
-
-Conta as palavras do PDF e as das treze seções e compara as duas contagens.
-É grosseiro de propósito: não julga ordem nem pontuação, só responde a única
-pergunta que uma transcrição automática precisa responder antes de ir ao ar
-— **alguma palavra sumiu, ou apareceu alguma que não estava lá?**
-
-Foi assim que apareceram as coisas que o olho não pegaria num impresso de
-cinquenta páginas: a fonte que o poppler só declara uma vez e que fazia toda
-rubrica virar texto de corpo da página 6 em diante, o Calibri que o arquivo
-usa para desenhar um "í" no meio de uma palavra latina, e o título centrado
-que chegava como "ORDINÁRIODAMISSA".
-
-Sai com código 1 se divergir, para entrar na conferência automática.
-"""
 import collections, io, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -26,30 +8,12 @@ from extrair import extrair
 from momentos import SECOES_ROTULADAS, emendar
 
 PALAVRA = re.compile(r"[\wÀ-ɏ'’]+")
-# As marcas do texto rico, uma a uma, e não `[a-z]+`: o impresso põe entre
-# colchetes as palavras que o tradutor acrescentou — "[fieis]", "[vindo]",
-# "[celestes]" —, e uma regra larga as apagava do lado do site, acusando
-# cinco palavras perdidas que estavam lá.
 MARCACAO = re.compile(r"\[/?(?:b|i|lat|r|tinta|nota|elo|botao|mapa)(?::[^\]]*)?\]")
 
-# O que está no PDF e não vai para os dados.
-#
-# "Ver a Missa do dia" vira o lugar do próprio, que no site se preenche com o
-# folheto do dia em vez de repetir a frase; e a numeração de página do Word
-# sai do `pdftotext` como palavra solta.
 FORA = ("Ver a Missa do dia.", "Ver a Missa do dia")
 
 
 def palavras(texto, marcado=True):
-    """
-    As palavras de um texto, em minúsculas.
-
-    `marcado` falso para o que vem do PDF, que marcação nenhuma tem. A
-    diferença não é zelo: o impresso escreve "[celestes]" entre colchetes, no
-    Sanctus, e tirar a marcação do lado do PDF apagava a palavra inteira —
-    "[celestes]" tem a mesma cara de um "[i]" do texto rico. A conferência
-    acusava uma palavra sobrando que estava nos dois lados.
-    """
     if marcado:
         texto = MARCACAO.sub(" ", texto)
     return collections.Counter(PALAVRA.findall(texto.lower()))
@@ -72,15 +36,6 @@ def contaDeBlocos(secoes):
 
 
 def efeitoDasEmendas(pdf):
-    """
-    As palavras que as EMENDAS de `momentos.py` tiram e põem, sobre o que o
-    extrator entrega.
-
-    A revisão do Perez reescreve rubricas do impresso, e a conferência, que
-    compara com o PDF, acusaria cada reescrita como perda e como sobra. Em vez
-    de afrouxar a conta, ela recebe aqui o que foi emendado: o PDF menos o que
-    saiu, mais o que entrou. O resto continua exato.
-    """
     blocos = extrair(pdf)
     nomearProprios(blocos)
     secoes = {s[0]: [comoBlocoDoSite(b) for b in crus] for s, crus in repartir(blocos)}
@@ -112,8 +67,6 @@ def main(pdf):
         print("%-16s %3d blocos, %5d palavras" % (id_, len(secao["blocos"]),
                                                   sum(conta.values())))
 
-    # A numeração de página é a única coisa que o `pdftotext` entrega e que
-    # não é texto do impresso: números soltos, de 1 ao número de páginas.
     faltando = noPdf - noSite
     for n in list(faltando):
         if n.isdigit():

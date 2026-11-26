@@ -1,12 +1,5 @@
 import { TextoRico } from "./TextoRico";
 
-/**
- * Em telas estreitas cada linha vira uma ficha empilhada, com o nome da
- * coluna vindo de data-coluna. A partir de 46rem volta a ser tabela.
- *
- * O quadro que compara colunas é outra coisa: em fichas por linha os três
- * lados se misturam. Ali o celular mostra um bloco por coluna.
- */
 export function Tabela({
   colunas,
   linhas,

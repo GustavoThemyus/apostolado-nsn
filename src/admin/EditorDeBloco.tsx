@@ -13,23 +13,6 @@ interface Props {
 
 const ETIQUETAS: Etiqueta[] = ["ordinario", "proprio", "variavel", "comum"];
 
-/**
- * As faixas de um bloco bilíngue, emparelhadas, ou null quando não dá.
- *
- * O modelo guarda duas listas de blocos, e não uma lista de pares: é isso que
- * deixa o subgrid casar cada parágrafo do latim com a altura do seu par. Mas
- * a página só casa se as duas listas tiverem o mesmo tamanho, e por isso
- * `conteudo.teste.ts` o exige.
- *
- * Daí editar em par, e não cada coluna por si. Uma oração salva pelo painel
- * com três parágrafos de latim para dois de tradução não daria erro nenhum ao
- * salvar: sairia desencontrada na folha publicada, e o teste só acusaria
- * depois. Em par, a conta não tem como não fechar.
- *
- * Nas 490 faixas que existem hoje — as dos folhetos e as do Enchiridion —
- * os dois lados são sempre parágrafo. Se alguma trouxer outra coisa, o editor
- * se recusa a mexer no bloco em vez de achatá-la.
- */
 function faixasDe(latim: Bloco[], portugues: Bloco[]): { la: string; pt: string }[] | null {
   if (latim.length !== portugues.length) return null;
   const textos = (lado: Bloco[]): string[] | null => {
@@ -46,7 +29,6 @@ function faixasDe(latim: Bloco[], portugues: Bloco[]): { la: string; pt: string 
   return la.map((texto, i) => ({ la: texto, pt: pt[i] }));
 }
 
-/** O parágrafo de volta, guardando o id que ele já tinha. */
 const comTexto = (antigo: Bloco | undefined, texto: string): Bloco =>
   antigo && antigo.tipo === "paragrafo"
     ? { ...antigo, texto }

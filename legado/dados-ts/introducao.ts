@@ -1,6 +1,5 @@
 import type { Secao } from "./tipos";
 
-/** Seções 1 a 4: as chaves de leitura, o missal, as formas e o mapa geral. */
 export const secoesDeIntroducao: Secao[] = [
   {
     id: "chaves",

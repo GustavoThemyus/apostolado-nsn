@@ -1,14 +1,3 @@
-/**
- * Suítes do calendário de 1962.
- *
- * Rodar com `npm test`. Sai com código diferente de zero se algo falhar.
- *
- * Estas verificações já pegaram erros reais: Corpus Christi saindo verde por
- * herdar a cor do tempo, o Prefácio da Trindade vazando para as ferias, e a
- * Anunciação transferindo para dentro da Oitava da Páscoa. Mexer em
- * src/calendario sem rodá-las é trabalhar no escuro.
- */
-
 import { eixoDoAno, mais, pascoa } from "./computo";
 import { desenvolvimentoDe, ritoProprioDe } from "./desenvolvimento";
 import { condicaoValeNoDia, naMissaDoDia } from "./naMissaDoDia";
@@ -33,8 +22,6 @@ function suite(nome: string, corpo: () => void) {
   const total = passaram + falhas.length - antes;
   console.log(`  ${nome}: ${total} verificações`);
 }
-
-// ---------------------------------------------------------------- computo
 
 suite("Computo da Páscoa", () => {
   const conhecidas: Record<number, string> = {
@@ -67,14 +54,14 @@ suite("Tempo e cor", () => {
     ["2026-01-25", "depoisDaEpifania", "verde"],
     ["2026-02-01", "septuagesima", "roxo"],
     ["2026-02-18", "quaresma", "roxo"],
-    ["2026-03-15", "quaresma", "rosa"],      // Laetare
+    ["2026-03-15", "quaresma", "rosa"],
     ["2026-03-22", "paixao", "roxo"],
-    ["2026-04-03", "paixao", "preto"],       // Sexta-feira Santa
+    ["2026-04-03", "paixao", "preto"],
     ["2026-04-05", "pascoa", "branco"],
-    ["2026-05-24", "pascoa", "vermelho"],    // Pentecostes
+    ["2026-05-24", "pascoa", "vermelho"],
     ["2026-07-12", "depoisDePentecostes", "verde"],
     ["2026-11-29", "advento", "roxo"],
-    ["2026-12-13", "advento", "rosa"],       // Gaudete
+    ["2026-12-13", "advento", "rosa"],
     ["2026-12-25", "natal", "branco"],
   ];
   for (const [data, tempo, cor] of casos) {
@@ -84,8 +71,6 @@ suite("Tempo e cor", () => {
     conferir(`${data} cor`, corDe(d, t.tempo), cor);
   }
 });
-
-// ------------------------------------------------------------ precedência
 
 suite("Precedência", () => {
   const casos: [string, string, string?][] = [
@@ -110,7 +95,6 @@ suite("Precedência", () => {
     conferir(`${data} nome`, x.nome, nome);
     if (cor) conferir(`${data} cor`, x.cor, cor);
   }
-  // Todos os Santos num domingo comemora o domingo vencido
   const todosOsSantos = diaLiturgico(dia("2026-11-01"));
   conferir(
     "Todos os Santos comemora o domingo",
@@ -119,25 +103,19 @@ suite("Precedência", () => {
   );
 });
 
-// ---------------------------------------------------------- transferências
-
 suite("Transferências", () => {
   const casos: [string, string, string][] = [
-    // Imaculada Conceição em domingo do Advento vai para o dia 9
     ["8/12/2019 é domingo", "2019-12-08", "Domingo II do Advento"],
     ["Imaculada transferida", "2019-12-09", "Imaculada Conceição de Nossa Senhora"],
     ["8/12/2024 é domingo", "2024-12-08", "Domingo II do Advento"],
     ["Imaculada transferida", "2024-12-09", "Imaculada Conceição de Nossa Senhora"],
     ["Imaculada sem impedimento", "2026-12-08", "Imaculada Conceição de Nossa Senhora"],
-    // São José em domingo Laetare
     ["19/3/2023 é Laetare", "2023-03-19", "Domingo Laetare"],
     ["São José transferido", "2023-03-20", "São José, esposo de Nossa Senhora"],
-    // Anunciação em Semana Santa pula a Oitava da Páscoa inteira
     ["25/3/2016 é Sexta Santa", "2016-03-25", "Sexta-feira Santa"],
     ["Anunciação transferida", "2016-04-04", "Anunciação de Nossa Senhora"],
     ["25/3/2024 é Segunda Santa", "2024-03-25", "Segunda-feira Santa"],
     ["Anunciação transferida", "2024-04-08", "Anunciação de Nossa Senhora"],
-    // Finados em domingo vai para o dia 3
     ["2/11/2025 é domingo", "2025-11-02", "Domingo XXI depois de Pentecostes"],
     ["Finados transferido", "2025-11-03", "Comemoração de Todos os Fiéis Defuntos"],
     ["Finados sem impedimento", "2026-11-02", "Comemoração de Todos os Fiéis Defuntos"],
@@ -145,15 +123,12 @@ suite("Transferências", () => {
   for (const [rotulo, data, nome] of casos) {
     conferir(`${rotulo} (${data})`, diaLiturgico(dia(data)).nome, nome);
   }
-  // a transferida guarda de onde veio
   conferir(
     "Imaculada registra a origem",
     diaLiturgico(dia("2024-12-09")).transferidaDe,
     "2024-12-08"
   );
 });
-
-// ------------------------------------------- Têmporas, Rogações e Santoral
 
 suite("Têmporas, Rogações e Santoral", () => {
   const nomes: [string, string, string][] = [
@@ -176,7 +151,6 @@ suite("Têmporas, Rogações e Santoral", () => {
     conferir(`${rotulo} (${data})`, diaLiturgico(dia(data)).nome, nome);
   }
 
-  // Rogações acontecem mesmo quando outra celebração ocupa a Missa
   for (const data of ["2026-05-11", "2026-05-12", "2026-05-13"]) {
     conferir(
       `Rogações em ${data}`,
@@ -190,7 +164,6 @@ suite("Têmporas, Rogações e Santoral", () => {
     true
   );
 
-  // comemoração de IV classe entra na feria, mas não no domingo
   conferir(
     "São Brás comemorado na feria",
     diaLiturgico(dia("2026-02-03")).comemoracoes.includes("São Brás"),
@@ -202,8 +175,6 @@ suite("Têmporas, Rogações e Santoral", () => {
     false
   );
 });
-
-// ------------------------------------------------- desenvolvimento da Missa
 
 suite("Desenvolvimento da Missa", () => {
   const casos: [string, Partial<Record<"gloria" | "credo", boolean>> & { prefacio?: string }][] = [
@@ -229,21 +200,11 @@ suite("Desenvolvimento da Missa", () => {
   }
 });
 
-/*
- * O Tríduo, que o Perez pegou errado.
- *
- * A Sexta-feira Santa vinha com Dies irae e Prefácio dos Defuntos, igual a
- * Finados, porque a regra de Missa de defuntos olhava só a cor preta. Naquele
- * dia não há Missa nenhuma. O conserto foi parar de deduzir os três dias, e é
- * isso que se confere aqui — junto com Finados, que continua sendo Requiem de
- * verdade e não pode ter ido embora no conserto.
- */
 suite("Tríduo Sacro", () => {
   const triduo: [string, string][] = [
     ["2026-04-02", "Missa vespertina in Cena Domini"],
     ["2026-04-03", "Solene ação litúrgica da Paixão e Morte do Senhor"],
     ["2026-04-04", "Vigília pascal"],
-    // ano com Páscoa em data bem diferente, para não casar por coincidência
     ["2027-03-25", "Missa vespertina in Cena Domini"],
     ["2027-03-26", "Solene ação litúrgica da Paixão e Morte do Senhor"],
     ["2027-03-27", "Vigília pascal"],
@@ -265,14 +226,11 @@ suite("Tríduo Sacro", () => {
     desenvolvimentoDe(finados)?.cantoInterlecional.includes("Dies irae"), true);
   conferir("e sem rito próprio", ritoProprioDe(finados), null);
 
-  // a Páscoa não é Semana Santa: o Último Evangelho volta
   conferir("o Último Evangelho volta no Domingo de Páscoa",
     desenvolvimentoDe(diaLiturgico(dia("2026-04-05")))?.ultimoEvangelho, "prólogo de São João");
   conferir("e continua omitido na Quinta-feira Santa... que nem tabela tem",
     desenvolvimentoDe(diaLiturgico(dia("2026-04-02"))), null);
 });
-
-// ------------------------------------------------------------- integridade
 
 suite("Varredura de anos inteiros", () => {
   let dias = 0;
@@ -295,19 +253,6 @@ suite("Varredura de anos inteiros", () => {
   conferir(`${dias} dias em 9 anos sem defeito`, quebrados, 0);
 });
 
-// ------------------------------------------------------- próprio do Brasil
-
-/*
- * As catorze festas da concessão de 12 de dezembro de 1962, na lista que o
- * Perez mandou. Antes delas Aparecida saía como dia nenhum e Santa Rosa de
- * Lima como III classe: eram as festas do calendário universal num site
- * brasileiro.
- *
- * O que estas verificações defendem é a camada, não as datas: quem as escreve
- * é a concessão, e quem erraria é a sobreposição — uma festa brasileira que
- * não chegue a aparecer, ou que apareça apagando a universal que devia
- * comemorar.
- */
 suite("Próprio do Brasil", () => {
   conferir("são catorze, com a móvel", PROPRIO_BRASIL.length + 1, 14);
 
@@ -318,48 +263,32 @@ suite("Próprio do Brasil", () => {
   conferir("Santa Rosa de Lima sobe a I classe", diaLiturgico(dia("2026-08-30")).classe, 1);
   conferir("Santo Antônio sobe a II classe", diaLiturgico(dia("2026-06-13")).classe, 2);
 
-  /* o santo universal que a festa brasileira desloca tem de ficar comemorado */
   conferir("São João de Brito vence Santo André Corsino",
     diaLiturgico(dia("2026-02-04")).nome, "São João de Brito, Mártir");
   conferir("e o comemora",
     diaLiturgico(dia("2026-02-04")).comemoracoes.join(""),
     "Santo André Corsino, Bispo e Confessor");
 
-  /* a Invenção da Santa Cruz saiu do calendário universal em 1960 */
   conferir("Invenção da Santa Cruz em 3 de maio de 2027",
     diaLiturgico(dia("2027-05-03")).nome, "Invenção da Santa Cruz");
-  /* e cede ao domingo de II classe, ficando comemorada */
   conferir("mas cede ao Domingo IV depois da Páscoa em 2026",
     diaLiturgico(dia("2026-05-03")).comemoracoes.includes("Invenção da Santa Cruz"), true);
 
-  /* Guadalupe é de I classe: impedida pelo Domingo do Advento, transfere-se */
   conferir("Guadalupe transferida em 2027",
     iso(diaLiturgico(dia("2027-12-13")).data), "2027-12-13");
   conferir("e guarda de onde veio",
     diaLiturgico(dia("2027-12-13")).transferidaDe, "2027-12-12");
 
-  /* a única móvel: quinta-feira depois do Sagrado Coração */
   for (const ano of [2026, 2027, 2030]) {
     const quinta = mais(eixoDoAno(ano).corpusChristi, 14);
     conferir(`Coração Eucarístico em ${ano}`,
       diaLiturgico(quinta).nome, "Coração Eucarístico de Jesus");
   }
-  /*
-   * Vence o santo universal de III classe do dia, que fica comemorado, e não
-   * o contrário: sem o desempate ela perdia a quinta-feira em trinta dos
-   * cinquenta anos seguintes.
-   */
   conferir("e comemora Santo Efrém em 2026",
     diaLiturgico(dia("2026-06-18")).comemoracoes.includes("Santo Efrém"), true);
-  /*
-   * Mas não apaga o que é maior: em 2028 a quinta-feira calha em São Pedro e
-   * São Paulo, e quem manda no dia é a festa de I classe.
-   */
   conferir("e cede a São Pedro e São Paulo em 2028",
     diaLiturgico(dia("2028-06-29")).nome, "São Pedro e São Paulo, apóstolos");
 });
-
-// ------------------------------------------------- Ordinário no dia
 
 suite("O que o Ordinário mostra em cada dia", () => {
   const dom1Advento = naMissaDoDia(dia("2026-11-29"));
@@ -406,8 +335,6 @@ suite("O que o Ordinário mostra em cada dia", () => {
   conferir("Glória fora do dia some", condicaoValeNoDia("gloria", dom1Advento), false);
   conferir("Vidi aquam fora do Pascal some", condicaoValeNoDia("vidi-aquam", dom1Advento), false);
 });
-
-// ------------------------------------------------------------------ saída
 
 const total = passaram + falhas.length;
 console.log(`\n${passaram}/${total} verificações passaram`);

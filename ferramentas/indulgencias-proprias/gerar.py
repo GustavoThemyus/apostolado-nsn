@@ -1,15 +1,6 @@
 #!/usr/bin/env python3
 """
-Gera `src/data/indulgencias-ordens.json` do PDF do Perez, "Calendário de
-Indulgências Próprias das Associações de fiéis".
-
     python3 ferramentas/indulgencias-proprias/gerar.py <tabela.pdf>
-
-O PDF é lido pelas posições (`pdftohtml -xml`): a prosa se corta pelo recuo da
-primeira linha, e os quadros, de duas colunas (data e festa) ou de três (os
-três tipos de associação), pela posição horizontal de cada trecho. No fim as
-palavras do PDF e as do site são contadas uma a uma; se faltar ou sobrar
-alguma, nada é gravado. **Não edite o JSON à mão.**
 """
 
 import collections
@@ -25,13 +16,12 @@ import unicodedata
 RAIZ = pathlib.Path(__file__).resolve().parents[2]
 SAIDA = RAIZ / "src/data/indulgencias-ordens.json"
 
-MARGEM = 106          # a margem esquerda do texto
-MEIO = 480            # entre a coluna da data e a da festa
+MARGEM = 106
+MEIO = 480
 TITULOS = {"Introdução:": "Introdução", "Observações:": "Observações", "Conclusão:": "Conclusão"}
 ASSOCIACAO = re.compile(r"^(\d)\. (\S.*)$")
 FIM_DE_QUADRO = ("Nota:", "Além disso", "Para concluir", "De forma", "É possível")
 
-# o Perez deixou no texto o recado de ligar os dois calendários: vira elo
 TROCAS = [
     ("no Calendário de indulgências e no Enchiridion Indulgentiarum (linkar ambos)",
      "no [elo:/indulgencias/calendario]Calendário de indulgências[/elo] e no "
@@ -81,8 +71,8 @@ def apelido(texto):
 
 def montar(pdf):
     secoes = []
-    quadro = None          # (colunas, [(altura, coluna, texto)])
-    aberto = None          # parágrafo ou item que ainda recebe linhas
+    quadro = None
+    aberto = None
     antes = 0
 
     def secao(titulo):
@@ -163,10 +153,6 @@ def palavras(texto):
 
 
 def destacar(secoes):
-    """
-    "(Destaque)" é recado do Perez a quem monta a página: a citação que vem
-    depois dele sai em destaque, e o que segue a referência é outro parágrafo.
-    """
     achados = 0
     for s in secoes:
         for i, b in reversed(list(enumerate(s["blocos"]))):
@@ -201,7 +187,6 @@ def main(pdf):
     cru = " ".join(t for _, _, t, _ in linhas(pdf))
     cru = re.sub(r"(\w)- (\w)", r"\1-\2", cru)
     esperado = palavras(cru)
-    # o que é do alto da folha (título) e os números das associações não viram texto
     topo = cru[:cru.index("Introdução:")]
     esperado -= palavras(topo)
     esperado -= collections.Counter(str(n) for n in range(1, len(secoes) - 2))
@@ -219,8 +204,6 @@ def main(pdf):
         achados[0]["texto"] = achados[0]["texto"].replace(antes, depois)
 
     destacar(secoes)
-    # o quadro dos três tipos de associação compara colunas: no celular ele se
-    # lê um tipo de cada vez
     for s in secoes:
         for b in s["blocos"]:
             if b["tipo"] == "tabela" and len(b["colunas"]) == 3:

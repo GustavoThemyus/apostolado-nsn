@@ -2,14 +2,6 @@ import { createContext, useContext, type ReactNode } from "react";
 import type { Secao } from "../data/tipos";
 import { subsecoesDe } from "../data/subsecoes";
 
-/**
- * O índice por extenso, no começo do documento.
- *
- * O Perez pediu o sumário resumido na lateral e o completo aqui. Este é
- * derivado das mesmas seções que alimentam a lateral, e não transcrito do
- * impresso: um índice copiado à mão de um documento de cem páginas começa
- * certo e termina apontando para onde o texto não está mais.
- */
 const Contexto = createContext<Secao[]>([]);
 
 export function ProvedorDeSecoes({

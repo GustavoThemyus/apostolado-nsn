@@ -4,21 +4,12 @@ import type { Bloco, Folheto } from "./tipos";
 export { SECOES };
 export type { SecaoDoOrdinario };
 
-/** Uma seção do Ordinário com o texto dentro, como o arquivo a grava. */
 export interface TextoDaSecao {
   id: string;
   titulo: string;
   blocos: Bloco[];
 }
 
-/**
- * O texto de uma seção, baixado na primeira vez e guardado.
- *
- * O Ordinário inteiro são 12 871 palavras, e quem está na Missa precisa de
- * uma seção de cada vez. Por isso o índice carrega cada arquivo sob demanda,
- * e por isso o que se guarda aqui é o que já veio: voltar ao Confiteor
- * depois do Canon não baixa nada de novo.
- */
 const guardadas = new Map<string, TextoDaSecao>();
 
 export function secaoJaBaixada(id: string): TextoDaSecao | undefined {
@@ -38,35 +29,14 @@ export async function carregarSecao(id: string): Promise<TextoDaSecao | null> {
   return secao;
 }
 
-/** Uma peça do próprio, tirada do folheto do dia. */
 export interface PecaDoProprio {
-  /** O subtítulo como o folheto o traz, com a referência: "Intróito (Sl XXIV,1-3)". */
   titulo: string;
   blocos: Bloco[];
 }
 
-/**
- * O nome da peça, sem a referência que o folheto põe entre parênteses.
- *
- * O folheto escreve "Intróito (Sl XXIV,1-3)" e "Prefácio (galicano)"; o
- * lugar do próprio, no Ordinário, pede só "Intróito" e "Prefácio". A
- * referência é do dia, o nome é da peça, e é pelo nome que os dois se acham.
- */
 const semAReferencia = (texto: string): string =>
   texto.replace(/\s*\(.*$/, "").trim().toLowerCase();
 
-/**
- * Como a peça se abre na folha, que é o que decide a capitular.
- *
- *   introito  capitular maior que as outras
- *   leitura   Epístola e Evangelho: a fórmula ("Lectio…") só com a inicial
- *             vermelha, e a capitular no texto que vem depois dela
- *   cantada   Gradual, Aleluia, Tracto, Ofertório e Comunhão: inicial
- *             vermelha, sem capitular
- *   oracao    todo o resto
- *
- * Decidido pelo nome do subtítulo, que o gerador já confere contra o PDF.
- */
 export type TipoDaPeca = "introito" | "leitura" | "cantada" | "oracao";
 
 const TIPOS_DA_PECA: Record<string, TipoDaPeca> = {
@@ -83,18 +53,6 @@ const TIPOS_DA_PECA: Record<string, TipoDaPeca> = {
 export const tipoDaPeca = (titulo: string): TipoDaPeca =>
   TIPOS_DA_PECA[semAReferencia(titulo)] ?? "oracao";
 
-/**
- * As peças de um folheto de próprio que preenchem um lugar do Ordinário.
- *
- * Uma peça vai do subtítulo que a abre até o subtítulo seguinte, e os
- * subtítulos menores ficam dentro dela: são as comemorações, que no missal
- * se rezam dentro da Oração, da Secreta e da Pós-comunhão, e não depois
- * delas.
- *
- * Quase sempre devolve uma peça só. São duas no lugar do Gradual, porque o
- * impresso junta ali o Gradual, o Aleluia e o Tracto, e o folheto os traz
- * separados — no I Domingo do Advento, Gradual e Aleluia.
- */
 export function pecasDoProprio(folheto: Folheto, subtitulos: string[]): PecaDoProprio[] {
   const procurados = new Set(subtitulos.map(semAReferencia));
   const pecas: PecaDoProprio[] = [];
@@ -114,27 +72,10 @@ export function pecasDoProprio(folheto: Folheto, subtitulos: string[]): PecaDoPr
   return pecas.filter((p) => p.blocos.length > 0);
 }
 
-/**
- * Várias seções de uma vez, na ordem pedida.
- *
- * É o que a leitura contínua precisa: a página única baixa as seções em
- * paralelo, cada uma no seu pedaço, e as que já vieram não baixam de novo.
- * Devolve nulo no lugar de uma seção que não existe, e a tela a pula.
- */
 export function carregarSecoes(ids: string[]): Promise<(TextoDaSecao | null)[]> {
   return Promise.all(ids.map((id) => carregarSecao(id)));
 }
 
-/*
- * O Evangelho do dia dentro do Ordinário.
- *
- * O impresso escreve "Sequéntia (Inítium) sancti Evangélii secúndum N." e
- * remete ao próprio, porque o evangelista e o "sequência" ou "início" mudam
- * todo domingo. O folheto de próprio já traz a fórmula certa na primeira
- * linha do Evangelho, e o texto propriamente dito vem depois dela, a partir
- * do "In illo témpore". Então a fórmula do dia entra no lugar do "N." do
- * Ordinário, e o Evangelho do próprio passa a abrir pelo "In illo témpore".
- */
 const FORMULA = /^((?:Sequéntia|Sequência|Seqüência|Inítium|Início)[^.:]*[.:])(?:\s+([\s\S]*))?$/;
 const FORMULA_NO_ORDINARIO_LATIM = /Sequéntia \(Inítium\) sancti Evangélii secúndum[\s\S]*$/;
 const FORMULA_NO_ORDINARIO_PT = /Seqüência \(Início\) do Santo Evangelho segundo[\s\S]*$/;
@@ -149,21 +90,14 @@ type Bilingue = Extract<Bloco, { tipo: "bilingue" }>;
 const primeiroBilingue = (blocos: Bloco[]): Bilingue | undefined =>
   blocos.find((b): b is Bilingue => b.tipo === "bilingue");
 
-/** A fórmula do Evangelho do dia, nas duas línguas, tirada do próprio. */
 export function aberturaDoEvangelho(folheto: Folheto): AberturaDoEvangelho | undefined {
   const par = primeiroBilingue(pecasDoProprio(folheto, ["Evangelho"])[0]?.blocos ?? []);
   const latim = par?.latim[0]?.tipo === "paragrafo" ? FORMULA.exec(par.latim[0].texto) : null;
   const pt = par?.portugues[0]?.tipo === "paragrafo" ? FORMULA.exec(par.portugues[0].texto) : null;
   if (!latim || !pt) return undefined;
-  // a tradução às vezes fecha a fórmula com dois-pontos, e na linha do Ordinário é ponto
   return { latim: latim[1], portugues: pt[1].replace(/:$/, ".") };
 }
 
-/**
- * O Evangelho do próprio sem a fórmula de abertura, que já foi para o
- * Ordinário. Aceita os dois jeitos de o folheto trazê-la: num parágrafo à
- * parte, ou no mesmo parágrafo do texto.
- */
 export function semAberturaDoEvangelho(blocos: Bloco[]): Bloco[] {
   const par = primeiroBilingue(blocos);
   if (!par) return blocos;
@@ -181,12 +115,6 @@ export function semAberturaDoEvangelho(blocos: Bloco[]): Bloco[] {
 
 const LAUS = /Laus\s+tibi,?\s+Christe/i;
 
-/**
- * Tira do Ordinário o "Laus tibi, Christe" quando o Evangelho do próprio já o
- * traz no fim, como nas remessas revistas do Perez: sem isto a resposta
- * aparecia duas vezes. Sai também a rubrica que a anunciava. Num próprio sem a
- * resposta, o Ordinário fica como é.
- */
 export function semLausDoOrdinario(blocos: Bloco[], folheto: Folheto): Bloco[] {
   if (!LAUS.test(JSON.stringify(pecasDoProprio(folheto, ["Evangelho"])))) return blocos;
   const eLaus = (b: Bloco | undefined) =>
@@ -197,11 +125,6 @@ export function semLausDoOrdinario(blocos: Bloco[], folheto: Folheto): Bloco[] {
   );
 }
 
-/**
- * Põe a fórmula do dia na linha "Sequéntia (Inítium) … N." do Ordinário.
- * Devolve também se achou a linha: sem achá-la, o Evangelho do próprio fica
- * com a sua fórmula, e ela não some de lugar nenhum.
- */
 export function comEvangelhoDoDia(
   blocos: Bloco[],
   abertura: AberturaDoEvangelho,

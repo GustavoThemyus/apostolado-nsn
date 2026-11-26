@@ -39,7 +39,6 @@ export function Botao({
   );
 }
 
-/** Lista de textos com acrescentar, remover e reordenar. */
 export function ListaDeTextos({
   itens, aoMudar, rotulo,
 }: { itens: string[]; aoMudar: (v: string[]) => void; rotulo: string }) {

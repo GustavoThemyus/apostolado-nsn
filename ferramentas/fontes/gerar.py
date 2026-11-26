@@ -1,21 +1,6 @@
 #!/usr/bin/env python3
 """
-Grava em `public/fontes/` a EB Garamond do site: a do Google Fonts sem a forma
-localizada (`locl`).
-
-A EB Garamond troca u por v em texto marcado como latim ("Totvs tvvs"), a
-ortografia das inscrições. Desligar isso por CSS não vale no Safari do iPhone,
-então o site serve uma cópia em que a troca não existe.
-
     python3 ferramentas/fontes/gerar.py <pasta>
-
-A pasta tem de trazer, de github.com/google/fonts, em ofl/ebgaramond:
-`EBGaramond[wght].ttf` como ebg.ttf, `EBGaramond-Italic[wght].ttf` como
-ebg-italico.ttf, e `OFL.txt`. Pede `fonttools` e `brotli` instalados.
-
-Reescreve o bloco de @font-face em `src/styles/tema.css`. Se a troca sobrar na
-fonte gerada, ou se faltar um caractere que o conteúdo do site usa, nada é
-gravado.
 """
 
 import hashlib
@@ -36,14 +21,12 @@ FAMILIA = "Garamond do Site"
 PESOS = (400, 600)
 INICIO, FIM = "/* fontes: início (ferramentas/fontes/gerar.py) */", "/* fontes: fim */"
 
-# latim e português com folga, grego, pontuação, ℣ ℟, setas e ligaduras
 FAIXAS = [(0x0000, 0x024F), (0x02B0, 0x03FF), (0x1E00, 0x1FFF), (0x2000, 0x218F),
           (0x2190, 0x22FF), (0x25A0, 0x27BF), (0x2C60, 0x2C7F), (0xA720, 0xA7FF),
           (0xFB00, 0xFB06), (0xFEFF, 0xFEFF)]
 
 
 def usados() -> set[int]:
-    """Os caracteres que o conteúdo do site escreve."""
     texto = ""
     for caminho in (RAIZ / "src").rglob("*"):
         if caminho.suffix in (".json", ".tsx"):
@@ -55,8 +38,6 @@ def gerar(origem: pathlib.Path) -> bytes:
     fonte = TTFont(origem)
     antes = set(fonte.getBestCmap())
     fonte = instancer.instantiateVariableFont(fonte, {"wght": PESOS})
-    # gravar e reler: o recorte tropeça nas tabelas que o passo acima deixa
-    # pela metade na memória
     meio = io.BytesIO()
     fonte.save(meio)
     meio.seek(0)

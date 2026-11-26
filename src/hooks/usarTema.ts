@@ -4,12 +4,6 @@ export type Tema = "sistema" | "claro" | "escuro";
 
 const CHAVE = "nsn:tema";
 
-/**
- * O site nasce escuro. É como ele é apresentado.
- *
- * O ciclo começa no escuro pela mesma razão: o primeiro toque no botão tem de
- * sair do padrão, e não voltar a ele.
- */
 const PADRAO: Tema = "escuro";
 const CICLO: Tema[] = ["escuro", "claro", "sistema"];
 
@@ -24,12 +18,10 @@ function ler(): Tema {
     const salvo = localStorage.getItem(CHAVE);
     if (salvo === "claro" || salvo === "escuro" || salvo === "sistema") return salvo;
   } catch {
-    /* armazenamento indisponível: fica no padrão */
   }
   return PADRAO;
 }
 
-/** Tema de leitura, lembrado entre visitas. */
 export function usarTema() {
   const [tema, definirTema] = useState<Tema>(ler);
 
@@ -40,11 +32,6 @@ export function usarTema() {
     } else {
       raiz.setAttribute("data-theme", tema === "claro" ? "light" : "dark");
     }
-    /*
-     * A cor da barra do navegador acompanha. Com o padrão escuro, deixá-la
-     * atrelada só a `prefers-color-scheme` dava barra creme sobre página
-     * escura em quem tem o aparelho no claro.
-     */
     const claro =
       tema === "claro" ||
       (tema === "sistema" &&
@@ -55,7 +42,6 @@ export function usarTema() {
     try {
       localStorage.setItem(CHAVE, tema);
     } catch {
-      /* sem persistência nesta sessão */
     }
   }, [tema]);
 

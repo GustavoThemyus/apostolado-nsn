@@ -1,6 +1,5 @@
 import type { Secao } from "./tipos";
 
-/** Seções 8 a 12: do Ofertório às Orações Leoninas. */
 export const secoesDosFieis: Secao[] = [
   {
     id: "ofertorio",

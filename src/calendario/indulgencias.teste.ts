@@ -1,11 +1,3 @@
-/**
- * Suíte do resolvedor de indulgências. Roda junto com `npm test`.
- *
- * O que importa aqui é o cânon 922: indulgência presa à *festa* anda com a
- * transferência dela, indulgência presa à *data* não anda. Errar isso põe a
- * plenária no dia errado, que é o defeito mais caro que esta página pode ter.
- */
-
 import bruto from "../data/indulgencias-dias.json";
 import { diasDaArquidiocese } from "../data/arquidioceseDias";
 import { indulgenciasDoMes, temPlenaria, type DiaDeIndulgencia } from "./indulgencias";
@@ -25,7 +17,6 @@ const entrada = (id: string, quando: DiaDeIndulgencia["quando"], especie = "plen
 const diasCom = (e: DiaDeIndulgencia, ano: number, mes: number) =>
   [...indulgenciasDoMes([e], ano, mes).keys()].sort();
 
-// --- data fixa --------------------------------------------------------------
 conferir(
   "Finados cai sempre em 2 de novembro",
   diasCom(entrada("finados", { tipo: "fixa", mes: 11, dia: 2 }), 2026, 11),
@@ -37,7 +28,6 @@ conferir(
   []
 );
 
-// --- intervalo --------------------------------------------------------------
 conferir(
   "visita ao cemitério, 1 a 8 de novembro",
   diasCom(
@@ -52,22 +42,17 @@ conferir(
   8
 );
 
-// --- mensal -----------------------------------------------------------------
-// setembro de 2026: dia 1 é terça, então a primeira sexta é dia 4
 conferir(
   "primeira sexta-feira de setembro de 2026",
   diasCom(entrada("sextas", { tipo: "mensal", diaDaSemana: 5, ocorrencia: 1 }, "parcial"), 2026, 9),
   ["2026-09-04"]
 );
-// agosto de 2026: dia 1 é sábado, então a primeira sexta é dia 7
 conferir(
   "primeira sexta-feira de agosto de 2026",
   diasCom(entrada("sextas", { tipo: "mensal", diaDaSemana: 5, ocorrencia: 1 }, "parcial"), 2026, 8),
   ["2026-08-07"]
 );
 
-// --- titular, o caso do cânon 922 ------------------------------------------
-// Nossa Senhora das Neves é 5 de agosto e em 2026 cai numa quarta-feira livre
 const titular2026 = indulgenciasDoMes([entrada("titular", { tipo: "titular" })], 2026, 8);
 conferir("a titular em 2026 cai no próprio dia", [...titular2026.keys()], ["2026-08-05"]);
 conferir(
@@ -76,7 +61,6 @@ conferir(
   null
 );
 
-// --- festa por nome ---------------------------------------------------------
 conferir(
   "festa achada pelo nome",
   diasCom(entrada("assuncao", { tipo: "festa", nome: "Assunção de Nossa Senhora" }), 2026, 8),
@@ -93,7 +77,6 @@ conferir(
   []
 );
 
-// --- espécie ----------------------------------------------------------------
 const mistura = indulgenciasDoMes(
   [
     entrada("plena", { tipo: "fixa", mes: 8, dia: 2 }),
@@ -106,9 +89,6 @@ conferir("dia com plenária", temPlenaria(mistura.get("2026-08-02")), true);
 conferir("dia só com parcial", temPlenaria(mistura.get("2026-08-03")), false);
 conferir("dia sem nada", temPlenaria(mistura.get("2026-08-04")), false);
 
-// --- o calendário que o Perez mandou ----------------------------------------
-// Aqui os dados são os de verdade, e não fixtures: o que se quer provar é que
-// as entradas do site caem nos dias certos.
 const reais = (bruto as { dias: DiaDeIndulgencia[] }).dias;
 
 const naData = (ano: number, mes: number, data: string, id: string): boolean =>
@@ -116,15 +96,6 @@ const naData = (ano: number, mes: number, data: string, id: string): boolean =>
     .get(data)
     ?.some((o) => o.entrada.id === id);
 
-/*
- * Toda entrada tem de cair em algum dia, todo ano.
- *
- * É a conferência que pega o erro mais barato e mais calado de todos: o nome
- * de festa escrito de um jeito no calendário e de outro aqui. "Dedicação da
- * Arquibasílica do Santíssimo Salvador" é como o Perez a chama; o motor a
- * chama de "Dedicação da Arquibasílica do Salvador", e com o nome dele a
- * entrada simplesmente nunca apareceria — sem erro, sem aviso, sem dia.
- */
 for (const ano of [2025, 2026, 2027, 2028]) {
   const achadas = new Set<string>();
   for (let mes = 1; mes <= 12; mes += 1) {
@@ -143,13 +114,6 @@ conferir("Pedro e Paulo cai em 29 de junho",
 conferir("e não sobra na vigília, 28 de junho",
   naData(2026, 6, "2026-06-28", "pedro-e-paulo-catedral"), false);
 
-/*
- * O cânon 922 na prática, com os dados de verdade.
- *
- * Em 2025 o dia 2 de novembro é domingo, e Finados anda para o dia 3. A
- * entrada é `festa`, e não `fixa`, justamente para a indulgência andar junto
- * — era este o caso que o Perez perguntou se o calendário resolvia sozinho.
- */
 conferir("em 2025 Finados não fica no dia 2",
   naData(2025, 11, "2025-11-02", "finados"), false);
 conferir("em 2025 Finados vai para o dia 3",
@@ -159,49 +123,23 @@ conferir("e a tela sabe dizer de onde ele veio",
     ?.find((o) => o.entrada.id === "finados")?.transferidaDe,
   "2025-11-02");
 
-/*
- * Cristo Rei é o último domingo de outubro, e por isso anda todo ano. Ele
- * entra como `festa`: quem calcula a data é o motor do calendário, e repetir
- * a regra aqui seria uma segunda máquina de datas para divergir da primeira.
- */
 conferir("Cristo Rei em 2026", naData(2026, 10, "2026-10-25", "cristo-rei"), true);
 conferir("Cristo Rei em 2027", naData(2027, 10, "2027-10-31", "cristo-rei"), true);
 conferir("Cristo Rei em 2028", naData(2028, 10, "2028-10-29", "cristo-rei"), true);
 
-/*
- * A Cátedra de São Pedro, em 2026, perde a precedência para o II Domingo da
- * Quaresma e sobra como comemoração. A indulgência continua sendo daquele
- * dia, e é por isso que `casaNoDia` olha também as comemorações.
- */
 conferir("a Cátedra vale mesmo quando só se comemora",
   naData(2026, 2, "2026-02-22", "catedra-antioquia"), true);
 conferir("e vale quando é a festa do dia",
   naData(2027, 2, "2027-02-22", "catedra-antioquia"), true);
 
-/*
- * Dois dias de 2026 levam duas plenárias: 29 de junho, pelas duas concessões
- * de Pedro e Paulo, e a Sexta-feira Santa, pela adoração da Cruz e pela
- * sexta-feira da Quaresma. O quadro tem de mostrar as duas, e não uma.
- */
 conferir("29 de junho tem duas",
   indulgenciasDoMes(reais, 2026, 6).get("2026-06-29")?.length, 2);
 conferir("a Sexta-feira Santa tem duas",
   indulgenciasDoMes(reais, 2026, 4).get("2026-04-03")?.length, 2);
 
-/*
- * O quadro compacto da página de Indulgências lê a mesma coleção, e a coluna
- * da data sai de `quandoPorExtenso`. Faltando numa entrada, a linha abre com
- * a célula vazia e nada falha.
- */
 conferir("toda entrada diz a data por extenso",
   reais.filter((d) => !d.quandoPorExtenso?.trim()).map((d) => d.id), []);
 
-/*
- * As sextas-feiras da Quaresma são o caso que justifica o tipo novo. O
- * calendário de 1962 separa a Quaresma do Tempo da Paixão, e em 2026 duas das
- * sete sextas caem no segundo, uma delas a Sexta-feira Santa: casar só com
- * "quaresma" perderia justamente a principal.
- */
 const sextas: string[] = [];
 for (const mes of [2, 3, 4]) {
   for (const [data, ocorrencias] of indulgenciasDoMes(reais, 2026, mes)) {
@@ -221,14 +159,6 @@ conferir("a sexta depois da Páscoa não entra",
 conferir("a sexta antes da Quaresma não entra",
   naData(2026, 2, "2026-02-13", "sextas-da-quaresma"), false);
 
-// --- dia da semana dentro de um intervalo de datas --------------------------
-/*
- * A Sagrada Família, titular de duas paróquias da Arquidiocese, cai no
- * domingo dentro da Oitava da Epifania. O caso que obriga o tipo a existir é
- * o ano em que 7 de janeiro é domingo: aí ele é o *primeiro* domingo de
- * janeiro, e a regra "enésimo domingo do mês" poria a festa uma semana
- * adiante. 2029 é um desses anos.
- */
 const sagradaFamilia = entrada("sagrada-familia", {
   tipo: "diaDaSemanaEntre",
   diaDaSemana: 0,
@@ -254,14 +184,6 @@ conferir("primeiro domingo de junho de 2026",
 conferir("primeiro domingo de junho de 2027",
   diasCom(primeiroDomingoDeJunho, 2027, 6), ["2027-06-06"]);
 
-// --- as 75 datas da Arquidiocese -------------------------------------------
-/*
- * Toda entrada tem de cair em algum dia do ano. É a conferência que importa
- * aqui: uma presa a `festa` cujo nome o motor não escreva do mesmo jeito não
- * dá erro nenhum — simplesmente nunca aparece, e a igreja fica de fora da
- * grade sem que nada acuse. Foi o risco real de oito delas, que são as de
- * data móvel.
- */
 for (const ano of [2026, 2027]) {
   const vistas = new Set<string>();
   for (let mes = 1; mes <= 12; mes++) {
@@ -274,34 +196,18 @@ for (const ano of [2026, 2027]) {
   conferir(`Arquidiocese: são 75 festas em ${ano}`, vistas.size, 75);
 }
 
-// --- as festas móveis das confrarias ---------------------------------------
-/*
- * O que vem do Google não traz data em que se possa confiar quando a festa é
- * móvel: o Perez digita um evento por ano, e eles acabam. Aqui se confere que
- * o motor reconhece pelo nome do evento, como a confraria o escreve, e devolve
- * o dia certo em anos que ninguém digitou.
- */
 const emIso = (d: Date | undefined) => (d ? d.toISOString().slice(0, 10) : undefined);
 
-/* Sexta-feira depois da Oitava de Corpus Christi: 68 dias depois da Páscoa. */
 conferir("Sagrado Coração em 2026", emIso(dataDaFestaMovel("Sagrado Coração de Jesus", 2026)), "2026-06-12");
 conferir("Sagrado Coração em 2027", emIso(dataDaFestaMovel("Sagrado Coração de Jesus", 2027)), "2027-06-04");
-/* o ano em que o evento digitado acaba, e que é todo o ponto da mudança */
 conferir("Sagrado Coração em 2031", emIso(dataDaFestaMovel("Sagrado Coração de Jesus", 2031)), "2031-06-20");
 
-/* A Dominicana escreve o nome longo; o motor diz "Domingo de Páscoa". */
 const pascoaDominicana = "Domingo da Ressurreição de Nosso Senhor Jesus Cristo";
 conferir("Páscoa da Dominicana em 2026", emIso(dataDaFestaMovel(pascoaDominicana, 2026)), "2026-04-05");
 conferir("Páscoa da Dominicana em 2031", emIso(dataDaFestaMovel(pascoaDominicana, 2031)), "2031-04-13");
 
-/* Cristo Rei é último domingo de outubro, e o Google até sabe repetir. */
 conferir("Cristo Rei em 2026", emIso(dataDaFestaMovel("Nosso Senhor Jesus Cristo Rei", 2026)), "2026-10-25");
 
-/*
- * O que não é festa móvel tem de continuar na data que o Perez digitou. Um
- * falso reconhecimento aqui é pior que nenhum: mudaria de dia uma festa que
- * estava certa, e ninguém confere a data de São Simão Stock.
- */
 for (const fixa of [
   "Nossa Senhora do Monte Carmelo",
   "Santa Teresa de Jesus",

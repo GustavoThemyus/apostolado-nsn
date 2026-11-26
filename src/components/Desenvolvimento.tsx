@@ -5,13 +5,6 @@ const Sim = ({ v }: { v: boolean }) => (
   <span className={v ? "sinal sinal--sim" : "sinal sinal--nao"}>{v ? "sim" : "não"}</span>
 );
 
-/**
- * O que acontece na Missa do dia, deduzido das rubricas gerais.
- *
- * No Tríduo não há o que deduzir: cada um dos três dias tem rito próprio, e a
- * tabela dá lugar ao nome dele. Deduzir ali chegou a dizer que a Sexta-feira
- * Santa tinha Dies irae e Prefácio dos Defuntos.
- */
 export function Desenvolvimento({ dia }: { dia: DiaLiturgico }) {
   const proprio = ritoProprioDe(dia);
   if (proprio) {
@@ -31,11 +24,6 @@ export function Desenvolvimento({ dia }: { dia: DiaLiturgico }) {
   return (
     <div className="desenv">
       <p className="desenv__titulo">Na Missa deste dia</p>
-      {/*
-        Na ordem da Missa, como no quadro do pré-55: as orações são as coletas,
-        e coleta vem antes da Epístola; o canto interlecional fica entre as
-        leituras; e o Credo vem depois do Evangelho, não antes dele.
-      */}
       <dl className="desenv__lista">
         <div><dt>Glória</dt><dd><Sim v={d.gloria} /></dd></div>
         <div><dt>Orações</dt><dd>{d.oracoes}</dd></div>

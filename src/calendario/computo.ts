@@ -5,10 +5,6 @@ const DIA = 86400000;
 const emUTC = (a: number, m: number, d: number) => new Date(Date.UTC(a, m - 1, d));
 const mais = (d: Date, n: number) => new Date(d.getTime() + n * DIA);
 
-/**
- * Domingo de Páscoa pelo computo gregoriano (algoritmo de Meeus/Jones/Butcher).
- * Exato para qualquer ano do calendário gregoriano.
- */
 export function pascoa(ano: number): Date {
   const a = ano % 19;
   const b = Math.floor(ano / 100);
@@ -26,18 +22,12 @@ export function pascoa(ano: number): Date {
   return emUTC(ano, Math.floor(total / 31), (total % 31) + 1);
 }
 
-/**
- * Primeiro domingo do Advento: o quarto domingo antes do Natal, ou seja, o
- * domingo mais próximo da festa de Santo André (30 de novembro).
- */
 export function primeiroDomingoDoAdvento(ano: number): Date {
   const natal = emUTC(ano, 12, 25);
-  // recua até o domingo anterior ao Natal e depois mais três semanas
   const domingoAntesDoNatal = mais(natal, -(natal.getUTCDay() || 7));
   return mais(domingoAntesDoNatal, -21);
 }
 
-/** Todas as datas móveis do ano, derivadas da Páscoa. */
 export function eixoDoAno(ano: number): Eixo {
   const p = pascoa(ano);
   return {

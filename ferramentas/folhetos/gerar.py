@@ -1,21 +1,6 @@
 """
-Tira as estampas de um folheto em PDF e grava em public/folhetos/.
-
-O Perez manda os folhetos prontos em PDF, e o que interessa deles aqui é a
-figura: o resto — moldura, títulos, orações — vira texto no site, que é o
-ponto de hospedar nativo em vez de servir o PDF.
-
-Uso:
-
     python3 ferramentas/folhetos/gerar.py <pdf>                   lista as imagens
     python3 ferramentas/folhetos/gerar.py <pdf> <indice> [nome]   grava aquela
-
-Lista primeiro, de propósito. Num folheto de duas páginas há sempre três
-imagens, e duas delas são a mesma moldura repetida; adivinhar qual é a figura
-daria errado no dia em que o folheto tiver duas.
-
-O nome leva a impressão do conteúdo, como as outras estampas: o cache é de um
-ano, e trocar a imagem tem de trocar o nome.
 """
 
 import hashlib
@@ -29,8 +14,6 @@ from PIL import Image
 RAIZ = pathlib.Path(__file__).resolve().parents[2]
 DESTINO = RAIZ / "public" / "folhetos"
 
-# Sem reamostrar para cima: a figura do PDF é o único original que existe, e
-# ampliá-la só inventaria pixel. 1000 é o teto para o que vier grande demais.
 LARGURA_MAXIMA = 1000
 
 
@@ -100,9 +83,6 @@ def principal() -> None:
     gravada = Image.open(destino)
     print(f"{destino.relative_to(RAIZ)}  {figura.size[0]}x{figura.size[1]}"
           f"  {destino.stat().st_size // 1024} KB")
-    # as tres linhas juntas, e nao so a do caminho: o navegador tira a
-    # proporcao das medidas, e copiar o caminho sem elas deixa a folha com a
-    # proporcao da estampa anterior ate a imagem chegar
     print(f'  "imagem": "/folhetos/{destino.name}",')
     print(f'  "largura": {gravada.width},')
     print(f'  "altura": {gravada.height},')

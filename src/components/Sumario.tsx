@@ -11,7 +11,6 @@ interface Propriedades {
   aoFechar?: () => void;
 }
 
-/** A setinha que abre as subseções. */
 function Seta({ aberta }: { aberta: boolean }) {
   return (
     <svg
@@ -32,13 +31,6 @@ function Seta({ aberta }: { aberta: boolean }) {
   );
 }
 
-/**
- * Uma entrada do sumário.
- *
- * O título e a setinha são dois controles separados de propósito: pôr um link
- * dentro de um `<summary>` faz o clique navegar e dobrar ao mesmo tempo, e aí
- * não há como abrir a lista sem sair da página.
- */
 function Entrada({
   secao,
   secaoAtiva,
@@ -50,7 +42,6 @@ function Entrada({
 }) {
   const subsecoes = subsecoesDe(secao);
   const ativa = secaoAtiva === secao.id;
-  // aberta por escolha de quem lê; sem escolha, a que está sendo lida
   const [escolha, definirEscolha] = useState<boolean | null>(null);
   const aberta = escolha ?? ativa;
   const listaId = `sub-${secao.id}`;
@@ -58,7 +49,6 @@ function Entrada({
   return (
     <li className={subsecoes.length > 0 ? "sumario__ramo" : undefined}>
       <div className="sumario__linha">
-        {/* âncora de verdade: o Roteador não intercepta href que começa com # */}
         <a
           className="sumario__link"
           href={`#${secao.id}`}
@@ -96,7 +86,6 @@ function Entrada({
   );
 }
 
-/** A lista de seções, que é o mesmo conteúdo nas duas variantes. */
 function Lista({
   secoes,
   secaoAtiva,

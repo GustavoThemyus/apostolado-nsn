@@ -2,29 +2,6 @@ import { celebracoesDoOrdo, type DiaDoOrdo } from "../calendario/ordo";
 import { NOMES_DO_BRASIL } from "../calendario/proprioBrasil";
 import type { DiaLiturgico } from "../calendario/tipos";
 
-/**
- * Os sinais do canto da casa do dia, além da cor e da cruz de abstinência.
- *
- * O Perez pediu três grupos: as primeiras quintas e sextas do mês, as festas
- * próprias do Brasil e as quatro Têmporas. "O símbolo fica ao teu critério,
- * no estilo daquelas cruzes nas sextas pra marcar abstinência, mas pode ficar
- * em outro lugar, tipo no canto direito como está nas indulgências, e com um
- * símbolo específico para cada grupo."
- *
- * Canto direito, portanto, onde a grade das indulgências já põe o quadradinho
- * da plenária. A cruz fica onde estava: ela é da coluna do número, embaixo da
- * bolinha da cor, e mexer nela mexeria num sinal que o leitor já aprendeu.
- *
- * Desenho, e não caractere. É o que o resto da casa faz — a cruz são dois
- * gradientes, a bolinha é um `border-radius` — e por um motivo prático: a 8px
- * o que decide se o sinal se lê é a forma, e caractere depende da fonte que o
- * aparelho tiver. As quatro formas aqui são de longe distinguíveis umas das
- * outras: um círculo, um coração, um losango e quatro pontos.
- *
- * Todos preenchidos, a pedido do Perez: o círculo e o losango nasceram
- * vazados, e ao lado de um coração cheio e de quatro pontos cheios pareciam
- * de outra família. "Acho que fica mais padronizado."
- */
 export type Sinal = "primeiraQuinta" | "primeiraSexta" | "brasil" | "temporas";
 
 export const NOME_DO_SINAL: Record<Sinal, string> = {
@@ -34,15 +11,6 @@ export const NOME_DO_SINAL: Record<Sinal, string> = {
   temporas: "Têmporas",
 };
 
-/**
- * O desenho de cada sinal, num quadro de 10 por 10.
- *
- * A escolha não é arbitrária, e é o que faz o leitor lembrar sem consultar a
- * legenda duas vezes: a primeira quinta-feira é a da Hora Santa, e o círculo
- * é a hóstia; a primeira sexta é a do Sagrado Coração, e é um coração;
- * o losango é a forma que sobrou, longe das outras três, para o Brasil; as
- * Têmporas são quatro pontos, que é o nome delas — as *quatro* Têmporas.
- */
 function Desenho({ sinal }: { sinal: Sinal }) {
   if (sinal === "primeiraQuinta") {
     return <circle cx="5" cy="5" r="3.7" fill="currentColor" />;
@@ -70,7 +38,6 @@ function Desenho({ sinal }: { sinal: Sinal }) {
   );
 }
 
-/** Um sinal sozinho, do tamanho em que ele aparece na legenda. */
 export function Sinal({ sinal }: { sinal: Sinal }) {
   return (
     <svg
@@ -84,7 +51,6 @@ export function Sinal({ sinal }: { sinal: Sinal }) {
   );
 }
 
-/** Os sinais do dia, no canto da casa. Nenhum sinal, nenhum canto. */
 export function SinaisDoDia({ sinais }: { sinais: Sinal[] }) {
   if (sinais.length === 0) return null;
   return (
@@ -96,13 +62,6 @@ export function SinaisDoDia({ sinais }: { sinais: Sinal[] }) {
   );
 }
 
-/**
- * As primeiras quinta e sexta do mês, que são devoção e não liturgia.
- *
- * Contam-se no calendário civil, e não no litúrgico: a primeira sexta-feira
- * de junho é a primeira sexta-feira de junho, caia o que cair nela. Por isso
- * saem da data pura e valem nos dois calendários da página.
- */
 function primeirasDoMes(data: Date): Sinal[] {
   if (data.getUTCDate() > 7) return [];
   if (data.getUTCDay() === 4) return ["primeiraQuinta"];
@@ -110,27 +69,6 @@ function primeirasDoMes(data: Date): Sinal[] {
   return [];
 }
 
-/**
- * Os sinais de um dia do calendário de 1962, que este site calcula.
- *
- * As Têmporas saem do nome que o motor dá ao dia, e também da comemoração:
- * quando uma festa vence a féria, a Têmpora não some, desce a comemorada, e
- * é o que acontece com dois sábados de 2030 — São Mateus em 21 de setembro e
- * São Tomé em 21 de dezembro. Olhando só o nome, aquele ano teria dez
- * Têmporas em vez de doze, caladamente.
- *
- * As de Pentecostes precisam de uma terceira regra: naquela semana o motor
- * chama o dia de "Quarta-feira da Oitava de Pentecostes", porque é o que ele
- * é — a Oitava vence —, e as Têmporas não aparecem nem no nome nem na
- * comemoração. São a quarta, a sexta e o sábado dessa oitava, e nenhum outro
- * dia dela.
- *
- * O próprio do Brasil sai da lista das catorze festas da concessão de 1962,
- * pelo nome: é o motor que as situa, e aqui só se pergunta se a celebração do
- * dia é uma delas. Também pela comemoração, porque três festas brasileiras de
- * III classe cedem ao domingo e ficam comemoradas — e o dia continua sendo
- * dia de próprio do Brasil.
- */
 export function sinaisDe1962(dia: DiaLiturgico): Sinal[] {
   const sinais = primeirasDoMes(dia.data);
   const naOitavaDePentecostes = /da Oitava de Pentecostes$/.test(dia.nome);
@@ -148,18 +86,6 @@ export function sinaisDe1962(dia: DiaLiturgico): Sinal[] {
   return sinais;
 }
 
-/**
- * Os sinais de um dia do Ordo pré-55, que é copiado e não calculado.
- *
- * Os dois grupos litúrgicos saem do título que o Perez escreve acima da linha
- * da Missa — "Próprio do Brasil", "Quatro Têmporas da Quaresma" —, que o
- * separador do Ordo já lê e guarda em `proprio`. São 22 dias de Brasil e 12
- * de Têmporas em 2026, e é o que ele quis dizer com "todos já assinalados no
- * calendário": o dado estava escrito, faltava a grade mostrá-lo.
- *
- * Pelo título, e não por uma lista de nomes de festa: o Ordo de cada ano traz
- * os seus, e uma lista fechada deixaria de reconhecer os novos calada.
- */
 export function sinaisDoOrdo(dia: DiaDoOrdo): Sinal[] {
   const sinais = primeirasDoMes(dia.data);
   const proprios = celebracoesDoOrdo(dia)

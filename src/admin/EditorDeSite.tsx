@@ -2,12 +2,6 @@ import type { Retrato, Site } from "../data/tipos";
 import { Botao, Campo, Linha, ListaDeTextos, Texto } from "./Campos";
 import { mover } from "./mover";
 
-/**
- * A identidade do site: o que aparece em toda página.
- *
- * Mexer aqui mexe nas dezoito páginas de uma vez, e por isso o editor avisa
- * disso no alto em vez de parecer mais um formulário.
- */
 export function EditorDeSite({
   conteudo,
   aoMudar,

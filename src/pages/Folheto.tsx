@@ -9,25 +9,6 @@ import type { Bloco } from "../data/tipos";
 import { Elo } from "../routes/Elo";
 import { usarParametros } from "../routes/usarRota";
 
-/**
- * Um folheto, do jeito que ele é impresso — e corrido.
- *
- * O impresso tem duas páginas porque papel acaba. Aqui a oração que começa na
- * primeira e termina na segunda é um bloco só, que é exatamente o que o Perez
- * pediu: "sem ser duas imagens, uma coisa só corrida".
- *
- * A folha não tenta imitar o papel creme do PDF. O site é escuro por padrão
- * porque é lido no celular, muitas vezes de noite e dentro da igreja, e uma
- * folha creme acesa no meio da página escura é o oposto de discreto. O que
- * faz reconhecer a folha é a moldura, a serifa e a oração em duas colunas —
- * isso ela tem, nos dois temas.
- */
-/**
- * Os blocos do próprio, agrupados por peça: do subtítulo que a abre até o
- * seguinte. É o grupo que carrega o tipo da peça, e o tipo é o que o CSS lê
- * para decidir a capitular. As comemorações ("2. Santíssima Virgem Maria")
- * abrem grupo próprio e caem em "oracao", que é a capitular de sempre.
- */
 function agruparPecas(blocos: Bloco[]) {
   const pecas: { tipo: ReturnType<typeof tipoDaPeca>; blocos: Bloco[] }[] = [];
   for (const bloco of blocos) {
@@ -63,16 +44,6 @@ export default function Folheto() {
       <Cabecalho titulo={folheto.titulo} descricao={folheto.resumo} />
       {folheto.rascunho && <Vazia variante="rascunho" />}
 
-      {/*
-        O próprio da Missa tem folha própria: capitulares no início de cada
-        peça, títulos centrados e o fio do impresso. "Fazer umas letras
-        capitulares na primeira letra do intróito, das orações, do evangelho,
-        e colocar os v e r estilizados em vermelho", pediu o Perez.
-
-        Modificador, e não estilo de toda folha, porque é o próprio que imita
-        o missal. A folha de indulgência é outra coisa: um impresso de uma
-        página, com a obra e as condições, e capitular nela seria enfeite.
-      */}
       <article className={`folheto${folheto.categoria === "proprio" ? " folheto--proprio" : ""}`}>
         <div className="folheto__folha">
           {folheto.chapeu && <p className="folheto__chapeu">{folheto.chapeu}</p>}
@@ -87,13 +58,6 @@ export default function Folheto() {
             />
           )}
 
-          {/*
-            Data, nome e grau, como o impresso os põe logo abaixo da estampa.
-            Repetem o cabeçalho da página de propósito: a folha é a folha, e
-            quem a abre pelo modo missa ou rola até ela precisa saber de que
-            dia é sem subir. O nome é h2 para o sumário do leitor de tela
-            continuar com uma hierarquia só.
-          */}
           {folheto.cabecalho && (
             <header className="folheto__abertura">
               {folheto.cabecalho.data && (
@@ -113,12 +77,6 @@ export default function Folheto() {
             </p>
           )}
 
-          {/*
-            A concessão inteira é elo, e cai no ponto exato dela dentro do
-            Enchiridion. "Ao invés de linkar o enquiridio nas concessões em
-            cada Indulgência, tu poderia linkar toda a concessão e levar a
-            pessoa pra parte exata da concessão", pediu o Perez.
-          */}
           {folheto.concessao && (
             <p className="folheto__concessao">
               <TextoRico texto={folheto.concessao} />
@@ -145,15 +103,6 @@ export default function Folheto() {
           )}
         </div>
 
-        {/*
-          O arquivo no Drive, para quem vai imprimir. "No final de cada
-          Indulgência, tu linka o arquivo no Drive do apostolado pra pessoa
-          poder baixar e imprimir", pediu o Perez.
-
-          Fora da folha, e não dentro: o que está dentro é o impresso, e o
-          impresso não fala de si mesmo. Aqui embaixo é o site falando com
-          quem lê.
-        */}
         {folheto.arquivo && (
           <p className="folheto__arquivo">
             <a

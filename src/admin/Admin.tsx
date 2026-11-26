@@ -18,18 +18,6 @@ import { Escolha } from "./Escolha";
 import { usarDocumento } from "./usarDocumento";
 import "../styles/admin.css";
 
-/**
- * O painel.
- *
- * `/admin` lista o que dá para editar; `/admin/<id>` abre um documento. O id
- * vem da rota, e não de um estado interno, para o endereço poder ser guardado
- * nos favoritos e para o botão voltar do navegador funcionar.
- *
- * Quem decide o que cada id é, e onde ele mora no repositório, é o registro —
- * aqui e, principalmente, no Worker. O painel manda só o id: aceitar um
- * caminho vindo do navegador daria escrita em qualquer arquivo, e o
- * repositório publica sozinho.
- */
 export function Admin() {
   const { navegar } = usarRota();
   const { documento } = usarParametros();

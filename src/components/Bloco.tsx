@@ -25,12 +25,9 @@ function Lista({ ordenada, itens }: { ordenada?: boolean; itens: string[] }) {
   );
 }
 
-/** Escolhe o componente certo para cada bloco do conteúdo. */
 export function Bloco({ bloco }: { bloco: TipoBloco }) {
   switch (bloco.tipo) {
     case "paragrafo": {
-      // a resposta do povo leva o ℟ recuado à margem, e a letra que abre é a
-      // da resposta: sem separar, a capitular caía no próprio ℟
       const resposta = /^\[b\]℟\.\s*([\s\S]*)$/.exec(bloco.texto);
       if (resposta) {
         return (
@@ -44,8 +41,6 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
           </p>
         );
       }
-      // a âncora é o que faz "§1, 3.º" cair no §1, 3.º, e não no alto da
-      // concessão; quase todo parágrafo não tem, e aí não há id nenhum
       return (
         <p
           className={bloco.destaque ? "paragrafo paragrafo--destaque" : "paragrafo"}
@@ -60,10 +55,6 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
     case "assembleia":
       return <RubricaDaAssembleia texto={bloco.texto} />;
     case "subtitulo":
-      // a âncora é o que deixa o sumário e o índice analítico apontarem para
-      // uma concessão, e não só para a seção inteira
-      // o menor é o cabeçalho de uma oração dentro de uma concessão: ganha
-      // âncora para o índice analítico, mas fica fora do sumário
       return bloco.menor ? (
         <h4 className="subtitulo subtitulo--menor" id={bloco.ancora}>
           <TextoRico texto={bloco.texto} />
@@ -91,16 +82,9 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
     case "separador":
       return <hr className="separador" />;
     case "bilingue": {
-      /*
-       * As duas colunas casam faixa a faixa: cada parágrafo do latim fica na
-       * altura do seu par em português, e a faixa tem a altura do mais alto
-       * dos dois. Quem faz isso é o subgrid, e para isso o pai precisa saber
-       * de quantas faixas se trata — daí o --linhas.
-       */
       const linhas = Math.max(bloco.latim.length, bloco.portugues.length);
       return (
         <div className="bilingue" style={{ "--linhas": linhas } as CSSProperties}>
-          {/* lang="la" para o leitor de tela não pronunciar latim em português */}
           <div className="bilingue__lado bilingue__lado--latim" lang="la">
             <ListaDeBlocos blocos={bloco.latim} />
           </div>
@@ -111,8 +95,6 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
       );
     }
     case "proprio":
-      // o lugar que o impresso deixa em branco: no modo missa ele se enche
-      // com o próprio do dia, e fora dele fica a remissão do papel
       return <LugarDoProprio nome={bloco.nome} subtitulos={bloco.subtitulos} />;
     case "indice":
       return <IndiceDoDocumento />;
@@ -132,7 +114,6 @@ export function Bloco({ bloco }: { bloco: TipoBloco }) {
   }
 }
 
-/** O número vem da posição no documento, não do dado. */
 function PassoNumerado({
   id,
   etiqueta,

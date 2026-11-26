@@ -1,20 +1,11 @@
 import type { Forma } from "../src/data/registro";
 import { PADROES } from "../src/routes/padroes";
 
-/**
- * Guardas mínimas por forma de documento.
- *
- * O objetivo não é validar o esquema inteiro: é recusar o que **esvaziaria**
- * uma página publicada. Se algo der errado no navegador e o painel mandar um
- * documento vazio, o site não pode perder o conteúdo por causa disso.
- */
-
 const ehObjeto = (v: unknown): v is Record<string, unknown> =>
   typeof v === "object" && v !== null && !Array.isArray(v);
 
 const listaComItens = (v: unknown): v is unknown[] => Array.isArray(v) && v.length > 0;
 
-/** Devolve a mensagem de erro, ou null se o conteúdo passa. */
 export function validar(forma: Forma, conteudo: unknown): string | null {
   if (!ehObjeto(conteudo)) return "conteúdo não é um objeto";
 
@@ -34,12 +25,6 @@ export function validar(forma: Forma, conteudo: unknown): string | null {
           return `identidade do site sem ${campo}`;
         }
       }
-      /*
-       * Os calendários não se editam pelo painel, de propósito: identificador
-       * errado deixa o botão de vincular quebrado sem aviso nenhum. Gravação
-       * que os perca só pode ser defeito do editor, e publicá-la tiraria do
-       * visitante a agenda do Ordo e as das confrarias de uma vez.
-       */
       if (!listaComItens(conteudo.agendas)) {
         return "identidade do site sem os calendários: recusado para não quebrar os botões de vincular";
       }
@@ -50,8 +35,6 @@ export function validar(forma: Forma, conteudo: unknown): string | null {
         return "página inicial sem título";
       }
       if (!Array.isArray(conteudo.avisos)) return "página inicial sem lista de avisos";
-      // os blocos da apresentação moram em `sobre`, e não no topo: a guarda
-      // antiga procurava `conteudo.blocos` e recusava toda gravação
       if (!ehObjeto(conteudo.sobre) || !Array.isArray(conteudo.sobre.blocos)) {
         return "página inicial sem a apresentação";
       }
@@ -74,12 +57,6 @@ export function validar(forma: Forma, conteudo: unknown): string | null {
 
     case "folhetos": {
       if (!Array.isArray(conteudo.folhetos)) return "sem lista de folhetos";
-      /*
-       * As condições ordinárias são de toda obra indulgenciada e moram aqui
-       * uma vez só. Gravação que as perca deixaria cada folha afirmando uma
-       * plenária sem dizer o que ela exige — e o estrago apareceria em todas
-       * de uma vez, não naquela que estava sendo editada.
-       */
       if (!ehObjeto(conteudo.condicoes) || !listaComItens(conteudo.condicoes.blocos)) {
         return "folhetos sem as condições ordinárias: recusado para não esvaziá-las em toda folha";
       }
@@ -97,12 +74,6 @@ export function validar(forma: Forma, conteudo: unknown): string | null {
     }
 
     case "paginas": {
-      /*
-       * Página sem título some do menu, das migalhas e da aba do navegador
-       * sem erro nenhum — ela continua abrindo, só que anônima. É o tipo de
-       * estrago que ninguém vê ao salvar e alguém descobre semanas depois,
-       * então é melhor recusar a gravação.
-       */
       for (const caminho of PADROES) {
         const texto = conteudo[caminho];
         if (!ehObjeto(texto)) return `falta o texto da página ${caminho}`;

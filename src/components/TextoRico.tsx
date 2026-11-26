@@ -7,24 +7,12 @@ const CORES = ["branco", "vermelho", "verde", "roxo", "preto", "rosa"] as const;
 type Cor = (typeof CORES)[number];
 type Marca = "lat" | "b" | "i" | "r" | "tinta" | "nota" | "elo" | "botao" | "mapa" | Cor;
 
-/**
- * Instância nova a cada chamada: a busca é recursiva e lastIndex é estado
- * mutável. O `:parametro` é opcional; usam-no o `elo`, o `botao` e o `mapa`.
- *
- * `botao` vem antes de `b` na alternância de propósito: as duas começam com a
- * mesma letra, e ainda que o retrocesso do motor acabasse acertando, a ordem
- * explícita poupa o leitor de ter que descobrir isso.
- */
 const marcacao = () =>
   /\[(lat|botao|b|i|r|tinta|nota|elo|mapa|branco|vermelho|verde|roxo|preto|rosa)(?::([^\]]*))?\]([\s\S]*?)\[\/\1\]/g;
 
-/** A chamada de nota: componente porque precisa de contexto. */
 function Nota({ chave }: { chave: string }) {
   const texto = usarNota(chave);
-  // nota que se cita dentro de si mesma pararia aqui de qualquer jeito; sem
-  // esta guarda ela pararia estourando a memória do navegador
   const emCurso = usarNotaEmCurso(chave);
-  // nota que não está no mapa vira só o número: não prometer o que não há
   if (!texto || emCurso) {
     return <sup className="nota-chamada nota-chamada--orfa">{chave}</sup>;
   }
@@ -33,19 +21,12 @@ function Nota({ chave }: { chave: string }) {
   );
 }
 
-/**
- * Três destinos, e a diferença importa:
- *   https://...                    outro site, abre em aba nova
- *   /indulgencias/enchiridion#x    outra página daqui, o Roteador intercepta
- *   concessao-14                   ponto desta mesma página
- */
 function Elo({
   destino,
   botao,
   children,
 }: {
   destino: string;
-  /** Elo de destaque: o que leva o leitor adiante, e por isso parece botão. */
   botao?: boolean;
   children: ReactNode;
 }) {
@@ -58,7 +39,6 @@ function Elo({
           ? `elo-botao${externo ? " elo-botao--externo" : ""}`
           : `elo-texto${externo ? " elo-texto--externo" : ""}`
       }
-      // âncora da própria página começa com #, e o Roteador não intercepta essas
       href={externo || interno ? destino : `#${destino}`}
       {...(externo ? { target: "_blank", rel: "noreferrer noopener" } : {})}
     >
@@ -92,15 +72,12 @@ function envolver(
         </span>
       );
     case "tinta":
-      // a segunda tinta do missal, em trecho solto: o N. do Papa, a inicial
-      // de "Lectio". Não é a rubrica (sem itálico) nem cor litúrgica (sem negrito)
       return (
         <span className="segunda-tinta" key={chave}>
           {conteudo}
         </span>
       );
     case "nota":
-      // o corpo é a chave da nota, não texto para interpretar
       return <Nota chave={cru.trim()} key={chave} />;
     case "elo":
       return (
@@ -115,14 +92,12 @@ function envolver(
         </Elo>
       );
     case "mapa":
-      // o parâmetro é o que se procura no mapa: nome da igreja e endereço
       return (
         <Localizacao consulta={parametro ?? ""} key={chave}>
           {conteudo}
         </Localizacao>
       );
     default:
-      // nome de cor litúrgica: a palavra é escrita na própria cor
       return (
         <span className={`cor cor--${marca}`} key={chave}>
           {conteudo}
@@ -131,18 +106,6 @@ function envolver(
   }
 }
 
-/**
- * O fecho que casa com esta abertura, e não o primeiro que aparecer.
- *
- * Sozinha, a busca não-gulosa para no primeiro `[/i]`, e uma marca dentro de
- * outra igual se parte no meio: "[i]Concessão n.º 14 ... da Constituição
- * Apostólica [i]Indulgentiarum Doctrina[/i][/i]" saía com o segundo `[/i]`
- * escrito na tela, em letras, na linha da concessão de São Pedro e São Paulo.
- * Acontecia porque a fonte já vinha em itálico e o nome do documento também.
- *
- * Conta abertura e fecho da mesma marca até zerar. Marcação sem fecho devolve
- * nulo, e aí vale o que o padrão achou: texto quebrado não derruba a página.
- */
 function ateOFechoQueCasa(
   texto: string,
   marca: string,
@@ -164,28 +127,10 @@ function ateOFechoQueCasa(
   return null;
 }
 
-/**
- * O ℣, o ℟ e a cruz ✠, que no missal são vermelhos.
- *
- * Vermelhos em todo o site, e não só nos folhetos: são sinal de rubrica onde
- * quer que apareçam, e o preto neles era o livro impresso sem a segunda tinta.
- * O ponto vai junto com o sinal, como no missal, e é por isso que o `\.?` está
- * dentro do grupo; o espaço depois, não.
- *
- * Não é marcação: ninguém escreve `[r]℣[/r]`. O caractere já está no texto que
- * saiu do PDF, e pedir que alguém o marque à mão seria convidar ao esquecimento
- * em metade das ocorrências.
- */
 const SINAIS = /([℣℟]\.?|✠)/g;
 
 function comSinais(linha: string, prefixo: string): ReactNode[] {
   if (!/[℣℟✠]/.test(linha)) return [linha];
-  /*
-   * Depois do `split` com grupo de captura, todo sinal virou pedaço próprio e
-   * nenhum sobrou nos outros: por isso a primeira letra basta para distinguir,
-   * e não se testa o padrão de novo — `SINAIS` é global, e `test` em padrão
-   * global guarda `lastIndex` e responderia diferente a cada chamada.
-   */
   return linha
     .split(SINAIS)
     .filter((p) => p !== "")
@@ -200,7 +145,6 @@ function comSinais(linha: string, prefixo: string): ReactNode[] {
     );
 }
 
-/** Quebra de linha explícita dentro de uma célula ou parágrafo. */
 function comQuebras(trecho: string, prefixo: string): ReactNode[] {
   const linhas = trecho.split("\n");
   const saida: ReactNode[] = [];
@@ -211,10 +155,6 @@ function comQuebras(trecho: string, prefixo: string): ReactNode[] {
   return saida;
 }
 
-/**
- * Converte a marcação mínima do conteúdo em elementos React.
- * Nada de HTML cru: o texto vira sempre nó de texto ou elemento conhecido.
- */
 export function interpretar(texto: string, prefixo = "t"): ReactNode[] {
   const partes: ReactNode[] = [];
   const padrao = marcacao();
@@ -229,8 +169,6 @@ export function interpretar(texto: string, prefixo = "t"): ReactNode[] {
     }
     const marca = ocorrencia[1] as Marca;
     const chave = `${prefixo}-${marca}-${ocorrencia.index}`;
-    // `[elo]` e `[elo:]` têm o mesmo grupo vazio, e só a abertura crua diz
-    // qual dos dois é: daí o comprimento sair do parâmetro, e não do achado
     const abertura =
       ocorrencia.index +
       marca.length +

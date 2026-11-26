@@ -1,15 +1,3 @@
-/**
- * Suíte do Ordo pré-55. Roda junto com `npm test`.
- *
- * Este calendário não é calculado: é copiado do Ordo que a capela publica. O
- * que se confere aqui, então, não é regra litúrgica — é que a cópia chegou
- * inteira e na forma que a tela espera. Um dia faltando no meio do ano deixa
- * um buraco na grade; uma cor fora das seis pinta a bolinha de nada.
- *
- * A conferência contra o .ics de origem é outra, e mora em
- * ferramentas/ordo/conferir.py, junto de quem faz a importação.
- */
-
 import { ANOS, ARQUIVOS, ATE } from "../data/ordo/indice";
 import { penitenciaDe } from "./penitencia";
 import { diaLiturgico } from "./precedencia";
@@ -46,7 +34,6 @@ async function rodar() {
   conferir("ano sem Ordo é reconhecido como tal", temOrdo(1900), false);
 
   {
-    /* vai haver dia com Missa à escolha dos dois lados */
     const c = (nome: string, mais: object = {}) =>
       ({ missa: nome, notas: [], permitidas: [], ...mais });
     const { daqui, universal } = ladosDoDia([
@@ -66,7 +53,6 @@ async function rodar() {
     }
 
     conferir(`${ano}: o arquivo diz de que ano é`, arquivo.ano, ano);
-    // o ano pode estar em preparação: vai até o último dia publicado, inteiro
     const ate = ATE[ano];
     const esperados = (Date.parse(ate) - Date.UTC(ano, 0, 1)) / 86_400_000 + 1;
     conferir(`${ano}: não há buracos até ${ate}`,
@@ -87,7 +73,6 @@ async function rodar() {
     conferir(`${ano}: as cores são as seis litúrgicas`, corEstranha, []);
     conferir(`${ano}: nenhum dia de outro ano no arquivo`, foraDoAno, []);
 
-    /* de 2027 em diante cada Missa vem separada, e todas com a tabela */
     if (ano >= 2027) {
       const todos = Array.from({ length: Number(ate.slice(5, 7)) }, (_, i) =>
         mesDoOrdo(arquivo, ano, i + 1)).flat();
@@ -117,7 +102,6 @@ async function rodar() {
           .filter((o) => !o.nome || !o.rito || !CORES.includes(o.cor)).length, 0);
     }
 
-    // o mês volta com a quantidade certa de dias e com o tempo calculado
     const janeiro = mesDoOrdo(arquivo, ano, 1);
     conferir(`${ano}: janeiro tem 31 dias`, janeiro.length, 31);
     conferir(`${ano}: o tempo vem calculado`, typeof janeiro[0].tempo, "string");
@@ -135,12 +119,6 @@ async function rodar() {
       mesDoOrdo(arquivo, ano, 2).length, bissexto(ano) ? 29 : 28);
   }
 
-  /*
-   * Três dias do Ordo de 2026, conferidos contra o que a capela publicou. São
-   * a prova de que o importador leu o grau e a cor do lugar certo — e a Sexta
-   * Santa está aí porque é o único preto do ano: se a cor vier de outro campo,
-   * ela é a primeira a sair errada.
-   */
   const de2026 = await carregarOrdo(2026);
   if (de2026) {
     conferir("Epifania: grau", de2026.dias["2026-01-06"]?.grau,
@@ -153,15 +131,6 @@ async function rodar() {
     falhas.push("2026: o Ordo não abriu");
   }
 
-  /*
-   * A leitura da linha da Missa.
-   *
-   * Ela é a única parte do pré-55 que interpreta alguma coisa, e por isso é a
-   * única que pode errar em silêncio: um "Glória" perdido não quebra nada, só
-   * mente. Os casos abaixo são os que já me pegaram — a Glória colada ao
-   * nome da Missa depois de dois pontos, o Credo com o motivo entre
-   * parênteses, e o "Prefácio e Communicantes", que é uma frase só.
-   */
   const dias2026 = de2026
     ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].flatMap((m) => mesDoOrdo(de2026, 2026, m))
     : [];
@@ -186,15 +155,6 @@ async function rodar() {
     em("2026-06-24")?.credo, false);
   conferir("Sexta-feira Santa não tem linha de Missa", em("2026-04-03"), null);
 
-  /*
-   * O que sobra da linha depois da tabela.
-   *
-   * Perez pediu para tirar da linha o itinerário que a tabela já mostra, e
-   * deixar só o que muda. Dois casos já me pegaram, e os dois são o Ordo
-   * colando o primeiro item ao nome da Missa com dois pontos: sem separar
-   * ali, o nome da Missa ia embora junto com a Glória ou com a comemoração, e
-   * a linha ficava vazia.
-   */
   conferir("o nome da Missa sobrevive à Glória colada com dois pontos",
     em("2026-04-15")?.resto, ["Missa Quasi modo do domingo precedente"]);
   conferir("e à comemoração colada com dois pontos",
@@ -202,17 +162,6 @@ async function rodar() {
   conferir("a linha não repete o que a tabela diz",
     em("2026-01-06")?.resto, ["Missa Ecce advenit"]);
 
-  /*
-   * As orações do tempo, na casa delas.
-   *
-   * Pedido do Perez. Antes caíam no `resto` e eram lidas como parte do nome
-   * da Missa: "Missa Ecce advenit da festa; oração Deus, qui salutis e
-   * Ecclesiæ" aparecia inteiro na casa "Missa".
-   *
-   * O caso que obriga a cortar dentro do segmento é o terceiro: o Ordo gruda
-   * a oração na comemoração com um " e ", e sem o corte o nome do santo
-   * comemorado saía com a oração pendurada.
-   */
   conferir("a oração sai do nome da Missa",
     em("2026-04-15")?.oracoes, ["oração Concede e Ecclesiæ"]);
   conferir("a oração de duas partes não vira duas",
@@ -224,14 +173,6 @@ async function rodar() {
   conferir("dia sem oração acrescentada não ganha casa",
     em("2026-01-06")?.oracoes, []);
 
-  /*
-   * Só as que têm nome.
-   *
-   * Segundo pedido do Perez sobre a mesma casa: "eu quero que pegue somente
-   * os trechos que o ordo cita a oração (ex: Concede, A cunctis, Ecclesiæ e
-   * Fidelium) sempre com os nomes, pra não confundir com as orações próprias
-   * dos santos, que tem que estar na parte Missa mesmo".
-   */
   conferir("Orações próprias não é oração do tempo",
     em("2026-01-22")?.oracoes, ["oração Deus, qui salutis e oração Ecclesiæ"]);
   conferir("e volta para o lado do nome da Missa",
@@ -239,17 +180,6 @@ async function rodar() {
   conferir("oração única também não é do tempo",
     em("2026-03-29")?.oracoes, []);
 
-  /*
-   * Nenhuma oração com nome pode ficar presa no `resto`.
-   *
-   * É a conferência que vale mais do que as de cima, porque é a que percorre
-   * os 365 dias: o Ordo escreve estas frases de dezenas de maneiras, e uma
-   * forma nova não dá erro nenhum — ela só volta a aparecer na casa "Missa",
-   * calada, como estava antes deste campo existir.
-   *
-   * A lista é do que sobra ali de propósito, e é fechada: forma nova aparece
-   * como diferença nesta linha em vez de sumir da casa das orações.
-   */
   conferir("na casa da Missa só sobram as orações sem nome",
     [...new Set(dias2026.flatMap((d) => naMissaDoOrdo(d)?.resto ?? [])
       .filter((r) => /\boraç(ão|ões)\b/i.test(r)))].sort(),
@@ -260,14 +190,6 @@ async function rodar() {
      "Orações próprias",
      "oração única"]);
 
-  /*
-   * O Último Evangelho só quando é item da enumeração.
-   *
-   * Na Quinta-feira Santa o Ordo o cita no meio de uma rubrica sobre o que se
-   * omite, e a busca na linha inteira trazia o parêntese daquela rubrica para
-   * a casa do Último Evangelho — enquanto a rubrica ia para a casa da Missa
-   * cortada em "…sobre o altar ao".
-   */
   conferir("a rubrica que cita o Último Evangelho não vira o Último Evangelho",
     em("2026-04-02")?.ultimoEvangelho, undefined);
   conferir("e ela chega inteira à casa da Missa",
@@ -278,20 +200,9 @@ async function rodar() {
     dias2026.flatMap((d) => celebracoesDoOrdo(d))
       .filter((c) => analisarMissa(c.missa)?.ultimoEvangelho).length, 39);
 
-  /*
-   * As comemorações não podem sumir numa reimportação.
-   *
-   * O Perez avisou que mudou a forma no calendário — tirou o "comemoração
-   * de" antes do nome do primeiro santo. Quem as reconhece aqui é a palavra
-   * "comemoração" no segmento; sem ela, elas caem no `resto` e a casa
-   * Comemoração fica vazia, sem erro nenhum. Em 2026 são 179 dias dos 362
-   * que têm tabela; o piso é generoso de propósito, para pegar o colapso e
-   * não a variação de um ano para o outro.
-   */
   conferir("as comemorações continuam sendo reconhecidas",
     dias2026.filter((d) => (naMissaDoOrdo(d)?.comemoracoes.length ?? 0) > 0).length > 120, true);
 
-  // cobertura: se a leitura regredir, estes números caem
   const comTabela = dias2026.map(naMissaDoOrdo).filter((n) => n !== null);
   const conta = (f: (n: NonNullable<typeof comTabela[number]>) => boolean) =>
     comTabela.filter((n) => f(n!)).length;
@@ -305,21 +216,6 @@ async function rodar() {
   conferir("e nenhum repete o itinerário que a tabela já mostra",
     conta((n) => n.resto.some((r) => /Glória|Credo|Prefácio|Ite, Missa|Benedicamus/.test(r))), 0);
 
-  /*
-   * Os PDF do próprio da Missa, que o redator anexa ao dia. São os domingos e
-   * as festas maiores; o resto ainda está por fazer, e por isso o número é de
-   * cobertura, não de contagem fechada — se cair, alguma coisa se perdeu na
-   * importação.
-   *
-   * Eram 92 dias até a importação de 28/10/2026. O Perez passou a anexar o
-   * próprio à festa em si — São Lucas, Cristo Rei, Todos os Santos — e a
-   * tirá-lo dos dias que apenas repetem a Missa de outro: os da Oitava e as
-   * férias que dizem a Missa do domingo precedente.
-   */
-  /*
-   * Cada próprio transcrito tem de ser achado pelo anexo do dia. Trocar o PDF
-   * no gerador sem guardar o que o Ordo anexa tira o próprio do modo missa.
-   */
   if (de2026) {
     const dias = ["11-29", "12-06", "12-08", "12-12", "12-13", "12-20", "12-24"];
     conferir("os próprios do Advento são achados pelo anexo do dia",
@@ -339,14 +235,6 @@ async function rodar() {
     conferir("o Natal traz as três Missas", de2026.dias["2026-12-25"]?.anexos?.length, 3);
   }
 
-  /*
-   * A abstinência do calendário de 1962, medida contra o Ordo.
-   *
-   * A regra de `penitencia.ts` não veio do cânon 1252 na forma universal: veio
-   * de ler o que o Ordo da capela marca nos 365 dias de 2026. Este bloco é o
-   * que prova que ela continua batendo — e é também onde está registrado o
-   * único dia em que as duas discordam.
-   */
   if (de2026) {
     const doOrdo = (data: string) => de2026.dias[data]?.penitencia;
     const calculada = (data: string) =>
@@ -381,12 +269,6 @@ async function rodar() {
   }
 
   {
-    /*
-     * A bolinha maior da grade sai daqui, e o risco é a palavra vizinha: o
-     * Ordo escreve "féria maior de 2ª ordem" e "Oitava privilegiada de 1ª
-     * ordem", que não são classe nenhuma. Se a busca afrouxar para o número
-     * sozinho, 51 dias comuns viram festa maior e a marca perde o sentido.
-     */
     const maiores = Object.values(de2026.dias).filter(ehFestaMaiorDoOrdo);
     conferir("81 festas de 1ª ou 2ª classe em 2026", maiores.length, 81);
 
@@ -403,16 +285,6 @@ async function rodar() {
   }
 
   {
-    /*
-     * As celebrações do dia.
-     *
-     * A primeira conferência é a que vale: **nada se perde e nada se
-     * repete.** O separador olha a forma das linhas do Perez, e forma é
-     * coisa que varia — um dia escreve "No Brasil:" e outro "No Brasil", um
-     * anuncia a celebração por rótulo e outro só pelo posto. Se um dia
-     * dessas linhas mudar, o pior desfecho não é a estrutura sair errada: é
-     * uma linha sumir da tela sem ninguém ver sumir.
-     */
     const perdidas: string[] = [];
     let comSegunda = 0;
     let comRotulo = 0;
@@ -430,13 +302,6 @@ async function rodar() {
         ...c.notas,
         ...c.permitidas,
       ]);
-      /*
-       * Linha a linha, e não parágrafo a parágrafo: o título de onde sai a
-       * Missa vem no mesmo parágrafo que ela, com a Missa recuada embaixo, e
-       * o separador os parte em dois campos. Comparado por parágrafo, esse
-       * corte apareceria como perda; comparado por linha, continua valendo o
-       * que importa — nenhuma linha some e nenhuma aparece duas vezes.
-       */
       const emLinhas = (lista: string[]) =>
         lista.flatMap((t) => t.split("\n").map((l) => l.trim()).filter(Boolean)).sort();
       if (JSON.stringify(emLinhas(recolhidas)) !== JSON.stringify(emLinhas(dia.partes))) {
@@ -462,13 +327,6 @@ async function rodar() {
         tempo: "quaresma",
       } as DiaDoOrdo).length, 1);
 
-    /*
-     * O título de onde sai a Missa, recuado no mesmo parágrafo que ela.
-     *
-     * É o que quebrou na importação de 28/10/2026: a linha deixou de começar
-     * em "Missa", `analisarMissa` devolveu null e 38 dias perderam a tabela
-     * inteira — sem erro nenhum, só uma tela mais pobre. Daí a contagem.
-     */
     {
       const comProprio = Object.entries(de2026.dias).flatMap(([data, bruto]) =>
         celebracoesDoOrdo({
@@ -485,7 +343,6 @@ async function rodar() {
       conferir("a Dedicação de Santa Maria das Neves sai do próprio da Arquidiocese",
         comProprio.find(([d]) => d === "2026-08-05")?.[1].proprio,
         "Próprio da Arquidiocese da Paraíba");
-      /* 2 de julho: o recuo pende de uma rubrica, e rubrica não é título */
       conferir("o parágrafo recuado debaixo de rubrica não vira título",
         comProprio.some(([d]) => d === "2026-07-02"), false);
     }
@@ -499,7 +356,6 @@ async function rodar() {
        ["No Brasil", 2],
        ["No Calendário Universal", 26]]);
 
-    // 27 de abril: a Missa da capela e a do Calendário Universal, inteiras
     const abril27 = celebracoesDoOrdo({
       ...de2026.dias["2026-04-27"],
       data: new Date("2026-04-27T00:00:00Z"),
@@ -513,12 +369,6 @@ async function rodar() {
     conferir("a Missa dela é lida como a da capela",
       analisarMissa(abril27[1].missa)?.gloria, true);
 
-    /*
-     * O Tríduo: a primeira linha não começa em "Missa", e começa em "Rito:",
-     * porque ali o que se faz é a ação litúrgica do dia. Ela tem de seguir
-     * em destaque — exigir a palavra "Missa" a jogava na lista de notas, no
-     * meio das rubricas sobre velas e toalhas de altar.
-     */
     for (const data of ["2026-04-03", "2026-04-04", "2026-05-23"]) {
       const c = celebracoesDoOrdo({
         ...de2026.dias[data],
@@ -530,11 +380,6 @@ async function rodar() {
       conferir(`${data}: e não se analisa em campos`, analisarMissa(c[0]?.missa), null);
     }
 
-    /*
-     * A Vigília de Pentecostes escreve, debaixo de "Nas Missas privadas",
-     * uma Missa que não é a do dia. Promovê-la mostraria como Missa
-     * principal o que é exceção.
-     */
     const pentecostes = celebracoesDoOrdo({
       ...de2026.dias["2026-05-23"],
       data: new Date("2026-05-23T00:00:00Z"),
@@ -543,11 +388,6 @@ async function rodar() {
     conferir("a Missa privada da Vigília fica com a rubrica dela",
       pentecostes[0].notas.some((n) => /^Missa Cum sanctificatus/.test(n)), true);
 
-    /*
-     * 3 de maio é o caso que não pode regredir: o Ordo diz "Missa como
-     * acima, exceto…" em vez de repeti-la. A celebração fica sem Missa de
-     * propósito, e a rubrica é que carrega o recado.
-     */
     const maio3 = celebracoesDoOrdo({
       ...de2026.dias["2026-05-03"],
       data: new Date("2026-05-03T00:00:00Z"),
@@ -560,15 +400,6 @@ async function rodar() {
   }
 
   {
-    /*
-     * O formato combinado com o Perez para o Ordo de 2027: as Missas que a
-     * capela pode dizer no lugar da principal vêm debaixo de uma linha só, e
-     * são coisa diferente do mesmo dia noutro calendário.
-     *
-     * Em 2026 não há nenhum dia assim, porque a convenção é nova. Este dia é
-     * construído, e é justamente por isso que ele existe: sem ele eu estaria
-     * prometendo ao Perez um formato que ninguém leu.
-     */
     const dia = {
       data: new Date("2027-01-14T00:00:00Z"),
       tempo: "tempo-comum",

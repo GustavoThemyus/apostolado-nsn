@@ -12,28 +12,13 @@ const PENITENCIAIS: Tempo[] = ["advento", "septuagesima", "quaresma", "paixao"];
 export interface Desenvolvimento {
   gloria: boolean;
   credo: boolean;
-  /** Gradual e Aleluia, Gradual e Trato, dois Aleluias, ou o de Requiem. */
   cantoInterlecional: string;
   prefacio: string;
   ultimoEvangelho: string;
-  /** Quantas orações se dizem na Colecta, na Secreta e na Pós-comunhão. */
   oracoes: number;
   leoninas: boolean;
 }
 
-/**
- * Os três dias que não seguem o desenvolvimento comum da Missa.
- *
- * Perez achou o defeito: a Sexta-feira Santa saía com Dies irae e Prefácio dos
- * Defuntos, igual a Finados. A causa era `ehRequiem` olhar só a cor, e o preto
- * da Sexta-feira Santa não ser o preto de uma Missa de defuntos — naquele dia
- * não há Missa nenhuma.
- *
- * O conserto não é acertar a dedução, é parar de deduzir. Estas regras são as
- * gerais do Missal, e o Tríduo é justamente onde elas não valem: cada um dos
- * três dias tem rito próprio, escrito por extenso no Missal. Deduzir ali não
- * dá para errar menos, dá para errar em silêncio.
- */
 export interface RitoProprio {
   nome: string;
   nota: string;
@@ -65,10 +50,6 @@ export function ritoProprioDe(dia: DiaLiturgico): RitoProprio | null {
   return null;
 }
 
-/**
- * Missa de defuntos. A cor basta *depois* de o Tríduo estar fora do caminho:
- * os únicos dias pretos do calendário são Finados e a Sexta-feira Santa.
- */
 function ehRequiem(dia: DiaLiturgico): boolean {
   return dia.cor === "preto";
 }
@@ -80,7 +61,6 @@ function achaFesta(dia: DiaLiturgico) {
   return locais.find((f) => f.nome === dia.nome) ?? festasDe(mes, d).find((f) => f.nome === dia.nome);
 }
 
-/** Glória: nas festas e nos domingos fora dos tempos penitenciais. */
 function temGloria(dia: DiaLiturgico): boolean {
   if (ehRequiem(dia)) return false;
   const festa = achaFesta(dia);
@@ -90,7 +70,6 @@ function temGloria(dia: DiaLiturgico): boolean {
   return false;
 }
 
-/** Credo: domingos, festas de I classe e as categorias que o pedem. */
 function temCredo(dia: DiaLiturgico): boolean {
   if (ehRequiem(dia)) return false;
   if (dia.origem === "santoral") {
@@ -117,7 +96,6 @@ function prefacio(dia: DiaLiturgico): string {
   const hoje = soData(dia.data);
   const nome = dia.nome.toLowerCase();
 
-  // prefácio próprio da festa
   if (nome.includes("nossa senhora") || nome.includes("assunção") ||
       nome.includes("imaculada") || nome.includes("anunciação") ||
       nome.includes("purificação") || nome.includes("visitação")) return "de Nossa Senhora";
@@ -128,7 +106,6 @@ function prefacio(dia: DiaLiturgico): string {
   if (nome.includes("cristo rei")) return "de Cristo Rei";
   if (nome.includes("trindade")) return "da Santíssima Trindade";
 
-  // prefácio próprio do tempo
   if (dia.tempo === "natal") return "do Natal";
   const mes = dia.data.getUTCMonth() + 1;
   const d = dia.data.getUTCDate();
@@ -140,7 +117,6 @@ function prefacio(dia: DiaLiturgico): string {
   if (hoje >= soData(e.pentecostes) && hoje <= soData(e.pentecostes) + 6 * 86400000)
     return "do Espírito Santo";
 
-  // sem prefácio próprio: Trindade nos domingos, Comum nos demais dias
   return dia.data.getUTCDay() === 0 ? "da Santíssima Trindade" : "Comum";
 }
 
@@ -148,20 +124,11 @@ function ultimoEvangelho(dia: DiaLiturgico): string {
   if (ehRequiem(dia)) return "omitido";
   const e = eixoDoAno(dia.data.getUTCFullYear());
   const hoje = soData(dia.data);
-  // até o Sábado Santo, e não até a Páscoa: no domingo o Último Evangelho volta
   if (hoje >= soData(e.ramos) && hoje < soData(e.pascoa)) return "omitido na Semana Santa";
   if (dia.nome.includes("Ramos")) return "próprio do dia";
   return "prólogo de São João";
 }
 
-/**
- * O que acontece na Missa deste dia, deduzido do tempo, da classe e da festa.
- *
- * É dedução a partir das rubricas gerais, não transcrição de um Ordo: serve
- * para se orientar, e não dispensa a conferência quando o dia é incomum.
- *
- * Devolve nulo nos três dias do Tríduo, que não têm desenvolvimento comum.
- */
 export function desenvolvimentoDe(dia: DiaLiturgico): Desenvolvimento | null {
   if (ritoProprioDe(dia)) return null;
   return {

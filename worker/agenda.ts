@@ -3,32 +3,6 @@ import type { CorDaAgenda, ItemDeAgenda } from "../src/data/tipos";
 
 export type { CorDaAgenda, ItemDeAgenda };
 
-/**
- * Ponte para os calendários públicos do Google.
- *
- * Existe por dois motivos. O primeiro é CORS: o endereço iCal do Google não
- * manda `Access-Control-Allow-Origin`, então o navegador não consegue buscá-lo
- * direto. O segundo é que o formato iCal não se lê no cliente sem uma
- * biblioteca, e o retorno aqui já vem em JSON pequeno.
- *
- * **O cliente manda um id do nosso `site.json`, nunca um endereço.** Aceitar
- * uma URL da requisição transformaria o Worker num proxy aberto: qualquer um
- * o usaria para bater em endereços internos da rede da Cloudflare com o nosso
- * nome. A lista de agendas é a fronteira, do mesmo jeito que o registro é a
- * fronteira da gravação.
- */
-
-
-/*
- * O Ordo da capela põe a cor litúrgica como emoji no começo do título
- * ("🔴Santo Estanislau"). Renderizado cru, o emoji sai na fonte colorida do
- * sistema e destoa de tudo no site. Aqui ele é lido, virado em cor e cortado
- * do texto; quem desenha o marcador é o CSS, com a mesma amostra que o
- * calendário próprio já usa.
- *
- * "ouro" não existe no calendário de 1962, que nunca o emite: entra só porque
- * o Ordo o usa, e traduzi-lo para branco seria reinterpretar o dado deles.
- */
 const CORES: Record<string, CorDaAgenda> = {
   "⚪": "branco",
   "⬜": "branco",
@@ -53,7 +27,6 @@ const CORES: Record<string, CorDaAgenda> = {
   "💛": "ouro",
 };
 
-/** Separa o marcador de cor do título, quando há um. */
 export function separarCor(titulo: string): { titulo: string; cor?: CorDaAgenda } {
   for (const [marca, cor] of Object.entries(CORES)) {
     if (titulo.startsWith(marca)) {
@@ -63,15 +36,12 @@ export function separarCor(titulo: string): { titulo: string; cor?: CorDaAgenda 
   return { titulo };
 }
 
-/** Uma hora: o Ordo muda no máximo quando alguém edita o calendário. */
 const VALIDADE = 3600;
 
-/** Desdobra as linhas continuadas do iCal, que quebram em 75 octetos. */
 function desdobrar(texto: string): string[] {
   return texto.replace(/\r\n[ \t]/g, "").replace(/\n[ \t]/g, "").split(/\r?\n/);
 }
 
-/** "20260805" ou "20260805T110000Z" viram "2026-08-05". */
 function comoData(valor: string): string | null {
   const m = /^(\d{4})(\d{2})(\d{2})/.exec(valor.trim());
   return m ? `${m[1]}-${m[2]}-${m[3]}` : null;
@@ -81,7 +51,6 @@ function desescapar(valor: string): string {
   return semEscapes(valor).replace(/\n/g, " ").replace(/\s+/g, " ").trim();
 }
 
-/** O mesmo, guardando as quebras: a descrição tem parágrafos, o título não. */
 function semEscapes(valor: string): string {
   return valor
     .replace(/\\n/gi, "\n")
@@ -91,31 +60,9 @@ function semEscapes(valor: string): string {
     .trim();
 }
 
-/*
- * As obras abrem pelo que se deve fazer; as festas, pelo nome delas.
- *
- * Lista fechada, e é o que distingue os dois casos que o comprimento não
- * separa: "Visitar o Santíssimo Sacramento e fazer adoração por pelo menos
- * meia hora." tem 74 caracteres, e "São Francisco Xavier, Padroeiro principal
- * do AO." tem 48 e fecha em ponto. Verbo novo erraria para o lado de mostrar
- * a obra em negrito, que é feio e não perde nada — nenhum dos dois desfechos
- * esconde texto.
- */
 const COMECA_PELA_OBRA =
   /^(requer|recitar|visitar|fazer|participar|receber|renovar|utilizar|rezar|assistir|acompanhar|tomar parte|aplicável|na igreja)\b/i;
 
-/**
- * O cabeçalho da descrição, quando o redator escreveu um.
- *
- * Nos calendários de indulgência do Apostolado todo evento se chama
- * "Indulgência Plenária", e o que muda está na descrição: a festa na primeira
- * linha, a obra depois de uma linha em branco. Lidas como texto corrido, as
- * duas saíam coladas — "Santa Teresa de Jesus Requer-se o propósito firme…" —,
- * que foi o que o Perez viu na tela.
- *
- * Nem todo evento tem festa: as indulgências que valem em qualquer dia abrem
- * direto pela obra. Daí os dois testes, e não um só.
- */
 const ehCabecalho = (p: string): boolean =>
   p.length <= 100 && !COMECA_PELA_OBRA.test(p);
 
@@ -131,25 +78,11 @@ export function partirDescricao(cru: string): { festa?: string; descricao?: stri
   return { festa: paragrafos[0], descricao: paragrafos.slice(1).join("\n\n") };
 }
 
-/**
- * A repetição de um evento, no pouco que estes calendários usam.
- *
- * Havia aqui um comentário dizendo que o Google entregava as ocorrências já
- * expandidas, com RECURRENCE-ID, e que por isso tratar RRULE seria refazer
- * conta alheia. **Não é verdade.** No iCal do Escapulário há 7 eventos, 7
- * RRULE e zero RECURRENCE-ID; o Google entrega a regra, não as ocorrências.
- * Como a regra era ignorada e só o DTSTART guardado, cada festa anual ficou
- * parada no ano em que foi criada, e cinco calendários do Apostolado
- * mostravam quase nada de 2026 em diante.
- */
 interface Repeticao {
-  /** Em anos. O que não for anual não se expande. */
   passo: number;
-  /** AAAA-MM-DD, quando a série termina. */
   ate?: string;
   mes?: number;
   diaDoMes?: number;
-  /** "BYDAY=-1SU": o último domingo. Ordem negativa conta do fim. */
   diaDaSemana?: { ordem: number; dia: number };
 }
 
@@ -157,17 +90,6 @@ const DIAS_DA_SEMANA: Record<string, number> = {
   SU: 0, MO: 1, TU: 2, WE: 3, TH: 4, FR: 5, SA: 6,
 };
 
-/**
- * Lê a RRULE, e devolve nulo para o que não sabemos expandir.
- *
- * Nulo não perde o evento: ele continua valendo pela data do DTSTART, como
- * valia antes. É de propósito que o desconhecido degrade para uma ocorrência
- * em vez de sumir ou de virar palpite.
- *
- * O que estes seis calendários usam, conferido um a um: 58 regras anuais e
- * uma mensal de doze em doze meses, com BYMONTH, BYMONTHDAY, BYDAY e UNTIL.
- * Nenhum EXDATE, nenhum COUNT, nenhum RECURRENCE-ID.
- */
 export function lerRepeticao(valor: string): Repeticao | null {
   const partes: Record<string, string> = {};
   for (const pedaco of valor.split(";")) {
@@ -178,7 +100,6 @@ export function lerRepeticao(valor: string): Repeticao | null {
   const intervalo = Number(partes.INTERVAL ?? 1) || 1;
   let passo: number;
   if (partes.FREQ === "YEARLY") passo = intervalo;
-  // "de doze em doze meses" é uma vez por ano dita de outro jeito
   else if (partes.FREQ === "MONTHLY" && intervalo % 12 === 0) passo = intervalo / 12;
   else return null;
 
@@ -194,14 +115,12 @@ export function lerRepeticao(valor: string): Repeticao | null {
     if (m && m[2] in DIAS_DA_SEMANA) {
       r.diaDaSemana = { ordem: Number(m[1] ?? 1), dia: DIAS_DA_SEMANA[m[2]] };
     } else {
-      // BYDAY com lista ("MO,WE") não é coisa destes calendários
       return null;
     }
   }
   return r;
 }
 
-/** A enésima ocorrência de um dia da semana no mês. Ordem negativa conta do fim. */
 function diaDaOcorrencia(ano: number, mes: number, ordem: number, dia: number): number | null {
   const noMes = new Date(Date.UTC(ano, mes, 0)).getUTCDate();
   const casam: number[] = [];
@@ -212,13 +131,6 @@ function diaDaOcorrencia(ano: number, mes: number, ordem: number, dia: number): 
   return escolhido ?? null;
 }
 
-/**
- * As datas em que a série cai, dentro da janela.
- *
- * A janela existe porque o retorno é uma lista chata, sem o ano pedido: o ano
- * passado serve para quem olha janeiro e volta para dezembro, e dois à frente
- * cobrem o calendário que o Apostolado prepara com antecedência.
- */
 function expandir(inicio: string, r: Repeticao, de: number, ate: number): string[] {
   const [ano0, mes0, dia0] = inicio.split("-").map(Number);
   const saida: string[] = [];
@@ -238,18 +150,11 @@ function expandir(inicio: string, r: Repeticao, de: number, ate: number): string
   return saida;
 }
 
-/** A janela padrão, em torno do ano corrente. */
 function janelaPadrao(): { de: number; ate: number } {
   const ano = new Date().getUTCFullYear();
   return { de: ano - 1, ate: ano + 2 };
 }
 
-/**
- * Lê os VEVENT de um iCal, expandindo as séries anuais.
- *
- * Evento sem RRULE, ou com uma que não sabemos ler, entra uma vez só, pela
- * data do DTSTART. Nada se perde por não ser entendido.
- */
 export function lerIcal(texto: string, janela = janelaPadrao()): ItemDeAgenda[] {
   const itens: ItemDeAgenda[] = [];
   const vistos = new Set<string>();
@@ -273,13 +178,6 @@ export function lerIcal(texto: string, janela = janelaPadrao()): ItemDeAgenda[] 
         const { titulo: limpo, cor } = separarCor(titulo);
         const datas = repeticao ? expandir(data, repeticao, janela.de, janela.ate) : [data];
         for (const quando of datas) {
-          /*
-           * A mesma festa pode vir como série e como evento solto.
-           *
-           * A descrição entra na chave porque nestes calendários o título não
-           * distingue nada: todo evento se chama "Indulgência Plenária", e
-           * duas festas no mesmo dia viravam uma só, calada.
-           */
           const chave = `${quando}\u0000${limpo}\u0000${descricao}`;
           if (vistos.has(chave)) continue;
           vistos.add(chave);
@@ -311,11 +209,6 @@ export function lerIcal(texto: string, janela = janelaPadrao()): ItemDeAgenda[] 
   return itens;
 }
 
-/**
- * Um calendário só é legível se estiver público **com os detalhes**. Partilhado
- * como "apenas livre/ocupado", o Google devolve todo evento com o título
- * "Busy", e é isso que o site mostraria. Vale avisar em vez de fingir.
- */
 export function semDetalhes(itens: ItemDeAgenda[]): boolean {
   return itens.length > 0 && itens.every((i) => /^busy$/i.test(i.titulo));
 }

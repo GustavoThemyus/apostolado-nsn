@@ -1,11 +1,3 @@
-/**
- * Suíte do leitor de iCal. Roda junto com `npm test`.
- *
- * O que importa aqui é o desdobramento de linha e a detecção do calendário
- * partilhado sem detalhes: as duas coisas que, erradas, fazem o site mostrar
- * lixo em cima do calendário litúrgico em vez de nada.
- */
-
 import { lerIcal, lerRepeticao, partirDescricao, semDetalhes, separarCor } from "./agenda";
 
 let passaram = 0;
@@ -22,7 +14,6 @@ const conferir = (rotulo: string, obtido: unknown, esperado: unknown) => {
 const ics = (corpo: string) =>
   ["BEGIN:VCALENDAR", "VERSION:2.0", corpo, "END:VCALENDAR"].join("\r\n");
 
-// --- o caso simples ---------------------------------------------------------
 conferir(
   "evento de dia inteiro",
   lerIcal(
@@ -54,7 +45,6 @@ conferir(
   [{ data: "2026-08-05", titulo: "Missa cantada" }],
 );
 
-// --- desdobramento: o iCal quebra em 75 octetos e continua com espaço -------
 conferir(
   "linha continuada",
   lerIcal(
@@ -98,7 +88,6 @@ conferir(
   ],
 );
 
-// --- o que tem de ser descartado -------------------------------------------
 conferir(
   "evento sem título é descartado",
   lerIcal(
@@ -122,7 +111,6 @@ conferir(
   [],
 );
 
-// --- ordem ------------------------------------------------------------------
 conferir(
   "sai em ordem de data",
   lerIcal(
@@ -136,7 +124,6 @@ conferir(
   ["2026-08-05", "2026-11-02"],
 );
 
-// --- partilha sem detalhes --------------------------------------------------
 const ocupado = [
   { data: "2026-07-16", titulo: "Busy" },
   { data: "2026-07-20", titulo: "Busy" },
@@ -149,9 +136,6 @@ conferir(
 );
 conferir("vazio não é sem detalhes", semDetalhes([]), false);
 
-// --- o marcador de cor do Ordo -------------------------------------------
-// O Ordo da capela prefixa o título com um emoji de cor. Ele tem de sair do
-// texto e virar dado, senão sai cru na tela na fonte colorida do sistema.
 conferir("branco", separarCor("⚪São Raimundo de Pennafort"),
   { titulo: "São Raimundo de Pennafort", cor: "branco" });
 conferir("vermelho", separarCor("🔴Santo Estanislau Bispo e Mártir"),
@@ -181,13 +165,6 @@ conferir(
   [{ data: "2026-09-08", titulo: "Natividade da Bem-aventurada Virgem Maria", cor: "ouro" }]
 );
 
-// --- repetição anual --------------------------------------------------------
-/*
- * Estas são as regras que os calendários do Apostolado de fato usam, copiadas
- * dos iCal deles. Valem porque o leitor as ignorava, e com isso o Escapulário,
- * o Cordão e a Terceira Franciscana mostravam **zero** dias de 2026 em diante:
- * cada festa anual ficava parada no ano em que foi criada.
- */
 const janela = { de: 2025, ate: 2027 };
 const datas = (itens: { data: string }[]) => itens.map((i) => i.data);
 
@@ -213,11 +190,6 @@ conferir(
   ["2025-08-02"],
 );
 
-/*
- * "último domingo de outubro" é Cristo Rei no calendário antigo. Em 2026 cai
- * em 25 de outubro, que é o que o Ordo da capela diz, e por isso esta é a
- * conferência que prova a conta do fim do mês.
- */
 conferir(
   "BYDAY=-1SU: o último domingo do mês",
   datas(lerIcal(serie("20231029", "FREQ=YEARLY;WKST=SU;INTERVAL=1;BYDAY=-1SU;BYMONTH=10"), janela)),
@@ -230,11 +202,6 @@ conferir(
   ["2025-06-29", "2026-06-28", "2027-06-27"],
 );
 
-/*
- * O que não se sabe expandir não se perde nem se adivinha: vale uma vez, pela
- * data do próprio evento. Mensal de verdade é o caso, e nenhum destes
- * calendários tem um.
- */
 conferir("regra mensal de verdade não se expande", lerRepeticao("FREQ=MONTHLY;INTERVAL=1"), null);
 conferir("BYDAY com lista não se expande", lerRepeticao("FREQ=YEARLY;BYDAY=MO,WE"), null);
 conferir(
@@ -250,18 +217,6 @@ conferir(
   ["2019-07-04"],
 );
 
-/* --- a festa na primeira linha da descrição -------------------------------
- *
- * Nos seis calendários de indulgência do Apostolado todo evento se chama
- * "Indulgência Plenária", e o que muda vem na descrição: a festa, linha em
- * branco, a obra. Lidas como texto corrido as duas saíam coladas — "Santa
- * Teresa de Jesus Requer-se o propósito firme…" —, e foi o que o Perez viu.
- *
- * O que estes casos guardam é a fronteira: as indulgências que valem em
- * qualquer dia abrem direto pela obra, e promovê-la a título poria a obra em
- * negrito. Os dois exemplos de obra são os do calendário dele, com os
- * comprimentos reais, porque é o comprimento que quase os confunde.
- */
 conferir("a festa sai da primeira linha",
   partirDescricao("Santa Teresa de Jesus\n\nRequer-se o propósito firme."),
   { festa: "Santa Teresa de Jesus", descricao: "Requer-se o propósito firme." });
@@ -300,13 +255,6 @@ conferir("a festa chega ao item do iCal",
   [{ data: "2026-10-15", titulo: "Indulgência Plenária",
      festa: "Santa Teresa de Jesus", descricao: "Requer-se o propósito firme." }]);
 
-/*
- * Duas festas no mesmo dia, no mesmo calendário.
- *
- * O título não distingue nada nestes calendários, e a chave de repetidos era
- * só data mais título: a segunda sumia calada. Agora a descrição entra na
- * chave.
- */
 conferir("duas festas no mesmo dia não viram uma",
   lerIcal(ics([
     "BEGIN:VEVENT", "DTSTART;VALUE=DATE:20260805", "SUMMARY:Indulgência Plenária",

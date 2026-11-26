@@ -6,32 +6,12 @@ import { ListaDeBlocos } from "./EditorDeDocumento";
 import { mover } from "./mover";
 import type { NomeDeTipo } from "./tiposDeBloco";
 
-/**
- * Os folhetos: os impressos do Apostolado servidos como página.
- *
- * O corpo usa a mesma lista de blocos das páginas de texto, menos dois. O que
- * a folha tem e as páginas não é o bloco bilíngue, que se edita em par no
- * `EditorDeBloco`, e é dele que um próprio da Missa é feito quase inteiro.
- *
- * As condições ordinárias não são de folheto nenhum: são do gênero, moram uma
- * vez na raiz da coleção, e por isso se editam a partir da lista, e não de
- * dentro de uma folha.
- */
 const CATEGORIAS: CategoriaDeFolheto[] = ["indulgencia", "proprio", "canto", "oficio"];
 
-/**
- * O índice e o passo não cabem numa folha.
- *
- * Os dois leem de cima — o índice as seções do documento, o passo a numeração
- * das peças da Missa —, e a página do folheto não traz nem uma nem outra. Na
- * folha publicada sairiam vazios.
- */
 const FORA_DA_FOLHA: NomeDeTipo[] = ["indice", "passo"];
 
-/** Id de mentira, para a lista abrir as condições pelo mesmo caminho. */
 const CONDICOES = "\u0000condicoes";
 
-/** Endereço da folha: sem acento, sem espaço, estável depois de publicada. */
 const comoEndereco = (titulo: string) =>
   titulo
     .normalize("NFD")
@@ -41,13 +21,6 @@ const comoEndereco = (titulo: string) =>
     .replace(/^-|-$/g, "")
     .slice(0, 60);
 
-/**
- * A medida da estampa, ou nenhuma.
- *
- * Campo vazio tem de sumir, e não gravar zero: com `largura: 0` o navegador
- * calcularia a proporção com ela e a folha sairia achatada. `undefined` o
- * `JSON.stringify` deixa de fora, que é o que se quer.
- */
 const emNumero = (v: string): number | undefined => {
   const n = Number(v.replace(/[^0-9]/g, ""));
   return Number.isFinite(n) && n > 0 ? n : undefined;
@@ -156,7 +129,6 @@ export function EditorDeFolhetos({
   );
 }
 
-/** Três letras na coluna do número, para dizer o gênero sem ocupar a linha. */
 const SIGLA: Record<CategoriaDeFolheto, string> = {
   indulgencia: "IND",
   proprio: "MIS",

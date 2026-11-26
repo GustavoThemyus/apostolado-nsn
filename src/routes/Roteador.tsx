@@ -24,7 +24,6 @@ export interface EstadoDaRota {
 
 export const ContextoDeRota = createContext<EstadoDaRota | null>(null);
 
-/** Guarda a rolagem por entrada do histórico, para o voltar cair no lugar. */
 const rolagens = new Map<number, number>();
 let proximaChave = 0;
 
@@ -36,14 +35,6 @@ function chaveAtual(): number {
   return proximaChave;
 }
 
-/**
- * Decide se um clique num link deve ser tratado aqui ou entregue ao navegador.
- *
- * Fica de fora tudo o que o leitor espera que se comporte como link normal:
- * abrir em outra aba, baixar, ir para outro site. As âncoras `#` também não
- * mudam de página, mas passam por aqui para rolar com precisão: a rolagem
- * suave do CSS erra o alvo em documento longo.
- */
 function ehNavegacaoInterna(evento: MouseEvent): string | null {
   if (evento.defaultPrevented || evento.button !== 0) return null;
   if (evento.metaKey || evento.ctrlKey || evento.shiftKey || evento.altKey)
@@ -63,12 +54,6 @@ function ehNavegacaoInterna(evento: MouseEvent): string | null {
   return url.pathname + url.search + url.hash;
 }
 
-/**
- * Clique numa âncora da própria página.
- *
- * O endereço continua ganhando o `#`, para poder ser copiado e para o voltar
- * funcionar; quem rola é o auxiliar, que escolhe entre animar e ir direto.
- */
 function rolouNaPropriaPagina(evento: MouseEvent): boolean {
   if (evento.defaultPrevented || evento.button !== 0) return false;
   if (evento.metaKey || evento.ctrlKey || evento.shiftKey || evento.altKey) return false;
@@ -113,7 +98,6 @@ export function Roteador({
     [],
   );
 
-  // voltar e avançar do navegador
   useEffect(() => {
     const aoVoltar = () => {
       definirEndereco(
@@ -126,7 +110,6 @@ export function Roteador({
     return () => window.removeEventListener("popstate", aoVoltar);
   }, []);
 
-  // um só ouvinte para todos os links da página
   useEffect(() => {
     const aoClicar = (evento: MouseEvent) => {
       if (rolouNaPropriaPagina(evento)) return;
@@ -169,9 +152,6 @@ export function Roteador({
         <Suspense fallback={<div className="carregando" aria-hidden="true" />}>
           <AoTrocarDePagina
           caminho={caminho}
-          /* sem rota é a página de não encontrada, e a aba tem de dizer isso:
-             a aba e o histórico do navegador são o que sobra quando alguém
-             volta ali dias depois */
           titulo={casamento ? casamento.rota.titulo : "Página não encontrada"}
         >
             <Pagina />
@@ -182,13 +162,6 @@ export function Roteador({
   );
 }
 
-/**
- * Roda quando a página nova de fato aparece, não quando o pedaço começa a
- * carregar: ajusta o título, leva a rolagem e move o foco para o cabeçalho.
- *
- * O foco é o que faz a navegação funcionar em leitor de tela. Router de
- * cliente que não mexe no foco deixa o leitor preso no fim da página anterior.
- */
 function AoTrocarDePagina({
   caminho,
   titulo,
@@ -200,14 +173,6 @@ function AoTrocarDePagina({
 }) {
   const primeira = useRef(true);
 
-  /*
-   * A âncora de quem chega de fora, uma vez só na vida da aba.
-   *
-   * Fica em efeito próprio, e não junto do título: aquele depende de
-   * `titulo`, que começa indefinido e muda quando o pedaço da página chega.
-   * A espera era desmontada bem nesse instante, e o salto saía ou errado ou
-   * nenhum, conforme o parágrafo já tivesse entrado na tela ou não.
-   */
   useEffect(() => {
     const deFora = window.location.hash;
     return deFora ? rolarQuandoAparecer(deFora) : undefined;
@@ -228,8 +193,6 @@ function AoTrocarDePagina({
     if (ancora) {
       rolarAteAncora(ancora);
     } else if (!hash) {
-      // sem animação: com scroll-behavior smooth no html, navegar entre páginas
-      // animava a subida inteira e dava a impressão de travamento
       const guardada = rolagens.get(chaveAtual());
       window.scrollTo({ top: guardada ?? 0, behavior: "instant" });
     }

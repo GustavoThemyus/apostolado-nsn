@@ -5,11 +5,6 @@ import { Moldura } from "../components/Moldura";
 import { colecao, publicados } from "../data/folhetos";
 import { NOME_DA_CATEGORIA, type CategoriaDeFolheto } from "../data/tipos";
 
-/**
- * Os gêneros que ainda não têm página própria. Próprios e obras indulgenciadas
- * saem em cartões, como as subpáginas das outras seções, a pedido do Perez; um
- * canto ou um ofício que venha aparece aqui, em lista, até ganhar a dele.
- */
 const SEM_PAGINA: CategoriaDeFolheto[] = ["canto", "oficio"];
 
 export default function Folhetos() {

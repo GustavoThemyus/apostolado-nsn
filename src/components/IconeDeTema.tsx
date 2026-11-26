@@ -1,10 +1,5 @@
 import type { Tema } from "../hooks/usarTema";
 
-/**
- * Ícones desenhados, no mesmo traço para os três modos: o disco com halo para
- * o claro, a lua minguante para o escuro e o disco meio preenchido para o modo
- * que segue o aparelho.
- */
 export function IconeDeTema({ tema }: { tema: Tema }) {
   return (
     <svg className="barra__icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">

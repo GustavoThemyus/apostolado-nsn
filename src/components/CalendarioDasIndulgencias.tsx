@@ -29,28 +29,6 @@ const MESES = [
   "dezembro",
 ];
 
-/*
- * Quais calendários vinculados o leitor mandou mostrar.
- *
- * Fica no aparelho dele, e não na URL: é preferência de quem lê, não parte do
- * endereço que se compartilha. Quem é da Terceira Franciscana quer os dias
- * dela toda vez que voltar, e não quer que o link que mandou para um amigo
- * leve junto a confraria a que ele não pertence.
- */
-
-
-/**
- * "Indulgência Plenária" é o nome de todo evento destes calendários.
- *
- * O Perez escreve a espécie no título e a festa na primeira linha da
- * descrição, e assim a lista mostrava a mesma frase repetida em todo item,
- * com a festa colada na obra embaixo. Reconhecida a frase, ela vira a
- * etiqueta que as indulgências de cima já usam, e a festa sobe para o lugar
- * dela.
- *
- * Exato, e não "contém plenária": é o que garante que um título de verdade,
- * no dia em que ele escrever um, continue sendo o título.
- */
 const ESPECIE_NO_TITULO = /^indulg[êe]ncias?\s+(plen[áa]ria|parcial)s?$/i;
 
 const especieDe = (titulo: string): "plenaria" | "parcial" | undefined => {
@@ -59,22 +37,15 @@ const especieDe = (titulo: string): "plenaria" | "parcial" | undefined => {
   return /^plen/i.test(achado[1]) ? "plenaria" : "parcial";
 };
 
-/** "escapulario, cordao" não é frase: o aviso fala o nome que o leitor leu. */
 function nomesDas(ids: string[]): string {
   const nomes = ids.map((id) => site.agendas.find((a) => a.id === id)?.nome ?? id);
   if (nomes.length <= 1) return nomes.join("");
   return `${nomes.slice(0, -1).join(", ")} e ${nomes[nomes.length - 1]}`;
 }
 
-/** A obra é a mesma em paróquia, santuário, basílica e casa religiosa. */
 const OBRA_NA_IGREJA =
   "Obra indulgenciada: visitar a igreja e rezar um Pai-Nosso e um Credo.";
 
-/**
- * Paróquias e santuários juntos, separados só pela festa titular, como pediu o
- * Perez: o documento os traz em quadros diferentes, e na grade a mesma festa
- * saía repetida.
- */
 function porFesta<T extends { entrada: { titulo: string }; transferidaDe?: string }>(
   ocorrencias: T[],
 ) {
@@ -102,20 +73,6 @@ function diaDaBusca(busca: URLSearchParams, padrao: Date): Date {
     : new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
 }
 
-/**
- * A grade do mês com as indulgências, e o detalhe do dia escolhido.
- *
- * Usa a mesma grade e o mesmo motor do calendário litúrgico, e é isso que faz
- * a indulgência presa a uma festa acompanhar a transferência dela. Um segundo
- * calendário, próprio, divergiria do primeiro na primeira exceção.
- *
- * Mora na página geral das indulgências desde que o Perez pediu a troca: "o
- * calendário que está lá, colocava na página geral das indulgências; seria
- * invertido". A página filha ficou com a lista do ano inteiro.
- *
- * `caminho` é a página que o hospeda, porque o dia escolhido vai na URL e a
- * seta do mês tem de voltar para ela, não para onde este bloco nasceu.
- */
 export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
   const { busca, navegar } = usarRota();
   const hoje = useMemo(hojeUTC, []);
@@ -156,7 +113,6 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
     try {
       localStorage.setItem(LEMBRANCA, JSON.stringify(ligadas));
     } catch {
-      /* navegador com os dados do site bloqueados: a escolha vale só nesta visita */
     }
   }, [ligadas]);
 
@@ -229,12 +185,6 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
         </button>
       </div>
 
-      {/*
-        Grade e detalhe lado a lado no computador, como no calendário
-        litúrgico: o Perez achou o mês grande demais em tela larga, e aqui
-        valia o mesmo — a casa em que se clica e o que ela traz ficavam
-        longe uma da outra. No celular continua empilhado.
-      */}
       <div className="calendario__painel">
         <div className="calendario__coluna-grade">
           <GradeDoMes
@@ -245,18 +195,8 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
             marcar={(d) => {
               const iso = comoIso(d.data);
               const ocorrencias = porDia.get(iso);
-              /*
-               * As agendas de fora não se somam ao marcador de plenária: aquele
-               * diz o que esta página calcula, e misturar com o que vem do Google
-               * faria o leitor atribuir a uma coisa a garantia da outra. Cada
-               * agenda ligada ganha o seu próprio ponto, na cor dela — a mesma
-               * que está ao lado do nome, na caixa de cima.
-               */
               const deFora = vinculadas.porDia.get(iso) ?? [];
               const agendas = [...new Set(deFora.map((i) => i.agenda))];
-              /* a da Arquidiocese é conta nossa, mas é ponto como os outros:
-                 na casa do dia o que importa é de quem é o dia, e ela tem a
-                 cor dela na mesma lista de cima */
               if (porDiaArquidiocese.get(iso)?.length) agendas.push(ARQUIDIOCESE);
               if (!ocorrencias?.length && agendas.length === 0) return null;
               return (
@@ -344,14 +284,6 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
           </div>
 
           {daArquidiocese.length > 0 && (
-            /*
-             * As da Arquidiocese também em bloco próprio, e pelo motivo
-             * oposto ao das de baixo: estas o site calcula, mas não são de
-             * todo mundo. A de cima se lucra onde o fiel estiver; esta pede
-             * que ele vá àquela igreja, naquele dia. Na mesma lista, o
-             * leitor leria "hoje tem indulgência" e sairia sem saber que
-             * precisava atravessar a cidade.
-             */
             <section className="vinculados" aria-labelledby="arquidiocese">
               <h2 className="vinculados__titulo" id="arquidiocese">
                 Nas igrejas da Arquidiocese
@@ -397,15 +329,6 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
           )}
 
           {vinculadosDoDia.length > 0 && (
-            /*
-             * Em bloco próprio, e não misturado com as de cima.
-             *
-             * As de cima este site calcula, e responde por elas: a obra, a fonte
-             * e a transferência saem do motor. Estas vêm do calendário que a
-             * associação mantém no Google, com o texto que ela escreveu. Juntar
-             * as duas numa lista só faria o leitor cobrar deste site a exatidão
-             * do que é de outro.
-             */
             <section className="vinculados" aria-labelledby="vinculados">
               <h2 className="vinculados__titulo" id="vinculados">
                 Dos calendários que você ligou
@@ -413,13 +336,6 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
               <ul className="indulgencias-dia">
                 {vinculadosDoDia.map((i, n) => {
                   const especie = especieDe(i.titulo);
-                  /*
-                   * O nome do evento só sai da frente quando ele é a etiqueta
-                   * que todos repetem e há festa para pôr no lugar. Fora
-                   * disso ele continua sendo o título, e a primeira linha da
-                   * descrição volta para o corpo: nada se esconde porque o
-                   * calendário de fora mudou de forma.
-                   */
                   const comFesta = !!i.festa && !!especie;
                   const corpo = comFesta
                     ? i.descricao

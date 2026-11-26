@@ -6,14 +6,12 @@ export interface Contribuicao {
   pix: string;
 }
 
-/** Quanto tempo o aviso de cópia fica na tela. */
 const DURACAO = 3000;
 
 export function Contribuir({ dados }: { dados: Contribuicao }) {
   const [copiado, definirCopiado] = useState(false);
   const relogio = useRef<number | undefined>(undefined);
 
-  // sair da página com o relógio armado deixaria um setState órfão
   useEffect(() => () => window.clearTimeout(relogio.current), []);
 
   const copiar = async () => {
@@ -23,7 +21,6 @@ export function Contribuir({ dados }: { dados: Contribuicao }) {
       window.clearTimeout(relogio.current);
       relogio.current = window.setTimeout(() => definirCopiado(false), DURACAO);
     } catch {
-      /* sem área de transferência: a chave continua visível para copiar à mão */
     }
   };
 
@@ -53,10 +50,6 @@ export function Contribuir({ dados }: { dados: Contribuicao }) {
             {copiado ? "Chave copiada" : "Copiar a chave"}
             {copiado && <Visto />}
           </button>
-          {/*
-            O rótulo do botão já muda, mas leitor de tela não é avisado de
-            mudança dentro de um botão que ele mesmo acionou. Daí a região viva.
-          */}
           <p className="apenas-leitores" role="status">
             {copiado ? "Chave Pix copiada." : ""}
           </p>
@@ -66,7 +59,6 @@ export function Contribuir({ dados }: { dados: Contribuicao }) {
   );
 }
 
-/** O certo que se desenha sozinho ao lado de "Chave copiada". */
 function Visto() {
   return (
     <svg className="visto" viewBox="0 0 24 24" aria-hidden="true" focusable="false">

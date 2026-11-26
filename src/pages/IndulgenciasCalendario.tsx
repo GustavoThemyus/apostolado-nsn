@@ -5,35 +5,8 @@ import { indulgencias } from "../data/indulgenciasDias";
 import { PaginaDeDocumento } from "./PaginaDeDocumento";
 import type { Bloco, Conteudo } from "../data/tipos";
 
-/**
- * O calendário das indulgências plenárias universais, em quadro.
- *
- * "O calendário corrido das Indulgências tem que ser no mesmo estilo das da
- * Arquidiocese, em formato de tabela, com introdução, conclusão, explicações,
- * porque fica melhor organizado tanto no celular como no computador", pediu o
- * Perez. É a mesma forma do [elo:/indulgencias/arquidiocese]calendário
- * arquidiocesano: página de documento, com seções numeradas e sumário, e o
- * quadro de três colunas no meio.
- *
- * A grade do mês não está aqui: ela mora na página geral das indulgências, e
- * responde "o que tem hoje". Esta página responde "quais são", que é a
- * pergunta de quem quer planejar o ano ou conferir uma data.
- *
- * A prosa em volta dos quadros é do Perez, do impresso que ele mandou —
- * "usa o meu texto". A apresentação, a nota sobre o calendário litúrgico, as
- * normas gerais e a conclusão saem palavra por palavra de lá; aqui só se
- * acrescentou o que o impresso não tem como ter, que são os elos.
- */
-
-/**
- * As ressalvas que ficam à vista no quadro. As outras viram chamada de nota,
- * como no documento original: quem quiser, abre. "A menção do Rosário e da
- * oitava das almas do purgatório convém", disse o Perez; o resto "deixa pra
- * quem tiver curiosidade".
- */
 const A_VISTA = new Set(["s-rosario-nota", "d-oitava-dos-defuntos-nota"]);
 
-/** As ressalvas recolhidas, numeradas depois das notas que o documento já tem. */
 const recolhidas: Record<string, string> = {};
 
 function chamada(texto: string): string {
@@ -44,7 +17,6 @@ function chamada(texto: string): string {
   return `[nota]${chave}[/nota]`;
 }
 
-/** O texto corrido de um bloco, para a célula do quadro. */
 function comoTexto(blocos: Bloco[]): string {
   const partes: string[] = [];
   for (const b of blocos) {
@@ -59,7 +31,6 @@ function comoTexto(blocos: Bloco[]): string {
   return partes.join("\n\n");
 }
 
-/** A obra e, por último, a concessão de onde ela sai. */
 const obraEFonte = (i: { obra: Bloco[]; fonte?: string }): string =>
   i.fonte ? `${comoTexto(i.obra)}\n\n[i]${i.fonte}[/i]` : comoTexto(i.obra);
 
@@ -71,22 +42,12 @@ const quadroDosDias = (): Bloco => ({
   linhas: indulgencias.dias.map((i) => [i.quandoPorExtenso, i.titulo, obraEFonte(i)]),
 });
 
-/* sem a coluna da data, que para estas seria a mesma frase vinte e uma vezes */
 const quadroSemDiaFixo = (): Bloco => ({
   tipo: "tabela",
   colunas: ["Indulgência", OBRA],
   linhas: indulgencias.semDiaFixo.map((i) => [i.titulo, obraEFonte(i)]),
 });
 
-/**
- * O que a prosa não escreve, e por quê.
- *
- * As condições e as observações vivem em `indulgencias-dias.json`, ao lado
- * dos dias que governam, e são as mesmas que a página geral mostra. Escritas
- * de novo aqui, divergiriam na primeira correção do Perez — e é ele quem as
- * corrige, uma vírgula por vez. Os dois quadros, pela mesma razão, se derivam
- * dos dias em vez de serem digitados.
- */
 const ENXERTOS: Record<string, Bloco[]> = {
   normas: indulgencias.condicoes.blocos,
   observacoes: indulgencias.observacoes.blocos,
@@ -94,7 +55,6 @@ const ENXERTOS: Record<string, Bloco[]> = {
   "toties-quoties": [quadroSemDiaFixo()],
 };
 
-/* os quadros primeiro: é ao montá-los que as ressalvas viram notas */
 const secoes = comoConteudo(prosa).secoes.map((s) => ({
   ...s,
   blocos: [...s.blocos, ...(ENXERTOS[s.id] ?? [])],
@@ -102,7 +62,6 @@ const secoes = comoConteudo(prosa).secoes.map((s) => ({
 
 const conteudo: Conteudo = {
   ...comoConteudo(prosa),
-  /* as chamadas das condições e das observações apontam para estas */
   notas: { ...indulgencias.notas, ...recolhidas },
   secoes,
 };
@@ -110,13 +69,6 @@ const conteudo: Conteudo = {
 export default function IndulgenciasCalendario() {
   return (
     <PaginaDeDocumento conteudo={conteudo}>
-      {/*
-        Só o calendário do Apostolado. "Tira o link das Indulgências das
-        confrarias e deixa só do meu calendário universal pra linkar com a
-        agenda do celular", pediu o Perez — e com razão: as confrarias não são
-        o assunto desta página, e o bloco delas continua em
-        /indulgencias/ordens, que é a página de que são.
-      */}
       <AssinarAgenda
         grupo="indulgencias-apostolado"
         titulo="Levar as indulgências no celular"

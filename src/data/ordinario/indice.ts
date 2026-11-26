@@ -1,10 +1,8 @@
 // Gerado por ferramentas/ordinario/gerar.py. Não edite à mão.
 
-/** Uma seção do Ordinário: o que o índice mostra antes de baixar o texto. */
 export interface SecaoDoOrdinario {
   id: string;
   titulo: string;
-  /** Reza-se acompanhando o celebrante, e não antes nem depois da Missa. */
   naMissa: boolean;
 }
 
@@ -24,12 +22,6 @@ export const SECOES: SecaoDoOrdinario[] = [
   { id: "bencao", titulo: "Exposição e bênção do Santíssimo", naMissa: false },
 ];
 
-/**
- * Um arquivo por seção, carregado só quando o leitor chega nela.
- *
- * O tipo é `unknown` de propósito, como no Ordo: o que a forma do JSON
- * garante é o gerador, e quem confere é ferramentas/ordinario/conferir.py.
- */
 export const ARQUIVOS: Record<string, () => Promise<{ default: unknown }>> = {
   "capa": () => import("./capa.json"),
   "magisterio": () => import("./magisterio.json"),

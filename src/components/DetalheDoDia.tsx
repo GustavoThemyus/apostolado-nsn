@@ -33,9 +33,7 @@ const NOME_DA_COR: Record<string, string> = {
   rosa: "Rosa",
 };
 
-/** O que se celebra num dia, com tempo, cor, classe e o que muda na Missa. */
 export function DetalheDoDia({ dia }: { dia: DiaLiturgico }) {
-  // a postagem acompanha a festa, e não a casa do calendário
   const postagem = postagemDoDia(publicadas(), dia);
   const penitencia = penitenciaDe(dia);
 
@@ -82,11 +80,6 @@ export function DetalheDoDia({ dia }: { dia: DiaLiturgico }) {
       {penitencia && (
         <p className="dia__penitencia">
           <strong>{NOME_DA_PENITENCIA[penitencia]}.</strong>
-          {/*
-            * A ressalva só cabe na sexta comum. Nas Cinzas e na Sexta-feira
-            * Santa não há dispensa de festa a ressalvar, e dizer que poderia
-            * haver seria semear dúvida onde não existe.
-            */}
           {penitencia === "dispensada" && " Dia de preceito fora da Quaresma."}
           {penitencia === "abstinencia" && " Nas festas o Ordo pode dispensar; confira."}
         </p>

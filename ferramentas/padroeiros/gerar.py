@@ -1,23 +1,5 @@
 """
-Estampas dos padroeiros, a partir do original.
-
-A receita estava descrita em ferramentas/padroeiros/COMO-GERAR.md e nunca tinha
-virado código: refazer uma estampa exigia reler a prosa e reconstruir os
-números à mão. Agora os números estão aqui, e a prosa explica por quê.
-
-Uso:
-
     python3 ferramentas/padroeiros/gerar.py <imagem> <nome> [ancora|inteira]
-
-Com `inteira` nada se corta: a estampa cabe toda no quadro 3:4, e o que sobra
-dos lados fica transparente.
-
-`ancora` é de 0 a 1 e diz de onde vem o corte 3:4 na dimensão que sobra —
-0 é topo (ou esquerda), 1 é a base. Sem ela, 0,5.
-
-O nome de saída leva a impressão do conteúdo, porque o cache é de um ano:
-trocar a imagem tem de trocar o nome, senão quem já visitou fica com a
-antiga.
 """
 
 import hashlib
@@ -30,20 +12,14 @@ from PIL import Image, ImageFilter
 RAIZ = pathlib.Path(__file__).resolve().parents[2]
 DESTINO = RAIZ / "public" / "padroeiros"
 
-# 480 cobre o pior caso medido: o quadro para de crescer em 9rem, o que num
-# celular a 3x pede 432 pixels de tela.
 LARGURA, ALTURA = 480, 640
 
-# Medido contra o original reduzido direto ao tamanho de tela: devolve 99% da
-# energia de borda dele. 110% de força já ultrapassa o original e cria halo.
 NITIDEZ = dict(radius=0.8, percent=80, threshold=2)
 
-# Depois de afiar, 78 mede o mesmo que 86 na tela e pesa bem menos.
 QUALIDADE = 78
 
 
 def cortar(figura: Image.Image, ancora: float) -> Image.Image:
-    """Recorte 3:4, tirando a sobra do lado que a âncora escolher."""
     alvo = LARGURA / ALTURA
     atual = figura.width / figura.height
     if abs(atual - alvo) < 1e-6:
@@ -58,7 +34,6 @@ def cortar(figura: Image.Image, ancora: float) -> Image.Image:
 
 
 def encaixar(figura: Image.Image) -> Image.Image:
-    """A estampa toda dentro do quadro, centrada, sobre fundo transparente."""
     escala = min(LARGURA / figura.width, ALTURA / figura.height)
     menor = figura.resize(
         (round(figura.width * escala), round(figura.height * escala)), Image.LANCZOS)

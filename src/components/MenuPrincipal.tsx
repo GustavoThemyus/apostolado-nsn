@@ -7,18 +7,6 @@ import { Elo } from "../routes/Elo";
 import { Folha } from "./Folha";
 import { Seta } from "./Seta";
 
-/**
- * O menu do site: as seções de topo, e as subpáginas de cada uma atrás de
- * uma seta.
- *
- * Fechadas de saída: abertas todas, o menu vira um índice, e o leitor tem de
- * ler tudo para achar a seção. A seta, pedida pelo Perez, deixa ir direto à
- * subpágina sem passar pelos cartões.
- *
- * Pela mesma razão o menu traz só o nome de cada seção. A descrição continua
- * onde é lida de verdade: no cabeçalho da página e no cartão. Aqui ela
- * dobrava a altura de cada linha e fazia procurar em vez de escolher.
- */
 export function MenuPrincipal({
   aberto,
   aoFechar,
@@ -32,11 +20,6 @@ export function MenuPrincipal({
 
   return (
     <Folha aberto={aberto} aoFechar={aoFechar} rotulo="Menu">
-      {/*
-        A gaveta abre longe do cabeçalho da página, e sem uma testeira ela era
-        uma lista solta no vazio. Aqui vai a mesma identidade do site: brasão,
-        nome por extenso e o lema, na ordem em que aparecem em toda página.
-      */}
       <div className="menu__testeira">
         <Brasao tamanho="menu" />
         <p className="menu__marca">{site.marca}</p>
@@ -47,7 +30,6 @@ export function MenuPrincipal({
         </p>
       </div>
 
-      {/* fecha ao seguir um elo, e não ao tocar na seta */}
       <nav
         aria-label="Seções do site"
         onClick={(e) => {

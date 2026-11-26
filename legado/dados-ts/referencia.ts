@@ -1,6 +1,5 @@
 import type { Secao } from "./tipos";
 
-/** Seções 13 a 16: comparações, cores, distinções doutrinais e fontes. */
 export const secoesDeReferencia: Secao[] = [
   {
     id: "cenarios",

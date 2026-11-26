@@ -1,4 +1,3 @@
-/** Estrela de oito pontas, o motivo que preenche o campo do brasão. */
 export function Estrela({ className = "estrela" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true" focusable="false">

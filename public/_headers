@@ -1,42 +1,29 @@
-# As regras aqui são acumulativas: toda regra que casa com o caminho tem os
-# seus cabeçalhos somados. Por isso Cache-Control aparece uma única vez por
-# caminho, e o /* leva só cabeçalho de segurança.
-
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
   X-Robots-Tag: noindex, nofollow
 
-# Levam hash no nome, então podem ser guardados para sempre.
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Imagens sem hash no nome: uma semana, revalidando depois.
 /brasao.png
   Cache-Control: public, max-age=604800, must-revalidate
-# leva a impressão do conteúdo no nome
 /brasao-*.webp
   Cache-Control: public, max-age=31536000, immutable
 /brasao-pequeno.png
   Cache-Control: public, max-age=604800, must-revalidate
 /previa.png
   Cache-Control: public, max-age=604800, must-revalidate
-# leva a impressão do conteúdo no nome, como as estampas
 /previa-*.png
   Cache-Control: public, max-age=31536000, immutable
-# Levam a impressão do conteúdo no nome, como os assets: trocar a imagem troca
-# a URL, então o cache pode ser eterno sem prender ninguém na versão antiga.
 /padroeiros/*
   Cache-Control: public, max-age=31536000, immutable
-# a fonte do site, com a impressão do conteúdo no nome
 /fontes/*
   Cache-Control: public, max-age=31536000, immutable
-# os retratos da lateral, pelo mesmo motivo
 /retratos/*
   Cache-Control: public, max-age=31536000, immutable
 
-# O HTML nunca fica em cache, senão uma correção no guia demora a aparecer.
 /
   Cache-Control: public, max-age=0, must-revalidate
 /index.html

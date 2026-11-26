@@ -33,19 +33,9 @@ const MESES = [
   "dezembro",
 ];
 
-/*
- * Qual dos dois calendários mostrar.
- *
- * Vem da URL quando ela diz, para o link ser compartilhável com a escolha
- * dentro; senão, do que o leitor escolheu da última vez. A lembrança é do
- * aparelho de quem lê, e por isso `localStorage` — que num navegador com os
- * dados do site bloqueados lança em vez de devolver vazio, daí o try.
- */
-/* chave nova: a antiga guardava o de 1962 para todo mundo, que era o padrão */
 const LEMBRANCA = "nsn:calendario:escolha";
 type Uso = "1962" | "pre55";
 
-/** O que o leitor escolheu da última vez; sem escolha, o Ordo anterior a 1955. */
 function usoLembrado(): Uso {
   try {
     return localStorage.getItem(LEMBRANCA) === "1962" ? "1962" : "pre55";
@@ -64,16 +54,12 @@ export default function Calendario() {
   const ano = escolhido.getUTCFullYear();
   const mes = escolhido.getUTCMonth() + 1;
   const pedido: Uso = naUrl === "pre55" ? "pre55" : naUrl === "1962" ? "1962" : lembrado;
-  // num ano sem Ordo, e sem ninguém ter pedido, vale o calculado: a página não
-  // abre vazia
   const uso: Uso = !naUrl && !temOrdo(ano, mes) ? "1962" : pedido;
   const pre55 = uso === "pre55";
 
   const de1962 = useMemo(() => mesLiturgico(ano, mes), [ano, mes]);
   const ordo = usarOrdo(ano, mes, pre55);
 
-  // os dois detalhes são resolvidos à parte: os dias não têm a mesma forma, e
-  // um `as` aqui seria prometer ao compilador o que a tela é que decide
   const doOrdo = useMemo(
     () => ordo.dias.find((d) => mesmoDia(d.data, escolhido)) ?? ordo.dias[0],
     [ordo.dias, escolhido],
@@ -83,7 +69,6 @@ export default function Calendario() {
     [de1962, escolhido],
   );
 
-  /* a escolha só vai para o endereço quando difere da que abriria sozinha */
   const irPara = useCallback(
     (data: Date, comQue?: Uso) => {
       const qual = comQue ?? (naUrl === "1962" || naUrl === "pre55" ? naUrl : undefined);
@@ -95,7 +80,6 @@ export default function Calendario() {
   const andar = (passo: number) =>
     irPara(new Date(Date.UTC(ano, mes - 1 + passo, 1)));
 
-  /* o nome das rubricas só aparece por instantes, depois de uma troca */
   const [aviso, definirAviso] = useState("");
   useEffect(() => {
     if (!aviso) return;
@@ -109,11 +93,9 @@ export default function Calendario() {
     try {
       localStorage.setItem(LEMBRANCA, novo);
     } catch {
-      /* navegador com os dados do site bloqueados: a escolha vale só nesta visita */
     }
     irPara(escolhido, novo);
   };
-
 
   return (
     <Moldura titulo="Calendário Romano Tradicional">
@@ -122,10 +104,8 @@ export default function Calendario() {
         descricao="O calendário litúrgico tradicional, dia a dia."
       />
 
-      {/* antes do texto: quem chega tem de saber que a seção tem mais */}
       <AtalhosDaSecao padrao="/calendario" />
 
-      {/* o título fica à vista; o texto abre num toque */}
       <details className="opcional">
         <summary className="opcional__resumo">
           <span className="opcional__rotulo">{introducao.titulo}</span>
@@ -166,18 +146,6 @@ export default function Calendario() {
         </button>
       </div>
 
-      {/*
-        Grade e detalhe lado a lado no computador.
- 
-        O Perez: "na versão de desktop o calendário mensal está muito grande,
-        poderia usar metade da página para o mês e a outra metade para as
-        qualificações da festa". Em 76rem de coluna a casa do dia chegava a
-        160px — tamanho de botão de aplicativo —, e o que se quer ler sobre o
-        dia ficava a uma rolagem de distância da casa em que se clicou.
- 
-        No celular o painel não é grade nenhuma: continua sendo a grade
-        empilhada sobre o detalhe, que é a ordem em que se lê.
-      */}
       <div className="calendario__painel">
         <div className="calendario__coluna-grade">
           {ordo.semOrdo ? (
@@ -229,12 +197,6 @@ export default function Calendario() {
             </>
           )}
 
-          {/*
-            Nos cantos de baixo, discretos: trocar de calendário e assinar. Nada
-            fica estampado, a pedido do Perez: tocado, o ícone diz por instantes
-            quais rubricas entraram, e fica aceso enquanto o segundo calendário
-            estiver à vista.
-          */}
           <div className="calendario__cantos">
             <div className="calendario__troca">
               <button
@@ -249,7 +211,6 @@ export default function Calendario() {
                   <path d="M4 8h14l-4-4M20 16H6l4 4" fill="none" stroke="currentColor" strokeWidth="1.8" />
                 </svg>
               </button>
-              {/* sempre no documento: o leitor de tela só anuncia o que muda dentro */}
               <span className="calendario__aviso" role="status">
                 {aviso}
               </span>

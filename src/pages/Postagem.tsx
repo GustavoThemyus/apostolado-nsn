@@ -29,8 +29,6 @@ export default function Postagem() {
       <p className="postagem__data">
         <time dateTime={postagem.data}>{dataPorExtenso(postagem.data)}</time>
       </p>
-      {/* a estampa já aparecia na faixa do início; aqui ela faltava, e a
-          postagem abria em texto puro logo depois do título */}
       {postagem.imagem && (
         <img
           className="postagem__estampa"
@@ -41,8 +39,6 @@ export default function Postagem() {
         />
       )}
       {postagem.rascunho && <Vazia variante="rascunho" />}
-      {/* as notas são do texto, e precisam de provedor como no documento:
-          sem ele a chamada vira só o número, sem o balão que a explica */}
       <ProvedorDeNotas notas={postagem.notas}>
         <ListaDeBlocos blocos={postagem.blocos} />
       </ProvedorDeNotas>

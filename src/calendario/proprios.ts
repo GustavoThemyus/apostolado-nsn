@@ -6,29 +6,20 @@ const soData = (d: Date) => Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getU
 
 export interface DiaProprio {
   nome: string;
-  /** Cor própria, quando ela se sobrepõe à do tempo. */
   cor?: Cor;
   classe: Classe;
-  /** Posição na Tabula de 1960. Menor vence. */
   posto: number;
 }
 
-/**
- * Dias móveis com nome próprio, derivados da Páscoa ou do Natal. Alguns trazem
- * cor própria, que vence a cor do tempo: Corpus Christi é branco mesmo caindo
- * no verde do tempo depois de Pentecostes.
- */
 const DIAS = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira",
   "Quinta-feira", "Sexta-feira", "Sábado"] as const;
 
-/** Terceiro domingo de setembro, que abre as Têmporas do outono. */
 function terceiroDomingoDeSetembro(ano: number): Date {
   const primeiro = new Date(Date.UTC(ano, 8, 1));
   const primeiroDomingo = mais(primeiro, (7 - primeiro.getUTCDay()) % 7);
   return mais(primeiroDomingo, 14);
 }
 
-/** Quarta, sexta e sábado depois do domingo dado. */
 function temporas(domingo: Date, sufixo: string, cor: Cor): [Date, DiaProprio][] {
   const dias: [number, string][] = [[3, "Quarta-feira"], [5, "Sexta-feira"], [6, "Sábado"]];
   return dias.map(([n, nome]) => [
@@ -37,20 +28,11 @@ function temporas(domingo: Date, sufixo: string, cor: Cor): [Date, DiaProprio][]
   ]);
 }
 
-/** Cristo Rei: último domingo de outubro. */
 function cristoRei(ano: number): Date {
   const ultimo = new Date(Date.UTC(ano, 9, 31));
   return mais(ultimo, -(ultimo.getUTCDay()));
 }
 
-/**
- * Os dias móveis de um ano, com a data em que caem.
- *
- * Tudo o que está aqui deriva da Páscoa ou do Advento, e portanto anda de
- * data todo ano: é essa a propriedade que `moveis.ts` usa para recolocar as
- * festas das confrarias, e é por isso que o Natal, a Epifania e a Oitava do
- * Natal ficam de fora desta tabela, em `diaProprio`, onde são data fixa.
- */
 export function diasMoveis(ano: number): [Date, DiaProprio][] {
   const e = eixoDoAno(ano);
   return [
@@ -74,7 +56,6 @@ export function diasMoveis(ano: number): [Date, DiaProprio][] {
     [e.advento, { nome: "Domingo I do Advento", classe: 1, posto: POSTO.domingoPrimeira }],
     [mais(e.advento, 14), { nome: "Domingo Gaudete", cor: "rosa", classe: 1, posto: POSTO.domingoPrimeira }],
     [cristoRei(ano), { nome: "Nosso Senhor Jesus Cristo Rei", cor: "branco", classe: 1, posto: POSTO.senhorPrimeira }],
-    // Semana Santa: as ferias são de I classe e não cedem a festa nenhuma
     ...([1, 2, 3] as const).map(
       (n) =>
         [mais(e.ramos, n), {
@@ -84,7 +65,6 @@ export function diasMoveis(ano: number): [Date, DiaProprio][] {
           posto: POSTO.feriaPrivilegiada,
         }] as [Date, DiaProprio]
     ),
-    // Oitava da Páscoa: I classe, fecha a semana para transferências
     ...([1, 2, 3, 4, 5, 6] as const).map(
       (n) =>
         [mais(e.pascoa, n), {
@@ -94,11 +74,9 @@ export function diasMoveis(ano: number): [Date, DiaProprio][] {
           posto: POSTO.feriaPrivilegiada,
         }] as [Date, DiaProprio]
     ),
-    // Têmporas de Advento, Quaresma e Setembro: ferias de II classe
     ...temporas(mais(e.advento, 14), "do Advento", "roxo"),
     ...temporas(mais(e.cinzas, 4), "da Quaresma", "roxo"),
     ...temporas(terceiroDomingoDeSetembro(ano), "de Setembro", "roxo"),
-    // Oitava de Pentecostes: idem
     ...([1, 2, 3, 4, 5, 6] as const).map(
       (n) =>
         [mais(e.pentecostes, n), {
@@ -111,7 +89,6 @@ export function diasMoveis(ano: number): [Date, DiaProprio][] {
   ];
 }
 
-/** O dia próprio de uma data, se houver. Consulta o ano civil e o anterior. */
 export function diaProprio(data: Date): DiaProprio | undefined {
   const ano = data.getUTCFullYear();
   for (const a of [ano, ano - 1]) {

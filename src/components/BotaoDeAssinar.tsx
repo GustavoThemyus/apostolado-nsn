@@ -2,10 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { site } from "../data/site";
 import { Linha } from "./AssinarAgenda";
 
-/**
- * O "+" no canto do calendário: um toque e aparecem os jeitos de levar o Ordo
- * para o celular. O tutorial, mais abaixo na página, diz o resto.
- */
 export function BotaoDeAssinar() {
   const [aberto, definirAberto] = useState(false);
   const caixa = useRef<HTMLDivElement>(null);

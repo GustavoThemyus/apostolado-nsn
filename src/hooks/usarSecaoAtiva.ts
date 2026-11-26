@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-/** Devolve o id da seção que está sendo lida no momento. */
 export function usarSecaoAtiva(ids: string[]): string | null {
   const [ativa, definirAtiva] = useState<string | null>(ids[0] ?? null);
 

@@ -5,20 +5,8 @@ import { ListaDeBlocos } from "./Bloco";
 import { Rubrica } from "./Rubrica";
 import { TextoRico } from "./TextoRico";
 
-/**
- * O folheto de próprio que vale para a página inteira.
- *
- * Vai por contexto, e não por propriedade, porque quem precisa dele são os
- * dez lugares do próprio, enterrados dentro dos blocos de uma seção: passá-lo
- * de mão em mão obrigaria `ListaDeBlocos` e `Bloco` a carregarem um dado que
- * só interessa ao Ordinário.
- */
 const FolhetoDoDia = createContext<{ folheto?: Folheto; dia?: string; evangelhoNoOrdinario?: boolean }>({});
 
-/**
- * `folheto` é o próprio do dia, quando está transcrito. `dia` (ISO) só serve
- * ao Ordinário sem próprio, que remete à Missa do dia daquela data.
- */
 export function ComOProprioDoDia({
   folheto,
   dia,
@@ -27,7 +15,6 @@ export function ComOProprioDoDia({
 }: {
   folheto?: Folheto;
   dia?: string;
-  /** A fórmula do Evangelho já foi para a linha do Ordinário: o próprio abre pelo "In illo témpore". */
   evangelhoNoOrdinario?: boolean;
   children: ReactNode;
 }) {
@@ -38,17 +25,6 @@ export function ComOProprioDoDia({
   );
 }
 
-/**
- * Um dos dez lugares em que o impresso manda buscar a Missa do dia.
- *
- * Com folheto, o lugar se preenche: o título é o do folheto, que traz a
- * referência da Escritura junto ("Intróito (Sl XXIV,1-3)"), e o texto é o
- * dele. Sem folheto, fica o que o impresso diz, que é a verdade do papel —
- * o nome da parte e a remissão à Missa do dia.
- *
- * São duas peças num lugar só no Gradual, porque o impresso junta ali o
- * Gradual, o Aleluia e o Tracto, e o folheto os traz separados.
- */
 export function LugarDoProprio({
   nome,
   subtitulos,

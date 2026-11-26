@@ -1,45 +1,18 @@
-/**
- * Registro dos documentos de conteúdo.
- *
- * É a lista de tudo o que o painel pode editar, e o único lugar que sabe onde
- * cada coisa mora no repositório.
- *
- * SEGURANÇA: o cliente manda só o `id`; quem traduz para caminho é este
- * arquivo, do lado do servidor. Aceitar um caminho vindo da requisição daria
- * escrita arbitrária no repositório, e como ele está ligado ao Workers Builds,
- * isso seria execução de código na esteira de publicação.
- *
- * Sem imports: o Worker também carrega este módulo, e ele não pode arrastar
- * nada de React nem de DOM junto.
- */
-
-/** Como o documento é editado e validado. */
 export type Forma =
-  /** Título, descrição e uma lista de seções. A maior parte das páginas. */
   | "documento"
-  /** Marca, lema, rodapé e a agenda do Google: o que é do site, não de uma página. */
   | "site"
-  /** A página inicial, com o mural de avisos e os blocos próprios dela. */
   | "inicio"
-  /** A coleção de postagens. */
   | "postagens"
-  /** A coleção de folhetos: os impressos servidos como página. */
   | "folhetos"
-  /** Os textos de cabeçalho de cada página do site. */
   | "paginas"
-  /** Os dias que carregam indulgência. */
   | "diasDeIndulgencia";
 
 export interface DocumentoRegistrado {
   id: string;
-  /** Nome que o painel mostra. */
   titulo: string;
-  /** Caminho no repositório. Nunca vem do cliente. */
   caminho: string;
   forma: Forma;
-  /** Onde ele aparece no site, para o painel oferecer "ver publicado". */
   rota?: string;
-  /** Uma linha de orientação para quem edita. */
   ajuda?: string;
 }
 

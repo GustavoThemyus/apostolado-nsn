@@ -1,24 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Monta src/data/indulgencias-arquidiocese.json a partir de `dados.py`.
-
-    python3 ferramentas/arquidiocese/gerar.py
-
-O que este arquivo faz que não é transcrever:
-
-- **numera as notas.** No PDF a marca (§, ~, ^, *) vem seguida do texto ali
-  mesmo, na própria célula. Aqui ela vira chamada clicável, como no
-  Enchiridion, e o texto vai para o mapa de notas do documento. Como a mesma
-  marca aparece dezenas de vezes com textos diferentes, cada uma ganha um
-  número: §1, §2, ~1... A exceção é o ^ sem texto próprio, que é um só,
-  porque o que ele quer dizer está na legenda.
-- **constrói a consulta do mapa** a partir do nome da igreja e do endereço.
-  O "Clique para conferir a localização" do PDF não tinha destino; aqui ele
-  abre as opções de Google Maps e Waze.
-- **liga as concessões ao Enchiridion**, que já está publicado com âncora em
-  cada uma das 33.
-"""
 import io, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -27,12 +8,9 @@ import dados
 SAIDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..",
                      "src", "data", "indulgencias-arquidiocese.json")
 
-# ------------------------------------------------------------------- notas
-
 notas = {}
 contador = {}
 
-# O ^ sem texto próprio: as duas linhas da legenda do documento, juntas.
 GENERICAS = {
     "^": "Falta de consenso quanto à data; e, nas festas propriamente "
          "particulares, usar-se-á a data que a paróquia comemora.",
@@ -40,7 +18,6 @@ GENERICAS = {
 
 
 def nota(marca, texto):
-    """Registra a nota e devolve a chamada pronta para o texto."""
     if texto is None:
         notas.setdefault(marca, GENERICAS[marca])
         return "[nota]%s[/nota]" % marca
@@ -53,20 +30,10 @@ def nota(marca, texto):
 def com_marca(texto, marca):
     return texto + " " + nota(*marca) if marca else texto
 
-
 CITACAO = re.compile(r"^,\s*§(\d+),\s*(\d+)°(,\s*[a-z]\))?(.*)$")
 
 
 def concessao(numero, resto):
-    """
-    A citação inteira vira elo, e cai no ponto exato dela no Enchiridion.
-
-    "Ao invés de linkar o enquiridio nas concessões, tu poderia linkar toda a
-    concessão e levar a pessoa pra parte exata da concessão", pediu o Perez.
-    Então "Concessão N° 33, §1, 5°, a)" é todo o elo, e a âncora é o caminho
-    da citação: `concessao-33-1-5`. O "do Enchiridion Indulgentiarum." que
-    vem depois fica fora, porque é frase, não referência.
-    """
     casado = CITACAO.match(resto)
     if not casado:
         raise SystemExit("citação que o gerador não sabe ler: %r" % resto)
@@ -76,10 +43,7 @@ def concessao(numero, resto):
         numero, paragrafo, item, texto, cauda)
 
 
-# -------------------------------------------------------------- localização
-
 def consulta_de(ig):
-    """O que se procura no mapa: o nome da igreja e o endereço dela."""
     nome = re.sub(r"^(Titular|Co-Titular) da ", "", ig["nome"])
     nome = re.sub(r"^[^:]+: ", "", nome)
     endereco = ig["endereco"].replace(" (Paraíba)", " - PB")
@@ -128,9 +92,6 @@ def apelido(texto):
     limpo = re.sub(r"[^a-z0-9]+", "-", sem_acento(texto).lower()).strip("-")
     return limpo[:60]
 
-
-# Um nome por linha, o mesmo no quadro e no calendário: é a âncora que leva o
-# nome da igreja, na grade do mês, à linha dela com o endereço e o mapa.
 IDENTS = {}
 for _secao, _grupo in (("paroquias", dados.PAROQUIAS), ("santuarios", dados.SANTUARIOS),
                        ("basilica", dados.BASILICA), ("ordens", dados.ORDENS)):
@@ -167,10 +128,6 @@ def lista(itens, ordenada=False):
 
 def aviso(paragrafos):
     return {"tipo": "nota", "titulo": "Nota", "paragrafos": paragrafos}
-
-
-# ------------------------------------------------------------------- seções
-# A ordem importa: é ela que numera as notas na ordem de leitura.
 
 secoes = []
 
@@ -401,8 +358,6 @@ secoes.append({
     ],
 })
 
-# ------------------------------------------------------------------ gravação
-
 documento = {
     "titulo": "Calendário de Indulgências Arquidiocesano",
     "descricao": "Os dias em que se pode lucrar indulgência plenária visitando uma "
@@ -412,7 +367,6 @@ documento = {
     "secoes": secoes,
 }
 
-# Um id estável por bloco, para o painel saber o que mudou.
 for secao in secoes:
     for n, bloco in enumerate(secao["blocos"], 1):
         bloco.setdefault("id", "%s-%03d" % (secao["id"], n))
@@ -429,27 +383,9 @@ print("seções: %d | linhas de tabela: %d | igrejas: %d | notas: %d" % (
     igrejas, len(notas)))
 print("gravado em", os.path.normpath(SAIDA))
 
-# ------------------------------------------------- os dias, para o calendário
-#
-# O mesmo documento, visto por data em vez de por igreja. "Tem como fazer um
-# calendário da mesma forma com as paróquias, santuários e ordens da
-# arquidiocese, pra que também possa ser adicionado no calendário geral pra
-# quem quiser", pediu o Perez.
-#
-# Sai daqui, e não de uma segunda transcrição: a tabela da página e os dias da
-# grade são a mesma remessa dele, e duas listas divergiriam na primeira
-# correção. O que se acrescenta é a regra de data legível por máquina.
-
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
          "agosto", "setembro", "outubro", "novembro", "dezembro"]
 
-# As oito datas móveis do documento, ditas no vocabulário do motor.
-#
-# As que viram `festa` acompanham a transferência, que é o ponto de serem
-# festa e não data: o Sagrado Coração anda com a Páscoa todo ano. As duas que
-# viram `diaDaSemanaEntre` não têm nome próprio no motor de 1962 daqui — o
-# domingo da Sagrada Família ele ainda chama de "Domingo" —, e por isso se
-# dizem pelo intervalo em que a rubrica as coloca.
 MOVEIS = {
     "Domingo dentro da Oitava da Epifania":
         {"tipo": "diaDaSemanaEntre", "diaDaSemana": 0,
@@ -473,7 +409,6 @@ FIXA = re.compile(r"^(\d{1,2}) de ([A-ZÀ-Ý][a-zà-ÿ]+)$")
 
 
 def quando_de(texto):
-    """A regra de data e a data por extenso, do jeito que o documento a escreve."""
     casado = FIXA.match(texto.strip())
     if casado:
         dia = int(casado.group(1))
@@ -482,7 +417,6 @@ def quando_de(texto):
     if texto.strip() in MOVEIS:
         return MOVEIS[texto.strip()], texto.strip()
     raise SystemExit("data que o gerador não sabe ler: %r" % texto)
-
 
 dias = []
 for secao_id, grupo in (("paroquias", dados.PAROQUIAS), ("santuarios", dados.SANTUARIOS),

@@ -2,10 +2,6 @@ import type { ReactNode, RefObject } from "react";
 import { Elo } from "../routes/Elo";
 import { Brasao } from "./Brasao";
 
-/**
- * A barra fixa. O progresso só aparece em documento longo: régua marcando
- * 100% numa página de dois parágrafos é ruído.
- */
 export function BarraSuperior({
   marca,
   local,
@@ -15,9 +11,7 @@ export function BarraSuperior({
 }: {
   marca: string;
   local: string;
-  /** Ref do elemento da régua. Ausente esconde a régua. */
   progresso?: RefObject<HTMLDivElement>;
-  /** O botão que abre a gaveta. Fica à esquerda, do lado por onde ela entra. */
   menu: ReactNode;
   children: ReactNode;
 }) {

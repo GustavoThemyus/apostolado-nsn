@@ -81,11 +81,6 @@ export default function Inicio() {
   );
 }
 
-/**
- * Cartão ilustrado: a estampa ocupa o cartão inteiro e o texto fica por cima,
- * sobre um véu que escurece só a parte de baixo. Sem o véu o título some em
- * qualquer pintura clara, e escurecer a imagem toda apagaria a pintura.
- */
 function Cartao({
   para,
   imagem,

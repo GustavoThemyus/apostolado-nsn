@@ -3,7 +3,6 @@ import type { Etiqueta as TipoEtiqueta } from "../data/tipos";
 import { Etiqueta } from "./Etiqueta";
 import { TextoRico } from "./TextoRico";
 
-/** Uma peça da Missa, numerada na ordem em que acontece. */
 export function Passo({
   numero,
   etiqueta,

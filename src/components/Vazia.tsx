@@ -1,18 +1,10 @@
 import { Elo } from "../routes/Elo";
 
-/**
- * Estado de uma página ainda por escrever.
- *
- * Aparece no lugar do conteúdo, dizendo com todas as letras que o texto não
- * existe. É melhor do que uma página em branco, e muito melhor do que texto
- * inventado: o que se afirma aqui sobre o apostolado tem de vir dele.
- */
 export function Vazia({
   o_que,
   variante = "preparacao",
 }: {
   o_que?: string;
-  /** "rascunho" avisa que há texto, mas provisório. */
   variante?: "preparacao" | "rascunho";
 }) {
   const rascunho = variante === "rascunho";

@@ -1,14 +1,6 @@
 import type { ReactNode } from "react";
 import type { Cor } from "../calendario/tipos";
 
-/**
- * O que a grade precisa saber de um dia, e nada mais.
- *
- * São dois calendários agora — o de 1962, calculado, e o Ordo pré-55, copiado
- * — e eles não têm o mesmo vocabulário: um classifica em I a IV classe, o
- * outro em duples, semiduples e simples. A grade não precisa escolher entre
- * os dois: ela desenha data, nome e cor, que é o que os dois têm.
- */
 export interface DiaNaGrade {
   data: Date;
   nome: string;
@@ -22,15 +14,6 @@ export const mesmoDia = (a: Date, b: Date) =>
   a.getUTCMonth() === b.getUTCMonth() &&
   a.getUTCDate() === b.getUTCDate();
 
-/**
- * A grade de um mês, sem saber para que serve.
- *
- * `marcar` é o que impede a página das indulgências de bifurcar o calendário:
- * ela passa um marcador próprio para os dias que carregam indulgência, e a
- * grade continua sendo uma só. `destacar` segue a mesma regra por outro
- * motivo: quem sabe se o dia é festa maior é cada calendário, porque um
- * conta classes de I a IV e o outro escreve a classe dentro do grau.
- */
 export function GradeDoMes<T extends DiaNaGrade>({
   dias,
   hoje,
@@ -44,7 +27,6 @@ export function GradeDoMes<T extends DiaNaGrade>({
   escolhido: Date;
   aoEscolher: (data: Date) => void;
   marcar?: (dia: T) => ReactNode;
-  /** Quem responde se o dia é festa maior. Cada calendário usa a sua régua. */
   destacar?: (dia: T) => boolean;
 }) {
   if (dias.length === 0) return null;

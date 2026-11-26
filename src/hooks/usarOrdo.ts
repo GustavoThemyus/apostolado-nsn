@@ -4,14 +4,9 @@ import { carregarOrdo, mesDoOrdo, temOrdo, type DiaDoOrdo } from "../calendario/
 export interface EstadoDoOrdo {
   dias: DiaDoOrdo[];
   carregando: boolean;
-  /** A capela não publicou Ordo para este ano. Não é falha: é ausência. */
   semOrdo: boolean;
 }
 
-/**
- * Os dias do Ordo de um mês. Busca o arquivo do ano na primeira vez e o
- * guarda; trocar de mês dentro do mesmo ano não baixa nada de novo.
- */
 export function usarOrdo(ano: number, mes: number, ligado: boolean): EstadoDoOrdo {
   const [dias, definirDias] = useState<DiaDoOrdo[]>([]);
   const [carregando, definirCarregando] = useState(false);

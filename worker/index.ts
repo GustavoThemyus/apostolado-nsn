@@ -7,14 +7,10 @@ import { validar } from "./validar";
 
 export interface Env {
   ASSETS: Fetcher;
-  /** Subdomínio do time no Cloudflare Access, sem ".cloudflareaccess.com". */
   ACCESS_TEAM: string;
-  /** Tag de público (aud) da aplicação do Access. */
   ACCESS_AUD: string;
-  /** "usuario/repositorio" */
   GITHUB_REPO: string;
   GITHUB_RAMO?: string;
-  /** Segredo: token de acesso ao repositório. */
   GITHUB_TOKEN: string;
 }
 
@@ -24,36 +20,14 @@ const json = (corpo: unknown, status = 200) =>
     headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
   });
 
-/** O endereço de casa, sem o `www`. */
 const CASA = "ansn.com.br";
 
-/**
- * Fora dos buscadores: por ora só chega ao site quem recebe o link.
- *
- * Pedido do Perez em novembro de 2026, enquanto a situação do Apostolado na
- * diocese não se resolve. Não há `robots.txt` bloqueando de propósito: o
- * buscador precisa conseguir ler a página para ver o `noindex` e tirá-la.
- * Para voltar às buscas, apagar isto, a linha do `public/_headers` e a meta
- * do `index.html`.
- */
 function foraDasBuscas(resposta: Response): Response {
   const copia = new Response(resposta.body, resposta);
   copia.headers.set("X-Robots-Tag", "noindex, nofollow");
   return copia;
 }
 
-/**
- * Serve um arquivo, ou a página do site com o status certo.
- *
- * O armazém de ativos responde primeiro: se o caminho é um arquivo de
- * verdade, é ele que vai, e acabou. Se não é, só então se pergunta se aquilo
- * é rota do site.
- *
- * A página devolvida é a mesma nos dois casos — quem decide o que mostrar é o
- * React, que já tem a tela de não encontrada. O que muda é o status, e ele
- * não é detalhe: com 200, o buscador entende que o endereço existe e indexa
- * um erro de digitação como se fosse página do Apostolado.
- */
 async function servirPagina(pedido: Request, url: URL, env: Env): Promise<Response> {
   const resposta = await env.ASSETS.fetch(pedido);
   if (resposta.status !== 404) return resposta;
@@ -70,14 +44,6 @@ export default {
   async fetch(pedido: Request, env: Env): Promise<Response> {
     const url = new URL(pedido.url);
 
-    /*
-     * O `www` leva ao apex, com o caminho e a busca intactos.
-     *
-     * Os dois são domínio do mesmo Worker, então sem isto o site responderia
-     * nos dois endereços e os buscadores veriam o mesmo texto em dois lugares.
-     * O redirecionamento é permanente porque a decisão é permanente: o nome do
-     * site é `ansn.com.br`.
-     */
     if (url.hostname === `www.${CASA}`) {
       url.hostname = CASA;
       return Response.redirect(url.toString(), 301);
@@ -87,11 +53,6 @@ export default {
       return foraDasBuscas(await servirPagina(pedido, url, env));
     }
 
-    /*
-     * As agendas vêm antes da autenticação de propósito: são calendários
-     * públicos que qualquer visitante pode vincular, e exigir o Access aqui
-     * tornaria o recurso inútil para quem o site serve.
-     */
     if (url.pathname === "/api/agenda") {
       if (pedido.method !== "GET") return json({ erro: "método não aceito" }, 405);
       const id = url.searchParams.get("id");
@@ -112,7 +73,6 @@ export default {
 
     if (url.pathname !== "/api/conteudo") return json({ erro: "rota desconhecida" }, 404);
 
-    // o cliente manda um id; quem sabe o caminho é o registro, aqui no servidor
     const id = url.searchParams.get("documento") ?? "guia";
     const doc = porId(id);
     if (!doc) return json({ erro: `documento desconhecido: ${id}` }, 404);
@@ -129,7 +89,6 @@ export default {
         const { texto, sha } = await lerConteudo(cfg);
         return json({ documento: doc.id, conteudo: JSON.parse(texto), sha, quem });
       } catch (e) {
-        // 503: é configuração do site, não erro de quem está editando
         if (e instanceof CredencialInvalida) return json({ erro: e.message }, 503);
         return json({ erro: e instanceof Error ? e.message : "falha ao ler" }, 502);
       }
@@ -144,7 +103,6 @@ export default {
       }
 
       if (typeof corpo.sha !== "string" || corpo.sha === "") {
-        // sem o sha de origem não há como saber se alguém salvou no meio
         return json({ erro: "gravação sem sha de origem; recarregue o painel" }, 428);
       }
 

@@ -1,11 +1,3 @@
-/**
- * Suíte do casamento de rotas. Roda junto com `npm test`.
- *
- * A regra que mais importa aqui é a última: segmento fixo tem de vencer
- * segmento curinga, senão /calendario/santos seria engolido por uma rota
- * que captura parâmetro na mesma posição.
- */
-
 import { casar, resolver } from "./casar";
 import { PADROES } from "./padroes";
 import { ROTAS } from "./rotas";
@@ -37,13 +29,6 @@ conferir("fixo vence curinga", resolver(rotas, "/calendario/santos")?.rota.padra
 conferir("curinga pega o resto", resolver(rotas, "/calendario/brasil")?.rota.padrao, "/calendario/:que");
 conferir("nada casa", resolver(rotas, "/outro"), null);
 
-/*
- * As duas listas de caminhos têm de ser a mesma. `Rota.padrao` é tipado como
- * `Padrao`, o que já impede rota com caminho de fora; falta o contrário, que
- * o tipo não pega: caminho listado em `padroes.ts` sem rota nenhuma por trás.
- * Esse é o que machuca de verdade — o Worker trataria o endereço como válido
- * e devolveria 200 numa página que não existe.
- */
 {
   const comRota = new Set(ROTAS.map((r) => r.padrao as string));
   const orfaos = PADROES.filter((p) => !comRota.has(p));
@@ -51,14 +36,6 @@ conferir("nada casa", resolver(rotas, "/outro"), null);
   conferir("nenhum padrão repetido", PADROES.length, new Set(PADROES).size);
 }
 
-/*
- * Toda página precisa de texto, e texto nenhum pode sobrar.
- *
- * Falta de texto não dá erro: a página abre, só que sem título — e título
- * vazio some do menu, das migalhas e da aba do navegador sem ninguém
- * perceber. Texto sobrando é o contrário, e também engana: fica no painel
- * para o Apostolado editar uma página que não existe mais.
- */
 {
   const comTexto = new Set(Object.keys(textos));
   const semTexto = PADROES.filter((p) => !comTexto.has(p));

@@ -1,4 +1,3 @@
-/** A seta que marca "isto leva a outro lugar". Decorativa: o texto já diz. */
 export function Seta({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true" focusable="false">

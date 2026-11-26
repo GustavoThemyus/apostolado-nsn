@@ -1,14 +1,6 @@
 #!/usr/bin/env python3
 """
-Põe a bula Quo primum, do PDF bilíngue do Perez, em
-`src/data/missa-canonica.json`.
-
     python3 ferramentas/quo-primum/gerar.py <bula.pdf>
-
-O PDF tem duas colunas, latim à esquerda e português à direita. Cada coluna é
-lida sozinha e cortada nos parágrafos numerados (1 a 13); o fecho, sem número,
-se corta nos começos conhecidos. Se as duas colunas não derem o mesmo número
-de parágrafos, nada é gravado.
 """
 
 import json
@@ -22,7 +14,6 @@ DESTINO = RAIZ / "src/data/missa-canonica.json"
 MEIO = 297
 NUMERADOS = 13
 
-# onde começa cada parágrafo do fecho, que o impresso não numera
 FECHO = {
     "latim": ["Si quis autem", "Datum Romæ", "H. Cumin", "Anno a Nativitate", "Scipio de Octavianis"],
     "portugues": ["Se alguém, contudo", "Dado em Roma", "H. Cumin", "No ano do Nascimento", "Cipião de Otaviani"],
@@ -39,20 +30,17 @@ def coluna(pdf: str, x: int) -> list[str]:
              "-W", str(MEIO if x == 0 else MEIO + 2), "-H", "842", "-layout", pdf, "-"],
             capture_output=True, text=True, check=True).stdout
         linhas += [l.strip() for l in saida.split("\n")]
-    # a numeração das páginas cai numa das colunas
     return [l for l in linhas if l and not re.fullmatch(r"\d{1,2}", l)]
 
 
 def juntar(linhas: list[str]) -> str:
     texto = ""
     for l in linhas:
-        # hífen no fim da linha, neste PDF, é de palavra composta
         texto += l if texto.endswith("-") and not texto.endswith(" -") else f" {l}"
     return re.sub(r"\s+", " ", texto).strip()
 
 
 def saudacao(linhas: list[str], lingua: str) -> str:
-    """As linhas do alto, antes do parágrafo 1: quem escreve e para quê."""
     marca = {"latim": "PIUS EPISCOPUS", "portugues": "PIO, BISPO"}[lingua]
     comeco = next((i for i, l in enumerate(linhas) if l.startswith(marca)), None)
     fim = next((i for i, l in enumerate(linhas) if l.startswith("1 - ")), None)

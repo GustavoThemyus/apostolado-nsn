@@ -21,16 +21,9 @@ const MESES = [
   "dezembro",
 ];
 
-/**
- * As festas do calendário: uma vista sobre as postagens, não um segundo
- * conjunto de dados. Ordenadas pelo dia da festa, e não pela data de
- * publicação, que é como se procura um santo.
- */
 export default function Santos() {
   const santos = publicadas()
     .filter((p) => p.categoria === "santo" && p.festa)
-    // o dia habitual serve só para ordenar: no calendário quem manda é a
-    // precedência, e a festa transferida aparece no dia para onde foi
     .map((p) => ({ postagem: p, quando: diaHabitualDaFesta(p.festa) }))
     .sort(
       (a, b) =>

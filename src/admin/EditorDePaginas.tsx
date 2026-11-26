@@ -3,21 +3,8 @@ import { PADROES } from "../routes/padroes";
 import { ROTAS } from "../routes/rotas";
 import { Campo, Linha, Texto } from "./Campos";
 
-/**
- * Os títulos e cabeçalhos de cada página.
- *
- * Aqui não se cria nem se apaga nada: a lista de páginas é a do site, e vem
- * de `padroes.ts`. Caminho novo exige página nova, que exige código. O que se
- * edita é o que o leitor lê no alto — e isso o Apostolado não alcançava, por
- * viver junto da tabela de rotas.
- *
- * As páginas aparecem agrupadas por seção, como no site, porque é assim que
- * quem edita as procura: ninguém pensa "quero mudar /indulgencias/enchiridion",
- * pensa "quero mudar o Enchiridion, que fica nas Indulgências".
- */
 type Textos = Record<string, TextoDaPagina>;
 
-/** A seção de topo a que o caminho pertence, para agrupar a lista. */
 function secaoDe(caminho: string): string {
   const raiz = ROTAS.find((r) => r.padrao === caminho)?.pai ?? caminho;
   if (raiz === "/") return "Página inicial";

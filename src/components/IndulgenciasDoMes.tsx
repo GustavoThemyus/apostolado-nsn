@@ -22,7 +22,6 @@ const MESES = [
   "dezembro",
 ];
 
-/** Dias seguidos com exatamente as mesmas indulgências: uma linha só. */
 interface Faixa {
   de: string;
   ate: string;
@@ -35,15 +34,6 @@ const diaSeguinte = (iso: string): string => {
   return d.toISOString().slice(0, 10);
 };
 
-/**
- * A lista do mês, agrupada.
- *
- * Agrupa porque a Oitava das almas do Purgatório é um intervalo de oito dias
- * com o mesmo título, e sem isto a página inicial trazia, em novembro, nove
- * linhas quase idênticas uma debaixo da outra. Agrupado, novembro de 2026 dá
- * quatro linhas: "1 de novembro", "2 de novembro", que tem Finados por cima e
- * por isso não entra na faixa, "3 a 8 de novembro" e "9 de novembro".
- */
 function emFaixas(porDia: Map<string, string[]>): Faixa[] {
   const faixas: Faixa[] = [];
 
@@ -64,24 +54,11 @@ function emFaixas(porDia: Map<string, string[]>): Faixa[] {
   return faixas;
 }
 
-/** "1 a 8 de novembro" numa faixa; "2 de novembro" num dia só. */
 function quando(faixa: Faixa): string {
   if (faixa.de === faixa.ate) return porExtensoCurto(faixa.de);
   return `${Number(faixa.de.slice(8))} a ${porExtensoCurto(faixa.ate)}`;
 }
 
-/**
- * Os dias do mês que têm indulgência, na página inicial.
- *
- * "Adicione na página inicial um preview das indulgências do mês, apenas
- * falando os dias que tem e levando para a página de Indulgências para
- * consultar no calendário", pediu o Perez — e é por isso que aqui não está a
- * obra, nem as condições, nem o cânon: cada linha diz o dia e a festa, e leva
- * ao dia certo da grade, onde está o resto.
- *
- * Do mesmo motor da grade, e não de uma lista escrita à mão: o que acompanha
- * a transferência de uma festa lá acompanha aqui também.
- */
 export function IndulgenciasDoMes({ data }: { data?: Date }) {
   const hoje = useMemo(() => {
     if (data) return data;
@@ -93,7 +70,6 @@ export function IndulgenciasDoMes({ data }: { data?: Date }) {
 
   const mes = hoje.getUTCMonth() + 1;
   const ano = hoje.getUTCFullYear();
-  /* o que o leitor ligou em Indulgências aparece aqui também */
   const [ligadas] = useState(agendasLembradas);
   const vinculadas = usarAgendas(
     useMemo(() => ligadas.filter((id) => id !== ARQUIDIOCESE), [ligadas]),
@@ -119,11 +95,6 @@ export function IndulgenciasDoMes({ data }: { data?: Date }) {
     return emFaixas(porDia);
   }, [ano, mes, ligadas, vinculadas.porDia]);
 
-  /*
-   * Mês sem nenhuma, a caixa não aparece. Acontece: conferidos 2026 e 2027,
-   * julho e setembro não têm nenhuma indulgência presa a dia nenhum nos dois
-   * anos.
-   */
   if (faixas.length === 0) return null;
 
   return (

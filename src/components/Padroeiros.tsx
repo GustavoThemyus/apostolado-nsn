@@ -5,29 +5,12 @@ import { Elo } from "../routes/Elo";
 export interface Padroeiro {
   id: string;
   nome: string;
-  /** Vazio enquanto a imagem não chega. */
   imagem: string;
-  /** O que o santo é para o Apostolado: "Co-Padroeira secundária". */
   descricao?: string;
-  /** A Titular: a estampa dela é um pouco maior que as dos lados. */
   principal?: boolean;
-  /**
-   * A postagem com a história do santo, pelo id dela.
-   *
-   * Confere-se contra a coleção antes de virar link: postagem despublicada
-   * ou renomeada deixaria o quadro clicável levando a um 404 — e, como é a
-   * estampa inteira que clica, nada na tela avisaria que o destino sumiu.
-   * Sem postagem viva, o quadro fica como era, sem link.
-   */
   postagem?: string;
 }
 
-/**
- * Os três padroeiros, na página inicial.
- *
- * O quadro inteiro é o alvo do clique, e não só o nome: num celular o nome
- * tem dois dedos de largura, e a estampa é o que a pessoa de fato toca.
- */
 export function Padroeiros({ padroeiros }: { padroeiros: Padroeiro[] }) {
   return (
     <section className="padroeiros" aria-labelledby="padroeiros-titulo">
@@ -40,8 +23,6 @@ export function Padroeiros({ padroeiros }: { padroeiros: Padroeiro[] }) {
 
           const corpo: ReactNode = (
             <>
-              {/* a moldura é elemento próprio: é ela que leva o filete dourado
-                  e a margem de papel, e a estampa fica dentro, sem raio */}
               <span className="padroeiro__moldura">
                 {p.imagem ? (
                   <img

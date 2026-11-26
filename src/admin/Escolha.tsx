@@ -2,13 +2,6 @@ import { REGISTRO, type DocumentoRegistrado } from "../data/registro";
 import { ROTAS, SECOES_DO_MENU, rotaPorPadrao } from "../routes/rotas";
 import { TEM_EDITOR } from "./formas";
 
-/**
- * A lista do que dá para editar.
- *
- * Os grupos saem das próprias rotas, e não de uma segunda lista escrita à
- * mão: documento novo no registro aparece aqui sozinho, no grupo certo, e
- * ninguém precisa lembrar de atualizar duas coisas.
- */
 const TOPO = "— o site inteiro —";
 
 function grupoDe(doc: DocumentoRegistrado): string {
@@ -21,7 +14,6 @@ function grupoDe(doc: DocumentoRegistrado): string {
   return r?.curto ?? r?.titulo ?? TOPO;
 }
 
-/** Na ordem do menu, com o que é do site inteiro por último. */
 function agrupar(): [string, DocumentoRegistrado[]][] {
   const grupos = new Map<string, DocumentoRegistrado[]>();
   for (const doc of REGISTRO) {

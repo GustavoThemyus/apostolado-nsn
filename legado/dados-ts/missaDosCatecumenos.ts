@@ -1,6 +1,5 @@
 import type { Secao } from "./tipos";
 
-/** Seções 5 a 7: do Asperges ao Credo, a primeira metade da Missa. */
 export const secoesDosCatecumenos: Secao[] = [
   {
     id: "asperges",

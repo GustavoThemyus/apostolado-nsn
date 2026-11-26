@@ -1,25 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-A transcrição do PDF "Tabela Calendário de Indulgências Arquidiocesano",
-do Perez, em forma revisável.
 
-Só dados. Quem monta o JSON do site é `gerar.py`, que numera as notas e
-constrói as consultas de mapa a partir do nome e do endereço.
-
-As marcas seguem a legenda do próprio documento:
-
-    §   nota do autor          ~   data diferente no calendário novo
-    ^   falta de consenso      *   festa nova, ou canonização posterior
-
-`marca=("~", "texto")` põe a marca no nome da festa e guarda o texto como
-nota. `marca=("^", None)` é a marca sem texto próprio: vale a legenda.
-"""
-
-# --------------------------------------------------------------- 1. Paróquias
 
 def igreja(nome, endereco=None, forania=None, ano=None, marca=None):
     return dict(nome=nome, endereco=endereco, forania=forania, ano=ano, marca=marca)
-
 
 PAROQUIAS = [
     dict(
@@ -475,8 +458,6 @@ PAROQUIAS = [
     ),
 ]
 
-# -------------------------------------------------------------- 2. Santuários
-
 SANTUARIOS = [
     dict(
         data="13 de Maio",
@@ -537,8 +518,6 @@ SANTUARIOS = [
     ),
 ]
 
-# ---------------------------------------------------------------- 3. Basílica
-
 BASILICA = [
     dict(
         data="05 de Agosto",
@@ -548,12 +527,6 @@ BASILICA = [
         ],
     ),
 ]
-
-# --------------------------------------------------------- 4. Ordens religiosas
-#
-# Aqui a coluna do meio é o santo fundador e a terceira traz a instituição a
-# que ele deu origem, e só depois a casa ou igreja que se visita. Por isso
-# cada linha tem `instituicao`, que as outras três seções não têm.
 
 ORDENS = [
     dict(

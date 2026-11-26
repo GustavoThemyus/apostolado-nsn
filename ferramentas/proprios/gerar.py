@@ -1,24 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Põe os próprios da Missa em `src/data/folhetos.json`.
-
-    python3 ferramentas/proprios/gerar.py <pasta com os PDFs>
-
-Os PDFs são os que o Ordo do Apostolado já anexa a cada dia — os mesmos do
-"Confira o próprio da Missa" no calendário. O endereço de cada um está na
-tabela abaixo, ao lado do nome do arquivo, porque é dele que vem o campo
-`arquivo` do folheto: a folha no site e o PDF no Drive são a mesma coisa, e
-quem quiser imprimir tem de poder chegar ao segundo.
-
-Rodar de novo é seguro: cada folheto é substituído pelo id, e os que não
-estão nesta tabela ficam onde estão.
-
-O que não é transcrever está em `extrair.py`. O que é decisão está aqui: o
-título, o resumo e a ordem. O resumo guarda a linha de grau e cor que vem no
-alto do impresso ("Semiduples de 1ª classe – roxo"), que de outro modo se
-perderia: ela não é parágrafo do próprio, mas é informação do dia.
-"""
 import collections, importlib.util, io, json, os, pathlib, re, subprocess, sys, tempfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -26,15 +7,6 @@ from extrair import extrair
 
 
 def _ferramentaDeEstampas():
-    """
-    `ferramentas/folhetos/gerar.py`, carregado pelo caminho.
-
-    Pelo caminho, e não por `import gerar`: o módulo de lá tem o mesmo nome
-    deste, e um `import` simples devolveria este mesmo arquivo. Quem grava a
-    estampa é ele, para que a folha de próprio e a de indulgência saiam com
-    a mesma régua — o teto de 1000px, o webp, e o nome com a impressão do
-    conteúdo, de que depende o cache de um ano.
-    """
     caminho = os.path.join(os.path.dirname(os.path.dirname(
         os.path.abspath(__file__))), "folhetos", "gerar.py")
     spec = importlib.util.spec_from_file_location("ferramentaDeEstampas", caminho)
@@ -42,29 +14,15 @@ def _ferramentaDeEstampas():
     spec.loader.exec_module(modulo)
     return modulo
 
-
 ESTAMPAS = _ferramentaDeEstampas()
 
 RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 SAIDA = os.path.join(RAIZ, "src", "data", "folhetos.json")
 
-# O índice que liga o anexo do Ordo ao folheto: o calendário precisa dele e
-# não pode importar a coleção inteira, que são 138 KB para descobrir um id.
-#
-# A chave é o id do arquivo no Drive, e não o endereço inteiro: o Ordo traz
-# o mesmo arquivo com "?usp=drivesdk" no fim, e comparar endereços faria o
-# calendário não reconhecer nenhum dos sete.
 INDICE = os.path.join(RAIZ, "src", "data", "proprios-no-ordo.json")
 
 DRIVE = "https://drive.google.com/file/d/%s/view"
 
-# Na ordem do Advento, que é a ordem em que o fiel vai precisar deles.
-#
-# `cabecalho` são as linhas que o impresso põe entre a estampa e o Intróito,
-# transcritas dele e conferidas contra ele por `conferirCabecalho`. Nem toda
-# folha tem data, e o nome impresso nem sempre é o `titulo`: o de Guadalupe
-# traz o padroado inteiro, e o título é curto porque vai para a aba do
-# navegador e para o WhatsApp.
 PROPRIOS = [
     dict(
         id="proprio-advento-i",
@@ -144,20 +102,6 @@ PROPRIOS = [
     ),
 ]
 
-
-# ---------------------------------------------------------------- erratas
-#
-# O que está errado nos PDFs e sai certo no site.
-#
-# São gralhas de digitação, não variantes: "Fílium tumm" não existe, e
-# "Fatres" tampouco. Ficam aqui, contadas uma a uma, por três motivos: para
-# que a lista possa ir ao Perez e ele corrigir o original; para que a
-# conferência continue exata, já que ela sabe destas e só destas; e para que
-# uma remessa nova que as conserte **quebre** este gerador em vez de passar
-# calada — se a conta não bater, é porque o PDF mudou, e aí se relê.
-#
-# Nada de correção silenciosa de latim: o que não estiver nesta lista vai ao
-# ar exatamente como o Perez escreveu.
 ERRATAS = [
     ("Fílium tumm", "Fílium tuum", 9),
     ("Fatres:", "Fratres:", 2),
@@ -165,17 +109,12 @@ ERRATAS = [
     ("(ls XL,5)", "(Is XL,5)", 1),
 ]
 
-
-# A segunda tinta em trechos soltos, com a mesma regra das erratas: o texto
-# exato, e quantas vezes ele tem de aparecer. O N. é o do Papa, nas orações
-# do Advento (3 orações x 2 línguas x 4 domingos); o missal o põe em vermelho.
 TINTAS = [
     ("[i]N.[/i]", "[tinta][i]N.[/i][/tinta]", 24),
 ]
 
 
 def substituir(blocos, tabela):
-    """Aplica uma tabela de substituições e devolve quantas vezes cada uma pegou."""
     contagem = collections.Counter()
 
     def nos(bloco):
@@ -195,28 +134,12 @@ def substituir(blocos, tabela):
 
 
 def corrigir(blocos):
-    """Aplica as erratas e devolve quantas vezes cada uma pegou."""
     return substituir(blocos, ERRATAS)
 
-
-# A fórmula que abre a Epístola e o Evangelho, nas duas línguas: "Lectio
-# Epístolæ beati Pauli… Romános." / "Leitura da Epístola… Romanos:". Vai até o
-# primeiro ponto ou dois-pontos, e nenhuma das catorze tem ponto antes disso.
 ABERTURA = re.compile(r"^((?:Leitura|Lectio|Léctio|Seq[uü]ência|Sequéntia)[^.:]*[.:])\s+(\S.*)$", re.S)
 
 
 def partirAberturas(blocos):
-    """
-    Separa a fórmula de abertura do texto, na Epístola e no Evangelho.
-
-    No impresso as duas andam no mesmo parágrafo. A folha precisa delas
-    separadas: a fórmula só se identifica ("Lectio Epístolæ…"), e a capitular
-    é do texto que vem depois ("Fratres", "In illo témpore"). Quem recebe a
-    capitular, e quem recebe só a inicial vermelha, é CSS; aqui só se parte.
-
-    Se alguma não casar, o gerador para: uma fórmula nova pede que alguém a
-    leia, e não que a capitular caia na palavra errada.
-    """
     feitas = 0
     for n, bloco in enumerate(blocos):
         if bloco["tipo"] != "subtitulo" or not re.match(r"(Epístola|Evangelho)\b", bloco["texto"]):
@@ -238,21 +161,11 @@ def partirAberturas(blocos):
 
 
 def numerarSalmo(blocos):
-    """
-    Põe o número do salmo no "Sl." do Intróito português.
-
-    O PDF traz a referência inteira só no latim ("Ps. LXXIX,2"); a tradução
-    diz apenas "Sl.". É o mesmo versículo, e o número vem do lado latino:
-    nada é inventado, só passado de um lado para o outro. Quando o latim diz
-    "ibid.", o salmo é o do próprio título do Intróito ("Sl XXIV,1-3").
-    """
     feitas = 0
     for n, bloco in enumerate(blocos):
         if bloco["tipo"] != "subtitulo" or not bloco["texto"].startswith("Intróito"):
             continue
         par = blocos[n + 1]
-        # nos PDFs revistos a tradução já traz a referência ("Sl. Ibid.,4."), e
-        # o que o Perez escreveu vale: não se mexe
         if re.search(r"\[i\]Sl\. ?\S", par["portugues"][0]["texto"]):
             feitas += 1
             continue
@@ -272,7 +185,6 @@ def numerarSalmo(blocos):
 
 
 def comIds(blocos, ident):
-    """Cada bloco com id estável, na ordem: é por ele que o painel compara."""
     for n, bloco in enumerate(blocos, 1):
         bloco["id"] = "%s-%02d" % (ident, n)
         if bloco["tipo"] == "bilingue":
@@ -283,20 +195,7 @@ def comIds(blocos, ident):
 
 
 def estampa(caminho, ident):
-    """
-    A figura da primeira página, gravada em `public/folhetos`.
-
-    Cada um dos sete PDFs traz duas figuras e só duas: a estampa, na primeira
-    página, e o selo do Apostolado, na última. O selo fica de fora — o brasão
-    já está em toda página do site, e repeti-lo dentro da folha seria enfeite.
-
-    A forma é conferida, e não adivinhada. Se uma remessa nova trouxer outro
-    número de figuras, ou a estampa fora da primeira página, isto **para**:
-    gravar a figura errada na folha é pior que não gravar nenhuma, e é o tipo
-    de coisa que ninguém repara até o Perez abrir a página.
-    """
     pdf = pathlib.Path(caminho)
-    # "smask" é a transparência de uma figura, e não outra figura
     todas = ESTAMPAS.listar(pdf)
     figuras = [f for f in todas if f["tipo"] != "smask"]
     paginas = int(subprocess.run(["pdfinfo", str(pdf)], capture_output=True,
@@ -314,8 +213,6 @@ def estampa(caminho, ident):
     with tempfile.TemporaryDirectory() as tmp:
         bruta = ESTAMPAS.extrair(pdf, 0, pathlib.Path(tmp))
         if len(todas) > 1 and todas[1]["tipo"] == "smask":
-            # a estampa recortada vai sobre branco, como no papel: sem a
-            # máscara o fundo transparente sairia preto
             figura = ESTAMPAS.Image.open(bruta).convert("RGBA")
             figura.putalpha(ESTAMPAS.Image.open(
                 ESTAMPAS.extrair(pdf, 1, pathlib.Path(tmp))).convert("L"))
@@ -329,16 +226,6 @@ def estampa(caminho, ident):
 
 
 def conferirCabecalho(caminho, cabecalho):
-    """
-    Confere, contra a primeira página, as linhas transcritas do impresso.
-
-    Data, nome e grau não viram bloco: o extrator começa no Intróito, e estas
-    três linhas ficariam de fora se não estivessem na tabela. Transcritas à
-    mão, podem envelhecer caladas — uma remessa nova que mude o grau, ou que
-    acerte "róseo (ou roxo)", passaria batida. Por isso cada linha é
-    procurada no texto da página, com o espaço em branco achatado, porque o
-    `pdftotext` quebra o nome de Guadalupe em duas linhas.
-    """
     pagina = subprocess.run(["pdftotext", "-f", "1", "-l", "1", "-raw", caminho, "-"],
                             capture_output=True, check=True).stdout.decode("utf-8")
     achatado = " ".join(pagina.split())
@@ -371,12 +258,6 @@ def folheto(ficha, pasta, contagem):
 
 
 def indice():
-    """
-    `drive` é o PDF revisto, que o folheto oferece para baixar. `no_ordo` é o
-    anterior, que o calendário de 2026 ainda anexa ao dia. Os dois têm de levar
-    ao folheto: com só o novo, o próprio sumia do modo missa e o calendário
-    abria o PDF antigo.
-    """
     saida = {}
     for ficha in PROPRIOS:
         for chave in ("drive", "no_ordo"):
@@ -389,8 +270,6 @@ def main(pasta):
     with io.open(SAIDA, encoding="utf-8") as f:
         colecao = json.load(f)
 
-    # Os PDFs chegam aos poucos: o Perez corrige cada um à mão. Gera os que
-    # estão na pasta, e os outros ficam como estão no arquivo.
     presentes = [f for f in PROPRIOS if os.path.exists(os.path.join(pasta, f["pdf"]))]
     if not presentes:
         raise SystemExit("nenhum dos PDFs da tabela está em %s" % pasta)
@@ -404,8 +283,6 @@ def main(pasta):
     for ficha in presentes:
         novos[ficha["id"]] = folheto(ficha, pasta, contagem)
 
-    # As contagens esperadas são do conjunto dos sete. Com a remessa pela metade
-    # elas não valem, e conferir seria acusar a falta dos que ainda não vieram.
     if completo:
         for errado, _, quantas in ERRATAS:
             if contagem[errado] != quantas:
@@ -420,14 +297,11 @@ def main(pasta):
                     "releia antes de gravar." % (antes, quantas, contagem[antes]))
     else:
         print("remessa parcial: as contagens de errata e de tinta só se conferem com os sete")
-    # duas peças por folha (Epístola e Evangelho) e um Intróito por folha
     for chave, por_folha in (("aberturas", 2), ("salmos", 1)):
         if contagem[chave] != por_folha * len(presentes):
             raise SystemExit("%s: esperadas %d, feitas %d"
                              % (chave, por_folha * len(presentes), contagem[chave]))
 
-    # substitui o que já existe, no lugar em que está; o resto entra no fim,
-    # na ordem da tabela
     saida = []
     for f in colecao["folhetos"]:
         saida.append(novos.pop(f["id"]) if f["id"] in novos else f)

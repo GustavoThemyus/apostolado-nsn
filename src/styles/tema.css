@@ -1,8 +1,3 @@
-/**
- * Design system do Apostolado Nossa Senhora das Neves.
- * Cores amostradas do brasão (campo azul, borda e fita douradas, lírio branco)
- * e do impresso em papel damasco.
- */
 /* fontes: início (ferramentas/fontes/gerar.py) */
 @font-face {
   font-family: "Garamond do Site";
@@ -21,7 +16,6 @@
 /* fontes: fim */
 
 :root {
-  /* --- cores da marca, iguais nos dois temas --- */
   --marca-azul-profundo: #202049;
   --marca-azul: #242856;
   --marca-azul-realce: #303a73;
@@ -29,14 +23,10 @@
   --marca-ouro: #d0ba74;
   --marca-ouro-claro: #e9da93;
   --marca-lirio: #fdfbec;
-  /* confirmação: fixo nos dois temas, porque --lit-verde clareia no escuro e
-     ali o texto lírio ficaria com 1,97 de contraste. Aqui dá 6,2. */
   --verde-feito: #2c6a3b;
 
-  /* damasco do impresso, usado como máscara em superfícies de capa */
   --damasco: url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22160%22%20height=%22240%22%20viewBox=%220%200%20160%20240%22%3E%20%3Cg%20fill=%22none%22%20stroke=%22%231f1e3a%22%20stroke-width=%221.6%22%20stroke-linecap=%22round%22%3E%20%3Cg%20id=%22m%22%3E%20%3Cpath%20d=%22M80%2026c-6%2010-14%2015-24%2017%209%203%2016%209%2020%2018%204-9%2011-15%2020-18-10-2-18-7-24-17z%22/%3E%20%3Cpath%20d=%22M80%2014c-2%206-6%209-11%2011%205%202%209%205%2011%209%202-4%206-7%2011-9-5-2-9-5-11-11z%22/%3E%20%3Cpath%20d=%22M80%2061v34%22/%3E%20%3Cpath%20d=%22M78%2070c-11%200-21%206-26%2015-4%208-4%2017%201%2024%200-8%203-15%209-20%205-5%2011-7%2016-7%22/%3E%20%3Cpath%20d=%22M82%2070c11%200%2021%206%2026%2015%204%208%204%2017-1%2024%200-8-3-15-9-20-5-5-11-7-16-7%22/%3E%20%3Cpath%20d=%22M80%2095c-8%206-12%2014-12%2022s4%2016%2012%2022c8-6%2012-14%2012-22s-4-16-12-22z%22/%3E%20%3Cpath%20d=%22M78%20141c-8%202-15%208-18%2016%205-3%2011-5%2016-4%22/%3E%20%3Cpath%20d=%22M82%20141c8%202%2015%208%2018%2016-5-3-11-5-16-4%22/%3E%20%3Cpath%20d=%22M80%20139v20%22/%3E%20%3Cpath%20d=%22M66%20108c-5-4-12-5-18-3%205%202%209%205%2012%209%22/%3E%20%3Cpath%20d=%22M94%20108c5-4%2012-5%2018-3-5%202-9%205-12%209%22/%3E%20%3C/g%3E%20%3Ccircle%20cx=%2280%22%20cy=%228%22%20r=%222.2%22%20fill=%22%231f1e3a%22%20stroke=%22none%22/%3E%20%3Ccircle%20cx=%2280%22%20cy=%22164%22%20r=%222.2%22%20fill=%22%231f1e3a%22%20stroke=%22none%22/%3E%20%3Cuse%20href=%22%23m%22%20transform=%22translate(-80,120)%22/%3E%20%3Cuse%20href=%22%23m%22%20transform=%22translate(80,120)%22/%3E%20%3Ccircle%20cx=%220%22%20cy=%22128%22%20r=%222.2%22%20fill=%22%231f1e3a%22%20stroke=%22none%22/%3E%20%3Ccircle%20cx=%22160%22%20cy=%22128%22%20r=%222.2%22%20fill=%22%231f1e3a%22%20stroke=%22none%22/%3E%20%3Ccircle%20cx=%220%22%20cy=%22284%22%20r=%222.2%22%20fill=%22%231f1e3a%22%20stroke=%22none%22/%3E%20%3C/g%3E%20%3C/svg%3E");
 
-  /* --- tema claro: o papel damasco do impresso --- */
   --papel: #f0ece1;
   --papel-fundo: #e6e0d1;
   --painel: #f8f5ec;
@@ -48,25 +38,14 @@
   --elo: #2e3a70;
   --fio: #d6cfbb;
   --fio-suave: #e4dece;
-  /* borda de bloco clicável sob o cursor: só precisa ser notada, porque quem
-     diz que é clicável é o "Ver" com seta. O ouro cheio ali gritava. */
   --fio-aceso: #c0ab74;
   --realce: #ecdcae;
-  /*
-   * Passagem do cursor: a própria superfície, meio degrau mais escura. Não
-   * usa ouro, que ficou reservado para dizer em que página se está.
-   *
-   * Meio degrau, e não um: entre o painel e a página o site já anda 1,08, e
-   * um passo desse tamanho no hover fazia a linha parecer um buraco em vez de
-   * uma linha sob o cursor.
-   */
   --fundo-toque: #f2ede0;
   --vidro: rgba(240, 236, 225, 0.88);
   --sombra: rgba(32, 32, 73, 0.16);
   --damasco-cor: var(--marca-azul);
   --forca-damasco: 0.14;
 
-  /* cores litúrgicas, escritas na própria cor */
   --lit-branco: #6d6659;
   --lit-vermelho: #a32220;
   --lit-verde: #2c6a3b;
@@ -74,100 +53,32 @@
   --lit-preto: #22212e;
   --lit-rosa: #963a62;
 
-
-  /*
-   * Cada associação na sua cor, nas bolinhas do calendário das indulgências.
-   *
-   * Vinha tudo cinza, de propósito: a casa do dia já leva a cor litúrgica e o
-   * marcador de plenária, e uma terceira escala parecia barulho. O Perez
-   * pediu o contrário, e com razão — ele próprio escolheu as cores, e elas
-   * não são enfeite: são o hábito de quem as usa. "Pra pessoa conseguir
-   * identificar fácil qual é a associação."
-   *
-   * O marrom é o das duas ordens que o vestem, e por isso são dois marrons e
-   * não um: o burel franciscano é mais claro que o hábito do Carmo, e dois
-   * pontos da mesma cor a 5px de distância não distinguiriam nada. O branco
-   * do Cordão pede contorno, que está no base.css: sobre o papel ele some.
-   */
   --agenda-oracao: #a32220;
   --agenda-escapulario: #5b3a21;
   --agenda-franciscana: #9c7034;
   --agenda-cordao: #fffdf5;
   --agenda-dominicana: #6e6b7a;
-  /* o verde-azulado da Arquidiocese não é hábito de ninguém: é a única
-     família de cor que sobrou longe das seis acima e das cinco litúrgicas */
   --agenda-arquidiocese: #1f6b6b;
 
-  /* --- tipografia --- */
   --titular: "Playfair Display", "Garamond do Site", Georgia, serif;
   --serifada: "Garamond do Site", Georgia, "Times New Roman", serif;
   --sem-serifa: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* --- medidas --- */
-  /*
-   * Largura da coluna. 60rem ocupava metade de uma tela de 1920 e um terço de
-   * uma de 2560: sobrava tela vazia dos dois lados. Os blocos (calendário,
-   * cartões, faixa) aproveitam a largura extra; a prosa não estica junto,
-   * porque quem a segura é --medida-leitura.
-   */
   --largura-texto: 76rem;
 
-  /*
-   * Medida de leitura. A regra do site, escrita uma vez:
-   *
-   *   a caixa vai até a borda da coluna; o texto dentro dela é que guarda a
-   *   medida.
-   *
-   * Antes havia seis valores diferentes espalhados (54, 58, 62, 66, 70, 74ch),
-   * uns em caixas e outros em parágrafos, e o resultado era um bloco com fundo
-   * parando no meio da linha ao lado de outro indo até a borda.
-   */
   --medida-leitura: 70ch;
-  /* texto centrado cansa antes que o alinhado à esquerda, e pede menos */
   --medida-centrada: 46ch;
   --respiro-lateral: 1.15rem;
   --altura-barra: 3.25rem;
   --alvo-toque: 2.75rem;
-  /* altura da célula do calendário a partir de 46rem, onde o quadrado
-     esticaria o mês para mais de 600px de altura */
   --altura-dia: 4.5rem;
-  /*
-   * Respiro sob a etiqueta em versalete espaçado que antecede um título ou um
-   * bloco. Versalete lê como registro à parte e precisa de mais ar embaixo que
-   * texto corrido; havia 0,1, 0,3, 0,4, 0,5 e 0,75rem espalhados, e o que caía
-   * em 0,3 ficava colado.
-   */
   --respiro-etiqueta: 0.5rem;
 
-  /*
-   * O brasão em silhueta, que serve a barra do alto e o selo do rodapé.
-   *
-   * Mora aqui, e não em cada regra, porque é a única coisa do site cuja arte
-   * muda com o tema: preta sobre papel claro, branca sobre papel escuro. Com
-   * o nome do arquivo repetido em cada lugar, trocar o desenho exigiria achar
-   * os quatro, e o que escapasse ficaria invisível em um dos temas.
-   *
-   * O navegador baixa só a arte do tema em uso, e as duas telas compartilham
-   * o mesmo arquivo: a barra não custa requisição nenhuma a mais.
-   */
   --brasao-mono: url("/brasao-escuro-7569753f.webp");
 
   color-scheme: light;
 }
 
-/* --- tema escuro: o campo estrelado do escudo --- */
-/*
- * Tema escuro. Mesma família do azul do brasão (matiz 234), mas com metade da
- * saturação e mais escuro: o anterior estava em 36 a 39% de saturação puro
- * azul e lia como tela colorida, não como papel à noite. Aqui fica em 14 a
- * 18%, sóbrio sem virar cinza morto.
- *
- * O ouro seguiu junto: estava em 66% de saturação e 75% de claridade, o que
- * dava 12,5 de contraste sobre o papel, quase o dobro do necessário, e lia
- * como amarelo aceso em cima de um fundo que ficou discreto. Agora 44% e 63%,
- * ainda em 8,7. Todos os pares conferidos; o menor é tinta-suave sobre
- * realce, em 4,61.
- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --papel: #181821;
@@ -195,7 +106,6 @@
     --lit-roxo: #c0a3e8;
     --lit-preto: #9c98ac;
     --lit-rosa: #f0a8c8;
-
 
     --agenda-oracao: #e08a80;
     --agenda-escapulario: #a9794f;
@@ -247,30 +157,12 @@
   color-scheme: dark;
 }
 
-/*
- * Em tela larga a medida abre: com 70 caracteres o texto ocupava menos da
- * metade da tela, e o Perez pediu que a ocupasse melhor. 92 ainda se lê sem
- * perder a linha de volta.
- */
 @media (min-width: 75rem) {
   :root {
     --medida-leitura: 92ch;
   }
 }
 
-/*
- * Celular deitado: a prosa vai até a borda.
- *
- * Perez: "o texto não vai até o final quando o telefone está em modo
- * paisagem". Medido, a medida de leitura parava o parágrafo em 638px numa
- * coluna de 735 a 870, e sobrava de 97 a 232px de tela vazia à direita — sem
- * nada ao lado, porque o sumário lateral só aparece a partir de 76rem. Ali
- * aquele vazio parece defeito, e não margem.
- *
- * Três condições juntas, para pegar só o celular deitado: paisagem, altura
- * curta (tablet deitado tem mais de 700px) e toque (janela baixa de
- * computador não é celular, e nela a medida continua valendo).
- */
 @media (orientation: landscape) and (max-height: 32rem) and (pointer: coarse) {
   :root {
     --medida-leitura: none;

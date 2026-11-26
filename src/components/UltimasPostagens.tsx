@@ -3,37 +3,15 @@ import { dataPorExtenso, publicadas } from "../data/postagens";
 import { Elo } from "../routes/Elo";
 import { Seta } from "./Seta";
 
-/** O PDF pede as cinco mais recentes. */
 const QUANTAS = 5;
-/** Quanto cada slide fica parado antes de o próximo entrar. */
 const INTERVALO = 6000;
 
-/**
- * A faixa das últimas postagens na página inicial.
- *
- * O Perez pediu slides passando sozinhos. Passam, mas com freio: param sob o
- * cursor, param quando o foco entra na faixa, param quando o dedo a arrasta e
- * param com a aba em segundo plano. Quem pede movimento reduzido no sistema
- * não vê nada se mexer. Não há botão de pausa: quem quiser parar para ler
- * encosta na faixa, e é isso que o freio de ponteiro e de foco cobre.
- *
- * A rolagem é do próprio navegador, com scroll-snap: funciona no dedo e no
- * teclado, e não depende do JavaScript para ser navegável.
- */
 export function UltimasPostagens() {
   const postagens = publicadas().slice(0, QUANTAS);
   const faixa = useRef<HTMLUListElement | null>(null);
   const [atual, definirAtual] = useState(0);
   const [pausado, definirPausado] = useState(false);
 
-  /*
-   * Qual cartão está à frente, medido da posição da rolagem.
-   *
-   * Um IntersectionObserver não serve aqui: ele entrega só as entradas que
-   * *mudaram*, e em tela larga cabem dois cartões e meio, então o cartão do
-   * meio continua visível de um passo para o outro e nunca aparece no lote.
-   * O ponto aceso pulava um.
-   */
   useEffect(() => {
     const alvo = faixa.current;
     if (!alvo) return;
@@ -78,7 +56,6 @@ export function UltimasPostagens() {
     });
   };
 
-  // o avanço automático
   useEffect(() => {
     if (postagens.length < 2 || pausado) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -91,12 +68,6 @@ export function UltimasPostagens() {
         | undefined;
       if (!alvo || !item) return;
 
-      /*
-       * Em tela larga cabem quase todos os cartões, então a faixa tem pouco
-       * curso e os últimos destinos caem todos no mesmo fim. Quando o próximo
-       * destino não anda, a volta é ao começo: senão a faixa parava encostada
-       * na direita e nunca dava a volta.
-       */
       const fim = alvo.scrollWidth - alvo.clientWidth;
       const destino = Math.min(item.offsetLeft - alvo.offsetLeft, fim);
       alvo.scrollTo({

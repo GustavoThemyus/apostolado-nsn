@@ -12,14 +12,6 @@ import { Rodape } from "./Rodape";
 import { SeletorDeTema } from "./SeletorDeTema";
 import { Trilha } from "./Trilha";
 
-/**
- * A moldura de toda página: barra, migalhas, conteúdo e rodapé.
- *
- * O grupo de botões da barra encolheu em vez de crescer. Com cinco seções e
- * suas subseções, listá-las na barra não caberia em 390px, então elas foram
- * para o Menu; o Sumário continua onde estava, mas agora como controle da
- * página que o pede.
- */
 export function Moldura({
   titulo,
   local,
@@ -28,7 +20,6 @@ export function Moldura({
   children,
 }: {
   titulo: string;
-  /** Título da seção em foco, quando a página tem sumário. */
   local?: string;
   sumario?: { aberto: boolean; alternar: () => void };
   comProgresso?: boolean;
@@ -50,11 +41,6 @@ export function Moldura({
         local={local ?? titulo}
         progresso={comProgresso ? progresso : undefined}
         menu={
-          /*
-           * À esquerda, e não à direita: a gaveta entra pela esquerda, e um
-           * botão de um lado que abre painel do outro faz o leitor procurar
-           * no lugar errado.
-           */
           <button
             type="button"
             className="barra__botao barra__botao--menu"
@@ -100,7 +86,6 @@ export function Moldura({
       </BarraSuperior>
 
       <main className="moldura conteudo" id="conteudo">
-        {/* em toda página menos a inicial, que já traz os padroeiros no corpo */}
         {rota?.padrao !== "/" && <Lateral />}
         <Trilha rota={rota} atual={titulo} />
         {children}

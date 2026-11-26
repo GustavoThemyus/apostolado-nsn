@@ -23,12 +23,6 @@ import { Moldura } from "./Moldura";
 import { PosturaDoFiel } from "./PosturaDoFiel";
 import { ComOProprioDoDia } from "./ProprioDoDia";
 
-/**
- * Os grupos que se abrem e se fecham, no padrão do calendário: um `<details>`,
- * com a seta do navegador. Só a oração preparatória nasce aberta, porque o
- * Perez quer que ela fique sempre à vista, para incentivar. Os outros são
- * opcionais ou dependem da Missa (incenso, Leoninas) e nascem fechados.
- */
 const GRUPOS: Record<string, { titulo: (dia: NaMissaDoDia) => string; aberto?: boolean }> = {
   "preparacao": { titulo: () => "Oração preparatória", aberto: true },
   "aspersao": {
@@ -43,7 +37,6 @@ const GRUPOS: Record<string, { titulo: (dia: NaMissaDoDia) => string; aberto?: b
   "acao-de-gracas": { titulo: () => "Ação de graças depois da Missa" },
 };
 
-/** A seção que não abre com título no impresso ganha um aqui. */
 const TITULO_NA_PAGINA = (id: string, dia: NaMissaDoDia): string | undefined =>
   id === "asperges"
     ? dia.aspersao
@@ -55,7 +48,6 @@ const CHAVE = "ordinario:leitura";
 const TUDO: OpcoesDeLeitura = { vozes: "todas", rubricas: true };
 const PADRAO: OpcoesDeLeitura = { vozes: "altas", rubricas: true };
 
-/** A escolha do fiel fica no aparelho dele: é conveniência, não dado da página. */
 function usarOpcoes(): [OpcoesDeLeitura, (o: Partial<OpcoesDeLeitura>) => void] {
   const [opcoes, definir] = useState<OpcoesDeLeitura>(() => {
     try {
@@ -64,7 +56,6 @@ function usarOpcoes(): [OpcoesDeLeitura, (o: Partial<OpcoesDeLeitura>) => void] 
         return { vozes: guardado.vozes, rubricas: guardado.rubricas !== false };
       }
     } catch {
-      /* sem armazenamento: vale o padrão */
     }
     return PADRAO;
   });
@@ -74,7 +65,6 @@ function usarOpcoes(): [OpcoesDeLeitura, (o: Partial<OpcoesDeLeitura>) => void] 
       try {
         localStorage.setItem(CHAVE, JSON.stringify(novo));
       } catch {
-        /* idem */
       }
       return novo;
     });
@@ -83,13 +73,6 @@ function usarOpcoes(): [OpcoesDeLeitura, (o: Partial<OpcoesDeLeitura>) => void] 
 
 type BlocoNaTela = Extract<ItemNaTela, { tipo: "bloco" }>;
 
-/**
- * Os itens em trechos de uma só postura.
- *
- * Um subtítulo fica fora do trecho, e o encerra: assim o aviso de postura vem
- * depois do título da parte, junto do texto a que se refere, e nunca solto
- * entre uma parte e outra.
- */
 function emTrechos(itens: ItemNaTela[]): (ItemNaTela | { tipo: "trecho"; blocos: BlocoNaTela[] })[] {
   const saida: (ItemNaTela | { tipo: "trecho"; blocos: BlocoNaTela[] })[] = [];
   for (const item of itens) {
@@ -110,7 +93,6 @@ function emTrechos(itens: ItemNaTela[]): (ItemNaTela | { tipo: "trecho"; blocos:
   return saida;
 }
 
-/** A classe do filete: a postura, ou "mista" quando rezada e cantada divergem. */
 const filete = (p: PosturaDoMomento): string =>
   typeof p === "string" ? p : p.rezada === p.cantada ? p.rezada : "mista";
 
@@ -192,19 +174,6 @@ function Controles({
   );
 }
 
-/**
- * A Missa numa leitura só, do começo ao fim.
- *
- * Serve à página do Ordinário e à da Missa do dia: o texto é o mesmo e o que
- * muda é o recorte (`ids`) e se o próprio do dia entra nos dez lugares que o
- * impresso deixa em branco. Na Missa do dia o fiel pode ficar só com a voz
- * alta ou esconder as rubricas; no Ordinário tudo aparece sempre, e é assim
- * que o Perez quer cada um.
- *
- * Quem decide o que a Missa de hoje tem é o calendário (`naMissaDoDia`); aqui
- * só se mostra. O Ordo publicado, quando cobre o ano, manda no Glória e no
- * Credo; fora dele valem as rubricas gerais.
- */
 export function MissaContinua({
   titulo,
   subtitulo,
@@ -245,7 +214,6 @@ export function MissaContinua({
     };
   }, [ids]);
 
-  // O Evangelho do dia entra na linha "Sequéntia (Inítium) … N." do Ordinário
   const comEvangelho = useMemo(() => {
     const abertura = folheto ? aberturaDoEvangelho(folheto) : undefined;
     if (!carregadas || !abertura) return { secoes: carregadas, mesclado: false };
@@ -260,7 +228,6 @@ export function MissaContinua({
   }, [carregadas, folheto]);
 
   const [escolhidas, mudar] = usarOpcoes();
-  // a escolha vale na Missa do dia; o Ordinário é sempre o texto inteiro
   const opcoes = comProprio ? escolhidas : TUDO;
 
   const secoes = useMemo(
@@ -300,11 +267,6 @@ export function MissaContinua({
           {rito.nome}. {rito.nota}
         </p>
       )}
-      {/*
-        O Ordo é o anterior a 1955 e só existe para os anos publicados. Fora
-        deles, Glória e Credo vêm de outras rubricas: melhor dizer do que
-        deixar parecer a mesma coisa.
-      */}
       {naDoDia.fonte === "rubricas" && !rito && !esperandoOrdo && (
         <p className="modo-missa__aviso">
           Este dia está fora do Ordo publicado pelo Apostolado. O Glória e o Credo

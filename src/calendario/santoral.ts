@@ -6,40 +6,13 @@ export interface FestaFixa {
   nome: string;
   classe: Classe;
   cor: Cor;
-  /** Vigílias e oitavas se comportam de modo próprio na precedência. */
   tipo?: "vigilia" | "oitava";
-  /** Posto próprio, quando ele foge do que a classe sugere. */
   posto?: number;
-  /**
-   * Se a festa leva Credo. Não se deduz da classe: depende da categoria.
-   * Levam Credo as festas do Senhor, de Nossa Senhora, dos Apóstolos e
-   * Evangelistas, dos Doutores da Igreja e a dedicação de igreja.
-   */
   credo?: boolean;
-  /**
-   * Comemorações que a própria festa carrega, escritas no calendário que a
-   * concede.
-   *
-   * Diferentes das que a precedência produz: aquelas são o que a festa venceu
-   * no dia, e saem do cálculo. Estas vêm escritas, e existem por causa do
-   * próprio do Brasil, onde a concessão de 1962 diz, por exemplo, "São João
-   * de Brito, 3ª classe, com comemoração de Santo André Corsino". Como a
-   * entrada brasileira substitui a universal do dia, o santo que ela desloca
-   * voltaria a sumir se não estivesse escrito aqui.
-   */
   comemoracoes?: string[];
 }
 
-/**
- * Santoral do Missal de 1962.
- *
- * Estão completas as festas de I e II classe. As de III classe cobrem as mais
- * conhecidas, e as comemorações de IV classe ficaram de fora. Os dados foram
- * escritos a partir do calendário universal e PRECISAM SER CONFERIDOS contra o
- * Divinum Officium antes de uso litúrgico, sobretudo nas de III classe.
- */
 export const SANTORAL: FestaFixa[] = [
-  // ---------------- janeiro ----------------
   { mes: 1, dia: 5, nome: "Vigília da Epifania", classe: 2, cor: "branco", tipo: "vigilia" },
   { mes: 1, dia: 11, nome: "São Higino", classe: 4, cor: "vermelho" },
   { mes: 1, dia: 13, nome: "Comemoração do Batismo do Senhor", classe: 2, cor: "branco", credo: true },
@@ -62,7 +35,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 1, dia: 30, nome: "Santa Martina", classe: 3, cor: "vermelho" },
   { mes: 1, dia: 31, nome: "São João Bosco", classe: 3, cor: "branco" },
 
-  // ---------------- fevereiro ----------------
   { mes: 2, dia: 1, nome: "Santo Inácio de Antioquia", classe: 3, cor: "vermelho" },
   { mes: 2, dia: 2, nome: "Purificação de Nossa Senhora", classe: 2, cor: "branco", credo: true },
   { mes: 2, dia: 3, nome: "São Brás", classe: 4, cor: "vermelho" },
@@ -83,7 +55,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 2, dia: 24, nome: "São Matias, apóstolo", classe: 2, cor: "vermelho", credo: true },
   { mes: 2, dia: 27, nome: "São Gabriel de Nossa Senhora das Dores", classe: 3, cor: "branco", credo: true },
 
-  // ---------------- março ----------------
   { mes: 3, dia: 4, nome: "São Casimiro", classe: 3, cor: "branco" },
   { mes: 3, dia: 6, nome: "Santa Perpétua e Santa Felicidade", classe: 3, cor: "vermelho" },
   { mes: 3, dia: 7, nome: "São Tomás de Aquino", classe: 3, cor: "branco", credo: true },
@@ -100,7 +71,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 3, dia: 27, nome: "São João Damasceno", classe: 3, cor: "branco", credo: true },
   { mes: 3, dia: 28, nome: "São João Capistrano", classe: 3, cor: "branco" },
 
-  // ---------------- abril ----------------
   { mes: 4, dia: 2, nome: "São Francisco de Paula", classe: 3, cor: "branco" },
   { mes: 4, dia: 4, nome: "Santo Isidoro", classe: 3, cor: "branco", credo: true },
   { mes: 4, dia: 5, nome: "São Vicente Ferrer", classe: 3, cor: "branco" },
@@ -119,7 +89,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 4, dia: 29, nome: "São Pedro de Verona, mártir", classe: 3, cor: "vermelho" },
   { mes: 4, dia: 30, nome: "Santa Catarina de Sena", classe: 3, cor: "branco" },
 
-  // ---------------- maio ----------------
   { mes: 5, dia: 1, nome: "São José Operário", classe: 1, cor: "branco" },
   { mes: 5, dia: 2, nome: "Santo Atanásio", classe: 3, cor: "branco", credo: true },
   { mes: 5, dia: 4, nome: "Santa Mônica", classe: 3, cor: "branco" },
@@ -145,7 +114,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 5, dia: 30, nome: "São Félix I", classe: 4, cor: "vermelho" },
   { mes: 5, dia: 31, nome: "Nossa Senhora Rainha", classe: 2, cor: "branco", credo: true },
 
-  // ---------------- junho ----------------
   { mes: 6, dia: 1, nome: "Santa Ângela Merici", classe: 3, cor: "branco" },
   { mes: 6, dia: 2, nome: "São Marcelino, São Pedro e Santo Erasmo", classe: 4, cor: "vermelho" },
   { mes: 6, dia: 4, nome: "São Francisco Caracciolo", classe: 3, cor: "branco" },
@@ -172,7 +140,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 6, dia: 29, nome: "São Pedro e São Paulo, apóstolos", classe: 1, cor: "vermelho", credo: true },
   { mes: 6, dia: 30, nome: "Comemoração de São Paulo", classe: 3, cor: "vermelho" },
 
-  // ---------------- julho ----------------
   { mes: 7, dia: 1, nome: "Preciosíssimo Sangue de Nosso Senhor", classe: 1, cor: "vermelho", credo: true },
   { mes: 7, dia: 2, nome: "Visitação de Nossa Senhora", classe: 2, cor: "branco", credo: true },
   { mes: 7, dia: 3, nome: "São Leão II", classe: 3, cor: "branco" },
@@ -201,7 +168,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 7, dia: 30, nome: "São Abdon e São Senén", classe: 4, cor: "vermelho" },
   { mes: 7, dia: 31, nome: "Santo Inácio de Loyola", classe: 3, cor: "branco" },
 
-  // ---------------- agosto ----------------
   { mes: 8, dia: 1, nome: "Os Santos Macabeus", classe: 4, cor: "vermelho" },
   { mes: 8, dia: 2, nome: "Santo Afonso Maria de Ligório", classe: 3, cor: "branco", credo: true },
   { mes: 8, dia: 4, nome: "São Domingos", classe: 3, cor: "branco" },
@@ -233,7 +199,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 8, dia: 30, nome: "Santa Rosa de Lima", classe: 3, cor: "branco" },
   { mes: 8, dia: 31, nome: "São Raimundo Nonato", classe: 3, cor: "branco" },
 
-  // ---------------- setembro ----------------
   { mes: 9, dia: 1, nome: "Santo Egídio", classe: 4, cor: "branco" },
   { mes: 9, dia: 2, nome: "Santo Estêvão da Hungria", classe: 3, cor: "branco" },
   { mes: 9, dia: 3, nome: "São Pio X", classe: 3, cor: "branco" },
@@ -260,7 +225,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 9, dia: 29, nome: "Dedicação de São Miguel Arcanjo", classe: 1, cor: "branco", credo: true },
   { mes: 9, dia: 30, nome: "São Jerônimo", classe: 3, cor: "branco", credo: true },
 
-  // ---------------- outubro ----------------
   { mes: 10, dia: 1, nome: "São Remígio", classe: 4, cor: "branco" },
   { mes: 10, dia: 2, nome: "Santos Anjos da Guarda", classe: 3, cor: "branco" },
   { mes: 10, dia: 3, nome: "Santa Teresinha do Menino Jesus", classe: 3, cor: "branco" },
@@ -287,7 +251,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 10, dia: 26, nome: "São Evaristo", classe: 4, cor: "vermelho" },
   { mes: 10, dia: 28, nome: "São Simão e São Judas, apóstolos", classe: 2, cor: "vermelho", credo: true },
 
-  // ---------------- novembro ----------------
   { mes: 11, dia: 1, nome: "Todos os Santos", classe: 1, cor: "branco" },
   { mes: 11, dia: 2, nome: "Comemoração de Todos os Fiéis Defuntos", classe: 1, cor: "preto", posto: 10 },
   { mes: 11, dia: 4, nome: "São Carlos Borromeu", classe: 3, cor: "branco" },
@@ -313,7 +276,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 11, dia: 29, nome: "Vigília de Santo André", classe: 3, cor: "roxo", tipo: "vigilia" },
   { mes: 11, dia: 30, nome: "Santo André, apóstolo", classe: 2, cor: "vermelho", credo: true },
 
-  // ---------------- dezembro ----------------
   { mes: 12, dia: 2, nome: "Santa Bibiana", classe: 3, cor: "vermelho" },
   { mes: 12, dia: 3, nome: "São Francisco Xavier", classe: 3, cor: "branco" },
   { mes: 12, dia: 4, nome: "São Pedro Crisólogo", classe: 3, cor: "branco", credo: true },
@@ -334,7 +296,6 @@ export const SANTORAL: FestaFixa[] = [
   { mes: 12, dia: 31, nome: "São Silvestre I", classe: 3, cor: "branco" },
 ];
 
-/** Festas fixas de uma data. */
 export function festasDe(mes: number, dia: number): FestaFixa[] {
   return SANTORAL.filter((f) => f.mes === mes && f.dia === dia);
 }

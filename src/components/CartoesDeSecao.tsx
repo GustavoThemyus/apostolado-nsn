@@ -2,14 +2,6 @@ import { ESTADO_DA_ROTA, NOME_DO_ESTADO, filhasDe } from "../routes/rotas";
 import { Elo } from "../routes/Elo";
 import { Seta } from "./Seta";
 
-/**
- * Os caminhos que saem de uma seção, em cartões.
- *
- * Sem isto, `/missa` prometia no texto \"abaixo, três caminhos\" e não trazia
- * nenhum: o guia só era alcançável pelo Menu, o que o fazia parecer uma
- * página perdida atrás da Missa Tridentina em vez de o destino principal
- * dela. Vale para toda seção com subpáginas, não só para a Missa.
- */
 export function CartoesDeSecao({ padrao }: { padrao: string }) {
   const filhas = filhasDe(padrao);
   if (filhas.length === 0) return null;
@@ -41,20 +33,8 @@ export function CartoesDeSecao({ padrao }: { padrao: string }) {
   );
 }
 
-/** Onde os cartões ficam, para o índice do alto poder apontar para eles. */
 export const ANCORA_DOS_CARTOES = "nesta-secao";
 
-/**
- * O mesmo destino dos cartões, anunciado no alto da página.
- *
- * Os cartões ficam no fim, e quem chega ao texto não tem como saber que a
- * seção tem outras páginas sem rolar até lá. Esta linha diz de saída o que
- * existe, e cada nome já leva direto: quem sabe aonde vai não precisa passar
- * pelo cartão. Quem quiser ver a descrição de cada um desce pelo elo do fim.
- *
- * Fica no mesmo arquivo dos cartões de propósito: as duas listas saem de
- * `filhasDe`, e separá-las seria abrir espaço para uma esquecer a outra.
- */
 export function AtalhosDaSecao({ padrao }: { padrao: string }) {
   const filhas = filhasDe(padrao);
   if (filhas.length === 0) return null;
@@ -77,7 +57,6 @@ export function AtalhosDaSecao({ padrao }: { padrao: string }) {
           </li>
         ))}
       </ul>
-      {/* âncora da própria página: o Roteador não intercepta href com # */}
       <a className="atalhos__descer" href={`#${ANCORA_DOS_CARTOES}`}>
         Ver com as descrições
         <Seta className="atalhos__seta" />

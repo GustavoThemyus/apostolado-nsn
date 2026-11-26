@@ -6,11 +6,6 @@ const NOME: Record<Postura, string> = {
   joelhos: "De joelhos",
 };
 
-/**
- * Três figuras de traço, no mesmo desenho do resto do site: linha da cor do
- * texto, sem preenchimento. Cabeça, tronco e o que muda de uma postura para
- * outra: as pernas.
- */
 function Figura({ postura }: { postura: Postura }) {
   return (
     <svg
@@ -41,13 +36,6 @@ function Figura({ postura }: { postura: Postura }) {
   );
 }
 
-/**
- * A postura do fiel, no ponto da Missa em que ela muda.
- *
- * Aparece junto da parte a que se refere, e não numa legenda geral: quem
- * acompanha a Missa precisa saber o que fazer agora, e não o que se faz em
- * geral. Quando a Missa rezada e a cantada divergem, dá as duas.
- */
 export function PosturaDoFiel({ postura }: { postura: PosturaDoMomento }) {
   const pares: { rotulo?: string; postura: Postura }[] =
     typeof postura === "string"

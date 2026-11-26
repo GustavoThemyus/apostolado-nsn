@@ -1,16 +1,5 @@
 import { useEffect, useRef, type RefObject } from "react";
 
-/**
- * Progresso de leitura, escrito direto no elemento.
- *
- * Não devolve estado de propósito. Guardar a fração em `useState` fazia a
- * página inteira re-renderizar a cada quadro do rolar, e ler `scrollHeight`
- * a cada quadro força o navegador a recalcular layout. Os dois juntos
- * travavam a rolagem.
- *
- * Aqui a altura percorrível é medida uma vez por redimensionamento, e o
- * rolar só escreve um `transform` no elemento apontado pela ref.
- */
 export function usarProgressoDeLeitura(ativo: boolean): RefObject<HTMLDivElement> {
   const alvo = useRef<HTMLDivElement | null>(null);
 
@@ -47,7 +36,6 @@ export function usarProgressoDeLeitura(ativo: boolean): RefObject<HTMLDivElement
     window.addEventListener("scroll", aoRolar, { passive: true });
     window.addEventListener("resize", aoRedimensionar);
 
-    // a altura da página muda quando um pedaço de rota termina de carregar
     const observador = new ResizeObserver(medirAltura);
     observador.observe(document.documentElement);
 

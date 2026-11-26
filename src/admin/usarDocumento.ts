@@ -1,13 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 
-/**
- * Carrega e grava um documento do registro.
- *
- * Era código solto dentro do Admin, preso ao guia por um `documento=guia`
- * escrito à mão. Virou gancho porque agora cada forma de documento tem o seu
- * editor, e os cinco precisam da mesma dança: buscar, guardar o sha, avisar
- * que há coisa por salvar, e recusar a gravação quando a API nunca respondeu.
- */
 export type Estado = "lendo" | "pronto" | "salvando" | "salvo" | "erro";
 
 interface Resposta {
@@ -23,11 +15,6 @@ export function usarDocumento<T>(id: string) {
   const [recado, definirRecado] = useState("");
   const [quem, definirQuem] = useState("");
   const [sujo, definirSujo] = useState(false);
-  /**
-   * O sha do arquivo como ele estava quando abrimos. É o que deixa o servidor
-   * perceber que outra pessoa gravou no meio: sem ele, duas abas abertas no
-   * mesmo documento se sobrescrevem em silêncio.
-   */
   const [sha, definirSha] = useState<string | null>(null);
 
   useEffect(() => {
@@ -63,7 +50,6 @@ export function usarDocumento<T>(id: string) {
     };
   }, [id]);
 
-  /* Aviso do navegador ao fechar a aba com coisa por salvar. */
   useEffect(() => {
     const aoSair = (e: BeforeUnloadEvent) => {
       if (sujo) e.preventDefault();
@@ -97,7 +83,6 @@ export function usarDocumento<T>(id: string) {
       });
       const d = (await r.json().catch(() => ({}))) as Resposta;
       if (!r.ok) throw new Error(d.erro ?? `erro ${r.status}`);
-      // o sha muda a cada gravação; guardar o novo deixa salvar de novo sem recarregar
       if (d.sha) definirSha(d.sha);
       definirEstado("salvo");
       definirSujo(false);

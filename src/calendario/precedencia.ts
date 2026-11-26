@@ -14,7 +14,6 @@ const soData = (d: Date) => Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getU
 
 const DOMINGO_DE_PRIMEIRA: Tempo[] = ["advento", "quaresma", "paixao"];
 
-/** Posto de uma festa fixa, deduzido da classe quando ela não traz o seu. */
 function postoDaFesta(f: FestaFixa): number {
   if (f.posto != null) return f.posto;
   if (f.tipo === "vigilia") return f.classe === 1 ? POSTO.vigiliaPrimeira : POSTO.vigiliaSegunda;
@@ -26,7 +25,6 @@ function postoDaFesta(f: FestaFixa): number {
   }
 }
 
-/** Classe e posto do dia do Temporal quando ele não tem nome próprio. */
 function temporalSimples(data: Date, tempo: Tempo): { classe: Classe; posto: number } {
   const domingo = data.getUTCDay() === 0;
   if (domingo) {
@@ -34,7 +32,6 @@ function temporalSimples(data: Date, tempo: Tempo): { classe: Classe; posto: num
       ? { classe: 1, posto: POSTO.domingoPrimeira }
       : { classe: 2, posto: POSTO.domingoSegunda };
   }
-  // ferias da Semana Santa têm precedência sobre festa de I classe
   const e = eixoDoAno(data.getUTCFullYear());
   const naSemanaSanta = soData(data) > soData(e.ramos) && soData(data) < soData(e.pascoa);
   if (naSemanaSanta) return { classe: 1, posto: POSTO.feriaPrivilegiada };
@@ -52,20 +49,11 @@ interface Ocupante {
   posto: number;
   origem: "temporal" | "santoral";
   comemoracoes: string[];
-  /** Data de origem, quando a festa chegou aqui por transferência. */
   transferidaDe?: string;
 }
 
 const cacheDeAnos = new Map<number, Map<string, Ocupante>>();
 
-/**
- * Resolve o ano inteiro, aplicando ocorrência e transferência.
- *
- * Regra do Código de Rubricas de 1960: festa de I classe impedida por dia de
- * posto melhor transfere-se para o primeiro dia seguinte que não esteja
- * ocupado por ofício de I ou II classe. Festa de II classe ou inferior não se
- * transfere: é comemorada, ou omitida.
- */
 function resolverAno(ano: number): Map<string, Ocupante> {
   const emCache = cacheDeAnos.get(ano);
   if (emCache) return emCache;
@@ -77,7 +65,6 @@ function resolverAno(ano: number): Map<string, Ocupante> {
     for (let d = 1; d <= ultimo; d++) ordem.push(new Date(Date.UTC(ano, m, d)));
   }
 
-  // 1) o Temporal ocupa cada dia
   for (const data of ordem) {
     const { tempo } = tempoDe(data);
     const proprio = diaProprio(data);
@@ -92,18 +79,16 @@ function resolverAno(ano: number): Map<string, Ocupante> {
     });
   }
 
-  // 2) ocorrência com o Santoral; o que for de I classe e perder entra na fila
   const aTransferir: FestaFixa[] = [];
   for (const festa of comProprioLocal(comProprioBrasil(SANTORAL, ano))) {
     const data = new Date(Date.UTC(ano, festa.mes - 1, festa.dia));
-    if (data.getUTCMonth() !== festa.mes - 1) continue; // 29/2 em ano comum
+    if (data.getUTCMonth() !== festa.mes - 1) continue;
     const k = chave(data);
     const atual = dias.get(k);
     if (!atual) continue;
     const posto = postoDaFesta(festa);
 
     if (posto < atual.posto) {
-      // a festa vence; o Temporal de I ou II classe fica em comemoração
       dias.set(k, {
         nome: festa.nome,
         classe: festa.classe,
@@ -120,12 +105,10 @@ function resolverAno(ano: number): Map<string, Ocupante> {
     } else if (festa.classe <= 3) {
       atual.comemoracoes.push(festa.nome);
     } else if (atual.classe === 4) {
-      // comemoração de IV classe só se faz em feria de IV classe
       atual.comemoracoes.push(festa.nome);
     }
   }
 
-  // 3) transferência: primeiro dia seguinte livre de ofício de I ou II classe
   for (const festa of aTransferir) {
     const origem = new Date(Date.UTC(ano, festa.mes - 1, festa.dia));
     let alvo: string | undefined;
@@ -138,7 +121,7 @@ function resolverAno(ano: number): Map<string, Ocupante> {
         break;
       }
     }
-    if (!alvo) continue; // sem lugar no ano: fica omitida
+    if (!alvo) continue;
 
     const deslocado = dias.get(alvo)!;
     dias.set(alvo, {
@@ -152,7 +135,6 @@ function resolverAno(ano: number): Map<string, Ocupante> {
         ? [deslocado.nome, ...deslocado.comemoracoes]
         : deslocado.comemoracoes,
     });
-    // no dia de origem, a festa transferida vira menção
     const naOrigem = dias.get(chave(origem));
     if (naOrigem) naOrigem.comemoracoes = naOrigem.comemoracoes.filter((c) => c !== festa.nome);
   }
@@ -161,7 +143,6 @@ function resolverAno(ano: number): Map<string, Ocupante> {
   return dias;
 }
 
-/** O que se celebra numa data, com ocorrência e transferência já resolvidas. */
 export function diaLiturgico(data: Date): DiaLiturgico {
   const { tempo, semana } = tempoDe(data);
   const o = resolverAno(data.getUTCFullYear()).get(chave(data));
@@ -186,7 +167,6 @@ export function diaLiturgico(data: Date): DiaLiturgico {
   };
 }
 
-/** Todos os dias de um mês, já resolvidos. */
 export function mesLiturgico(ano: number, mes: number): DiaLiturgico[] {
   const dias: DiaLiturgico[] = [];
   const ultimo = new Date(Date.UTC(ano, mes, 0)).getUTCDate();
@@ -202,7 +182,6 @@ const ROMANOS = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"
 const SEM = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira",
   "Quinta-feira", "Sexta-feira", "Sábado"];
 
-/** Nome do dia do Temporal quando ele não tem nome próprio. */
 function nomeDoTemporal(data: Date, tempo: Tempo): string {
   const { semana } = tempoDe(data);
   const n = semana ? ROMANOS[semana] ?? String(semana) : "";

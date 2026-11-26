@@ -1,11 +1,3 @@
-/**
- * Verificação do token do Cloudflare Access.
- *
- * O Access já barra quem não está na política antes de chegar aqui, mas o
- * Worker confere de novo: se um dia a rota for exposta por engano, a API não
- * fica aberta. Valida assinatura, público (aud) e validade do token.
- */
-
 interface Chave {
   kid: string;
   chave: CryptoKey;
@@ -50,7 +42,6 @@ const daBase64Url = (s: string): Uint8Array => {
   return Uint8Array.from(b, (c) => c.charCodeAt(0));
 };
 
-/** Devolve o e-mail de quem está autenticado, ou lança. */
 export async function emailAutenticado(
   pedido: Request,
   time: string,

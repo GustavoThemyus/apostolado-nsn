@@ -4,19 +4,12 @@ import type { Bloco } from "../data/tipos";
 export interface Aviso {
   id: string;
   titulo: string;
-  /** Some sozinho depois desta data. Formato AAAA-MM-DD. */
   ate?: string;
   blocos: Bloco[];
 }
 
 const aindaVale = (aviso: Aviso, hoje: string) => !aviso.ate || aviso.ate >= hoje;
 
-/**
- * Mural de avisos da semana.
- *
- * Cada aviso pode ter uma data de validade, para sumir sozinho: assim o mural
- * não fica com aviso velho quando ninguém lembrar de apagar.
- */
 export function Mural({ avisos }: { avisos: Aviso[] }) {
   const hoje = new Date().toISOString().slice(0, 10);
   const vigentes = avisos.filter((a) => aindaVale(a, hoje));

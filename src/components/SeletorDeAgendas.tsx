@@ -1,26 +1,6 @@
 import { site } from "../data/site";
 import type { Agenda } from "../data/tipos";
 
-/**
- * Os interruptores dos calendários vinculados.
- *
- * Caixas de seleção, e não abas: o ponto do Perez era justamente "ver tudo em
- * um local só", e aba troca em vez de somar. Quem é do Escapulário e da
- * Terceira Franciscana liga os dois e vê os dois na mesma grade.
- *
- * Cada um na sua cor, e a bolinha ao lado do nome é a legenda da grade. A
- * cor é a do hábito de quem a usa, escolhida pelo Perez: o marrom do Carmo e
- * o do burel franciscano, o cinza da Dominicana, o branco do cordão, o
- * vermelho do Sagrado Coração para o Apostolado da Oração. Na grade a
- * bolinha aparece sozinha na casa do dia, e sem esta lista seria charada.
- *
- * Todos começam desligados, porque são de associações a que a maior parte de
- * quem lê não pertence, e ligá-los por conta encheria a grade de dias que não
- * são da pessoa. O calendário universal do Apostolado esteve aqui, ligado à
- * força: saiu quando o Perez pediu, porque a grade já calcula o que ele
- * marcava, e a bolinha azul dizia uma segunda vez o que a marca de plenária
- * já dizia.
- */
 export function SeletorDeAgendas({
   grupos,
   proprios,
@@ -28,24 +8,7 @@ export function SeletorDeAgendas({
   aoAlternar,
   carregando,
 }: {
-  /**
-   * Quais grupos do site.json entram, na ordem, e como se chamam aqui.
-   *
-   * Com rótulo porque o nome de uma agenda nem sempre basta sozinho: o
-   * calendário próprio se chama "Indulgências" no site.json, e numa página
-   * chamada "Calendário das Indulgências Plenárias Universais" essa caixa
-   * sozinha parecia oferecer o que a página já mostra. O rótulo do grupo diz
-   * de quem é.
-   */
   grupos: { grupo: Agenda["grupo"]; titulo: string }[];
-  /**
-   * Os calendários que este site calcula, e que por isso não estão no Google.
-   *
-   * O da Arquidiocese é o primeiro: sai das 75 datas do documento do Perez,
-   * pelo mesmo motor das indulgências de cima. Entra aqui, e não numa caixa
-   * à parte, porque para quem lê a pergunta é uma só — o que mais aparece na
-   * grade —, e de onde vem cada coisa é assunto nosso.
-   */
   proprios?: { titulo: string; itens: { id: string; nome: string }[] }[];
   ligadas: string[];
   aoAlternar: (id: string) => void;
@@ -90,7 +53,6 @@ export function SeletorDeAgendas({
   );
 }
 
-/** A bolinha da agenda, do tamanho de legenda. A da grade é a mesma cor, miúda. */
 function Cor({ agenda }: { agenda: string }) {
   return (
     <span

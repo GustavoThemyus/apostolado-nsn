@@ -5,27 +5,11 @@ import { ProvedorDeNotas } from "../components/Notas";
 import { ProvedorDeNumeracao } from "../components/NumeracaoDePassos";
 import { TIPOS, blocoVazio, type NomeDeTipo } from "./tiposDeBloco";
 
-/**
- * A paleta de tipos de bloco, cada um mostrando como fica.
- *
- * A amostra não é desenho nem descrição: é o bloco de verdade, passado pelo
- * mesmo `<Bloco>` que monta o site, debaixo do mesmo `base.css`. Então a
- * rubrica aparece vermelha porque a rubrica é vermelha, e o dia em que
- * alguém mudar essa cor a paleta muda junto. Uma amostra pintada à mão
- * começaria certa e terminaria mentindo.
- *
- * O preço é o contexto: alguns blocos leem coisas de cima — a nota precisa do
- * mapa de notas, o passo da numeração, o índice das seções. Aqui eles recebem
- * um exemplo mínimo, só para a amostra ter o que mostrar.
- */
-
-/** O que cada tipo mostra na paleta. Texto curto, que caiba no cartão. */
 const AMOSTRAS: Record<NomeDeTipo, Bloco> = {
   paragrafo: { tipo: "paragrafo", texto: "O texto corrido do documento, com [b]destaque[/b], [i]itálico[/i] e [lat]latim[/lat]." },
   rubrica: { tipo: "rubrica", texto: "O sacerdote beija o altar." },
   assembleia: { tipo: "assembleia", texto: "Todos se ajoelham." },
   subtitulo: { tipo: "subtitulo", texto: "Um tópico dentro da seção" },
-  // não aparece na paleta, que percorre TIPOS, mas o tipo exige a chave
   proprio: { tipo: "proprio", nome: "Intróito", subtitulos: ["Intróito"] },
   lista: { tipo: "lista", ordenada: true, itens: ["Primeiro item", "Segundo item"] },
   oracao: {
@@ -65,7 +49,6 @@ const AMOSTRAS: Record<NomeDeTipo, Bloco> = {
   },
 };
 
-/** Seções de mentira, só para o índice e a numeração terem o que mostrar. */
 const SECOES_DE_AMOSTRA: Secao[] = [
   { id: "amostra-1", titulo: "Primeira seção", blocos: [] },
   { id: "amostra-2", titulo: "Segunda seção", blocos: [] },
@@ -92,7 +75,6 @@ export function Paleta({
 }: {
   aoEscolher: (bloco: Bloco) => void;
   aoCancelar: () => void;
-  /** Tipos que não cabem aqui. Dentro de um passo, outro passo não cabe. */
   excluir?: NomeDeTipo[];
 }) {
   const oferecidos = TIPOS.filter((t) => !excluir.includes(t.tipo));

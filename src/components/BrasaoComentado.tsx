@@ -3,47 +3,22 @@ import { interpretar } from "./TextoRico";
 
 export interface ParteDoBrasao {
   id: string;
-  /** "O fundo", "O lírio": o nome que o Perez deu a cada número. */
   rotulo: string;
-  /** Onde fica o número sobre o brasão, em porcentagem da imagem. */
   x: number;
   y: number;
   paragrafos: string[];
 }
 
-/*
- * O ciclo de cada parte:
- *
- *   linha     a caixa já ocupa o lugar dela, invisível, e a linha se projeta
- *             do número até ela
- *   aberta    a linha chegou; o texto entra
- *   fechando  o texto sai e a linha se recolhe, nessa ordem
- *
- * A caixa ocupa o lugar antes de aparecer porque a linha precisa saber para
- * onde ir. Fechada, ela nem existe na página: à direita, tudo limpo.
- */
 type Estado = "linha" | "aberta" | "fechando";
 
 const PROJETAR = 380;
 const RECOLHER = 360;
-/** Duas colunas, e portanto linhas. Abaixo disto a caixa só abre embaixo. */
 const COM_LINHAS = "(min-width: 56rem)";
 
 const semMovimento = () =>
   typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
 const comLinhas = () => typeof matchMedia === "function" && matchMedia(COM_LINHAS).matches;
 
-/**
- * O brasão com os seus quatro elementos comentados.
- *
- * O desenho é do Perez: o brasão grande à esquerda, quatro números fantasmas
- * sobre ele — fundo, lírio, flecha e lema —, invisíveis até o cursor passar
- * ou o dedo tocar. Cada número abre o seu texto à direita, e antes do texto
- * uma linha reta sai do número e vai até ele. Dá para abrir os quatro.
- *
- * No celular não há direita: as caixas abrem embaixo do brasão, sem linha,
- * porque uma linha descendo até a quarta caixa atravessaria as três de cima.
- */
 export function BrasaoComentado({ partes }: { partes: ParteDoBrasao[] }) {
   const [estados, definirEstados] = useState<Record<string, Estado>>({});
   const [revelado, definirRevelado] = useState(false);
@@ -51,11 +26,6 @@ export function BrasaoComentado({ partes }: { partes: ParteDoBrasao[] }) {
   const linhas = useRef(new Map<string, SVGLineElement>());
   const relogios = useRef(new Map<string, number>());
 
-  /*
-   * Mede e redesenha as linhas. Vai direto ao DOM, e não por estado do React:
-   * com o brasão grudado na tela, as pontas mudam a cada quadro de rolagem, e
-   * re-renderizar a página inteira por isso seria desperdício.
-   */
   const medir = useCallback(() => {
     const raiz = caixa.current;
     if (!raiz) return;
@@ -73,7 +43,6 @@ export function BrasaoComentado({ partes }: { partes: ParteDoBrasao[] }) {
     }
   }, []);
 
-  // antes de pintar: a linha nova já nasce apontando para o lugar certo
   useLayoutEffect(medir, [estados, medir]);
 
   useEffect(() => {
@@ -143,7 +112,6 @@ export function BrasaoComentado({ partes }: { partes: ParteDoBrasao[] }) {
       <div className="brasao-comentado__coluna">
         <div
           className={`brasao-comentado__escudo${revelado ? " brasao-comentado__escudo--revelado" : ""}`}
-          // o toque no escudo revela os números; no computador, basta o cursor
           onClick={() => definirRevelado((r) => !r)}
         >
           <img
@@ -173,8 +141,6 @@ export function BrasaoComentado({ partes }: { partes: ParteDoBrasao[] }) {
             </button>
           ))}
         </div>
-        {/* a dica sai quando o leitor já descobriu: senão a linha do quarto
-            número, que desce até longe, passava por cima dela */}
         {Object.keys(estados).length === 0 && (
           <p className="brasao-comentado__dica">
             Passe o cursor ou toque no brasão, e escolha um número.

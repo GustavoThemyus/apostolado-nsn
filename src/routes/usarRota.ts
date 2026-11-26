@@ -7,7 +7,6 @@ export function usarRota(): EstadoDaRota {
   return valor;
 }
 
-/** Os parâmetros capturados pelo padrão da rota, como `:id`. */
 export function usarParametros(): Record<string, string> {
   return usarRota().parametros;
 }

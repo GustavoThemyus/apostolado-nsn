@@ -1,21 +1,3 @@
-/*
- * Layout e componentes. Mobile primeiro; os tokens estão em tema.css.
- *
- * REGRA DE LARGURA, uma só, para o site não ficar remendado:
- *
- *   1. A coluna de conteúdo é `.moldura`, limitada por --largura-texto.
- *   2. Toda caixa vai até as duas bordas dessa coluna. Caixa é o que tem
- *      fundo, filete ou contorno: nota, aviso, dia, agenda, cartão, vínculo,
- *      página por escrever. Nenhuma delas leva max-width.
- *   3. Quem guarda a medida de leitura é o TEXTO, nunca a caixa que o
- *      envolve: --medida-leitura para prosa alinhada à esquerda,
- *      --medida-centrada para texto centrado.
- *
- * O que quebrava antes era o passo 3 aplicado no lugar do 2: `.nota` e
- * `.vazia` limitavam a caixa inteira, e aí um bloco com fundo parava no meio
- * da linha ao lado do calendário, que ia até a borda.
- */
-
 *,
 *::before,
 *::after {
@@ -46,18 +28,6 @@ body.sem-rolagem {
   overflow: hidden;
 }
 
-/*
- * A EB Garamond troca todo u por v em texto marcado como latim, a ortografia
- * das inscrições: o leitor via "Angelvs" onde o texto diz "Angelus". Quem
- * resolve é a fonte servida pelo site, sem essa troca (ver
- * ferramentas/fontes). A linha abaixo fica de reserva, para o caso de a fonte
- * de reserva do aparelho trazer a mesma forma. O Safari do iPhone não a
- * respeita, e por isso ela sozinha não bastava.
- *
- * O lang fica, que é o que impede o leitor de tela de ler latim com fonética
- * portuguesa. As outras duas não são enfeite: o font-feature-settings
- * substitui a lista inteira.
- */
 [lang="la"] {
   font-feature-settings: "liga" 1, "onum" 1, "locl" 0;
 }
@@ -75,12 +45,6 @@ a {
   border-radius: 2px;
 }
 
-/*
- * O h1 recebe foco a cada navegação para o leitor de tela não ficar preso no
- * fim da página anterior. Como ele tem tabindex="-1", ninguém chega nele pelo
- * Tab: o anel só apareceria para quem não pediu por ele, e o navegador o
- * mantinha aceso até o primeiro clique.
- */
 [tabindex="-1"]:focus,
 [tabindex="-1"]:focus-visible {
   outline: none;
@@ -98,7 +62,6 @@ button {
   font-style: italic;
 }
 
-/* Damasco do impresso, usado só em superfícies de capa. */
 .damasco {
   position: relative;
   isolation: isolate;
@@ -154,8 +117,6 @@ button {
   padding-bottom: 4rem;
 }
 
-/* ---------------- barra superior ---------------- */
-
 .barra {
   position: sticky;
   top: 0;
@@ -174,7 +135,6 @@ button {
   height: var(--altura-barra);
 }
 
-/* fica antes do brasão, do lado por onde a gaveta entra */
 .barra__botao--menu {
   gap: 0.4rem;
   padding-inline: 0.35rem 0.6rem;
@@ -194,17 +154,6 @@ button {
   color: var(--ouro-tinta);
   white-space: nowrap;
 }
-/*
- * Na barra o brasão vai em silhueta, não colorido.
- *
- * A 2,05rem o desenho colorido virava borrão: o campo estrelado, o lírio e a
- * fita se misturavam num borrão azul e dourado de trinta e poucos pixels. A
- * silhueta é a mesma forma sem o que não cabe, e lê.
- *
- * Não custa requisição: é o mesmo arquivo do selo do rodapé, que toda página
- * já baixa. Qual das duas artes vem, quem decide é `--brasao-mono`, no
- * tema.css, junto das outras coisas que mudam com o tema.
- */
 .barra__brasao {
   display: block;
   width: 2.05rem;
@@ -213,12 +162,6 @@ button {
   background-image: var(--brasao-mono);
 }
 
-/*
- * A sigla saiu: com o botão Menu à esquerda, "MENU · brasão · ANSN" eram três
- * marcas seguidas antes de o menu começar. O brasão sozinho, maior, é a marca,
- * e o nome por extenso continua no cabeçalho de toda página. O leitor de tela
- * recebe o nome pelo aria-label do link.
- */
 .barra__letreiro {
   position: absolute;
   width: 1px;
@@ -270,7 +213,6 @@ button {
   font-size: 0.63rem;
 }
 
-/* sem isto não dá para saber, na barra do PC, em que seção se está */
 .barra__botao--secao[aria-current="page"] {
   color: var(--ouro-tinta);
   text-decoration: underline;
@@ -297,8 +239,6 @@ button {
   height: 1.05rem;
   fill: currentColor;
 }
-/* só a palavra clareia: o retângulo de fundo pulava a cada passagem do
-   cursor pela fileira de seções, e uma barra inteira piscando é ruído */
 .barra__botao:hover {
   color: var(--tinta);
 }
@@ -310,8 +250,6 @@ button {
   transition: transform 0.12s linear;
 }
 
-/* ---------------- cabeçalho ---------------- */
-
 .cabecalho {
   text-align: center;
   padding: 2.25rem 0 2rem;
@@ -321,14 +259,6 @@ button {
   background: linear-gradient(var(--painel), var(--papel));
 }
 
-/*
- * Cabeçalho estampado: a pintura da seção no lugar do damasco.
- *
- * O véu é um degradê que escurece de cima para baixo, mais forte onde estão a
- * chamada e o título. Sem ele o versalete dourado some sobre qualquer céu
- * claro; com ele por igual, a pintura vira mancha. O texto fica no lírio do
- * brasão, que é o par de contraste conferido.
- */
 .cabecalho--estampado {
   position: relative;
   isolation: isolate;
@@ -355,17 +285,7 @@ button {
     rgba(12, 12, 26, 0.86) 100%
   );
 }
-/*
- * O índice da seção, no alto da página.
- *
- * Os cartões que levam às outras páginas ficam no fim, e quem chega ao texto
- * não tinha como saber que existiam sem rolar até lá. Esta linha diz de saída
- * o que a seção tem. É de propósito discreta: anuncia, não disputa com o
- * título nem com o começo do texto.
- */
 .atalhos {
-  /* a mesma folga da antífona: as duas são a primeira coisa depois do
-     cabeçalho, e o cabeçalho é uma pintura inteira, que precisa de ar */
   margin: 2.25rem 0 0;
   padding: 0.85rem 0 0;
   border-top: 1px solid var(--fio);
@@ -390,7 +310,6 @@ button {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  /* o ponto separador é do CSS, e não do texto: leitor de tela não o lê */
   gap: 0 0.9rem;
 }
 .atalhos__item {
@@ -398,21 +317,11 @@ button {
   align-items: baseline;
   gap: 0.3rem;
 }
-/*
- * O ponto só separa quando os itens estão na mesma linha. Empilhados, ele
- * vira um marcador pendurado à esquerda, e aí quem separa é a quebra.
- */
 @media (min-width: 46rem) {
   .atalhos__item + .atalhos__item::before {
     content: "·";
     color: var(--fio-aceso);
     margin-right: 0.6rem;
-    /*
-     * A mesma fonte e o mesmo corpo do elo ao lado. O item alinha pela linha
-     * de base, e o ponto vinha na fonte herdada: bastava isso para os itens
-     * com ponto assentarem 1px abaixo do primeiro, que não tem. Com o
-     * sublinhado embaixo de cada um, esse 1px virava uma linha quebrada.
-     */
     font-family: var(--titular);
     font-size: 1.02rem;
   }
@@ -427,15 +336,6 @@ button {
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
-/*
- * No celular a tira vira lista de linhas.
- *
- * Empilhada, ela já era uma lista; o que faltava era o alvo. Sublinhado com
- * folga em volta daria 35px de altura, abaixo do dedo, e alvos de 35px
- * encostados uns nos outros erram para o vizinho, que é pior do que errar
- * para lugar nenhum. A linha inteira passa a ser o alvo, com a medida do
- * token, e quem separa é o fio entre elas.
- */
 @media (max-width: 45.99rem) {
   .atalhos__item {
     width: 100%;
@@ -470,7 +370,6 @@ button {
   align-items: center;
   gap: 0.3rem;
   margin-top: 0.35rem;
-  /* também alcança a medida do dedo, ainda que seja o elo secundário */
   padding: 0.7rem 0;
   font-family: var(--sem-serifa);
   font-size: 0.78rem;
@@ -488,46 +387,12 @@ button {
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  /* a mesma seta dos cartões, virada para baixo: o destino está mais abaixo */
   transform: rotate(90deg);
 }
 
-/*
- * Oração nas duas línguas.
- *
- * Empilhada até 56rem e em duas colunas acima disso. O ponto de quebra é
- * medido, não escolhido: em 390px cada coluna teria dezoito caracteres de
- * largura, e em 760px trinta e seis. A partir de 900px dá quarenta e quatro,
- * que é a medida de um missal bilíngue e onde o texto volta a ser texto.
- *
- * O fio no meio é o mesmo do impresso, virado de lado: lá ele separava o que
- * vinha antes do que vinha depois; aqui, o que está à esquerda do que está à
- * direita.
- */
 .bilingue {
   display: grid;
   margin: 1.6rem 0;
-  /*
-   * Faixa a faixa, no celular também.
-   *
-   * "Quero que faça um ajuste nos folhetos para que fique visível no celular
-   * as duas colunas simultâneas (latim e português) e eu acho que levando as
-   * bordas mais pro canto dá pra fazer isso", pediu o Perez — e é isso
-   * mesmo: a largura que faltava estava toda em recuo. Com o recuo duplo da
-   * folha desfeito e o vão apertado, cada coluna fica com 147px num aparelho
-   * de 375px, que em corpo 0.84em dá vinte e tantos caracteres por linha.
-   *
-   * Cada parágrafo do latim fica na altura do seu par em português, e a
-   * faixa tem a altura do mais alto dos dois. Quem casa as faixas é o
-   * subgrid: as colunas não têm grade própria, usam a do bloco, e o
-   * --linhas vem do componente, que é quem sabe quantos parágrafos tem o
-   * lado mais longo. Sem isso bastava uma linha a mais de um lado para a
-   * oração sair desencontrada dali para baixo.
-   *
-   * O fio do meio é coluna de um pixel, e não borda da coluna do latim:
-   * como borda ele parava onde o latim parava, e no par em que a tradução é
-   * mais longa sobrava tradução sem fio ao lado.
-   */
   grid-template-columns: 1fr 1px 1fr;
   grid-template-rows: repeat(var(--linhas, 1), auto);
   column-gap: 0.9rem;
@@ -545,7 +410,6 @@ button {
   grid-template-rows: subgrid;
   grid-row: 1 / -1;
 }
-/* o espaço entre parágrafos é o row-gap da grade, não a margem */
 .bilingue__lado > * {
   margin-block: 0;
 }
@@ -557,7 +421,6 @@ button {
 }
 
 @media (min-width: 56rem) {
-  /* na página larga o vão volta a ser vão, e o corpo volta ao do texto */
   .bilingue {
     column-gap: 2.4rem;
     row-gap: 0.85rem;
@@ -565,11 +428,6 @@ button {
   }
 }
 
-/*
- * Abaixo de 21rem não cabe: num aparelho de 320px cada coluna teria 128px, e
- * duas colunas de dezesseis caracteres não são duas colunas, são duas tiras.
- * Ali volta a ser empilhado, com o fio do impresso separando as duas línguas.
- */
 @media (max-width: 20.99rem) {
   .bilingue {
     grid-template-columns: 1fr;
@@ -600,13 +458,6 @@ button {
   }
 }
 
-/*
- * O índice por extenso, no corpo do documento.
- *
- * Segue o desenho do sumário da lateral, e não o de um link comum: número em
- * ouro, título em tinta, sem sublinhado. Como link azul ele parecia coisa de
- * outro site colada no meio de um documento pontifício.
- */
 .indice-completo__lista {
   list-style: none;
   margin: 0;
@@ -652,8 +503,6 @@ button {
 .indice-completo__sublink {
   display: block;
   padding: 0.45rem 0;
-  /* o índice é para ser lido de longe e tocado; 0,92rem dava 14,7px contra os
-     19px do texto, e a diferença por nível não precisa ser tão grande */
   font-size: 1.02rem;
   line-height: 1.35;
   color: var(--tinta-suave);
@@ -663,14 +512,6 @@ button {
   color: var(--tinta);
 }
 
-/*
- * A antífona que abre o documento.
- *
- * Deliberadamente diferente do lema: o lema é dourado, em versalete, entre
- * estrelas, e pertence ao brasão. Esta é tinta comum, em itálico, com um fio
- * curto embaixo, e pertence ao texto. Quem lê tem de ver duas coisas, e não
- * a mesma coisa duas vezes.
- */
 .epigrafe {
   max-width: var(--medida-centrada);
   margin: 2.25rem auto 0;
@@ -701,11 +542,6 @@ button {
   }
 }
 
-/*
- * A seção, acima do título da subpágina. Fica entre a chamada e o título e
- * precisa ser claramente menor que ele: quem chega tem de ler o nome da
- * página primeiro, e a seção só como endereço.
- */
 .cabecalho__secao {
   margin: 0 0 0.15rem;
   font-family: var(--titular);
@@ -752,8 +588,6 @@ button {
   text-transform: uppercase;
   color: var(--ouro-tinta);
   margin: 0 auto 0.9rem;
-  /* versalete espaçado: cansa muito antes que o texto corrido, e é para
-     quebrar em duas ou três linhas curtas em vez de uma longa */
   max-width: 34ch;
   line-height: 1.5;
   text-wrap: balance;
@@ -787,8 +621,6 @@ button {
   color: var(--ouro-tinta);
 }
 
-/* ---------------- ornamento ---------------- */
-
 .estrela {
   width: 0.75rem;
   height: 0.75rem;
@@ -812,8 +644,6 @@ button {
   background: linear-gradient(90deg, transparent, var(--ouro), transparent);
 }
 
-/* ---------------- dia litúrgico ---------------- */
-
 .dia {
   margin: 1.5rem 0 0;
   padding: 1.05rem 1.1rem 0.9rem;
@@ -822,9 +652,6 @@ button {
   border-left: 3px solid var(--ouro);
 }
 
-/* a altura que o dia do Ordo vai ocupar, guardada enquanto o ano não chega:
-   medida num dia comum de 2026, e sem ela os cartões da primeira tela
-   subiam e desciam a cada visita */
 .dia--carregando {
   min-height: 30rem;
 }
@@ -886,8 +713,6 @@ button {
 .dia__amostra--roxo { background: #6b3e8f; }
 .dia__amostra--preto { background: #22212e; }
 .dia__amostra--rosa { background: #d98cb0; }
-/* ouro: o calendário de 1962 nunca o emite, e ele só aparece em item de
-   agenda vinculada, onde o Ordo da capela o usa nas festas maiores */
 .dia__amostra--ouro { background: linear-gradient(140deg, #e9da93, #a3863f); }
 
 @media (min-width: 46rem) {
@@ -926,11 +751,6 @@ button {
   color: var(--elo);
 }
 
-/*
- * Sem o inline-flex a âncora fica inline, e aí nem a margem de cima nem a
- * altura mínima de alvo de toque valiam: o link ficava colado no último
- * evangelho e menor que o dedo.
- */
 .dia__link {
   display: inline-flex;
   align-items: center;
@@ -947,13 +767,6 @@ button {
   min-height: var(--alvo-toque);
 }
 
-/* ---------------- indulgências do mês, na página inicial ---------------- */
-
-/*
- * A caixa não repete a moldura do dia litúrgico de cima: sem o fio dourado à
- * esquerda e com fundo de página, ela se lê como nota de pé da faixa, e não
- * como um segundo bloco disputando a mesma atenção na primeira tela.
- */
 .indulgencias-mes {
   margin: 1.1rem 0 0;
   padding: 1rem 1.1rem 0.8rem;
@@ -980,20 +793,6 @@ button {
   border-top: 1px dashed var(--fio);
 }
 
-/*
- * A data entra no alvo junto com o nome, mas o alvo para onde o texto acaba.
- *
- * O item inteiro continua clicável — num toque de dedo a data é o que a vista
- * acerta primeiro, e deixá-la fora do link faria metade da linha não
- * responder —, só que `max-content` em vez da largura da caixa. Sendo o elo um
- * grid de nível de bloco, ele ia até a borda direita do bloco, e o ponteiro
- * parado em cima do vazio, a dez centímetros da última palavra, acendia o
- * sublinhado do nome. Aceso longe do que se aponta, o realce deixa de dizer o
- * que vai ser clicado.
- *
- * `max-width` segura o caso contrário: nome comprido em tela estreita, que em
- * `max-content` empurraria a linha para fora da caixa em vez de quebrar.
- */
 .indulgencias-mes__item {
   display: grid;
   width: max-content;
@@ -1030,15 +829,12 @@ button {
   .indulgencias-mes {
     padding: 1.1rem 1.5rem 0.9rem;
   }
-  /* a data vira coluna: as linhas passam a se ler de cima a baixo pelo dia */
   .indulgencias-mes__item {
     grid-template-columns: 9.5rem 1fr;
     gap: 0 1rem;
     align-items: baseline;
   }
 }
-
-/* ---------------- desenvolvimento do dia ---------------- */
 
 .desenv {
   margin-top: 0.9rem;
@@ -1080,11 +876,6 @@ button {
   font-size: 0.95em;
 }
 
-/*
- * O rito próprio, no lugar da tabela. São os três dias do Tríduo, e o nome do
- * rito é a informação: dizer "Glória: não, Credo: não" numa tarde em que não
- * há Missa é responder à pergunta errada.
- */
 .desenv__proprio {
   margin: 0;
   font-family: var(--titular);
@@ -1099,7 +890,6 @@ button {
   max-width: var(--medida-leitura);
 }
 
-/* o motivo que o Ordo dá ao lado do sim: "por causa da Oitava" */
 .desenv__porque {
   margin-left: 0.45rem;
   font-size: 0.86em;
@@ -1116,10 +906,6 @@ button {
 .sinal--sim { color: var(--lit-verde); }
 .sinal--nao { color: var(--tinta-suave); }
 
-/*
- * Os dois botões sob a grade: à esquerda a troca de calendário, sem nomes, a
- * pedido do Perez; à direita o "+" de levar o calendário no celular.
- */
 .calendario__cantos {
   display: flex;
   justify-content: space-between;
@@ -1188,14 +974,12 @@ button {
   border-radius: 0.6rem;
 }
 
-/* painéis lado a lado: a Missa daqui e a do Calendário Universal */
 .deslize__abas {
   display: flex;
   align-items: center;
   gap: 0.4rem;
   margin: 1rem 0 0.7rem;
 }
-/* a seta no canto direito: há outra Missa para o lado */
 .deslize__adiante {
   flex: 0 0 auto;
   width: 2.4rem;
@@ -1256,7 +1040,6 @@ button {
   scroll-snap-align: start;
 }
 
-/* o ano que a capela ainda não publicou: ausência, não falha */
 .calendario__sem-ordo {
   margin: 0;
   padding: 2rem var(--respiro-lateral);
@@ -1265,7 +1048,6 @@ button {
   text-wrap: balance;
 }
 
-/* botão que se lê como link, dentro de uma frase */
 .elo-em-texto {
   padding: 0;
   border: 0;
@@ -1276,17 +1058,11 @@ button {
   cursor: pointer;
 }
 
-/*
- * O dia no Ordo. O que o Ordo diz vem em dois tons: a Missa, que é o miolo, e
- * as rubricas, que são notas de execução — e no impresso elas vêm marcadas
- * com um ➢, que aqui vira o recuo e o filete.
- */
 .ordo__cores {
   margin: 0.5rem 0 0;
   font-size: 0.92em;
   color: var(--tinta-suave);
 }
-/* o preceito e o próprio de onde sai a Missa saltam à vista: são selos */
 .ordo__guarda,
 .ordo__celebracao-proprio {
   display: table;
@@ -1307,11 +1083,6 @@ button {
   border-left: 2px solid var(--ouro);
   max-width: var(--medida-leitura);
 }
-/*
- * O link para o PDF do próprio da Missa, que o redator anexa ao dia.
- * São 92 dias em 2026 — os domingos e as festas maiores. Quando há mais de um
- * (o Natal tem três Missas), cada um vai pelo nome do arquivo.
- */
 .ordo__proprio {
   display: flex;
   flex-wrap: wrap;
@@ -1331,14 +1102,6 @@ button {
   align-self: center;
 }
 
-/*
- * Daqui para baixo o tamanho vem em `em`, e não em `rem`.
- *
- * O corpo do site cresce com a largura — 17px, 19px a partir de 64rem, 20px a
- * partir de 100rem. Medida em `rem`, a nota ficava presa em 14,7px enquanto a
- * linha da Missa logo acima chegava a 20: no PC largo ela era 74% do texto ao
- * lado, e era esse o "muito pequena" que o Perez viu. Em `em` ela acompanha.
- */
 .ordo__notas {
   margin: 0.9rem 0 0;
   padding: 0;
@@ -1352,7 +1115,6 @@ button {
   font-size: 0.97em;
   color: var(--tinta);
 }
-/* a setinha dourada: triângulo desenhado, que nenhum aparelho troca por figura */
 .ordo__nota::before {
   content: "";
   position: absolute;
@@ -1361,7 +1123,6 @@ button {
   border-block: 0.32rem solid transparent;
   border-left: 0.5rem solid var(--ouro);
 }
-/* parágrafo que no Ordo vinha sem marca: é continuação, não nota */
 .ordo__nota--corrida {
   padding-left: 0;
 }
@@ -1373,8 +1134,6 @@ button {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  /* o mesmo respiro dos cartões empilhados acima: sem ele a barra encostava
-     no que vem antes, e o mês parecia parte da caixa de cima */
   margin-top: 1.35rem;
   padding: 0 var(--respiro-lateral);
   height: var(--altura-barra);
@@ -1400,7 +1159,6 @@ button {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 0.2rem;
-  /* respiro entre a barra do mês, que é grudenta, e a linha dos dias */
   margin-top: 0.9rem;
 }
 
@@ -1415,19 +1173,12 @@ button {
   padding-bottom: 0.3rem;
 }
 
-/*
- * No celular o dia é quadrado, e sete colunas de 48px dão uma grade compacta.
- * No PC a coluna tem 128px, e manter o quadrado deixava cada dia do tamanho de
- * um botão de aplicativo, com o mês inteiro passando de 600px de altura. A
- * partir de 46rem a altura passa a ser fixa e a célula fica mais larga que
- * alta, que é como calendário de mesa se comporta.
- */
 .calendario__vazio {
   aspect-ratio: 1;
 }
 
 .calendario__dia {
-  position: relative; /* âncora das bandeiras das agendas vinculadas */
+  position: relative;
   aspect-ratio: 1;
   display: flex;
   flex-direction: column;
@@ -1461,24 +1212,10 @@ button {
   border: 1px solid var(--tinta-suave);
 }
 
-/*
- * Festa de 1ª ou 2ª classe: a bolinha cresce, e não fica dourada.
- *
- * O Perez pediu ouro, e ouro é justamente o que não cabia: nesta mesma grade
- * ele já diz duas outras coisas — a cruz do jejum e a borda do dia de hoje —,
- * e seria a terceira. Pior, trocar a cor da bolinha pelo ouro apagaria a cor
- * litúrgica nos dias em que ela mais importa: um mártir de 1ª classe deixaria
- * de ser vermelho. O tamanho estava livre e diz o mesmo sem tirar nada.
- *
- * Cresce por `transform`, que não ocupa espaço no leiaute. Mudar a largura
- * empurraria o número do dia um fio para cima só nas casas de festa, e a
- * linha dos números perderia o alinhamento.
- */
 .calendario__ponto--maior {
   transform: scale(1.45);
 }
 
-/* Só na legenda: a bolinha de exemplo não tem cor litúrgica para mostrar. */
 .calendario__ponto--exemplo {
   flex: none;
   background: var(--tinta-suave);
@@ -1514,31 +1251,12 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * O painel do calendário: grade de um lado, o dia do outro.
- *
- * No celular não é grade nenhuma — as duas colunas ficam uma embaixo da
- * outra, que é a ordem em que se lê: escolhe-se o dia e desce-se para ver o
- * que ele traz. É de 64rem para cima que a coluna de texto fica larga
- * demais para a grade sozinha: a casa do dia chegava a 160px, e o detalhe
- * ficava a uma rolagem de distância da casa em que se tinha clicado.
- */
 .calendario__painel {
   display: grid;
-  /* sem o mínimo zero, os painéis que se passam para o lado alargam a página */
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
 }
 
-/*
- * O ponto de quebra é 52rem, e não 64rem, porque 64rem deixava de fora quem
- * mais reclamou: o Perez via a grade em tela cheia no computador dele. Em
- * 64rem a coluna precisa de 1024px de viewport, e um portátil com a tela
- * ampliada em 150% entrega 911px ao CSS — tela grande, viewport de tablet.
- * Medido em 834px: duas colunas de 371px, a grade inteira à vista e o detalhe
- * ao lado, sem transbordo. Abaixo disso volta a ser empilhado, que é como se
- * lê no celular.
- */
 @media (min-width: 52rem) {
   .calendario__painel {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1546,29 +1264,13 @@ button {
     align-items: start;
   }
 
-  /*
-   * O detalhe acompanha a rolagem.
-   *
-   * Um dia do Ordo pode ter três celebrações e render mais altura do que o
-   * mês inteiro; sem isto, a grade terminava no alto e a metade esquerda
-   * virava uma faixa vazia de 400px. Grudento, o mês continua à vista
-   * enquanto se lê, e trocar de dia não exige subir de novo.
-   */
   .calendario__coluna-detalhe {
     position: sticky;
     top: calc(var(--altura-barra) + 1rem);
     max-height: calc(100vh - var(--altura-barra) - 2rem);
-    /*
-     * Sem `overscroll-behavior: contain` de propósito. Na maioria dos dias o
-     * detalhe é curto e nem chega a rolar; nos poucos compridos — a Quinta-
-     * feira Santa rende 1580px — prender a rolagem faria quem desce a página
-     * com o ponteiro do lado direito ficar preso no quadro. Encadeando, a
-     * página continua descendo quando o detalhe acaba.
-     */
     overflow-y: auto;
   }
 
-  /* na coluna, o detalhe começa na altura da grade e não depois dela */
   .calendario__coluna-detalhe > .calendario__detalhe:first-child {
     margin-top: 0.9rem;
   }
@@ -1586,19 +1288,6 @@ button {
   }
 }
 
-/* ---------------- observações recolhidas ---------------- */
-
-/*
- * As nove observações do calendário das indulgências, atrás de uma seta.
- *
- * Recolhidas porque não são o que a página promete: quem chega quer saber
- * em que dias há plenária, e nove linhas de disciplina canônica entre o
- * título e a grade empurravam o calendário para fora da primeira tela num
- * celular. Quem precisa delas abre; quem não precisa passa.
- *
- * `<details>` e não um botão, como nas celebrações do Ordo: a seta vem de
- * graça, abre sem script, e o leitor de tela já anuncia o estado.
- */
 .observacoes {
   margin: 0.9rem 0 0;
   padding: 0.7rem 1rem;
@@ -1624,7 +1313,6 @@ button {
   color: var(--ouro-tinta);
 }
 
-/* a pista em caixa baixa: diz o que há dentro sem virar um segundo título */
 .observacoes__pista {
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -1635,8 +1323,6 @@ button {
 .observacoes[open] .observacoes__resumo {
   margin-bottom: 0.7rem;
 }
-
-/* ---------------- folha que sobe do rodapé ---------------- */
 
 .folha__cortina {
   position: fixed;
@@ -1671,8 +1357,6 @@ button {
   overscroll-behavior: contain;
   background: var(--painel);
   border-top: 2px solid var(--ouro);
-  /* a folga vira medida nomeada: o item do menu a sangra para ocupar a
-     largura toda, e as duas têm de andar juntas */
   --folha-lateral: 1.15rem;
   padding: 0.75rem var(--folha-lateral) calc(1.5rem + env(safe-area-inset-bottom));
   box-shadow: 0 -12px 40px var(--sombra);
@@ -1682,10 +1366,6 @@ button {
   animation: descer 0.2s ease-in forwards;
 }
 
-/*
- * O X fica no canto de cima. Na gaveta da direita ele vai para a esquerda,
- * porque encostado na borda da tela ele some no gesto de voltar do sistema.
- */
 .folha__fechar {
   position: absolute;
   top: 0.55rem;
@@ -1694,7 +1374,6 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  /* o alvo continua de 44px para o dedo; o que some é a caixa, não a área */
   width: var(--alvo-toque);
   height: var(--alvo-toque);
   padding: 0;
@@ -1732,12 +1411,6 @@ button {
   }
 }
 
-/*
- * A gaveta entra e sai deslizando pela borda de onde nasce, e nada além
- * disso. Antes era um empurrão de 1,5rem somado a um apagar, e as duas coisas
- * juntas faziam a barra parecer surgir do nada perto do lugar onde ia parar,
- * em vez de vir de fora da tela. Quem escurece a página é a cortina.
- */
 @keyframes entrar-da-esquerda {
   from {
     transform: translateX(-100%);
@@ -1750,11 +1423,6 @@ button {
   }
 }
 
-/*
- * As saídas. São o caminho de volta das entradas acima, e existem porque
- * fechar sem animação parece defeito: a gaveta entra deslizando e sumia de um
- * quadro para o outro.
- */
 @keyframes descer {
   to {
     transform: translateY(1.5rem);
@@ -1780,19 +1448,6 @@ button {
   }
 }
 
-/*
- * A partir de 52rem a folha deixa de ser tira presa no rodapé e vira barra
- * lateral à esquerda, ao lado do botão que a abriu. Mesma marcação, só o CSS
- * muda: nada de matchMedia, que pisca na primeira pintura.
- *
- * A gaveta corre mais rápido que o resto do site: 0,14s para entrar e 0,12s
- * para sair, contra os 0,2s de tudo o mais. É porque ela atravessa a largura
- * inteira dela, e não os poucos pixels de um realce — no mesmo tempo, o
- * percurso maior se arrasta. Sair mais rápido do que entrar é o de sempre:
- * quem fecha já decidiu, e não precisa ver o caminho de volta.
- *
- * A cortina acompanha, senão o escuro chega depois da barra ter parado.
- */
 @media (min-width: 52rem) {
   .folha__cortina {
     animation-duration: 0.14s;
@@ -1811,16 +1466,12 @@ button {
   }
   .folha--esquerda {
     right: auto;
-    /* sem filete dourado na borda: quem separa a gaveta da página é a sombra */
     box-shadow: 12px 0 40px var(--sombra);
     animation: entrar-da-esquerda 0.14s ease-out;
   }
   .folha--esquerda.folha--saindo {
     animation: sair-pela-esquerda 0.12s ease-in forwards;
   }
-  /* o Sumário abre pela direita porque o botão dele está à direita, e porque
-     é outra proposta que o Menu: um é o mapa do site, o outro é o índice da
-     página que se está lendo */
   .folha--direita .folha__fechar {
     right: auto;
     left: 0.7rem;
@@ -1838,8 +1489,6 @@ button {
     display: none;
   }
 }
-
-/* ---------------- sumário ---------------- */
 
 .sumario--embutido .sumario__painel {
   background: var(--painel);
@@ -1868,12 +1517,6 @@ button {
 .sumario__lista li {
   border-bottom: 1px solid var(--fio-suave);
 }
-/*
- * Só o item de primeiro nível conta. Com o seletor de descendente, os
- * subitens de uma seção aberta também incrementavam: abrir as Quatro
- * concessões, com cinco subitens, fazia a seção seguinte sair numerada 12 em
- * vez de 7. O índice por extenso já contava assim.
- */
 .sumario__lista > li {
   counter-increment: sumario;
 }
@@ -1902,10 +1545,6 @@ button {
   color: var(--ouro-tinta);
   font-weight: 600;
 }
-
-/* ---------------- menu do site ---------------- */
-
-/* ---------------- testeira do menu ---------------- */
 
 .menu__testeira {
   display: grid;
@@ -1954,18 +1593,9 @@ button {
   margin: 0;
   padding: 0;
   display: grid;
-  /* coladas: quem separa é o fio, não o vão */
   gap: 0;
 }
 
-/*
- * O item ocupa a largura inteira da gaveta.
- *
- * Era um cartão recuado da folga da folha, e o fundo dele terminava antes da
- * borda. Agora ele sangra essa folga com margem negativa e a devolve como
- * recuo interno: o fundo vai de ponta a ponta e o texto continua alinhado com
- * o brasão e o lema da testeira.
- */
 .menu__secao {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -1984,38 +1614,21 @@ button {
   border-top: 1px solid var(--fio);
 }
 
-/*
- * A passagem do cursor: a superfície um degrau mais escura, e a seta andando
- * um passo. Sem ouro.
- *
- * O ouro ficou reservado para uma coisa só, dizer em que página se está. Ele
- * marcava também a passagem do cursor, e aí o menu tinha dois amarelos
- * querendo dizer coisas diferentes: o de estar e o de poder ir.
- */
 .menu__secao:hover {
   background: var(--fundo-toque);
 }
 .menu__secao:hover .menu__seta {
   transform: translateX(3px);
 }
-/*
- * O anel é só do teclado. Sob o cursor quem responde é o filete da esquerda,
- * e um contorno inteiro ali dizia "isto está selecionado", que é outra coisa.
- */
 .menu__secao:focus-visible {
   outline: 2px solid var(--ouro);
   outline-offset: -2px;
 }
 
-/* a página atual é a faixa cheia: é para isto que o fundo largo serve */
 .menu__secao[aria-current="page"] {
   background: var(--realce);
 }
 
-/*
- * A seção com subpáginas divide a linha: o nome leva à seção, a seta abre a
- * lista embaixo.
- */
 .menu__item--com-filhas {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -2115,27 +1728,9 @@ button {
   white-space: nowrap;
 }
 
-/* ---------------- seções ---------------- */
-
-/*
- * O fio entre as seções é 2px em --fio, e não 1px em --fio-suave.
- *
- * Perez: "está quase imperceptível". Medido, era: 1,14:1 contra o papel no
- * tema claro, que é o do celular dele. Só engrossar não resolvia um contraste
- * desses, e só escurecer deixava um fio de cabelo; as duas coisas juntas são
- * um degrau na própria escala do site, sem cor nova. Os fios de linha de
- * tabela e de lista continuam finos: são divisões dentro do tópico, e
- * engrossá-los pesaria a página inteira.
- */
 .secao {
   padding: 2.25rem 0 0.5rem;
   border-bottom: 2px solid var(--fio);
-  /*
-   * Sem scroll-margin-top aqui: o `html` já tem scroll-padding-top com a
-   * mesma medida, e os dois somavam. A seção parava 128px do alto em vez de
-   * 64, e com o recuo dela por cima o título caía 109px abaixo da barra: era
-   * o "vai um pouco acima e não no conteúdo".
-   */
 }
 .secao:last-of-type {
   border-bottom: none;
@@ -2163,8 +1758,6 @@ button {
   max-width: var(--medida-leitura);
   margin: 0 0 1.35rem;
 }
-
-/* ---------------- blocos de texto ---------------- */
 
 .paragrafo {
   max-width: var(--medida-leitura);
@@ -2209,8 +1802,6 @@ button {
   content: none;
 }
 
-/* ---------------- rubrica da assembleia ---------------- */
-
 .assembleia {
   max-width: var(--medida-leitura);
   margin: 0 0 0.85rem;
@@ -2231,8 +1822,6 @@ button {
   opacity: 0.85;
   margin-bottom: 0.1rem;
 }
-
-/* ---------------- cores litúrgicas ---------------- */
 
 .cor {
   font-weight: 600;
@@ -2256,8 +1845,6 @@ button {
   color: var(--lit-rosa);
 }
 
-/* ---------------- oração citada ---------------- */
-
 .oracao {
   margin: 0.75rem 0;
   padding-left: 0.9rem;
@@ -2279,22 +1866,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * No PC as duas línguas ficam lado a lado, como no Enchiridion: uma coluna
- * para o latim, outra para a tradução, e cada versículo numa faixa só. Antes
- * elas vinham empilhadas, e num diálogo de duas linhas isso obriga a saltar
- * para baixo e voltar a cada resposta.
- *
- * Para caber, a oração deixa de respeitar a medida de leitura: essa medida
- * existe para prosa corrida, e aqui cada coluna tem a sua. A partir de 64rem
- * cada metade fica com 38 a 44 caracteres — medido, com e sem o sumário ao
- * lado, que é o que muda a largura disponível. Abaixo disso continua
- * empilhada, porque a metade cairia para trinta e poucos.
- *
- * Sem fio no meio, ao contrário do Enchiridion: aqui há versículos só em
- * latim — "Benedicat vos omnipotens Deus" — e o fio ficaria pendurado ao
- * lado de nada.
- */
 @media (min-width: 64rem) {
   .oracao {
     max-width: none;
@@ -2313,9 +1884,6 @@ button {
   }
 }
 
-/* ---------------- passo litúrgico ---------------- */
-
-/* o mesmo fio das seções: cada passo do guia é um tópico */
 .passo {
   padding: 1.1rem 0;
   border-top: 2px solid var(--fio);
@@ -2351,8 +1919,6 @@ button {
   margin-bottom: 0;
 }
 
-/* ---------------- etiqueta ---------------- */
-
 .etiqueta {
   font-family: var(--sem-serifa);
   font-size: 0.6rem;
@@ -2368,22 +1934,6 @@ button {
   color: var(--elo);
 }
 
-/*
- * FILETE DE 3PX NA ESQUERDA: em aviso, sempre; em bloco clicável, só sob o
- * cursor.
- *
- * Parado, ele marca "leia isto à parte": nota, dia litúrgico, detalhe do dia
- * e texto provisório. Em cartão, item de menu e postagem, parado, ele repetia
- * o que o "Ver" com seta já dizia, e em bloco de ação repetia o que o próprio
- * botão diz.
- *
- * Sob o cursor é outra coisa: ali ele não descreve o bloco, responde ao
- * gesto, e some quando o cursor sai. O item do menu usa isso, com sombra
- * interna em vez de borda, para não empurrar o texto ao aparecer.
- */
-
-/* ---------------- nota ---------------- */
-
 .nota {
   background: var(--painel);
   border: 1px solid var(--fio);
@@ -2395,15 +1945,6 @@ button {
   border-left-color: var(--rubrica);
 }
 
-/*
- * Nota dentro de nota: a de dentro perde o fio de ouro.
- *
- * O fio da esquerda é o que marca o aparte no corpo da página. Repetido um
- * dentro do outro, os dois ficam a um dedo de distância e param de marcar
- * coisa nenhuma — viram duas molduras aninhadas. É o caso da Via Sacra e do
- * Rosário, em "Em qualquer dia": a ressalva é um aparte dentro do aparte, e
- * basta o contorno para separá-la do texto que a introduz.
- */
 .nota .nota {
   border-left: 1px solid var(--fio);
   background: none;
@@ -2421,8 +1962,6 @@ button {
 .nota p:last-child {
   margin-bottom: 0;
 }
-
-/* ---------------- legenda ---------------- */
 
 .legenda {
   display: grid;
@@ -2455,8 +1994,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/* ---------------- tabela ---------------- */
-
 .tabela {
   margin: 1.1rem 0 1.5rem;
 }
@@ -2481,7 +2018,6 @@ button {
   font-style: italic;
 }
 
-/* no celular o quadro comparativo mostra os blocos, um por coluna */
 .tabela--por-coluna table {
   display: none;
 }
@@ -2500,7 +2036,6 @@ button {
   color: var(--ouro-tinta);
 }
 
-/* No celular a tabela vira uma pilha de fichas. */
 .tabela thead {
   display: none;
 }
@@ -2535,24 +2070,6 @@ button {
   content: none;
 }
 
-/*
- * O patrocínio do santo, entre o nome e o quadro.
- *
- * Cinco dias no ano. O Ordo escreve "Padroeiro principal do país, duples de
- * 1ª classe com Oitava comum" numa frase só, e o Perez pediu para separar: o
- * que o santo é para esta terra não é o grau da festa dele.
- */
-/*
- * A segunda celebração do dia — e a terceira.
- *
- * Em 35 dias de 2026 o Ordo traz o mesmo dia como outro calendário o guarda,
- * ou uma segunda Missa da própria capela. Antes tudo isso caía na lista de
- * observações, onde a Missa do Calendário Universal ficava com a mesma cara
- * de uma rubrica sobre quando ajoelhar.
- *
- * Separa por fio e respiro, e não por caixa: a caixa competiria com a do
- * "Na Missa deste dia" que mora dentro dela.
- */
 .ordo__celebracao--outra {
   display: block;
   margin-top: 1.6rem;
@@ -2560,15 +2077,8 @@ button {
   border-top: 1px solid var(--fio);
 }
 
-/*
- * A linha que abre o bloco recolhido.
- *
- * A seta é a do navegador, de propósito: ela já gira ao abrir e o leitor de
- * tela já anuncia o estado. Desenhar uma própria custaria as duas coisas.
- */
 .ordo__celebracao-resumo {
   cursor: pointer;
-  /* a seta entra na linha: o título e o que se abre começam onde ela começa */
   list-style-position: inside;
   padding: 0.15rem 0;
 }
@@ -2582,12 +2092,10 @@ button {
 .ordo__celebracao--outra .ordo__celebracao-rotulo {
   margin: 0;
 }
-/* o conteúdo respira só quando está aberto */
 .ordo__celebracao--outra[open] .ordo__celebracao-resumo {
   margin-bottom: 0.6rem;
 }
 
-/* "Pode-se celebrar, à escolha:" antes do grupo das alternativas */
 .ordo__escolha {
   margin: 1.6rem 0 0;
   padding-top: 1.2rem;
@@ -2599,14 +2107,12 @@ button {
   text-transform: uppercase;
   color: var(--tinta-suave);
 }
-/* o primeiro bloco depois do aviso não repete o fio */
 .ordo__escolha + .ordo__celebracao--outra {
   margin-top: 0.5rem;
   padding-top: 0;
   border-top: none;
 }
 
-/* "No Calendário Universal", "No Brasil", "Na Igreja Catedral…" */
 .ordo__celebracao-rotulo {
   margin: 0 0 0.3rem;
   font-family: var(--sem-serifa);
@@ -2617,21 +2123,11 @@ button {
   color: var(--ouro);
 }
 
-/* "São Pedro Canísio Confessor e Doutor da Igreja, duples – cor branca" */
 .ordo__celebracao-posto {
   margin: 0 0 0.7rem;
   font-style: italic;
   color: var(--tinta-suave);
 }
-
-/*
- * "Próprio do Brasil", "Quatro Têmporas da Quaresma": de onde sai a Missa.
- *
- * Itálico, como o posto, e não em versalete. A tabela logo abaixo é feita de
- * rótulos em versalete — GRAU, COR, GLÓRIA —, e esta linha em versalete lia
- * como mais um deles, só que sem valor ao lado. Ela não é rótulo: é o título
- * que o Ordo escreve acima da linha da Missa.
- */
 
 .ordo__patrocinio {
   margin: -0.35rem 0 1.1rem;
@@ -2642,12 +2138,6 @@ button {
   color: var(--ouro-tinta);
 }
 
-/*
- * As Missas que o dia permite além da do dia.
- *
- * Fica à parte do quadro porque responde a outra pergunta: o quadro diz como
- * é a Missa de hoje, e isto diz o que se pode celebrar hoje.
- */
 .ordo__permitidas {
   margin: 1.1rem 0 0;
   font-size: 0.95rem;
@@ -2663,8 +2153,6 @@ button {
   color: var(--ouro-tinta);
   margin-bottom: var(--respiro-etiqueta);
 }
-
-/* ---------------- rodapé ---------------- */
 
 .rodape {
   padding: 1.75rem 0 calc(2rem + env(safe-area-inset-bottom));
@@ -2685,14 +2173,6 @@ button {
   color: var(--ouro-tinta);
 }
 
-/*
- * A especificidade a mais é de propósito, e conserta um defeito antigo.
- *
- * `.rodape p` vale 0-1-1 e zera a margem de cima no atalho, então o
- * `margin-top` que vivia na regra acima, com 0-1-0, nunca chegou a pegar: a
- * marca sempre veio colada no que estivesse em cima dela. Com o selo no meio
- * o espaço foi a zero e o desequilíbrio ficou visível.
- */
 .rodape .rodape__marca {
   margin-top: 1.5rem;
 }
@@ -2707,42 +2187,16 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * O selo do rodapé: o brasão em silhueta, fechando a página.
- *
- * Duas artes, e não uma pintada por CSS: o Perez mandou o branco e o preto
- * prontos, e o desenho deles não é o colorido dessaturado — a silhueta tem
- * traço próprio. O preto serve o tema claro e o branco o escuro.
- *
- * A troca segue os mesmos seletores do tema.css, e não só a consulta de
- * mídia: o site tem botão de tema, e quem o usa para forçar o claro num
- * sistema escuro receberia um selo branco sobre papel claro, invisível.
- *
- * Como fundo, o navegador baixa só a arte do tema em uso. Como <img>, viriam
- * as duas.
- */
 .rodape__selo {
   display: block;
   width: 3.75rem;
-  /* a proporção do arquivo, 200x217 */
   aspect-ratio: 200 / 217;
-  /*
-   * Igual dos dois lados. Margem de irmãos adjacentes se funde, então o vão
-   * de cima é o maior entre esta e os 0,75rem do parágrafo, e o de baixo o
-   * maior entre esta e o `margin-top` da marca: 1,5rem nos dois casos.
-   */
   margin: 1.5rem auto;
   background: center / contain no-repeat;
   background-image: var(--brasao-mono);
   opacity: 0.7;
 }
 
-/*
- * Só a opacidade continua dependendo do tema; a arte vem da variável.
- * Branco sobre quase preto rende mais que preto sobre creme, e igualar os
- * dois números deixaria o selo do tema escuro brilhando mais do que a marca
- * dourada logo abaixo dele.
- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .rodape__selo {
     opacity: 0.55;
@@ -2753,10 +2207,6 @@ button {
   opacity: 0.55;
 }
 
-/*
- * O crédito de quem fez o site. Última linha, menor que tudo, e sem o
- * dourado da marca: é informação de colofão, não assinatura de dono.
- */
 .rodape__credito {
   margin-top: 1.1rem;
   font-family: var(--sem-serifa);
@@ -2765,18 +2215,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * O nome sem fio embaixo, e um tom acima do resto da linha.
- *
- * A seta de elo externo já diz que leva a algum lugar, então o sublinhado
- * seria um segundo aviso do mesmo. E é a seta que torna isso defensável:
- * sem ela, o elo se anunciaria só pela cor, que é justamente o que não se
- * deve fazer. O fio volta no cursor, para quem passa por cima confirmar.
- *
- * A opacidade saiu da linha inteira em vez de ficar: com ela, `--tinta` a
- * 80% sobre o papel claro cai quase em cima de `--tinta-suave`, e o
- * destaque que o nome deveria ganhar simplesmente não aparecia.
- */
 .rodape__credito .elo-texto {
   color: var(--tinta);
   text-decoration: none;
@@ -2788,15 +2226,12 @@ button {
   text-underline-offset: 0.18em;
 }
 
-/* ---------------- telas maiores ---------------- */
-
 @media (min-width: 46rem) {
   :root {
     --respiro-lateral: 1.4rem;
     --altura-barra: 3.5rem;
   }
 
-  /* a partir daqui cabe o título da seção ao lado dos botões */
   .barra__local {
     display: block;
   }
@@ -2902,7 +2337,6 @@ button {
     white-space: nowrap;
     padding-right: 1.4rem;
   }
-  /* na comparação a primeira coluna é um lado como os outros */
   .tabela--por-coluna td:first-child {
     white-space: normal;
     font-weight: 400;
@@ -2927,14 +2361,6 @@ button {
   }
 }
 
-/* ---------------- escala no PC ---------------- */
-
-/*
- * A coluna passou de 60rem para 76rem e o corpo do texto cresceu junto, mas
- * as etiquetas em versalete ficaram nos mesmos 0,55 a 0,68rem de quando a
- * coluna era estreita, e a essa altura pareciam legenda de rodapé. Sobem cerca
- * de um quinto, só as de conteúdo: as da barra são cromo e já estavam certas.
- */
 @media (min-width: 64rem) {
   .dia__data,
   .calendario__detalhe-data,
@@ -2988,19 +2414,9 @@ button {
   .rodape__lema {
     font-size: 0.82rem;
   }
-
 }
 
-/* ---------------- documento em duas colunas ---------------- */
-
-/*
- * Até 76rem o sumário fica em cima do texto, como sempre esteve. A partir daí
- * vira coluna lateral grudenta: a prosa guarda a medida de leitura e a
- * largura que sobrava à direita passa a servir para alguma coisa.
- */
 @media (min-width: 76rem) {
-  /* onde o sumário mora na coluna da esquerda, o botão que o abriria em
-     gaveta não tem o que fazer */
   .barra__botao--sumario {
     display: none;
   }
@@ -3018,14 +2434,6 @@ button {
     max-height: calc(100vh - var(--altura-barra) - 3rem);
     overflow-y: auto;
     overscroll-behavior: contain;
-    /*
-     * Barra fina. A do sistema é dimensionada para a página inteira e num
-     * bloco desta largura ela come uma fatia visível da coluna, além de
-     * pesar mais que o próprio sumário. As duas declarações não são
-     * redundantes: `scrollbar-width` é o padrão e vale no Firefox e no
-     * Chrome recente; o `::-webkit-scrollbar` abaixo cobre o Safari e os
-     * Chrome mais antigos, que ainda ignoram a primeira.
-     */
     scrollbar-width: thin;
     scrollbar-color: var(--fio-aceso) transparent;
   }
@@ -3042,7 +2450,6 @@ button {
   .documento--com-sumario .sumario--embutido:hover::-webkit-scrollbar-thumb {
     background: var(--fio-aceso);
   }
-  /* na coluna estreita não cabem duas colunas de itens */
   .documento--com-sumario .sumario--embutido .sumario__lista {
     columns: 1;
   }
@@ -3051,13 +2458,6 @@ button {
   }
 }
 
-/* ---------------- telas grandes ---------------- */
-
-/*
- * Acima de 100rem a coluna e a escala crescem mais um passo. Não é só
- * esticar: o corpo do texto sobe junto, senão a página vira uma faixa de
- * letras miúdas no meio de um monitor grande.
- */
 @media (min-width: 100rem) {
   :root {
     --largura-texto: 86rem;
@@ -3085,15 +2485,11 @@ button {
   }
 }
 
-/* ---------------- migalhas ---------------- */
-
 .trilha {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
-  /* fica entre a barra grudenta e o banner, e precisa de ar dos dois lados:
-     só com padding-top ela encostava no cabeçalho logo abaixo */
   padding: 1.25rem 0 1.1rem;
   font-family: var(--sem-serifa);
   font-size: 0.66rem;
@@ -3112,8 +2508,6 @@ button {
   color: var(--ouro-tinta);
   font-weight: 600;
 }
-
-/* ---------------- página por escrever ---------------- */
 
 .vazia {
   margin: 1.5rem 0;
@@ -3142,20 +2536,12 @@ button {
   color: var(--tinta-suave);
 }
 
-/* ---------------- cartões de navegação ---------------- */
-
 .cartoes {
   display: grid;
   gap: 0.75rem;
   margin: 1.75rem 0;
 }
 
-/*
- * Coluna flex, e não grade: com `margin-top: auto` no "Ver" ele encosta no pé
- * do cartão. Numa fileira os cartões já têm a mesma altura, então os três
- * "Ver" ficam alinhados entre si por mais que os textos tenham tamanhos
- * diferentes.
- */
 .cartao {
   display: flex;
   flex-direction: column;
@@ -3169,14 +2555,6 @@ button {
   color: inherit;
   transition: border-color 0.15s ease;
 }
-/*
- * Sem filete grosso na esquerda: o cartão já diz que é clicável pelo "Ver" com
- * seta, e a faixa dourada repetia o mesmo recado ocupando a borda inteira.
- * O hover acende a borda de 1px, que responde sem virar ornamento.
- *
- * Tingir o fundo também não serve: puxava o cartão para um laranja fora da
- * paleta.
- */
 .cartao:hover,
 .cartao:focus-visible {
   border-color: var(--fio-aceso);
@@ -3185,14 +2563,6 @@ button {
   border-color: var(--ouro);
 }
 
-/*
- * Cartão ilustrado.
- *
- * A estampa ocupa o cartão e o texto fica por cima. O véu é um degradê que
- * escurece só a parte de baixo: escurecer a pintura inteira a apagaria, e sem
- * véu nenhum o título some sobre qualquer céu claro. O texto é sempre o lírio
- * do brasão, que sobre o pé do degradê dá contraste de sobra.
- */
 .cartoes--ilustrados {
   grid-template-columns: 1fr;
 }
@@ -3242,11 +2612,6 @@ button {
   border-color: var(--fio-aceso);
 }
 
-/*
- * "Ver" com seta: o cartão inteiro é o link, mas um retângulo com fundo não
- * diz sozinho que leva a algum lugar. A seta anda um pouco no hover, que é o
- * sinal de que ela responde ao cursor.
- */
 .cartao__ir {
   display: inline-flex;
   align-items: center;
@@ -3305,8 +2670,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/* ---------------- últimas postagens ---------------- */
-
 .faixa {
   margin: 2rem 0 1.5rem;
 }
@@ -3333,11 +2696,6 @@ button {
   white-space: nowrap;
 }
 
-/*
- * A faixa é uma rolagem horizontal com encaixe, e não um carrossel feito à
- * mão: desliza no dedo, anda pelo teclado e continua navegável se o
- * JavaScript falhar. O avanço automático só empurra o scrollLeft.
- */
 .faixa__trilho {
   list-style: none;
   margin: 0;
@@ -3358,15 +2716,6 @@ button {
   scroll-snap-align: start;
 }
 
-/*
- * A estampa fica ao lado, e não em faixa por cima.
- *
- * A faixa larga pedia perto de mil pixels de largura num celular a 3x, e as
- * estampas devocionais que temos têm 500 e pouco: a conta não fecha por
- * processamento nenhum. Em retrato ao lado, o quadro pede 336 e sobra
- * resolução. De quebra, é a forma do próprio material: recortar uma tira
- * deitada de um santinho vertical cortava a figura no peito.
- */
 .postagem-cartao {
   display: grid;
   grid-template-columns: 7rem 1fr;
@@ -3398,8 +2747,6 @@ button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* 0.25rem dava 4px entre a data, o título e o resumo: os três liam como um
-     bloco só em vez de três registros */
   gap: 0.4rem;
   padding: 0.85rem 1rem 1rem;
 }
@@ -3455,8 +2802,6 @@ button {
   background: var(--ouro);
 }
 
-/* ---------------- lista de postagens ---------------- */
-
 .postagens {
   list-style: none;
   margin: 1.5rem 0;
@@ -3471,7 +2816,6 @@ button {
   color: inherit;
   transition: border-top-color 0.15s ease;
 }
-/* a linha não tem caixa para acender: o filete de cima e o título respondem */
 .postagem-linha:hover,
 .postagem-linha:focus-visible {
   border-top-color: var(--fio-aceso);
@@ -3518,9 +2862,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/* ---------------- barra: seções do site ---------------- */
-
-/* em tela estreita as seções moram no Menu; a partir de 46rem entram na barra */
 .barra__site {
   display: none;
 }
@@ -3549,34 +2890,17 @@ button {
   }
 }
 
-/*
- * 52rem, e não 46rem: as seis seções mais o tema, o Sumário e o Menu não cabem
- * em 46rem. Entre um ponto e outro a barra fica com o título da seção.
- *
- * O botão Menu NÃO some no PC. Ele sumia, e o resultado era que as subpáginas
- * só existiam para quem já estivesse na seção mãe: de /postagens havia dez
- * rotas que exigiam passar por outra página antes. O Menu é o mapa inteiro, e
- * o mapa tem de estar à mão nas duas plataformas.
- */
 @media (min-width: 52rem) {
   .barra__site {
     display: flex;
     align-items: center;
     gap: 0.1rem;
   }
-  /* o título da seção some quando as seções entram na barra: não cabem os dois */
   .barra__local {
     display: none;
   }
 }
 
-/* ---------------- calendário das indulgências ---------------- */
-
-/*
- * O marcador é quadrado, como as bandeiras das agendas, e não redondo: no
- * mesmo dia ele convive com o ponto da cor litúrgica, e duas bolinhas lado a
- * lado seriam a mesma coisa dita duas vezes.
- */
 .indulgencia__marca {
   position: absolute;
   top: 0.22rem;
@@ -3586,14 +2910,6 @@ button {
   border-radius: 1px;
   border: 1px solid var(--ouro);
 }
-/*
- * A cruz de abstinência, embaixo da bolinha da cor.
- *
- * Cruz, e não outra bolinha, porque é assim que o Ordo impresso marca o dia
- * penitencial e porque a bolinha já é a cor do paramento. Fica na mesma
- * coluna do número, e não num canto: a casa do dia é larga, e no canto a
- * cruz se soltava do número a ponto de parecer que era da casa ao lado.
- */
 .calendario__penitencia {
   width: 0.5rem;
   height: 0.5rem;
@@ -3603,26 +2919,10 @@ button {
     linear-gradient(to right, transparent 40%, currentColor 40% 60%, transparent 60%),
     linear-gradient(to bottom, transparent 40%, currentColor 40% 60%, transparent 60%);
 }
-/* jejum e abstinência: a mesma cruz, em ouro */
 .calendario__penitencia--jejum {
   color: var(--ouro);
 }
 
-/*
- * Os sinais do canto: primeiras quinta e sexta, próprio do Brasil, Têmporas.
- *
- * No canto de cima à direita, que é onde a grade das indulgências já põe o
- * quadradinho da plenária, e por pedido do Perez. A cruz de abstinência fica
- * onde sempre esteve, embaixo da bolinha da cor: são duas escalas diferentes
- * e misturá-las num canto só faria o leitor procurar sentido na vizinhança.
- *
- * Dois sinais no mesmo dia acontecem, e por isso é uma fila e não uma posição
- * fixa: em 2026 são três dias, todos de próprio do Brasil caindo numa
- * primeira quinta ou sexta — 4 de setembro, 1.º de outubro e 5 de novembro.
- * Três sinais não acontecem: as primeiras do mês são uma ou outra, e Têmpora
- * nenhuma cai na primeira semana, porque a mais cedo possível é 14 de
- * fevereiro.
- */
 .calendario__sinais {
   position: absolute;
   top: 0.2rem;
@@ -3641,16 +2941,11 @@ button {
 .calendario__sinal--brasil { color: var(--lit-verde); }
 .calendario__sinal--temporas { color: var(--tinta-suave); }
 
-/*
- * Na legenda eles crescem: ali a pergunta é "que forma é esta", e a 7px o
- * coração e o losango são a mesma mancha.
- */
 .calendario__legenda .calendario__sinal {
   width: 0.66rem;
   height: 0.66rem;
 }
 
-/* a linha que explica a cruz, embaixo da grade */
 .calendario__legenda {
   display: flex;
   flex-wrap: wrap;
@@ -3668,8 +2963,6 @@ button {
   gap: 0.35rem;
 }
 
-
-/* a penitência do dia, no detalhe */
 .dia__penitencia {
   margin: 0.7rem 0 0;
   font-size: 0.95em;
@@ -3712,13 +3005,6 @@ button {
   font-size: 1.08rem;
   font-weight: 600;
 }
-/*
- * De onde sai o que está escrito: a concessão, nas que este site calcula, e o
- * nome do calendário, nas que vêm de fora. A mesma pergunta, o mesmo lugar.
- *
- * O nome do calendário vinha ao lado do título, disputando a linha com ele, e
- * ali parecia parte do nome da festa.
- */
 .indulgencias-dia__fonte {
   margin: 0.35rem 0 0;
   font-family: var(--sem-serifa);
@@ -3735,8 +3021,6 @@ button {
 .etiqueta--parcial {
   color: var(--tinta-suave);
 }
-
-/* ---------------- agendas vinculadas ---------------- */
 
 .legenda-agendas {
   display: flex;
@@ -3759,11 +3043,6 @@ button {
   gap: 0.35rem;
 }
 
-/*
- * O elo para a postagem da festa. O PDF pede que, vendo o dia, o fiel possa
- * clicar para ler a história do santo; como o vínculo é pelo nome da
- * celebração, ele segue a festa quando ela é transferida.
- */
 .dia__postagem {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -3803,8 +3082,6 @@ button {
   height: 1.15rem;
   stroke: var(--ouro);
 }
-
-/* ---------------- vincular calendário ---------------- */
 
 .agendas {
   margin: 1.35rem 0;
@@ -3857,29 +3134,12 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * No celular o par de botões divide a linha em dois, em vez de virar duas
- * pílulas pequenas encostadas na esquerda. A partir de 46rem eles voltam ao
- * tamanho do próprio texto, que é o que cabe ao lado do nome da agenda.
- */
 .agenda__acoes {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.4rem;
 }
 
-/*
- * REGRA DOS ALVOS NO CELULAR: botão ocupa a linha inteira, link continua link.
- *
- * O botão é a ação do bloco onde está, e uma pílula de 113px numa coluna de
- * 353px lia como detalhe secundário além de dar um alvo pequeno para o dedo.
- * O site já se contradizia nisso: "Vincular" saía com 88% da coluna, por ser
- * filho de uma grade, e "Copiar a chave" com 32%.
- *
- * Isso NÃO vale para "Ver o calendário do ano", "Saber mais" e "Ver todas":
- * são links de leitura, não ações, e virar barra achataria a diferença entre
- * "faça isto" e "vá ler aquilo".
- */
 .botao-agenda {
   display: inline-flex;
   width: 100%;
@@ -3925,8 +3185,6 @@ button {
   color: var(--tinta);
 }
 
-/* ---------------- copiar a chave ---------------- */
-
 .botao-copiar {
   gap: 0.45rem;
 }
@@ -3937,8 +3195,6 @@ button {
   border-color: var(--verde-feito);
 }
 
-/* O certo se desenha; o @media de movimento reduzido lá em cima o congela
-   pronto, o que continua dizendo a mesma coisa sem animar nada. */
 .visto {
   width: 1.05rem;
   height: 1.05rem;
@@ -3993,8 +3249,6 @@ button {
   }
 }
 
-/* ---------------- mural de avisos ---------------- */
-
 .mural {
   margin: 1.75rem 0;
   padding: 1.15rem 1.2rem 1rem;
@@ -4036,8 +3290,6 @@ button {
   font-weight: 600;
   margin: 0 0 0.3rem;
 }
-
-/* ---------------- apresentação e contribuição ---------------- */
 
 .sobre,
 .contribuir,
@@ -4110,16 +3362,6 @@ button {
   font-size: 0.95rem;
 }
 
-/* ---------------- padroeiros ---------------- */
-
-/*
- * A Titular no meio, um pouco maior que os dois lados, como num tríptico.
- *
- * As três casas partilham as linhas da grade — estampa, nome, legenda — por
- * subgrid. Sem isso, a estampa maior do meio empurrava o nome dela para baixo
- * e as três legendas saíam em alturas diferentes. Assim as estampas assentam
- * na mesma base, e os nomes e as legendas começam na mesma linha.
- */
 .padroeiros__lista {
   list-style: none;
   margin: 0;
@@ -4131,13 +3373,6 @@ button {
   row-gap: 0.4rem;
   text-align: center;
 }
-/*
- * `align-content: start` não é enfeite. Numa fileira, os três itens esticam
- * até a altura do mais alto, e como aqui as linhas são automáticas elas
- * absorvem a sobra: a moldura, que é bloco sem altura fixa, esticava junto e
- * ficava com 17px abaixo da foto contra os 8px do meio. O do meio parecia o
- * certo justamente porque o nome dele ocupa duas linhas e não sobra espaço.
- */
 .padroeiro {
   display: grid;
   grid-row: span 3;
@@ -4148,18 +3383,6 @@ button {
   align-self: end;
 }
 
-/*
- * O link que embrulha o quadro inteiro.
- *
- * Tem de ser subgrade também. A fileira alinha as três estampas pela base e
- * os nomes pelo topo, e quem faz isso é a subgrade do item; pondo um <a> no
- * meio, ele passa a ser o único filho do item e as três linhas morrem nele.
- * Repetir a subgrade aqui devolve as linhas ao conteúdo.
- *
- * Sem sublinhado e sem cor de link: o alvo é a estampa emoldurada, que já se
- * anuncia como coisa clicável, e um sublinhado sob o nome brigaria com o
- * filete dourado logo acima.
- */
 .padroeiro__elo {
   display: grid;
   grid-row: span 3;
@@ -4181,26 +3404,10 @@ button {
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
-/*
- * A moldura: filete dourado por fora, margem de papel e um segundo filete
- * rente à estampa. São os mesmos dois traços do brasão e das cercaduras do
- * impresso, na escala de um santinho.
- */
-/*
- * A moldura, em quatro traços, como a cercadura de um santinho:
- *
- *   1. filete dourado por fora, com o canto quase reto;
- *   2. margem de papel;
- *   3. segundo filete, mais fino e recuado, no pseudo-elemento;
- *   4. cantoneiras douradas, feitas com quatro degradês, que dão o remate
- *      sem custar nenhuma imagem nem marcação a mais.
- */
 .padroeiro__moldura {
   position: relative;
   display: block;
   width: 100%;
-  /* a estampa tem 480px de largura; esticá-la mais que isto só a borra, então
-     a moldura para de crescer junto com a tela */
   max-width: 9rem;
   padding: 0.45rem;
   background: var(--painel);
@@ -4209,7 +3416,6 @@ button {
   box-shadow: 0 1px 5px var(--sombra), inset 0 0 0 1px var(--papel);
 }
 
-/* o segundo filete, recuado, rente à estampa */
 .padroeiro__moldura::before {
   content: "";
   position: absolute;
@@ -4219,7 +3425,6 @@ button {
   pointer-events: none;
 }
 
-/* as cantoneiras: quatro esquadros de 0,45rem nos vértices */
 .padroeiro__moldura::after {
   content: "";
   position: absolute;
@@ -4239,8 +3444,6 @@ button {
 .padroeiro__imagem {
   display: block;
   width: 100%;
-  /* width/height no HTML viram dica de apresentação e, com os dois definidos,
-     o aspect-ratio é ignorado. `height: auto` devolve o comando ao CSS. */
   height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
@@ -4263,7 +3466,6 @@ button {
   color: var(--tinta-suave);
   text-wrap: balance;
 }
-/* a Titular: 9rem × 1,25 */
 .padroeiro--principal .padroeiro__moldura {
   max-width: 11.25rem;
 }
@@ -4275,13 +3477,6 @@ button {
   }
 }
 
-/* ---------------- o brasão comentado ---------------- */
-
-/*
- * A página do brasão, no desenho que o Perez mandou: a abertura em cima, o
- * brasão grande à esquerda com os textos surgindo à direita, e o fecho
- * embaixo. No celular tudo empilha, e as caixas abrem embaixo do brasão.
- */
 .brasao-pagina {
   padding-block: 1.5rem 0.5rem;
 }
@@ -4312,7 +3507,6 @@ button {
   position: relative;
   width: min(100%, 17rem);
   cursor: pointer;
-  /* o toque não pinta o escudo de azul no celular */
   -webkit-tap-highlight-color: transparent;
 }
 .brasao-comentado__imagem {
@@ -4321,13 +3515,6 @@ button {
   height: auto;
 }
 
-/*
- * Os números fantasmas. Invisíveis e sem receber clique até o cursor entrar
- * no escudo ou o dedo tocá-lo: sem o `pointer-events`, o primeiro toque no
- * lírio abria o texto direto, pulando o passo de revelar que o Perez pediu.
- * O teclado alcança os quatro de qualquer jeito, e o foco os revela.
- * O número que está aberto fica visível: é dele que a linha sai.
- */
 .brasao-comentado__numero {
   position: absolute;
   z-index: 2;
@@ -4345,12 +3532,6 @@ button {
   font-size: 1rem;
   font-weight: 600;
   line-height: 1;
-  /*
-   * Algarismo alinhado, e não o antigo que o corpo do site usa: dentro de um
-   * círculo o "1" antigo vira um "ı" e o "3" desce abaixo da linha. Declarar
-   * font-feature-settings substitui a lista herdada inteira, então isto
-   * sozinho já desliga o "onum".
-   */
   font-feature-settings: "lnum" 1;
   cursor: pointer;
   opacity: 0;
@@ -4365,11 +3546,6 @@ button {
   pointer-events: auto;
   transform: none;
 }
-/*
- * O cursor revela, mas só onde existe cursor. O celular aplica :hover no
- * próprio toque, antes do clique chegar: o botão destravava no meio do gesto
- * e o primeiro toque no lírio já abria o texto, pulando o revelar.
- */
 @media (hover: hover) {
   .brasao-comentado__escudo:hover .brasao-comentado__numero {
     opacity: 1;
@@ -4412,7 +3588,6 @@ button {
   font-size: 1.1em;
   font-weight: 600;
 }
-/* o mesmo número do brasão, repetido à cabeça do texto: é onde a linha chega */
 .brasao-comentado__marca {
   display: grid;
   place-items: center;
@@ -4433,7 +3608,6 @@ button {
   margin-bottom: 0;
 }
 
-/* enquanto a linha se projeta, a caixa já ocupa o lugar, mas não aparece */
 .brasao-comentado__parte--linha {
   visibility: hidden;
 }
@@ -4456,7 +3630,6 @@ button {
   }
 }
 
-/* as linhas, por cima de tudo menos dos números, e sem receber clique */
 .brasao-comentado__linhas {
   display: none;
   position: absolute;
@@ -4467,11 +3640,6 @@ button {
   overflow: visible;
   pointer-events: none;
 }
-/*
- * `pathLength="1"` no SVG deixa o traço medir 1 qualquer que seja o tamanho
- * da linha. É o que permite animar a projeção sem saber o comprimento, e
- * redesenhar as pontas a cada rolagem sem desmanchar o traço.
- */
 .brasao-comentado__linha {
   stroke: var(--ouro);
   stroke-width: 1.5;
@@ -4496,15 +3664,6 @@ button {
   }
 }
 
-/*
- * Duas colunas: o brasão grande à esquerda, grudado na tela enquanto se lê à
- * direita — os quatro textos inteiros passam bem da altura dele, e sem isso a
- * quarta caixa ficava longe do brasão de onde a linha sai.
- *
- * O tamanho tem teto honesto: o arquivo tem 572px de largura, e o brasão aqui
- * vai a 24rem, ou 480px na raiz de 20px. Em tela comum sobra; em tela de alta
- * densidade ainda falta, porque 2x pediriam 960. Só o vetorial resolve de vez.
- */
 @media (min-width: 56rem) {
   .brasao-comentado {
     grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
@@ -4533,27 +3692,11 @@ button {
   }
 }
 
-/* ---------------- padroeiros no PC ---------------- */
-
-/*
- * Fica no fim do arquivo de propósito: a regra base de .padroeiros__lista
- * mora acima, e media query não acrescenta especificidade nenhuma. Posto
- * antes, era a base que vencia e nada disto valia.
- *
- * O quadro parava de crescer em 9rem por causa da resolução da estampa. Numa
- * coluna de 76rem os três ficavam pequenos e afastados; vão a 13rem, que a 2x
- * pede 416 dos 480 pixels do arquivo, e a lista para de esticar junto com a
- * coluna.
- */
 @media (min-width: 64rem) {
   .padroeiro__moldura {
     max-width: 13rem;
     padding: 0.6rem;
   }
-  /*
-   * A do meio vai a 15,5rem, e não mais: a estampa tem 480px, e a 2x o quadro
-   * de 15,5rem pede 458 deles. Acima disso a Titular maior sairia borrada.
-   */
   .padroeiro--principal .padroeiro__moldura {
     max-width: 15.5rem;
   }
@@ -4567,8 +3710,6 @@ button {
   }
 }
 
-/* Texto só para quem ouve a página: o leitor de tela anuncia "nota 12" em
-   vez de ler um "12" solto no meio da frase. */
 .visualmente-oculto {
   position: absolute;
   width: 1px;
@@ -4581,14 +3722,6 @@ button {
   border: 0;
 }
 
-/* ---------------------------------------------------------------- notas
- * A chamada de nota e o balão que a mostra onde ela é lida.
- *
- * O balão é `position: fixed` e recebe as coordenadas do JavaScript. Foi a
- * saída para o problema de verdade: uma nota no fim de uma linha, num celular
- * de 390px, sairia pela borda se fosse posicionada em relação à chamada. Fixa,
- * ela é presa à tela e o cálculo a prende dentro dela.
- */
 .nota-chamada {
   white-space: nowrap;
 }
@@ -4603,7 +3736,6 @@ button {
   background: none;
   border: 0;
   border-radius: 0.2rem;
-  /* apertado: a chamada é vizinha da palavra e da pontuação, não uma palavra */
   padding: 0.1em 0.14em;
   cursor: help;
   transition: background 0.15s ease, color 0.15s ease;
@@ -4617,16 +3749,6 @@ button {
   outline: 2px solid var(--ouro);
   outline-offset: 1px;
 }
-/*
- * O asterisco do decreto Deus cuius misericordiae. Não é nota do livro: é a
- * única observação do Apostolado dentro de um texto pontifício, e some quando
- * tem o corpo das outras 123. Ganha o vermelho das rubricas — que é o que ele
- * tinha no original do Perez —, o tamanho do texto em volta, e o ponto de
- * apoio para quem não faz o cursor passar por cima.
- *
- * Deixa de ser sobrescrito: sobrescrito quer dizer "veja a nota de rodapé", e
- * esta nota não está no rodapé, está aqui.
- */
 .nota-chamada__marca--asterisco {
   font-family: var(--serifada);
   font-size: 1.25em;
@@ -4634,7 +3756,6 @@ button {
   vertical-align: baseline;
   line-height: 1;
   color: var(--rubrica);
-  /* pouca folga à direita: depois da chamada vem o ponto final da frase */
   padding: 0.15em 0.1em 0.15em 0.2em;
   border-radius: 0.2rem;
 }
@@ -4663,18 +3784,9 @@ button {
 .nota-balao {
   position: fixed;
   z-index: 60;
-  /*
-   * Fechada é `display: none`, e não só o atributo `hidden`.
-   * `[hidden]` do navegador vale `display: none` com a mesma especificidade de
-   * uma classe, então `.nota-balao { display: block }` o vencia por vir depois:
-   * os 124 balões ficavam pintados fora da tela, e uma nota já aberta nunca
-   * mais sumia da tela.
-   */
   display: none;
   box-sizing: border-box;
   padding: 0.7rem 0.85rem;
-  /* --painel, e não --papel: no escuro o papel é a cor da própria página, e
-     o balão ficava sem fundo, como texto solto sobre o parágrafo */
   background: var(--painel);
   border: 1px solid var(--fio-aceso);
   border-radius: 0.35rem;
@@ -4685,7 +3797,6 @@ button {
   color: var(--tinta);
   text-align: left;
   white-space: normal;
-  /* nota longa não empurra a página: rola dentro do próprio balão */
   max-height: 60vh;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -4693,7 +3804,6 @@ button {
 .nota-balao:not([hidden]) {
   display: block;
 }
-/* fixado: a borda em ouro diz que ele não some sozinho */
 .nota-balao--fixado {
   border-color: var(--ouro);
 }
@@ -4710,10 +3820,6 @@ button {
   text-transform: uppercase;
   color: var(--ouro-tinta);
 }
-/*
- * Copiar e fechar. Pequenos, para não pesar numa nota de uma linha, mas com
- * altura de alvo de toque: é no celular que o Perez precisava do copiar.
- */
 .nota-balao__acao {
   min-height: 2rem;
   padding: 0 0.55rem;
@@ -4744,7 +3850,6 @@ button {
   font-style: italic;
 }
 
-/* elo dentro do texto: sumário impresso, índice analítico e links externos */
 .elo-texto {
   color: inherit;
   text-decoration-color: var(--fio-aceso);
@@ -4759,13 +3864,6 @@ button {
   color: var(--ouro-tinta);
 }
 
-/*
- * O elo de destaque: o que leva o leitor adiante no fim de uma postagem.
- *
- * O elo comum herda a cor do texto e se anuncia só por um fio embaixo, que é
- * o certo no meio do parágrafo e some quando o elo é o destino da página. Este
- * tem moldura, e por isso se lê como coisa em que se clica.
- */
 .elo-botao {
   display: inline-flex;
   align-items: center;
@@ -4798,13 +3896,6 @@ button {
   content: "↗";
 }
 
-/* ---------------- localização de uma igreja ---------------- */
-
-/*
- * "Conferir a localização" abre as opções no lugar, em vez de levar direto ao
- * Maps: o documento do Perez lista mais de cem igrejas, e três elos abertos em
- * cada uma encheriam a tabela de ruído.
- */
 .local {
   display: inline;
 }
@@ -4856,7 +3947,6 @@ button {
   border-color: var(--ouro);
 }
 
-/* ------------------------------------------------- sumário com subseções */
 .sumario__linha {
   display: flex;
   align-items: baseline;
@@ -4918,22 +4008,6 @@ button {
   }
 }
 
-/* ---------------- a lateral dos retratos ---------------- */
-
-/*
- * O Soberano Pontífice, o Arcebispo e a Padroeira, numa coluna à direita,
- * em toda página menos a inicial. Só no computador largo.
- *
- * A conta que decidiu o ponto de corte: a página, com a lateral, passa a
- * ocupar a margem que já sobrava dos dois lados da coluna de 76rem. Em 1440px
- * a área do texto encolhe 16px; em 1920, nada. Abaixo de 90rem não há margem
- * a ocupar, e a lateral teria de sair da própria coluna do texto — que é a
- * largura de que as orações lado a lado do Enchiridion precisam para caber.
- *
- * O `:has()` é o que liga tudo sem JavaScript: a moldura da barra e a da
- * página só alargam quando a lateral existe, e as duas juntas, para o menu
- * continuar alinhado com o texto.
- */
 .lateral {
   display: none;
 }
@@ -4960,18 +4034,6 @@ button {
     width: var(--largura-lateral);
   }
 
-  /*
-   * Grudada na tela enquanto se lê. Para isso os retratos têm de caber
-   * inteiros na altura da janela, senão o último nunca aparece.
-   *
-   * A conta, por retrato: a janela, menos a barra e os 5,7rem fixos da pilha
-   * (o recuo do topo, o respiro de cima, os dois vãos entre retratos e uma
-   * folga embaixo), dividida pelo número de retratos; disso sai o que não é
-   * foto — a moldura, o vão até a legenda e a legenda em duas linhas, porque
-   * "Dom Manoel Delson, OFMCap" quebra. Medido com os três simulados: a
-   * primeira versão, que contava a legenda em uma linha só e esquecia os
-   * vãos, deixava o último retrato 30px abaixo da janela.
-   */
   .lateral__pilha {
     position: sticky;
     top: calc(var(--altura-barra) + 1.25rem);
@@ -4995,12 +4057,6 @@ button {
   }
   .lateral__imagem {
     display: block;
-    /*
-     * Três quartos do que caberia, com teto de 9rem. Perez achou os retratos
-     * chamativos demais no tamanho cheio, e pediu espaço livre embaixo deles
-     * para ver se ali entra a chave Pix ou as últimas postagens. O quarto que
-     * sobra de cada um vira esse espaço.
-     */
     height: min(
       9rem,
       calc(((100vh - var(--altura-barra) - 5.7rem) / var(--retratos, 3) - 5.1rem) * 0.75)
@@ -5033,20 +4089,6 @@ button {
   }
 }
 
-/* ------------------------------------------------------------------ folheto
- *
- * A folha: o impresso que o Apostolado distribui, servido como página.
- *
- * O que ela não é: uma imitação do papel creme do PDF. O site é escuro por
- * padrão porque é lido no celular, e uma folha creme acesa no meio da página
- * escura cega quem abre dentro da igreja. O que faz reconhecer a folha é a
- * moldura de dois fios, a serifa e a oração em duas colunas — e isso ela tem
- * nos dois temas.
- *
- * O fio de dentro é tracejado e fica a 5px do de fora, como no impresso. Por
- * isso o respiro de dentro é generoso: com padding curto, a primeira linha do
- * texto encostaria no tracejado.
- */
 .folheto {
   margin: 1.8rem var(--respiro-lateral) 0;
 }
@@ -5064,21 +4106,9 @@ button {
   border: 1px dashed var(--fio);
   pointer-events: none;
 }
-/* o primeiro e o último bloco não precisam da margem deles: a folha já dá */
 .folheto__folha > :first-child { margin-top: 0; }
 .folheto__folha > :last-child { margin-bottom: 0; }
 
-/*
- * No celular a folha vai até a borda da coluna, e o respiro de dentro encolhe.
- *
- * Era recuo em cima de recuo: a moldura já afasta 18,4px de cada lado e a
- * folha afastava os mesmos 18,4px de novo, mais 17,6px de respiro interno.
- * Num aparelho de 375px sobravam 264px de texto, e era por isso que o latim e
- * a tradução não cabiam lado a lado. Desfeito o recuo duplo e apertado o
- * respiro, sobram 311px — os 47px que faltavam às duas colunas.
- *
- * O tracejado continua a 5px do contorno, com 8,6px até a primeira linha.
- */
 @media (max-width: 55.99rem) {
   .folheto {
     margin-inline: 0;
@@ -5088,7 +4118,6 @@ button {
   }
 }
 
-/* "Obra indulgenciada": o gênero da folha, como no alto do impresso */
 .folheto__chapeu {
   margin: 0 0 1.1rem;
   text-align: center;
@@ -5109,14 +4138,6 @@ button {
   border: 1px solid var(--fio);
 }
 
-/*
- * A abertura do próprio: data, nome e grau logo abaixo da estampa.
- *
- * Centrada e serifada, como no missal. A estampa encosta nela — daí o
- * negativo, que desfaz a margem de baixo da figura: no impresso o nome vem
- * colado na moldura, e um vão de 1.3rem entre os dois os separaria em duas
- * coisas.
- */
 .folheto__abertura {
   margin: -0.7rem 0 1.5rem;
   text-align: center;
@@ -5138,7 +4159,6 @@ button {
   color: var(--tinta);
 }
 
-/* "Estação em Santa Maria Maior": a igreja de Roma da Missa do dia, sob o grau. */
 .folheto__estacao {
   margin: 0.1rem 0 0;
   font-family: var(--serifada);
@@ -5147,7 +4167,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/* A linha de grau e cor, que no impresso é menor que o nome e não é título. */
 .folheto__grau {
   margin: 0;
   font-family: var(--serifada);
@@ -5155,13 +4174,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * A obra indulgenciada: o que se tem de fazer.
- *
- * Vermelha e em itálico como no impresso, mas sem o sinal ℞ do bloco de
- * rubrica: rubrica diz gesto e posição, e aqui o que se afirma é o que a
- * Igreja concede.
- */
 .folheto__obra {
   margin: 0 0 0.7rem;
   text-align: center;
@@ -5171,7 +4183,6 @@ button {
   margin-inline: auto;
 }
 
-/* "Concessão nº 2 do Enchiridion": quem concedeu, miúdo e centrado */
 .folheto__concessao {
   margin: 0 0 1.5rem;
   text-align: center;
@@ -5181,12 +4192,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * As condições ordinárias, no pé da folha.
- *
- * Fio em cima em vez de caixa própria: caixa dentro de caixa, com o
- * tracejado da moldura por perto, vira três molduras aninhadas em 390px.
- */
 .folheto__condicoes {
   margin-top: 1.8rem;
   padding-top: 1.3rem;
@@ -5206,12 +4211,6 @@ button {
   font-size: 0.92rem;
 }
 
-/* o gênero, no índice dos folhetos */
-/*
- * O elo do arquivo fica fora da folha e colado embaixo dela, como legenda:
- * dentro ele seria lido como parte do impresso, e separado por um respiro
- * grande pareceria pertencer ao que vem depois, que é o rodapé do site.
- */
 .folheto__arquivo {
   display: flex;
   flex-wrap: wrap;
@@ -5240,14 +4239,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * Na tela larga a folha ganha medida própria e para de crescer.
- *
- * O resto do site segura o texto em --medida-leitura, que é de prosa corrida.
- * A folha tem a oração em duas colunas dentro dela, e cada coluna precisa da
- * sua medida: apertada na largura da prosa, o latim quebra a cada três
- * palavras.
- */
 @media (min-width: 56rem) {
   .folheto {
     max-width: 52rem;
@@ -5259,47 +4250,17 @@ button {
   }
 }
 
-/*
- * O próprio na tela larga usa a largura da página. A medida de 52rem foi
- * feita para a oração das indulgências; o próprio tem as duas colunas, e em
- * 52rem cada uma ficava com uns 38 caracteres, com a página vazia dos lados.
- * No celular nada muda: a regra é só daqui para cima.
- */
 @media (min-width: 56rem) {
   .folheto--proprio {
     max-width: 72rem;
   }
 }
 
-/* ----------------------------------------------- o próprio da Missa, na folha
- *
- * "Gostaria de dar uma melhorada na parte visual dos folhetos dos próprios,
- * ajustar os títulos (...) fazer umas letras capitulares na primeira letra do
- * intróito, das orações, do evangelho, e colocar os v e r estilizados em
- * vermelho, bem como as letras capitulares em vermelho também para dar um
- * destaque. Deixar bem sofisticado."
- *
- * O que se imita é o missal, não o PDF: a folha do site é escura por padrão,
- * e a segunda tinta é o que faz a página de missal ser o que é. Capitular
- * vermelha abrindo cada peça, título centrado em versalete, ℣ e ℟ vermelhos.
- */
-
-/*
- * O ℣ e o ℟, em toda parte.
- *
- * Fora do folheto também: no Enchiridion e no guia eles são o mesmo sinal, e
- * a segunda tinta é deles por direito. Não ganham negrito — no missal a cor
- * já é o destaque, e negrito sobre vermelho num corpo pequeno borra.
- */
 .sinal-de-verso {
   color: var(--rubrica);
   font-feature-settings: normal;
 }
 
-/*
- * A resposta do povo no Ordinário: o ℟ sai para a margem e o texto alinha
- * depois dele.
- */
 .paragrafo--resposta {
   position: relative;
   padding-left: 1.7em;
@@ -5320,22 +4281,6 @@ button {
   color: var(--rubrica);
 }
 
-/*
- * A capitular que abre cada peça do próprio.
- *
- * Em `::first-letter`, e não numa marca no texto: o texto sai do PDF pelo
- * gerador, e pedir que ele marque a primeira letra de cada peça seria mais
- * uma coisa para a próxima remessa quebrar calada. A letra que abre o
- * parágrafo é a letra que abre o parágrafo, e o navegador sabe qual é.
- *
- * Só no primeiro parágrafo de cada lado, que num próprio é o único: a peça
- * tem um bloco bilíngue por título, e abre uma vez. `:first-child` garante
- * isso se um dia vier com dois.
- *
- * O float é o que faz a letra descer pelas linhas em vez de só crescer. Não
- * desencontra as colunas: o subgrid dá à faixa a altura do mais alto dos dois
- * lados, e os dois têm capitular.
- */
 .folheto--proprio .bilingue__lado > .paragrafo:not(.paragrafo--resposta):first-child::first-letter {
   float: left;
   margin: 0.08em 0.1em 0 0;
@@ -5345,23 +4290,12 @@ button {
   color: var(--rubrica);
 }
 
-/*
- * No celular a coluna tem uns 147px. Capitular de três linhas ali come a
- * largura da coluna inteira, e as duas primeiras linhas sairiam com três
- * palavras. Desce para pouco mais de duas linhas.
- */
 @media (max-width: 55.99rem) {
   .folheto--proprio .bilingue__lado > .paragrafo:not(.paragrafo--resposta):first-child::first-letter {
     font-size: 2.1em;
   }
 }
 
-/*
- * Como cada peça se abre. O tipo vem do nome do subtítulo (`tipoDaPeca`), e
- * o grupo da peça leva `peca--<tipo>`.
- *
- * Intróito: a capitular é a maior da folha, porque é a que abre a Missa.
- */
 .folheto--proprio .peca--introito .bilingue__lado > .paragrafo:first-child::first-letter {
   font-size: 3.2em;
 }
@@ -5371,15 +4305,6 @@ button {
   }
 }
 
-/*
- * Gradual, Aleluia, Tracto, Ofertório e Comunhão: sem capitular. Fica só a
- * inicial vermelha, no tamanho do texto.
- *
- * Na Epístola e no Evangelho a primeira linha é a fórmula ("Lectio Epístolæ…",
- * "Sequéntia sancti Evangélii…"), que se identifica e não se capitula: a
- * inicial é vermelha e do tamanho do corpo, e a capitular passa para o
- * segundo parágrafo, o texto propriamente dito ("Fratres", "In illo témpore").
- */
 .folheto--proprio .peca--cantada .bilingue__lado > .paragrafo:first-child::first-letter,
 .folheto--proprio .peca--leitura .bilingue__lado > .paragrafo:first-child::first-letter {
   float: none;
@@ -5403,12 +4328,6 @@ button {
   }
 }
 
-/*
- * O Evangelho dentro do Ordinário: a fórmula ("Sequéntia sancti Evangélii…")
- * já está na linha do Ordinário, e o próprio abre direto pelo "In illo
- * témpore". É esse primeiro parágrafo que leva a capitular, no lugar do
- * segundo.
- */
 .folheto--proprio .peca--abertura-fora .bilingue__lado > .paragrafo:first-child::first-letter {
   float: left;
   margin: 0.08em 0.1em 0 0;
@@ -5423,22 +4342,10 @@ button {
   }
 }
 
-/* A segunda tinta em trecho solto: o N. do Papa, por exemplo. */
 .segunda-tinta {
   color: var(--rubrica);
 }
 
-/*
- * O título da peça: Intróito, Oração, Epístola, Evangelho.
- *
- * Centrado e em versalete, com o fio de cada lado, que é como o missal
- * anuncia a peça. Era o subtítulo comum das páginas de texto, alinhado à
- * esquerda e em corpo grande, e numa folha de duas colunas ele parecia
- * título de seção de artigo.
- *
- * O primeiro não leva a margem de cima: logo acima dele está o chapéu ou a
- * estampa, que já afastam.
- */
 .folheto--proprio .subtitulo {
   display: flex;
   align-items: center;
@@ -5459,13 +4366,6 @@ button {
   background: var(--fio);
 }
 
-/*
- * A rubrica dentro do próprio, que é a linha em itálico que o PDF traz entre
- * as peças: "Faz-se a comemoração segundo o tempo". Centrada, porque na folha
- * ela é aviso e não parágrafo, e sem o ℞ do bloco de rubrica das páginas de
- * estudo — aqui a página inteira é texto de Missa, e o sinal repetido vira
- * ruído.
- */
 .folheto--proprio .rubrica {
   text-align: center;
   margin-inline: auto;
@@ -5474,15 +4374,6 @@ button {
   content: none;
 }
 
-/* ------------------------------------------------- calendários vinculados
- *
- * O Apostolado mantém seis calendários no Google além do que este site
- * calcula: o dele e os das confrarias e ordens terceiras. Até agora eram só
- * botão de assinar. O Perez pediu para poder ligá-los e desligá-los e ver
- * tudo numa grade só.
- *
- * Caixas de seleção, e não abas: aba troca, caixa soma, e somar é o pedido.
- */
 .agendas-na-grade {
   margin: 1.35rem 0 0;
   padding: 0.8rem 0.9rem;
@@ -5512,14 +4403,12 @@ button {
 }
 .agendas-na-grade__item {
   display: grid;
-  /* caixa, bolinha da cor e nome */
   grid-template-columns: auto auto 1fr;
   align-items: start;
   gap: 0.5rem;
   font-size: 0.9rem;
   cursor: pointer;
 }
-/* 44px de alvo no celular, que é o mínimo para o dedo não errar a vizinha */
 .agendas-na-grade__item input {
   width: 1.05rem;
   height: 1.05rem;
@@ -5529,12 +4418,6 @@ button {
 .agendas-na-grade__nome {
   line-height: 1.3;
 }
-/*
- * A bolinha ao lado do nome: é aqui que a cor da grade se aprende.
- *
- * Maior que a da casa do dia, que é miúda por força do espaço. Alinhada pelo
- * topo da primeira linha, para não descer ao centro quando o nome dobra.
- */
 .agendas-na-grade__cor {
   width: 0.5rem;
   height: 0.5rem;
@@ -5543,7 +4426,6 @@ button {
   background: var(--tinta-suave);
 }
 
-
 .agendas-na-grade__aviso {
   margin: 0.7rem 0 0;
   font-size: 0.85rem;
@@ -5551,19 +4433,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * Na casa do dia: uma marca por agenda que tem algo ali, na cor dela.
- *
- * Eram todas cinza. O Perez pediu cor por associação — "pra pessoa conseguir
- * identificar fácil qual é" — e escolheu quais: o marrom do hábito para o
- * Carmo e para a Franciscana, o cinza para a Dominicana, o branco do cordão
- * para a Arquiconfraria, o vermelho do Sagrado Coração para o Apostolado da
- * Oração. As mesmas bolinhas aparecem ao lado do nome no seletor, e é lá que
- * se aprende qual é qual: na grade, sozinhas, elas seriam charada.
- *
- * Cresceram de 0,24 para 0,34rem no mesmo movimento. Cor que não se distingue
- * não informa, e a 4px dois marrons eram o mesmo marrom.
- */
 .agendas-na-grade__bandeiras {
   display: flex;
   gap: 0.14rem;
@@ -5580,19 +4449,11 @@ button {
 .agendas-na-grade__ponto--franciscana { background: var(--agenda-franciscana); }
 .agendas-na-grade__ponto--dominicana { background: var(--agenda-dominicana); }
 .agendas-na-grade__ponto--arquidiocese { background: var(--agenda-arquidiocese); }
-/* o branco do cordão some sobre o papel: só o contorno o faz existir */
 .agendas-na-grade__ponto--cordao {
   background: var(--agenda-cordao);
   box-shadow: 0 0 0 1px var(--tinta-suave);
 }
 
-/*
- * O bloco dos vinculados fica à parte das indulgências de cima.
- *
- * As de cima este site calcula e responde por elas. Estas vêm do calendário
- * que a associação mantém, com o texto que ela escreveu. Numa lista só, o
- * leitor cobraria deste site a exatidão do que é de outro.
- */
 .vinculados {
   margin: 1.4rem 0 0;
   padding-top: 1rem;
@@ -5608,13 +4469,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * As igrejas do dia, na Arquidiocese.
- *
- * Lista sem marcador e um pouco menor que o corpo: em 8 de dezembro são onze
- * paróquias numa casa só, e com bolinha e tamanho de parágrafo o detalhe do
- * dia virava uma página de nomes.
- */
 .arquidiocese-dia__igrejas {
   list-style: none;
   margin: 0.3rem 0 0;
@@ -5625,14 +4479,12 @@ button {
   color: var(--tinta-suave);
 }
 
-/* "Fundador da Companhia de Jesus": só as Ordens a têm */
 .arquidiocese-dia__instituicao {
   margin: 0.2rem 0 0;
   font-size: 0.92rem;
   font-style: italic;
 }
 
-/* "Do Apostolado" / "Das confrarias e ordens terceiras" */
 .agendas-na-grade__grupo + .agendas-na-grade__grupo {
   margin-top: 0.8rem;
   padding-top: 0.7rem;
@@ -5646,24 +4498,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/* =========================================================== modo missa
- *
- * O Ordinário inteiro para acompanhar o celebrante, com o próprio do dia
- * encaixado nele. Quem lê isto está de pé num banco, segurando o celular
- * com uma mão: os alvos são grandes, o texto é maior que o do site e nada
- * pede precisão de dedo.
- */
-
-/* O botão que leva até lá, nas duas faixas de calendário. */
-/*
- * Os dois caminhos que saem da faixa do dia: a Missa de hoje e o ano inteiro.
- *
- * Numa linha só, com folga entre os dois, e quebrando quando não couber. Soltos
- * como irmãos em linha, cada um com sua margem, eles se encostavam: o botão é
- * caixa e o elo é texto sublinhado, e o espaço entre palavras não separa uma
- * coisa da outra. A margem de cima é daqui, e não deles, para a linha subir e
- * descer inteira.
- */
 .dia__acoes {
   display: flex;
   flex-wrap: wrap;
@@ -5713,13 +4547,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * O aviso de que o próprio deste dia ainda não está transcrito.
- *
- * Fica dito, e não escondido: quem abre o modo missa num dia desses precisa
- * saber que vai ter de virar para o papel nos dez lugares, e é melhor saber
- * antes do Intróito do que no meio dele.
- */
 .modo-missa__aviso {
   margin: 0 0 1rem;
   padding: 0.65rem 0.8rem;
@@ -5729,13 +4556,6 @@ button {
   color: var(--tinta-suave);
 }
 
-/*
- * A lista de seções, que rola de lado.
- *
- * Treze seções não cabem empilhadas sem empurrar o texto para fora da
- * primeira tela, e são elas o modo de andar pela Missa: ficam numa faixa
- * só, rolando na horizontal, com a atual marcada.
- */
 .modo-missa__secoes {
   display: flex;
   gap: 0.4rem;
@@ -5769,7 +4589,6 @@ button {
   font-weight: 600;
 }
 
-/* O que não se reza acompanhando o celebrante: antes e depois da Missa. */
 .modo-missa__secao--fora {
   font-style: italic;
   opacity: 0.8;
@@ -5782,13 +4601,6 @@ button {
   color: var(--tinta);
 }
 
-/*
- * O lugar do próprio dentro do Ordinário.
- *
- * O fio dourado à esquerda é o que diz, sem uma palavra a mais, que aquele
- * trecho é do dia e não do Ordinário: o leitor que acompanhou a Missa uma
- * vez já sabe onde o texto muda todo domingo.
- */
 .proprio {
   margin: 1.4rem 0;
   padding-left: 0.9rem;
@@ -5799,18 +4611,12 @@ button {
   margin-top: 1.2rem;
 }
 
-/* "Ordo Missæ", sob o título */
 .modo-missa__subtitulo {
   margin: -0.1rem 0 0.6rem;
   font-size: 0.95rem;
   color: var(--tinta-suave);
 }
 
-/*
- * A página única: as partes da Missa uma atrás da outra, sem cortes. O
- * `scroll-margin-top` é a barra do alto, que cobriria o título da parte para
- * onde a lista de partes leva.
- */
 .ordinario__secao {
   scroll-margin-top: 4.5rem;
 }
@@ -5818,13 +4624,6 @@ button {
   margin-top: 2.4rem;
 }
 
-/*
- * As duas escolhas do fiel: o que ler, e se quer as rubricas.
- *
- * Botões de alternância, e não caixas de seleção, porque a escolha da voz é
- * entre duas coisas (uma sempre vale) e a das rubricas liga e desliga. Os
- * dois com a altura de toque: quem está na capela usa o dedão.
- */
 .leitura {
   display: flex;
   flex-wrap: wrap;
@@ -5859,26 +4658,10 @@ button {
   opacity: 0.8;
 }
 
-/*
- * Sem rubricas: as do próprio do dia também saem ("Faz-se a comemoração
- * segundo o tempo"), que vêm de dentro do folheto e não passam pelo filtro
- * do Ordinário. A remissão "Ver a Missa do dia" fica: é um caminho, não uma
- * explicação.
- */
 .ordinario--sem-rubricas .proprio:not(.proprio--vazio) .rubrica {
   display: none;
 }
 
-/*
- * A postura do fiel, no ponto em que ela muda: a figura e o nome, numa linha
- * só. Quando a rezada e a cantada divergem, as duas lado a lado.
- */
-/*
- * O trecho de uma postura: um filete à esquerda cerca tudo o que se faz nela,
- * e o aviso, no alto, fica preso sob a barra enquanto o trecho passa. O traço
- * muda com a postura, e não só a cor: cheio e grosso de joelhos, pontilhado
- * sentados, fino de pé.
- */
 .trecho {
   margin: 0.6rem 0 1.2rem;
   padding-left: 0.75rem;
@@ -5894,7 +4677,6 @@ button {
   border-left: 4px double var(--ouro);
 }
 @media (max-width: 45.99rem) {
-  /* no celular o filete vai para a margem: as duas colunas não perdem largura */
   .trecho {
     margin-left: -0.7rem;
     padding-left: 0.45rem;
@@ -5902,7 +4684,6 @@ button {
 }
 .postura {
   position: sticky;
-  /* a barra tem um fio embaixo, que cortava o alto do aviso */
   top: calc(var(--altura-barra) + 0.25rem);
   z-index: 2;
   display: flex;
@@ -5942,11 +4723,6 @@ button {
   stroke-linejoin: round;
 }
 
-/*
- * A parte que se abre e se fecha: a oração preparatória, a aspersão, o
- * incenso, as Leoninas, a ação de graças. `<details>`, como no calendário: a
- * seta é a do navegador, abre sem script e o leitor de tela anuncia o estado.
- */
 .opcional {
   margin: 1.6rem 0;
   padding-top: 1.2rem;
@@ -5954,7 +4730,6 @@ button {
 }
 .opcional__resumo {
   cursor: pointer;
-  /* a seta entra na linha: o título e o que se abre começam onde ela começa */
   list-style-position: inside;
   padding: 0.15rem 0;
 }
@@ -5986,7 +4761,6 @@ button {
   color: var(--tinta);
 }
 
-/* a linha que um elo procura não fica escondida sob o alto da página */
 .tabela tr[id] {
   scroll-margin-top: 5rem;
 }

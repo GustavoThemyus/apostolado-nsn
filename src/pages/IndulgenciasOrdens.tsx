@@ -3,7 +3,6 @@ import { AssinarEsta } from "../components/AssinarAgenda";
 import { comoConteudo } from "../data/carregar";
 import { PaginaDeDocumento } from "./PaginaDeDocumento";
 
-/** A agenda de cada associação, pelo id da seção que fala dela. */
 const AGENDA_DA_SECAO: Record<string, string> = {
   "apostolado-da-oracao": "apostolado-oracao",
   "confraria-do-escapulario-do-carmo": "escapulario",

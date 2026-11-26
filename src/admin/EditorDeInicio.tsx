@@ -7,13 +7,6 @@ import { Botao, Campo, Linha } from "./Campos";
 import { ListaDeBlocos } from "./EditorDeDocumento";
 import { mover } from "./mover";
 
-/**
- * A página inicial.
- *
- * É a que mais muda de semana para semana, por causa do mural: por isso os
- * avisos vêm primeiro, antes da apresentação e dos padroeiros, que mudam uma
- * vez por ano.
- */
 export interface PaginaInicial {
   titulo: string;
   descricao: string;

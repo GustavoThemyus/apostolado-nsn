@@ -6,19 +6,6 @@ import { mover } from "./mover";
 import { Paleta } from "./Paleta";
 import { novoId, type NomeDeTipo } from "./tiposDeBloco";
 
-/**
- * O editor das páginas de texto: título, descrição e as seções.
- *
- * Serve os onze documentos de forma `documento`, do guia da Missa ao
- * calendário arquidiocesano. Antes era o painel inteiro, preso ao guia por um
- * `documento=guia` escrito à mão no meio do componente.
- *
- * Trabalha sempre sobre o objeto carregado, com espalhamento, e nunca o
- * reconstrói campo a campo: documento com chave que o editor não conhece —
- * `notas`, `epigrafe`, `emPreparacao` — tem de atravessar a edição inteiro.
- * Montar um objeto novo com os campos conhecidos apagaria as 49 notas do
- * calendário arquidiocesano no primeiro salvamento.
- */
 export function EditorDeDocumento({
   conteudo,
   aoMudar,
@@ -147,7 +134,6 @@ function EditorDeSecao({
   );
 }
 
-/** Os blocos de uma seção, de uma folha, ou de dentro de um passo. */
 export function ListaDeBlocos({
   blocos,
   aoMudar,
@@ -155,13 +141,6 @@ export function ListaDeBlocos({
 }: {
   blocos: Bloco[];
   aoMudar: (b: Bloco[]) => void;
-  /**
-   * Tipos que não cabem aqui.
-   *
-   * Passo dentro de passo não existe na página. E o índice e o passo não
-   * cabem num folheto: os dois leem de cima — as seções do documento, a
-   * numeração das peças — e a folha não tem nem uma nem outra.
-   */
   excluir?: NomeDeTipo[];
 }) {
   const [criando, definirCriando] = useState(false);

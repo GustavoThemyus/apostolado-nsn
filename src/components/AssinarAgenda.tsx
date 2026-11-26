@@ -1,16 +1,6 @@
 import { site } from "../data/site";
 import type { Agenda } from "../data/tipos";
 
-/**
- * Botões para vincular um calendário do Google ao aparelho do fiel.
- *
- * São dois links externos e nada mais: nada de iframe, que é pesado, ignora
- * os tokens do tema e é ruim no celular. O calendário do site continua sendo
- * o nosso; estes são adicionais, e não substituem nada.
- *
- * Só funciona com calendário público: convite por e-mail é compartilhamento
- * privado e não serve para visitante anônimo.
- */
 export function Linha({ agenda }: { agenda: Agenda }) {
   const id = encodeURIComponent(agenda.google);
   const noGoogle = `https://calendar.google.com/calendar/render?cid=${id}`;
@@ -23,7 +13,6 @@ export function Linha({ agenda }: { agenda: Agenda }) {
         {agenda.descricao && <span className="agenda__descricao">{agenda.descricao}</span>}
       </div>
       <div className="agenda__acoes">
-        {/* rel=external mantém o interceptador do router longe destes links */}
         <a className="botao-agenda" href={noGoogle} target="_blank" rel="external noreferrer">
           Google Agenda
         </a>
@@ -35,7 +24,6 @@ export function Linha({ agenda }: { agenda: Agenda }) {
   );
 }
 
-/** O convite de uma agenda só, no fim do texto de que ela trata. */
 export function AssinarEsta({ id }: { id: string }) {
   const agenda = site.agendas.find((a) => a.id === id && a.google);
   if (!agenda) return null;
@@ -59,7 +47,6 @@ export function AssinarAgenda({
   grupo: Agenda["grupo"];
   titulo: string;
   explicacao?: string;
-  /** Para poder ser apontada de outro ponto da página. */
   ancora?: string;
 }) {
   const agendas = site.agendas.filter((a) => a.grupo === grupo && a.google);

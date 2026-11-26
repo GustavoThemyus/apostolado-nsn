@@ -1,24 +1,11 @@
-# Worker que serve o site e a API do painel.
-# Publica em https://ansn.com.br
-#
-# Manualmente:  npm run publicar
-# Automático:   repositório conectado em Workers Builds, no painel.
-
 name = "apostolado-nsn"
 main = "worker/index.ts"
 compatibility_date = "2026-09-03"
 
-# A conta do Apostolado, e não a pessoal. O domínio personalizado de um Worker
-# só alcança zona da mesma conta, e `ansn.com.br` mora nesta:
 account_id = "c23ff08c6635b3e1d1676bc86ed42d60"
 
-# Sem endereço em workers.dev: o site tem domínio próprio, e um segundo
-# endereço servindo o mesmo conteúdo só dividiria o que os buscadores veem.
 workers_dev = false
 
-# O `www` também entra como domínio do Worker, e não como um CNAME solto: o
-# apex é domínio de Worker, e uma requisição com Host `www` não casaria com
-# ele. Quem manda o `www` para o apex é o próprio Worker, em worker/index.ts.
 routes = [
   { pattern = "ansn.com.br", custom_domain = true },
   { pattern = "www.ansn.com.br", custom_domain = true },
@@ -27,35 +14,12 @@ routes = [
 [assets]
 directory = "./dist"
 binding = "ASSETS"
-# Quem devolve o index para as rotas do site é o Worker, e não o armazém.
-# Com "single-page-application" aqui, **todo** caminho inventado recebia o
-# index com status 200, e buscador indexa o que a gente promete que existe.
 not_found_handling = "none"
 
-# O Worker roda antes do armazém de ativos.
-#
-# Sem isto, todo caminho que casa com um arquivo de verdade é servido direto,
-# e o Worker nem é chamado. Medido: `www.ansn.com.br/missa/guia` redirecionava,
-# mas `www.ansn.com.br/` devolvia 200 e servia o site inteiro, porque `/` casa
-# com o index.html. O endereço que as pessoas compartilham era exatamente o
-# que escapava do redirecionamento.
-#
-# O preço é uma invocação de Worker por arquivo. Para o tamanho deste site
-# isso cabe de sobra no plano gratuito, e deixa a regra morando no repositório
-# em vez de escondida numa tela do painel.
 run_worker_first = true
 
 [vars]
-# O time do Zero Trust da conta do Apostolado. O Worker busca as chaves
-# públicas em https://<time>.cloudflareaccess.com/cdn-cgi/access/certs para
-# conferir a assinatura do token do Access.
 ACCESS_TEAM = "apostolado-nsn"
-# A AUD Tag da aplicação do Access que protege /admin. O Worker confere que
-# o token foi emitido para esta aplicação, e não para outra do mesmo time:
-# sem isso, um token de qualquer aplicação da conta abriria o painel.
 ACCESS_AUD = "0642f55b879542a13ae862fba2e6802382cdd8e23ea1b491ffcec39a55235cac"
 GITHUB_REPO = "GustavoThemyus/apostolado-nsn"
 GITHUB_RAMO = "main"
-
-# GITHUB_TOKEN é segredo, não vai aqui:
-#   npx wrangler@4.85.0 secret put GITHUB_TOKEN

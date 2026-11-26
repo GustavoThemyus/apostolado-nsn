@@ -1,55 +1,25 @@
-"""
-Importa o Ordo da capela para `src/data/ordo-pre55.json`.
-
-O calendário anterior à reforma de 1955 não é calculado como o de 1962: ele é
-copiado do Ordo que a própria capela publica, dia a dia, num calendário do
-Google. A razão é simples — esse Ordo traz o que motor nenhum produziria: o
-grau no vocabulário pré-55, a Missa, as comemorações, o Prefácio, as rubricas
-do dia, as Missas permitidas, o próprio da Arquidiocese da Paraíba e as
-transferências que o redator anotou à mão.
-
-Cobre o ano que a capela publicou. Fora dele o site diz que não há Ordo, em
-vez de adivinhar.
-
-    python3 importar.py            # usa ordo.ics se existir, senão baixa
-    python3 importar.py --baixar   # busca de novo, para o ano novo
-    python3 conferir.py            # confere o JSON contra o .ics
-"""
 import json, os, re, sys, urllib.request
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(os.path.dirname(AQUI))
-# Uma agenda por ano: "ordo" é a de 2026; as outras se pedem pelo id do
-# site.json, como em `--agenda=ordo-2027`.
 AGENDA = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--agenda=")), "ordo")
 
 ICS = os.path.join(AQUI, f"{AGENDA}.ics")
 
-# De 2027 em diante o Perez mantém duas agendas: a do público, que é a do
-# botão de assinar e mora no site.json, e a "base para o site", enxuta e
-# regular, que é a única que se importa.
 BASE = {
     "ordo-2027": "69b23a6c838c00407047267174ead1681f293ee619475fb22f3ee5736862b7ec"
                  "@group.calendar.google.com",
 }
-# Um arquivo por ano, e não um só: são 27 KB comprimidos por ano, e a página
-# só baixa o ano que o leitor está vendo — e só se ele pedir o pré-55.
 PASTA = os.path.join(RAIZ, "src", "data", "ordo")
 
-# O Ordo marca a cor com um círculo colorido no começo do título. O amarelo é
-# o ouro, que a rubrica permite no lugar do branco nas solenidades; o site tem
-# seis cores litúrgicas e não tem ouro, então ele entra como branco — que é o
-# que a própria cabeça do dia diz, e isso é conferido adiante.
 CORES = {"⚪": "branco", "🟡": "branco", "🔴": "vermelho",
          "🟢": "verde", "🟣": "roxo", "⚫": "preto", "🩷": "rosa"}
 
-# Para conferir o círculo contra a cor escrita por extenso na cabeça do dia.
 ESCRITA = {"branco": "branc", "vermelho": "vermelh", "verde": "verde",
            "roxo": "rox", "preto": "pret", "rosa": "róse"}
 
 
 def id_do_ordo():
-    """A agenda base, quando há; senão, a que o site.json oferece."""
     if AGENDA in BASE:
         return BASE[AGENDA]
     with open(os.path.join(RAIZ, "src", "data", "site.json"), encoding="utf-8") as f:
@@ -70,11 +40,6 @@ def baixar():
 
 
 def desdobrar(texto):
-    """
-    O iCalendar corta linhas longas e continua na seguinte com um espaço. Já
-    tropecei aqui: procurei a dobra como "\\r\\n " e este arquivo usa "\\n ",
-    de modo que nada se desdobrava e os nomes chegavam cortados no meio.
-    """
     return re.sub(r"\r?\n[ \t]", "", texto)
 
 
@@ -84,14 +49,6 @@ def desescapar(texto):
 
 
 def ler_anexos(evento):
-    """
-    Os PDF do próprio da Missa, que o redator anexa ao dia no Google Agenda.
-    São 92 dias em 2026 — os domingos e as festas maiores, por enquanto.
-
-    O Natal traz três, um para cada Missa; a Epifania traz o próprio e a
-    Publicatio Paschae. Por isso cada um guarda o nome do arquivo: com mais de
-    um, dizer só "o próprio da Missa" esconderia de qual deles se trata.
-    """
     anexos = []
     for parametros, url in re.findall(r"\r?\nATTACH([^:]*):(\S+)", evento):
         nome = re.search(r"FILENAME=([^;:]+)", parametros)
@@ -107,10 +64,6 @@ def campo(evento, nome):
                        evento, re.S)
     return desescapar(achado.group(1)).strip() if achado else ""
 
-
-# O Ordo diz, com estas palavras, quando é dia de abstinência. Sai daqui, e
-# não de regra deduzida: o Brasil tem indulto próprio, e o que a capela segue
-# está escrito no Ordo dela.
 PENITENCIA = [
     (re.compile(r"dispensada a abstinência", re.I), "dispensada"),
     (re.compile(r"jejum e abstinência", re.I), "jejum-e-abstinencia"),
@@ -119,19 +72,6 @@ PENITENCIA = [
 
 
 def cabeca_e_resto(corpo):
-    """
-    A cabeça do dia e o que vem depois dela.
-
-    A cabeça é a linha do travessão — "<grau> – cor <cor>" —, e quase sempre é
-    a primeira do texto. Em cinco dias de 2026 o Perez pôs o patrocínio
-    ("Padroeira principal do país", "Titular da Igreja Catedral…") em linha
-    própria antes dela, e não colado no grau como nos outros dias.
-
-    Aqui os dois voltam a ser uma linha só, com vírgula. Quem os separa de
-    novo é `patrocinioDoGrau`, do lado do site, e ele espera o patrocínio na
-    frente do grau — que é como o Ordo escrevia antes. Sem isto, a cabeça
-    seria a linha do patrocínio: o grau sumiria e a cor não se confirmaria.
-    """
     linhas = corpo.split("\n")
     i = next((n for n, l in enumerate(linhas) if "–" in l), 0)
     antes = [l.strip() for l in linhas[:i] if l.strip()]
@@ -145,13 +85,8 @@ def ler_penitencia(partes):
             return nome
     return None
 
-
-# --- o formato de 2027: um campo por linha, uma Missa por bloco ------------
-
-# As duas frases que abrem outra Missa no mesmo dia, em linha própria.
 SEPARADOR = re.compile(r"^[ \t]*(É possível também celebrar|Na Igreja universal):[ \t]*$", re.M)
 CAMPOS = {"Subtítulo": "subtitulo", "Grau": "grau", "Rito": "rito", "Cor": "cor"}
-# a linha que só anuncia a penitência: é do dia, e não de uma das Missas
 SO_PENITENCIA = re.compile(r"^(Dia de (jejum e )?abstinência|Hoje é dispensada a Abstinência de carne)$", re.I)
 
 
@@ -160,11 +95,6 @@ def eh_formato_novo(corpo):
 
 
 def paragrafos(linhas):
-    """
-    Separa por linha em branco e antes de cada ➢. Dentro do parágrafo a quebra
-    é só do editor do Google — chegou a partir "Último / Evangelho" ao meio —,
-    e por isso vira espaço.
-    """
     blocos, atual = [], []
     for linha in [*linhas, ""]:
         limpa = linha.strip()
@@ -177,7 +107,6 @@ def paragrafos(linhas):
 
 
 def ler_missa(linhas, onde, problemas):
-    """A cabeça (Subtítulo, Grau, Rito, Cor) e o que vem depois dela."""
     missa, i = {}, 0
     while i < len(linhas):
         linha = linhas[i].strip()
@@ -189,7 +118,6 @@ def ler_missa(linhas, onde, problemas):
         elif linha.lower() == "dia santo de guarda":
             missa["guarda"] = True
         elif linha.endswith(":"):
-            # "Próprio do Brasil:", "Quatro Têmporas da Quaresma:"
             missa["proprio"] = linha.rstrip(":").strip()
         else:
             problemas.append(f"{onde}: linha desconhecida na cabeça: {linha!r}")
@@ -205,7 +133,6 @@ def ler_missa(linhas, onde, problemas):
         problemas.append(f"{onde}: cor desconhecida: {escrita!r}")
         return None
     missa["cor"] = achada
-    # só entra escrita quando diz mais do que o nome da cor
     if not re.fullmatch(r"\w+", escrita):
         missa["cores"] = escrita
 
@@ -243,11 +170,6 @@ def ler_dia_novo(nome, corpo, data, problemas):
 
 
 def eh_lembrete(evento):
-    """
-    Anotação posta na mesma agenda, e que não é dia do Ordo: não tem texto, nem
-    anexo, nem o círculo de cor. Não vai para o site. As três coisas juntas,
-    para um dia do Ordo que perca uma delas continuar parando a importação.
-    """
     titulo = campo(evento, "SUMMARY")
     return bool(titulo) and not (titulo[0] in CORES or campo(evento, "DESCRIPTION")
                                  or "\nATTACH" in evento)
@@ -290,12 +212,9 @@ def ler(dados):
             problemas.append(f"{data}: círculo {cor!r} não bate com {frase!r}")
 
         dia = {"nome": nome, "cor": cor, "grau": grau}
-        # "dia santo de guarda" vem colado na cor; é dado, não enfeite
         frase, _, cauda = frase.partition(":")
         if cauda.strip():
             dia["guarda"] = cauda.strip() == "dia santo de guarda"
-        # a cor só entra escrita quando ela não é uma palavra só: os dias de
-        # duas cores e o róseo com o roxo por falta dele
         if not re.fullmatch(r"cor \w+", frase.strip()):
             dia["cores"] = frase.strip()
 
@@ -313,18 +232,6 @@ def ler(dados):
 
 
 def conferir_anexos(caminho, dias):
-    """
-    Não deixa uma importação apagar os PDF do próprio da Missa.
-
-    Em 28/09/2026 o Perez passou os calendários para o e-mail do Apostolado. O
-    texto dos 365 dias veio idêntico e os 92 anexos não vieram: mover eventos
-    no Google não leva os anexos junto. Reimportar por cima teria apagado do
-    site os links de "Confira o próprio da Missa", que ele mesmo pediu.
-
-    A trava fica aqui, e não só no conferir.py: lá ela compara o .ics com o
-    JSON publicado, e uma vez escrito o arquivo sem anexos os dois passam a
-    concordar em não ter nada.
-    """
     if not os.path.exists(caminho):
         return
     with open(caminho, encoding="utf-8") as f:
@@ -374,16 +281,6 @@ def principal():
 
 
 def escrever_indice():
-    """
-    O índice dos anos, gerado junto.
-
-    Podia ser `import.meta.glob`, que o Vite entende sozinho. Não é, porque o
-    `npm test` empacota os mesmos módulos com o esbuild puro, que não conhece
-    essa extensão: o teste quebraria por causa de uma comodidade de build.
-    Um módulo gerado é ESM comum e serve aos dois.
-    """
-    # todos os anos já gravados, e não só os desta importação: trazer 2027
-    # não pode tirar 2026 do índice
     anos, ate = [], {}
     for nome in sorted(os.listdir(PASTA)):
         if re.fullmatch(r"\d{4}\.json", nome):
@@ -393,21 +290,12 @@ def escrever_indice():
     linhas = [
         "// Gerado por ferramentas/ordo/importar.py. Não edite à mão.",
         "",
-        "/** Os anos que a capela já publicou. */",
         f"export const ANOS: number[] = [{', '.join(anos)}];",
         "",
-        "/** O último dia publicado de cada ano: um ano pode vir pela metade. */",
         "export const ATE: Record<number, string> = {",
         *[f'  {ano}: "{ate[ano]}",' for ano in anos],
         "};",
         "",
-        "/**",
-        " * Um arquivo por ano, carregado só quando o leitor pede o pré-55.",
-        " *",
-        " * O tipo aqui é `unknown` de propósito: o que o JSON garante é o",
-        " * importador, e quem confere é ferramentas/ordo/conferir.py. Declarar",
-        " * a forma aqui seria uma promessa que este arquivo não cumpre.",
-        " */",
         "export const ARQUIVOS: Record<number, () => Promise<{ default: unknown }>> = {",
         *[f"  {ano}: () => import(\"./{ano}.json\")," for ano in anos],
         "};",

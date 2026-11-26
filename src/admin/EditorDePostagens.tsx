@@ -4,12 +4,6 @@ import { Botao, Campo, Linha, Texto } from "./Campos";
 import { ListaDeBlocos } from "./EditorDeDocumento";
 import { mover } from "./mover";
 
-/**
- * As postagens: vidas de santos e escritos sobre a liturgia.
- *
- * O corpo usa a mesma lista de blocos das páginas de texto, com a mesma
- * paleta: uma postagem não tem motivo para ter formatação própria.
- */
 const CATEGORIAS: Postagem["categoria"][] = ["santo", "liturgia", "aviso"];
 const NOME_DA_CATEGORIA: Record<Postagem["categoria"], string> = {
   santo: "Vida de santo",
@@ -17,7 +11,6 @@ const NOME_DA_CATEGORIA: Record<Postagem["categoria"], string> = {
   aviso: "Aviso",
 };
 
-/** Endereço da postagem: sem acento, sem espaço, estável depois de publicada. */
 const comoEndereco = (titulo: string) =>
   titulo
     .normalize("NFD")
