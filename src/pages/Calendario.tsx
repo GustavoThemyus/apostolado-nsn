@@ -230,7 +230,7 @@ export default function Calendario() {
         <h2 className="agendas__titulo">O calendário no celular</h2>
         <ol className="lista">
           <li>Toque no <strong>+</strong>, no canto de baixo do calendário.</li>
-          <li>Escolha o ano e <strong>Google Agenda</strong>, ou <strong>Outro aplicativo</strong> no iPhone e no Outlook.</li>
+          <li>Escolha o ano e <strong>Google Agenda</strong>, ou <strong>Outro aplicativo</strong> para ver como assinar no iPhone e no Outlook.</li>
           <li>Confirme a inclusão. O calendário passa a se atualizar sozinho.</li>
         </ol>
       </section>

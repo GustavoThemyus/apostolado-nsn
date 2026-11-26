@@ -1,10 +1,23 @@
+import { useState } from "react";
 import { site } from "../data/site";
 import type { Agenda } from "../data/tipos";
 
 export function Linha({ agenda }: { agenda: Agenda }) {
   const id = encodeURIComponent(agenda.google);
   const noGoogle = `https://calendar.google.com/calendar/render?cid=${id}`;
-  const noAparelho = `webcal://calendar.google.com/calendar/ical/${id}/public/basic.ics`;
+  const endereco = `https://calendar.google.com/calendar/ical/${id}/public/basic.ics`;
+  const noAparelho = endereco.replace("https:", "webcal:");
+  const [aberto, definirAberto] = useState(false);
+  const [copia, definirCopia] = useState<"copiado" | "falhou">();
+
+  const copiar = async () => {
+    try {
+      await navigator.clipboard.writeText(endereco);
+      definirCopia("copiado");
+    } catch {
+      definirCopia("falhou");
+    }
+  };
 
   return (
     <li className="agenda">
@@ -16,10 +29,46 @@ export function Linha({ agenda }: { agenda: Agenda }) {
         <a className="botao-agenda" href={noGoogle} target="_blank" rel="external noreferrer">
           Google Agenda
         </a>
-        <a className="botao-agenda botao-agenda--secundario" href={noAparelho} rel="external">
+        <button
+          type="button"
+          className="botao-agenda botao-agenda--secundario"
+          aria-expanded={aberto}
+          onClick={() => definirAberto((a) => !a)}
+        >
           Outro aplicativo
-        </a>
+        </button>
       </div>
+      {aberto && (
+        <div className="agenda__outro">
+          <p>
+            No iPhone, toque em{" "}
+            <a className="elo-texto" href={noAparelho} rel="external">
+              abrir no calendário
+            </a>{" "}
+            e confirme a assinatura.
+          </p>
+          <p>
+            Se nada acontecer, copie o endereço abaixo e cole no seu aplicativo, na opção
+            de assinar um calendário por endereço (URL).
+          </p>
+          <input
+            className="agenda__endereco"
+            readOnly
+            value={endereco}
+            aria-label={`Endereço do calendário ${agenda.nome}`}
+            onFocus={(e) => e.currentTarget.select()}
+          />
+          <button type="button" className="botao-agenda" onClick={copiar}>
+            <span role="status">
+              {copia === "copiado"
+                ? "Endereço copiado"
+                : copia === "falhou"
+                  ? "Não copiou: toque no endereço e copie"
+                  : "Copiar endereço"}
+            </span>
+          </button>
+        </div>
+      )}
     </li>
   );
 }
@@ -63,8 +112,8 @@ export function AssinarAgenda({
       </ul>
       <p className="agendas__nota">
         O primeiro botão abre o Google Agenda e pergunta se você quer acrescentar o
-        calendário. O segundo serve para iPhone, Outlook e outros aplicativos que
-        aceitam assinatura por endereço.
+        calendário. O segundo mostra como assinar no iPhone, no Outlook e em outros
+        aplicativos que aceitam assinatura por endereço.
       </p>
     </section>
   );

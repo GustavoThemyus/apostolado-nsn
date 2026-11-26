@@ -961,6 +961,8 @@ button {
   outline-offset: 2px;
 }
 .assinar__opcoes {
+  max-height: 70vh;
+  overflow-y: auto;
   position: absolute;
   right: 0;
   bottom: calc(100% + 0.5rem);
@@ -3138,6 +3140,28 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.4rem;
+}
+
+.agenda__outro {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+}
+.agenda__outro p {
+  margin: 0;
+}
+.agenda__endereco {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--alvo-toque);
+  padding: 0 0.6rem;
+  border: 1px solid var(--fio);
+  border-radius: 0.35rem;
+  background: var(--papel);
+  color: var(--tinta);
+  font: inherit;
+  font-size: 1rem;
 }
 
 .botao-agenda {
