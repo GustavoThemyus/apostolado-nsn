@@ -69,7 +69,7 @@ sudo ufw allow 5173/tcp
 Workers Builds, na conta da Cloudflare do Apostolado, que roda `npm run build`
 e `npx wrangler deploy`. Não é preciso rodar comando nenhum.
 
-Isso vale também para o painel: quando o Perez salva um texto em `/admin`, o
+Isso vale também para o painel: quando o editor salva um texto em `/admin`, o
 Worker grava um commit no repositório, o Builds vê o push e republica. O
 histórico do git é o histórico das edições, com autor e possibilidade de
 voltar atrás.
