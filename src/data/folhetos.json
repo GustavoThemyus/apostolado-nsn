@@ -857,7 +857,7 @@
      "portugues": [
       {
        "tipo": "paragrafo",
-       "texto": "Pai nosso, que estais no céu. santificado seja o Vosso nome, venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu. O pão nosso de cada dia nos dai hoje, perdoai-nos as nossas dívidas, assim como nós perdoamos os nossos devedores, e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.",
+       "texto": "Pai nosso, que estais no céu, santificado seja o Vosso nome, venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu. O pão nosso de cada dia nos dai hoje, perdoai-nos as nossas dívidas, assim como nós perdoamos os nossos devedores, e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.",
        "id": "visitas-de-igrejas-pai-nosso-pt"
       }
      ]
@@ -911,13 +911,13 @@
    "imagem": "/folhetos/renovacao-do-cordao-6b1b07a0.webp",
    "largura": 720,
    "altura": 1280,
-   "obra": "Concede-se Indulgência Plenária ao associado que, nos dias determinados, fazer ou renovar, mesmo em particular, a promessa de guardar fielmente os Estatutos da Arquiconfraria.",
+   "obra": "Concede-se Indulgência Plenária ao associado que, nos dias determinados, fizer ou renovar, mesmo em particular, a promessa de guardar fielmente os Estatutos da Arquiconfraria.",
    "condicoes": true,
    "arquivo": "https://drive.google.com/file/d/1nxU0HJ5nX4gAe9G1fuw62mlUDls1vlGu/view",
    "blocos": [
     {
      "tipo": "paragrafo",
-     "texto": "Não existe qualquer fórmula determinada para a renovação destas promessa, podendo-se lucrar.a Indulgência com qualquer fórmula espontânea ou de algum manual, contudo para os que acharem dificuldade, deixamos esta de sugestão:",
+     "texto": "Não existe qualquer fórmula determinada para a renovação destas promessas, podendo-se lucrar a Indulgência com qualquer fórmula espontânea ou de algum manual, contudo para os que acharem dificuldade, deixamos esta de sugestão:",
      "id": "renovacao-do-cordao-instrucao"
     },
     {
@@ -962,13 +962,13 @@
    "imagem": "/folhetos/renovacao-do-escapulario-dc10e186.webp",
    "largura": 480,
    "altura": 524,
-   "obra": "Concede-se Indulgência Plenária ao associado que, nos dias determinados, fazer ou renovar, mesmo em particular, a promessa de guardar fielmente os Estatutos da Confraria.",
+   "obra": "Concede-se Indulgência Plenária ao associado que, nos dias determinados, fizer ou renovar, mesmo em particular, a promessa de guardar fielmente os Estatutos da Confraria.",
    "condicoes": true,
    "arquivo": "https://drive.google.com/file/d/1wR63a9wWFJ7VFe7VkFQ-rS7FHMbmuFN8/view",
    "blocos": [
     {
      "tipo": "paragrafo",
-     "texto": "Não existe qualquer fórmula determinada para a renovação destas promessa, podendo-se lucrar.a Indulgência com qualquer fórmula espontânea ou de algum manual, contudo para os que acharem dificuldade, deixamos esta de sugestão:",
+     "texto": "Não existe qualquer fórmula determinada para a renovação destas promessas, podendo-se lucrar a Indulgência com qualquer fórmula espontânea ou de algum manual, contudo para os que acharem dificuldade, deixamos esta de sugestão:",
      "id": "renovacao-do-escapulario-instrucao"
     },
     {

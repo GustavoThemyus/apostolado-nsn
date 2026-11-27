@@ -15,6 +15,16 @@ RAIZ = pathlib.Path(__file__).resolve().parents[2]
 SAIDA = RAIZ / "src/data/folhetos.json"
 DRIVE = "https://drive.google.com/file/d/%s/view"
 
+CORRECOES = {
+    "visitas-de-igrejas": [("no céu. santificado", "no céu, santificado")],
+    "renovacao-do-cordao": [
+        ("fazer ou renovar", "fizer ou renovar"),
+        ("destas promessa,", "destas promessas,"),
+        ("lucrar.a", "lucrar a"),
+    ],
+}
+CORRECOES["renovacao-do-escapulario"] = CORRECOES["renovacao-do-cordao"]
+
 
 def linhas(pdf):
     xml = subprocess.run(["pdftohtml", "-xml", "-i", "-stdout", str(pdf)],
@@ -202,6 +212,23 @@ def textos(folheto):
             yield b["texto"]
 
 
+def corrigir(folheto):
+    caixas = [(folheto, "obra")]
+    for b in folheto["blocos"]:
+        if b["tipo"] == "bilingue":
+            caixas += [(p, "texto") for p in b["latim"] + b["portugues"]]
+        elif b["tipo"] == "lista":
+            caixas += [(b["itens"], i) for i in range(len(b["itens"]))]
+        else:
+            caixas.append((b, "texto"))
+    for errado, certo in CORRECOES[folheto["id"]]:
+        achadas = [(c, k) for c, k in caixas if errado in c[k]]
+        if len(achadas) != 1:
+            raise SystemExit("%s: a correção %r casou %d vezes" % (folheto["id"], errado, len(achadas)))
+        caixa, chave = achadas[0]
+        caixa[chave] = caixa[chave].replace(errado, certo)
+
+
 def main(pasta):
     pasta = pathlib.Path(pasta)
     feitos = [
@@ -231,6 +258,7 @@ def main(pasta):
         if faltando or sobrando:
             raise SystemExit("%s: a conta não bate. faltando %s | sobrando %s"
                              % (folheto["id"], dict(faltando), dict(sobrando)))
+        corrigir(folheto)
         largura, altura = medidas[folheto["id"]]
         completo = {}
         for chave, valor in folheto.items():
