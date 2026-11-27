@@ -10,6 +10,7 @@ import { SeletorDeAgendas } from "./SeletorDeAgendas";
 import { usarAgendas } from "../hooks/usarAgendas";
 import { indulgencias } from "../data/indulgenciasDias";
 import { diasDaArquidiocese } from "../data/arquidioceseDias";
+import { FOLHETO_DA_AGENDA, FOLHETO_DA_VISITA } from "../data/folhetosDasIndulgencias";
 import { site } from "../data/site";
 import { Elo } from "../routes/Elo";
 import { usarRota } from "../routes/usarRota";
@@ -43,8 +44,7 @@ function nomesDas(ids: string[]): string {
   return `${nomes.slice(0, -1).join(", ")} e ${nomes[nomes.length - 1]}`;
 }
 
-const OBRA_NA_IGREJA =
-  "Obra indulgenciada: visitar a igreja e rezar um Pai-Nosso e um Credo.";
+const OBRA_NA_IGREJA = `Obra indulgenciada: visitar a igreja e rezar [elo:${FOLHETO_DA_VISITA}]um Pai-Nosso e um Credo[/elo].`;
 
 function porFesta<T extends { entrada: { titulo: string }; transferidaDe?: string }>(
   ocorrencias: T[],
@@ -301,7 +301,9 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
                         {porExtensoCurto(transferidaDe)}.
                       </p>
                     )}
-                    <p>{OBRA_NA_IGREJA}</p>
+                    <p>
+                      <TextoRico texto={OBRA_NA_IGREJA} />
+                    </p>
                     <ul className="arquidiocese-dia__igrejas">
                       {entradas.flatMap((entrada) =>
                         entrada.igrejas.map((igreja) => (
@@ -355,6 +357,13 @@ export function CalendarioDasIndulgencias({ caminho }: { caminho: string }) {
                           {paragrafo}
                         </p>
                       ))}
+                      {FOLHETO_DA_AGENDA[i.agenda] && (
+                        <p className="paragrafo">
+                          <Elo para={FOLHETO_DA_AGENDA[i.agenda]} className="elo-texto">
+                            Folheto com a oração da renovação
+                          </Elo>
+                        </p>
+                      )}
                       <p className="indulgencias-dia__fonte">{i.nome}</p>
                     </li>
                   );

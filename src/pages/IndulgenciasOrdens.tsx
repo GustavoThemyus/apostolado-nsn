@@ -1,6 +1,8 @@
 import bruto from "../data/indulgencias-ordens.json";
 import { AssinarEsta } from "../components/AssinarAgenda";
 import { comoConteudo } from "../data/carregar";
+import { FOLHETO_DA_AGENDA } from "../data/folhetosDasIndulgencias";
+import { Elo } from "../routes/Elo";
 import { PaginaDeDocumento } from "./PaginaDeDocumento";
 
 const AGENDA_DA_SECAO: Record<string, string> = {
@@ -11,11 +13,26 @@ const AGENDA_DA_SECAO: Record<string, string> = {
   "ordem-terceira-dominicana": "dominicana",
 };
 
-const agendaDaSecao = (id: string) =>
-  AGENDA_DA_SECAO[id] ? <AssinarEsta id={AGENDA_DA_SECAO[id]} /> : null;
+function fechoDaSecao(id: string) {
+  const agenda = AGENDA_DA_SECAO[id];
+  if (!agenda) return null;
+  const folheto = FOLHETO_DA_AGENDA[agenda];
+  return (
+    <>
+      {folheto && (
+        <p className="paragrafo">
+          <Elo para={folheto} className="elo-texto">
+            Folheto com a oração da renovação
+          </Elo>
+        </p>
+      )}
+      <AssinarEsta id={agenda} />
+    </>
+  );
+}
 
 export default function IndulgenciasOrdens() {
   return (
-    <PaginaDeDocumento conteudo={comoConteudo(bruto)} depoisDaSecao={agendaDaSecao} />
+    <PaginaDeDocumento conteudo={comoConteudo(bruto)} depoisDaSecao={fechoDaSecao} />
   );
 }

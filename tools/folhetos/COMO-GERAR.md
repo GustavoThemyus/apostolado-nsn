@@ -25,3 +25,12 @@ python3 tools/folhetos/gerar.py "OBRA INDULGENCIADA CRISTO REI.pdf" 1 cristo-rei
 
 A figura não é ampliada: a do PDF é o único original que existe, e 1000px de
 largura é o teto para o que vier maior.
+
+## Folhetos de indulgência transcritos
+
+A visita de igrejas e as renovações do Cordão e do Escapulário saem direto do
+PDF, com a contagem de palavras conferida. Rodar a estampa antes.
+
+```
+python3 tools/folhetos/indulgencias.py <pasta com visitas.pdf, cordao.pdf e escapulario.pdf>
+```

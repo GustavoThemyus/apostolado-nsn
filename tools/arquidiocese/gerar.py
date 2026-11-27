@@ -174,7 +174,9 @@ secoes.append({
           "datas popularmente conhecidas."),
         p("Todas as indulgências aqui dispostas têm por obra indulgenciada a cumprir "
           "a visita à referida igreja. Vale, portanto, lembrar as determinações que "
-          "regem as disposições para poder lucrar essas indulgências:"),
+          "regem as disposições para poder lucrar essas indulgências. As orações da "
+          "visita, em latim e em português, estão no "
+          "[elo:/folhetos/visitas-de-igrejas]folheto da visita de igrejas[/elo]."),
         lista([
             "[b]A obra prescrita[/b] para alcançar a Indulgência Plenária, quando anexa "
             "à igreja ou oratório, [b]é sempre a visita[/b], não é preciso assistir a "

@@ -831,6 +831,180 @@
    ]
   },
   {
+   "id": "visitas-de-igrejas",
+   "chapeu": "Obra indulgenciada",
+   "titulo": "Visita de igrejas",
+   "resumo": "O Pai-nosso e o Creio da visita a uma igreja, e os dias em que cada igreja dá a indulgência.",
+   "categoria": "indulgencia",
+   "imagem": "/folhetos/visitas-de-igrejas-16ec9a6c.webp",
+   "largura": 800,
+   "altura": 450,
+   "obra": "Concede-se Indulgência Plenária ao fiel que visitar com devoção e aí recitar o Pai-nosso e o Creio",
+   "concessao": "[elo:/indulgencias/enchiridion#concessao-33-1]Concessão N° 33, §1 do Enchiridion Indulgentiarum[/elo]",
+   "condicoes": true,
+   "arquivo": "https://drive.google.com/file/d/1g-mLSWN-9E1V9MvMTidOyDNCwUID5uC2/view",
+   "blocos": [
+    {
+     "tipo": "bilingue",
+     "id": "visitas-de-igrejas-pai-nosso",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Pater noster, qui es in cælis, sanctificétur nomen tuum: advéniat regnum tuum: fiat volúntas tua, sicut in cælo et in terra. Panem nostrum quotidiánum da nobis hódie: et dimítte nobis débita nostra, sicut et nos dimíttimus debitóribus nostris: et ne nos indúcas in tentatiónem: sed líbera nos a malo. Amen.",
+       "id": "visitas-de-igrejas-pai-nosso-la"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Pai nosso, que estais no céu. santificado seja o Vosso nome, venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu. O pão nosso de cada dia nos dai hoje, perdoai-nos as nossas dívidas, assim como nós perdoamos os nossos devedores, e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.",
+       "id": "visitas-de-igrejas-pai-nosso-pt"
+      }
+     ]
+    },
+    {
+     "tipo": "bilingue",
+     "id": "visitas-de-igrejas-creio",
+     "latim": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Credo in Deum, Patrem omnipoténtem, Creatórem cæli et terræ. Et in Jesum Christum, Fílium ejus únicum, Dóminum nostrum: qui concéptus est de Spíritu Sancto, natus ex María Vírgine, passus sub Póntio Piláto, crucifíxus, mórtuus, et sepúltus: descéndit ad ínferos; tértia die resurréxit a mórtuis; ascéndit ad cælos; sedet ad déxteram Dei Patris omnipoténtis: inde ventúrus est judicáre vivos et mórtuos. Credo in Spíritum Sanctum, sanctam Ecclésiam cathólicam, Sanctórum communiónem, remissiónem peccatórum, carnis resurrectiónem, vitam ætérnam. Amen.",
+       "id": "visitas-de-igrejas-creio-la"
+      }
+     ],
+     "portugues": [
+      {
+       "tipo": "paragrafo",
+       "texto": "Creio em Deus Pai Todo-Poderoso, criador do céu e da terra. E em Jesus Cristo, um só seu Filho Nosso Senhor, o qual foi concebido do Espírito Santo, nasceu de Maria Virgem, padeceu sob o poder de Pôncio Pilatos, foi crucificado, morto e sepultado, desceu aos infernos, ao terceiro dia ressurgiu dos mortos, subiu aos céus, está sentado à mão direita de Deus Pai todo-poderoso, donde há de vir a julgar os vivos e os mortos. Creio no Espírito Santo, na Santa Igreja Católica, na comunhão dos santos, na remissão dos pecados, na ressurreição da carne, na vida eterna. Amém.",
+       "id": "visitas-de-igrejas-creio-pt"
+      }
+     ]
+    },
+    {
+     "tipo": "subtitulo",
+     "texto": "As igrejas e os dias",
+     "menor": true,
+     "id": "visitas-de-igrejas-casos"
+    },
+    {
+     "tipo": "lista",
+     "ordenada": true,
+     "itens": [
+      "Uma das quatro Basílicas Patriarcais de Roma, ou em peregrinação com outras pessoas, ou ao menos no correr da visitação demonstrando sentimento de filial obediência para com o Romano Pontífice;",
+      "Uma basílica menor:\na) na solenidade dos Santos Apóstolos Pedro e Paulo,\nb) na solenidade do titular,\nc) no dia dois de agosto, por ocasião da indulgência da \"Porciúncula\";\nd) uma vez no ano, em dia escolhido pelo fiel;",
+      "A igreja catedral:\na) na solenidade dos Santos Apóstolos Pedro e Paulo,\nb) na solenidade do titular,\nc) na celebração litúrgica da Cátedra de São Pedro Apóstolo,\nd) na dedicação da Arquibasílica do Santíssimo Salvador,\ne) no dia 2 de agosto, no qual ocorre a indulgência da Porciúncula.",
+      "Um santuário constituído pela autoridade competente, seja internacional, seja nacional, seja diocesano:\na) na solenidade do titular,\nb) uma vez no ano, em dia escolhido pelo fiel,\nc) todas as vezes em que, em grupo, participar de uma peregrinação;",
+      "A igreja paroquial:\na) na solenidade do titular,\nb) no dia 2 de agosto, no qual ocorre a indulgência da Porciúncula.",
+      "A igreja ou altar, no mesmo dia de sua dedicação.",
+      "A igreja ou oratório dos Institutos de vida consagrada de Sociedades de vida apostólica, no dia dedicado ao seu fundador."
+     ],
+     "id": "visitas-de-igrejas-lista"
+    }
+   ]
+  },
+  {
+   "id": "renovacao-do-cordao",
+   "chapeu": "Obra indulgenciada",
+   "titulo": "Renovação na Arquiconfraria do Cordão de São Francisco",
+   "resumo": "A promessa de guardar os Estatutos, com uma fórmula sugerida, e os dias em que o associado lucra a indulgência.",
+   "categoria": "indulgencia",
+   "imagem": "/folhetos/renovacao-do-cordao-6b1b07a0.webp",
+   "largura": 720,
+   "altura": 1280,
+   "obra": "Concede-se Indulgência Plenária ao associado que, nos dias determinados, fazer ou renovar, mesmo em particular, a promessa de guardar fielmente os Estatutos da Arquiconfraria.",
+   "condicoes": true,
+   "arquivo": "https://drive.google.com/file/d/1nxU0HJ5nX4gAe9G1fuw62mlUDls1vlGu/view",
+   "blocos": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Não existe qualquer fórmula determinada para a renovação destas promessa, podendo-se lucrar.a Indulgência com qualquer fórmula espontânea ou de algum manual, contudo para os que acharem dificuldade, deixamos esta de sugestão:",
+     "id": "renovacao-do-cordao-instrucao"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "Seráfico São Francisco, rendo-vos graças por terdes voltado vosso olhar de misericórdia para este(a) indigno(a) devoto(a), a ponto de me haverdes conduzido até ser incluído(a) no número de vossos incontáveis filhos na venerável Arquiconfraria do vosso cordão. Que eu faça por merecer todos os dias as tantas graças que me tendes alcançado por vossa especial intercessão. Que eu sempre me ache disposto(a) a cumprir com todas as obrigações que me impõe esta valorosa Arquiconfraria, da qual tanto me alegra fazer parte e ser contado(a) entre os seus membros, sobretudo o dever das minhas orações diárias, para satisfazer o ofício cotidiano.",
+     "id": "renovacao-do-cordao-oracao-1"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "Quero ainda, neste dia de grande júbilo para a Ordem Franciscana, renovar o meu desejo e o meu compromisso de observar fielmente os Estatutos e preceitos desta venerável confraria. Que eu me mantenha sempre firme nesta observância até a minha morte, e que neste dia glorioso eu esteja preparado(a), desapegado(a) do pecado e na graça de Deus, para, junto a vós, poder louvar e cantar as misericórdias do Senhor por todos os séculos dos séculos. Amém.",
+     "id": "renovacao-do-cordao-oracao-2"
+    },
+    {
+     "tipo": "subtitulo",
+     "texto": "Os dias determinados para lucrar as indulgências",
+     "menor": true,
+     "id": "renovacao-do-cordao-dias"
+    },
+    {
+     "tipo": "lista",
+     "ordenada": true,
+     "itens": [
+      "No dia da imposição do Cordão e/ou inscrição na Arquiconfraria;",
+      "Todos os anos, na festa de Santa Maria Bernarda Soubirous, Virgem, Cordígera Franciscana em 18 de Fevereiro;",
+      "Todos os anos, na festa de São Benedito José Labre, Confessor, Cordígero Franciscano, Padroeiro principal da Arquiconfraria do Cordão em 16 de Abril;",
+      "Todos os anos, na festa de Santo Antônio de Pádua, Confessor e Doutor da Igreja em 13 de Junho;",
+      "Todos os anos, na festa de São Luís IX, Rei da França, Confessor 25 de Agosto;",
+      "Todos os anos, na festa de Santa Rosa de Viterbo, Virgem em 4 de Setembro;",
+      "Todos os anos, na festa de N. P. São Francisco, Confessor, Fundador das três Ordens Seráficas em 4 de Outubro;",
+      "Todos os anos, na festa Imaculada Conceição da Bem-aventurada Virgem Maria: Patrona da Ordem Seráfica em 8 de Dezembro"
+     ],
+     "id": "renovacao-do-cordao-lista"
+    }
+   ]
+  },
+  {
+   "id": "renovacao-do-escapulario",
+   "chapeu": "Obra indulgenciada",
+   "titulo": "Renovação na Confraria do Escapulário do Carmo",
+   "resumo": "A promessa de guardar os Estatutos, com uma fórmula sugerida, e os dias em que o associado lucra a indulgência.",
+   "categoria": "indulgencia",
+   "imagem": "/folhetos/renovacao-do-escapulario-dc10e186.webp",
+   "largura": 480,
+   "altura": 524,
+   "obra": "Concede-se Indulgência Plenária ao associado que, nos dias determinados, fazer ou renovar, mesmo em particular, a promessa de guardar fielmente os Estatutos da Confraria.",
+   "condicoes": true,
+   "arquivo": "https://drive.google.com/file/d/1wR63a9wWFJ7VFe7VkFQ-rS7FHMbmuFN8/view",
+   "blocos": [
+    {
+     "tipo": "paragrafo",
+     "texto": "Não existe qualquer fórmula determinada para a renovação destas promessa, podendo-se lucrar.a Indulgência com qualquer fórmula espontânea ou de algum manual, contudo para os que acharem dificuldade, deixamos esta de sugestão:",
+     "id": "renovacao-do-escapulario-instrucao"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "Minha Santíssima Mãe, alegria e honra do Monte Carmelo, rendo-vos graças por terdes voltado vosso olhar de misericórdia para este(a) indigno(a) servo(a) vosso(a) e por terdes tomado especial cuidado da minha alma, a ponto de me haverdes conduzido para a associação pela qual tendes tanto apreço, a Confraria do Escapulário do Carmo, que tão benignamente ornastes com tão tocante e doce promessa, o Privilégio Sabatino. Que eu me esforce e faça por merecer, Senhora minha, todos os dias esta graça singular que me tendes alcançado por vossa especial intercessão. Que eu sempre me ache disposto(a) a cumprir com todas as obrigações que me impõe esta devoção, da qual tanto me alegra ter tomado parte, sobretudo o dever das minhas orações diárias, para satisfazer o ofício cotidiano, e a manutenção da minha castidade segundo o meu estado de vida. Que estas práticas me aproximem cada vez mais de vós, e que eu possa imitar sempre mais as vossas virtudes.",
+     "id": "renovacao-do-escapulario-oracao-1"
+    },
+    {
+     "tipo": "paragrafo",
+     "texto": "Quero ainda, Mãe amorosíssima, neste dia de grande júbilo para a Ordem Carmelita, renovar o meu desejo e o meu compromisso de observar fielmente os preceitos desta valorosa associação. Que eu me mantenha firme nesta observância até ser chamado(a) para junto de vós, podendo, assim, desfrutar sem limites das alegrias de vossa companhia e da de vosso terníssimo Filho, para louvar e cantar as Suas misericórdias por todos os séculos dos séculos. Amém.",
+     "id": "renovacao-do-escapulario-oracao-2"
+    },
+    {
+     "tipo": "subtitulo",
+     "texto": "Os dias determinados para lucrar as indulgências",
+     "menor": true,
+     "id": "renovacao-do-escapulario-dias"
+    },
+    {
+     "tipo": "lista",
+     "ordenada": true,
+     "itens": [
+      "No dia da imposição do Escapulário e/ou inscrição na Confraria;",
+      "Todos os anos, na festa da Solene Comemoração de Nossa Senhora do Monte Carmelo em 16 de Julho;",
+      "Todos os anos, na festa de N. P. Santo Elias, Profeta, Primeiro Mestre e Pai da Ordem Carmelita;",
+      "Todos os anos, na festa de São Simão Stock, Confessor em 16 de Maio;",
+      "Todos os anos, na festa de Santa Teresa do Menino Jesus, Virgem em 3 de Outubro;",
+      "Todos os anos, na festa de Santa Teresa de Jesus, Virgem em 15 de Outubro;",
+      "Todos os anos, na festa de Todos os Santos da Ordem Carmelita em 14 de Novembro;",
+      "Todos os anos, na festa de São João da Cruz, Confessor e Doutor da Igreja em 24 de Novembro"
+     ],
+     "id": "renovacao-do-escapulario-lista"
+    }
+   ]
+  },
+  {
    "id": "proprio-advento-i",
    "chapeu": "Próprio da Missa",
    "titulo": "I Domingo do Advento",

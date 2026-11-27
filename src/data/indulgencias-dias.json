@@ -102,7 +102,7 @@
     {
      "tipo": "paragrafo",
      "id": "d-catedra-roma",
-     "texto": "Visitar a Igreja Catedral e ali recitar piedosamente o Pai-nosso e o Credo."
+     "texto": "Visitar a Igreja Catedral e ali recitar piedosamente o [elo:/folhetos/visitas-de-igrejas]Pai-nosso e o Credo[/elo]."
     },
     {
      "tipo": "nota",
@@ -129,7 +129,7 @@
     {
      "tipo": "paragrafo",
      "id": "d-catedra-antioquia",
-     "texto": "Visitar a Igreja Catedral e ali recitar piedosamente o Pai-nosso e o Credo."
+     "texto": "Visitar a Igreja Catedral e ali recitar piedosamente o [elo:/folhetos/visitas-de-igrejas]Pai-nosso e o Credo[/elo]."
     }
    ]
   },
@@ -356,7 +356,7 @@
     {
      "tipo": "paragrafo",
      "id": "d-pedro-e-paulo-catedral",
-     "texto": "Visitar a Igreja Catedral ou Basílica Menor e ali recitar piedosamente o Pai-nosso e o Credo."
+     "texto": "Visitar a Igreja Catedral ou Basílica Menor e ali recitar piedosamente o [elo:/folhetos/visitas-de-igrejas]Pai-nosso e o Credo[/elo]."
     }
    ]
   },
@@ -393,7 +393,7 @@
     {
      "tipo": "paragrafo",
      "id": "d-porciuncula",
-     "texto": "Visitar a Igreja Catedral, Basílica Menor ou igreja Paroquial e ali recitar piedosamente o Pai-nosso e o Credo."
+     "texto": "Visitar a Igreja Catedral, Basílica Menor ou igreja Paroquial e ali recitar piedosamente o [elo:/folhetos/visitas-de-igrejas]Pai-nosso e o Credo[/elo]."
     }
    ]
   },
@@ -462,7 +462,7 @@
     {
      "tipo": "paragrafo",
      "id": "d-finados",
-     "texto": "Visitar piedosamente uma igreja ou oratório e ali recitar o Pai-nosso e o Credo. [b]Aplicável somente aos fiéis defuntos.[/b]"
+     "texto": "Visitar piedosamente uma igreja ou oratório e ali recitar o [elo:/folhetos/visitas-de-igrejas]Pai-nosso e o Credo[/elo]. [b]Aplicável somente aos fiéis defuntos.[/b]"
     }
    ]
   },
@@ -480,7 +480,7 @@
     {
      "tipo": "paragrafo",
      "id": "d-dedicacao-latrao",
-     "texto": "Visitar a Igreja Catedral e ali recitar piedosamente o Pai-nosso e o Credo."
+     "texto": "Visitar a Igreja Catedral e ali recitar piedosamente o [elo:/folhetos/visitas-de-igrejas]Pai-nosso e o Credo[/elo]."
     }
    ]
   },
@@ -625,7 +625,7 @@
     {
      "tipo": "paragrafo",
      "id": "s-basilicas-patriarcais",
-     "texto": "Visitar piedosamente uma das quatro Basílicas Patriarcais em Roma, seja em peregrinação com outras pessoas, seja durante a visita, em espírito de filial obediência ao Papa, e ali recitar o Pai-nosso e o Credo."
+     "texto": "Visitar piedosamente uma das quatro Basílicas Patriarcais em Roma, seja em peregrinação com outras pessoas, seja durante a visita, em espírito de filial obediência ao Papa, e ali recitar o [elo:/folhetos/visitas-de-igrejas]Pai-nosso e o Credo[/elo]."
     },
     {
      "tipo": "lista",
