@@ -23,7 +23,9 @@ CORRECOES = {
         ("lucrar.a", "lucrar a"),
     ],
 }
-CORRECOES["renovacao-do-escapulario"] = CORRECOES["renovacao-do-cordao"]
+CORRECOES["renovacao-do-escapulario"] = CORRECOES["renovacao-do-cordao"] + [
+    ("Pai da Ordem Carmelita;", "Pai da Ordem Carmelita em 20 de Julho;"),
+]
 
 
 def linhas(pdf):
