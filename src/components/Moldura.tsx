@@ -93,6 +93,7 @@ export function Moldura({
           paragrafos={site.rodape}
           marca={site.marca}
           lema={site.lema}
+          email={site.email}
           credito={site.credito}
         />
       </main>

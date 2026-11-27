@@ -30,6 +30,7 @@ const ESTRUTURA: Estrutura[] = [
   {
     padrao: "/missa/dia",
     pai: "/missa",
+    foraDoMenu: true,
     pagina: () => import("../pages/MissaDoDia"),
   },
   {
@@ -46,6 +47,11 @@ const ESTRUTURA: Estrutura[] = [
     padrao: "/missa/situacao-canonica",
     pai: "/missa",
     pagina: () => import("../pages/MissaSituacaoCanonica"),
+  },
+  {
+    padrao: "/missa/situacao-canonica/quo-primum",
+    pai: "/missa/situacao-canonica",
+    pagina: () => import("../pages/QuoPrimum"),
   },
 
   {
@@ -83,14 +89,14 @@ const ESTRUTURA: Estrutura[] = [
     pagina: () => import("../pages/IndulgenciasArquidiocese"),
   },
   {
-    padrao: "/indulgencias/enchiridion",
-    pai: "/indulgencias",
-    pagina: () => import("../pages/IndulgenciasEnchiridion"),
-  },
-  {
     padrao: "/indulgencias/ordens",
     pai: "/indulgencias",
     pagina: () => import("../pages/IndulgenciasOrdens"),
+  },
+  {
+    padrao: "/indulgencias/enchiridion",
+    pai: "/indulgencias",
+    pagina: () => import("../pages/IndulgenciasEnchiridion"),
   },
 
   {
@@ -187,7 +193,7 @@ export const NOME_DO_ESTADO: Record<EstadoDaRota, string> = {
 };
 function herdado(
   rota: Rota | null,
-  campo: "chamada" | "imagem",
+  campo: "chamada" | "imagem" | "foco",
 ): string | undefined {
   let atual: Rota | undefined = rota ?? undefined;
   while (atual) {
@@ -201,3 +207,5 @@ function herdado(
 export const chamadaDaRota = (rota: Rota | null) => herdado(rota, "chamada");
 
 export const imagemDaRota = (rota: Rota | null) => herdado(rota, "imagem");
+
+export const focoDaRota = (rota: Rota | null) => herdado(rota, "foco");

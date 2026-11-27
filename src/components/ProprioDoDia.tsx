@@ -5,21 +5,19 @@ import { ListaDeBlocos } from "./Bloco";
 import { Rubrica } from "./Rubrica";
 import { TextoRico } from "./TextoRico";
 
-const FolhetoDoDia = createContext<{ folheto?: Folheto; dia?: string; evangelhoNoOrdinario?: boolean }>({});
+const FolhetoDoDia = createContext<{ folheto?: Folheto; evangelhoNoOrdinario?: boolean }>({});
 
 export function ComOProprioDoDia({
   folheto,
-  dia,
   evangelhoNoOrdinario,
   children,
 }: {
   folheto?: Folheto;
-  dia?: string;
   evangelhoNoOrdinario?: boolean;
   children: ReactNode;
 }) {
   return (
-    <FolhetoDoDia.Provider value={{ folheto, dia, evangelhoNoOrdinario }}>
+    <FolhetoDoDia.Provider value={{ folheto, evangelhoNoOrdinario }}>
       {children}
     </FolhetoDoDia.Provider>
   );
@@ -32,20 +30,14 @@ export function LugarDoProprio({
   nome: string;
   subtitulos: string[];
 }) {
-  const { folheto, dia, evangelhoNoOrdinario } = useContext(FolhetoDoDia);
+  const { folheto, evangelhoNoOrdinario } = useContext(FolhetoDoDia);
   const pecas = folheto ? pecasDoProprio(folheto, subtitulos) : [];
 
   if (pecas.length === 0) {
     return (
       <section className="proprio proprio--vazio" aria-label={nome}>
         <h3 className="subtitulo">{nome}</h3>
-        <Rubrica
-          texto={
-            dia
-              ? `[elo:/missa/dia?dia=${dia}]Ver a Missa do dia[/elo].`
-              : "Ver a Missa do dia."
-          }
-        />
+        <Rubrica texto="Ver a Missa do dia." />
       </section>
     );
   }

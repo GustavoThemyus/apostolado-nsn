@@ -5,11 +5,13 @@ export function Rodape({
   paragrafos,
   marca,
   lema,
+  email,
   credito,
 }: {
   paragrafos: string[];
   marca: string;
   lema: string;
+  email?: string;
   credito?: string;
 }) {
   return (
@@ -29,6 +31,13 @@ export function Rodape({
           {lema}
         </span>
       </p>
+      {email && (
+        <p className="rodape__email">
+          <a className="elo-texto" href={`mailto:${email}`}>
+            {email}
+          </a>
+        </p>
+      )}
       {credito && (
         <p className="rodape__credito">
           <TextoRico texto={credito} />

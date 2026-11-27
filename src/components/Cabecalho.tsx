@@ -1,5 +1,5 @@
 import { site } from "../data/site";
-import { chamadaDaRota, imagemDaRota, rotaPorPadrao } from "../routes/rotas";
+import { chamadaDaRota, focoDaRota, imagemDaRota, rotaPorPadrao } from "../routes/rotas";
 import { usarRota } from "../routes/usarRota";
 import { Brasao } from "./Brasao";
 import { Estrela } from "./Estrela";
@@ -26,6 +26,7 @@ export function Cabecalho({
             src={estampa}
             alt=""
             aria-hidden="true"
+            style={{ objectPosition: focoDaRota(rota) }}
           />
           <span className="cabecalho__veu" aria-hidden="true" />
         </>

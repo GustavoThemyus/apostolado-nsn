@@ -149,9 +149,11 @@ export interface TextoDaPagina {
   descricao?: string;
   chamada?: string;
   imagem?: string;
+  foco?: string;
 }
 
 export interface Site {
+  email?: string;
   chamada: string;
   marca: string;
   marcaCurta: string;

@@ -94,12 +94,10 @@ export default function Folheto() {
           )}
 
           {folheto.condicoes && (
-            <section className="folheto__condicoes" aria-labelledby="condicoes">
-              <h2 className="folheto__condicoes-titulo" id="condicoes">
-                {condicoes.titulo}
-              </h2>
+            <details className="folheto__condicoes">
+              <summary className="folheto__condicoes-titulo">{condicoes.titulo}</summary>
               <ListaDeBlocos blocos={condicoes.blocos} />
-            </section>
+            </details>
           )}
         </div>
 

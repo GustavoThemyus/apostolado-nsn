@@ -10,7 +10,7 @@ import subprocess
 import sys
 
 RAIZ = pathlib.Path(__file__).resolve().parents[2]
-DESTINO = RAIZ / "src/data/missa-canonica.json"
+DESTINO = RAIZ / "src/data/quo-primum.json"
 MEIO = 297
 NUMERADOS = 13
 
@@ -90,8 +90,7 @@ def main() -> None:
         "resumo": "São Pio V, 14 de julho de 1570.",
         "blocos": blocos,
     }
-    doc["secoes"] = [secao] + [s for s in doc["secoes"]
-                               if s["id"] not in ("quo-primum", "em-preparacao")]
+    doc["secoes"] = [secao]
     DESTINO.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"{len(blocos)} parágrafos em {DESTINO.relative_to(RAIZ)}")
 

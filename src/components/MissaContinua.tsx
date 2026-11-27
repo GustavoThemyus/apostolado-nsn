@@ -252,14 +252,6 @@ export function MissaContinua({
         <Elo para={`/calendario?dia=${iso}&uso=pre55`} className="elo-texto">
           ver o dia no calendário
         </Elo>
-        {!comProprio && (
-          <>
-            {" · "}
-            <Elo para={`/missa/dia?dia=${iso}`} className="elo-texto">
-              Missa do dia
-            </Elo>
-          </>
-        )}
       </p>
 
       {rito && (
@@ -300,7 +292,7 @@ export function MissaContinua({
           </nav>
 
           <article className={"folheto folheto--proprio" + (opcoes.rubricas ? "" : " ordinario--sem-rubricas")}>
-            <ComOProprioDoDia folheto={folheto} dia={iso} evangelhoNoOrdinario={comEvangelho.mesclado}>
+            <ComOProprioDoDia folheto={folheto} evangelhoNoOrdinario={comEvangelho.mesclado}>
               {!carregadas || esperandoOrdo ? (
                 <p className="modo-missa__aviso">Carregando…</p>
               ) : (

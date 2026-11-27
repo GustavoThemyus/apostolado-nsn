@@ -11,6 +11,7 @@ import guia from "./guia.json";
 import indulgencias from "./indulgencias.json";
 import missa from "./missa.json";
 import ordens from "./indulgencias-ordens.json";
+import quoPrimum from "./quo-primum.json";
 import partes from "./missa-partes.json";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import folhetos from "./folhetos.json";
@@ -403,6 +404,7 @@ conferir("enchiridion: as 33 concessões têm âncora",
     ["/missa/guia", guia as unknown as Conteudo],
     ["/missa/partes", partes as unknown as Conteudo],
     ["/missa/situacao-canonica", canonica as unknown as Conteudo],
+    ["/missa/situacao-canonica/quo-primum", quoPrimum as unknown as Conteudo],
     ["/calendario/brasil", brasil as unknown as Conteudo],
     ["/calendario/arquidiocese", arquidiocese as unknown as Conteudo],
     ["/indulgencias", indulgencias as unknown as Conteudo],

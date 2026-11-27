@@ -74,6 +74,14 @@ export const REGISTRO: DocumentoRegistrado[] = [
     ajuda: "A parte jurídica: rubricas, movimento litúrgico, o rito depois do Concílio.",
   },
   {
+    id: "quo-primum",
+    titulo: "Bula Quo primum tempore",
+    caminho: emDados("quo-primum.json"),
+    forma: "documento",
+    rota: "/missa/situacao-canonica/quo-primum",
+    ajuda: "O texto da bula, em latim e em português. Gerado por tools/quo-primum: correção aqui tem de voltar para lá.",
+  },
+  {
     id: "calendario-brasil",
     titulo: "O próprio do Brasil",
     caminho: emDados("calendario-brasil.json"),

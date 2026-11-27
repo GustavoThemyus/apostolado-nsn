@@ -1,6 +1,6 @@
 {
   "titulo": "Sobre o Apostolado",
-  "descricao": "Nossa posição, situação canônica, história e o brasão.",
+  "descricao": "Nossa posição, história e o brasão.",
   "emPreparacao": true,
   "secoes": [
     {
@@ -9,17 +9,6 @@
       "blocos": [
         {
           "id": "ap-001",
-          "tipo": "paragrafo",
-          "texto": "Este texto ainda será escrito."
-        }
-      ]
-    },
-    {
-      "id": "canonica",
-      "titulo": "Nossa situação canônica",
-      "blocos": [
-        {
-          "id": "ap-002",
           "tipo": "paragrafo",
           "texto": "Este texto ainda será escrito."
         }

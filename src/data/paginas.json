@@ -9,7 +9,6 @@
     "titulo": "A Missa Tridentina",
     "curto": "Missa",
     "descricao": "O rito romano na forma do Missal de São Pio V.",
-    "chamada": "Apostolado Nossa Senhora das Neves - Rito Romano na forma do Missal de São Pio V",
     "imagem": "/cartoes/missa-a8c77d07.webp"
   },
   "/missa/guia": {
@@ -27,12 +26,17 @@
   "/missa/ordinario": {
     "titulo": "Ordinário da Missa",
     "curto": "Ordinário",
-    "descricao": "O Ordo Missæ numa página só, para ler ou acompanhar: só o que se diz em voz alta, ou tudo, com a postura do fiel em cada momento."
+    "descricao": "O Ordo Missæ numa página só, para ler ou acompanhar, com a postura do fiel em cada momento."
   },
   "/missa/dia": {
     "titulo": "Missa do dia",
     "curto": "Missa do dia",
     "descricao": "Da oração preparatória à ação de graças, com o próprio e as partes que a celebração de hoje pede."
+  },
+  "/missa/situacao-canonica/quo-primum": {
+    "titulo": "Bula Quo primum tempore",
+    "curto": "Quo primum",
+    "descricao": "São Pio V, 14 de julho de 1570."
   },
   "/calendario": {
     "titulo": "Calendário Romano Tradicional",
@@ -56,7 +60,8 @@
     "titulo": "Indulgências",
     "curto": "Indulgências",
     "descricao": "O que são, como se obtêm e de onde vêm, segundo as normas do Enchiridion.",
-    "imagem": "/cartoes/indulgencias-ca88ff12.webp"
+    "imagem": "/cartoes/indulgencias-ca88ff12.webp",
+    "foco": "75% center"
   },
   "/indulgencias/calendario": {
     "titulo": "Calendário das Indulgências Plenárias Universais",
@@ -79,7 +84,7 @@
   "/apostolado": {
     "titulo": "Sobre o Apostolado",
     "curto": "Apostolado",
-    "descricao": "Nossa posição, situação canônica, história e o brasão.",
+    "descricao": "Nossa posição, história e o brasão.",
     "imagem": "/cartoes/apostolado-6f7f49b0.webp"
   },
   "/apostolado/brasao": {
